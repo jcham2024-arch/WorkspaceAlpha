@@ -28,7 +28,11 @@ repository `jcham2024-arch/Google-Ai-repo`, branch `Harness`.
 
 ### 2.C — `docs/`
 
-No standalone files yet. See §2.D.
+| File | Purpose |
+| :--- | :--- |
+| `docs/build-progress.md` | Live per-task status tracker seeded from the overview's task tables (98 rows). Append new tasks as they are discovered. |
+
+See §2.D for the chunked overview.
 
 ### 2.D — `docs/build-overview/` — ChatWorkspace Build Task Overview (chunked)
 
