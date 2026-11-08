@@ -20,7 +20,7 @@ raw skill archive is quarantined out of tree.
 | `wiki/` | Generated human wiki (never hand-edit) |
 | `.harness/skills/` | 57 curated skills — canonical `SKILL.md` per skill |
 | `skills/index.json` | Slim skills router (name + description + path) |
-| `.agent/` | Agent runtime: resources/, tools/, mcp/, .env (gitignored) |
+| `.agent/` | Agent runtime: skills/, tools/, profiles/, mcp/, .env (gitignored) |
 | `.archive/` | Raw 686M archive (gitignored, never indexed) |
 | `01-navigate/` … `04-verify/` | ICM stage folders (workflow as tree) |
 | `memory/learnings.md` | Persistent learnings (append post-session) |

@@ -98,15 +98,19 @@ session on what you learned. Root map: `llms.txt` (agents) and
 
 ## 10. Agent layer (.agent/)
 
-`.agent/` holds agent-side resources, tools, and MCP. It consumes the
-baselayer and never writes it (§9 contract in `.agent/README.md`).
+`.agent/` holds agent-side resources, tools, skills, and MCP. It
+consumes the baselayer and never writes it (§9 contract in
+`.agent/README.md`). It is gitignored (local example).
 
 | Path | Purpose |
 |---|---|
 | `.agent/mcp/server.py` | MCP server (stdlib JSON-RPC stdio) |
 | `.agent/tools/context.py` | compile_context / read_section core |
+| `.agent/skills/<role>/<skill>/SKILL.md` | Role-owned skill packages |
+| `.agent/profiles/*.md` | Specialized agents (orchestrator, researcher, builder, reviewer, operator) |
 | `.agent/.env` | Keys (gitignored; template `.env.example`) |
 
-Workflow stages are numbered folders: `01-navigate/` → `02-plan/` →
-`03-execute/` → `04-verify/`, each with a `PROMPT.md`. Follow them
-in order for non-trivial tasks.
+Match each task to a profile in `.agent/profiles/README.md` and
+state the match in the reply. Workflow stages are numbered folders:
+`01-navigate/` → `02-plan/` → `03-execute/` → `04-verify/`, each
+with a `PROMPT.md`. Follow them in order for non-trivial tasks.
