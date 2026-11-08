@@ -107,11 +107,12 @@ session on what you learned. Root map: `llms.txt` (agents) and
 tools, MCP, and the specialized agent profiles. `.harness/` holds
 the currently-used set — a profile's frontmatter `skills:` list
 dictates what gets provisioned from `.agent/skills/` into
-`.harness/skills/`. The four general profiles (orchestrator, coder,
-researcher, reviewer) each carry a skills list plus top-of-line role
-instructions; sub-profiles refine them later. `.agent/` is
-gitignored (local example); `.agent/README.md` documents the §9
-contract.
+`.harness/skills/`. The general profiles (orchestrator roles:
+conceptualizer and taskmaster; specialists: coder, researcher,
+reviewer; plus three domain managers) each carry a skills list
+plus top-of-line role instructions; sub-profiles refine them later.
+`.agent/` is gitignored (local example); `.agent/README.md`
+documents the §9 contract.
 
 | Path | Purpose |
 |---|---|
