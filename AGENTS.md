@@ -119,7 +119,7 @@ contract.
 | `.agent/tools/provision.py` | Profile → `.harness/skills/` sync |
 | `.agent/mcp/server.py` | MCP server (stdlib JSON-RPC stdio) |
 | `.agent/tools/context.py` | compile_context / read_section core |
-| `.agent/profiles/*.md` | Specialized agents (orchestrator split into conceptualizer → planner → taskmaster, then coder, researcher, reviewer) |
+| `.agent/profiles/*.md` | Specialized agents (human-facing conceptualizer ↔ protocol ↔ subagent-facing taskmaster incl. planning; then coder, researcher, reviewer) |
 | `.agent/.env` | Keys (gitignored; template `.env.example`) |
 
 Match each task to a profile in `.agent/profiles/README.md` and
