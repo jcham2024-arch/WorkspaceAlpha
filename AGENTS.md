@@ -80,7 +80,7 @@ python3 build.py    # graph.json → manifest.json + wiki/index.html
 ## 9. Skills
 
 `.harness/skills/` is the currently-used set, provisioned per active
-profile (default: orchestrator, 12 skills). Master library lives at
+profile (default: conceptualizer, 6 skills). Master library lives at
 `.agent/skills/` (57 skills). Invoke one with skill_view(name="...").
 The slim router is `skills/index.json` (name + description + path
 only — never add descriptions to the docs manifest). Archive
@@ -119,7 +119,7 @@ contract.
 | `.agent/tools/provision.py` | Profile → `.harness/skills/` sync |
 | `.agent/mcp/server.py` | MCP server (stdlib JSON-RPC stdio) |
 | `.agent/tools/context.py` | compile_context / read_section core |
-| `.agent/profiles/*.md` | Specialized agents (4 general forms) |
+| `.agent/profiles/*.md` | Specialized agents (orchestrator split into conceptualizer → planner → taskmaster, then coder, researcher, reviewer) |
 | `.agent/.env` | Keys (gitignored; template `.env.example`) |
 
 Match each task to a profile in `.agent/profiles/README.md` and
