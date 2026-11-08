@@ -1,0 +1,7 @@
+{
+  "name": "baselayer-mcp",
+  "transport": "stdio",
+  "command": ["python3", ".agent/mcp/server.py"],
+  "env_file": ".agent/.env",
+  "tools": ["compile_context", "read_section", "search_nodes", "list_nodes"]
+}

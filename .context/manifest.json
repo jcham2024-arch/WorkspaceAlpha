@@ -1,0 +1,157 @@
+{
+  "version": 1,
+  "generated_from": "graph.json",
+  "nodes": [
+    {
+      "id": "docs/README.md::project-documentation",
+      "type": "doc",
+      "summary": "Project Documentation",
+      "tags": [],
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        0,
+        178
+      ],
+      "sha256": "6c0da7ed88a86a9c4b0561af190122baa0b82846de0f5955f7e5ecedc606d751",
+      "bytes": 178
+    },
+    {
+      "id": "docs/README.md::getting-started",
+      "type": "doc",
+      "summary": "Getting Started",
+      "tags": [],
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        178,
+        323
+      ],
+      "sha256": "590f9186bb7fb2fe15d585d0e7473ad1dc521327148620882381a321c952b76a",
+      "bytes": 145
+    },
+    {
+      "id": "docs/resources/README.md::resources-skills-archive-provenance",
+      "type": "doc",
+      "summary": "Resources — Skills Archive Provenance",
+      "tags": [],
+      "content_ref": "docs/resources/README.md",
+      "byte_range": [
+        0,
+        322
+      ],
+      "sha256": "5b1f5a2d03a8e77de9154ea66b7b5b5ced91428590df0a09b09948d0cd0f5ca5",
+      "bytes": 322
+    },
+    {
+      "id": "docs/resources/README.md::provenance",
+      "type": "doc",
+      "summary": "Provenance",
+      "tags": [],
+      "content_ref": "docs/resources/README.md",
+      "byte_range": [
+        322,
+        2249
+      ],
+      "sha256": "bccdd820f0f574b9f200633ac95871331fa1c2c698c63821264a834dca0a5393",
+      "bytes": 1927
+    },
+    {
+      "id": "docs/resources/README.md::how-to-use-the-archive",
+      "type": "doc",
+      "summary": "How to use the archive",
+      "tags": [],
+      "content_ref": "docs/resources/README.md",
+      "byte_range": [
+        2249,
+        2641
+      ],
+      "sha256": "c2b9b50a8e1314eafd48617228039ad5bb405528efba8d640831715ac28aa812",
+      "bytes": 392
+    },
+    {
+      "id": "docs/resources/README.md::buckets-rough-size",
+      "type": "doc",
+      "summary": "Buckets (rough size)",
+      "tags": [],
+      "content_ref": "docs/resources/README.md",
+      "byte_range": [
+        2641,
+        3016
+      ],
+      "sha256": "89b3e711cf9a1187e181e32e73a2d72b9aec85f11fe376e96ce40b8b595b07e1",
+      "bytes": 375
+    },
+    {
+      "id": "docs/resources/README.md::agent-layer",
+      "type": "doc",
+      "summary": "Agent layer",
+      "tags": [],
+      "content_ref": "docs/resources/README.md",
+      "byte_range": [
+        3016,
+        3217
+      ],
+      "sha256": "2fb4f74c470e8dc1ef7c0d4334b715e444158edbdee1175fb947fd2b76fea148",
+      "bytes": 201
+    },
+    {
+      "id": "docs/resources/project-management.md::project-management-skills-shortlist",
+      "type": "doc",
+      "summary": "Project Management — Skills Shortlist",
+      "tags": [],
+      "content_ref": "docs/resources/project-management.md",
+      "byte_range": [
+        0,
+        234
+      ],
+      "sha256": "94dcd1ea87ec7e540dbf83010d929211c078219b91acb9207ca4dbe924d1abb0",
+      "bytes": 234
+    },
+    {
+      "id": "docs/resources/project-management.md::planning-and-execution",
+      "type": "doc",
+      "summary": "Planning and execution",
+      "tags": [],
+      "content_ref": "docs/resources/project-management.md",
+      "byte_range": [
+        234,
+        718
+      ],
+      "sha256": "5c7b75efdf4a773a71344d270abd6aa5043ac7b8c58974506e4600b5cf7f333a",
+      "bytes": 484
+    },
+    {
+      "id": "docs/resources/project-management.md::quality-gates-in-the-delivery-path",
+      "type": "doc",
+      "summary": "Quality gates in the delivery path",
+      "tags": [],
+      "content_ref": "docs/resources/project-management.md",
+      "byte_range": [
+        718,
+        1071
+      ],
+      "sha256": "ab3b68ac1a6739f233d207b3abfded8e74f868e1d7126eea5f7bb5d9605e605d",
+      "bytes": 353
+    },
+    {
+      "id": "docs/resources/project-management.md::relation-to-the-baselayer",
+      "type": "doc",
+      "summary": "Relation to the baselayer",
+      "tags": [],
+      "content_ref": "docs/resources/project-management.md",
+      "byte_range": [
+        1071,
+        1614
+      ],
+      "sha256": "983d443ef067c00fb8413c154c53752ec4e3203a4f47b7bf73751663f4eedb94",
+      "bytes": 543
+    }
+  ],
+  "edges": [
+    {
+      "from": "docs/resources/README.md::resources-skills-archive-provenance",
+      "to": "docs/resources/project-management.md::project-management-skills-shortlist",
+      "type": "requires",
+      "note": "resources route to formatted catalogs"
+    }
+  ]
+}

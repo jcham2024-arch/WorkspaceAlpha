@@ -1,0 +1,134 @@
+{
+  "version": 1,
+  "nodes": [
+    {
+      "id": "docs/README.md::project-documentation",
+      "type": "doc",
+      "summary": "Project Documentation",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        0,
+        178
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::getting-started",
+      "type": "doc",
+      "summary": "Getting Started",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        178,
+        323
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/resources/README.md::resources-skills-archive-provenance",
+      "type": "doc",
+      "summary": "Resources — Skills Archive Provenance",
+      "content_ref": "docs/resources/README.md",
+      "byte_range": [
+        0,
+        322
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/resources/README.md::provenance",
+      "type": "doc",
+      "summary": "Provenance",
+      "content_ref": "docs/resources/README.md",
+      "byte_range": [
+        322,
+        2249
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/resources/README.md::how-to-use-the-archive",
+      "type": "doc",
+      "summary": "How to use the archive",
+      "content_ref": "docs/resources/README.md",
+      "byte_range": [
+        2249,
+        2641
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/resources/README.md::buckets-rough-size",
+      "type": "doc",
+      "summary": "Buckets (rough size)",
+      "content_ref": "docs/resources/README.md",
+      "byte_range": [
+        2641,
+        3016
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/resources/README.md::agent-layer",
+      "type": "doc",
+      "summary": "Agent layer",
+      "content_ref": "docs/resources/README.md",
+      "byte_range": [
+        3016,
+        3217
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/resources/project-management.md::project-management-skills-shortlist",
+      "type": "doc",
+      "summary": "Project Management — Skills Shortlist",
+      "content_ref": "docs/resources/project-management.md",
+      "byte_range": [
+        0,
+        234
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/resources/project-management.md::planning-and-execution",
+      "type": "doc",
+      "summary": "Planning and execution",
+      "content_ref": "docs/resources/project-management.md",
+      "byte_range": [
+        234,
+        718
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/resources/project-management.md::quality-gates-in-the-delivery-path",
+      "type": "doc",
+      "summary": "Quality gates in the delivery path",
+      "content_ref": "docs/resources/project-management.md",
+      "byte_range": [
+        718,
+        1071
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/resources/project-management.md::relation-to-the-baselayer",
+      "type": "doc",
+      "summary": "Relation to the baselayer",
+      "content_ref": "docs/resources/project-management.md",
+      "byte_range": [
+        1071,
+        1614
+      ],
+      "tags": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "docs/resources/README.md::resources-skills-archive-provenance",
+      "to": "docs/resources/project-management.md::project-management-skills-shortlist",
+      "type": "requires",
+      "note": "resources route to formatted catalogs"
+    }
+  ]
+}

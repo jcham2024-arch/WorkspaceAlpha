@@ -1,0 +1,42 @@
+# Baselayer Workspace
+
+> Offline, DAG-routed documentation workspace: baselayer + curated
+> agent skills + agent runtime layer. Python 3 stdlib only, no build
+> dependencies.
+
+## Router (agents read this first)
+
+- AGENTS.md: entry router — protocol, token budget, build commands.
+- .context/manifest.json: generated routing table (docs DAG).
+- .context/index.md: plain fallback index.
+
+## Docs (baselayer-indexed via .context/graph.json)
+
+- docs/resources/README.md: skills archive provenance, trust tiers.
+- docs/resources/project-management.md: PM skills shortlist.
+
+## Skills
+
+- .harness/skills/: 57 curated skills — canonical SKILL.md per skill.
+- skills/index.json: slim router (name + description + path only).
+- .archive/Agentsandskills/: raw archive (686M, NOT indexed, gitignored).
+
+## Agent layer
+
+- .agent/README.md: agent runtime design (resources, tools, MCP).
+- .agent/mcp/server.py: MCP server (compile_context, read_section).
+- .agent/tools/context.py: context core (CLI + importable).
+- .agent/.env: keys (gitignored); template: .agent/.env.example.
+
+## Build (order matters)
+
+```
+python3 seed.py     # docs/ -> .context/graph.json
+python3 build.py    # graph.json -> manifest.json + wiki/index.html
+python3 .harness/gen_skills_index.py   # after skill changes
+```
+
+## Stages (ICM)
+
+- 01-navigate/ → 02-plan/ → 03-execute/ → 04-verify/
+- memory/learnings.md: persistent learnings appended after each session.
