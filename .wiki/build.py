@@ -8,10 +8,10 @@ from __future__ import annotations
 import hashlib, html, json, re, sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 GRAPH_PATH = ROOT / ".context" / "graph.json"
 MANIFEST_PATH = ROOT / ".context" / "manifest.json"
-WIKI_PATH = ROOT / "wiki" / "index.html"
+WIKI_PATH = ROOT / ".wiki" / "index.html"
 
 def load_graph() -> dict:
     if not GRAPH_PATH.exists():
