@@ -24,12 +24,14 @@
 ## Agent layer
 
 - .agent/README.md: agent runtime design (resources, tools, skills, MCP).
-- .agent/profiles/: 5 specialized agents — conceptualizer (human-
+- .agent/profiles/: 8 specialized agents — conceptualizer (human-
   facing; owns all human communication) ↔ protocol.md ↔ taskmaster
   (subagent-facing; owns all subagent communication incl. internal
-  planning), then coder, researcher, reviewer. Matcher in
-  profiles/README.md. Each carries a skills list plus top-of-line
-  role instructions; sub-profiles refine them later.
+  planning + supervision), then coder, researcher, reviewer, plus
+  research-manager, coding-manager, review-manager (decompose tasks
+  into minimal-context steps for implementers; package results back).
+  Matcher in profiles/README.md. Each carries a skills list plus
+  top-of-line role instructions; sub-profiles refine them later.
 - AGENTS.md/llms.txt: ../
 - .agent/skills/: master library (all 57 skills).
 - .agent/tools/provision.py: syncs profile skills → .harness/skills/
