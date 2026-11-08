@@ -85,7 +85,7 @@ python3 .harness/gen_skills_index.py   # after skill changes
 - Never modify `.context/manifest.json` or `.wiki/index.html` — regenerate them.
 - Cite `.wiki/index.html#<node_id>` for every claim you derive from a node.
 
-## 9. Skills
+## 10. Skills
 
 `.harness/skills/` is the currently-used set, provisioned per active
 profile (default: conceptualizer, 4 skills). Master library lives at
@@ -112,7 +112,28 @@ Read `memory/learnings.md` at session start; append one line per
 session on what you learned. Root map: `llms.txt` (agents) and
 `README.md` (humans).
 
-## 10. Agent layer (.agent/)
+## 9. Knowledge system (memory/)
+
+Persistent knowledge for the workspace. Human-readable Markdown is
+the truth (`memory/`); the searchable index is generated:
+
+| File | Kind | Write when |
+|---|---|---|
+| `memory/JOURNAL.md` | work | A task finishes (stage 04) |
+| `memory/ERRORS.md` | error | A failure is diagnosed |
+| `memory/LESSONS.md` | lesson | A durable principle emerges |
+| `memory/DECISIONS.md` | decision | A hard trade-off is settled |
+| `memory/learnings.md` | session bullets | Session ends |
+| `.context/knowledge.db` + `memory/index.json` | index | Auto-synced by `add` |
+
+Procedure: at stage 04, `python3 .agent/tools/knowledge.py add
+--kind {work,error,lesson,decision} --title "..." --tags ... [--body "..."]`.
+`add` appends AND syncs. Search any time:
+`python3 .agent/tools/knowledge.py search <words>` or
+`last --kind work -n 5`. Before planning, search this memory first;
+cite file + date when applying a stored lesson.
+
+## 11. Agent layer (.agent/)
 
 `.agent/` holds ALL agent resources: the master skill library,
 tools, MCP, and the specialized agent profiles. `.harness/` holds

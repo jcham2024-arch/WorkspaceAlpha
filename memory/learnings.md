@@ -6,6 +6,11 @@ every session (see AGENTS.md §9).
 
 ## Entries
 
+- 2026-11-07: Root BOOTSTRAPPER.md written (whole-system spec:
+  directory contract, §3 pipeline, §4 skill authoring schema, §7
+  build-from-scratch checklist). Skill lifecycle — new skills get
+  audited, categorized, and provisioned via profiles.
+
 - 2026-11-07: Baselayer bootstrapped; skills split into slim index
   (skills/index.json) because docs/skills catalog bloated manifest
   761 B → 148 KB. Layer-1 router must stay under ~15% of context.

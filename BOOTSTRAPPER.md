@@ -145,7 +145,21 @@ human-expanded prose surface.
 
 ---
 
-## 6. Skill lifecycle (add → revise → provision)
+## 6. Knowledge & skill lifecycle
+
+**Knowledge system (persistent memory).**
+
+| Store | Write when | Sync |
+|---|---|---|
+| `memory/JOURNAL.md` | work done (stage 04) | `knowledge.py add --kind work` |
+| `memory/ERRORS.md` | failure diagnosed | `--kind error` |
+| `memory/LESSONS.md` | principle emerges | `--kind lesson` |
+| `memory/DECISIONS.md` | trade-off settled | `--kind decision` |
+| `.context/knowledge.db` + `memory/index.json` | generated | `knowledge.py sync` (or per-add) |
+
+Query without a DB: `knowledge.py search <words>`;
+`last --kind work -n 5`. Query before planning (stage 01).
+Index content is generated; Markdown files are the truth.
 
 For **loading a new skill** (from any source):
 

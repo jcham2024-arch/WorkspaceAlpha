@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "date": "2026-11-07",
+      "kind": "decision",
+      "title": "knowledge system introduced",
+      "tags": [
+        "knowledge"
+      ]
+    },
+    {
+      "date": "2026-11-07",
+      "kind": "error",
+      "title": ".agent/skills holds broken \"404: Not Found\" copies",
+      "tags": [
+        "archive",
+        "quality"
+      ]
+    },
+    {
+      "date": "2026-11-07",
+      "kind": "lesson",
+      "title": "Layer-1 routers stay under ~15% of context",
+      "tags": [
+        "tokens",
+        "architecture"
+      ]
+    },
+    {
+      "date": "2026-11-07",
+      "kind": "decision",
+      "title": ".agent/ is the master folder, .harness/ is the active set",
+      "tags": [
+        "skills",
+        "provisioning"
+      ]
+    }
+  ],
+  "count": 4
+}
