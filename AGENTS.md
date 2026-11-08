@@ -15,7 +15,7 @@ to grep, search, or read documentation files wholesale. Follow this protocol.
 ## 2. Chunk access (section-level, never file-level)
 
 Every node in the manifest carries:
-- `id` — stable identifier, also an anchor in `wiki/index.html`
+- `id` — stable identifier, also an anchor in `.wiki/index.html`
 - `sha256` — content hash for provenance
 - `byte_range` — exact slice of the source file
 - `bytes` — size of the section
@@ -36,13 +36,13 @@ If no node matches a rule you need:
 ## 4. Human audit surface
 
 Every node you receive has an anchor in the offline wiki at:
-`wiki/index.html#<node_id>`
+`.wiki/index.html#<node_id>`
 
 Cite that anchor when reporting conclusions. The wiki is the human audit
 surface; it is generated from the same graph, not maintained separately.
-Do NOT edit `wiki/index.html` or `.context/manifest.json` — they are
+Do NOT edit `.wiki/index.html` or `.context/manifest.json` — they are
 build artifacts. To change knowledge, edit `docs/` and `.context/graph.json`,
-then run `python3 seed.py && python3 build.py`.
+then run `python3 .wiki/seed.py && python3 .wiki/build.py`.
 
 ## 5. Token budget
 
@@ -55,8 +55,10 @@ then run `python3 seed.py && python3 build.py`.
 ## 6. Build commands (do not run unless asked)
 
 ```
-python3 seed.py     # docs/ → graph.json (idempotent, preserves valid edges)
-python3 build.py    # graph.json → manifest.json + wiki/index.html
+python3 .wiki/seed.py   # docs/ → graph.json (idempotent, preserves valid edges)
+python3 .wiki/build.py  # graph.json → manifest.json + .wiki/index.html
+python3 validate.py # §3 Step-6 check (also pre-commit hook)
+python3 .harness/gen_skills_index.py   # after skill changes
 ```
 
 ## 7. What lives where
@@ -67,15 +69,21 @@ python3 build.py    # graph.json → manifest.json + wiki/index.html
 | `.context/manifest.json` | Generated routing table (read this) |
 | `.context/index.md` | Plain-file fallback index |
 | `docs/` | Existing documentation — read via byte ranges only |
-| `wiki/index.html` | Generated human wiki — do not edit |
+| `.wiki/index.html` | Generated human wiki — do not edit |
+| `validate.py` | Step-6 validator (also wired as pre-commit hook) |
+| `.harness/skills/` | Currently-used set — provisioned per active profile |
+| `.agent/` | Agent runtime: master skills, 8 profiles, tools, MCP (gitignored) |
+| `.archive/` | Cleared after full import (gitignored) |
+| `01-navigate/` … `04-verify/` | ICM stage folders (+ output contracts) |
+| `memory/learnings.md` | Persistent learnings (append post-session) |
 | `AGENTS.md` | This file — entry router |
 
 ## 8. Non-negotiables
 
 - Never modify files under `docs/` unless the task explicitly says to.
 - Never modify `.context/graph.json` unless the task is "add a node/edge".
-- Never modify `.context/manifest.json` or `wiki/index.html` — regenerate them.
-- Cite `wiki/index.html#<node_id>` for every claim you derive from a node.
+- Never modify `.context/manifest.json` or `.wiki/index.html` — regenerate them.
+- Cite `.wiki/index.html#<node_id>` for every claim you derive from a node.
 
 ## 9. Skills
 

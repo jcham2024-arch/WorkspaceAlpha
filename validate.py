@@ -12,8 +12,8 @@ def fail(m):
     print(f"FAIL: {m}")
     sys.exit(1)
 
-for r in ["AGENTS.md", "CLAUDE.md", "seed.py", "build.py",
-          ".context/graph.json", ".context/manifest.json", "wiki/index.html"]:
+for r in ["AGENTS.md", "CLAUDE.md", ".wiki/seed.py", ".wiki/build.py",
+          ".context/graph.json", ".context/manifest.json", ".wiki/index.html"]:
     if not (ROOT / r).exists():
         fail(f"missing {r}")
 
@@ -33,7 +33,7 @@ for e in m.get("edges", []):
     if e["from"] not in ids or e["to"] not in ids:
         fail(f"dangling edge {e}")
 
-wiki = (ROOT / "wiki/index.html").read_text(encoding="utf-8")
+wiki = (ROOT / ".wiki/index.html").read_text(encoding="utf-8")
 if len(wiki) < 500: fail("wiki suspiciously small")
 if "<html" not in wiki.lower(): fail("wiki missing <html>")
 if "<script" not in wiki.lower(): fail("wiki missing search script")

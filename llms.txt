@@ -1,14 +1,13 @@
 # Baselayer Workspace
 
-> Offline, DAG-routed documentation workspace: baselayer + curated
-> agent skills + agent runtime layer. Python 3 stdlib only, no build
+> Offline, DAG-routed documentation workspace: baselayer + 3,520-skill
+> master library + agent runtime layer. Python 3 stdlib only, no build
 > dependencies.
 
 ## Router (agents read this first)
 
-- AGENTS.md: entry router — protocol, token budget, build commands.
-- .context/manifest.json: generated routing table (docs DAG).
-- .context/index.md: plain fallback index.
+- AGENTS.md: entry router (protocol + build commands).
+- .agent/agent.md: agent runtime (environment, roles, commands).
 
 ## Docs (baselayer-indexed via .context/graph.json)
 
@@ -49,8 +48,8 @@
 ## Build (order matters)
 
 ```
-python3 seed.py     # docs/ -> .context/graph.json
-python3 build.py    # graph.json -> manifest.json + wiki/index.html
+python3 .wiki/seed.py  # docs/ -> .context/graph.json
+python3 .wiki/build.py # graph.json -> manifest.json + .wiki/index.html
 python3 .harness/gen_skills_index.py   # after skill changes
 ```
 

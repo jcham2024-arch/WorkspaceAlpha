@@ -2,7 +2,7 @@
 
 An offline, DAG-routed documentation workspace for agentic coding.
 Two surfaces compiled from one canonical graph (`.context/graph.json`):
-an offline HTML wiki for humans (`wiki/index.html`) and a token-efficient
+an offline HTML wiki for humans (`.wiki/index.html`) and a token-efficient
 router for agents (`AGENTS.md` + `.context/manifest.json`). A 3,520-skill
 master library (`.agent/skills/`, categorized by task type/subtype)
 and a small MCP runtime layer sit on top; the 686M raw archive was
@@ -15,7 +15,7 @@ absorbed into the master and cleared.
 | `AGENTS.md` | Agent router (read first) |
 | `llms.txt` | Machine-readable map of the tree |
 | `Baselayer.md` | Bootstrap spec (input, input only) |
-| `seed.py` / `build.py` | Compiler: docs/ → graph → manifest + wiki |
+| `seed.py` / `build.py` (.wiki/) | Compiler: docs/ → graph → manifest + wiki |
 | `.context/` | graph.json (source of truth), manifest.json, index.md |
 | `docs/` | Baselayer-indexed docs (only tree seed scans) |
 | `wiki/` | Generated human wiki (never hand-edit) |
@@ -30,8 +30,8 @@ absorbed into the master and cleared.
 ## Build
 
 ```bash
-python3 seed.py     # docs/ → .context/graph.json (idempotent)
-python3 build.py    # graph.json → manifest.json + wiki/index.html
+python3 .wiki/seed.py   # docs/ → .context/graph.json (idempotent)
+python3 .wiki/build.py  # graph.json → manifest.json + .wiki/index.html
 python3 .harness/gen_skills_index.py   # after skill changes
 ```
 
