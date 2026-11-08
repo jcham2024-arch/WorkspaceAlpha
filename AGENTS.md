@@ -116,7 +116,7 @@ documents the §9 contract.
 
 | Path | Purpose |
 |---|---|
-| `.agent/skills/<name>/SKILL.md` | Master skill library (all 57) |
+| `.agent/skills/<name>/SKILL.md` | Master skill library (3,520: 57 curated + 3,463 imported) |
 | `.agent/tools/provision.py` | Profile → `.harness/skills/` sync |
 | `.agent/mcp/server.py` | MCP server (stdlib JSON-RPC stdio) |
 | `.agent/tools/context.py` | compile_context / read_section core |

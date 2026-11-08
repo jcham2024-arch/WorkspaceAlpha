@@ -33,7 +33,8 @@
   Matcher in profiles/README.md. Each carries a skills list plus
   top-of-line role instructions; sub-profiles refine them later.
 - AGENTS.md/llms.txt: ../
-- .agent/skills/: master library (all 57 skills).
+- .agent/skills/: master library (3,520 skills: 57 curated +
+  3,463 imported; INDEX.md/INDEX.csv provenance).
 - .agent/tools/provision.py: syncs profile skills → .harness/skills/
   (currently-used set). Run for a profile to activate it.
 - .agent/mcp/server.py: MCP server (compile_context, read_section)

@@ -20,7 +20,7 @@ raw skill archive is quarantined out of tree.
 | `wiki/` | Generated human wiki (never hand-edit) |
 | `.harness/skills/` | Currently-used set — provisioned per active profile |
 | `skills/index.json` | Slim skills router (name + description + path) |
-| `.agent/` | Agent runtime: master skills, 8 profiles (human-facing conceptualizer ↔ protocol ↔ subagent-facing taskmaster, coder, researcher, reviewer, + 3 domain managers), tools, provisioner, mcp/, .env (gitignored) |
+| `.agent/` | Agent runtime: master skills (3,520), 8 profiles (human-facing conceptualizer ↔ protocol ↔ subagent-facing taskmaster, coder, researcher, reviewer, + 3 domain managers), tools, provisioner, mcp/, .env (gitignored) |
 | `.archive/` | Raw 686M archive (gitignored, never indexed) |
 | `01-navigate/` … `04-verify/` | ICM stage folders (+ output contracts) |
 | `validate.py` · `.githooks/` | Step-6 check + pre-commit hook |

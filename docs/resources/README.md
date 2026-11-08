@@ -1,10 +1,12 @@
 # Resources — Skills Archive Provenance
 
-Raw archive: .archive/Agentsandskills/ (10,052 files, 686M, 3,509
-SKILL.md in dump/ across 13 buckets). Curated set: .harness/skills/
-(57 healthy skills, 1.7M) + slim skills/index.json router.
-The dump is NOT baselayer-indexed; this file is the routing surface
-for the archive.
+Archive status: the raw dump (.archive/Agentsandskills/, 686M,
+3,510 sources) was imported into .agent/skills/ — 3,463 copied as
+valid folders, 47 "404: Not Found" sources quarantined (see
+.agent/skills/IMPORT_REPORT.md), indexed in .agent/skills/INDEX.md
++ INDEX.csv (3,520 folders). The archive was cleared after
+verification; workspace shrank 689M → 157M. The dump itself was
+never baselayer-indexed.
 
 ## Provenance
 
@@ -45,12 +47,15 @@ Integrity findings
   vs 3,509 total, 14 sources for 13 buckets) are mutually inconsistent.
   Treat DATABASE.md/INDEX.csv as approximate; verify on disk.
 
-## How to use the archive
+## How to use the master library
 
-1. skill-picker routes by task, or grep catalog/<domain>.md.
-2. Never bulk-copy dump/ — copy one confirmed skill folder (SKILL.md
-   plus scripts/references/assets) into .harness/skills/.
-3. Check OVERLAPS.md for duplicate names before installing.
+1. Search .agent/skills/INDEX.csv (skill_name, source bucket,
+   imported folder, risk, status) for a skill; skill-picker routes
+   by task once provisioned.
+2. Provision one confirmed skill at a time into .harness/skills/
+   via a profile's frontmatter + provision.py; never bulk-copy.
+3. Check OVERLAPS-derived names: imported duplicates live under
+   `<source>__<name>`; the flat curated copy wins for the plain name.
 4. Re-run python3 .harness/gen_skills_index.py to refresh
    skills/index.json after adding skills, then rebuild.
 
