@@ -30,7 +30,7 @@
       "content_ref": "docs/resources/README.md",
       "byte_range": [
         0,
-        322
+        452
       ],
       "tags": []
     },
@@ -40,19 +40,19 @@
       "summary": "Provenance",
       "content_ref": "docs/resources/README.md",
       "byte_range": [
-        322,
-        2249
+        452,
+        2379
       ],
       "tags": []
     },
     {
-      "id": "docs/resources/README.md::how-to-use-the-archive",
+      "id": "docs/resources/README.md::how-to-use-the-master-library",
       "type": "doc",
-      "summary": "How to use the archive",
+      "summary": "How to use the master library",
       "content_ref": "docs/resources/README.md",
       "byte_range": [
-        2249,
-        2641
+        2379,
+        2949
       ],
       "tags": []
     },
@@ -62,8 +62,8 @@
       "summary": "Buckets (rough size)",
       "content_ref": "docs/resources/README.md",
       "byte_range": [
-        2641,
-        3016
+        2949,
+        3324
       ],
       "tags": []
     },
@@ -73,8 +73,8 @@
       "summary": "Agent layer",
       "content_ref": "docs/resources/README.md",
       "byte_range": [
-        3016,
-        3217
+        3324,
+        3525
       ],
       "tags": []
     },

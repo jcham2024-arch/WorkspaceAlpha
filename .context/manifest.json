@@ -38,11 +38,11 @@
       "content_ref": "docs/resources/README.md",
       "byte_range": [
         0,
-        322
+        452
       ],
-      "sha256": "5b1f5a2d03a8e77de9154ea66b7b5b5ced91428590df0a09b09948d0cd0f5ca5",
-      "bytes": 322,
-      "est_tokens": 81
+      "sha256": "f0beb590588a4c41d6a4992a7a34c8b06bcab8afd402392bae7286d1aeeed6f9",
+      "bytes": 452,
+      "est_tokens": 113
     },
     {
       "id": "docs/resources/README.md::provenance",
@@ -51,26 +51,26 @@
       "tags": [],
       "content_ref": "docs/resources/README.md",
       "byte_range": [
-        322,
-        2249
+        452,
+        2379
       ],
       "sha256": "bccdd820f0f574b9f200633ac95871331fa1c2c698c63821264a834dca0a5393",
       "bytes": 1927,
       "est_tokens": 482
     },
     {
-      "id": "docs/resources/README.md::how-to-use-the-archive",
+      "id": "docs/resources/README.md::how-to-use-the-master-library",
       "type": "doc",
-      "summary": "How to use the archive",
+      "summary": "How to use the master library",
       "tags": [],
       "content_ref": "docs/resources/README.md",
       "byte_range": [
-        2249,
-        2641
+        2379,
+        2949
       ],
-      "sha256": "c2b9b50a8e1314eafd48617228039ad5bb405528efba8d640831715ac28aa812",
-      "bytes": 392,
-      "est_tokens": 98
+      "sha256": "0ec9592953a085b0ffa5832f72eaeb6698c42ceaa0ab8ca26a53625dfc814209",
+      "bytes": 570,
+      "est_tokens": 143
     },
     {
       "id": "docs/resources/README.md::buckets-rough-size",
@@ -79,8 +79,8 @@
       "tags": [],
       "content_ref": "docs/resources/README.md",
       "byte_range": [
-        2641,
-        3016
+        2949,
+        3324
       ],
       "sha256": "89b3e711cf9a1187e181e32e73a2d72b9aec85f11fe376e96ce40b8b595b07e1",
       "bytes": 375,
@@ -93,8 +93,8 @@
       "tags": [],
       "content_ref": "docs/resources/README.md",
       "byte_range": [
-        3016,
-        3217
+        3324,
+        3525
       ],
       "sha256": "2fb4f74c470e8dc1ef7c0d4334b715e444158edbdee1175fb947fd2b76fea148",
       "bytes": 201,

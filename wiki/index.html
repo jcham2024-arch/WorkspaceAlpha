@@ -41,7 +41,7 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
 <a class="nav-item" href="#docs/README.md::project-documentation">Project Documentation</a>
 <a class="nav-item" href="#docs/resources/README.md::agent-layer">Agent layer</a>
 <a class="nav-item" href="#docs/resources/README.md::buckets-rough-size">Buckets (rough size)</a>
-<a class="nav-item" href="#docs/resources/README.md::how-to-use-the-archive">How to use the archive</a>
+<a class="nav-item" href="#docs/resources/README.md::how-to-use-the-master-library">How to use the master library</a>
 <a class="nav-item" href="#docs/resources/README.md::provenance">Provenance</a>
 <a class="nav-item" href="#docs/resources/README.md::resources-skills-archive-provenance">Resources — Skills Archive Provenance</a>
 <a class="nav-item" href="#docs/resources/project-management.md::planning-and-execution">Planning and execution</a>
@@ -85,7 +85,7 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
   </div>
 </section>
 
-<section id="docs/resources/README.md::resources-skills-archive-provenance" data-sha256="5b1f5a2d03a8e77de9154ea66b7b5b5ced91428590df0a09b09948d0cd0f5ca5">
+<section id="docs/resources/README.md::resources-skills-archive-provenance" data-sha256="f0beb590588a4c41d6a4992a7a34c8b06bcab8afd402392bae7286d1aeeed6f9">
   <div class="node-meta">
     <span class="badge">doc</span>
     <span class="ref">docs/resources/README.md</span>
@@ -93,7 +93,7 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
   <h2>docs/resources/README.md::resources-skills-archive-provenance</h2>
   <p class="summary">Resources — Skills Archive Provenance</p>
   <div class="content"><h1>Resources — Skills Archive Provenance</h1>
-<p>Raw archive: .archive/Agentsandskills/ (10,052 files, 686M, 3,509 SKILL.md in dump/ across 13 buckets). Curated set: .harness/skills/ (57 healthy skills, 1.7M) + slim skills/index.json router. The dump is NOT baselayer-indexed; this file is the routing surface for the archive.</p></div>
+<p>Archive status: the raw dump (.archive/Agentsandskills/, 686M, 3,510 sources) was imported into .agent/skills/ — 3,463 copied as valid folders, 47 &quot;404: Not Found&quot; sources quarantined (see .agent/skills/IMPORT_REPORT.md), indexed in .agent/skills/INDEX.md + INDEX.csv (3,520 folders). The archive was cleared after verification; workspace shrank 689M → 157M. The dump itself was never baselayer-indexed.</p></div>
   <div class="edges">
     <div><strong>requires</strong><br><a href="#docs/resources/project-management.md::project-management-skills-shortlist">docs/resources/project-management.md::project-management-skills-shortlist</a> <span class="edge-type">(requires)</span><br></div>
     <div><strong>required by</strong><br><em>none</em></div>
@@ -119,15 +119,15 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
   </div>
 </section>
 
-<section id="docs/resources/README.md::how-to-use-the-archive" data-sha256="c2b9b50a8e1314eafd48617228039ad5bb405528efba8d640831715ac28aa812">
+<section id="docs/resources/README.md::how-to-use-the-master-library" data-sha256="0ec9592953a085b0ffa5832f72eaeb6698c42ceaa0ab8ca26a53625dfc814209">
   <div class="node-meta">
     <span class="badge">doc</span>
     <span class="ref">docs/resources/README.md</span>
   </div>
-  <h2>docs/resources/README.md::how-to-use-the-archive</h2>
-  <p class="summary">How to use the archive</p>
-  <div class="content"><h2>How to use the archive</h2>
-<p>1. skill-picker routes by task, or grep catalog/&lt;domain&gt;.md. 2. Never bulk-copy dump/ — copy one confirmed skill folder (SKILL.md plus scripts/references/assets) into .harness/skills/. 3. Check OVERLAPS.md for duplicate names before installing. 4. Re-run python3 .harness/gen_skills_index.py to refresh skills/index.json after adding skills, then rebuild.</p></div>
+  <h2>docs/resources/README.md::how-to-use-the-master-library</h2>
+  <p class="summary">How to use the master library</p>
+  <div class="content"><h2>How to use the master library</h2>
+<p>1. Search .agent/skills/INDEX.csv (skill_name, source bucket, imported folder, risk, status) for a skill; skill-picker routes by task once provisioned. 2. Provision one confirmed skill at a time into .harness/skills/ via a profile&#x27;s frontmatter + provision.py; never bulk-copy. 3. Check OVERLAPS-derived names: imported duplicates live under <code>&lt;source&gt;__&lt;name&gt;</code>; the flat curated copy wins for the plain name. 4. Re-run python3 .harness/gen_skills_index.py to refresh skills/index.json after adding skills, then rebuild.</p></div>
   <div class="edges">
     <div><strong>requires</strong><br><em>none</em></div>
     <div><strong>required by</strong><br><em>none</em></div>
