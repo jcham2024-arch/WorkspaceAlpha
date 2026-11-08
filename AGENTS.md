@@ -81,7 +81,7 @@ python3 build.py    # graph.json → manifest.json + wiki/index.html
 
 `.harness/skills/` is the currently-used set, provisioned per active
 profile (default: conceptualizer, 6 skills). Master library lives at
-`.agent/skills/` (57 skills). Invoke one with skill_view(name="...").
+`- .agent/skills/` (3,520 skills). Invoke one with skill_view(name="...") after provisioning it into .harness/skills/.
 The slim router is `skills/index.json` (name + description + path
 only — never add descriptions to the docs manifest). Archive
 provenance/trust rules are in `docs/resources/README.md` (the 686M

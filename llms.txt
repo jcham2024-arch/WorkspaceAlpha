@@ -17,7 +17,7 @@
 
 ## Skills
 
-- .harness/skills/: 57 curated skills — canonical SKILL.md per skill.
+- .harness/skills/: currently-used set — provisioned per active profile.
 - skills/index.json: slim router (name + description + path only).
 - .archive/Agentsandskills/: raw archive (686M, NOT indexed, gitignored).
 
