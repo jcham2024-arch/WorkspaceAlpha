@@ -1,0 +1,3 @@
+#!/bin/sh
+# Pre-commit: run the baselayer Step-6 validation.
+exec python3 "$(dirname "$0")/../validate.py"

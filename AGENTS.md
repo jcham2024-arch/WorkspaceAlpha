@@ -79,18 +79,23 @@ python3 build.py    # graph.json → manifest.json + wiki/index.html
 
 ## 9. Skills
 
-Local skills live in `.harness/skills/` (57 healthy skills, 1.7M).
-Invoke one with skill_view(name="..."). The slim router is
-`skills/index.json` (name + description + path only — never add
-descriptions to the docs manifest). Archive provenance and trust
-rules are in `docs/resources/README.md` (the 686M dump under
-`.archive/` is NOT indexed; install one confirmed skill at a time).
+`.harness/skills/` is the currently-used set, provisioned per active
+profile (default: orchestrator, 12 skills). Master library lives at
+`.agent/skills/` (57 skills). Invoke one with skill_view(name="...").
+The slim router is `skills/index.json` (name + description + path
+only — never add descriptions to the docs manifest). Archive
+provenance/trust rules are in `docs/resources/README.md` (the 686M
+dump under `.archive/` is NOT indexed; install one skill at a time).
 
 | Path | Purpose |
 |---|---|
-| `.harness/skills/<name>/SKILL.md` | Canonical skill text (run/sync source) |
-| `skills/index.json` | Slim skills router (regen: `.harness/gen_skills_index.py`) |
+| `.agent/skills/<name>/SKILL.md` | Master library (all skills) |
+| `.harness/skills/<name>/SKILL.md` | Currently-used set (provisioned) |
+| `skills/index.json` | Slim router (regen: `.harness/gen_skills_index.py`) |
 | `docs/resources/` | Archive provenance, trust tiers, PM shortlist |
+
+Provisioning: `python3 .agent/tools/provision.py --profile <name>`
+syncs `.harness/skills/` to that profile's declared skills.
 
 Read `memory/learnings.md` at session start; append one line per
 session on what you learned. Root map: `llms.txt` (agents) and
@@ -98,19 +103,27 @@ session on what you learned. Root map: `llms.txt` (agents) and
 
 ## 10. Agent layer (.agent/)
 
-`.agent/` holds agent-side resources, tools, skills, and MCP. It
-consumes the baselayer and never writes it (§9 contract in
-`.agent/README.md`). It is gitignored (local example).
+`.agent/` holds ALL agent resources: the master skill library,
+tools, MCP, and the specialized agent profiles. `.harness/` holds
+the currently-used set — a profile's frontmatter `skills:` list
+dictates what gets provisioned from `.agent/skills/` into
+`.harness/skills/`. The four general profiles (orchestrator, coder,
+researcher, reviewer) each carry a skills list plus top-of-line role
+instructions; sub-profiles refine them later. `.agent/` is
+gitignored (local example); `.agent/README.md` documents the §9
+contract.
 
 | Path | Purpose |
 |---|---|
+| `.agent/skills/<name>/SKILL.md` | Master skill library (all 57) |
+| `.agent/tools/provision.py` | Profile → `.harness/skills/` sync |
 | `.agent/mcp/server.py` | MCP server (stdlib JSON-RPC stdio) |
 | `.agent/tools/context.py` | compile_context / read_section core |
-| `.agent/skills/<role>/<skill>/SKILL.md` | Role-owned skill packages |
-| `.agent/profiles/*.md` | Specialized agents (orchestrator, researcher, builder, reviewer, operator) |
+| `.agent/profiles/*.md` | Specialized agents (4 general forms) |
 | `.agent/.env` | Keys (gitignored; template `.env.example`) |
 
 Match each task to a profile in `.agent/profiles/README.md` and
 state the match in the reply. Workflow stages are numbered folders:
 `01-navigate/` → `02-plan/` → `03-execute/` → `04-verify/`, each
-with a `PROMPT.md`. Follow them in order for non-trivial tasks.
+with a `PROMPT.md` plus an output contract (`targets.md`, `plan.md`,
+`changes.md`, `verification.md`). Follow them in order.

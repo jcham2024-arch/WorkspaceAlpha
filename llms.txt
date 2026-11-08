@@ -24,10 +24,16 @@
 ## Agent layer
 
 - .agent/README.md: agent runtime design (resources, tools, skills, MCP).
-- .agent/profiles/: specialized agents — orchestrator, researcher,
-  builder, reviewer, operator; matcher in profiles/README.md.
-- .agent/skills/<role>/<skill>/SKILL.md: role-owned skill packages.
-- .agent/mcp/server.py: MCP server (compile_context, read_section).
+- .agent/profiles/: 4 specialized agents — orchestrator, coder,
+  researcher, reviewer; matcher in profiles/README.md. Each carries
+  a skills list plus top-of-line role instructions; sub-profiles
+  refine them later.
+- AGENTS.md/llms.txt: ../
+- .agent/skills/: master library (all 57 skills).
+- .agent/tools/provision.py: syncs profile skills → .harness/skills/
+  (currently-used set). Run for a profile to activate it.
+- .agent/mcp/server.py: MCP server (compile_context, read_section)
+  with per-profile tool allowlists in .agent/mcp/mcp.json.
 - .agent/tools/context.py: context core (CLI + importable).
 - .agent/.env: keys (gitignored); template: .agent/.env.example.
 

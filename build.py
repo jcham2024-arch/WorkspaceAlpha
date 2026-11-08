@@ -71,6 +71,7 @@ def build_manifest(graph: dict) -> dict:
             "byte_range": n.get("byte_range"),
             "sha256": hashlib.sha256(raw).hexdigest(),
             "bytes": len(raw),
+            "est_tokens": (len(raw) + 3) // 4,
         })
     return {
         "version": graph.get("version", 1),

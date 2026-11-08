@@ -13,7 +13,8 @@
         178
       ],
       "sha256": "6c0da7ed88a86a9c4b0561af190122baa0b82846de0f5955f7e5ecedc606d751",
-      "bytes": 178
+      "bytes": 178,
+      "est_tokens": 45
     },
     {
       "id": "docs/README.md::getting-started",
@@ -26,7 +27,8 @@
         323
       ],
       "sha256": "590f9186bb7fb2fe15d585d0e7473ad1dc521327148620882381a321c952b76a",
-      "bytes": 145
+      "bytes": 145,
+      "est_tokens": 37
     },
     {
       "id": "docs/resources/README.md::resources-skills-archive-provenance",
@@ -39,7 +41,8 @@
         322
       ],
       "sha256": "5b1f5a2d03a8e77de9154ea66b7b5b5ced91428590df0a09b09948d0cd0f5ca5",
-      "bytes": 322
+      "bytes": 322,
+      "est_tokens": 81
     },
     {
       "id": "docs/resources/README.md::provenance",
@@ -52,7 +55,8 @@
         2249
       ],
       "sha256": "bccdd820f0f574b9f200633ac95871331fa1c2c698c63821264a834dca0a5393",
-      "bytes": 1927
+      "bytes": 1927,
+      "est_tokens": 482
     },
     {
       "id": "docs/resources/README.md::how-to-use-the-archive",
@@ -65,7 +69,8 @@
         2641
       ],
       "sha256": "c2b9b50a8e1314eafd48617228039ad5bb405528efba8d640831715ac28aa812",
-      "bytes": 392
+      "bytes": 392,
+      "est_tokens": 98
     },
     {
       "id": "docs/resources/README.md::buckets-rough-size",
@@ -78,7 +83,8 @@
         3016
       ],
       "sha256": "89b3e711cf9a1187e181e32e73a2d72b9aec85f11fe376e96ce40b8b595b07e1",
-      "bytes": 375
+      "bytes": 375,
+      "est_tokens": 94
     },
     {
       "id": "docs/resources/README.md::agent-layer",
@@ -91,7 +97,8 @@
         3217
       ],
       "sha256": "2fb4f74c470e8dc1ef7c0d4334b715e444158edbdee1175fb947fd2b76fea148",
-      "bytes": 201
+      "bytes": 201,
+      "est_tokens": 51
     },
     {
       "id": "docs/resources/project-management.md::project-management-skills-shortlist",
@@ -104,7 +111,8 @@
         234
       ],
       "sha256": "94dcd1ea87ec7e540dbf83010d929211c078219b91acb9207ca4dbe924d1abb0",
-      "bytes": 234
+      "bytes": 234,
+      "est_tokens": 59
     },
     {
       "id": "docs/resources/project-management.md::planning-and-execution",
@@ -117,7 +125,8 @@
         718
       ],
       "sha256": "5c7b75efdf4a773a71344d270abd6aa5043ac7b8c58974506e4600b5cf7f333a",
-      "bytes": 484
+      "bytes": 484,
+      "est_tokens": 121
     },
     {
       "id": "docs/resources/project-management.md::quality-gates-in-the-delivery-path",
@@ -130,7 +139,8 @@
         1071
       ],
       "sha256": "ab3b68ac1a6739f233d207b3abfded8e74f868e1d7126eea5f7bb5d9605e605d",
-      "bytes": 353
+      "bytes": 353,
+      "est_tokens": 89
     },
     {
       "id": "docs/resources/project-management.md::relation-to-the-baselayer",
@@ -143,7 +153,8 @@
         1614
       ],
       "sha256": "983d443ef067c00fb8413c154c53752ec4e3203a4f47b7bf73751663f4eedb94",
-      "bytes": 543
+      "bytes": 543,
+      "est_tokens": 136
     }
   ],
   "edges": [

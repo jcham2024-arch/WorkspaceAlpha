@@ -2,74 +2,9 @@
   "version": 1,
   "skills": [
     {
-      "name": "andrej-karpathy",
-      "description": "Behavioral guidelines to reduce common LLM coding mistakes. Use when writing, reviewing, or refactoring code to avoid overcomplication, make surgical changes, surface assumptions, and define verifiable success criteria.",
-      "path": ".harness/skills/andrej-karpathy/SKILL.md"
-    },
-    {
-      "name": "baseline-ui",
-      "description": "Quickly deslop UI code by fixing spacing, hierarchy, typography, and small layout issues. Use when the interface needs a fast cleanup or polish pass.",
-      "path": ".harness/skills/baseline-ui/SKILL.md"
-    },
-    {
       "name": "brainstorming",
       "description": "You MUST use this before any creative work - creating features, building components, adding functionality, modifying behavior, or planning anything new, in software or out of it (a talk, a business, a renovation).",
       "path": ".harness/skills/brainstorming/SKILL.md"
-    },
-    {
-      "name": "browser-use",
-      "description": "Direct browser control via CDP for web interaction: automation, scraping, testing, screenshots, and site/app work. Also covers hosted cloud browsers for AI agents: the browser-use Python library (Browser(use_cloud=True)), Playwright, Puppeteer or any CDP client.",
-      "path": ".harness/skills/browser-use/SKILL.md"
-    },
-    {
-      "name": "clean-code",
-      "description": "This skill embodies the principles of \\\"Clean Code\\\" by Robert C. Martin (Uncle Bob). Use it to transform \\\"code that works\\\" into \\\"code that is clean.\\",
-      "path": ".harness/skills/clean-code/SKILL.md"
-    },
-    {
-      "name": "clean-code-guard",
-      "description": "Review generated or changed production code with Clean Code, SOLID, DRY, KISS, YAGNI, and LLM-specific failure-mode checks.",
-      "path": ".harness/skills/clean-code-guard/SKILL.md"
-    },
-    {
-      "name": "cloud",
-      "description": "Documentation reference for using Browser Use Cloud — the hosted API and SDK for browser automation. Use this skill whenever the user needs help with the Cloud REST API (v2, v3, or v4), browser-use-sdk (Python or TypeScript), X-Browser-Use-API-Key authentication, cloud sessions, browser profiles, profile sync, CDP WebSocket connections, stealth browsers, residential proxies, CAPTCHA handling, webhooks, workspaces, skills marketplace, liveUrl streaming, pricing, or integration patterns (chat UI, subagent, adding browser tools to existing agents). Also trigger for questions about n8n/Make/Zapier integration, Playwright/ Puppeteer/Selenium on cloud infrastructure, or 1Password vault integration. Do NOT use this for the open-source Python library (Agent, Browser, Tools config) — use the open-source skill instead.",
-      "path": ".harness/skills/cloud/SKILL.md"
-    },
-    {
-      "name": "code-polish",
-      "description": "Rewrites unprofessional code comments into clear ones and performs non-semantic cleanup. Use to professionalize code without altering logic or behavior.",
-      "path": ".harness/skills/code-polish/SKILL.md"
-    },
-    {
-      "name": "code-simplification",
-      "description": "Simplifies code for clarity. Use when refactoring code for clarity without changing behavior. Use when code works but is harder to read, maintain, or extend than it should be. Use when reviewing code that has accumulated unnecessary complexity. Use when asked to simplify, clean up, or reduce the nesting of a function or module that already works, even when the code is pasted inline and nothing else needs to change.",
-      "path": ".harness/skills/code-simplification/SKILL.md"
-    },
-    {
-      "name": "code-simplifier",
-      "description": "Simplifies and refines code for clarity, consistency, and maintainability while preserving all functionality. Use when asked to \"simplify code\", \"clean up code\", \"refactor for clarity\", \"improve readability\", or review recently modified code for elegance. Focuses on project-specific best practices.",
-      "path": ".harness/skills/code-simplifier/SKILL.md"
-    },
-    {
-      "name": "codebase-audit-pre-push",
-      "description": "Deep audit before GitHub push: removes junk files, dead code, security holes, and optimization issues. Checks every file line-by-line for production readiness.",
-      "path": ".harness/skills/codebase-audit-pre-push/SKILL.md"
-    },
-    {
-      "name": "codebase-cleanup-refactor-clean",
-      "description": "You are a code refactoring expert specializing in clean code principles, SOLID design patterns, and modern software engineering best practices. Analyze and refactor the provided code to improve its quality, maintainability, and performance.",
-      "path": ".harness/skills/codebase-cleanup-refactor-clean/SKILL.md"
-    },
-    {
-      "name": "constraint-driven-development",
-      "description": "Establishes a project's quality bar as a written contract and stops agents quietly lowering it. Interviews the user on which dimensions matter, supplies sane default thresholds when they have no number in mind, records everything in CONSTRAINTS.md, and watches the diff for a weakened bar — new @ts-ignore or eslint-disable suppressions, skipped or deleted tests, assertions stripped out, unimplemented stubs, thresholds edited down. Use when no quality bar is written down, when the user says \"set up constraints\" or \"define our standards\", when the user wants dimensions they care about — accessibility, web performance, coverage — set up as enforced constraints, when an agent keeps silencing checks or skipping tests to get to green, when you need a coverage or performance threshold and don't know what number to pick, or when an agent writes more code than anyone will read.",
-      "path": ".harness/skills/constraint-driven-development/SKILL.md"
-    },
-    {
-      "name": "context-engineering",
-      "description": "Optimizes agent context setup. Use when starting a new session, when agent output quality degrades, when switching between tasks, or when you need to configure rules files and context for a project.",
-      "path": ".harness/skills/context-engineering/SKILL.md"
     },
     {
       "name": "diagnosing-superpowers",
@@ -87,104 +22,9 @@
       "path": ".harness/skills/executing-plans/SKILL.md"
     },
     {
-      "name": "filesystem-context",
-      "description": "Use for file-based context management, dynamic context discovery, and reducing context window bloat. Offload context to files for just-in-time loading.",
-      "path": ".harness/skills/filesystem-context/SKILL.md"
-    },
-    {
       "name": "finishing-a-development-branch",
       "description": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work",
       "path": ".harness/skills/finishing-a-development-branch/SKILL.md"
-    },
-    {
-      "name": "lovable-cleanup",
-      "description": "Audits and strips Lovable scaffolding from Vite + React projects — removes lovable-tagger, swaps placeholder assets, prunes unused Radix deps, cleans generated docs, and neutralizes stale favicon/CDN caching so the codebase ships as yours.",
-      "path": ".harness/skills/lovable-cleanup/SKILL.md"
-    },
-    {
-      "name": "minimalist",
-      "description": "Write the least code: no over-engineering, fewer dependencies. Use whenever the user wants it simpler; applies a ladder first: YAGNI, reuse, stdlib, native platform, existing deps.",
-      "path": ".harness/skills/minimalist/SKILL.md"
-    },
-    {
-      "name": "modern-javascript-patterns",
-      "description": "Comprehensive guide for mastering modern JavaScript (ES6+) features, functional programming patterns, and best practices for writing clean, maintainable, and performant code.",
-      "path": ".harness/skills/modern-javascript-patterns/SKILL.md"
-    },
-    {
-      "name": "observability-and-instrumentation",
-      "description": "Instruments code so production behavior is visible and diagnosable. Use when adding logging, metrics, tracing, or alerting. Use when shipping any feature that runs in production and you need evidence it works. Use when production issues are reported but you can't tell what happened from the available data.",
-      "path": ".harness/skills/observability-and-instrumentation/SKILL.md"
-    },
-    {
-      "name": "open-source",
-      "description": "Documentation reference for writing Python code using the browser-use open-source library. Use this skill whenever the user needs help with Agent, Browser, or Tools configuration, is writing code that imports from browser_use, asks about @sandbox deployment, supported LLM models, Actor API, custom tools, lifecycle hooks, MCP server setup, or monitoring/observability with Laminar or OpenLIT. Also trigger for questions about browser-use installation, prompting strategies, or sensitive data handling. Do NOT use this for Cloud API/SDK usage or pricing — use the cloud skill instead. Do NOT use this for directly automating a browser via CLI commands — use the browser-use skill instead.",
-      "path": ".harness/skills/open-source/SKILL.md"
-    },
-    {
-      "name": "performance-optimization",
-      "description": "Optimizes application performance across frontend, backend, queries, and databases. Use when performance requirements exist, when you suspect performance regressions, when Core Web Vitals or load times need improvement, when N+1 query patterns need fixing, or when profiling reveals bottlenecks.",
-      "path": ".harness/skills/performance-optimization/SKILL.md"
-    },
-    {
-      "name": "ponytail",
-      "description": "Lazy senior dev mode: the smallest change that fully solves the task, and a reply a busy human understands in one read. Use on any coding task (writing, fixing, refactoring, reviewing, choosing dependencies) and when the user says \"ponytail\", \"be lazy\", \"simplest solution\", \"yagni\", or complains about over-engineering or bloat. Levels: lite, full (default), ultra.",
-      "path": ".harness/skills/ponytail/SKILL.md"
-    },
-    {
-      "name": "ponytail-audit",
-      "description": "Quality audit of a whole repo: bugs, security holes, what breaks under real load, risky code without tests, slow paths, and what to delete, merge or split. Ranked, each finding explained in plain English. One-shot report, changes nothing. Use for \"audit this codebase\", \"review the whole repo\", \"find bloat\", \"what can I delete\", /ponytail-audit.",
-      "path": ".harness/skills/ponytail-audit/SKILL.md"
-    },
-    {
-      "name": "ponytail-debt",
-      "description": "List every `shortcut:` comment (and older `ponytail:` ones) as a debt ledger. One-shot report, changes nothing. Use for \"ponytail debt\", \"what did ponytail defer\", \"list the shortcuts\", /ponytail-debt.",
-      "path": ".harness/skills/ponytail-debt/SKILL.md"
-    },
-    {
-      "name": "ponytail-gain",
-      "description": "Show ponytail's measured savings (code, cost, speed) from the benchmark. One-shot display. Use for /ponytail-gain, \"what does ponytail save\", \"ponytail impact\".",
-      "path": ".harness/skills/ponytail-gain/SKILL.md"
-    },
-    {
-      "name": "ponytail-help",
-      "description": "Quick reference for ponytail levels, skills and commands. One-shot display. Use for /ponytail-help, \"ponytail help\", \"how do I use ponytail\".",
-      "path": ".harness/skills/ponytail-help/SKILL.md"
-    },
-    {
-      "name": "ponytail-review",
-      "description": "Quality review of a change: is the logic right, is it safe, does it hold under real load, is risky code tested, is it fast enough, and is every line needed. Reads the connected code, not only the diff. Each finding is explained in plain English. Use for \"review this\", \"code review\", \"review the last commit\", \"review my PR\", \"is this over-engineered\", /ponytail-review.",
-      "path": ".harness/skills/ponytail-review/SKILL.md"
-    },
-    {
-      "name": "qa",
-      "description": "QA-test a website or web app and return a 1-5 quality score (5 = flawless, 1 = broken) with evidence. Use when the user wants to test, QA, evaluate, score, or \"check how good\" a site, page, flow, or app — including a local dev server (e.g. \"qa test localhost:5173\", \"does the checkout work?\", \"rate this landing page\"). Drives a real Browser Use cloud browser, tunneling localhost automatically.",
-      "path": ".harness/skills/qa/SKILL.md"
-    },
-    {
-      "name": "receiving-code-review",
-      "description": "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation",
-      "path": ".harness/skills/receiving-code-review/SKILL.md"
-    },
-    {
-      "name": "red-green-proof",
-      "description": "Turns a suspected bug into a proven one. Verify the cause against reality before claiming it, write a test that FAILS on the current code, apply the fix, watch it pass — then revert the fix and confirm the test goes red again, because a test that passes both ways proves nothing. Invoked bare after a debugging conversation, it takes the target from context rather than asking. Use when fixing a bug, investigating an incident, hardening a flaky area, or when asked to \"add tests that reveal the bug\". Triggers on \"/red-green-proof\", \"prove the bug\", \"red-green\", \"make the test fail first\", \"is that test load-bearing\", \"reveal the bug with a test\".",
-      "path": ".harness/skills/red-green-proof/SKILL.md"
-    },
-    {
-      "name": "remote-browser",
-      "description": "Controls an isolated Browser Use Cloud browser from a sandboxed machine with the current Browser Use CLI.",
-      "path": ".harness/skills/remote-browser/SKILL.md"
-    },
-    {
-      "name": "repo-maintainer",
-      "description": "Audit and repair repository hygiene across artifacts, dependencies, CI, docs, Git state, and code-quality signals. Use for repository maintenance, cleanup, health checks, or pre-release hardening.",
-      "path": ".harness/skills/repo-maintainer/SKILL.md"
-    },
-    {
-      "name": "requesting-code-review",
-      "description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements",
-      "path": ".harness/skills/requesting-code-review/SKILL.md"
     },
     {
       "name": "skill-picker",
@@ -192,54 +32,9 @@
       "path": ".harness/skills/skill-picker/SKILL.md"
     },
     {
-      "name": "slo-architect",
-      "description": "No description in frontmatter.",
-      "path": ".harness/skills/slo-architect/SKILL.md"
-    },
-    {
-      "name": "source-driven-development",
-      "description": "Grounds every implementation decision in official documentation. Use when you want to verify an approach against the official docs before implementing it, or when you want authoritative, source-cited code free from outdated patterns. Use when building with any framework or library where correctness matters.",
-      "path": ".harness/skills/source-driven-development/SKILL.md"
-    },
-    {
-      "name": "strict-api",
-      "description": "Use when the user says 'no hallucinations', 'verify APIs' or 'don't invent functions', or code depends on a library version you have not checked. Requires proof that every method, import and variable exists in the installed version before using it.",
-      "path": ".harness/skills/strict-api/SKILL.md"
-    },
-    {
       "name": "subagent-driven-development",
       "description": "Use when executing implementation plans with independent tasks in the current session",
       "path": ".harness/skills/subagent-driven-development/SKILL.md"
-    },
-    {
-      "name": "systematic-debugging",
-      "description": "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes",
-      "path": ".harness/skills/systematic-debugging/SKILL.md"
-    },
-    {
-      "name": "tech-stack-evaluator",
-      "description": "Compare frameworks or tech stacks before committing: side-by-side scoring, total cost of ownership, ecosystem health and migration risk. Use whenever the user asks which framework to pick, X vs Y, whether to switch stacks, or if a migration is worth it.",
-      "path": ".harness/skills/tech-stack-evaluator/SKILL.md"
-    },
-    {
-      "name": "test-driven-development",
-      "description": "Use when implementing any feature or bugfix, before writing implementation code",
-      "path": ".harness/skills/test-driven-development/SKILL.md"
-    },
-    {
-      "name": "thinking-bounded-rationality",
-      "description": "Use when search or investigation could run forever. Set an explicit good-enough threshold first, then stop at the first option that clears it.",
-      "path": ".harness/skills/thinking-bounded-rationality/SKILL.md"
-    },
-    {
-      "name": "thinking-first-principles",
-      "description": "When a constraint is treated as fixed, separate physics from convention, keep only independently supported primitives, and rebuild the simplest solution that satisfies real constraints.",
-      "path": ".harness/skills/thinking-first-principles/SKILL.md"
-    },
-    {
-      "name": "thinking-margin-of-safety",
-      "description": "When provisioning, setting a limit, or committing an estimate under uncertainty, size a buffer to residual error and the cost of breach—not to the optimistic edge.",
-      "path": ".harness/skills/thinking-margin-of-safety/SKILL.md"
     },
     {
       "name": "thinking-opportunity-cost",
@@ -257,11 +52,6 @@
       "path": ".harness/skills/using-git-worktrees/SKILL.md"
     },
     {
-      "name": "using-superpowers",
-      "description": "Use when starting any conversation - establishes how to find and use skills, requiring skill invocation before ANY response including clarifying questions",
-      "path": ".harness/skills/using-superpowers/SKILL.md"
-    },
-    {
       "name": "verification-before-completion",
       "description": "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always",
       "path": ".harness/skills/verification-before-completion/SKILL.md"
@@ -270,21 +60,6 @@
       "name": "writing-plans",
       "description": "Use when you have a spec or requirements for a multi-step task, before touching code",
       "path": ".harness/skills/writing-plans/SKILL.md"
-    },
-    {
-      "name": "writing-skills",
-      "description": "Use when creating new skills, editing existing skills, or verifying skills work before deployment",
-      "path": ".harness/skills/writing-skills/SKILL.md"
-    },
-    {
-      "name": "x402",
-      "description": "Set up Browser Use Cloud payments with x402 — pay per request from a crypto wallet (USDC on Base mainnet), no signup or API key. Two setups it works out up front — \"just use it\" (set up a wallet so you or Claude Code can run cloud browser tasks paid from the wallet — Claude writes and runs throwaway scripts, nothing touches your codebase) or \"build it in\" (install the SDK and write the key + code into your project). Walks through wallet setup, funding, .env, and a ~$1 test run. Use when the user asks about x402, pay-per-use, USDC payments, or wants Browser Use Cloud without an API key. For the free-tier signup (reverse-CAPTCHA → API key), use `browser-use cloud signup` or the `cloud` skill instead.",
-      "path": ".harness/skills/x402/SKILL.md"
-    },
-    {
-      "name": "zero-hallucination-coder",
-      "description": "No description in frontmatter.",
-      "path": ".harness/skills/zero-hallucination-coder/SKILL.md"
     }
   ]
 }

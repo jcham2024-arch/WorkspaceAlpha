@@ -18,11 +18,12 @@ raw skill archive is quarantined out of tree.
 | `.context/` | graph.json (source of truth), manifest.json, index.md |
 | `docs/` | Baselayer-indexed docs (only tree seed scans) |
 | `wiki/` | Generated human wiki (never hand-edit) |
-| `.harness/skills/` | 57 curated skills — canonical `SKILL.md` per skill |
+| `.harness/skills/` | Currently-used set — provisioned per active profile |
 | `skills/index.json` | Slim skills router (name + description + path) |
-| `.agent/` | Agent runtime: skills/, tools/, profiles/, mcp/, .env (gitignored) |
+| `.agent/` | Agent runtime: master skills, 4 profiles (orchestrator/coder/researcher/reviewer), tools, provisioner, mcp/, .env (gitignored) |
 | `.archive/` | Raw 686M archive (gitignored, never indexed) |
-| `01-navigate/` … `04-verify/` | ICM stage folders (workflow as tree) |
+| `01-navigate/` … `04-verify/` | ICM stage folders (+ output contracts) |
+| `validate.py` · `.githooks/` | Step-6 check + pre-commit hook |
 | `memory/learnings.md` | Persistent learnings (append post-session) |
 
 ## Build
