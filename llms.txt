@@ -35,7 +35,9 @@
 - AGENTS.md/llms.txt: ../
 - .agent/skills/: master library (3,520 skills: 57 curated +
   3,463 imported; categorized in CATEGORIZATION.md/CSV by task
-  type/subtype/level; profiles provision by category).
+  type/subtype/level/os; platform variants in PLATFORMS.md +
+  platforms/{android,windows,linux,mac}/; profiles provision
+  by category).
 - .agent/tools/provision.py: syncs profile skills → .harness/skills/
   (currently-used set). Run for a profile to activate it.
 - .agent/mcp/server.py: MCP server (compile_context, read_section)
