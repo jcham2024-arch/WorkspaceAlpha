@@ -85,7 +85,7 @@ python3 .harness/gen_skills_index.py   # after skill changes
 - Never modify `.context/manifest.json` or `.wiki/index.html` — regenerate them.
 - Cite `.wiki/index.html#<node_id>` for every claim you derive from a node.
 
-## 10. Skills
+## 9. Skills
 
 `.harness/skills/` is the currently-used set, provisioned per active
 profile (default: conceptualizer, 4 skills). Master library lives at
@@ -98,53 +98,38 @@ only — never add descriptions to the docs manifest). Archive
 provenance/trust rules are in `docs/resources/README.md` (archive
 absorbed and cleared after full import; bulk-install is prohibited).
 
-| Path | Purpose |
-|---|---|
-| `.agent/skills/<name>/SKILL.md` | Master library (all skills) |
+| `.agent/skills/<name>/SKILL.md` | Master library (3,520 skills) |
 | `.harness/skills/<name>/SKILL.md` | Currently-used set (provisioned) |
-| `skills/index.json` | Slim router (regen: `.harness/gen_skills_index.py`) |
-| `docs/resources/` | Archive provenance, trust tiers, PM shortlist |
+| `skills/index.json` | Slim router (regen: `gen_skills_index.py`) |
 
 Provisioning: `python3 .agent/tools/provision.py --profile <name>`
-syncs `.harness/skills/` to that profile's declared skills.
+syncs `.harness/skills/` to the profile's declared skills.
 
-Read `memory/learnings.md` at session start; append one line per
-session on what you learned. Root map: `llms.txt` (agents) and
-`README.md` (humans).
+Read `memory/learnings.md` at session start (knowledge detail in §10).
 
-## 9. Knowledge system (memory/)
+## 10. Knowledge system (memory/)
 
-Persistent knowledge for the workspace. Human-readable Markdown is
-the truth (`memory/`); the searchable index is generated:
+Persistent knowledge (human Markdown is the truth; index is generated):
 
 | File | Kind | Write when |
 |---|---|---|
-| `memory/JOURNAL.md` | work | A task finishes (stage 04) |
-| `memory/ERRORS.md` | error | A failure is diagnosed |
-| `memory/LESSONS.md` | lesson | A durable principle emerges |
-| `memory/DECISIONS.md` | decision | A hard trade-off is settled |
-| `memory/learnings.md` | session bullets | Session ends |
-| `.context/knowledge.db` + `memory/index.json` | index | Auto-synced by `add` |
+| `memory/JOURNAL.md` | work | task finishes (stage 04) |
+| `memory/ERRORS.md` | error | failure diagnosed |
+| `memory/LESSONS.md` | lesson | principle emerges |
+| `memory/DECISIONS.md` | decision | trade-off settled |
+| `memory/learnings.md` | session bullets | session ends |
 
-Procedure: at stage 04, `python3 .agent/tools/knowledge.py add
---kind {work,error,lesson,decision} --title "..." --tags ... [--body "..."]`.
-`add` appends AND syncs. Search any time:
-`python3 .agent/tools/knowledge.py search <words>` or
-`last --kind work -n 5`. Before planning, search this memory first;
-cite file + date when applying a stored lesson.
+Procedure (stage 04): `python3 .agent/tools/knowledge.py add --kind
+{work,error,lesson,decision} --title "..." [--tags ...] [--body "..."]`
+(appends AND syncs `.context/knowledge.db` + `memory/index.json`).
+Query: `knowledge.py search <words>` / `last --kind work -n 5`.
+Search this memory before planning; cite file + date.
 
 ## 11. Agent layer (.agent/)
 
 `.agent/` holds ALL agent resources: the master skill library,
-tools, MCP, and the specialized agent profiles. `.harness/` holds
-the currently-used set — a profile's frontmatter `skills:` list
-dictates what gets provisioned from `.agent/skills/` into
-`.harness/skills/`. The general profiles (orchestrator roles:
-conceptualizer and taskmaster; specialists: coder, researcher,
-reviewer; plus three domain managers) each carry a skills list
-plus top-of-line role instructions; sub-profiles refine them later.
-`.agent/` is gitignored (local example); `.agent/agent.md`
-documents the §9 contract.
+tools, MCP, and the specialized agent profiles. A profile's
+frontmatter `skills:` list decides what gets provisioned.
 
 | Path | Purpose |
 |---|---|
