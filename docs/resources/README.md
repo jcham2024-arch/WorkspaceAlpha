@@ -53,7 +53,7 @@ Integrity findings
 1. Search .agent/skills/INDEX.csv (skill_name, source bucket,
    imported folder, risk, status) for a skill; skill-picker routes
    by task once provisioned.
-2. Provision one confirmed skill at a time into .agent/harness/skills/
+2. Provision one confirmed skill at a time into .harness/skills/
    via a profile's frontmatter + provision.py; never bulk-copy.
 3. Check OVERLAPS-derived names: imported duplicates live under
    `<source>__<name>`; the flat curated copy wins for the plain name.

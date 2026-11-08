@@ -66,11 +66,11 @@
       "content_ref": "docs/resources/README.md",
       "byte_range": [
         2490,
-        3070
+        3064
       ],
-      "sha256": "02d6798bf4fd7cb5af4901b5f08bb19726feed0a6cc1fdfb80c3d64652bcb773",
-      "bytes": 580,
-      "est_tokens": 145
+      "sha256": "07ec95fcd7f1b3f4e804402a0b24a92db571cb0dbc246ac3dcb49b06fdcbeb20",
+      "bytes": 574,
+      "est_tokens": 144
     },
     {
       "id": "docs/resources/README.md::buckets-rough-size",
@@ -79,8 +79,8 @@
       "tags": [],
       "content_ref": "docs/resources/README.md",
       "byte_range": [
-        3070,
-        3445
+        3064,
+        3439
       ],
       "sha256": "89b3e711cf9a1187e181e32e73a2d72b9aec85f11fe376e96ce40b8b595b07e1",
       "bytes": 375,
@@ -93,8 +93,8 @@
       "tags": [],
       "content_ref": "docs/resources/README.md",
       "byte_range": [
-        3445,
-        3645
+        3439,
+        3639
       ],
       "sha256": "9741c475837a7534f127a6cfc9069c03a06f81990c2c5501b39aea97315a22ba",
       "bytes": 200,

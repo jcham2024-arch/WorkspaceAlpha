@@ -20,7 +20,7 @@
    references on demand (one level deep). This is what makes a
    3,518-skill library affordable.
 3. **Master vs. active**: `.agent/skills/` is the complete master
-   library. `.agent/harness/skills/` is only the *currently-used* set,
+   library. `.harness/skills/` is only the *currently-used* set,
    provisioned per active profile. Skills never load wholesale.
 4. **Single-owner skills**: each skill belongs to exactly one
    provisioning role in practice; producer/consumer pairs are
@@ -55,7 +55,7 @@
 ├── .wiki/                 ← render pipeline (seed/build/index.html)
 │                             + agent.md (wiki production guide)
 ├── skills/index.json      ← slim skills router
-├── .agent/harness/skills/       ← currently-used skills (untracked)
+├── .harness/skills/       ← currently-used skills (untracked)
 ├── .agent/                ← ALL agent resources (gitignored)
 │   ├── agent.md           ← runtime root guide
 │   ├── skills/            ← master library (3,518 skills)
@@ -86,7 +86,7 @@ python3 validate.py      # PASS/FAIL + token budget
 Then regenerate small artifacts:
 ```
 python3 .agent/tools/gen_skills_index.py    # skills/index.json
-python3 .agent/tools/provision.py --profile conceptualizer
+python3 .harness/sync_active.py --profile conceptualizer
 ```
 
 Graphs stay section-addressed (`byte_range`), hashed (`sha256`),
