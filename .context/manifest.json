@@ -94,11 +94,11 @@
       "content_ref": "docs/resources/README.md",
       "byte_range": [
         3435,
-        3636
+        3635
       ],
-      "sha256": "2fb4f74c470e8dc1ef7c0d4334b715e444158edbdee1175fb947fd2b76fea148",
-      "bytes": 201,
-      "est_tokens": 51
+      "sha256": "9741c475837a7534f127a6cfc9069c03a06f81990c2c5501b39aea97315a22ba",
+      "bytes": 200,
+      "est_tokens": 50
     },
     {
       "id": "docs/resources/project-management.md::project-management-skills-shortlist",

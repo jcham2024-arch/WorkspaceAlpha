@@ -114,14 +114,14 @@ dictates what gets provisioned from `.agent/skills/` into
 conceptualizer and taskmaster; specialists: coder, researcher,
 reviewer; plus three domain managers) each carry a skills list
 plus top-of-line role instructions; sub-profiles refine them later.
-`.agent/` is gitignored (local example); `.agent/README.md`
+`.agent/` is gitignored (local example); `.agent/agent.md`
 documents the §9 contract.
 
 | Path | Purpose |
 |---|---|
 | `.agent/skills/<name>/SKILL.md` | Master skill library (3,520: 57 curated + 3,463 imported) |
 | `.agent/tools/provision.py` | Profile → `.harness/skills/` sync |
-| `.agent/mcp/server.py` | MCP server (stdlib JSON-RPC stdio) |
+| `.agent/tools/mcp/server.py` | MCP server (stdlib JSON-RPC stdio) |
 | `.agent/tools/context.py` | compile_context / read_section core |
 | `.agent/profiles/*.md` | Specialized agents — human-facing conceptualizer ↔ protocol ↔ subagent-facing taskmaster (incl. planning + supervision), then coder, researcher, reviewer, plus research-manager, coding-manager, review-manager |
 | `.agent/.env` | Keys (gitignored; template `.env.example`) |

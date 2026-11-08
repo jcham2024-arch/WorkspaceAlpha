@@ -72,4 +72,4 @@ Integrity findings
 
 .agent/ holds the agent-side runtime: resources/, tools/, and mcp/.
 They consume .context/manifest.json and never write it.
-Keys live in .agent/.env (gitignored). See .agent/README.md.
+Keys live in .agent/.env (gitignored). See .agent/agent.md.
