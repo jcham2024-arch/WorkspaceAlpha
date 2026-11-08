@@ -100,7 +100,7 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
   </div>
 </section>
 
-<section id="docs/resources/README.md::provenance" data-sha256="bccdd820f0f574b9f200633ac95871331fa1c2c698c63821264a834dca0a5393">
+<section id="docs/resources/README.md::provenance" data-sha256="3e89dc3fea9a96d723c547709c54cecc2f5dfe49d79af47316369d3044943c4f">
   <div class="node-meta">
     <span class="badge">doc</span>
     <span class="ref">docs/resources/README.md</span>
@@ -108,7 +108,7 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
   <h2>docs/resources/README.md::provenance</h2>
   <p class="summary">Provenance</p>
   <div class="content"><h2>Provenance</h2>
-<p>The dump aggregates 13 buckets (see .archive/Agentsandskills/agent.md and .archive/Agentsandskills/AgentSkills/DATABASE.md for the full inventory, which is stale — counts disagree across files, by-source/ lists only 6 of 13 buckets, harness-skills-names.txt lists 28 of 60 installed). Every SKILL.md keeps original frontmatter; nothing here is rewritten.</p>
+<p>The dump aggregates 13 buckets (see .archive/Agentsandskills/agent.md and .archive/Agentsandskills/AgentSkills/DATABASE.md for the full inventory, which is stale — counts disagree across files, by-source/ lists only 6 of 13 buckets, harness-skills-names.txt lists 28 of 60 installed). Every SKILL.md keeps original frontmatter; nothing here is rewritten. (The dump&#x27;s OVERLAPS/INSTALLATION/DATABASE files are no longer present post-clear; treat as historical notes.)</p>
 <p>Why is the dump not indexed?</p>
 <p>- 136M of 150M is dump/agentic-awesome-skills (2,947 skills), with uniform frontmatter but no per-skill quality signal. Auto-ingesting it would swamp the router (3,509 nodes, most low-signal) and break the 150-line AGENTS.md token budget. - Bulk install is prohibited by OVERLAPS.md / INSTALLATION.md. Install one skill at a time, diff it first. - Trust spread: security-offensive skills (active-directory-attacks, windows-privilege-escalation, apk-reverse, XSS, api-fuzzing) carry risk: offensive/critical and impose their own confirmation gates. Never auto-install security skills, x402 (USDC payments, installed copy included), or any skill with executable scripts/ without review — scripts ship unsigned. - License field is inconsistent (MIT in some, absent in others); external GitHub URL dependencies exist (e.g. aws-skills router).</p>
 <p>Integrity findings</p>

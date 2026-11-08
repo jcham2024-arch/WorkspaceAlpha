@@ -52,11 +52,11 @@
       "content_ref": "docs/resources/README.md",
       "byte_range": [
         452,
-        2379
+        2490
       ],
-      "sha256": "bccdd820f0f574b9f200633ac95871331fa1c2c698c63821264a834dca0a5393",
-      "bytes": 1927,
-      "est_tokens": 482
+      "sha256": "3e89dc3fea9a96d723c547709c54cecc2f5dfe49d79af47316369d3044943c4f",
+      "bytes": 2038,
+      "est_tokens": 510
     },
     {
       "id": "docs/resources/README.md::how-to-use-the-master-library",
@@ -65,8 +65,8 @@
       "tags": [],
       "content_ref": "docs/resources/README.md",
       "byte_range": [
-        2379,
-        2949
+        2490,
+        3060
       ],
       "sha256": "0ec9592953a085b0ffa5832f72eaeb6698c42ceaa0ab8ca26a53625dfc814209",
       "bytes": 570,
@@ -79,8 +79,8 @@
       "tags": [],
       "content_ref": "docs/resources/README.md",
       "byte_range": [
-        2949,
-        3324
+        3060,
+        3435
       ],
       "sha256": "89b3e711cf9a1187e181e32e73a2d72b9aec85f11fe376e96ce40b8b595b07e1",
       "bytes": 375,
@@ -93,8 +93,8 @@
       "tags": [],
       "content_ref": "docs/resources/README.md",
       "byte_range": [
-        3324,
-        3525
+        3435,
+        3636
       ],
       "sha256": "2fb4f74c470e8dc1ef7c0d4334b715e444158edbdee1175fb947fd2b76fea148",
       "bytes": 201,

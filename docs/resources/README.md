@@ -15,7 +15,8 @@ and .archive/Agentsandskills/AgentSkills/DATABASE.md for the full
 inventory, which is stale — counts disagree across files, by-source/
 lists only 6 of 13 buckets, harness-skills-names.txt lists 28 of 60
 installed). Every SKILL.md keeps original frontmatter; nothing here
-is rewritten.
+is rewritten. (The dump's OVERLAPS/INSTALLATION/DATABASE files are
+no longer present post-clear; treat as historical notes.)
 
 Why is the dump not indexed?
 

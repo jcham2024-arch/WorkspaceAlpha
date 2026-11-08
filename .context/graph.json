@@ -41,7 +41,7 @@
       "content_ref": "docs/resources/README.md",
       "byte_range": [
         452,
-        2379
+        2490
       ],
       "tags": []
     },
@@ -51,8 +51,8 @@
       "summary": "How to use the master library",
       "content_ref": "docs/resources/README.md",
       "byte_range": [
-        2379,
-        2949
+        2490,
+        3060
       ],
       "tags": []
     },
@@ -62,8 +62,8 @@
       "summary": "Buckets (rough size)",
       "content_ref": "docs/resources/README.md",
       "byte_range": [
-        2949,
-        3324
+        3060,
+        3435
       ],
       "tags": []
     },
@@ -73,8 +73,8 @@
       "summary": "Agent layer",
       "content_ref": "docs/resources/README.md",
       "byte_range": [
-        3324,
-        3525
+        3435,
+        3636
       ],
       "tags": []
     },
