@@ -24,12 +24,14 @@
 
 - .agent/agent.md: agent runtime design (environment, roles,
   commands, rules).
-- .agent/profiles/: 8 specialized agents — conceptualizer (human-
+- .agent/profiles/: 9 specialized agents — conceptualizer (human-
   facing; owns all human communication) ↔ protocol.md ↔ taskmaster
   (subagent-facing; owns all subagent communication incl. internal
   planning + supervision), then coder, researcher, reviewer, plus
   research-manager, coding-manager, review-manager (decompose tasks
-  into minimal-context steps for implementers; package results back).
+  into minimal-context steps for implementers; package results back),
+  and wiki-producer (expands the LLM system into human HTML;
+  matched from .wiki/agent.md).
   Matcher in profiles/README.md. Each carries a skills list plus
   top-of-line role instructions; sub-profiles refine them later.
 - AGENTS.md/llms.txt: ../

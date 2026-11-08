@@ -21,7 +21,8 @@ absorbed into the master and cleared.
 | `wiki/` | Generated human wiki (never hand-edit) |
 | `.harness/skills/` | Currently-used set — provisioned per active profile |
 | `skills/index.json` | Slim skills router (name + description + path) |
-| `.agent/` | Agent runtime: master skills (3,520), 8 profiles (human-facing conceptualizer ↔ protocol ↔ subagent-facing taskmaster, coder, researcher, reviewer, + 3 domain managers), tools, provisioner, mcp/, .env (gitignored) |
+| `.agent/` | Agent runtime: master skills (3,520), 9 profiles (human-facing conceptualizer ↔ protocol ↔ subagent-facing taskmaster, coder, researcher, reviewer, + 3 domain managers, + wiki-producer), tools, provisioner, mcp/, .env (gitignored) |
+| `.wiki/` | Render pipeline: seed.py + build.py + index.html, and `.wiki/agent.md` (wiki production guide) |
 | `.archive/` | Cleared after full import (gitignored) |
 | `01-navigate/` … `04-verify/` | ICM stage folders (+ output contracts) |
 | `validate.py` · `.githooks/` | Step-6 check + pre-commit hook |
