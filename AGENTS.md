@@ -59,6 +59,8 @@ python3 .wiki/seed.py   # docs/ → graph.json (idempotent, preserves valid edge
 python3 .wiki/build.py  # graph.json → manifest.json + .wiki/index.html
 python3 validate.py # §3 Step-6 check (also pre-commit hook)
 python3 .harness/gen_skills_index.py   # after skill changes
+python3 .agent/tools/audit.py         # skill schema compliance (exit 1 on failure)
+python3 .agent/tools/run.py build      # all of the above in one command
 ```
 
 ## 7. What lives where

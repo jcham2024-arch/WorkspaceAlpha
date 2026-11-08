@@ -165,7 +165,7 @@ For **loading a new skill** (from any source):
 
 1. **Audit** — frontmatter present? name == folder? description
    ≤ 60 words (third person, what + when)? body ≤ 500 lines?
-   (see `audit_format.py` counts; fixes needed for non-conformers).
+   (see `.agent/tools/audit.py` for the compliance counts; fixes needed for non-conformers).
 2. **Conforms?** → wrap reference files in the standard header
    (content verbatim); trim bodies to the checklist/workflow-only
    shape; reset name mismatches to the folder name (suffixed
