@@ -19,7 +19,7 @@
 
 - .harness/skills/: currently-used set — provisioned per active profile.
 - skills/index.json: slim router (name + description + path only).
-- .archive/Agentsandskills/: raw archive (686M, NOT indexed, gitignored).
+- .archive/Agentsandskills/: cleared after full import (now empty).
 
 ## Agent layer
 

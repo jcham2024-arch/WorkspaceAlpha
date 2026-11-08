@@ -85,8 +85,8 @@ profile (default: conceptualizer, 4 skills). Master library lives at
 one with skill_view(name="...") after provisioning it.
 The slim router is `skills/index.json` (name + description + path
 only — never add descriptions to the docs manifest). Archive
-provenance/trust rules are in `docs/resources/README.md` (the 686M
-dump under `.archive/` is NOT indexed; install one skill at a time).
+provenance/trust rules are in `docs/resources/README.md` (archive
+absorbed and cleared after full import; bulk-install is prohibited).
 
 | Path | Purpose |
 |---|---|

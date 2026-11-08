@@ -3,9 +3,10 @@
 An offline, DAG-routed documentation workspace for agentic coding.
 Two surfaces compiled from one canonical graph (`.context/graph.json`):
 an offline HTML wiki for humans (`wiki/index.html`) and a token-efficient
-router for agents (`AGENTS.md` + `.context/manifest.json`). Curated
-agent skills (57) and a small MCP runtime layer sit on top; the 686M
-raw skill archive is quarantined out of tree.
+router for agents (`AGENTS.md` + `.context/manifest.json`). A 3,520-skill
+master library (`.agent/skills/`, categorized by task type/subtype)
+and a small MCP runtime layer sit on top; the 686M raw archive was
+absorbed into the master and cleared.
 
 ## Layout
 
@@ -21,7 +22,7 @@ raw skill archive is quarantined out of tree.
 | `.harness/skills/` | Currently-used set — provisioned per active profile |
 | `skills/index.json` | Slim skills router (name + description + path) |
 | `.agent/` | Agent runtime: master skills (3,520), 8 profiles (human-facing conceptualizer ↔ protocol ↔ subagent-facing taskmaster, coder, researcher, reviewer, + 3 domain managers), tools, provisioner, mcp/, .env (gitignored) |
-| `.archive/` | Raw 686M archive (gitignored, never indexed) |
+| `.archive/` | Cleared after full import (gitignored) |
 | `01-navigate/` … `04-verify/` | ICM stage folders (+ output contracts) |
 | `validate.py` · `.githooks/` | Step-6 check + pre-commit hook |
 | `memory/learnings.md` | Persistent learnings (append post-session) |
@@ -45,5 +46,6 @@ verified; zero external dependencies at build time.
   descriptions are load-bearing (progressive disclosure Layer 1).
 - Secrets live only in `.agent/.env` (gitignored); `.env.example` is the
   committed template.
-- The `.archive/` dump is never indexed or bulk-installed; copy one
-  confirmed skill at a time.
+- The master library (3,520 skills) is categorized in
+  `.agent/skills/CATEGORIZATION.md`; the 47 broken sources are
+  quarantined in IMPORT_REPORT.md; bulk-installing is prohibited.
