@@ -3,6 +3,8 @@
 > Offline, DAG-routed documentation workspace: baselayer + 3,520-skill
 > master library + agent runtime layer. Python 3 stdlib only, no build
 > dependencies.
+>
+> Whole-system spec: `BOOTSTRAPPER.md` (system, structure, conventions).
 
 ## Router (agents read this first)
 

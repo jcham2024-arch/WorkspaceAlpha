@@ -133,6 +133,7 @@ documents the §9 contract.
 | `.agent/tools/context.py` | compile_context / read_section core |
 | `.agent/profiles/*.md` | Specialized agents — human-facing conceptualizer ↔ protocol ↔ subagent-facing taskmaster (incl. planning + supervision), then coder, researcher, reviewer, plus research-manager, coding-manager, review-manager, and wiki-producer (human HTML production, matched from `.wiki/agent.md`) |
 | `.agent/.env` | Keys (gitignored; template `.env.example`) |
+| `BOOTSTRAPPER.md` | Whole-system build spec (system, structure, conventions, skill lifecycle) |
 
 Match each task to a profile in `.agent/profiles/README.md` and
 state the match in the reply. Workflow stages are numbered folders:

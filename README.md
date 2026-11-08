@@ -13,6 +13,7 @@ absorbed into the master and cleared.
 | Path | Purpose |
 |---|---|
 | `AGENTS.md` | Agent router (read first) |
+| `BOOTSTRAPPER.md` | Whole-system build spec (current system, structure, conventions) |
 | `llms.txt` | Machine-readable map of the tree |
 | `Baselayer.md` | Bootstrap spec (input, input only) |
 | `seed.py` / `build.py` (.wiki/) | Compiler: docs/ → graph → manifest + wiki |
