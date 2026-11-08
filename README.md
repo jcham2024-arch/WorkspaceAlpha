@@ -20,7 +20,7 @@ absorbed into the master and cleared.
 | `.context/` | graph.json (source of truth), manifest.json, index.md |
 | `docs/` | Baselayer-indexed docs (only tree seed scans) |
 | `wiki/` | Generated human wiki (never hand-edit) |
-| `.harness/skills/` | Currently-used set — provisioned per active profile |
+| `.agent/harness/skills/` | Currently-used set — provisioned per active profile |
 | `skills/index.json` | Slim skills router (name + description + path) |
 | `.agent/` | Agent runtime: master skills (3,520), 9 profiles (human-facing conceptualizer ↔ protocol ↔ subagent-facing taskmaster, coder, researcher, reviewer, + 3 domain managers, + wiki-producer), tools, provisioner, mcp/, .env (gitignored) |
 | `.wiki/` | Render pipeline: seed.py + build.py + index.html, and `.wiki/agent.md` (wiki production guide) |
@@ -34,7 +34,7 @@ absorbed into the master and cleared.
 ```bash
 python3 .wiki/seed.py   # docs/ → .context/graph.json (idempotent)
 python3 .wiki/build.py  # graph.json → manifest.json + .wiki/index.html
-python3 .harness/gen_skills_index.py   # after skill changes
+python3 .agent/tools/gen_skills_index.py   # after skill changes
 ```
 
 Validated by the §3 Step-6 script in `Baselayer.md`. Python 3.14

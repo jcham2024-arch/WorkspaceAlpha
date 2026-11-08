@@ -58,7 +58,7 @@ then run `python3 .wiki/seed.py && python3 .wiki/build.py`.
 python3 .wiki/seed.py   # docs/ → graph.json (idempotent, preserves valid edges)
 python3 .wiki/build.py  # graph.json → manifest.json + .wiki/index.html
 python3 validate.py # §3 Step-6 check (also pre-commit hook)
-python3 .harness/gen_skills_index.py   # after skill changes
+python3 .agent/tools/gen_skills_index.py   # after skill changes
 python3 .agent/tools/audit.py         # skill schema compliance (exit 1 on failure)
 python3 .agent/tools/run.py build      # all of the above in one command
 ```
@@ -73,7 +73,7 @@ python3 .agent/tools/run.py build      # all of the above in one command
 | `docs/` | Existing documentation — read via byte ranges only |
 | `.wiki/index.html` | Generated human wiki — do not edit |
 | `validate.py` | Step-6 validator (also wired as pre-commit hook) |
-| `.harness/skills/` | Currently-used set — provisioned per active profile |
+| `.agent/harness/skills/` | Currently-used set — provisioned per active profile |
 | `.agent/` | Agent runtime: master skills, 8 profiles, tools, MCP (gitignored) |
 | `.archive/` | Cleared after full import (gitignored) |
 | `01-navigate/` … `04-verify/` | ICM stage folders (+ output contracts) |
@@ -89,7 +89,7 @@ python3 .agent/tools/run.py build      # all of the above in one command
 
 ## 9. Skills
 
-`.harness/skills/` is the currently-used set, provisioned per active
+`.agent/harness/skills/` is the currently-used set, provisioned per active
 profile (default: conceptualizer, 4 skills). Master library lives at
 `.agent/skills/` (3,520 skills: 57 curated + 3,463 imported;
 categorized by task type/subtype/level/os in CATEGORIZATION.csv;
@@ -101,11 +101,11 @@ provenance/trust rules are in `docs/resources/README.md` (archive
 absorbed and cleared after full import; bulk-install is prohibited).
 
 | `.agent/skills/<name>/SKILL.md` | Master library (3,520 skills) |
-| `.harness/skills/<name>/SKILL.md` | Currently-used set (provisioned) |
+| `.agent/harness/skills/<name>/SKILL.md` | Currently-used set (provisioned) |
 | `skills/index.json` | Slim router (regen: `gen_skills_index.py`) |
 
 Provisioning: `python3 .agent/tools/provision.py --profile <name>`
-syncs `.harness/skills/` to the profile's declared skills.
+syncs `.agent/harness/skills/` to the profile's declared skills.
 
 Read `memory/learnings.md` at session start (knowledge detail in §10).
 
@@ -136,7 +136,7 @@ frontmatter `skills:` list decides what gets provisioned.
 | Path | Purpose |
 |---|---|
 | `.agent/skills/<name>/SKILL.md` | Master skill library (3,520: 57 curated + 3,463 imported) |
-| `.agent/tools/provision.py` | Profile → `.harness/skills/` sync |
+| `.agent/tools/provision.py` | Profile → `.agent/harness/skills/` sync |
 | `.agent/tools/mcp/server.py` | MCP server (stdlib JSON-RPC stdio) |
 | `.agent/tools/context.py` | compile_context / read_section core |
 | `.agent/profiles/*.md` | Specialized agents — human-facing conceptualizer ↔ protocol ↔ subagent-facing taskmaster (incl. planning + supervision), then coder, researcher, reviewer, plus research-manager, coding-manager, review-manager, and wiki-producer (human HTML production, matched from `.wiki/agent.md`) |

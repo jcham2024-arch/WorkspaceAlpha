@@ -52,7 +52,7 @@
       "content_ref": "docs/resources/README.md",
       "byte_range": [
         2490,
-        3060
+        3070
       ],
       "tags": []
     },
@@ -62,8 +62,8 @@
       "summary": "Buckets (rough size)",
       "content_ref": "docs/resources/README.md",
       "byte_range": [
-        3060,
-        3435
+        3070,
+        3445
       ],
       "tags": []
     },
@@ -73,8 +73,8 @@
       "summary": "Agent layer",
       "content_ref": "docs/resources/README.md",
       "byte_range": [
-        3435,
-        3635
+        3445,
+        3645
       ],
       "tags": []
     },

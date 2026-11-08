@@ -119,7 +119,7 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
   </div>
 </section>
 
-<section id="docs/resources/README.md::how-to-use-the-master-library" data-sha256="0ec9592953a085b0ffa5832f72eaeb6698c42ceaa0ab8ca26a53625dfc814209">
+<section id="docs/resources/README.md::how-to-use-the-master-library" data-sha256="02d6798bf4fd7cb5af4901b5f08bb19726feed0a6cc1fdfb80c3d64652bcb773">
   <div class="node-meta">
     <span class="badge">doc</span>
     <span class="ref">docs/resources/README.md</span>
@@ -127,7 +127,7 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
   <h2>docs/resources/README.md::how-to-use-the-master-library</h2>
   <p class="summary">How to use the master library</p>
   <div class="content"><h2>How to use the master library</h2>
-<p>1. Search .agent/skills/INDEX.csv (skill_name, source bucket, imported folder, risk, status) for a skill; skill-picker routes by task once provisioned. 2. Provision one confirmed skill at a time into .harness/skills/ via a profile&#x27;s frontmatter + provision.py; never bulk-copy. 3. Check OVERLAPS-derived names: imported duplicates live under <code>&lt;source&gt;__&lt;name&gt;</code>; the flat curated copy wins for the plain name. 4. Re-run python3 .harness/gen_skills_index.py to refresh skills/index.json after adding skills, then rebuild.</p></div>
+<p>1. Search .agent/skills/INDEX.csv (skill_name, source bucket, imported folder, risk, status) for a skill; skill-picker routes by task once provisioned. 2. Provision one confirmed skill at a time into .agent/harness/skills/ via a profile&#x27;s frontmatter + provision.py; never bulk-copy. 3. Check OVERLAPS-derived names: imported duplicates live under <code>&lt;source&gt;__&lt;name&gt;</code>; the flat curated copy wins for the plain name. 4. Re-run python3 .agent/tools/gen_skills_index.py to refresh skills/index.json after adding skills, then rebuild.</p></div>
   <div class="edges">
     <div><strong>requires</strong><br><em>none</em></div>
     <div><strong>required by</strong><br><em>none</em></div>

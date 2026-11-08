@@ -18,7 +18,7 @@
 
 ## Skills
 
-- .harness/skills/: currently-used set — provisioned per active profile.
+- .agent/harness/skills/: currently-used set — provisioned per active profile.
 - skills/index.json: slim router (name + description + path only).
 - .archive/Agentsandskills/: cleared after full import (now empty).
 
@@ -42,7 +42,7 @@
   type/subtype/level/os; platform variants in PLATFORMS.md +
   platforms/{android,windows,linux,mac}/; profiles provision
   by category).
-- .agent/tools/provision.py: syncs profile skills → .harness/skills/
+- .agent/tools/provision.py: syncs profile skills → .agent/harness/skills/
   (currently-used set). Run for a profile to activate it.
 - .agent/tools/mcp/server.py: MCP server (compile_context, read_section)
   with per-profile tool allowlists in .agent/tools/mcp/mcp.json.
@@ -54,7 +54,7 @@
 ```
 python3 .wiki/seed.py  # docs/ -> .context/graph.json
 python3 .wiki/build.py # graph.json -> manifest.json + .wiki/index.html
-python3 .harness/gen_skills_index.py   # after skill changes
+python3 .agent/tools/gen_skills_index.py   # after skill changes
 ```
 
 ## Stages (ICM)
