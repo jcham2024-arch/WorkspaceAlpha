@@ -139,7 +139,7 @@ frontmatter `skills:` list decides what gets provisioned.
 | `.agent/tools/run.py` | Pipeline runner (`build`, `validate`, `categorize`, `provision`, `audit`) |
 | `.agent/tools/mcp/server.py` | MCP server (stdlib JSON-RPC stdio; `context.py` core) |
 | `.agent/profiles/*.md` | Specialized agents — human-facing conceptualizer ↔ protocol ↔ subagent-facing taskmaster (incl. planning + supervision), then coder, researcher, reviewer, plus research-manager, coding-manager, review-manager, and wiki-producer (human HTML production, matched from `.wiki/agent.md`) |
-| `.agent/agents.json` + `models.json` | Machine registry (generated) + model-tier gateway |
+| `.agent/agents.json` + `models.json` | Machine registry (generated) + model-tier gateway + AgentCard exports + releases (`.agent/tools/release.py`) |
 | `.agent/.env` | Keys (gitignored; template `.env.example`) |
 | `BOOTSTRAPPER.md` | Whole-system build spec (system, structure, conventions, skill lifecycle) |
 
