@@ -2,13 +2,90 @@
   "version": 1,
   "nodes": [
     {
-      "id": "docs/README.md::project-documentation",
+      "id": "docs/README.md::baselayer-workspace-project-documentation",
       "type": "doc",
-      "summary": "Project Documentation",
+      "summary": "Baselayer Workspace — Project Documentation",
       "content_ref": "docs/README.md",
       "byte_range": [
         0,
-        178
+        202
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::project-overview",
+      "type": "doc",
+      "summary": "Project Overview",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        202,
+        634
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::architecture",
+      "type": "doc",
+      "summary": "Architecture",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        634,
+        2712
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::conventions",
+      "type": "doc",
+      "summary": "Conventions",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        2712,
+        2728
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::documentation",
+      "type": "doc",
+      "summary": "Documentation",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        2728,
+        3049
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::skills",
+      "type": "doc",
+      "summary": "Skills",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        3049,
+        3348
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::agent-profiles",
+      "type": "doc",
+      "summary": "Agent Profiles",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        3348,
+        4125
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::communication-protocol",
+      "type": "doc",
+      "summary": "Communication Protocol",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        4125,
+        4389
       ],
       "tags": []
     },
@@ -18,8 +95,492 @@
       "summary": "Getting Started",
       "content_ref": "docs/README.md",
       "byte_range": [
-        178,
-        323
+        4389,
+        4409
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::prerequisites",
+      "type": "doc",
+      "summary": "Prerequisites",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        4409,
+        4555
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::initial-build",
+      "type": "doc",
+      "summary": "Initial Build",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        4555,
+        4582
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::full-pipeline",
+      "type": "doc",
+      "summary": "Full pipeline",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        4582,
+        4872
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::development-workflow",
+      "type": "doc",
+      "summary": "Development Workflow",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        4872,
+        5095
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::adding-a-skill",
+      "type": "doc",
+      "summary": "Adding a Skill",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        5095,
+        5123
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::1-create-skill-in-master-library",
+      "type": "doc",
+      "summary": "1. Create skill in master library",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        5123,
+        5191
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::write-agent-skills-my-skill-skill-md-with-frontmatter",
+      "type": "doc",
+      "summary": "Write .agent/skills/my-skill/SKILL.md with frontmatter",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        5191,
+        5249
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::2-categorize-task-type-subtype-level-os",
+      "type": "doc",
+      "summary": "2. Categorize (task type/subtype/level/OS)",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        5249,
+        5294
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::edit-agent-skills-categorization-csv",
+      "type": "doc",
+      "summary": "Edit .agent/skills/CATEGORIZATION.csv",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        5294,
+        5335
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::3-provision-to-active-profile",
+      "type": "doc",
+      "summary": "3. Provision to active profile",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        5335,
+        5368
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::edit-agent-profiles-profile-md-skills-list",
+      "type": "doc",
+      "summary": "Edit .agent/profiles/<profile>.md skills list",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        5368,
+        5469
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::4-regenerate-router",
+      "type": "doc",
+      "summary": "4. Regenerate router",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        5469,
+        5538
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::key-files-reference",
+      "type": "doc",
+      "summary": "Key Files Reference",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        5538,
+        6416
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::validation-rules-validate-py",
+      "type": "doc",
+      "summary": "Validation Rules (validate.py)",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        6416,
+        6908
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::memory-system",
+      "type": "doc",
+      "summary": "Memory System",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        6908,
+        7440
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/README.md::license",
+      "type": "doc",
+      "summary": "License",
+      "content_ref": "docs/README.md",
+      "byte_range": [
+        7440,
+        7605
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q1-rpo-rto.md::decision-q1-rpo-rto-targets-for-audit-persistence",
+      "type": "doc",
+      "summary": "Decision: Q1 — RPO/RTO Targets for Audit Persistence",
+      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
+      "byte_range": [
+        0,
+        58
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q1-rpo-rto.md::context",
+      "type": "doc",
+      "summary": "Context",
+      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
+      "byte_range": [
+        58,
+        291
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q1-rpo-rto.md::options-considered",
+      "type": "doc",
+      "summary": "Options Considered",
+      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
+      "byte_range": [
+        291,
+        707
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q1-rpo-rto.md::decision",
+      "type": "doc",
+      "summary": "Decision",
+      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
+      "byte_range": [
+        707,
+        1107
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q1-rpo-rto.md::configuration",
+      "type": "doc",
+      "summary": "Configuration",
+      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
+      "byte_range": [
+        1107,
+        1287
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q1-rpo-rto.md::rpo-rto-targets",
+      "type": "doc",
+      "summary": "RPO/RTO Targets",
+      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
+      "byte_range": [
+        1287,
+        1614
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q1-rpo-rto.md::validation",
+      "type": "doc",
+      "summary": "Validation",
+      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
+      "byte_range": [
+        1614,
+        1808
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q1-rpo-rto.md::links",
+      "type": "doc",
+      "summary": "Links",
+      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
+      "byte_range": [
+        1808,
+        2041
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::decision-q2-sqlite-synchronous-mode-benchmark",
+      "type": "doc",
+      "summary": "Decision: Q2 — SQLite Synchronous Mode Benchmark",
+      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
+      "byte_range": [
+        0,
+        54
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::context",
+      "type": "doc",
+      "summary": "Context",
+      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
+      "byte_range": [
+        54,
+        300
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::benchmark-setup",
+      "type": "doc",
+      "summary": "Benchmark Setup",
+      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
+      "byte_range": [
+        300,
+        526
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::results",
+      "type": "doc",
+      "summary": "Results",
+      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
+      "byte_range": [
+        526,
+        990
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::key-observations",
+      "type": "doc",
+      "summary": "Key Observations",
+      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
+      "byte_range": [
+        990,
+        1342
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::decision",
+      "type": "doc",
+      "summary": "Decision",
+      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
+      "byte_range": [
+        1342,
+        1644
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::configuration",
+      "type": "doc",
+      "summary": "Configuration",
+      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
+      "byte_range": [
+        1644,
+        1672
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::in-knowledge-py-sync",
+      "type": "doc",
+      "summary": "In knowledge.py sync()",
+      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
+      "byte_range": [
+        1672,
+        1866
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::validation-gate",
+      "type": "doc",
+      "summary": "Validation Gate",
+      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
+      "byte_range": [
+        1866,
+        2053
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::links",
+      "type": "doc",
+      "summary": "Links",
+      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
+      "byte_range": [
+        2053,
+        2297
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q3-key-rotation.md::decision-q3-key-storage-rotation-strategy-for-mcp-secrets",
+      "type": "doc",
+      "summary": "Decision: Q3 — Key Storage & Rotation Strategy for MCP Secrets",
+      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
+      "byte_range": [
+        0,
+        68
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q3-key-rotation.md::context",
+      "type": "doc",
+      "summary": "Context",
+      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
+      "byte_range": [
+        68,
+        324
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q3-key-rotation.md::threat-model",
+      "type": "doc",
+      "summary": "Threat Model",
+      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
+      "byte_range": [
+        324,
+        574
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q3-key-rotation.md::options-considered",
+      "type": "doc",
+      "summary": "Options Considered",
+      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
+      "byte_range": [
+        574,
+        1056
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q3-key-rotation.md::decision",
+      "type": "doc",
+      "summary": "Decision",
+      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
+      "byte_range": [
+        1056,
+        1519
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q3-key-rotation.md::current-implementation",
+      "type": "doc",
+      "summary": "Current Implementation",
+      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
+      "byte_range": [
+        1519,
+        1842
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q3-key-rotation.md::rotation-procedure-manual-v1",
+      "type": "doc",
+      "summary": "Rotation Procedure (Manual v1)",
+      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
+      "byte_range": [
+        1842,
+        2115
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q3-key-rotation.md::migration-path-v2-planned",
+      "type": "doc",
+      "summary": "Migration Path (v2 — Planned)",
+      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
+      "byte_range": [
+        2115,
+        2493
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q3-key-rotation.md::validation",
+      "type": "doc",
+      "summary": "Validation",
+      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
+      "byte_range": [
+        2493,
+        2743
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/contracts/decisions/Q3-key-rotation.md::links",
+      "type": "doc",
+      "summary": "Links",
+      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
+      "byte_range": [
+        2743,
+        3046
       ],
       "tags": []
     },
@@ -119,6 +680,237 @@
       "byte_range": [
         1071,
         1614
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/specs/README.md::specs-directory-readiness-table",
+      "type": "doc",
+      "summary": "Specs Directory — Readiness Table",
+      "content_ref": "docs/specs/README.md",
+      "byte_range": [
+        0,
+        230
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/specs/README.md::readiness-status",
+      "type": "doc",
+      "summary": "Readiness Status",
+      "content_ref": "docs/specs/README.md",
+      "byte_range": [
+        230,
+        955
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/specs/README.md::status-definitions",
+      "type": "doc",
+      "summary": "Status Definitions",
+      "content_ref": "docs/specs/README.md",
+      "byte_range": [
+        955,
+        1290
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/specs/README.md::governance",
+      "type": "doc",
+      "summary": "Governance",
+      "content_ref": "docs/specs/README.md",
+      "byte_range": [
+        1290,
+        1598
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/specs/README.md::cross-references",
+      "type": "doc",
+      "summary": "Cross-References",
+      "content_ref": "docs/specs/README.md",
+      "byte_range": [
+        1598,
+        1890
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/specs/audit-persistence-spec.md::audit-persistence-specification",
+      "type": "doc",
+      "summary": "Audit Persistence Specification",
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "byte_range": [
+        0,
+        35
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/specs/audit-persistence-spec.md::overview",
+      "type": "doc",
+      "summary": "Overview",
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "byte_range": [
+        35,
+        221
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/specs/audit-persistence-spec.md::requirements",
+      "type": "doc",
+      "summary": "Requirements",
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "byte_range": [
+        221,
+        238
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/specs/audit-persistence-spec.md::functional-requirements",
+      "type": "doc",
+      "summary": "Functional Requirements",
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "byte_range": [
+        238,
+        652
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/specs/audit-persistence-spec.md::non-functional-requirements",
+      "type": "doc",
+      "summary": "Non-Functional Requirements",
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "byte_range": [
+        652,
+        942
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/specs/audit-persistence-spec.md::data-model",
+      "type": "doc",
+      "summary": "Data Model",
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "byte_range": [
+        942,
+        1353
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/specs/audit-persistence-spec.md::storage-format",
+      "type": "doc",
+      "summary": "Storage Format",
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "byte_range": [
+        1353,
+        1372
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/specs/audit-persistence-spec.md::primary-sqlite-with-fts5",
+      "type": "doc",
+      "summary": "Primary: SQLite with FTS5",
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "byte_range": [
+        1372,
+        1624
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/specs/audit-persistence-spec.md::secondary-daily-jsonl-export",
+      "type": "doc",
+      "summary": "Secondary: Daily JSONL (export)",
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "byte_range": [
+        1624,
+        1759
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/specs/audit-persistence-spec.md::governance",
+      "type": "doc",
+      "summary": "Governance",
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "byte_range": [
+        1759,
+        1774
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/specs/audit-persistence-spec.md::write-path",
+      "type": "doc",
+      "summary": "Write Path",
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "byte_range": [
+        1774,
+        2022
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/specs/audit-persistence-spec.md::read-path",
+      "type": "doc",
+      "summary": "Read Path",
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "byte_range": [
+        2022,
+        2221
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/specs/audit-persistence-spec.md::access-control",
+      "type": "doc",
+      "summary": "Access Control",
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "byte_range": [
+        2221,
+        2403
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/specs/audit-persistence-spec.md::configuration",
+      "type": "doc",
+      "summary": "Configuration",
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "byte_range": [
+        2403,
+        2591
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/specs/audit-persistence-spec.md::migration-strategy",
+      "type": "doc",
+      "summary": "Migration Strategy",
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "byte_range": [
+        2591,
+        2836
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/specs/audit-persistence-spec.md::testing",
+      "type": "doc",
+      "summary": "Testing",
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "byte_range": [
+        2836,
+        3235
       ],
       "tags": []
     }
