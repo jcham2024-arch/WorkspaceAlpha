@@ -10,6 +10,16 @@
       ]
     },
     {
+      "date": "2026-11-10",
+      "kind": "work",
+      "title": "Bootstrap project specs, decisions, and open questions",
+      "tags": [
+        "spec",
+        "decision",
+        "bootstrap"
+      ]
+    },
+    {
       "date": "2026-11-07",
       "kind": "error",
       "title": ".agent/skills holds broken \"404: Not Found\" copies",
@@ -37,5 +47,5 @@
       ]
     }
   ],
-  "count": 4
+  "count": 5
 }

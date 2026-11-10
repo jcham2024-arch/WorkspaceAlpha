@@ -90,6 +90,30 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
 <a class="nav-item" href="#docs/contracts/decisions/Q3-key-rotation.md::rotation-procedure-manual-v1">Rotation Procedure (Manual v1)</a>
 <a class="nav-item" href="#docs/contracts/decisions/Q3-key-rotation.md::threat-model">Threat Model</a>
 <a class="nav-item" href="#docs/contracts/decisions/Q3-key-rotation.md::validation">Validation</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q4-skill-categorization-stability.md::approver">Approver</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q4-skill-categorization-stability.md::chosen-value">Chosen Value</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q4-skill-categorization-stability.md::constraint-on-future-specs">Constraint on Future Specs</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q4-skill-categorization-stability.md::decision-q4-skill-categorization-schema-stability-guarantee">Decision: Q4 — Skill Categorization Schema Stability Guarant</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q4-skill-categorization-stability.md::evidence">Evidence</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q4-skill-categorization-stability.md::links">Links</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q4-skill-categorization-stability.md::question">Question</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q4-skill-categorization-stability.md::rationale">Rationale</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q5-wiki-render-pipeline.md::approver">Approver</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q5-wiki-render-pipeline.md::chosen-value">Chosen Value</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q5-wiki-render-pipeline.md::constraint-on-future-specs">Constraint on Future Specs</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q5-wiki-render-pipeline.md::decision-q5-wiki-render-pipeline-incremental-vs-full-rebuild">Decision: Q5 — Wiki Render Pipeline: Incremental vs Full Reb</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q5-wiki-render-pipeline.md::evidence">Evidence</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q5-wiki-render-pipeline.md::links">Links</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q5-wiki-render-pipeline.md::question">Question</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q5-wiki-render-pipeline.md::rationale">Rationale</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q6-profile-provisioning.md::approver">Approver</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q6-profile-provisioning.md::chosen-value">Chosen Value</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q6-profile-provisioning.md::constraint-on-future-specs">Constraint on Future Specs</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q6-profile-provisioning.md::decision-q6-profile-provisioning-dynamic-vs-static-skill-lists">Decision: Q6 — Profile Provisioning: Dynamic vs Static Skill</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q6-profile-provisioning.md::evidence">Evidence</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q6-profile-provisioning.md::links">Links</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q6-profile-provisioning.md::question">Question</a>
+<a class="nav-item" href="#docs/contracts/decisions/Q6-profile-provisioning.md::rationale">Rationale</a>
 <a class="nav-item" href="#docs/resources/README.md::agent-layer">Agent layer</a>
 <a class="nav-item" href="#docs/resources/README.md::buckets-rough-size">Buckets (rough size)</a>
 <a class="nav-item" href="#docs/resources/README.md::how-to-use-the-master-library">How to use the master library</a>
@@ -967,6 +991,377 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
 <p>- Spec: <code>docs/specs/mcp-protocol-spec.md</code> (planned) - Tracking: <code>open-questions.md</code> (Q3) - Implementation: <code>.agent/tools/mcp/server.py</code>, <code>.agent/.env.example</code></p>
 <p>---</p>
 <p><em>Decision recorded 2026-11-09. Current: manual rotation via .env. v2 encryption planned for multi-user or networked scenarios.</em></p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q4-skill-categorization-stability.md::decision-q4-skill-categorization-schema-stability-guarantee" data-sha256="f83a91f3182394a7848f64f801432c195d35eb2e4f2813fe54927f6c9ee1417d">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q4-skill-categorization-stability.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q4-skill-categorization-stability.md::decision-q4-skill-categorization-schema-stability-guarantee</h2>
+  <p class="summary">Decision: Q4 — Skill Categorization Schema Stability Guarantee</p>
+  <div class="content"><h1>Decision: Q4 — Skill Categorization Schema Stability Guarantee</h1></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q4-skill-categorization-stability.md::question" data-sha256="48fe7d68ba7b9a9c6507f2c642f9986cdea245543cab8547bc94148efa2945ac">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q4-skill-categorization-stability.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q4-skill-categorization-stability.md::question</h2>
+  <p class="summary">Question</p>
+  <div class="content"><h2>Question</h2>
+<p>What stability guarantees does the skill categorization schema provide? Can categories, subtypes, levels, or OS variants be added/removed/renamed without breaking downstream tooling (provisioning, skill picker, index generation)?</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q4-skill-categorization-stability.md::chosen-value" data-sha256="7593107a4d5775a6ead0c5864bda46bd86f4f87f42e0c02ad339d8c5c835acec">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q4-skill-categorization-stability.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q4-skill-categorization-stability.md::chosen-value</h2>
+  <p class="summary">Chosen Value</p>
+  <div class="content"><h2>Chosen Value</h2>
+<p><strong>Schema versioning with additive-only changes to the canonical CSV.</strong> The categorization schema (<code>CATEGORIZATION.csv</code> in <code>.agent/skills/</code>) is versioned. Only additive changes (new categories, subtypes, levels, OS values) are permitted without a major version bump. Renaming or removing existing values requires a major version increment and a migration plan.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q4-skill-categorization-stability.md::approver" data-sha256="0b7e50aea1f312783771135b249f2357a5c930c854c724f885ec1f6640cbac42">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q4-skill-categorization-stability.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q4-skill-categorization-stability.md::approver</h2>
+  <p class="summary">Approver</p>
+  <div class="content"><h2>Approver</h2>
+<p>taskmaster (orchestration), conceptualizer (human-facing) — 2026-11-10</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q4-skill-categorization-stability.md::evidence" data-sha256="e7f0eb40d0cc99ccd4096046e1969582387be1b3cf6a7bbd77cf2bcb7cb41b52">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q4-skill-categorization-stability.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q4-skill-categorization-stability.md::evidence</h2>
+  <p class="summary">Evidence</p>
+  <div class="content"><h2>Evidence</h2>
+<p>- Current categorization: 3,520 skills across 57 curated + 3,463 imported - Categories: task_type (12), task_subtype (47), level (4), os (5: cross/android/windows/linux/mac) - Provisioning script (<code>.harness/sync_active.py</code>) reads CSV columns by name - Skill picker and index generator depend on column presence - Python CSV <code>DictReader</code> tolerates extra columns but fails on missing columns</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q4-skill-categorization-stability.md::rationale" data-sha256="03985200de8940926fc9aa12c0e23a6c8b429632bde393d3380240acd7579392">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q4-skill-categorization-stability.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q4-skill-categorization-stability.md::rationale</h2>
+  <p class="summary">Rationale</p>
+  <div class="content"><h2>Rationale</h2>
+<p>The categorization schema is a <strong>contract between the master library and the provisioning pipeline</strong>. Downstream consumers (provisioning, skill picker, index generator, audit tool) read the CSV by column name. Industry practice for such contracts:</p>
+<p>1. <strong>Additive changes are safe</strong> — new enum values don&#x27;t break readers 2. <strong>Renames/removals are breaking</strong> — readers reference values by string 3. <strong>Versioning signals intent</strong> — major version = breaking change, minor = additive 4. <strong>Migration tooling required for breaking changes</strong> — not optional</p>
+<p>This mirrors semantic versioning for data contracts (cf. Protobuf, Avro, JSON Schema evolution rules).</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q4-skill-categorization-stability.md::constraint-on-future-specs" data-sha256="98ba558e2897818c76a63acf8fcaffb3e6fcfb79a77b9b5c2af833b9ffbf22cd">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q4-skill-categorization-stability.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q4-skill-categorization-stability.md::constraint-on-future-specs</h2>
+  <p class="summary">Constraint on Future Specs</p>
+  <div class="content"><h2>Constraint on Future Specs</h2>
+<p>- <strong>Forbidden</strong>: Removing or renaming any value in <code>task_type</code>, <code>task_subtype</code>, <code>level</code>, or <code>os</code> columns without a major version bump and migration script - <strong>Required</strong>: New categories/subtypes/levels/OS values must be documented in the CSV header comment with addition date - <strong>Required</strong>: <code>skill_manage</code> create/patch must validate against current schema version before accepting a skill - <strong>Required</strong>: Provisioning script must log a warning (not fail) on unknown enum values to allow forward compatibility</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q4-skill-categorization-stability.md::links" data-sha256="2dd11e8ad6b8d1529cd4c7c092820482ca8f3271ee2c008344dcd7388e91dc4f">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q4-skill-categorization-stability.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q4-skill-categorization-stability.md::links</h2>
+  <p class="summary">Links</p>
+  <div class="content"><h2>Links</h2>
+<p>- Spec: <code>docs/specs/skill-lifecycle-spec.md</code> (planned) - Tracking: <code>open-questions.md</code> (Q4) - Implementation: <code>.agent/skills/CATEGORIZATION.csv</code>, <code>.harness/sync_active.py</code>, <code>.agent/tools/gen_skills_index.py</code></p>
+<p>---</p>
+<p><em>Decision recorded 2026-11-10. Schema version starts at v1.0.0 (current).</em></p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q5-wiki-render-pipeline.md::decision-q5-wiki-render-pipeline-incremental-vs-full-rebuild" data-sha256="65879a6a9e52acc15acf125a5a95fd1e38205048414628194ca74e3c002b0231">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q5-wiki-render-pipeline.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q5-wiki-render-pipeline.md::decision-q5-wiki-render-pipeline-incremental-vs-full-rebuild</h2>
+  <p class="summary">Decision: Q5 — Wiki Render Pipeline: Incremental vs Full Rebuild</p>
+  <div class="content"><h1>Decision: Q5 — Wiki Render Pipeline: Incremental vs Full Rebuild</h1></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q5-wiki-render-pipeline.md::question" data-sha256="05d30256e8a23142b60d79f9c0300d3e7ce23a3dc61adcdf2257eb393c716d74">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q5-wiki-render-pipeline.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q5-wiki-render-pipeline.md::question</h2>
+  <p class="summary">Question</p>
+  <div class="content"><h2>Question</h2>
+<p>Should the wiki render pipeline (<code>.wiki/seed.py</code> → <code>.wiki/build.py</code>) support incremental rebuilds (only changed files) or always perform full rebuilds? What are the performance and correctness trade-offs?</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q5-wiki-render-pipeline.md::chosen-value" data-sha256="4ffbdb0a2ce77d85786e014f64f8b778be6bd80c6956e1fcc32280a78dad6122">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q5-wiki-render-pipeline.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q5-wiki-render-pipeline.md::chosen-value</h2>
+  <p class="summary">Chosen Value</p>
+  <div class="content"><h2>Chosen Value</h2>
+<p><strong>Full rebuild by default; incremental as an opt-in optimization behind a flag.</strong> The canonical pipeline runs full rebuilds (<code>seed.py</code> scans all <code>docs/</code>, <code>build.py</code> regenerates entire <code>manifest.json</code> and <code>wiki/index.html</code>). An incremental mode (<code>--incremental</code>) may be added later for development speed, gated by content-hash comparison.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q5-wiki-render-pipeline.md::approver" data-sha256="2ca0606bc2572690d1c2021a2b90cbb01949c68bf5e86c7c33e8bea7da45e1ea">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q5-wiki-render-pipeline.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q5-wiki-render-pipeline.md::approver</h2>
+  <p class="summary">Approver</p>
+  <div class="content"><h2>Approver</h2>
+<p>wiki-producer (HTML production), taskmaster (orchestration) — 2026-11-10</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q5-wiki-render-pipeline.md::evidence" data-sha256="f319c44f56b688230b357a20530a57f2dabeaa8bf1f758eeee71f2fafefac8ba">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q5-wiki-render-pipeline.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q5-wiki-render-pipeline.md::evidence</h2>
+  <p class="summary">Evidence</p>
+  <div class="content"><h2>Evidence</h2>
+<p>- Current <code>seed.py</code>: walks <code>docs/</code>, parses every <code>.md</code>, extracts sections, writes <code>graph.json</code> (83 nodes, ~15KB) - Current <code>build.py</code>: reads <code>graph.json</code>, generates <code>manifest.json</code> + <code>wiki/index.html</code> (~88KB) - Full rebuild time: ~0.7s total (seed: 0.3s, build: 0.4s) on Android 17 device - <code>docs/</code> size: ~15 files, ~15KB total markdown - No external dependencies; pure Python 3.14 stdlib - <code>validate.py</code> validates entire graph/manifest/wiki consistency</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q5-wiki-render-pipeline.md::rationale" data-sha256="51a0da90b6761ad137c3b33d950acaf28f56772e12891c073e18fda6c08f5879">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q5-wiki-render-pipeline.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q5-wiki-render-pipeline.md::rationale</h2>
+  <p class="summary">Rationale</p>
+  <div class="content"><h2>Rationale</h2>
+<p>Industry baselines for static site generators and documentation pipelines:</p>
+<p>| Approach | Examples | Trade-off | |----------|----------|-----------| | <strong>Full rebuild</strong> | Sphinx, MkDocs (default), Hugo, Jekyll | Simple, correct, fast enough for small corpora | | <strong>Incremental</strong> | VitePress, Next.js, Astro | Complex cache invalidation, risk of stale output | | <strong>Hybrid</strong> | MkDocs <code>--dirtyreload</code>, Sphinx <code>-j auto</code> | Opt-in, development only |</p>
+<p>For our corpus (15 files, &lt;1s rebuild), <strong>full rebuild is correct by default</strong>. The complexity of incremental (file watching, hash tracking, partial graph merge, partial HTML rewrite) is not justified. Incremental can be added later as <code>--incremental</code> flag using SHA-256 content hashes already stored in <code>graph.json</code> nodes.</p>
+<p>Key principle: <strong>Correctness over speed for the canonical pipeline</strong>. The build is fast enough that incremental optimization is premature.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q5-wiki-render-pipeline.md::constraint-on-future-specs" data-sha256="bc92f62a4a369e05c9f1ed0c4c0c40a6bc925a3762196cdd1c0d45ecea3d27b0">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q5-wiki-render-pipeline.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q5-wiki-render-pipeline.md::constraint-on-future-specs</h2>
+  <p class="summary">Constraint on Future Specs</p>
+  <div class="content"><h2>Constraint on Future Specs</h2>
+<p>- <strong>Forbidden</strong>: Making incremental the default or only mode - <strong>Required</strong>: Full rebuild must always produce bit-for-bit identical output given same input - <strong>Required</strong>: If incremental mode added, it must pass <code>validate.py</code> with identical results to full rebuild - <strong>Required</strong>: <code>validate.py</code> remains the source of truth for correctness; no incremental-only validation path</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q5-wiki-render-pipeline.md::links" data-sha256="a6da59d5ffffffe25b8827eff5711e5f25eb541a99d64a548a436956a543b3f6">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q5-wiki-render-pipeline.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q5-wiki-render-pipeline.md::links</h2>
+  <p class="summary">Links</p>
+  <div class="content"><h2>Links</h2>
+<p>- Spec: <code>docs/specs/wiki-render-spec.md</code> (planned) - Tracking: <code>open-questions.md</code> (Q5) - Implementation: <code>.wiki/seed.py</code>, <code>.wiki/build.py</code>, <code>validate.py</code></p>
+<p>---</p>
+<p><em>Decision recorded 2026-11-10. Current rebuild: ~700ms. Incremental flag may be added when corpus exceeds 100 files or rebuild exceeds 5s.</em></p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q6-profile-provisioning.md::decision-q6-profile-provisioning-dynamic-vs-static-skill-lists" data-sha256="0cde2fc0f2cb88ad495d96302647bb7e18037a8f72faf45831716cf6e8b7cbf2">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q6-profile-provisioning.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q6-profile-provisioning.md::decision-q6-profile-provisioning-dynamic-vs-static-skill-lists</h2>
+  <p class="summary">Decision: Q6 — Profile Provisioning: Dynamic vs Static Skill Lists</p>
+  <div class="content"><h1>Decision: Q6 — Profile Provisioning: Dynamic vs Static Skill Lists</h1></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q6-profile-provisioning.md::question" data-sha256="64a34008cbaf71fbeb097ac4643e48364d00e2d51d6d436dedd3a32b8e9bd63e">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q6-profile-provisioning.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q6-profile-provisioning.md::question</h2>
+  <p class="summary">Question</p>
+  <div class="content"><h2>Question</h2>
+<p>Should profile skill lists (in <code>.agent/profiles/*.md</code> frontmatter) be static (explicitly enumerated) or dynamic (computed from categorization tags at provision time)?</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q6-profile-provisioning.md::chosen-value" data-sha256="2fd17f4aaad1f5eaa719f3e3d41b09fa5b530674a59a10775ac8ab5305a8ca95">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q6-profile-provisioning.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q6-profile-provisioning.md::chosen-value</h2>
+  <p class="summary">Chosen Value</p>
+  <div class="content"><h2>Chosen Value</h2>
+<p><strong>Static skill lists in profile frontmatter, with a dynamic fallback for development.</strong> Profiles declare their skills explicitly in frontmatter (<code>skills: [brainstorming, writing-plans, ...]</code>). The provisioning script (<code>.harness/sync_active.py</code>) reads this list and copies those skills from <code>.agent/skills/</code> to <code>.harness/skills/</code>. A <code>--dynamic</code> flag exists for development that auto-selects skills by category tags, but the committed profile frontmatter is the source of truth.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q6-profile-provisioning.md::approver" data-sha256="103168285b1d7f573980318e2b2503737d2b50e0afb9ab0a07bb77e9ad52f738">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q6-profile-provisioning.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q6-profile-provisioning.md::approver</h2>
+  <p class="summary">Approver</p>
+  <div class="content"><h2>Approver</h2>
+<p>conceptualizer (human-facing orchestrator), taskmaster (subagent-facing orchestrator) — 2026-11-10</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q6-profile-provisioning.md::evidence" data-sha256="6f5f00bc6a8ba0e0627bafad15a6e7266e447c8cb3120042a2fcb76522f0302a">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q6-profile-provisioning.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q6-profile-provisioning.md::evidence</h2>
+  <p class="summary">Evidence</p>
+  <div class="content"><h2>Evidence</h2>
+<p>- Current profiles: 9 profiles, each with 4–21 skills listed in frontmatter - Master library: 3,520 skills in <code>.agent/skills/</code> - Active set: 4 skills in <code>.harness/skills/</code> (conceptualizer profile) - Provisioning script: <code>sync_active.py</code> reads frontmatter <code>skills:</code> array - Skill index: <code>gen_skills_index.py</code> reads <code>.harness/skills/</code> contents - Categorization CSV: 3,520 rows with task_type, task_subtype, level, os</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q6-profile-provisioning.md::rationale" data-sha256="a7648389b4570cc1035338119ed5f61a536a8a0b5642ec8251f99ecaa305ad22">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q6-profile-provisioning.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q6-profile-provisioning.md::rationale</h2>
+  <p class="summary">Rationale</p>
+  <div class="content"><h2>Rationale</h2>
+<p>Industry patterns for capability provisioning:</p>
+<p>| Approach | Examples | Trade-off | |----------|----------|-----------| | <strong>Static manifest</strong> | Cargo.toml, package.json, go.mod, Python requirements.txt | Explicit, auditable, reproducible, reviewable | | <strong>Dynamic query</strong> | npm workspaces, Bazel labels, Nix flakes | Flexible, but opaque; &quot;what skills does this profile have?&quot; requires running code | | <strong>Hybrid</strong> | Poetry groups, Cargo features | Best of both: static manifest with optional dynamic composition |</p>
+<p><strong>Static manifests win for auditability and reproducibility.</strong> A human (or CI) can read <code>.agent/profiles/conceptualizer.md</code> and know exactly which skills are provisioned without executing code. This is critical for: - Security review: &quot;Does this profile have the <code>shell</code> skill?&quot; - Reproducibility: Same commit → same active skill set - Debugging: &quot;Why does this profile have skill X?&quot; → check frontmatter, not query logic</p>
+<p>The dynamic fallback (<code>--dynamic</code>) supports development exploration (e.g., &quot;give me all <code>task_type=planning</code> skills&quot;) but does not replace the committed manifest.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q6-profile-provisioning.md::constraint-on-future-specs" data-sha256="d7a7a0fe618a7f8b4e8dfcaf34f529b1603b3ef7ddbecf62ec91c624ba78d91e">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q6-profile-provisioning.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q6-profile-provisioning.md::constraint-on-future-specs</h2>
+  <p class="summary">Constraint on Future Specs</p>
+  <div class="content"><h2>Constraint on Future Specs</h2>
+<p>- <strong>Forbidden</strong>: Removing static <code>skills:</code> frontmatter from profiles - <strong>Forbidden</strong>: Making dynamic selection the default for committed profiles - <strong>Required</strong>: <code>sync_active.py</code> must validate that every skill in frontmatter exists in <code>.agent/skills/</code> - <strong>Required</strong>: <code>sync_active.py</code> must fail (not warn) on missing skills in static mode - <strong>Required</strong>: Dynamic mode (<code>--dynamic</code>) must be opt-in and logged as non-authoritative</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/contracts/decisions/Q6-profile-provisioning.md::links" data-sha256="19e686c88b3927b96a40bc877c88c647719ab1dfbf3ad6263ed9a5953fafde45">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/contracts/decisions/Q6-profile-provisioning.md</span>
+  </div>
+  <h2>docs/contracts/decisions/Q6-profile-provisioning.md::links</h2>
+  <p class="summary">Links</p>
+  <div class="content"><h2>Links</h2>
+<p>- Spec: <code>docs/specs/profile-provisioning-spec.md</code> (planned) - Tracking: <code>open-questions.md</code> (Q6) - Implementation: <code>.agent/profiles/*.md</code>, <code>.harness/sync_active.py</code>, <code>skills/index.json</code></p>
+<p>---</p>
+<p><em>Decision recorded 2026-11-10. Static frontmatter is source of truth; dynamic is dev-only exploration.</em></p></div>
   <div class="edges">
     <div><strong>requires</strong><br><em>none</em></div>
     <div><strong>required by</strong><br><em>none</em></div>

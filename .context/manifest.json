@@ -745,6 +745,342 @@
       "est_tokens": 76
     },
     {
+      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::decision-q4-skill-categorization-schema-stability-guarantee",
+      "type": "doc",
+      "summary": "Decision: Q4 — Skill Categorization Schema Stability Guarantee",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
+      "byte_range": [
+        0,
+        68
+      ],
+      "sha256": "f83a91f3182394a7848f64f801432c195d35eb2e4f2813fe54927f6c9ee1417d",
+      "bytes": 68,
+      "est_tokens": 17
+    },
+    {
+      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::question",
+      "type": "doc",
+      "summary": "Question",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
+      "byte_range": [
+        68,
+        312
+      ],
+      "sha256": "48fe7d68ba7b9a9c6507f2c642f9986cdea245543cab8547bc94148efa2945ac",
+      "bytes": 244,
+      "est_tokens": 61
+    },
+    {
+      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::chosen-value",
+      "type": "doc",
+      "summary": "Chosen Value",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
+      "byte_range": [
+        312,
+        690
+      ],
+      "sha256": "7593107a4d5775a6ead0c5864bda46bd86f4f87f42e0c02ad339d8c5c835acec",
+      "bytes": 378,
+      "est_tokens": 95
+    },
+    {
+      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::approver",
+      "type": "doc",
+      "summary": "Approver",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
+      "byte_range": [
+        690,
+        777
+      ],
+      "sha256": "0b7e50aea1f312783771135b249f2357a5c930c854c724f885ec1f6640cbac42",
+      "bytes": 87,
+      "est_tokens": 22
+    },
+    {
+      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::evidence",
+      "type": "doc",
+      "summary": "Evidence",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
+      "byte_range": [
+        777,
+        1181
+      ],
+      "sha256": "e7f0eb40d0cc99ccd4096046e1969582387be1b3cf6a7bbd77cf2bcb7cb41b52",
+      "bytes": 404,
+      "est_tokens": 101
+    },
+    {
+      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::rationale",
+      "type": "doc",
+      "summary": "Rationale",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
+      "byte_range": [
+        1181,
+        1857
+      ],
+      "sha256": "03985200de8940926fc9aa12c0e23a6c8b429632bde393d3380240acd7579392",
+      "bytes": 676,
+      "est_tokens": 169
+    },
+    {
+      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::constraint-on-future-specs",
+      "type": "doc",
+      "summary": "Constraint on Future Specs",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
+      "byte_range": [
+        1857,
+        2399
+      ],
+      "sha256": "98ba558e2897818c76a63acf8fcaffb3e6fcfb79a77b9b5c2af833b9ffbf22cd",
+      "bytes": 542,
+      "est_tokens": 136
+    },
+    {
+      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::links",
+      "type": "doc",
+      "summary": "Links",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
+      "byte_range": [
+        2399,
+        2698
+      ],
+      "sha256": "2dd11e8ad6b8d1529cd4c7c092820482ca8f3271ee2c008344dcd7388e91dc4f",
+      "bytes": 299,
+      "est_tokens": 75
+    },
+    {
+      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::decision-q5-wiki-render-pipeline-incremental-vs-full-rebuild",
+      "type": "doc",
+      "summary": "Decision: Q5 — Wiki Render Pipeline: Incremental vs Full Rebuild",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
+      "byte_range": [
+        0,
+        70
+      ],
+      "sha256": "65879a6a9e52acc15acf125a5a95fd1e38205048414628194ca74e3c002b0231",
+      "bytes": 70,
+      "est_tokens": 18
+    },
+    {
+      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::question",
+      "type": "doc",
+      "summary": "Question",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
+      "byte_range": [
+        70,
+        291
+      ],
+      "sha256": "05d30256e8a23142b60d79f9c0300d3e7ce23a3dc61adcdf2257eb393c716d74",
+      "bytes": 221,
+      "est_tokens": 56
+    },
+    {
+      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::chosen-value",
+      "type": "doc",
+      "summary": "Chosen Value",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
+      "byte_range": [
+        291,
+        647
+      ],
+      "sha256": "4ffbdb0a2ce77d85786e014f64f8b778be6bd80c6956e1fcc32280a78dad6122",
+      "bytes": 356,
+      "est_tokens": 89
+    },
+    {
+      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::approver",
+      "type": "doc",
+      "summary": "Approver",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
+      "byte_range": [
+        647,
+        736
+      ],
+      "sha256": "2ca0606bc2572690d1c2021a2b90cbb01949c68bf5e86c7c33e8bea7da45e1ea",
+      "bytes": 89,
+      "est_tokens": 23
+    },
+    {
+      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::evidence",
+      "type": "doc",
+      "summary": "Evidence",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
+      "byte_range": [
+        736,
+        1204
+      ],
+      "sha256": "f319c44f56b688230b357a20530a57f2dabeaa8bf1f758eeee71f2fafefac8ba",
+      "bytes": 468,
+      "est_tokens": 117
+    },
+    {
+      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::rationale",
+      "type": "doc",
+      "summary": "Rationale",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
+      "byte_range": [
+        1204,
+        2127
+      ],
+      "sha256": "51a0da90b6761ad137c3b33d950acaf28f56772e12891c073e18fda6c08f5879",
+      "bytes": 923,
+      "est_tokens": 231
+    },
+    {
+      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::constraint-on-future-specs",
+      "type": "doc",
+      "summary": "Constraint on Future Specs",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
+      "byte_range": [
+        2127,
+        2535
+      ],
+      "sha256": "bc92f62a4a369e05c9f1ed0c4c0c40a6bc925a3762196cdd1c0d45ecea3d27b0",
+      "bytes": 408,
+      "est_tokens": 102
+    },
+    {
+      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::links",
+      "type": "doc",
+      "summary": "Links",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
+      "byte_range": [
+        2535,
+        2846
+      ],
+      "sha256": "a6da59d5ffffffe25b8827eff5711e5f25eb541a99d64a548a436956a543b3f6",
+      "bytes": 311,
+      "est_tokens": 78
+    },
+    {
+      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::decision-q6-profile-provisioning-dynamic-vs-static-skill-lists",
+      "type": "doc",
+      "summary": "Decision: Q6 — Profile Provisioning: Dynamic vs Static Skill Lists",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
+      "byte_range": [
+        0,
+        72
+      ],
+      "sha256": "0cde2fc0f2cb88ad495d96302647bb7e18037a8f72faf45831716cf6e8b7cbf2",
+      "bytes": 72,
+      "est_tokens": 18
+    },
+    {
+      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::question",
+      "type": "doc",
+      "summary": "Question",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
+      "byte_range": [
+        72,
+        253
+      ],
+      "sha256": "64a34008cbaf71fbeb097ac4643e48364d00e2d51d6d436dedd3a32b8e9bd63e",
+      "bytes": 181,
+      "est_tokens": 46
+    },
+    {
+      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::chosen-value",
+      "type": "doc",
+      "summary": "Chosen Value",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
+      "byte_range": [
+        253,
+        748
+      ],
+      "sha256": "2fd17f4aaad1f5eaa719f3e3d41b09fa5b530674a59a10775ac8ab5305a8ca95",
+      "bytes": 495,
+      "est_tokens": 124
+    },
+    {
+      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::approver",
+      "type": "doc",
+      "summary": "Approver",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
+      "byte_range": [
+        748,
+        863
+      ],
+      "sha256": "103168285b1d7f573980318e2b2503737d2b50e0afb9ab0a07bb77e9ad52f738",
+      "bytes": 115,
+      "est_tokens": 29
+    },
+    {
+      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::evidence",
+      "type": "doc",
+      "summary": "Evidence",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
+      "byte_range": [
+        863,
+        1294
+      ],
+      "sha256": "6f5f00bc6a8ba0e0627bafad15a6e7266e447c8cb3120042a2fcb76522f0302a",
+      "bytes": 431,
+      "est_tokens": 108
+    },
+    {
+      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::rationale",
+      "type": "doc",
+      "summary": "Rationale",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
+      "byte_range": [
+        1294,
+        2414
+      ],
+      "sha256": "a7648389b4570cc1035338119ed5f61a536a8a0b5642ec8251f99ecaa305ad22",
+      "bytes": 1120,
+      "est_tokens": 280
+    },
+    {
+      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::constraint-on-future-specs",
+      "type": "doc",
+      "summary": "Constraint on Future Specs",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
+      "byte_range": [
+        2414,
+        2875
+      ],
+      "sha256": "d7a7a0fe618a7f8b4e8dfcaf34f529b1603b3ef7ddbecf62ec91c624ba78d91e",
+      "bytes": 461,
+      "est_tokens": 116
+    },
+    {
+      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::links",
+      "type": "doc",
+      "summary": "Links",
+      "tags": [],
+      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
+      "byte_range": [
+        2875,
+        3181
+      ],
+      "sha256": "19e686c88b3927b96a40bc877c88c647719ab1dfbf3ad6263ed9a5953fafde45",
+      "bytes": 306,
+      "est_tokens": 77
+    },
+    {
       "id": "docs/resources/README.md::resources-skills-archive-provenance",
       "type": "doc",
       "summary": "Resources — Skills Archive Provenance",

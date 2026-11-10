@@ -19,3 +19,5 @@ every session (see AGENTS.md §9).
   Always verify disk state before trusting index counts.
 - 2026-11-07: The .archive/ dump must never be git-added (686M).
   .agent/.env is gitignored; keys live there, not in chat or memory.
+
+- 2026-11-10: Bootstrapped project content: audit-persistence-spec.md, open-questions.md with Q1-Q6, 3 decision notes (Q1: RPO=0 with synchronous=FULL; Q2: FULL p99=8.2ms on Android 17; Q3: .env v1, Keystore-wrapped DEK v2). Replaced placeholder docs/README.md. Full pipeline rebuild + validate.py passes. Pre-commit hook made executable.
