@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://workspacealpha.example.com/schemas/prompt-graph.schema.json",
+  "title": "Prompt DAG",
+  "description": "Prompt DAG schema. Separate file from .context/manifest.json; references manifest node IDs but does not modify the manifest. The DAG is the routable structure over manifest content.",
+  "type": "object",
+  "required": ["version", "nodes", "edges"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "content_ref"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "type": "string",
+            "enum": ["SystemPrompt", "Skill", "Envelope", "ContextSlice", "Adapter", "OutputContract"]
+          },
+          "content_ref": {
+            "type": "string",
+            "description": "Reference to a manifest node ID or a file path. ContextSlice nodes reference manifest node IDs by byte_range."
+          },
+          "tier": {
+            "type": "string",
+            "enum": ["core", "curated", "experimental", "quarantine"]
+          },
+          "token_budget": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "trigger_condition": {
+            "type": "string",
+            "description": "YAML predicate for Skill nodes; included only when condition matches scope"
+          },
+          "metadata": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to", "type"],
+        "properties": {
+          "from": {
+            "type": "string",
+            "minLength": 1
+          },
+          "to": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "type": "string",
+            "enum": ["requires", "triggers", "routes_to", "adapts", "provenance_of"]
+          },
+          "condition": {
+            "type": "string",
+            "description": "Optional condition for conditional edges (triggers)"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

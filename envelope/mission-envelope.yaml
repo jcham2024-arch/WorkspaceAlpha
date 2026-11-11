@@ -1,0 +1,13 @@
+envelope_version: "1.0"
+delegation_id: "del-{uuidv7}"
+from_agent: "orchestrator"
+to_agent: "manager"
+delegation_type: "MISSION"
+target_tier: "thinking"
+authority: "PLAN"
+allowed_targets: []
+forbidden_targets: []
+max_steps: 12
+termination_signal: "MISSION_COMPLETE"
+return_schema: "schemas/return-envelope.schema.json"
+return_format: "json"

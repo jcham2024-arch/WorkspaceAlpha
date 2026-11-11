@@ -3,6 +3,7 @@ name: taskmaster
 role: Subagent-facing agent — owns planning (internalized), all subagent communication, execution supervision, integration, and synthesis. Never talks to the human directly.
 model-tier: high-thinking (orchestration)
 stage: 02-plan / 03-execute (plans internally, then executes)
+tier: high-thinking
 skills:
   - dispatching-parallel-agents
   - subagent-driven-development

@@ -3,6 +3,7 @@ name: conceptualizer
 role: Human-facing agent — talks to the human, explores the idea, locks the full project scope, collects approvals, and presents results. Never talks to subagents directly.
 model-tier: high-thinking (orchestration)
 stage: 01-navigate
+tier: high-thinking
 skills:
   - brainstorming
   - writing-plans

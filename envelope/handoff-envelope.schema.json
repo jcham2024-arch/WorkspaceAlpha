@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://workspacealpha.example.com/schemas/envelope/handoff-envelope.schema.json",
+  "title": "Handoff Envelope",
+  "description": "Canonical delegation envelope schema. Consumed by the receiving agent's harness for routing, authority checking, and return validation. NOT sent to the model.",
+  "type": "object",
+  "required": [
+    "envelope_version",
+    "delegation_id",
+    "from_agent",
+    "to_agent",
+    "delegation_type",
+    "target_tier",
+    "authority",
+    "return_schema",
+    "return_format"
+  ],
+  "properties": {
+    "envelope_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "delegation_id": {
+      "type": "string",
+      "pattern": "^del-[a-zA-Z0-9_-]+$"
+    },
+    "from_agent": {
+      "type": "string",
+      "minLength": 1
+    },
+    "to_agent": {
+      "type": "string",
+      "minLength": 1
+    },
+    "delegation_type": {
+      "type": "string",
+      "enum": ["MISSION", "EXECUTION"]
+    },
+    "target_tier": {
+      "type": "string",
+      "enum": ["thinking", "low_thinking", "non_thinking"]
+    },
+    "authority": {
+      "type": "string",
+      "enum": ["ANALYZE", "PLAN", "EXECUTE", "REVIEW", "APPROVE"]
+    },
+    "allowed_targets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "forbidden_targets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "max_steps": {
+      "type": "integer",
+      "minimum": 1,
+      "default": 12
+    },
+    "termination_signal": {
+      "type": "string",
+      "const": "MISSION_COMPLETE"
+    },
+    "return_schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "return_format": {
+      "type": "string",
+      "enum": ["json", "diff", "markdown_summary"]
+    }
+  },
+  "additionalProperties": false
+}

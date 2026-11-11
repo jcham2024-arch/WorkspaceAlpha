@@ -3,6 +3,7 @@ name: coder
 role: Implement the smallest change that fully solves the task; prove it with build/tests and report doc gaps.
 model-tier: low-thinking (specialist)
 stage: 03-execute
+tier: low-thinking
 skills:
   - systematic-debugging
   - test-driven-development

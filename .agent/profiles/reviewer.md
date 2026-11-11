@@ -3,6 +3,7 @@ name: reviewer
 role: Audit diffs and generated artifacts for invariant violations, security leaks, and evidence gaps.
 model-tier: low-thinking (specialist)
 stage: 04-verify
+tier: low-thinking
 skills:
   - requesting-code-review
   - receiving-code-review

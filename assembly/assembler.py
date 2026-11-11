@@ -1,0 +1,337 @@
+#!/usr/bin/env python3
+"""Assembler — orchestrates the DAG compiler pipeline (Plan → Bind → Optimize → Execute → Feedback).
+
+Reads the prompt graph and manifest, resolves scope from a delegation envelope,
+assembles a two-zone prompt (frozen prefix + variable suffix), enforces token
+budgets, and returns the assembled prompt plus provenance metadata.
+
+Stdlib only. Never writes .context/manifest.json or wiki/.
+"""
+from __future__ import annotations
+
+import hashlib
+import json
+import sys
+from pathlib import Path
+from typing import Any
+
+ROOT = Path(__file__).resolve().parents[1]
+
+# Add assembly directory to path for sibling imports
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from manifest_reader import ManifestReader  # noqa: E402
+from slicer import Slicer, SliceOutOfBounds  # noqa: E402
+from budgeter import Budgeter, TIER_CEILINGS  # noqa: E402
+
+
+class BLOCKED(Exception):
+    """Raised when assembly is blocked (budget exceeded or target not in manifest)."""
+
+    def __init__(self, reason: str, excluded_nodes: list[str] | None = None):
+        self.reason = reason
+        self.excluded_nodes = excluded_nodes or []
+        super().__init__(reason)
+
+
+class Assembler:
+    """Two-zone prompt assembler with budget enforcement and cache-keyed rendering."""
+
+    def __init__(self):
+        self.reader = ManifestReader()
+        self.slicer = Slicer()
+        self.budgeter = Budgeter()
+
+    def assemble(
+        self,
+        delegation: dict[str, Any],
+    ) -> dict[str, Any]:
+        """Assemble a two-zone prompt from a delegation envelope.
+
+        Args:
+            delegation: Dict with delegation envelope fields:
+              - delegation_id, from_agent, to_agent, delegation_type, target_tier,
+                authority, allowed_targets, forbidden_targets, return_schema, return_format
+
+        Returns:
+            Dict with:
+              - frozen_prefix: str (SystemPrompt content)
+              - variable_suffix: str (assembled task envelope)
+              - cache_key: str (SHA-256 of prefix + adapter params)
+              - assembled_nodes: list[dict] with node_id, node_type, token_count, cache_hit
+              - token_counts: dict with prefix_tokens, suffix_tokens, total_tokens, ceiling_tokens, budget_exceeded
+              - pruned_nodes: list[str]
+              - blocked: bool (False if successful)
+
+        Raises:
+            BLOCKED: If target not in manifest or budget exceeded.
+        """
+        delegation_id = delegation.get("delegation_id", "unknown")
+        target_tier = delegation.get("target_tier", "low_thinking")
+        allowed_targets = delegation.get("allowed_targets", [])
+        task_type = delegation.get("task_type", "")
+
+        # Phase 1 — Plan: resolve scope from delegation envelope
+        scope = {
+            "task_type": task_type,
+            "domain": delegation.get("domain", ""),
+            "target_tier": target_tier,
+        }
+
+        # Resolve manifest nodes matching allowed_targets
+        manifest_node_ids = self.reader.resolve_scope(
+            task_type=task_type,
+            domain=scope["domain"],
+            allowed_targets=allowed_targets if allowed_targets else None,
+            target_tier=target_tier,
+        )
+
+        if not manifest_node_ids and allowed_targets:
+            # Check if any of the allowed targets exist in manifest
+            for target in allowed_targets:
+                reason = self.budgeter.check_target_in_manifest(
+                    target, self.reader._nodes
+                )
+                if reason:
+                    raise BLOCKED(reason)
+
+        # Phase 2 — Bind: walk graph edges from envelope nodes
+        # Start from envelope nodes, walk requires/triggers/routes_to
+        delegation_type = delegation.get("delegation_type", "")
+        envelope_node_ids = self._find_envelope_nodes(delegation_type)
+
+        # Walk requires transitively
+        required_nodes = self.reader.walk_requires(envelope_node_ids)
+
+        # Walk triggers with scope matching
+        triggered_nodes = self.reader.walk_triggers(envelope_node_ids, scope)
+
+        # Walk routes_to
+        routed_nodes = self.reader.walk_routes_to(envelope_node_ids)
+
+        # Combine all candidate nodes (deduplicated)
+        candidate_ids = list(
+            dict.fromkeys(
+                envelope_node_ids + required_nodes + triggered_nodes + routed_nodes
+            )
+        )
+
+        # Phase 3 — Optimize: read byte ranges and estimate tokens
+        nodes_with_tokens = []
+        for node_id in candidate_ids:
+            graph_node = self.reader.get_graph_node(node_id)
+            if graph_node is None:
+                continue
+
+            node_type = graph_node.get("type", "Skill")
+            token_budget = graph_node.get("token_budget", 0)
+            edge_distance = graph_node.get("metadata", {}).get("edge_distance", 0)
+
+            # Try to read actual content for token estimation
+            actual_tokens = token_budget
+            content_ref = graph_node.get("content_ref", "")
+
+            if node_type == "ContextSlice":
+                # Read exact bytes from manifest
+                manifest_node_id = graph_node.get(
+                    "metadata", {}
+                ).get("manifest_node", node_id)
+                try:
+                    chunk = self.slicer.slice_node(manifest_node_id)
+                    actual_tokens = len(chunk.encode("utf-8")) // 4
+                except SliceOutOfBounds:
+                    actual_tokens = token_budget
+            elif node_type == "SystemPrompt":
+                # Read frozen prefix file
+                try:
+                    prefix_path = ROOT / content_ref
+                    if prefix_path.exists():
+                        chunk = prefix_path.read_bytes()
+                        actual_tokens = len(chunk) // 4
+                    else:
+                        actual_tokens = token_budget
+                except Exception:
+                    actual_tokens = token_budget
+            else:
+                actual_tokens = token_budget
+
+            nodes_with_tokens.append(
+                {
+                    "node_id": node_id,
+                    "node_type": node_type,
+                    "token_count": actual_tokens,
+                    "edge_distance": edge_distance,
+                }
+            )
+
+        # Phase 4 — Execute: enforce budget
+        ceiling = self.budgeter.get_ceiling(target_tier)
+        budget_result = self.budgeter.enforce_budget(
+            nodes_with_tokens, target_tier, root_node_ids=envelope_node_ids
+        )
+
+        if not budget_result.within_budget:
+            raise BLOCKED(
+                budget_result.blocked_reason or "CONTEXT_BUDGET_EXCEEDED",
+                budget_result.pruned_nodes,
+            )
+
+        # Phase 5 — Render: build two-zone prompt
+        prefix_parts = []
+        suffix_parts = []
+        assembled_nodes = []
+        prefix_tokens = 0
+        suffix_tokens = 0
+
+        for node in nodes_with_tokens:
+            if node["node_id"] not in budget_result.included_nodes:
+                continue
+
+            node_type = node["node_type"]
+            node_id = node["node_id"]
+            token_count = node["token_count"]
+
+            # Get content
+            content = self._render_node(node_id, node_type)
+
+            if node_type == "SystemPrompt":
+                prefix_parts.append(content)
+                prefix_tokens += token_count
+            else:
+                suffix_parts.append(content)
+                suffix_tokens += token_count
+
+            assembled_nodes.append(
+                {
+                    "node_id": node_id,
+                    "node_type": node_type,
+                    "token_count": token_count,
+                    "cache_hit": node_type == "SystemPrompt",
+                }
+            )
+
+        frozen_prefix = "\n".join(prefix_parts)
+        variable_suffix = "\n".join(suffix_parts)
+
+        # Compute cache key: SHA-256 of prefix + adapter params
+        adapter_params = delegation.get("adapter_params", {})
+        cache_input = frozen_prefix + json.dumps(adapter_params, sort_keys=True)
+        cache_key = hashlib.sha256(cache_input.encode("utf-8")).hexdigest()
+
+        total_tokens = prefix_tokens + suffix_tokens
+        budget_exceeded = total_tokens > ceiling
+
+        return {
+            "delegation_id": delegation_id,
+            "blocked": False,
+            "frozen_prefix": frozen_prefix,
+            "variable_suffix": variable_suffix,
+            "cache_key": cache_key,
+            "assembled_nodes": assembled_nodes,
+            "token_counts": {
+                "prefix_tokens": prefix_tokens,
+                "suffix_tokens": suffix_tokens,
+                "total_tokens": total_tokens,
+                "ceiling_tokens": ceiling,
+                "budget_exceeded": budget_exceeded,
+            },
+            "pruned_nodes": budget_result.pruned_nodes,
+            "adapter_params": adapter_params,
+        }
+
+    def _find_envelope_nodes(self, delegation_type: str) -> list[str]:
+        """Find envelope node IDs matching the delegation type."""
+        self.reader._load_graph()
+        result = []
+        for node_id, node in self.reader._graph_nodes.items():
+            if node.get("type") == "Envelope":
+                metadata = node.get("metadata", {})
+                if metadata.get("delegation_type") == delegation_type:
+                    result.append(node_id)
+        return result
+
+    def _render_node(self, node_id: str, node_type: str) -> str:
+        """Render a node's content for inclusion in the prompt."""
+        if node_type == "SystemPrompt":
+            graph_node = self.reader.get_graph_node(node_id)
+            if graph_node:
+                content_ref = graph_node.get("content_ref", "")
+                try:
+                    path = ROOT / content_ref
+                    if path.exists():
+                        return path.read_text(encoding="utf-8", errors="replace")
+                except Exception:
+                    pass
+            return f"<!-- SystemPrompt {node_id} content unavailable -->"
+
+        elif node_type == "Skill":
+            graph_node = self.reader.get_graph_node(node_id)
+            if graph_node:
+                content_ref = graph_node.get("content_ref", "")
+                try:
+                    path = ROOT / content_ref
+                    if path.exists():
+                        return path.read_text(encoding="utf-8", errors="replace")
+                except Exception:
+                    pass
+            return f"<!-- Skill {node_id} content unavailable -->"
+
+        elif node_type == "Envelope":
+            graph_node = self.reader.get_graph_node(node_id)
+            if graph_node:
+                metadata = graph_node.get("metadata", {})
+                return f"<!-- Envelope: {metadata.get('delegation_type', 'unknown')} -- authority: {metadata.get('authority', 'unknown')} -->"
+            return f"<!-- Envelope {node_id} -->"
+
+        elif node_type == "ContextSlice":
+            graph_node = self.reader.get_graph_node(node_id)
+            if graph_node:
+                manifest_node_id = graph_node.get(
+                    "metadata", {}
+                ).get("manifest_node", node_id)
+                try:
+                    return self.slicer.slice_node_text(manifest_node_id)
+                except SliceOutOfBounds as exc:
+                    return f"<!-- ContextSlice {node_id}: {exc} -->"
+            return f"<!-- ContextSlice {node_id} unavailable -->"
+
+        elif node_type == "Adapter":
+            graph_node = self.reader.get_graph_node(node_id)
+            if graph_node:
+                metadata = graph_node.get("metadata", {})
+                model = metadata.get("model", "unknown")
+                return f"<!-- Adapter: {model} -->"
+            return f"<!-- Adapter {node_id} -->"
+
+        elif node_type == "OutputContract":
+            graph_node = self.reader.get_graph_node(node_id)
+            if graph_node:
+                content_ref = graph_node.get("content_ref", "")
+                return f"<!-- OutputContract: {content_ref} -->"
+            return f"<!-- OutputContract {node_id} -->"
+
+        return f"<!-- Unknown node type {node_type}: {node_id} -->"
+
+
+def main():
+    """CLI: assemble a prompt from a delegation JSON file."""
+    import argparse
+
+    ap = argparse.ArgumentParser(description="Assemble a two-zone prompt from a delegation")
+    ap.add_argument("delegation_file", help="Path to delegation JSON file")
+    args = ap.parse_args()
+
+    with open(args.delegation_file, "r", encoding="utf-8") as f:
+        delegation = json.load(f)
+
+    assembler = Assembler()
+    try:
+        result = assembler.assemble(delegation)
+        print(json.dumps(result, indent=2))
+    except BLOCKED as exc:
+        print(json.dumps({"blocked": True, "reason": exc.reason, "excluded_nodes": exc.excluded_nodes}, indent=2))
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

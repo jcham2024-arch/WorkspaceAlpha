@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://workspacealpha.example.com/schemas/envelope/return-envelope.schema.json",
+  "title": "Return Envelope",
+  "description": "Structured return envelope grammar used by workers to report results back to the orchestrator. Schema-valid return is a proposal until the orchestrator validates the delegation ID, authority digest, and nonce.",
+  "type": "object",
+  "required": [
+    "delegation_id",
+    "status",
+    "acceptance_results",
+    "steps_used"
+  ],
+  "properties": {
+    "delegation_id": {
+      "type": "string",
+      "pattern": "^del-[a-zA-Z0-9_-]+$"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["COMPLETE", "BLOCKED", "FAILED", "PARTIAL"]
+    },
+    "acceptance_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["criterion", "result", "evidence"],
+        "properties": {
+          "criterion": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "result": {
+            "type": "string",
+            "enum": ["PASS", "FAIL", "SKIP"]
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "path"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["diff", "plan", "audit", "markdown", "code"]
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "default": []
+    },
+    "residual_risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "steps_used": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": false
+}

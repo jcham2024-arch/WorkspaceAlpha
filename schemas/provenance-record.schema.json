@@ -1,0 +1,151 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://workspacealpha.example.com/schemas/provenance-record.schema.json",
+  "title": "Provenance Record",
+  "description": "Per-turn provenance record. Captures assembled nodes, token counts, adapter parameters, model response, and return envelope. Written to provenance/ in JSONL plus a human-readable summary.",
+  "type": "object",
+  "required": [
+    "delegation_id",
+    "turn_timestamp",
+    "from_agent",
+    "to_agent",
+    "delegation_type",
+    "target_tier",
+    "assembled_nodes",
+    "token_counts",
+    "adapter_params",
+    "return_envelope",
+    "cache_hit"
+  ],
+  "properties": {
+    "delegation_id": {
+      "type": "string",
+      "pattern": "^del-[a-zA-Z0-9_-]+$"
+    },
+    "turn_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "from_agent": {
+      "type": "string",
+      "minLength": 1
+    },
+    "to_agent": {
+      "type": "string",
+      "minLength": 1
+    },
+    "delegation_type": {
+      "type": "string",
+      "enum": ["MISSION", "EXECUTION"]
+    },
+    "target_tier": {
+      "type": "string",
+      "enum": ["thinking", "low_thinking", "non_thinking"]
+    },
+    "assembled_nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["node_id", "node_type", "token_count", "cache_hit"],
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "node_type": {
+            "type": "string",
+            "enum": ["SystemPrompt", "Skill", "Envelope", "ContextSlice", "Adapter", "OutputContract"]
+          },
+          "token_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "cache_hit": {
+            "type": "boolean"
+          },
+          "byte_range": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "pruned": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "token_counts": {
+      "type": "object",
+      "required": ["prefix_tokens", "suffix_tokens", "total_tokens"],
+      "properties": {
+        "prefix_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "suffix_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "total_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "ceiling_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "budget_exceeded": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "adapter_params": {
+      "type": "object",
+      "properties": {
+        "model": {
+          "type": "string"
+        },
+        "thinking": {
+          "type": "object"
+        },
+        "reasoning_effort": {
+          "type": "string"
+        },
+        "max_tokens": {
+          "type": "integer"
+        },
+        "temperature": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "return_envelope": {
+      "type": "object"
+    },
+    "cache_hit": {
+      "type": "boolean",
+      "description": "True if the frozen prefix was served from cache (same SystemPrompt content + Adapter parameters)"
+    },
+    "cache_key": {
+      "type": "string",
+      "description": "SHA-256 hash of SystemPrompt content plus Adapter parameters"
+    },
+    "pruned_nodes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "default": [],
+      "description": "Node IDs excluded due to budget constraints"
+    }
+  },
+  "additionalProperties": false
+}

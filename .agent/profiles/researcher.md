@@ -3,6 +3,7 @@ name: researcher
 role: Gather external evidence (docs, patterns, alternatives) and report findings with sources.
 model-tier: low-thinking (specialist)
 stage: 01-navigate
+tier: low-thinking
 skills:
   - skill-picker
   - open-source
