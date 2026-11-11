@@ -1,0 +1,50 @@
+# Reference
+
+Scope: moved detail from SKILL.md.
+Load when: needed by the operation described in SKILL.md.
+
+## Contents
+
+- Reference
+
+## Checklist
+
+- [ ] (see SKILL.md)
+
+## Commands
+
+| Fallback | Command |
+|---|---|
+| see body | — |
+
+## Notes
+
+- Original code preserved verbatim from SKILL.md.
+
+```
+```yaml
+# Correct pattern: startupProbe covers slow startup,
+# then liveness/readiness take over
+startupProbe:
+  httpGet:
+    path: /health
+    port: 8080
+  failureThreshold: 30  # 30 * 5s = 150s max startup time
+  periodSeconds: 5
+
+livenessProbe:
+  httpGet:
+    path: /health
+    port: 8080
+  periodSeconds: 30
+  failureThreshold: 3   # 3 * 30s = 90s before restart
+
+readinessProbe:
+  httpGet:
+    path: /ready         # Separate endpoint: checks DB, cache, etc.
+    port: 8080
+  periodSeconds: 10
+  failureThreshold: 2
+```
+
+```

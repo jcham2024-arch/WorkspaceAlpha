@@ -1,0 +1,44 @@
+# Reference
+
+Scope: moved detail from SKILL.md.
+Load when: needed by the operation described in SKILL.md.
+
+## Contents
+
+- Reference
+
+## Checklist
+
+- [ ] (see SKILL.md)
+
+## Commands
+
+| Fallback | Command |
+|---|---|
+| see body | — |
+
+## Notes
+
+- Original code preserved verbatim from SKILL.md.
+
+```
+```toml
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--strict-markers",
+    "--cov=mypackage",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+]
+markers = [
+    "slow: marks tests as slow",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+]
+```
+
+```

@@ -1,0 +1,40 @@
+# Reference
+
+Scope: moved detail from SKILL.md.
+Load when: needed by the operation described in SKILL.md.
+
+## Contents
+
+- Reference
+
+## Checklist
+
+- [ ] (see SKILL.md)
+
+## Commands
+
+| Fallback | Command |
+|---|---|
+| see body | — |
+
+## Notes
+
+- Original code preserved verbatim from SKILL.md.
+
+```
+```java
+public record CreateDocumentRequest(
+    @NotBlank @Size(max = 200) String referenceNumber,
+    @NotBlank @Size(max = 2000) String description,
+    @NotNull @FutureOrPresent Instant validUntil,
+    @NotEmpty List<@NotBlank String> categories) {}
+
+public record DocumentResponse(Long id, String referenceNumber, DocumentStatus status) {
+  public static DocumentResponse from(Document document) {
+    return new DocumentResponse(document.getId(), document.getReferenceNumber(),
+        document.getStatus());
+  }
+}
+```
+
+```

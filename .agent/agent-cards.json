@@ -1,0 +1,332 @@
+{
+  "version": 1,
+  "factory_version": "0.1.0",
+  "cards": [
+    {
+      "name": "coder",
+      "description": "Implement the smallest change that fully solves the task; prove it with build/tests and report doc gaps.",
+      "version": "0.1.0",
+      "url": "file://.agent/profiles/coder.md",
+      "documentationUrl": ".agent/agent.md",
+      "capabilities": {
+        "skills": [
+          "systematic-debugging",
+          "test-driven-development",
+          "clean-code-guard",
+          "clean-code",
+          "andrej-karpathy",
+          "strict-api",
+          "constraint-driven-development",
+          "minimalist",
+          "ponytail",
+          "code-simplification",
+          "performance-optimization",
+          "observability-and-instrumentation",
+          "source-driven-development",
+          "verification-before-completion",
+          "red-green-proof"
+        ],
+        "tools": [
+          ".agent/tools/context.py section",
+          "python3 seed.py / python3 build.py",
+          ".context/manifest.json (byte ranges, never whole docs)"
+        ],
+        "mcp_allowlist": [
+          "read_section",
+          "search_nodes",
+          "list_nodes",
+          "knowledge_search",
+          "knowledge_last"
+        ],
+        "stage": "03-execute"
+      },
+      "extensions": {
+        "model_tier": "low-thinking (specialist)",
+        "model": "unspecified (mid)"
+      }
+    },
+    {
+      "name": "coding-manager",
+      "description": "Turn any build task from the taskmaster into a bespoke agent profile (smallest viable model) and minimal-context steps; review the work and package it into one complete task result.",
+      "version": "0.1.0",
+      "url": "file://.agent/profiles/coding-manager.md",
+      "documentationUrl": ".agent/agent.md",
+      "capabilities": {
+        "skills": [
+          "dispatching-parallel-agents",
+          "subagent-driven-development",
+          "skill-picker",
+          "systematic-debugging",
+          "test-driven-development",
+          "clean-code-guard",
+          "constraint-driven-development",
+          "verification-before-completion",
+          "red-green-proof"
+        ],
+        "tools": [
+          ".agent/tools/context.py section",
+          "python3 seed.py / python3 build.py",
+          ".context/manifest.json (byte ranges, never whole docs)",
+          "skills/index.json"
+        ],
+        "mcp_allowlist": [],
+        "stage": "03-execute"
+      },
+      "extensions": {
+        "model_tier": "large-context, low-thinking (manager tier)",
+        "model": "unspecified (mid)"
+      }
+    },
+    {
+      "name": "conceptualizer",
+      "description": "Human-facing agent — talks to the human, explores the idea, locks the full project scope, collects approvals, and presents results. Never talks to subagents directly.",
+      "version": "0.1.0",
+      "url": "file://.agent/profiles/conceptualizer.md",
+      "documentationUrl": ".agent/agent.md",
+      "capabilities": {
+        "skills": [
+          "brainstorming",
+          "writing-plans",
+          "thinking-first-principles",
+          "thinking-margin-of-safety"
+        ],
+        "tools": [
+          ".agent/tools/context.py search",
+          ".agent/tools/context.py context",
+          ".context/manifest.json",
+          "skills/index.json"
+        ],
+        "mcp_allowlist": [
+          "search_nodes",
+          "list_nodes",
+          "knowledge_search",
+          "knowledge_last"
+        ],
+        "stage": "01-navigate"
+      },
+      "extensions": {
+        "model_tier": "high-thinking (orchestration)",
+        "model": "unspecified (largest available)"
+      }
+    },
+    {
+      "name": "research-manager",
+      "description": "Turn a research task from the taskmaster into minimal-context steps for implementer subagents; review results and package them into one complete answer.",
+      "version": "0.1.0",
+      "url": "file://.agent/profiles/research-manager.md",
+      "documentationUrl": ".agent/agent.md",
+      "capabilities": {
+        "skills": [
+          "dispatching-parallel-agents",
+          "subagent-driven-development",
+          "skill-picker",
+          "open-source",
+          "source-driven-development",
+          "tech-stack-evaluator",
+          "context-engineering",
+          "filesystem-context",
+          "thinking-bounded-rationality"
+        ],
+        "tools": [
+          ".agent/tools/context.py search",
+          ".agent/tools/context.py context",
+          ".context/manifest.json (byte ranges)",
+          "skills/index.json"
+        ],
+        "mcp_allowlist": [],
+        "stage": "03-execute"
+      },
+      "extensions": {
+        "model_tier": "large-context, low-thinking (manager tier)",
+        "model": "unspecified (mid)"
+      }
+    },
+    {
+      "name": "researcher",
+      "description": "Gather external evidence (docs, patterns, alternatives) and report findings with sources.",
+      "version": "0.1.0",
+      "url": "file://.agent/profiles/researcher.md",
+      "documentationUrl": ".agent/agent.md",
+      "capabilities": {
+        "skills": [
+          "skill-picker",
+          "open-source",
+          "source-driven-development",
+          "tech-stack-evaluator",
+          "context-engineering",
+          "filesystem-context",
+          "thinking-first-principles",
+          "thinking-bounded-rationality",
+          "thinking-margin-of-safety",
+          "browser-use",
+          "remote-browser"
+        ],
+        "tools": [
+          ".agent/tools/mcp/server.py (compile_context, read_section, search_nodes)",
+          "web_search, web_fetch (Exa when EXA_API_KEY is set in .agent/.env)",
+          ".context/manifest.json",
+          "docs/resources/"
+        ],
+        "mcp_allowlist": [
+          "compile_context",
+          "read_section",
+          "search_nodes",
+          "list_nodes",
+          "knowledge_search",
+          "knowledge_last"
+        ],
+        "stage": "01-navigate"
+      },
+      "extensions": {
+        "model_tier": "low-thinking (specialist)",
+        "model": "unspecified (mid)"
+      }
+    },
+    {
+      "name": "review-manager",
+      "description": "Turn a review task from the taskmaster into minimal-context checks for implementer subagents; merge findings into one packaged audit report.",
+      "version": "0.1.0",
+      "url": "file://.agent/profiles/review-manager.md",
+      "documentationUrl": ".agent/agent.md",
+      "capabilities": {
+        "skills": [
+          "dispatching-parallel-agents",
+          "subagent-driven-development",
+          "requesting-code-review",
+          "receiving-code-review",
+          "verification-before-completion",
+          "clean-code-guard",
+          "ponytail-review",
+          "ponytail-audit",
+          "repo-maintainer",
+          "thinking-theory-of-constraints"
+        ],
+        "tools": [
+          "git diff / git status",
+          ".agent/tools/context.py search",
+          ".context/manifest.json",
+          "memory/learnings.md"
+        ],
+        "mcp_allowlist": [],
+        "stage": "04-verify"
+      },
+      "extensions": {
+        "model_tier": "large-context, low-thinking (manager tier)",
+        "model": "unspecified (mid)"
+      }
+    },
+    {
+      "name": "reviewer",
+      "description": "Audit diffs and generated artifacts for invariant violations, security leaks, and evidence gaps.",
+      "version": "0.1.0",
+      "url": "file://.agent/profiles/reviewer.md",
+      "documentationUrl": ".agent/agent.md",
+      "capabilities": {
+        "skills": [
+          "requesting-code-review",
+          "receiving-code-review",
+          "verification-before-completion",
+          "clean-code-guard",
+          "codebase-cleanup-refactor-clean",
+          "code-polish",
+          "ponytail-review",
+          "ponytail-audit",
+          "repo-maintainer",
+          "thinking-theory-of-constraints",
+          "strict-api"
+        ],
+        "tools": [
+          "git diff / git status",
+          ".agent/tools/context.py search",
+          ".context/manifest.json",
+          "memory/learnings.md"
+        ],
+        "mcp_allowlist": [
+          "read_section",
+          "search_nodes",
+          "list_nodes",
+          "knowledge_search",
+          "knowledge_last"
+        ],
+        "stage": "04-verify"
+      },
+      "extensions": {
+        "model_tier": "low-thinking (specialist)",
+        "model": "unspecified (mid)"
+      }
+    },
+    {
+      "name": "taskmaster",
+      "description": "Subagent-facing agent — owns planning (internalized), all subagent communication, execution supervision, integration, and synthesis. Never talks to the human directly.",
+      "version": "0.1.0",
+      "url": "file://.agent/profiles/taskmaster.md",
+      "documentationUrl": ".agent/agent.md",
+      "capabilities": {
+        "skills": [
+          "dispatching-parallel-agents",
+          "subagent-driven-development",
+          "executing-plans",
+          "skill-picker",
+          "context-engineering",
+          "filesystem-context",
+          "diagnosing-superpowers",
+          "using-git-worktrees",
+          "verification-before-completion",
+          "requesting-code-review",
+          "receiving-code-review",
+          "finishing-a-development-branch",
+          "thinking-theory-of-constraints",
+          "thinking-opportunity-cost"
+        ],
+        "tools": [
+          ".agent/tools/context.py search",
+          ".agent/tools/context.py context",
+          ".agent/tools/mcp/server.py (compile_context, read_section)",
+          ".context/manifest.json",
+          "skills/index.json",
+          ".agent/profiles/README.md"
+        ],
+        "mcp_allowlist": [
+          "compile_context",
+          "read_section",
+          "search_nodes",
+          "list_nodes",
+          "knowledge_search",
+          "knowledge_last"
+        ],
+        "stage": "02-plan / 03-execute (plans internally, then executes)"
+      },
+      "extensions": {
+        "model_tier": "high-thinking (orchestration)",
+        "model": "unspecified (largest available)"
+      }
+    },
+    {
+      "name": "wiki-producer",
+      "description": "Turn the LLM-optimized system (DAG, profiles, skills, protocol) into human-readable documentation wired out as files.",
+      "version": "0.1.0",
+      "url": "file://.agent/profiles/wiki-producer.md",
+      "documentationUrl": ".agent/agent.md",
+      "capabilities": {
+        "skills": [
+          "writing-plans",
+          "brainstorming",
+          "source-driven-development",
+          "verification-before-completion"
+        ],
+        "tools": [
+          ".agent/tools/context.py search",
+          "python3 .wiki/seed.py / python3 .wiki/build.py",
+          ".context/manifest.json",
+          ".wiki/agent.md"
+        ],
+        "mcp_allowlist": [],
+        "stage": "03-execute"
+      },
+      "extensions": {
+        "model_tier": "low-thinking (specialist)",
+        "model": "unspecified (mid)"
+      }
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+# Reference
+
+Scope: moved detail from SKILL.md.
+Load when: needed by the operation described in SKILL.md.
+
+## Contents
+
+- Reference
+
+## Checklist
+
+- [ ] (see SKILL.md)
+
+## Commands
+
+| Fallback | Command |
+|---|---|
+| see body | — |
+
+## Notes
+
+- Original code preserved verbatim from SKILL.md.
+
+```
+```go
+func TestUser(t *testing.T) {
+    // Setup shared by all subtests
+    db := setupTestDB(t)
+
+    t.Run("Create", func(t *testing.T) {
+        user := &User{Name: "Alice"}
+        err := db.CreateUser(user)
+        if err != nil {
+            t.Fatalf("CreateUser failed: %v", err)
+        }
+        if user.ID == "" {
+            t.Error("expected user ID to be set")
+        }
+    })
+
+    t.Run("Get", func(t *testing.T) {
+        user, err := db.GetUser("alice-id")
+        if err != nil {
+            t.Fatalf("GetUser failed: %v", err)
+        }
+        if user.Name != "Alice" {
+            t.Errorf("got name %q; want %q", user.Name, "Alice")
+        }
+    })
+
+    t.Run("Update", func(t *testing.T) {
+        // ...
+    })
+
+    t.Run("Delete", func(t *testing.T) {
+        // ...
+    })
+}
+```
+
+```

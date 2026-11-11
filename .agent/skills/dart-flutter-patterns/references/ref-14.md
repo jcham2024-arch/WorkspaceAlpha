@@ -1,0 +1,54 @@
+# Reference
+
+Scope: moved detail from SKILL.md.
+Load when: needed by the operation described in SKILL.md.
+
+## Contents
+
+- Reference
+
+## Checklist
+
+- [ ] (see SKILL.md)
+
+## Commands
+
+| Fallback | Command |
+|---|---|
+| see body | — |
+
+## Notes
+
+- Original code preserved verbatim from SKILL.md.
+
+```
+```dart
+final router = GoRouter(
+  initialLocation: '/',
+  // refreshListenable re-evaluates redirect whenever auth state changes
+  refreshListenable: GoRouterRefreshStream(authCubit.stream),
+  redirect: (context, state) {
+    final isLoggedIn = context.read<AuthCubit>().state is AuthAuthenticated;
+    final isGoingToLogin = state.matchedLocation == '/login';
+    if (!isLoggedIn && !isGoingToLogin) return '/login';
+    if (isLoggedIn && isGoingToLogin) return '/';
+    return null;
+  },
+  routes: [
+    GoRoute(path: '/login', builder: (_, __) => const LoginPage()),
+    ShellRoute(
+      builder: (context, state, child) => AppShell(child: child),
+      routes: [
+        GoRoute(path: '/', builder: (_, __) => const HomePage()),
+        GoRoute(
+          path: '/products/:id',
+          builder: (context, state) =>
+              ProductDetailPage(id: state.pathParameters['id']!),
+        ),
+      ],
+    ),
+  ],
+);
+```
+
+```

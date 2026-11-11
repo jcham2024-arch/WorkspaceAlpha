@@ -1,0 +1,122 @@
+# Native Module
+
+Scope: native-module (add-app-clip).
+Load when: you need the native-module (add-app-clip) detail described in SKILL.md.
+
+## Contents
+
+- Native Module
+
+## Checklist
+
+- [ ] (see SKILL.md workflow)
+
+## Commands
+
+| Task | Command |
+|---|---|
+| see SKILL.md | — |
+
+## Notes
+
+- Original reference content preserved verbatim below.
+
+--- ORIGINAL REFERENCE ---
+# Native App Clip detection
+
+Create a local Expo module so JS can detect when the app is running inside an App Clip and present the install prompt for the full app.
+
+```sh
+bunx create-expo-module --local
+```
+
+## Swift module
+
+```swift
+import ExpoModulesCore
+import StoreKit
+
+internal class MissingCurrentWindowSceneException: Exception {
+  override var reason: String {
+    "Cannot determine the current window scene in which to present the App Clip overlay."
+  }
+}
+
+internal class MissingContainerURLException: Exception {
+  override var reason: String {
+    "Cannot determine the container URL."
+  }
+}
+
+public class AppClipModule: Module {
+  private static let isAppClip: Bool = {
+    if let infoPlist = Bundle.main.infoDictionary, let _ = infoPlist["NSAppClip"] as? [String: Any] {
+      return true
+    }
+    return false
+  }()
+
+  public func definition() -> ModuleDefinition {
+    Name("AppClip")
+
+    Constant("isAppClip") {
+      AppClipModule.isAppClip
+    }
+
+    // Display overlay to advertise full app.
+    // https://developer.apple.com/documentation/app_clips/recommending_your_app_to_app_clip_users
+    AsyncFunction("prompt") {
+      if #available(iOS 16, *) {
+        guard let currentScene = UIApplication.shared.connectedScenes
+          .compactMap({ $0 as? UIWindowScene })
+          .first(where: { $0.activationState == .foregroundActive }) else {
+          throw MissingCurrentWindowSceneException()
+        }
+
+        let config = SKOverlay.AppClipConfiguration(position: .bottom)
+        let overlay = SKOverlay(configuration: config)
+        overlay.present(in: currentScene)
+      }
+    }.runOnQueue(DispatchQueue.main)
+  }
+}
+```
+
+## TypeScript interface
+
+```ts
+import { NativeModule, requireOptionalNativeModule } from "expo";
+
+declare class AppClipModule extends NativeModule<{}> {
+  prompt(): Promise<void>;
+  isAppClip?: boolean;
+}
+
+const AppClipNative = requireOptionalNativeModule<AppClipModule>("AppClip");
+
+if (AppClipNative?.isAppClip) {
+  navigator.appClip = {
+    prompt: AppClipNative.prompt,
+  };
+}
+
+declare global {
+  interface Navigator {
+    /**
+     * Only available in an App Clip context.
+     * @expo
+     */
+    appClip?: {
+      /** Open the SKOverlay */
+      prompt: () => Promise<void>;
+    };
+  }
+}
+
+export {};
+```
+
+## Usage
+
+- Detect App Clip context: `if (navigator.appClip) { ... }`
+- Prompt to install the full app: `navigator.appClip?.prompt()`

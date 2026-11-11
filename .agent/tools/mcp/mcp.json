@@ -1,0 +1,14 @@
+{
+  "name": "baselayer-mcp",
+  "transport": "stdio",
+  "command": ["python3", ".agent/tools/mcp/server.py"],
+  "env_file": ".agent/.env",
+  "tools": ["compile_context", "read_section", "search_nodes", "list_nodes", "knowledge_search", "knowledge_last"],
+  "allowlist_by_profile": {
+    "conceptualizer": ["search_nodes", "list_nodes", "knowledge_search", "knowledge_last"],
+    "researcher": ["compile_context", "read_section", "search_nodes", "list_nodes", "knowledge_search", "knowledge_last"],
+    "coder": ["read_section", "search_nodes", "list_nodes", "knowledge_search", "knowledge_last"],
+    "reviewer": ["read_section", "search_nodes", "list_nodes", "knowledge_search", "knowledge_last"],
+    "taskmaster": ["compile_context", "read_section", "search_nodes", "list_nodes", "knowledge_search", "knowledge_last"]
+  }
+}

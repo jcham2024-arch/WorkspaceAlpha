@@ -1,0 +1,24 @@
+{
+  "version": "0.1.0",
+  "tiers": {
+    "high-thinking": {
+      "role": "orchestration: scope, planning, supervision",
+      "model": "unspecified (largest available)",
+      "context": "large",
+      "thinking": "high"
+    },
+    "low-thinking": {
+      "role": "management: decompose, package, review",
+      "model": "unspecified (mid)",
+      "context": "large",
+      "thinking": "low"
+    },
+    "no-thinking": {
+      "role": "implementer steps: execute minimal-context packages",
+      "model": "unspecified (smallest/fastest/cheapest)",
+      "context": "small",
+      "thinking": "none"
+    }
+  },
+  "notes": "Fill 'model' values with provider model IDs when a deployment is chosen. Default to the smallest tier that passes verification (TEMPLATE.md ladder)."
+}
