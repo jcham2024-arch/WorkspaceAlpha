@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ffbdb65f4de3fe8425ddb66cd0f7a262f6030a68cc07c7e38afde9517c7ee18d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: heading-analyzer
 description: "Heading Analyzer. Use when working with HTML, Markdown or extracted headings."
+tier: "experimental"
 category: On-Page Optimization
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Heading Analyzer
 
 ## Overview

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2ca495f0e17daa7447d6efe80f2dad3f238ae93b884f4bea9bc993e3a1f553bb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: claude-code-guide
 description: "To provide a comprehensive reference for configuring and using Claude Code (the agentic coding tool) to its full potential. This skill synthesizes best practices, configuration templates, and advanced usage patterns."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Claude Code Guide
 

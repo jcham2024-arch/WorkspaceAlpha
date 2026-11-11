@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6f253906d80de55758047699149168a8fa235dbdfac1eb4215f779f009e2c893"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agent-runtime-gateway-smoke-test
 description: Verify a local agent API, temporary gateway tunnel, and remote sandbox callback with a tool-free task, then restore the original app connection.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Agent Runtime Gateway Smoke Test
 

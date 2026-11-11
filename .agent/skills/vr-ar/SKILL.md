@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b4de5d2fc8c32279991866feb0f184b2033993a098186785f4248dff4ea5d40d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: vr-ar
 description: "VR/AR development principles. Comfort, interaction, performance requirements."
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # VR/AR Development
 

@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bad7013ff80f9d25aad96b41ed8e27515e88786ec6f7bd7b8da8040cc914c18a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: quarkus-tdd
 description: Test-driven development for Quarkus 3.x LTS using JUnit 5, Mockito, REST Assured, Camel testing, and JaCoCo. Use when adding features, fixing bugs, or refactoring event-driven services.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Quarkus TDD Workflow
 

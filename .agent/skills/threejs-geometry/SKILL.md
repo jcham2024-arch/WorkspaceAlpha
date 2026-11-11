@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7395dcf3856c62cf7cfc7af20e0d20ec39462e79da86936a6ffd98e29e110edb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: threejs-geometry
 description: Three.js geometry creation - built-in shapes, BufferGeometry, custom geometry, instancing. Use when creating 3D shapes, working with vertices, building custom meshes, or optimizing with instanced rendering.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # Three.js Geometry
 

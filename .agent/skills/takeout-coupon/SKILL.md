@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e6eb31c193a617e0fb3300e9a76a4970842c7d90eb11e6758e7addfb23a5dbe2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: takeout-coupon
 description: "Call takeout coupon API to fetch hidden coupon lists, red packets and aggregated redemption pages for platforms (Meituan, Taobao Flash/Ele.me, JD.com). Returns coupon codes and redemption instructions for users to copy and redeem in corresponding apps."
+tier: "experimental"
 category: shopping
 risk: critical
 source: community
@@ -11,6 +22,7 @@ author: moooai
 tags: [coupons, takeout, food-delivery, meituan, eleme]
 tools: [claude, codex]
 ---
+
 
 # Takeout Coupons (Meituan / Ele.me / JD)
 

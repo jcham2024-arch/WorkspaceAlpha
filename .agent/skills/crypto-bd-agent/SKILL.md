@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4cd1f4ecb80d679ea19fd6b79e065cdae2c96c0ffd7e2a9ee8293f71909241bb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: crypto-bd-agent
 description: "Reference patterns (upstream reports, not independently verified here) for building AI agents that autonomously discover, evaluate, and acquire token listings for cryptocurrency exchanges."
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Crypto BD Agent — Autonomous Business Development for Exchanges
 

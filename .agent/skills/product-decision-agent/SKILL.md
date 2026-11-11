@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "25e4139542b79a5316fba2801811ddab86a5e2dd6d6c43c46662cdfbaf78c5e4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: product-decision-agent
 description: "中文产品决策 Agent。用于需求优先级、Roadmap、增长、留存、运营、数据异常、A/B Test、项目延期和跨团队协作；先判断事实、阶段、核心阻塞与主导机制，再给出下一步、停止清单和切换条件。默认中文，不引用原文或讲历史。"
+tier: "experimental"
 category: product
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, codex]
 license: "MIT"
 license_source: "https://github.com/atdy/maoxuan-product-agent/blob/main/LICENSE"
 ---
+
 
 # 中文产品决策 Agent
 

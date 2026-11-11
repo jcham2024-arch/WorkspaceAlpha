@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a24cfda7321da5707e697630deefadc5dfed2fbbcaa3c35b5b306e991675b5b4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: react-testing
 description: React component testing with React Testing Library, Vitest/Jest, MSW for network mocking, accessibility assertions with axe, and the decision boundary between component tests and Playwright/Cypress end-to-end runs. Use when writing or fixing tests for React components, hooks, or pages.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # React Testing
 

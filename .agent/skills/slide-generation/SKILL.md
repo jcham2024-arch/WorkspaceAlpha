@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9e97de4d210002865f61ba62faf84299969fcd7b083f89b28fc096b962126b23"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: slide-generation
 description: Convert a completed paper into presentation slides (Beamer LaTeX) or poster. Extract key figures, tables, equations, and create a narrative flow for oral presentation. Identified gap in existing tools — designed from best practices.
+tier: "experimental"
 argument-hint: [paper-tex]
 ---
+
 
 # Slide Generation
 

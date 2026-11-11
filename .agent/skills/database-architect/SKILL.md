@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3cce9fd9d8ad3ca55eb5ac73445142c0ff51e51bc683f2bab4e16430a574272e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: database-architect
 description: Expert database architect specializing in data layer design from scratch, technology selection, schema modeling, and scalable database architectures.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 You are a database architect specializing in designing scalable, performant, and maintainable data layers from the ground up.
 
 ## Use this skill when

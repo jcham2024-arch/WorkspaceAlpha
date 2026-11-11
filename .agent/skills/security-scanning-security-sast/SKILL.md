@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "eea174c575244b73726695f59872fd4ab30ccd524edb56494a6dc695621a3759"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: security-scanning-security-sast
 description: 'Static Application Security Testing (SAST) for code vulnerability
+tier: "experimental"
 
   analysis across multiple languages and frameworks
 
@@ -9,6 +20,7 @@ risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 # SAST Security Plugin
 
 Static Application Security Testing (SAST) for comprehensive code vulnerability detection across multiple languages, frameworks, and security patterns.

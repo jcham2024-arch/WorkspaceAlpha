@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e6fe47ac090e8200ef2fce11478257ca16574fa746dc5d31463a4ab4e58b3e8d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: uv-package-manager
 description: "Comprehensive guide to using uv, an extremely fast Python package installer and resolver written in Rust, for modern Python project management and dependency workflows."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # UV Package Manager
 

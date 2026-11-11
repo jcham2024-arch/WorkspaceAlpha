@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "672ccb887265794f8991d1b26c9cba4e0e3cebb946b58b9d3c5abf3310391c46"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: avalonia-zafiro-development
 description: "Mandatory skills, conventions, and behavioral rules for Avalonia UI development using the Zafiro toolkit."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Avalonia Zafiro Development
 

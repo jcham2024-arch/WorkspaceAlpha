@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "32711e8aa499bccc4b6d0138c682e2b531c61482e2c7ae61e0b79c4b667962c4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: url-to-markdown
 description: "Fetch a public webpage as clean Markdown for an agent: read, summarize, quote, or cite the page while preserving its source URL."
+tier: "experimental"
 category: web
 risk: safe
 source: official
@@ -18,6 +29,7 @@ metadata:
   endpoint: https://md.replynodes.com
   keywords: [web, markdown, URL, webpage, agent, read-only]
 ---
+
 
 # URL to Markdown
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "aee02fa79cdb6997c6743bdb5a2a93616539e0029ea479173ff194735cb069a8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ledger-tasks-yylo
 description: 'Use YYLO Ledger task management: create, list, search, get, mark, update,
+tier: "experimental"
   archive, deps, ready, order and merge with dependencies.'
 category: project-management
 risk: critical
@@ -16,6 +27,7 @@ compatibility: Requires the `yy` CLI (YYLO Ledger 0.3.x+) installed and a routed
 argument-hint: '[command or workflow question]'
 enable-shell-directives: true
 ---
+
 
 ## YYLO Ledger CLI Reference
 

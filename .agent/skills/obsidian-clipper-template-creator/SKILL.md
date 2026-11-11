@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "80f9c03e0f60e3d88b560ee2bd11a7ebff64aad7331320bedb4205682e2af977"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: obsidian-clipper-template-creator
 description: Guide for creating templates for the Obsidian Web Clipper. Use when you want to create a new clipping template, understand available variables, or format clipped content.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Obsidian Web Clipper Template Creator
 

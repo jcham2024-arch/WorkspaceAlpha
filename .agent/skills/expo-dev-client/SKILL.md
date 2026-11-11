@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "576c0b57287c78075008cefa3bfca475092bbc8f3e3e5340a50e37664997d045"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: expo-dev-client
 description: Build Expo app for development
+tier: "experimental"
 risk: critical
 source: https://github.com/expo/skills/tree/main/plugins/expo/skills/expo-dev-client
 source_repo: expo/skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/expo/skills/blob/main/LICENSE
 ---
+
 
 Use EAS Build to create development clients for testing native code changes on physical devices. Use this for creating custom Expo Go clients for testing branches of your app.
 

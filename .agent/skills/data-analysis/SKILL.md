@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b60bb4ac738077e7457c588188ac78197fd5c01a9d6b6cd3e5c6277005cdd398"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: data-analysis
 description: Generate statistical analysis code with 4-round review. Select appropriate statistical tests, interpret results, and produce analysis reports with p-values, effect sizes, and confidence intervals. Use when analyzing experimental data for a paper.
+tier: "experimental"
 argument-hint: [data-source]
 ---
+
 
 # Data Analysis
 

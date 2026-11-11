@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ff6f4f1be5e8323de152fd156f624cd3352e0fb7773c92a9aefc539c49805479"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fda-food-safety-auditor
 description: "Expert AI auditor for FDA Food Safety (FSMA), HACCP, and PCQI compliance. Reviews food facility records and preventive controls."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-04"
 ---
+
 
 # FDA Food Safety Auditor
 

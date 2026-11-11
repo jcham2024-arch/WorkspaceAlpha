@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6daaf3bc86c2b6de87e529c73955039b32a0fd75d5bc35eddb837ac0673d9706"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: growth-engine
 description: "Motor de crescimento para produtos digitais -- growth hacking, SEO, ASO, viral loops, email marketing, CRM, referral programs e aquisicao organica."
+tier: "experimental"
 risk: none
 source: community
 date_added: '2026-03-06'
@@ -18,6 +29,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # GROWTH-ENGINE -- Crescimento Exponencial
 

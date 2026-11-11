@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "72c86d5446b4660a053805ee2d0b99df7cc780b1428062134e45260ea08c8bab"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: qrx
 description: "Make branded, print-ready art QR codes to validate before use with QRX (qrx.codes). Use when a link needs a QR code that looks like artwork or matches a brand for print, packaging, signs, slides or event badges, and to list or re-point QRX codes. Not for plain QR codes the agent makes locally."
+tier: "experimental"
 category: design
 risk: critical
 source: https://github.com/qrxcodes/qrx-mcp/tree/main/skills/qrx
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, copilot, gemini]
 license: MIT
 license_source: https://github.com/qrxcodes/qrx-mcp/blob/main/LICENSE
 ---
+
 
 # QRX: art QR codes to validate before use
 

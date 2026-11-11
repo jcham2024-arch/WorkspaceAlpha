@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f36b937d6288d23df7199aca50498f1cf6e27dd3541cc3cea0360833e6007756"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: find-animation-opportunities
 description: "Propose purposeful motion opportunities from a read-only codebase review, with evidence and explicit exclusions."
+tier: "experimental"
 category: frontend
 risk: safe
 source: community
@@ -11,6 +22,7 @@ author: Emil Kowalski
 license: MIT
 license_source: https://github.com/emilkowalski/skills/blob/a81dbca07f2217b7103e510c0f13f8d5b017afc9/LICENSE
 ---
+
 
 # Finding Animation Opportunities
 

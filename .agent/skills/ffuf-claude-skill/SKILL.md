@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1d0057b2f7eeb366d56c095a5d130b49d2873fc3dbf949a736f9a9c6361b9e91"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ffuf-claude-skill
 description: "Web fuzzing with ffuf"
+tier: "experimental"
 risk: offensive
 source: "https://github.com/jthack/ffuf_claude_skill"
 date_added: "2026-02-27"
 ---
+
 
 # Ffuf Claude Skill
 

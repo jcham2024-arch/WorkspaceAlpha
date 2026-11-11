@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f194427f4a8dc0aaf113664d32b115c2e8331741aac31fa2354be62df160e48a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: card-based-design
 description: Web and App implementation guide for Card-Based Design. Trigger when user wants information cards, Pinterest-style layouts, and bite-sized content containers.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Card-Based Design
 

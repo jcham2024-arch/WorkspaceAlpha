@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e350181d0ed9ec7e1f4e47f2d359d51c4bf0bbdf8d083240077be882cc319a9c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: frontend-slides
 description: Create stunning, animation-rich HTML presentations from scratch or by converting PowerPoint files. Use when the user wants to build a presentation, convert a PPT/PPTX to web, or create slides for a talk/pitch. Helps non-designers discover their aesthetic through visual exploration rather than abstract choices.
+tier: "experimental"
 license: MIT
 ---
+
 
 # Frontend Slides
 

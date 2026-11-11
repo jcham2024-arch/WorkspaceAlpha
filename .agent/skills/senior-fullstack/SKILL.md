@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "58d30e9894e6b9de2ad26205b95b80486adcbfa90f2a172f3f19f793221d3a7d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: senior-fullstack
 description: "Coordinate full-stack implementation across interface, service, database and delivery boundaries using the existing project stack and verified checks."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Full-Stack Implementation Review
 

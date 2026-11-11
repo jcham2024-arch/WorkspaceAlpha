@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0d70b14186aad0f357da3c9c39d247b4db1af4e2b88137741955d5f64f822a8d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gmb-optimization-helper
 description: "GMB Optimization Helper. Use when working with Google Business Profile details or business facts."
+tier: "experimental"
 category: Local SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # GMB Optimization Helper
 
 ## Overview

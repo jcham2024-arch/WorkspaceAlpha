@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e61c032548911d7386436b883acd9171befff0eaf3c593a9c2e214bd37cecef0"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: web-design-system
 description: "Choose a design direction for a website from real sites and write it down as a DESIGN.md: colors with roles, type, spacing, radius, shadows and components, in light and dark."
+tier: "experimental"
 category: frontend
 risk: safe
 source: https://github.com/uxkin/agent/tree/ee24e34dd0d2361417a48b96e4a0ad4e27d251ca/.agents/skills/design-md
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, copilot, gemini]
 license: MIT
 license_source: https://github.com/uxkin/agent/blob/ee24e34dd0d2361417a48b96e4a0ad4e27d251ca/LICENSE
 ---
+
 
 # Web design system · derived from UXKIN
 

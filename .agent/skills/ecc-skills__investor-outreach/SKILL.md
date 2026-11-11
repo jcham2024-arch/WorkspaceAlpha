@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "63116f96ebf30932d81716d064c50fd25d04c95b9595a1ca9ecf5d1ec3ac6ed7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: investor-outreach
 description: Draft cold emails, warm intro blurbs, follow-ups, update emails, and investor communications for fundraising. Use when the user wants outreach to angels, VCs, strategic investors, or accelerators and needs concise, personalized, investor-facing messaging.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Investor Outreach
 

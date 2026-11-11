@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4d566a3902fdd90edf6a5e08b9972f393dea692b787e3080527ddd57f3aa8275"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sendgrid-automation
 description: "Automate SendGrid email delivery workflows including marketing campaigns (Single Sends), contact and list management, sender identity setup, and email analytics through Composio's SendGrid toolkit."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # SendGrid Automation via Rube MCP
 

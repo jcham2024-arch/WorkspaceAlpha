@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3772944f6765ec6e250c84eda13fe3248aa904ab284703d50915d5d05471ef1d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: user-management
 description: Manage users, groups, and permissions on Linux systems. Configure sudo
+tier: "experimental"
   and access controls. Use when managing system access.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # User Management
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f12fd5e8969268a6286b859ce2315fdbebae0ebc291f1a19ddd6b298db920b69"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: track-management
 description: Use this skill when creating, managing, or working with Conductor tracks - the logical work units for features, bugs, and refactors. Applies to spec.md, plan.md, and track lifecycle operations.
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Track Management
 

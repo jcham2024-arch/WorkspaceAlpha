@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2ffa4c57f846def5a27f64db4f768e4c895939e4c149b611e2bfb4c023f03fa1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mesh-memory
 description: "Self-hosted semantic memory for AI agents via MCP. Save worklogs, decisions, and notes, then recall them across sessions by meaning, not keyword. Postgres + pgvector with auto-tagging."
+tier: "experimental"
 risk: safe
 source: dklymentiev/mesh-memory (MIT)
 date_added: "2026-05-23"
 ---
+
 
 # Mesh Memory
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5d2035b36c28e623da79a037d2e694d64ccd8df6fe069d52980dc2256ba29ee2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gcp-gke
 description: Deploy and manage Google Kubernetes Engine clusters. Configure node pools,
+tier: "experimental"
   networking, and workload identity. Use when running Kubernetes on GCP.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Google Kubernetes Engine (GKE)
 

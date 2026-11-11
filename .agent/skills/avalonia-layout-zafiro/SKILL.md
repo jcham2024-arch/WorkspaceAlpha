@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9599fb32926cf6360626ac0a2ede60e3f0bea9376254efabe340b6a58633399e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: avalonia-layout-zafiro
 description: "Guidelines for modern Avalonia UI layout using Zafiro.Avalonia, emphasizing shared styles, generic components, and avoiding XAML redundancy."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Avalonia Layout with Zafiro.Avalonia
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0dca2d8816f215c20a13d2bf79a268797109190a1228feea2634013d68744531"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: markstream-react
 description: "Integrate the beta markstream-react renderer into React 18+ or Next.js with correct client/server entrypoints, CSS, streaming state, and component overrides."
+tier: "experimental"
 category: frontend
 risk: critical
 source: https://github.com/Simon-He95/markstream-vue/tree/main/.agents/skills/markstream-react
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: MIT
 license_source: https://github.com/Simon-He95/markstream-vue/blob/main/license
 ---
+
 
 # Markstream React
 

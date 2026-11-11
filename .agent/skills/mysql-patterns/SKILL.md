@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "71fb4bce9499c01c10f695ef579b93c7d610e9f81f80fd5cdb6540bed2a279af"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mysql-patterns
 description: MySQL and MariaDB schema, query, indexing, transaction, replication, and connection-pool patterns for production backends. Use when designing MySQL or MariaDB schemas and indexes, or when a query, transaction, or replica lags.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # MySQL Patterns
 

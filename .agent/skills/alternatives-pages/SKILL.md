@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c57eb41575926b10e7db54068c60a44d1ac57e71a7201781c088324d68697c32"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: alternatives-pages
 description: "Create \"[Competitor] alternative\" and comparison pages for developer tools. Build honest, high-converting comparison content that ranks for competitive search terms."
+tier: "experimental"
 risk: critical
 source: https://github.com/jonathimer/devmarketing-skills/tree/main/skills/alternatives-pages
 source_repo: jonathimer/devmarketing-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/jonathimer/devmarketing-skills/blob/main/LICENSE
 ---
+
 
 # Alternatives Pages
 ## When to Use

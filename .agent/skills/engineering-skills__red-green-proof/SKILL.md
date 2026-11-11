@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "809cf2693d08d55e6896443b6899a797c425eb72d5e1829c84e62d029ff7679b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: red-green-proof
 description: Turns a suspected bug into a proven one. Verify the cause against reality before claiming it, write a test that FAILS on the current code, apply the fix, watch it pass — then revert the fix and confirm the test goes red again, because a test that passes both ways proves nothing. Invoked bare after a debugging conversation, it takes
+tier: "experimental"
 ---
+
 
 # Red-Green-Proof
 

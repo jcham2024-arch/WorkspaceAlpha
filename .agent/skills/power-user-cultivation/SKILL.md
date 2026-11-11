@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "00f298c59ea303ec1996702507a72d803f05b24bbcaf33eed2c510df13a2d51e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: power-user-cultivation
 description: "When the user wants to identify and nurture developer advocates, build champion programs, or turn active users into contributors and evangelists."
+tier: "experimental"
 risk: safe
 source: https://github.com/jonathimer/devmarketing-skills/tree/main/skills/power-user-cultivation
 source_repo: jonathimer/devmarketing-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/jonathimer/devmarketing-skills/blob/main/LICENSE
 ---
+
 
 # Power User Cultivation
 

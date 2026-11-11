@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "91c77083d3c4a06f788b0ffd00f60854ede5910d9bc2f46ec11e963c1791015a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: threat-mitigation-mapping
 description: "Map identified threats to appropriate security controls and mitigations. Use when prioritizing security investments, creating remediation plans, or validating control effectiveness."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Threat Mitigation Mapping
 

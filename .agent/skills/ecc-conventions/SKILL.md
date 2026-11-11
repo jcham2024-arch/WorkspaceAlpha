@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e9963a1caf701c749954ce88ebb2d7f6706183bba744e522d8b34b3558765d24"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ecc-conventions
 description: Development conventions and patterns for ECC. JavaScript project with conventional commits.
+tier: "experimental"
 license: MIT
 ---
+
 
 # ECC Conventions
 

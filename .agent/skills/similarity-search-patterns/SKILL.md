@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9134af2fe7895c61d9f769c8700acd830d78b454d81e403ad738f457a74adb69"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: similarity-search-patterns
 description: "Implement efficient similarity search with vector databases. Use when building semantic search, implementing nearest neighbor queries, or optimizing retrieval performance."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Similarity Search Patterns
 

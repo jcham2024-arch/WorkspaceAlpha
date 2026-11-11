@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e45fa92e198dad2ad36dedf5f49ec9e069613cfa0a9e45f1df875f1bd7dd2fda"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: drizzle-migration-conflict
 description: "Diagnose, repair, and prevent Drizzle Kit migration conflicts involving generated SQL, snapshots, journals, merge queues, and team workflows."
+tier: "experimental"
 category: databases
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [git, python, rg]
 license: "Apache-2.0"
 license_source: "https://github.com/chaunsin/agent-skills/blob/master/LICENSE"
 ---
+
 
 # Drizzle Migration Conflict
 

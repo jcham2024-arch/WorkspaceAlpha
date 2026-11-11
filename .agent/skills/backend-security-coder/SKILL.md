@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4b3d514f482009f5a140f463a5b1696c6fe757d46a68933c8afb1d99b70e89b7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: backend-security-coder
 description: Expert in secure backend coding practices specializing in input validation, authentication, and API security. Use PROACTIVELY for backend security implementations or security code reviews.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 ## Use this skill when
 

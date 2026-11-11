@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "25949bc31c1f08168158a150b8c4cd788efd1698af19ad34b25a137bef40f183"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: clarvia-aeo-check
 description: "Score any MCP server, API, or CLI for agent-readiness using Clarvia AEO (Agent Experience Optimization). Use current provider evidence as advisory input when evaluating a tool."
+tier: "experimental"
 category: tool-quality
 risk: safe
 source: community
@@ -9,6 +20,7 @@ author: digitamaz
 tags: [mcp, aeo, tool-quality, agent-readiness, api-scoring, clarvia]
 tools: [claude, cursor, windsurf, cline]
 ---
+
 
 # Clarvia AEO Check
 

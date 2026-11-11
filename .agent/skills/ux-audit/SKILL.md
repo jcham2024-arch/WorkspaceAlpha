@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d8901bdbebd809f2dff60a99453876c2e1da4b3b293c7f0e1f091518488aeb48"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ux-audit
 description: Audit screens for UX issues using Nielsen's heuristics and modern mobile UX best practices
+tier: "experimental"
 risk: safe
 source: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-audit
 source_repo: bitjaru/styleseed
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE
 ---
+
 
 # UX Audit
 ## When to Use

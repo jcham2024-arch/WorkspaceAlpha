@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fd407d9e9176d8028ea53be569f16c407fc032a2c66010721f62b6822751b4fb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: planetscale
 description: Operate MySQL-compatible databases on PlanetScale with branching workflows,
+tier: "experimental"
   safe migrations, and production rollouts.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # PlanetScale
 

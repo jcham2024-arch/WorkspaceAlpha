@@ -1,10 +1,22 @@
 ---
+tier: "quarantine"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "656c571d61f9b68cbee253cc10482a498bc37e76438036984d2c6ed258735073"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: notebooklm
 description: "Interact with Google NotebookLM to query documentation with Gemini's source-grounded answers. Each question opens a fresh browser session, retrieves a source-grounded answer that must be verified against the uploaded documents, and closes."
+tier: "quarantine"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # NotebookLM Research Assistant Skill
 

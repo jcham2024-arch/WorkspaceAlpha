@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7530fed2133466473ee11f39fbde6becb6c59ba835d3e132073933db31ab748c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: devops-deploy
 description: "DevOps e deploy de aplicacoes — Docker, CI/CD com GitHub Actions, AWS Lambda, SAM, Terraform, infraestrutura como codigo e monitoramento."
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-03-06'
@@ -19,6 +30,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # DEVOPS-DEPLOY — Da Ideia para Producao
 

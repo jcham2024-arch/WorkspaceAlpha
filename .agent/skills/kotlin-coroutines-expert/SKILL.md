@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7b8cc9efc69b88b2e048092cf3a2aafda6ebde3b7a13643f0b11d03ac5cc8f9a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: kotlin-coroutines-expert
 description: "Expert patterns for Kotlin Coroutines and Flow, covering structured concurrency, error handling, and testing."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Kotlin Coroutines Expert
 

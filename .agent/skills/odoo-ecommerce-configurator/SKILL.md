@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e0f74f6c67f60af87604c647dafc0b492923a5f088eaef9b87b80ee9f0db02df"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: odoo-ecommerce-configurator
 description: "Expert guide for Odoo eCommerce and Website: product catalog, payment providers, shipping methods, SEO, and order-to-fulfillment workflow."
+tier: "experimental"
 risk: critical
 source: "self"
 date_added: "2026-03-04"
 ---
+
 
 # Odoo eCommerce Configurator
 

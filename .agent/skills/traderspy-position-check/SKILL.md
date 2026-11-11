@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d6bef540e78e99c6fa4af15c2ced008433748fe3ce70da2686048754be37a73d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: traderspy-position-check
 description: "Health-check crypto futures positions the user describes, with TraderSpy data: liquidation and stop distance, multi-timeframe read, funding and top-trader side. Reports only; never tells the user to close or add."
+tier: "experimental"
 category: finance
 risk: safe
 source: "https://github.com/target1m/traderspy-mcp/tree/069aae5a84640d671f92705a2e3bc0b62efca1e0/skills/position-check"
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: MIT
 license_source: "https://github.com/target1m/traderspy-mcp/blob/069aae5a84640d671f92705a2e3bc0b62efca1e0/LICENSE"
 ---
+
 
 # TraderSpy Position Check
 

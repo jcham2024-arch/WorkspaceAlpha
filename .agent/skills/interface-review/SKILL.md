@@ -1,7 +1,18 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "edf675bacf3c9bda0b68ed419ef22d00c5e1eec6ee5c762504a9713e09c7335b"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: interface-review
 disable-model-invocation: true
 description: Reviews a branch, pull request or uncommitted change for the interface problems it introduced or regressed, across accessibility, layout, writing, typography, color and UI.
+tier: "experimental"
 category: design
 risk: critical
 source: https://github.com/jakubkrehel/skills
@@ -13,6 +24,7 @@ author: jakubkrehel
 upstream_commit: 60bf140e43c98b248e6594487384ec967e89d98a
 date_added: "2026-11-06"
 ---
+
 ## When to Use
 
 Use for the interface review task described below, within the user-authorized interface or drawing scope. Related skills in this collection own the domains named in the workflow; existing general frontend-design and accessibility audits remain suitable for broader work.

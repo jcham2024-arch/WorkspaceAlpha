@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d0b4b71ed8ce30fc5fc221e23e7f9b9ee6f3f40502deed98152c8837a01fb972"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: robius-widget-patterns
 description: |
+tier: "experimental"
   CRITICAL: Use for Robius widget patterns. Triggers on:
   apply_over, TextOrImage, modal, 可复用, 模态,
   collapsible, drag drop, reusable widget, widget design,
@@ -9,6 +20,7 @@ risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

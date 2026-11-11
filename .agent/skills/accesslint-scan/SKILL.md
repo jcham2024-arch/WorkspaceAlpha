@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b26283c7a2bd86db0d6aa5029e9222f5e07ad8d8744c0a23a3045db0421e0dc7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: accesslint-scan
 description: "Audit a live page for accessibility issues, locate each WCAG violation precisely, and return a selector-grounded fix worklist without editing."
+tier: "experimental"
 risk: critical
 source: "https://github.com/AccessLint/skills"
 date_added: "2026-06-02"
 ---
+
 
 Audit a live page and report what's broken and where. Locate; don't fix. If no URL in `$ARGUMENTS`, ask for one.
 

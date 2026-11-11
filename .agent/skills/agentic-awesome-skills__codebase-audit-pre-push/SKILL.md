@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1e431aec1f18928031ecd22300e27f21380e08b42a1e8174948c6e35a84a3d5e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: codebase-audit-pre-push
 description: "Deep audit before GitHub push: removes junk files, dead code, security holes, and optimization issues. Checks every file line-by-line for production readiness."
+tier: "experimental"
 category: development
 risk: safe
 source: community
 date_added: "2026-03-05"
 ---
+
 
 # Pre-Push Codebase Audit
 

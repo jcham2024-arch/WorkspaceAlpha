@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "14354370ab6e91138865a8d20688089dae9f63494754c55be549bed9bced4d81"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-effectuation
 description: Under genuine uncertainty with no reliable forecast, inventory means, cap downside at affordable loss, act for commitments, and let goals emerge from controllable moves.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Effectuation
 

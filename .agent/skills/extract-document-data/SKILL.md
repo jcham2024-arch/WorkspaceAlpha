@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f5ce65eaa8e4b98906cf7ae608cb994b0d7c8290e4facd672041761050bb1625"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: extract-document-data
 description: Extract structured, grounded fields from documents — values cite their page, missing values abstain instead of hallucinating. Use for parsing invoices, payslips, statements, contracts.
+tier: "experimental"
 category: document-verification
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: "Apache-2.0"
 license_source: "https://github.com/Sketchjar/stipple-agent-skills/blob/main/LICENSE"
 ---
+
 
 # Extract Document Data
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5c25361b89377d50d516c6d679f48bd2d4fb75ced45a50547cc03d4ec0cb1d3b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: secrets-management
 description: "Secure secrets management practices for CI/CD pipelines using Vault, AWS Secrets Manager, and other tools."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Secrets Management
 

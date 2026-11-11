@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "67fe0632892c3d0ee7c5a9277f755ddedf28df377b2303b17ecabd15d6e6bd6a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: wechat-official-account-strategist
 description: "Grow WeChat Official Accounts (微信公众号) with high-conversion content strategy, title formulas, article architecture, and Mini-Program integration."
+tier: "experimental"
 category: marketing
 risk: safe
 source: community
@@ -11,6 +22,7 @@ author: yundu-ai
 tags: [wechat, chinese-market, content-strategy, marketing, 公众号, 微信]
 tools: [claude, cursor, gemini]
 ---
+
 
 # WeChat Official Account Strategist
 

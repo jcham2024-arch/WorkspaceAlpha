@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "aa6fec4ee5cf3484cbf2d368a3bcddf642f7568e72c5a32e84ef87e811717c76"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fp-ts-errors
 description: "Handle errors as values using fp-ts Either and TaskEither for cleaner, more predictable TypeScript code. Use when implementing error handling patterns with fp-ts."
+tier: "experimental"
 risk: safe
 source: "https://github.com/whatiskadudoing/fp-ts-skills"
 date_added: "2026-02-27"
 ---
+
 
 # Practical Error Handling with fp-ts
 

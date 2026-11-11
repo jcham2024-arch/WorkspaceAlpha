@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3e578682f77b5fd4ddd39d29fb186fa722da08d617d2c3dbf4e5ebfd3b5f8cdf"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: csharp-pro
 description: Write modern C# code with advanced features like records, pattern matching, and async/await. Use for version-compatible .NET implementation and evidence-based testing/performance review.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 ## Use this skill when
 

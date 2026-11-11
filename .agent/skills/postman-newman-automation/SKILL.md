@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "717bdd82c5042ecb9a8d542f386e96c96abadea0d107d4c83b72c28fe47f1b01"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: postman-newman-automation
 description: "Generate Newman CLI commands, configuration files, Jenkins pipeline scripts, and shell automation for running Postman collections in CI/CD or local environments."
+tier: "experimental"
 risk: critical
 source: https://github.com/LambdaTest/agent-skills/tree/main/api-skill/postman/postman-to-newman
 source_repo: LambdaTest/agent-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/LambdaTest/agent-skills/blob/main/LICENSE
 ---
+
 
 # Postman Newman Automation
 ## When to Use

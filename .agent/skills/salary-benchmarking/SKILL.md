@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0458b875f999576c38e73f890c8a2f2d70236eb760bf05428aa66c784d96cc76"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: salary-benchmarking
 description: 'Salary benchmark register: role, department and grade against market and internal minimum, median and maximum. Use for compensation review.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, acquire]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Salary Benchmarking
 

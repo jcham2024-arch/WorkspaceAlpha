@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "649df43aff893d3597826f007710a06608aa9e2f66d161f12442777fbd7034bb"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: figma-designer
 description: "Create structured Figma screens and libraries with ELAYA spacing, radius, semantic color variables, text styles, auto layout, and component states."
+tier: "experimental"
 risk: critical
 source: community
 source_repo: ELAYADESIGN/AI-DESIGN-SKILLS
@@ -10,6 +21,7 @@ license: MIT
 license_source: https://github.com/ELAYADESIGN/AI-DESIGN-SKILLS/blob/456d9e0d3e2d84c748bb143c6ca3d90c45e16213/LICENSE
 date_added: "2026-11-03"
 ---
+
 # Figma Designer
 
 Adapted by AAS from [ELAYADESIGN/AI-DESIGN-SKILLS](https://github.com/ELAYADESIGN/AI-DESIGN-SKILLS/tree/456d9e0d3e2d84c748bb143c6ca3d90c45e16213) at `456d9e0d3e2d84c748bb143c6ca3d90c45e16213`. Retains upstream design guidance and credits; AAS adds scoped activation, operational boundaries, examples and limitations, and clarifies the corrections called out below. See LICENSE.

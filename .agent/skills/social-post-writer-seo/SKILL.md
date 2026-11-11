@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f63bb04c0d13e708c1864a609088be46feb90cf10f2792b916b3ef03b49d5f9b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: social-post-writer-seo
 description: "Social Media Strategist and Content Writer. Creates clear, engaging social media posts for Instagram, LinkedIn, and Facebook."
+tier: "experimental"
 category: growth
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [social-media, marketing, content-writing, seo, growth]
 tools: [claude, cursor, gemini]
 version: 1.0.1
 ---
+
 
 # Social Media Strategist and Content Writer
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9ccd06782ffc76701ae87f84f93643300fc9cc9b7d42947b5397011cebcad4ef"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: brooks-review
 description: "PR code review that surfaces decay risks, design smells, and maintainability issues with concrete Symptom → Source → Consequence → Remedy findings, drawing on twelve classic engineering books."
+tier: "experimental"
 risk: safe
 source: https://github.com/hyhmrright/brooks-lint/tree/main/skills/brooks-review
 source_repo: hyhmrright/brooks-lint
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/hyhmrright/brooks-lint/blob/main/LICENSE
 ---
+
 
 # Brooks-Lint — PR Review
 ## When to Use

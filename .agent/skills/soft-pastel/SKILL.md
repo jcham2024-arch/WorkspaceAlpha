@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ee6a635092372df66258183352db16b5b9490e8bbe9b38a82cc0b64f699169cd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: soft-pastel
 description: Web and App implementation guide for Soft Pastel Design. Trigger when user wants gentle colors, calming UI, baby/lifestyle branding, or low-contrast aesthetics.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Soft Pastel Design
 

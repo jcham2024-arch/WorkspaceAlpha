@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0400f33ce2545922304e99aec766190aa617218ddb8033d0dd9ebd8e1055857b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: traderspy-technical-analysis
 description: "Read one crypto futures pair with TraderSpy: 19 indicators on up to 3 timeframes in one call, key levels, funding, open interest and positioning. Use for \"analyse BTC\" or \"is SOL oversold\"."
+tier: "experimental"
 category: finance
 risk: critical
 source: "https://github.com/target1m/traderspy-mcp/tree/069aae5a84640d671f92705a2e3bc0b62efca1e0/skills/technical-analysis"
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: MIT
 license_source: "https://github.com/target1m/traderspy-mcp/blob/069aae5a84640d671f92705a2e3bc0b62efca1e0/LICENSE"
 ---
+
 
 # TraderSpy Technical Analysis
 

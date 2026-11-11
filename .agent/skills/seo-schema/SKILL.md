@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "db5d3364fe53d6cdd7f22c492113bb33b1286cd1dcb2f28a1108ec498cbd60da"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-schema
 description: >
+tier: "experimental"
   Detect, validate, and generate Schema.org structured data. JSON-LD format
   preferred. Use when user says "schema", "structured data", "rich results",
   "JSON-LD", or "markup".
@@ -17,6 +28,7 @@ allowed-tools:
   - WebFetch
   - Write
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

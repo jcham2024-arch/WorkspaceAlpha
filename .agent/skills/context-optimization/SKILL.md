@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "70d2e83006da94161c5ebce1a85ab32a79110ddf09f1acff81508f5361077354"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: context-optimization
 description: "Context optimization extends the effective capacity of limited context windows through strategic compression, masking, caching, and partitioning. The goal is not to magically increase context windows but to make better use of available capacity."
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-01-30"
 ---
+
 
 # Context Optimization Techniques
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b36ae8556b67f986665ffbb974ab38fcb9b1ba515de720fa6d4aa2f1c0041d54"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ralph-loop-yylo
 description: Execute exactly one explicitly assigned YYLO Ledger task through the
+tier: "experimental"
   Ralph loop to a validated queued commit. Use only when the user explicitly requests
   ralph-loop-yylo.
 category: agent-orchestration
@@ -15,6 +26,7 @@ compatibility: Requires the `yy` CLI, git and bash. Executes one explicitly assi
   Ledger task in its admitted worktree through `yy task start/finish` to a validated
   queued commit. Never pushes, deploys, merges, or releases.
 ---
+
 
 # Execute one assigned task in the Ralph loop
 

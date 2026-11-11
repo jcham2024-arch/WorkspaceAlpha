@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3f93c61328ad6673d17defb25515ea5b3d9be814dc91a14c6b67b1c6ca673639"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: soroban-token-minter
 description: 'Soroban SEP-41 token contract architecture register: admin control, supply caps, metadata standard, and transfer event emissions on Stellar.'
+tier: "experimental"
 category: engineering
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [stellar, soroban, token, sep-41, defi, web3, rust]
 tools: []
 source_repo: Ranjeet2063/agentic-awesome-skills
 ---
+
 
 # Soroban Token Minting Architecture
 

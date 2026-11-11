@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fe4c5bc2cd331910836a16b0e651a6661788eb57926fb598ee42f33c67e39e36"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: odoo-sales-crm-expert
 description: "Expert guide for Odoo Sales and CRM: pipeline stages, quotation templates, pricelists, sales teams, lead scoring, and forecasting."
+tier: "experimental"
 risk: safe
 source: "self"
 date_added: "2026-03-04"
 ---
+
 
 # Odoo Sales & CRM Expert
 

@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "65ff0dbb1af1a7d083c0e400b83afbd63a905061982fd3c97877a274697d1517"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: remote-browser
 description: Controls an isolated Browser Use Cloud browser from a sandboxed machine with the current Browser Use CLI.
+tier: "experimental"
 allowed-tools: Bash(browser-use:*)
 ---
+
 
 # Remote Browser
 

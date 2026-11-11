@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a748dde2f8833eba3be98c5c291852fc4651bc806f0da44c2c99eeeb11ab257f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-ai-projects-py
 description: "Build AI applications on Microsoft Foundry using the azure-ai-projects SDK."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Azure AI Projects Python SDK
 

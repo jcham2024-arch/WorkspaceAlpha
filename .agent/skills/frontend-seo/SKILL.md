@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0c7a83d42e38e2d7d6d18ff168cce8400d2bc234cd8bdd7bd0e2ae2005f9c365"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: frontend-seo
 description: "A portable, framework-agnostic SEO system for any React or React Native-for-web frontend."
+tier: "experimental"
 risk: critical
 source: https://github.com/stareezy-1/frontend-architecture-skill/tree/main/skills/frontend-seo
 source_repo: stareezy-1/frontend-architecture-skill
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/stareezy-1/frontend-architecture-skill/blob/main/LICENSE
 ---
+
 
 # Frontend SEO (portable, builder-based)
 

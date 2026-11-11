@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a1324ae27a3403bd9de0d6caa41a78805031ea2b85cec83ee0f249aebc063cc3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: decision-navigator
 description: "Guide stuck or overwhelmed users through targeted branching questions until they reach concrete next steps."
+tier: "experimental"
 category: planning
 risk: safe
 source: community
 source_type: community
 date_added: "2026-05-27"
 ---
+
 
 # Decision Navigator
 

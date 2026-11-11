@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "20c0a9792a92e38d287203cc14cbd579ef5aeef73611bbd13be270145ca9bbce"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-monitor-opentelemetry-exporter-py
 description: Azure Monitor OpenTelemetry Exporter for Python. Use for low-level OpenTelemetry export to Application Insights.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Azure Monitor OpenTelemetry Exporter for Python
 

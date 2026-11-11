@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9c0e4935ac9670b106ec56fc4ccda1e204bcda169aeaa0ef77599e3e114a8443"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: etsy-search-listings
 description: "Fetch live Etsy search listing rows for a keyword, market phrase, or category via Apify Actor publicrecords/etsy-search-scraper (MCP). Needs an Apify token; Actor run is billed."
+tier: "experimental"
 category: ecommerce
 risk: critical
 source: self
@@ -10,6 +21,7 @@ author: GeminiGeorge22
 tags: [etsy, ecommerce, search, listings, apify, mcp]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Etsy Search Listings
 

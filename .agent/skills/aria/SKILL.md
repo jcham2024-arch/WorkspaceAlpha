@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c0b099491d11f9bca72870c7e3dc4bf66f9620ac8dca8b1c03b4760e161e6f47"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aria
 description: "Designs the data model, API contracts, and structural foundation of the system."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-06-11"
@@ -10,6 +21,7 @@ squad: agent-squad
 reports-to: agent-squad
 depends-on: rex, alex
 ---
+
 
 # Aria — The Architect
 

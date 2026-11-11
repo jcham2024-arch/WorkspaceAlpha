@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "78e5bda5a393995c7c325dc4b396bd7c394316cb4e9f1d2b320d5e9c667af061"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: triage
 description: Move issues and external PRs through a state machine of triage roles — categorise, verify, grill if needed, and write agent-ready briefs.
+tier: "experimental"
 disable-model-invocation: true
 category: "development"
 risk: "safe"
@@ -20,6 +31,7 @@ tools:
   - codex-cli
   - cursor
 ---
+
 
 # Triage
 

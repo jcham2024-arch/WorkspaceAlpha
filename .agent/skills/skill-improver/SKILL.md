@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "71c79a4e11c4eb028aeee421993271fe0939b6781a9b4e6d17257e6068640488"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: skill-improver
 description: "Iteratively improve a Claude Code skill using the skill-reviewer agent until it meets quality standards. Use when improving a skill with multiple quality issues, iterating on a new skill until it meets standards, or automated fix-review cycles instead of manual editing."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # Skill Improvement Methodology
 

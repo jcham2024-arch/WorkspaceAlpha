@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bbf85fa27b80b82a3dea14acf267a6b9cbe1b357596e8d2090d04872ec4207a1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: xss-html-injection
 description: "Execute comprehensive client-side injection vulnerability assessments on web applications to identify XSS and HTML injection flaws, demonstrate exploitation techniques for session hijacking and credential theft, and validate input sanitization and output encoding mechanisms."
+tier: "experimental"
 risk: offensive
 source: community
 author: zebbern
 date_added: "2026-02-27"
 ---
+
 
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.

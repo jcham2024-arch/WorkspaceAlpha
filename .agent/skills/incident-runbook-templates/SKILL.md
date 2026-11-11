@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4789d7abff8f38a1047d9d81f3dd6494447f47830d99500ede6e96af0f58b5d9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: incident-runbook-templates
 description: "Adaptable templates for incident response runbooks covering detection, triage, mitigation, resolution, and communication."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 # Incident Runbook Templates
 
 Adaptable templates for incident response runbooks covering detection, triage, mitigation, resolution, and communication.

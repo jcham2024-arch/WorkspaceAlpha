@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b5698f344f68d59f2818572f78b1588b1398d14dd41c443fd728e27d7ff55aae"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: springboot-tdd
 description: Test-driven development for Spring Boot using JUnit 5, Mockito, MockMvc, Testcontainers, and JaCoCo. Use when adding features, fixing bugs, or refactoring.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Spring Boot TDD Workflow
 

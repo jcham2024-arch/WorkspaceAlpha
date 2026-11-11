@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "61d0c9f106ebd66669918b227123e0b92c94569b9ed059c83bdb5b8a017783dd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: laravel-development-workflow
 description: "Build and fix existing Laravel applications through root-cause diagnosis, repository-native implementation, regression coverage, and risk-based verification."
+tier: "experimental"
 category: development
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/Junaid-PK/laravel-development-workflow/blob/main/LICENSE"
 ---
+
 
 # Laravel Development Workflow
 

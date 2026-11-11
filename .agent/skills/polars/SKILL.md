@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "844dec486b9995b007ee71df9a431d9fe790f0914baac1e244a82d09c305b2ed"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: polars
 description: Expression-based DataFrame library for Python and Rust. Use for eager or lazy tabular analytics, ETL, and pandas migration; streaming support and memory needs depend on the query.
+tier: "experimental"
 license: https://github.com/pola-rs/polars/blob/main/LICENSE
 metadata:
     skill-author: K-Dense Inc.
@@ -8,6 +19,7 @@ risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 Use `import polars.selectors as cs` for selector examples.
 
 ## Bundled upstream support

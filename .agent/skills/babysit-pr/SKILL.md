@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e6a0d09d59abe9d39de1d23a2147e9ecf3dfb8763ae3b6b140fb84ccbdd26bba"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: babysit-pr
 description: 'Babysit a pull request through its bot review rounds: verify, fix, reply,
+tier: "experimental"
   resolve. Use for any babysit or watch-the-PR ask.'
 risk: critical
 category: code-quality
@@ -15,6 +26,7 @@ compatibility: Requires `gh` (GitHub) or `glab` (GitLab) authenticated, plus `jq
 metadata:
   version: 0.1.0
 ---
+
 # Babysit a PR
 
 ## When to Use

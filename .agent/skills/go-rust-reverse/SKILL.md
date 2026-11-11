@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3586f22cc3223ace101d9c7b51728c3fbf99bc9c265136fc1af395850cd36ad0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: go-rust-reverse
 description: "Reverse engineer stripped Go and Rust binaries: runtime recognition, pclntab/module metadata recovery, panic-string analysis, and idiomatic decompilation strategies."
+tier: "experimental"
 risk: safe
 source: "https://github.com/zhaoxuya520/reverse-skill"
 source_repo: "zhaoxuya520/reverse-skill"
@@ -9,6 +20,7 @@ date_added: "2026-08-25"
 license: "MIT"
 license_source: "https://github.com/zhaoxuya520/reverse-skill/blob/main/LICENSE"
 ---
+
 # Go / Rust Binary Reverse Engineering
 ## When to Use
 

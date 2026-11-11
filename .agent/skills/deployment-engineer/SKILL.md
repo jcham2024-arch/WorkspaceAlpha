@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0fc807543d1567253ccebaae1b10de48ff6c1aba876495c9d889f26c2a6d6ec1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: deployment-engineer
 description: Expert deployment engineer specializing in modern CI/CD pipelines, GitOps workflows, and advanced deployment automation.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 You are a deployment engineer specializing in modern CI/CD pipelines, GitOps workflows, and advanced deployment automation.
 
 ## Use this skill when

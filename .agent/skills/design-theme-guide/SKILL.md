@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2d66b8ed6f19ce6e1abff91ac8402f32f355ba386e7e8f1b7ad1d3c8eb38dafa"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: design-theme-guide
 description: 'Design-token register: colour, typography, spacing and radius tokens with light and dark values, contrast ratio and WCAG level. Use for design system documentation.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, brand, design-system, design-tokens, theme, colour, typography, spac
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Design Theme Guide
 

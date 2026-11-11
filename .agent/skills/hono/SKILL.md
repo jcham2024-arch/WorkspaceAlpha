@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f7ada080d15a0805675c9e31071da62cba0bb5a296575ad78855c8a883d8fcc4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hono
 description: "Build ultra-fast web APIs and full-stack apps with Hono — runs on Cloudflare Workers, Deno, Bun, Node.js, and any WinterCG-compatible runtime."
+tier: "experimental"
 category: backend
 risk: critical
 source: community
@@ -9,6 +20,7 @@ author: suhaibjanjua
 tags: [hono, edge, cloudflare-workers, bun, deno, api, typescript, web-standards]
 tools: [claude, cursor, gemini]
 ---
+
 
 # Hono Web Framework
 

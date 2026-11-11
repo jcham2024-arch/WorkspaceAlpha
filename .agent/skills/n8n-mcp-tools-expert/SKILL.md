@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7dc9a2b1b4dba7a5c94e245bd152c01f38160587357b701ea68d35750ee6ac79"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: n8n-mcp-tools-expert
 description: Expert guide for using n8n-mcp MCP tools effectively. Use when searching for nodes, validating configurations, accessing templates, managing workflows, or using any n8n-mcp tool. Provides tool selection guidance, parameter formats, and common patterns.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-01-30"
 ---
+
 
 # n8n MCP Tools Expert
 

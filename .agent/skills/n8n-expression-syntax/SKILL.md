@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2b5358c67c3f4524c8db60d8fccfb377c01eecadf9686b7e9a44e9d36d732af5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: n8n-expression-syntax
 description: Validate n8n expression syntax and fix common errors. Use when writing n8n expressions, using {{}} syntax, accessing $json/$node variables, troubleshooting expression errors, or working with webhook data in workflows.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # n8n Expression Syntax
 

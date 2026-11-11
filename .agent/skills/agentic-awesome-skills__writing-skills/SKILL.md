@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8e9d6463337c28a853f40365f4fedb783c9d3f6beed963a22a235997d81a1e46"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: writing-skills
 description: "Use when creating, updating, or improving agent skills."
+tier: "experimental"
 category: meta
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Writing Skills (Excellence)
 

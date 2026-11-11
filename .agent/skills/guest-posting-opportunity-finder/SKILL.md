@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "75c7b7332e6e9133fdbd9fd9e70f7d6cb19e89c971ba409ed57d4af6230ebd43"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: guest-posting-opportunity-finder
 description: "Guest Posting Opportunity Finder. Use when working with topic, audience and optional prospect list."
+tier: "experimental"
 category: Backlink & Link-Building
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Guest Posting Opportunity Finder
 
 ## Overview

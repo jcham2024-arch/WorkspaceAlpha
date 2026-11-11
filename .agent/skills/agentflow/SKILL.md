@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "01d80946845c2f37fd0c753c35875625fd77ea5fdc6f8a2e82018b44dad3f98e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agentflow
 description: "Orchestrate autonomous AI development pipelines through your Kanban board (Asana, GitHub Projects, Linear). Manages multi-worker Claude Code dispatch, deterministic quality gates, adversarial review, per-task cost tracking, and recoverable pipeline design."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-04-02"
 ---
+
 
 # AgentFlow
 

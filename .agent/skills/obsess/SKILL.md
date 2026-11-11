@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3bb45e2b3b8cce0341d6957b4ee2505c4631bbce5aabc745d2c531fa7fcaa6f4"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: obsess
 description: "Perfectionist mode for one target: checked attempts on a UI detail or hot path, keeps the best version, stops on a budget. Only on explicit /obsess."
+tier: "experimental"
 license: MIT
 disable-model-invocation: true
 compatibility: Agent Skills format. Native layouts for Claude Code, Codex, Gemini CLI, OpenCode, Cursor, GitHub Copilot and other skills-capable agents, plus slash-command adapters and a portable rules file. Uses the current host's tools and model. Browser feedback is needed to verify rendered UI behaviour. Host-level behaviour and model-quality gains haven't been benchmarked.
@@ -20,6 +31,7 @@ tags: [polish, ui, performance, verification, refactoring]
 tools: [claude, codex, cursor, gemini, copilot, opencode, windsurf, cline]
 license_source: "https://github.com/UmarSiddiqui/obsess/blob/main/LICENSE"
 ---
+
 
 # /obsess
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f846300a01959080d24adf6443968d3289dff7f4cc92278562589c74820db335"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: altorank
 description: "Run AltoRank through its hosted MCP server: readiness audits, Search Console, keyword research, and SEO drafts into a review queue."
+tier: "experimental"
 category: seo
 risk: safe
 source: "https://github.com/AltoRank/altorank/tree/main/plugins/altorank/skills/altorank"
@@ -13,6 +24,7 @@ tools: [claude-code, codex, cursor, gemini]
 license: "AGPL-3.0"
 license_source: "https://github.com/AltoRank/altorank/blob/main/LICENSE"
 ---
+
 
 # AltoRank
 

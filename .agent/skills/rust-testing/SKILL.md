@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "db1852742b5c7ba55a5cce44a5ff97455470478e5e7b92c184b18b92bf2c2c33"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: rust-testing
 description: Rust testing patterns including unit tests, integration tests, async testing, property-based testing, mocking, and coverage. Follows TDD methodology. Use when writing Rust tests — unit, integration, async, property-based, or coverage.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Rust Testing Patterns
 

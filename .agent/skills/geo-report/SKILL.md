@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c008c27a73a09d65b9fa06d78b7ab3b38c77af11a84e4f21f9ae93a17556ad8a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: geo-report
 description: Generate a professional, client-facing GEO report combining all audit
+tier: "experimental"
   results into a single deliverable with scores, findings, and prioritized actions
 category: seo
 risk: safe
@@ -23,6 +34,7 @@ tags:
 - action-plan
 allowed-tools: Read, Grep, Glob, Bash, WebFetch, Write
 ---
+
 
 # GEO Client Report Generator
 

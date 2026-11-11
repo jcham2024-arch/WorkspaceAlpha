@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "04cd1288da28680a57065ab850d7632251c1476fe28280f289d03b363d75d368"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: soroban-oracle-data-feed-audit
 description: 'DeFi price oracle integration and safety audit register: heartbeat bounds, stale price threshold reversion, and TWAP medianizer validation.'
+tier: "experimental"
 category: engineering
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [soroban, oracle, defi, pricing, stellar, security, web3]
 tools: []
 source_repo: Ranjeet2063/agentic-awesome-skills
 ---
+
 
 # Soroban Oracle Data Feed Audit
 

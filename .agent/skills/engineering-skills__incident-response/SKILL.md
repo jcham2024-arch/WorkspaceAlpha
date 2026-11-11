@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d32b06b17692a327b2b1ff2ed24986a99b548ce5db13ddbdac3691314c785829"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "incident-response"
 description: "Handle a suspected security breach: triage, SEV1-SEV4 severity, escalation and forensic evidence, per NIST SP 800-61. Use whenever the user thinks they were hacked, sees suspicious activity or a leaked key. Outages: incident-commander."
+tier: "experimental"
 ---
+
 
 # Incident Response
 

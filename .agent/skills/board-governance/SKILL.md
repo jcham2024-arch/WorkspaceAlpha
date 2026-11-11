@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4c82ead38dce5d0abcf484bdcb8da8a5dc8710f861d65004357ac1fe304c6ac4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: board-governance
 description: 'Board and governance register: meeting date, agenda, decision, resolution number, vote result, action owner and due date. Use for board packs and action tracking.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, protect]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Board & Governance
 

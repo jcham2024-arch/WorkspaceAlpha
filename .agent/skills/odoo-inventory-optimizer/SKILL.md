@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f2f1df14f6ad714198ecb320ff6d06695ee7f336efecdea5a4f637f7eda92df5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: odoo-inventory-optimizer
 description: "Expert guide for Odoo Inventory: stock valuation (FIFO/AVCO), reordering rules, putaway strategies, routes, and multi-warehouse configuration."
+tier: "experimental"
 risk: safe
 source: "self"
 date_added: "2026-03-04"
 ---
+
 
 # Odoo Inventory Optimizer
 

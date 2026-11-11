@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2dd646fb6235c3becc5869918a472bf6f3b611696c40d77a9ca28d4780d9a600"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: wiki-builder
 description: "Create and maintain reusable research wikis with source provenance, configurable structure, and local markdown outputs."
+tier: "experimental"
 category: "knowledge-management"
 risk: "safe"
 source: "official"
@@ -19,6 +30,7 @@ tools:
   - codex-cli
   - cursor
 ---
+
 
 # Wiki Builder
 

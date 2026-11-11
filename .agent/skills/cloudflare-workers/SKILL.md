@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f8b401624f5bdeeb29867b69175ee93db5593caeaf2acdcd4c60808711809ccc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cloudflare-workers
 description: Build and deploy edge functions with Cloudflare Workers and Wrangler.
+tier: "experimental"
   Use for APIs, cron jobs, and edge middleware.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Cloudflare Workers
 

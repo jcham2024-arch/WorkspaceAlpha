@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "53219aae6530cdced084326f8e2ba80ab698046be63e2f05e40288d4dcd1dfa8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "incident-commander"
 description: "Use when declaring or running a production incident or outage, or writing its post-incident review. Classifies severity with incident_classifier.py, rebuilds the timeline with timeline_reconstructor.py and drafts the PIR with pir_generator.py. Security incidents: incident-response."
+tier: "experimental"
 ---
+
 
 # Incident Commander Skill
 

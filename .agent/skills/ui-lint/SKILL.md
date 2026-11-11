@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cd8c021e8db41ca1253fec33415a0b25c4066f5dd3d88405bdc5f8711ec53fa0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ui-lint
 description: Quick automated lint — detects common design system violations in seconds
+tier: "experimental"
 risk: safe
 source: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-lint
 source_repo: bitjaru/styleseed
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE
 ---
+
 
 # Design Lint (Quick Check)
 ## When to Use

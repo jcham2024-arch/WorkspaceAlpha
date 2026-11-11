@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c736883cb0709d9d87485f1a348ede926d902b8c5119e7dd3ff7a7a28bf873d2"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: ponder
 description: "Run coverage-gated multi-pass code, architecture, security, UI, or product reviews where every file must be graded and 4 perspectives deliberate to convergence."
+tier: "experimental"
 category: development
 risk: safe
 source: "https://github.com/Quinnod345/ponder/blob/5f81a6db4586a42bd554d9a3d5279d4b587ff018/skills/ponder/SKILL.md"
@@ -13,6 +24,7 @@ tools: [claude, cursor, codex, gemini]
 license: "MIT"
 license_source: "https://github.com/Quinnod345/ponder/blob/5f81a6db4586a42bd554d9a3d5279d4b587ff018/LICENSE"
 ---
+
 
 # Ponder
 

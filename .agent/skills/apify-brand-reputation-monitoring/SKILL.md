@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a2cc116853068d5581ba82f6d7d201b3de8168f4e4098e75fb64d1f2d18f4441"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: apify-brand-reputation-monitoring
 description: "Scrape reviews, ratings, and brand mentions from multiple platforms using Apify Actors."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-01"
 ---
+
 
 # Brand Reputation Monitoring
 

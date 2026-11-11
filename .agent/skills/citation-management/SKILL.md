@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0fb03141828fff21b1b8b50626aa47a353a342ba197d4893d748d4320fdb7102"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: citation-management
 description: "Manage citations systematically throughout the research and writing process."
+tier: "experimental"
 license: MIT License
 metadata:
     skill-author: K-Dense Inc.
@@ -8,6 +19,7 @@ risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # Citation Management
 

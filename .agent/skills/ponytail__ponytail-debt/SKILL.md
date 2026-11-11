@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ce8f426e8c30cf4eb84efb37389d6d62525a6f54997140f35e066d80a0ebc487"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ponytail-debt
 description: >
+tier: "experimental"
   List every `shortcut:` comment (and older `ponytail:` ones) as a debt ledger. One-shot report,
   changes nothing. Use for "ponytail debt", "what did ponytail defer", "list the
   shortcuts", /ponytail-debt.
 ---
+
 
 Every deliberate ponytail shortcut is marked with a `shortcut:` comment naming
 its ceiling and upgrade path (older code may say `ponytail:`). This collects them into one ledger so a deferral

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "659ccb8c0c3a3818965e5a568cb512571a7f7a3b8fef88833d6b317a39cb44c5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: grpc-golang
 description: "Build production-ready gRPC services in Go with mTLS, streaming, and observability. Use when designing Protobuf contracts with Buf or implementing secure service-to-service transport."
+tier: "experimental"
 risk: safe
 source: self
 date_added: "2026-02-27"
 ---
+
 
 # gRPC Golang (gRPC-Go)
 

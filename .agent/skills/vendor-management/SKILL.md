@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "33c0bff15f29c67344c290d38ce3f652a58ff73bf302bb3a14da9cb60df644da"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: vendor-management
 description: Implement vendor risk management programs. Assess third-party security
+tier: "experimental"
   and maintain vendor inventory. Use when managing supplier security.
 category: security
 risk: safe
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Vendor Management
 

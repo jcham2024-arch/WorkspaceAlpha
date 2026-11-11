@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1760895b70bb22a47279fa1a9af47fbff57d5af848c1ebb936af65fbb9a40128"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: debugging-code
 description: "Interactively debug source code — set breakpoints, step through execution line by line, inspect live variable state, evaluate expressions against the running program, and navigate the call stack to trace root causes."
+tier: "experimental"
 risk: critical
 source: https://github.com/AlmogBaku/debug-skill/tree/master/skills/debugging-code
 source_repo: AlmogBaku/debug-skill
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/AlmogBaku/debug-skill/blob/master/LICENSE
 ---
+
 
 # Interactive Debugger
 ## When to Use

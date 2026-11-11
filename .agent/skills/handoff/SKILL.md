@@ -1,6 +1,17 @@
 ---
+tier: "quarantine"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c883d4d68868207190c560e60e55457165f49b03f8efbba430def6261d287972"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: handoff
 description: Compact the current conversation into a handoff document for another agent to pick up.
+tier: "quarantine"
 argument-hint: "What will the next session be used for?"
 disable-model-invocation: true
 category: "productivity"
@@ -21,6 +32,7 @@ tools:
   - codex-cli
   - cursor
 ---
+
 
 ## When to Use
 

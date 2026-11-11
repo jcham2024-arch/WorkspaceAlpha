@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bce52211fdfcf00a34f81ea6346204f12a35dbae71ce505a88fad21903298759"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fp-react
 description: Practical patterns for using fp-ts with React - hooks, state, forms, data fetching. Includes version-specific React examples; verify framework/client boundaries.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-01-30"
@@ -8,6 +19,7 @@ version: 2.0.0
 author: fp-ts-skills
 tags: [fp-ts, react, typescript, hooks, state-management, forms, data-fetching, remote-data, react-19, next-js]
 ---
+
 
 # Functional Programming in React
 

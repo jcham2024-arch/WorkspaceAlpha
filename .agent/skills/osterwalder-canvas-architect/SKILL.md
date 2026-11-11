@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3bdac5b254a6add0f9e62bda5b12ad3b604321f82c23b15d746a0610e715947b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: osterwalder-canvas-architect
 description: "Iterative consultant agent for building and validating logically consistent 9-block Business Model Canvases."
+tier: "experimental"
 category: business-strategy
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: justmiroslav
 tags: [business-model, osterwalder, strategy, bmc]
 tools: [claude, cursor, gemini]
 ---
+
 
 # Osterwalder Business Model Canvas Architect
 

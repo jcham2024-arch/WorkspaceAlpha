@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "708d158bf8e133e99736b1880f223a32426c25f76e057aa3ad5defd602634dde"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: m365-entra-attack
 description: Microsoft 365 / Entra ID red-team attack chain
+tier: "experimental"
 category: security
 risk: offensive
 source: https://github.com/elementalsouls/Claude-BugHunter
@@ -15,6 +26,7 @@ compatibility: Requires explicit written authorization for a target scope plus t
 sources: authorized-engagement, microsoft-docs, AADInternals
 report_count: 1
 ---
+
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.

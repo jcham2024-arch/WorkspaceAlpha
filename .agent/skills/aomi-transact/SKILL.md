@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d0641ee666d54b66105af08a07c221d94d5dcfb47b761ab367a36c1213d17a5e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aomi-transact
 description: "Use Aomi's standalone CLI or hosted Agent/Pipeline MCP to read chain state and prepare user-authorized transactions. Review durable Commit simulation before a designated signer executes. Use for swaps, lending, bridging, staking, perps and account queries."
+tier: "experimental"
 risk: critical
 source: "aomi-labs/skills (MIT)"
 source_repo: "aomi-labs/skills"
@@ -17,6 +28,7 @@ tags:
   - agent
   - intent
 ---
+
 
 # Aomi Transact
 

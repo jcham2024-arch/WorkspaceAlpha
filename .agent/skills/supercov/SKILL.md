@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "beba13bc28a1c96d616e7b2c9b086d41eee04c82c08005d61150baad6639ebf0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: supercov
 description: "Measure line, branch and MC/DC coverage of a project's existing tests with the supercov CLI, then write small, focused tests for the code no test reaches."
+tier: "experimental"
 category: testing
 risk: critical
 source: https://github.com/supercorp-ai/supercov/tree/main/plugins/supercov/skills/supercov
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: MIT
 license_source: https://github.com/supercorp-ai/supercov/blob/main/LICENSE
 ---
+
 
 # Supercov
 

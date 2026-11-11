@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ab633a58be9999664870cc46739f44ad0693a3824b567d42e690e7173c706363"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: google-slides-automation
 description: "Read and edit Google Slides through an available authenticated connector or reviewed API integration, with scoped changes and read-back verification."
+tier: "experimental"
 license: Apache-2.0
 risk: critical
 source: community
@@ -9,6 +20,7 @@ metadata:
   author: sanjay3290
   version: "1.0"
 ---
+
 
 # Google Slides Automation
 

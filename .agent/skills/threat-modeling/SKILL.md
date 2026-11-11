@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "94723d58b1f97d6cb5defc2e314b52270d1de36d3f605198aa32e2865adac3bc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: threat-modeling
 description: Conduct threat modeling using STRIDE methodology. Identify threats, assess
+tier: "experimental"
   risks, and design security controls. Use when designing secure systems or assessing
   application security.
 category: security
@@ -18,6 +29,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Threat Modeling
 

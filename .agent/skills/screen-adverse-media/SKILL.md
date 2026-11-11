@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5071398223e6dad41c4f90c274de4efb6a09fb9300c9eeb185b7f7bdcd40b469"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: screen-adverse-media
 description: Screen a person or organisation for adverse media coverage, PEP status, and sanctions exposure — corroboration-gated, returns "review" never "guilty". Use when the user asks to screen someone before onboarding, partnership, or investment; for AML/CTF flows; or for ongoing counterparty monitoring.
+tier: "experimental"
 category: document-verification
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: "Apache-2.0"
 license_source: "https://github.com/Sketchjar/stipple-agent-skills/blob/main/LICENSE"
 ---
+
 
 # Screen Adverse Media
 

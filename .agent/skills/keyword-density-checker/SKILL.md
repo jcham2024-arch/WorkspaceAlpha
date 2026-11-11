@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3f492010a756732463d90fd754d75b5af55df73b7a629abdfb692658a4d6ced5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: keyword-density-checker
 description: "Keyword Density Checker. Use when working with text and target word or phrase."
+tier: "experimental"
 category: Keyword Research
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Keyword Density Checker
 
 ## Overview

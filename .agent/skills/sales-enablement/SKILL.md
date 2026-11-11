@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9e1ce7c0a88b9e46ce15f069623e0c786ddeceb47072a4972fa899779df03944"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sales-enablement
 description: "Create sales collateral such as decks, one-pagers, objection docs, demo scripts, playbooks, and proposal templates. Use when a sales team needs assets that help reps move deals forward and close."
+tier: "experimental"
 risk: safe
 source: "https://github.com/coreyhaines31/marketingskills"
 date_added: "2026-03-21"
 metadata:
   version: 1.1.0
 ---
+
 
 # Sales Enablement
 

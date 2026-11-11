@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b871b5542a17fb60f73683378d6e3a003b4c159b80b1a354a4eb8346dba960e4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: service-mesh-observability
 description: "Complete guide to observability patterns for Istio, Linkerd, and service mesh deployments."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Service Mesh Observability
 

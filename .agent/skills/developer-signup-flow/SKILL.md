@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "74e1ec493f49bd1e54eca1804f17d37bfb163014727a4deb23aa4717a5fbc6b2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: developer-signup-flow
 description: "Design frictionless signup experiences for developers including GitHub OAuth, API key generation, and onboarding personalization."
+tier: "experimental"
 risk: critical
 source: https://github.com/jonathimer/devmarketing-skills/tree/main/skills/developer-signup-flow
 source_repo: jonathimer/devmarketing-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/jonathimer/devmarketing-skills/blob/main/LICENSE
 ---
+
 
 # Developer Signup Flow
 ## When to Use

@@ -1,7 +1,18 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ed0a9e1ad7b59d35a7678897732890c9fc2eadbf6068e984730803c839c25796"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: api-integration-architect
 version: 1.0.0
 description: Design, implement, debug, and optimize API integrations with expert-level
+tier: "experimental"
   patterns for REST, GraphQL, webhooks, and authentication flows.
 author: yundu-ai
 tags:
@@ -19,6 +30,7 @@ source: community
 date_added: '2026-09-21'
 risk: unknown
 ---
+
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.

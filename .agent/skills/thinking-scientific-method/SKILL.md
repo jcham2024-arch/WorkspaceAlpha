@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f53f27bc2927192248a8be5ab79cb7b9608d6bc8dab8093c9ddf5c4aa215070f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-scientific-method
 description: When a symptom has several plausible causes, rank falsifiable hypotheses and run the cheapest discriminating observation first; prefer least-assumptive survivors only after evidence fit.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Scientific Method (Hypothesis Differential)
 

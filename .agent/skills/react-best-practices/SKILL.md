@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c9264a1590008ab19d4ee5bab1a4d8caa6ff48fad91bc4a3e38eb5c0da16f969"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: react-best-practices
 description: "Comprehensive performance optimization guide for React and Next.js applications, adapted from Vercel’s published guidance. Use when writing new React components or Next.js pages, implementing data fetching (client or server-side), or reviewing code for performance issues."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # React Best Practices (catalog adaptation)
 

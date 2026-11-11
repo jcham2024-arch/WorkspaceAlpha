@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d0b2cef40287d0bf4bfea3d00c251a08ffbe6e0b9112b53a2847de28527405cb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: enterprise-vpn-attack
 description: External SSL VPN / remote-access appliance attack matrix
+tier: "experimental"
 category: security
 risk: offensive
 source: https://github.com/elementalsouls/Claude-BugHunter
@@ -15,6 +26,7 @@ compatibility: Requires explicit written authorization for a target scope plus t
 sources: authorized-engagement, public-advisories, cisa-kev
 report_count: 1
 ---
+
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.

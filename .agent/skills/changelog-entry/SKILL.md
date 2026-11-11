@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e2360e8a8202e0e0bb843ee9025871abefa8fc42fe674d8be8f9d06adfe61c2f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: changelog-entry
 description: Generate a properly formatted CHANGELOG.md entry in Keep a Changelog format from a commit range or PR. Groups changes into Added/Changed/Deprecated/Removed/Fixed/Security categories and outputs a ready-to-paste block.
+tier: "experimental"
 risk: safe
 source: self
 source_type: self
@@ -17,6 +28,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # changelog-entry
 

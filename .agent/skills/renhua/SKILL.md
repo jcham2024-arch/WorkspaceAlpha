@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "989c77f37287a9ec77a1503859f6427ff1bddca86e6a5c1d42622d389d6b6ce2"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: renhua
 description: "Write Chinese social posts and product copy in a real person's voice, removing AI tells. Use for 小红书, X 帖子, 日记, 朋友圈, 产品介绍, 去 AI 味, 说人话."
+tier: "experimental"
 category: content
 risk: safe
 source: self
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor]
 license: "MIT"
 license_source: "https://github.com/jack-reson8/renhua/blob/main/LICENSE"
 ---
+
 
 # 人话：按 Jack 的口吻写东西
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6540b7f6715319d3857f3fd60d256d46bd02b61c1fd3a0b7d0d7647edcef84e8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mle-workflow
 description: Production machine-learning engineering workflow for data contracts, reproducible training, model evaluation, deployment, monitoring, and rollback. Use when building, reviewing, or hardening ML systems beyond one-off notebooks.
+tier: "experimental"
 license: MIT
 metadata:
   origin: ECC
 ---
+
 
 # Machine Learning Engineering Workflow
 

@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "371afdfdfc22400611e9d551309cc463df9fbb85b9d19be09b8de5679d705c49"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: personal-tool-builder
 description: Expert in building custom tools that solve your own problems first.
+tier: "experimental"
   The best products often start as personal tools - scratch your own itch, build
   for yourself, then discover others have the same itch.
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Personal Tool Builder
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8c7209d308a5243ce1b2d0a031c24f80b87aa47582d615342969e7f7bb5e6e2c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-image-gen
 description: "Generate SEO-focused images such as OG cards, hero images, schema assets, product visuals, and infographics. Use when image generation is part of an SEO workflow or content publishing task."
+tier: "experimental"
 risk: critical
 source: "https://github.com/AgriciDaniel/claude-seo"
 date_added: "2026-03-21"
@@ -14,6 +25,7 @@ allowed-tools:
   - WebFetch
   - Write
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

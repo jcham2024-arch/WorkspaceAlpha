@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5124a66f15792476a8c1d56c14e62b1433d3664a4b0ed61484a0ae72e69b378e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: presentation-deck
 description: 'Build an evidence-linked slide register after context-first intake. Use when an SME needs a presentation deck, speaker notes, or a structured business story.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, presentation, deck, pitch, slides, storytelling, speaker-notes, data
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Presentation Deck
 

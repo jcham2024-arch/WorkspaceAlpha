@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "120f542624a1b76c718c5da14d920fc7adef2e469b90fbeb320b11a058c1b360"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: skill-router
 description: "Use when the user is unsure which skill to use or where to start. Interviews the user with targeted questions and recommends the best skill(s) from the installed library for their goal."
+tier: "experimental"
 risk: safe
 source: self
 date_added: "2026-03-04"
 ---
+
 
 # Skill Router
 

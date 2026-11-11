@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "81159716e60e50bf6120ca7f580f9e9126ff1118f4e2223c127f8af63f575cab"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: threat-intelligence
 description: "Authorized OSINT and cyber threat intelligence: enriching IOCs, campaigns, impersonation, scams, and threat-actor profiles from public sources with defined boundaries."
+tier: "experimental"
 risk: safe
 source: "https://github.com/zhaoxuya520/reverse-skill"
 source_repo: "zhaoxuya520/reverse-skill"
@@ -9,6 +20,7 @@ date_added: "2026-08-25"
 license: "MIT"
 license_source: "https://github.com/zhaoxuya520/reverse-skill/blob/main/LICENSE"
 ---
+
 # Threat Intelligence & Public-Source OSINT
 ## When to Use
 

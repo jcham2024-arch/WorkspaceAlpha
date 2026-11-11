@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3f217547e1624a85f7a7456cd1c64dc81dc614599c6e63fa523a6cd4282c8b40"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: apple-container
 description: "Build, run, and manage OCI/Linux containers as lightweight per-container VMs on Apple-silicon macOS using Apple's open-source container CLI, no Docker daemon required."
+tier: "experimental"
 category: devops
 risk: critical
 source: https://github.com/sanjay3290/ai-skills/tree/main/skills/apple-container
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "Apache-2.0"
 license_source: "https://github.com/sanjay3290/ai-skills/blob/main/LICENSE"
 ---
+
 
 # Apple `container`
 

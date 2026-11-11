@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8296f7e0d6c03630bee2f8a6c9fb0be702a68a0f50be0b8246cbf8eda3af8945"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: monthly-closing-statements
 description: 'Monthly closing register: period dates, cash/bank/party/inventory/TDS reconciliation flags, profit, receivables, payables, working capital, open adjustments and reviewer. Use for period close.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, accounting, audit, finance, database, csv, notion, sql, closing]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Monthly Closing & Statements
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0402a6ab4ee08e1309c2cd3978200c65b7942ebabb12d423b5320e89b233d5ed"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: kernel-prompt
 description: "Use when composing or improving an LLM prompt or agent instruction. Asks one round of questions, then returns only the prompt; never performs the task."
+tier: "experimental"
 category: productivity
 risk: safe
 source: community
@@ -13,6 +24,7 @@ author: codegiveness
 tags: [prompt-engineering, meta-prompting, prompt-optimization, agent-handoff]
 tools: []
 ---
+
 
 # Kernel Prompt
 

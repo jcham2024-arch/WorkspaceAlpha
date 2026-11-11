@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9507628471eb31383980cab14e5af0e5df35de110dcf3d75eaf01d86f165a71f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "tech-stack-evaluator"
 description: "Compare frameworks or tech stacks before committing: side-by-side scoring, total cost of ownership, ecosystem health and migration risk. Use whenever the user asks which framework to pick, X vs Y, whether to switch stacks, or if a migration is worth it."
+tier: "experimental"
 ---
+
 
 # Technology Stack Evaluator
 

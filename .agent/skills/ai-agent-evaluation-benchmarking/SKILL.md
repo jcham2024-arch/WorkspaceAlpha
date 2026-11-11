@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6bb211be96f6dfc71db2bc05960934eae26beed8cecd942370bdeecfc854193f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-agent-evaluation-benchmarking
 description: 'Autonomous AI agent benchmark evaluation register: task completion rates, planning accuracy, tool invocation precision, and cost benchmarks.'
+tier: "experimental"
 category: engineering
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [ai, agents, evaluation, benchmarks, llm, automation, quality]
 tools: []
 source_repo: Ranjeet2063/agentic-awesome-skills
 ---
+
 
 # AI Agent Capability Evaluation & Benchmarking
 

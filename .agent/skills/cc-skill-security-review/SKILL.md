@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "141fd67c939c892f67ffae63883583bed978c73864165321e24f843211c66477"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cc-skill-security-review
 description: "This skill guides review of security practices and potential vulnerabilities; no checklist ensures all code is secure. Use when implementing authentication or authorization, handling user input or file uploads, or creating new API endpoints."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Security Review Skill
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9e73148b475f50b1db9420ab5ff9999692b02de4b1c733e2e27b287fc13a1424"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: documentation-and-adrs
 description: Records decisions and documentation. Use when making architectural decisions, changing public APIs, shipping features, or when you need to record context that future engineers and agents will need to understand the codebase.
+tier: "experimental"
 risk: critical
 source: https://github.com/addyosmani/agent-skills/tree/main/skills/documentation-and-adrs
 source_repo: addyosmani/agent-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/addyosmani/agent-skills/blob/main/LICENSE
 ---
+
 
 # Documentation and ADRs
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3a7e806e1cfeb0b97f6c491fdb9bac582ca68fc93906a631d4b0648d73b6549a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: organization-design
 description: 'Org structure register: department, type, parent, head, location, approved against actual headcount, annual budget, cost centre code and establishment date. Use for org design.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, foundation]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Organization Design
 

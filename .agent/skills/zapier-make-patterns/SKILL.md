@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7230d163ecb4745964a3361fff7a65137bb27d560affada7a26edd27557328ab"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: zapier-make-patterns
 description: No-code automation democratizes workflow building. Zapier and Make
+tier: "experimental"
   (formerly Integromat) let non-developers automate business processes without
   writing code. But no-code doesn't mean no-complexity - these platforms have
   their own patterns, pitfalls, and breaking points.
@@ -8,6 +19,7 @@ risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Zapier & Make Patterns
 

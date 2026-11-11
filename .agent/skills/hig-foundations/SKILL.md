@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "11251d3a57e371b4137754e1ca29c1b65724fe1872bd7c828af3c0ab34043b4a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hig-foundations
 description: Apple Human Interface Guidelines design foundations.
+tier: "experimental"
 risk: none
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Apple HIG: Design Foundations
 

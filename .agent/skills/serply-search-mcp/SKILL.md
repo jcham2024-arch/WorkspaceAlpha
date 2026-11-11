@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b4178fefb9c33ba8d5ffb98ee1f1e6af264d4844e9eaedfce53229fcadebdb8d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: serply-search-mcp
 description: "Search Google, Bing, Google News and Google Scholar, and read public pages, with the Serply MCP server. Use when the user chooses Serply or its connected tools for current information and source verification."
+tier: "experimental"
 category: mcp
 risk: safe
 source: self
@@ -9,6 +20,7 @@ date_added: "2026-09-27"
 author: googio
 tags: [mcp, web-search, news, scholar, research, citations]
 ---
+
 
 # Serply Search MCP
 

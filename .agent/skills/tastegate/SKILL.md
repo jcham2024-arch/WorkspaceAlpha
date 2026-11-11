@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2eb0ad3ef0f43b882709075dcfd10bb226618ad6ab135019b6b15254df67ebcd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: tastegate
 description: "Build or fix a frontend so it looks designed, not AI-generated, then prove it in a real browser: renders at phone and desktop width and fails on overlap, low contrast and AI-slop defaults."
+tier: "experimental"
 category: frontend
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/stas4000/tastegate/blob/main/LICENSE"
 ---
+
 
 # Tastegate
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "69b3bf279da6ade7157b54f6d8c3562908a7734bf6ff03d2b2c16893241f80ec"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: helm-chart-scaffolding
 description: "Comprehensive guidance for creating, organizing, and managing Helm charts for packaging and deploying Kubernetes applications."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Helm Chart Scaffolding
 

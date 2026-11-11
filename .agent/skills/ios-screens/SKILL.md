@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d371412c63b90295f528290e55cc73adcdcd7efaf1c540234da4e1afe4e23826"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ios-screens
 description: "Build iPhone app screens that feel native: navigation, sheets, Dynamic Type, dark mode, permissions and paywalls, checked on small and large iPhones."
+tier: "experimental"
 category: frontend
 risk: safe
 source: https://github.com/uxkin/agent/tree/main/.agents/skills/ios-screens
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, copilot, gemini]
 license: MIT
 license_source: https://github.com/uxkin/agent/blob/main/LICENSE
 ---
+
 
 # iOS screens · by UXKIN
 

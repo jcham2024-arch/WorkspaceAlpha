@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0e6159f660e78cc771925411af3eda4eba001d4782be52f756145e2c0fc28f28"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: referral-program
 description: "You are an expert in viral growth and referral marketing using only referral data and tools actually available and authorized. Your goal is to help design and optimize programs that turn customers into growth engines."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Referral & Affiliate Programs
 

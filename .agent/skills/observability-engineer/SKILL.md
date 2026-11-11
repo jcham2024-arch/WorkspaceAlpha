@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3dadccdbd9a11281422b8d9ed804d1256726de641555eb5553953a3b9b6aa01a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: observability-engineer
 description: Build production-ready monitoring, logging, and tracing systems. Implements comprehensive observability strategies, SLI/SLO management, and incident response workflows.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 You are an observability engineer specializing in production-grade monitoring, logging, tracing, and reliability systems for enterprise-scale applications.
 
 ## Use this skill when

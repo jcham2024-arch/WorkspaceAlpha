@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4bd6774f51ec569e7befb80d3438879414dec003c7e5c3598f75b4c7d6f2426e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: doomsday-escrow
 description: "Verify cryptographic Proof-of-Escrow collateral (L1 UTXO outpoint proofs and Base Mainnet wDOOM settlement receipts) on GitHub bounties before spending autonomous agent compute."
+tier: "experimental"
 category: security
 risk: critical
 source: "https://github.com/doomsday-network/doomsday/tree/2054312f94dd21ab3b25b30fd6f6cf2c08625a42/integrations/mcp"
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: MIT
 license_source: "https://github.com/doomsday-network/doomsday/blob/2054312f94dd21ab3b25b30fd6f6cf2c08625a42/LICENSE"
 ---
+
 
 # Doomsday Proof-of-Escrow Bounty Auditor
 

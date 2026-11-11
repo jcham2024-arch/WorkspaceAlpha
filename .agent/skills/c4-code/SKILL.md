@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ede38a4fcb6c70eeb3663b7f4f90741d5fd4111192cb1ace3b682b91ad164942"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: c4-code
 description: Expert C4 Code-level documentation specialist. Analyzes code directories to create comprehensive C4 code-level documentation including function signatures, arguments, dependencies, and code structure.
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # C4 Code Level: [Directory Name]
 

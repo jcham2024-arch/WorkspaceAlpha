@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "92f178be5ffe15a271e01e41db8a03d84bdf2b44010f158629cd7f0c7b6ffe86"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: readme
 description: "You are an expert technical writer creating comprehensive project documentation. Write an accurate README sized to the project and task, with verified setup instructions and links to detailed references."
+tier: "experimental"
 risk: safe
 source: "https://github.com/Shpigford/skills/tree/main/readme"
 date_added: "2026-02-27"
 ---
+
 
 # README Generator
 

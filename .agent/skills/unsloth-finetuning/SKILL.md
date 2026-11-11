@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "82e81dc4a8deab6907bdd8b9c5305f3da8bf14c07f73df172c33323980102c18"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: unsloth-finetuning
 description: "Fine-tune and post-train LLMs with Unsloth Core on a single consumer GPU: VRAM sizing, LoRA/QLoRA, GRPO/DPO, chat-template correctness, and GGUF export."
+tier: "experimental"
 category: ai-ml
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "Apache-2.0"
 license_source: "https://github.com/unslothai/unsloth/blob/main/LICENSE"
 ---
+
 
 # Unsloth Fine-Tuning
 

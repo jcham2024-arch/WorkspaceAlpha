@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3b85ff547cc5c0a1752422356fc16cb7e0e9795f805326c4e42469b9d08ae464"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: wellally-tech
 description: "Integrate multiple digital health data sources, connect to [WellAlly.tech](https://www.wellally.tech/) knowledge base, providing data import and knowledge reference for personal health management systems."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # WellAlly Digital Health Integration
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d9b10a830d8e6ec65e25c16761915cb500923419444ad7d4cff6908b5784c26d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: idea-evaluator
 description: "Evaluates an idea by hosting a multi-turn debate between a Pro and Con agent, delivering a final verdict on whether it's worth pursuing."
+tier: "experimental"
 category: agent-orchestration
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: Prince-1652
 tags: [ideation, validation, debate, multi-agent]
 tools: [claude, gemini]
 ---
+
 
 # Idea Evaluator Orchestrator
 

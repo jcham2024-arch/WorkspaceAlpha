@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ad97a145e9316953b975382b99dc221eaeb528b00ca4929f75824d3de02d3150"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: api-onboarding
 description: "Reduce time-to-first-API-call (TTFAC) by optimizing every step of the developer onboarding journey. This skill covers authentication simplification, sandbox environments, interactive documentation, and identifying and eliminating common failure points."
+tier: "experimental"
 risk: critical
 source: https://github.com/jonathimer/devmarketing-skills/tree/main/skills/api-onboarding
 source_repo: jonathimer/devmarketing-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/jonathimer/devmarketing-skills/blob/main/LICENSE
 ---
+
 
 # Reducing Time-to-First-API-Call
 ## When to Use

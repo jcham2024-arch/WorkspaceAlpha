@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f1b170e1cf4235112d34654e37b43ccae5ded3de9fd73b5d1a34d1bcfefc8911"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ask-questions-if-underspecified
 description: Clarify requirements before implementing. Use when serious doubts arise.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # Ask Questions If Underspecified
 

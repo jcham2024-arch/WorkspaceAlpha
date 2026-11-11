@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ea87389cb0ce231ef7ec7309daeb63791c1c8eb0c607430e4493a5e2d2874938"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: slack-automation
 description: "Automate Slack workspace operations including messaging, search, channel management, and reaction workflows through Composio's Slack toolkit."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Slack Automation via Rube MCP
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3f29989c360a70895391e583646f64cd47e8b7c26c8aa0e582ee45f465c85680"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: data-engineering-data-driven-feature
 description: "Build features guided by data insights, A/B testing, and continuous measurement using specialized agents for analysis, implementation, and experimentation."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Data-Driven Feature Development
 

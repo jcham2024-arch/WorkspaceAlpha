@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3bfd97d59968d49e18f29e92db75549ca1e0d857db1c27d7af5a24d0268ffac7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: security-review
 description: Use this skill when adding authentication, handling user input, working with secrets, creating API endpoints, or implementing payment/sensitive features. Provides comprehensive security checklist and patterns.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Security Review Skill
 

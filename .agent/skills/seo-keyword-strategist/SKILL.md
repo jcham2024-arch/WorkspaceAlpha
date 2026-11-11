@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "975e60587edcaef5e2ad2dd210b4ffb208bc0e8a4cae206eb7a098532d63cbb4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-keyword-strategist
 description: Analyzes keyword usage in provided content, calculates density, suggests semantic variations and related terms based on the topic. Prevents over-optimization. Use PROACTIVELY for content optimization.
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-02-27'
 ---
+
 
 ## Use this skill when
 

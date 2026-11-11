@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4445da9bb142115f6c138dce1ffd5f46585d6e10d462ff54dac76334a3694ce1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: marketing-plan
 description: "When the user needs a comprehensive marketing plan for a client, a company they advise, or their own product."
+tier: "experimental"
 risk: critical
 source: https://github.com/coreyhaines31/marketingskills/tree/main/skills/marketing-plan
 source_repo: coreyhaines31/marketingskills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/coreyhaines31/marketingskills/blob/main/LICENSE
 ---
+
 
 # Marketing Plan
 

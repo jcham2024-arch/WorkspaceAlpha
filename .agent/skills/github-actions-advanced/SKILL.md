@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "93962f4f29fca27fe8239a988f26324acb59ba27b99b7e36522b45d1c3a6f228"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: github-actions-advanced
 description: >
+tier: "experimental"
   Design, debug, and harden GitHub Actions CI/CD workflows, including reusable
   workflows, matrix builds, self-hosted runners, OIDC authentication, caching,
   environments, secrets, and release automation.
@@ -9,6 +20,7 @@ risk: critical
 source: community
 date_added: "2026-05-30"
 ---
+
 
 # GitHub Actions Advanced Skill
 

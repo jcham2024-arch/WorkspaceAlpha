@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6939dbeca7f0b23cb0069d29724c05511e515039e9758a95024470a9da6c670f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: wordpress-woocommerce-development
 description: "WooCommerce store development workflow covering store setup, payment integration, shipping configuration, customization, and WordPress 7.0 features: AI connectors, DataViews, and collaboration tools."
+tier: "experimental"
 category: granular-workflow-bundle
 risk: critical
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 # WordPress WooCommerce Development Workflow
 

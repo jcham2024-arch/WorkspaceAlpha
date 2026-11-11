@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7024f62619392d10e92887f301137c9bb843130c63b9af05ab18f3d6d13f977b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: uniprot-database
 description: Direct REST API access to UniProt. Protein searches, FASTA retrieval, ID mapping, Swiss-Prot/TrEMBL. For Python workflows with multiple databases, prefer bioservices (unified interface to 40+ services). Use this for direct HTTP/REST work or UniProt-specific control.
+tier: "experimental"
 license: Unknown
 metadata:
     skill-author: K-Dense Inc.
@@ -8,6 +19,7 @@ risk: safe
 source: community
 date_added: "2026-03-06"
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

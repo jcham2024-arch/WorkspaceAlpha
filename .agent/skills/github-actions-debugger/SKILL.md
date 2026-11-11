@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5e6e776b4c21e16ba3952527a5bda12812d40f34719cf450c6912583c435a6d9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: github-actions-debugger
 description: "Specialized skill for diagnosing, analyzing, and fixing failing GitHub Actions workflows by parsing run logs and pipeline definitions."
+tier: "experimental"
 category: devops
 risk: critical
 source: community
@@ -10,6 +21,7 @@ author: Owais
 tags: [github-actions, ci-cd, devops, debugging, workflows]
 tools: [claude, cursor, gemini, antigravity]
 ---
+
 
 # GitHub Actions Pipeline Debugger
 

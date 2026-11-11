@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1113547bdb925d5ec6f9076046fbaca14373560fb4e395940d466ed67c164cbd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: tailwind-patterns
 description: "Tailwind CSS v4 principles. CSS-first configuration, container queries, modern patterns, design token architecture."
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Tailwind CSS Patterns (v4 - 2025)
 

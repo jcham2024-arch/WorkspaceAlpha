@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ffaec7ab94ce538f49f3e33ec00034e77b6308a42add132a58cd6ee744906083"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: startup-business-analyst-business-case
 description: 'Generate comprehensive investor-ready business case document with
+tier: "experimental"
 
   market, solution, financials, and strategy
 
@@ -9,6 +20,7 @@ risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Business Case Generator
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d80e77f7e184244d560fb13b5a473d1844b5517a63f3afc92b031ee1dd1d0775"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: javascript-pro
 description: Master modern JavaScript with ES6+, async patterns, and Node.js APIs. Handles promises, event loops, and browser/Node compatibility.
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-02-27'
 ---
+
 You are a JavaScript expert specializing in modern JS and async programming.
 
 ## Use this skill when

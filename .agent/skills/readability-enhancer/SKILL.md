@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "62f1897e4442db158ab9c1015e8b148f66136ae895dfb4e4656ed58d3c9856b3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: readability-enhancer
 description: "Readability Enhancer. Use when working with text and optional reader level."
+tier: "experimental"
 category: Content SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Readability Enhancer
 
 ## Overview

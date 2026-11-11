@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fd0b216b4eedf9a338fa8f50e8adf639f715f2e61e3f239cc0cd917d0751f151"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ollama-stack
 description: Run local LLM workloads with Ollama, Open WebUI, and GPU-aware tuning
+tier: "experimental"
   for private development environments.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Ollama Stack
 

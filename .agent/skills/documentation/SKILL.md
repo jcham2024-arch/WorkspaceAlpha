@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ecec63ed2a682908188bc56029b0f4eb87e5f476c66e22993aa60a7f722e57ed"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: documentation
 description: "Documentation generation workflow covering API docs, architecture docs, README files, code comments, and technical writing."
+tier: "experimental"
 category: workflow-bundle
 risk: safe
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 # Documentation Workflow Bundle
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9876645d44fe9f7e95618895c5f506a75d005c3ff9f385f1d844864849e10ded"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: production-code-audit
 description: "Audit an explicitly scoped codebase for evidenced security, correctness and performance issues; implement authorized targeted repairs and report validation plus residual readiness gaps."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Production Code Audit
 

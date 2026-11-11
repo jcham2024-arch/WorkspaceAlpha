@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e871b15ef9ab01e253d6e6c4063b21eb5b3a097dcc7c8e040469d6562654674f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sast-scanning
 description: Perform static application security testing with tools like Semgrep,
+tier: "experimental"
   CodeQL, and SonarQube.
 category: security
 risk: safe
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # SAST Scanning
 

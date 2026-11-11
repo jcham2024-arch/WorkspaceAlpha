@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c89c108a05db32a2e1b7ed41ebe516f8450cddd052653f5ed75368a0ffa608f2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-theory-of-constraints
 description: When throughput or latency is pipeline-limited, identify the single binding constraint and exploit, subordinate, elevate, then recheck—ignore non-constraints.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Theory of Constraints
 

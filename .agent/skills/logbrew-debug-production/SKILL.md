@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5b8a5109e584cb56656d0038b6a3aaa8e959fa12ccb2f6e0df0c72d1c77d48cf"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: logbrew-debug-production
 description: "Debug a production error with LogBrew evidence: find the issue, read its stack and first release, pull its trace and logs, fix it, then check new events stop."
+tier: "experimental"
 category: devops
 risk: critical
 source: self
@@ -10,6 +21,7 @@ author: LogBrew
 license: MIT
 tags: [debugging, production, error-tracking, observability, mcp, logbrew]
 ---
+
 
 # LogBrew Debug Production
 

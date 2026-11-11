@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "edc4df70acff0c8e0c964f6a7b4c23925af7804cd1fa36ab4c7d3a661a7933f7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: vercel-ai-sdk-expert
 description: "Expert in the Vercel AI SDK. Covers Core API (generateText, streamText), UI hooks (useChat, useCompletion), tool calling, and streaming UI components with React and Next.js."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # Vercel AI SDK Expert
 

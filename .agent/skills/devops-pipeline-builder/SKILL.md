@@ -1,7 +1,18 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "53454bf40be5682629866953faf60fc6edc14147033b173f8f298e6f40bbeb54"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: devops-pipeline-builder
 version: 1.0.0
 description: Design and implement CI/CD pipelines, Docker configurations, deployment
+tier: "experimental"
   strategies, and infrastructure automation with production-ready patterns.
 author: yundu-ai
 tags:
@@ -18,6 +29,7 @@ source: community
 date_added: '2026-09-21'
 risk: critical
 ---
+
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.

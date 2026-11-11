@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "023d603a34ccbd9bb21c6d095af134e12d19371f2fe62c320715f5f347ea76f0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cisco-ios-patterns
 description: Cisco IOS and IOS-XE review patterns for show commands, config hierarchy, wildcard masks, ACL placement, interface hygiene, and safe change-window verification. Use when reading, writing, or reviewing Cisco IOS / IOS-XE configuration or planning a change window.
+tier: "experimental"
 metadata:
   origin: community
 ---
+
 
 # Cisco IOS Patterns
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "28ad8f4d14c6455db1e0fd9c2444326d481c4be111a282a4933461e624c048e8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gha-security-review
 description: "Review GitHub Actions workflows for exploitable vulnerabilities with concrete attack paths and harmless proof-of-concept sketches. Require explicit authorization for active testing."
+tier: "experimental"
 risk: critical
 source: community
 date_added: 2026-03-16
 ---
+
 ## Bundled upstream support
 
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "af35aa1eb6ef3f8f8eccbb01de7fb8d8fb2fc77cba3a7b37c565090a0fe762eb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: design-orchestration
 description: Orchestrates design workflows by routing work through brainstorming, multi-agent review, and execution readiness in the correct order.
+tier: "experimental"
 risk: none
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Design Orchestration (Meta-Skill)
 

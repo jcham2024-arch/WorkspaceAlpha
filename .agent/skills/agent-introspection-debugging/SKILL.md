@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "52caded3257ed6d863fe127ebd85dceffbaccb380cd0124fd7b62d6fd4c7dfee"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agent-introspection-debugging
 description: Structured self-debugging workflow for AI agent failures using capture, diagnosis, contained recovery, and introspection reports. Use when an agent run fails and you need a reproducible diagnosis instead of a retry.
+tier: "experimental"
 license: MIT
 ---
+
 
 # Agent Introspection Debugging
 

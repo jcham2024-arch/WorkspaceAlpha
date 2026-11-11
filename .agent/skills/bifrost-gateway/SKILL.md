@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "643eaa0b6c4c58a767a943e6f6d850fcf2fb95bfff180608489e6dfd8e28c104"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: bifrost-gateway
 description: "Run and configure Bifrost, the open-source AI gateway: one OpenAI-compatible API for 20+ LLM providers with fallbacks, virtual keys and budgets, semantic caching, observability and an MCP gateway."
+tier: "experimental"
 category: ai-ml
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: Swpn0neel
 tags: [bifrost, ai-gateway, llm-gateway, openai-compatible, mcp-gateway, llm-routing]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Bifrost AI Gateway
 

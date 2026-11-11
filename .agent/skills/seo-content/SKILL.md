@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d2ea50a2cfb8bcc4f7c5067658da5d4b8c6948ac0faa033d84eb2b3f4af20a27"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-content
 description: >
+tier: "experimental"
   Content quality and E-E-A-T analysis with AI citation readiness assessment.
   Use when user says "content quality", "E-E-A-T", "content analysis",
   "readability check", "thin content", or "content audit".
@@ -16,6 +27,7 @@ allowed-tools:
   - Bash
   - WebFetch
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

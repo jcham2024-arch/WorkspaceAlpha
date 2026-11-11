@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7e3bf15ceaf70e771b09cc7d2d851218ba6528ff40f3f1236afe31b6b3828f27"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agent-memory-discipline
 description: "Rules for when an agent should recall from long-term memory before acting and when it should save decisions, corrections and failures afterwards. Works with any memory backend."
+tier: "experimental"
 category: memory
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "CC0-1.0"
 license_source: "https://github.com/mnemoverse/agent-memory-discipline/blob/main/LICENSE"
 ---
+
 
 # Agent Memory Discipline
 

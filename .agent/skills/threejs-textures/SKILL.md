@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "297f8f1b711fc6abfb4a11ad901ac6fe823b3504a68fb0ecae2217968f35eb54"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: threejs-textures
 description: Three.js textures - texture types, UV mapping, environment maps, texture settings. Use when working with images, UV coordinates, cubemaps, HDR environments, or texture optimization.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # Three.js Textures
 

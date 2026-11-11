@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "77ae2b3899e93d39fbffebc99c7bb1630c137576e36a65815b9dded766ab005b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: krexa
 description: "Turn a trading idea, post or video into fixed rules, backtest and paper-trade them, and request a user-approved live agent through Krexa's MCP server. Cannot move funds."
+tier: "experimental"
 category: finance
 risk: critical
 source: "https://github.com/Krexa-xyz/skills/tree/4a757951918c1a393d7840f2401f2d2f0b5afb3c/skills/krexa"
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/Krexa-xyz/skills/blob/4a757951918c1a393d7840f2401f2d2f0b5afb3c/LICENSE"
 ---
+
 
 # Krexa
 

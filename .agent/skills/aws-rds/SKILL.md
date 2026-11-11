@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e10b176a887de1df4408fadcb56badbb8d1b0bbc1329826b823188c1e3165200"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aws-rds
 description: Provision and manage RDS databases. Configure backups, replication, and
+tier: "experimental"
   security. Use when deploying managed relational databases on AWS.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # AWS RDS
 

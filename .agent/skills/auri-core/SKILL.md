@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fb17f8db2039727513baaf8605640e7541d9fd3f6b05fe20dbafc30cd69c05c7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: auri-core
 description: "Auri: assistente de voz inteligente (Alexa + modelo Claude configurado e verificado). Visao do produto, persona Vitoria Neural, stack AWS, modelo Free/Pro/Business/Enterprise, roadmap 4 fases, GTM, north star WAC e analise competitiva."
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-03-06'
@@ -17,6 +28,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # Auri - Core Product Skill
 

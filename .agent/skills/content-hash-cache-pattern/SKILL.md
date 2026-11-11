@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5727356a5d45365c2236826d42652acbb7aa2ff4b7db71c931cf4df28784930c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: content-hash-cache-pattern
 description: Cache expensive file processing results using SHA-256 content hashes — path-independent, auto-invalidating, with service layer separation. Use when repeated file processing is slow and results should be cached and invalidated by content rather than path.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Content-Hash File Cache Pattern
 

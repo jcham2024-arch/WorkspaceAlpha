@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b47e3f27bc1523234cb0f5da09271a49c0cfaae4b03de1340d065d6afca6aa7a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: rag-observability-evals
 description: Monitor and evaluate RAG systems with retrieval quality metrics, groundedness
+tier: "experimental"
   checks, hallucination detection, and continuous regression testing.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # RAG Observability and Evaluations
 

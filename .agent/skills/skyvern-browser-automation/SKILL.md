@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c2cf5b7ec4c0335fb240384448deefc1ef23820fd70d2fb3dc6ca696ad0fd77a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: skyvern-browser-automation
 description: "AI-powered browser automation — navigate sites, fill forms, extract structured data, log in with stored credentials, and build reusable workflows."
+tier: "experimental"
 category: browser-automation
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: "AGPL-3.0"
 license_source: "https://github.com/Skyvern-AI/skyvern/blob/main/LICENSE"
 ---
+
 
 # Skyvern Browser Automation -- CLI Judgment Procedure
 

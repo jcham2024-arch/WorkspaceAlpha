@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1d8f4c656105a6541206c4225ffb96ecbf52a2741cecf2d306ab13568c19e96f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: faf-expert
 description: "Advanced .faf (Foundational AI-context Format) specialist. IANA-registered format, MCP server config, championship scoring, bi-directional sync."
+tier: "experimental"
 category: coding
 risk: safe
 source: community
@@ -11,6 +22,7 @@ author: wolfejam
 tags: [faf, ai-context, project-management, mcp, iana]
 tools: [claude, cursor, gemini, windsurf]
 ---
+
 
 # FAF Expert - Advanced AI Context Architecture
 

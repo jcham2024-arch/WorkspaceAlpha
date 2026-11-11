@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f1cfb7f5028e51f6dfb6aabae8200439183bf62f97792a3ddf4c7443fb254f85"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: architecture-review
 description: Review repository architecture using Ontoly Software Graph and MCP capabilities.
+tier: "experimental"
   Use when asked to explain architecture, module boundaries, package topology, service
   ownership, or architectural risk.
 license: AGPL-3.0-only
@@ -20,6 +31,7 @@ source: community
 date_added: '2026-09-21'
 risk: unknown
 ---
+
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.

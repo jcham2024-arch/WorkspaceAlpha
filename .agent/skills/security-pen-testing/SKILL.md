@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "735186fe133ea8ef69452e2e8ef4a6bfea9f2ea2c15588eb114ad61a8febf558"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "security-pen-testing"
 description: "Authorized penetration testing of an app or API: vulnerability scans, OWASP Top 10 checks, dependency audits and a pentest report. Use whenever the user asks if their app is secure or hackable, wants a security scan or a pentest report."
+tier: "experimental"
 ---
+
 
 # Security Penetration Testing
 

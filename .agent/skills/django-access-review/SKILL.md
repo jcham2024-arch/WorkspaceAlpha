@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "778dfd6beaee0f843b150ed7be0d963d26914fa696cf65586e52b7eba094c147"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: django-access-review
 description: "Use when reviewing Django or DRF access control: trace authorization flows, IDOR risks, object permissions, query scoping and tenant isolation before proposing a verified fix."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 
 <!--

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8e350d054083fce39d72f58ceb1408f65c75ee12697af822610f02d2c727d8df"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: pubmed-database
 description: Direct REST API access to PubMed. Advanced Boolean/MeSH queries, E-utilities API, batch processing, citation management. For Python workflows, prefer biopython (Bio.Entrez). Use this for direct HTTP/REST work or custom API implementations.
+tier: "experimental"
 license: Unknown
 metadata:
     skill-author: K-Dense Inc.
@@ -8,6 +19,7 @@ risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

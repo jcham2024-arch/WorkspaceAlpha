@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "468051859bf56cbbf45a12f0bd874517cf68ed37171b700d20cc955614a1bbf3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agentfolio
 description: "Skill for discovering and researching autonomous AI agents, tools, and ecosystems using the AgentFolio directory."
+tier: "experimental"
 risk: safe
 source: agentfolio.io
 date_added: "2026-02-27"
 ---
+
 
 # AgentFolio
 

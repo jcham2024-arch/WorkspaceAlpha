@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "29e221d7cf18081e1e2e6b2c26e7620be04b16e7cbeda0aec6ad6ebe7f8873ef"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: git-pr-workflows-pr-enhance
 description: "Improve pull request descriptions, reviewability, change scope, and supporting validation evidence."
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Pull Request Enhancement
 

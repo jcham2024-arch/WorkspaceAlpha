@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e5d2f606bcc26b398c875095718955073ee58c5c745b30ad9c84b057fcb76359"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: geminiignore-finops
 description: "Configure and optimize .geminiignore files for AI context window efficiency and token cost reduction (FinOps)."
+tier: "experimental"
 category: context-optimization
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [gemini, claude, cursor]
 license: "MIT"
 license_source: "https://github.com/iradoweck/antigravity-awesome-skills/blob/main/LICENSE"
 ---
+
 
 # GeminiIgnore FinOps Setup & Optimization
 

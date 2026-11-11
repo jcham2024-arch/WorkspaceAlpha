@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ddb8a1b4df1026f3a3fe1635cb50b0360e9277454c8b05577ff148c6a72d7c2f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: macos-screen-recorder
 description: "macOS screen recorder that captures the main display PLUS system audio via ScreenCaptureKit — no BlackHole/loopback driver, no sudo, just the standard Screen Recording permission. CLI-driven; fills the headless-screen-recording-with-system-sound gap QuickTime and `screencapture -v` can't."
+tier: "experimental"
 risk: critical
 source: community
 source_type: community
@@ -30,6 +41,7 @@ plugin:
     summary: "Screen/audio/input capture requires sensitive macOS permissions; keep out of plugin-safe bundles."
     docs: SKILL.md
 ---
+
 ## When to Use
 
 Use when you need to script a screen recording WITH system sound on macOS from the CLI (demos, captures, voice-demo recording) — the case QuickTime and `screencapture -v` can't cover without a virtual audio device.

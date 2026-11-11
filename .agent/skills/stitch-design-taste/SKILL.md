@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a42393a119a2062e4b83e7c2cfc84b1a01a1905ce2cdf1e4cd7a9879538888aa"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: stitch-design-taste
 description: "Use when generating Google Stitch DESIGN.md systems for premium typography, color, layout, motion intent, and anti-generic UI rules."
+tier: "experimental"
 category: frontend
 risk: safe
 source: community
@@ -11,6 +22,7 @@ author: Leonxlnx
 tags: [stitch, design-system, frontend, ui]
 tools: [claude, cursor, codex, antigravity]
 ---
+
 # Stitch Design Taste — Semantic Design System Skill
 
 ## When to Use

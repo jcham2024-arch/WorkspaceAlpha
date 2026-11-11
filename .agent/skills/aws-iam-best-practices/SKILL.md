@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7fdb439b35784fbd17597ebef3f2edaa35d446a183013eccc0b8953967be878b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aws-iam-best-practices
 description: "IAM policy review, hardening, and least privilege implementation"
+tier: "experimental"
 category: security
 risk: critical
 source: community
 tags: "[aws, iam, security, access-control, kiro-cli, least-privilege]"
 date_added: "2026-02-27"
 ---
+
 
 # AWS IAM Best Practices
 

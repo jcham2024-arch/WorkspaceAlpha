@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4c688e77049733c81b2eed7c09c2a52a0d478e0867b54e1d708866008ce5f03a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: apify-tiktok-scraper
 description: "Research TikTok videos, profiles, hashtags, comments and followers with engagement statistics through the harshmaur/tiktok-scraper Apify Actor. No TikTok login."
+tier: "experimental"
 category: data
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: "MIT"
 license_source: "https://github.com/harshmaur/apify-tiktok-scraper/blob/main/LICENSE.txt"
 ---
+
 
 # TikTok Scraper
 

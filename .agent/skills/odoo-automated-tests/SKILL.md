@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "58ab68631bd59953d5038c7729720db0cdf130a163e94fbe9e5f963a07d25ab4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: odoo-automated-tests
 description: "Write and run Odoo automated tests using TransactionCase, HttpCase, and browser tour tests. Covers test data setup, mocking, and CI integration."
+tier: "experimental"
 risk: safe
 source: "self"
 date_added: "2026-03-04"
 ---
+
 
 # Odoo Automated Tests
 

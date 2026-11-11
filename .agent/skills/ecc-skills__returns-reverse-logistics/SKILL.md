@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "51355d930d5a53b89f313d588bf9f697fb39492c6102fcadaa4ee4ecf134a087"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: returns-reverse-logistics
 description: Codified expertise for returns authorization, receipt and inspection, disposition decisions, refund processing, fraud detection, and warranty claims management. Informed by returns operations managers with 15+ years experience. Includes grading frameworks, disposition economics, fraud pattern recognition, and vendor recovery processes. Use when handling product returns, reverse logistics, refund decisions, return fraud detection, or warranty claims.
+tier: "experimental"
 license: Apache-2.0
 homepage: https://github.com/affaan-m/ECC
 metadata:
@@ -10,6 +21,7 @@ metadata:
   clawdbot:
     emoji: ""
 ---
+
 
 # Returns & Reverse Logistics
 

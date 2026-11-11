@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4943b041abf11359398a2b8d49ce47e9194f37bfe744d19be839865d8ec4706e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: lambdatest-agent-skills
 description: "Production-grade test automation skills for 46 frameworks across E2E, unit, mobile, BDD, visual, and cloud testing in 15+ languages."
+tier: "experimental"
 category: testing
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, copilot]
 license: "MIT"
 license_source: "https://github.com/LambdaTest/agent-skills/blob/main/LICENSE"
 ---
+
 
 # LambdaTest Agent Skills — Test Automation Registry (46 Skills)
 

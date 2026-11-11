@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c5d5e659b876b7760390b10f17de4015b579f186f6f5bc4dcc00a0e2114af05f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: scientific-thinking-literature-review
 description: Systematic literature-review workflow for academic, biomedical, technical, and scientific topics, including search planning, source screening, synthesis, citation checks, and evidence logging. Use when the task is to find, screen, synthesize, and cite a body of academic or technical literature.
+tier: "experimental"
 metadata:
   origin: community
 ---
+
 
 # Literature Review
 

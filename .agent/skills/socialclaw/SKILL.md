@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f9e496fa502f1e4acaf2e66ef2a0cc9cf5aeba235bf3c23085744460995b4f41"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: socialclaw
 description: "Agent-first social media publishing skill — schedule and publish posts across the listed platforms (X, LinkedIn, Instagram, Facebook Pages, TikTok, Discord, Telegram, YouTube, Reddit, WordPress, Pinterest) via a single workspace API key."
+tier: "experimental"
 category: marketing
 risk: critical
 source: community
@@ -17,6 +28,7 @@ plugin:
     codex: blocked
     claude: blocked
 ---
+
 
 # SocialClaw — Social Media Publisher
 

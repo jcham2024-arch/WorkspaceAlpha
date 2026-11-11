@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fb3828a375618cb212ef5def6c11472180016f823a2d710abbaa20e5ef007cfc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "senior-frontend"
 description: "Build and review React, Next.js, TypeScript or Tailwind frontends: components, scaffolding, performance and bundle size. Use whenever the user wants a new component or app, a page feels slow, the bundle is too big, or asks for a frontend code review."
+tier: "experimental"
 ---
+
 
 # Senior Frontend
 

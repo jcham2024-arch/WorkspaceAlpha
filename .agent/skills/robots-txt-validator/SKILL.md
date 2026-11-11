@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "261f897a49b56170fba246e95f76ac53a686ecfa60519947a0a45252f3f25e4c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: robots-txt-validator
 description: "Robots.txt Validator. Use when working with robots.txt text, crawler and URLs to test."
+tier: "experimental"
 category: Technical SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Robots.txt Validator
 
 ## Overview

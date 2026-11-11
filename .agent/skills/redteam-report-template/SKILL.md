@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "04e3ec3c760ffa3d108958c301f91e7decf5dd4885d66e5e7a612b93bfe017e4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: redteam-report-template
 description: Client-facing red-team deliverable format
+tier: "experimental"
 category: security
 risk: safe
 source: https://github.com/elementalsouls/Claude-BugHunter
@@ -14,6 +25,7 @@ compatibility: Process guidance; no tooling required. Docs-only; upstream templa
 sources: authorized-engagement-deliverable, enterprise-redteam-report-conventions
 report_count: 1
 ---
+
 
 ## When to use
 

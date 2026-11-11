@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e261058fc86a3309e1f973f467a2ef3833bca7833fe4564c58eb2387e0c93f85"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: competitor-tracking
 description: "Systematic competitor analysis for developer tools. Track features, pricing, positioning, content strategy, and community sentiment for direct and indirect competitors."
+tier: "experimental"
 risk: critical
 source: https://github.com/jonathimer/devmarketing-skills/tree/main/skills/competitor-tracking
 source_repo: jonathimer/devmarketing-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/jonathimer/devmarketing-skills/blob/main/LICENSE
 ---
+
 
 # Competitor Tracking
 ## When to Use

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "84f6d1be4f1e5653ca47442364a516337565a3b8be359ff91d30fba715601e30"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: jet-browser
 description: "Verify or integrate Jet Browser when a project needs isolated WPE WebKit sessions, native input, screenshots, ordered JSONL automation, or reproducible runtime checks."
+tier: "experimental"
 category: browser-automation
 risk: critical
 source: "https://github.com/masakaai/jet-browser"
@@ -13,6 +24,7 @@ tools: [claude, codex]
 license: Apache-2.0
 license_source: "https://github.com/masakaai/jet-browser/blob/v0.9.0/LICENSE"
 ---
+
 
 # Jet Browser
 

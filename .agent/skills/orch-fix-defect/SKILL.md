@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c844447f80172be4c06f6c131162f8fe16c2197aeacb7bf1026ba8b4232c5640"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: orch-fix-defect
 description: Orchestrate fixing a bug — reproduce it as a failing regression test, fix to green, review, and gated commit — by delegating each phase to the matching ECC agent. Use when existing behavior is broken or wrong.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # orch-fix-defect
 

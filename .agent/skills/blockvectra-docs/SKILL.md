@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c203c23109026fddc072871f430c9836906e108c4ada1ae35ec66a67a39301fc"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: blockvectra-docs
 description: "Answer BlockVectra RPC, indexed-data, and Robinhood Chain integration questions from cited documentation. Use for source guidance, not blockchain execution."
+tier: "experimental"
 category: development
 risk: safe
 source: https://github.com/blockvectra/agent-quickstart/tree/9103506405cdabf2f98aefca88363085781873d1/skills/blockvectra-docs
@@ -12,6 +23,7 @@ date_added: "2026-11-02"
 author: BlockVectra
 tags: [documentation, blockchain, rpc, robinhood]
 ---
+
 
 # BlockVectra documentation
 

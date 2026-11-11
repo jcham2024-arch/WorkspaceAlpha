@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d562208ea1cf521aa28260c5f23724891f5af0d6c946e0c81843ceb59303a6cf"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hunt-shadow-api
 description: Hunt shadow / zombie / undocumented API surface (OWASP API9 Improper
+tier: "experimental"
   Inventory Management)
 category: security
 risk: offensive
@@ -16,6 +27,7 @@ compatibility: Requires explicit written authorization for a target scope plus t
 sources: owasp_api_top10_2023, portswigger_research, public_research
 report_count: 0
 ---
+
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.

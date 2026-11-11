@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "19a6699f08385aa347239071aa45bd0e6c04b16497a992a9db554ce4aae04f0e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: solidping
 description: "Run SolidPing uptime monitoring through its hosted MCP server: list and diagnose checks, read results and incidents, create checks across 40+ types, and manage status pages."
+tier: "experimental"
 category: devops
 risk: critical
 source: "https://github.com/fclairamb/solidping-plugin/tree/main/skills/solidping-monitoring"
@@ -13,6 +24,7 @@ tools: [claude-code, codex, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/fclairamb/solidping-plugin/blob/main/LICENSE"
 ---
+
 
 # SolidPing
 

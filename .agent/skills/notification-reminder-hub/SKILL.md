@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bc92e7531db770f729bbf0b458c4f1a9834be5c108293e6487f44e34784311fe"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: notification-reminder-hub
 description: 'Notification register: title, type, priority, recipient and department, message, linked record, trigger module, scheduled and sent dates and status. Use for reminder tracking.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, analyze]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Notification & Reminder Hub
 

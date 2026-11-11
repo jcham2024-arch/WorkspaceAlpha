@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2359a04ce169ab84389d310591ed0adff81de3d27cf7494af5c4a41dc33bd496"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: oneroster-csv-validator
 description: "Validates 1EdTech / IMS Global OneRoster v1.1 and v1.2 CSV roster sets: manifest integrity, bulk vs delta strictness, foreign key references, and encoding sanitization. Trigger phrases: oneroster csv validator, validate oneroster zip, clever roster error, oneroster sourcedid."
+tier: "experimental"
 category: testing
 risk: safe
 source: community
@@ -12,6 +23,7 @@ tags: [edtech, oneroster, csv-validation, ims-global, 1edtech, data-engineering]
 tools: [claude, cursor, gemini, windsurf]
 license: "MIT"
 ---
+
 
 # OneRoster CSV Validator: Strict 1EdTech Data Integrity & Pre-Flight Linter
 

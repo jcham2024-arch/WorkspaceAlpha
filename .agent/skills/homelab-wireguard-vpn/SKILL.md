@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d3043486075c5ad14c40171ab58031451977471a6ca19ca17208cda64afbb244"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: homelab-wireguard-vpn
 description: WireGuard VPN server setup, peer configuration, key generation, split tunneling vs full tunnel routing, and remote access to a home network from mobile and laptop clients. Use when setting up WireGuard for remote access to a home network, or deciding between split and full tunnel routing.
+tier: "experimental"
 metadata:
   origin: community
 ---
+
 
 # Homelab WireGuard VPN
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3e74200dfbe2e5034d026cc1951cbda9d9a8ce05d09c07a789f6489ce42ff48c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: zhongcao-cover-maker
 description: "Install and use the official Xiaohongshu Cover Maker package, pinned by digest, for paid hosted work on the Beatra service."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/beatra-ai/xiaohongshu-cover-maker-skill/blob/cb25a69b5d044f76230c759cf3c4b43f57905924/LICENSE"
 ---
+
 
 # Xiaohongshu Cover Maker Skill
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7c3bc376aec9024fa49c9d8c8b69f04f06d59e48df946b325d580a14def732c7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: deep-research-framework
 description: "Framework for deep research reports: define the question and tier sources first, cross-verify, then write conclusion-first reports with explicit uncertainty statements. Use when the user asks for a research report, topic investigation, or competitive analysis."
+tier: "experimental"
 category: research
 risk: safe
 source: https://github.com/alapha888/agent-skills-en
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: MIT
 license_source: https://github.com/alapha888/agent-skills-en/blob/main/LICENSE
 ---
+
 
 # Deep Research Report Framework
 

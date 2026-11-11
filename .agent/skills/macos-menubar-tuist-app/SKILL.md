@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "117b700b44360cb9465f1d0a76b1480461bb3b249e6efc94ae93888a8a927619"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: macos-menubar-tuist-app
 description: Build, refactor, or review SwiftUI macOS menubar apps that use Tuist.
+tier: "experimental"
 risk: safe
 source: "Dimillian/Skills (MIT)"
 date_added: "2026-03-25"
 ---
+
 
 # macos-menubar-tuist-app
 

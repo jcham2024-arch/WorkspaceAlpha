@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "51a845b486b0d4d1c178d33123330872290e3ed11b704de1935a54aa9dc37438"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cypress-skill
 description: "Generates production-grade Cypress E2E and component tests in JavaScript or TypeScript. Supports local execution and TestMu AI cloud. Use when the user asks to write Cypress tests, set up Cypress, test with cy commands, or mentions \"Cypress\", \"cy.visit\", \"cy.get\", \"cy.intercept\"."
+tier: "experimental"
 risk: critical
 source: https://github.com/LambdaTest/agent-skills/tree/main/cypress-skill
 source_repo: LambdaTest/agent-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/LambdaTest/agent-skills/blob/main/LICENSE
 ---
+
 
 # Cypress Automation Skill
 ## When to Use

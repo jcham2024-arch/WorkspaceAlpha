@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "39416ebf47d08b60852a2e7985c3a2ab7ebb7e6fdce7b49d4f77c1e92a7831ac"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: nextjs-supabase-auth
 description: Expert integration of Supabase Auth with Next.js App Router
+tier: "experimental"
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Next.js + Supabase Auth
 

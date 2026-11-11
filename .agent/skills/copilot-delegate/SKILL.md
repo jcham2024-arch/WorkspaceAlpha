@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7090ee20505289966da231cbf9e4e7e565be6fbb39fc0de9eff0856302602e3f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: copilot-delegate
 description: Delegate coding tasks to the GitHub Copilot CLI (`copilot`) only when
+tier: "experimental"
   the user explicitly requests it, while the orchestrator retains review and landing
   responsibility.
 risk: critical
@@ -17,6 +28,7 @@ compatibility: Requires the `copilot` CLI installed and authenticated (`copilot 
 metadata:
   version: 0.5.0
 ---
+
 # Copilot Delegate
 
 ## When to Use

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "97072aaff4abafd96ee74d4591229df55d1d89f10b2ce347e0a55148b16cc86f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: longbridge
 description: "Guide to using a separately installed Longbridge integration — real-time quotes, charts, fundamentals, portfolio analysis, options, and more for HK/US/A-share/SG markets. Trilingual: Simplified Chinese, Traditional Chinese, English."
+tier: "experimental"
 category: finance
 risk: critical
 source: official
@@ -17,6 +28,7 @@ plugin:
     codex: blocked
     claude: blocked
 ---
+
 
 # Longbridge
 

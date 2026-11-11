@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2d1e903df95afeb3ab58571ec2dd12e2d559dcd5dda41f069b8ec9ade7d4f304"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aas-compose-stack
 description: "Preserve the coding agent's explicit AAS skill selection as a validated stack and optional evidence."
+tier: "experimental"
 category: agent-tooling
 risk: safe
 source: self
@@ -9,6 +20,7 @@ author: Agentic Awesome Skills (AAS)
 date_added: "2026-10-02"
 tags: [aas, skills, mcp, stack-review]
 ---
+
 
 # Aas Compose Stack
 

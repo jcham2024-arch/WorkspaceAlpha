@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a1ed47c7c9a5f4f3f45d42896c9afc682211718a0a9df9c23c4a01aedaedc8f1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: scientific-thinking-scholar-evaluation
 description: Structured scholarly-work evaluation for papers, proposals, literature reviews, methods sections, evidence quality, citation support, and research-writing feedback. Use when evaluating academic or scientific work — papers, proposals, methods sections, or evidence quality — against a repeatable rubric.
+tier: "experimental"
 metadata:
   origin: community
 ---
+
 
 # Scholar Evaluation
 

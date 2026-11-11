@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "866c5ee1e5f94ec92c929fad9c3b52b868d5b7595d9012a69743715afa88d68f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ranking-opportunity-finder
 description: "Ranking Opportunity Finder. Use when working with query/page performance export or dated ranking evidence."
+tier: "experimental"
 category: Competitor Analysis
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Ranking Opportunity Finder
 
 ## Overview

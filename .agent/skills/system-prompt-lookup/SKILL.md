@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fd0d235fc028dce56adf007927b12f57314e887168306ef127d8039d8dd1f6d8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: system-prompt-lookup
 description: Checks what a shipped AI product's system prompt and tool schema actually say, by reading a dated archive of captured prompts instead of recalling them. Use before asserting or accepting any claim about an agent's instructions.
+tier: "experimental"
 category: research
 risk: safe
 source: community
@@ -22,6 +33,7 @@ tools:
 license: "AGPL-3.0"
 license_source: "https://github.com/Continuum-AI-Corp/OrcaPromptVault/blob/main/LICENSE"
 ---
+
 
 # Checking what an agent was actually told
 

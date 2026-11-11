@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d8959edf09758265a10b61bf41de50c01bb442e8072220cbaeba494399f71c31"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: arm-templates
 description: Deploy Azure resources with ARM templates and Bicep. Create modular deployments
+tier: "experimental"
   and manage dependencies. Use when deploying Azure-native IaC.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # ARM Templates & Bicep
 

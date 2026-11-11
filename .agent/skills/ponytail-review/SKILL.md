@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cd5a8ef872cacda1b2b0c6711654b4c2f748b1f2f36732fa2bb79e36cbd9b077"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ponytail-review
 description: >
+tier: "experimental"
   Quality review of a change: is the logic right, is it safe, does it hold
   under real load, is risky code tested, is it fast enough, and is every line
   needed. Reads the connected code, not only the diff. Each finding is
   explained in plain English. Use for "review this", "code review", "review
   the last commit", "review my PR", "is this over-engineered", /ponytail-review.
 ---
+
 
 Review a change like the senior developer who will be paged when it breaks.
 Order of importance: correct, safe, holds under load, tested, fast, lean.

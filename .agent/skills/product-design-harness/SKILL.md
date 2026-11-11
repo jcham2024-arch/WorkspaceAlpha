@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "992c580f43cb04df8b1ad7e35953c5fec406d1a5ae6ad5b2239ca223a3e052a3"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: product-design-harness
 description: Use when a product direction, feature, workflow, experiment, launch, feedback signal, automation, or scale decision needs judgment before execution or the next iteration.
+tier: "experimental"
 license: MIT
 license_source: https://github.com/cis2042/ux3-product-design-harness/blob/7f9f724c5e31813d1c35767f9f454fe9a1e96891/skills/product-design-harness/LICENSE
 category: product
@@ -12,6 +23,7 @@ date_added: "2026-10-23"
 author: cis2042
 tags: [product-design, decision-making, evidence, handoff]
 ---
+
 
 # Product Design Harness
 

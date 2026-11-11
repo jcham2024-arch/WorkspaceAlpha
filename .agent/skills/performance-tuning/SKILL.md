@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fdad2db72b9b7ac9d87d2b88b4d714e783c735d5e1a8e87f8ff52c5929461508"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: performance-tuning
 description: Optimize Linux system performance. Configure kernel parameters, analyze
+tier: "experimental"
   bottlenecks, and tune resources. Use when improving system performance.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Performance Tuning
 

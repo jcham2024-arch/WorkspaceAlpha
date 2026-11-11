@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9a3d7bceb4feda47026e8f2fa23b3d54e899f7febe6c06a896eb2dafa440544e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: rules-distill
 description: "Scan skills to extract cross-cutting principles and distill them into rules — append, revise, or create new rule files. Use when the same principle keeps recurring across skills and belongs in a rule file instead."
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Rules Distill
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5f52c38b4cdd9386c1e7a4b6e45a91e5270a2e9f4a3e498ffe9e4bf462234ab2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: monetization
 description: "Estrategia e implementacao de monetizacao para produtos digitais - Stripe, subscriptions, pricing experiments, freemium, upgrade flows, churn prevention, revenue optimization e modelos de negocio SaaS."
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-03-06'
@@ -18,6 +29,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # MONETIZATION - Do Produto ao Revenue
 

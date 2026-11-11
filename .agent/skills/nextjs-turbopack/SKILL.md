@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b97a8c04e18994bbbce4baa34f937721affba73d104c56f70368fb1a5e9c8308"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: nextjs-turbopack
 description: Next.js 16+ and Turbopack — incremental bundling, FS caching, dev speed, and when to use Turbopack vs webpack.
+tier: "experimental"
 license: MIT
 ---
+
 
 # Next.js and Turbopack
 

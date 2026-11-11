@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a80c28cab604a69c742dcc69deda2ecacbbb80039201c1cd45788afd2b09662e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: traderspy-trading-signals
 description: "Fetch and explain TraderSpy's AI crypto futures signals: entry, take-profit ladder, stop, triggers, status against the live price, and how recent signals resolved. Use for \"latest signals\"."
+tier: "experimental"
 category: finance
 risk: safe
 source: "https://github.com/target1m/traderspy-mcp/tree/069aae5a84640d671f92705a2e3bc0b62efca1e0/skills/trading-signals"
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: MIT
 license_source: "https://github.com/target1m/traderspy-mcp/blob/069aae5a84640d671f92705a2e3bc0b62efca1e0/LICENSE"
 ---
+
 
 # TraderSpy Trading Signals
 

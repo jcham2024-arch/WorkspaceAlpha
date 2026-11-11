@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "22659575d3ef5c3ddd5380c286e1b511088673c952503e0bbc48d4467d84aca5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: define-my-content-pillars
 description: "Find the three to five subjects someone can post about repeatedly, from what they have published and know first-hand. Use when someone asks what to post about or has run out of ideas."
+tier: "experimental"
 category: marketing
 risk: safe
 source: "https://github.com/prateeks367/voicemoat-skills/tree/7623a3effbee426554e8c5df55e77f3479fd0ec0/skills/define-my-content-pillars"
@@ -13,6 +24,7 @@ author: prateeks367
 tags: [linkedin, twitter, content-strategy, personal-brand, social-media]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Define my content pillars
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "67b9777293ed76af14eeff39998eea050f5fc743e62584b6a8fcc377702f569a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: tweetapi
 description: "Look up public Twitter/X profiles, tweets, search results, lists, communities and Spaces with TweetAPI's REST API or hosted MCP server. Read-only: no posting or account access."
+tier: "experimental"
 category: data
 risk: safe
 source: self
@@ -16,6 +27,7 @@ metadata:
   mcp-docs: https://tweetapi.com/mcp
   mcp-server: https://mcp.tweetapi.com/mcp
 ---
+
 
 # TweetAPI Public Data Lookups
 

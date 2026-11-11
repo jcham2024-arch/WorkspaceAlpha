@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2492273a00ae634ccc99aa08dbe0b3356a4deb15ccc993bded22b6638073773c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: on-page-seo-audit-checker
 description: "On-Page SEO Audit Checker. Use when working with page URL or HTML and target reader task."
+tier: "experimental"
 category: On-Page Optimization
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # On-Page SEO Audit Checker
 
 ## Overview

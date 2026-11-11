@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ae7a7d47d1754e0bc35736198f8dfe69ec4fb2fbf78d5c05b2c4cca47f3d691e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: axiom
 description: "First-principles assumption auditor. Classifies each hidden assumption (fact / convention / belief / interest-driven), ranks by fragility × impact, and rebuilds conclusions from verified premises. Bilingual: auto-detects Chinese or English."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-13"
 ---
+
 
 # Axiom — First-Principles Assumption Auditor / 第一性原理拆解器
 

@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2b0f1ec539029058ea28f7ac2cbd9fc500ca459d5927f83a072689b9d57acf40"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-red-team
 description: For authorized security review of code, auth, or APIs you control, model the attacker, map the attack surface, and report only findings with a reproducible exploit path and verified mitigation.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Red Team
 

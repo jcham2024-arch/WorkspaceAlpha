@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9b80d3861a2b39f41692538b96a12847aaba2dfd1fe9fb7e20159f2229e904db"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: domain-driven-design
 description: "Plan and route Domain-Driven Design work from strategic modeling to tactical implementation and evented architecture patterns."
+tier: "experimental"
 risk: safe
 source: self
 tags: "[ddd, domain, bounded-context, architecture]"
 date_added: "2026-02-27"
 ---
+
 
 # Domain-Driven Design
 

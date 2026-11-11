@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fa0978809cdf3ca3d936325187a50cac3d02462ef87d06635a3862a7704b1d9e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: orch-add-feature
 description: Orchestrate building a brand-new feature end to end — research, plan, TDD implementation, review, and gated commit — by delegating each phase to the matching ECC agent. Use when adding a capability that does not exist yet.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # orch-add-feature
 

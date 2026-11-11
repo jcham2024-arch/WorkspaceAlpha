@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "edb4a034bfe39abe6796dd6ef1cc1b5a4935b67cff7bb78d1797f54a5aa669af"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: knowledge-ops
 description: Knowledge base management, ingestion, sync, and retrieval across multiple storage layers (local files, MCP memory, vector stores, Git repos). Use when the user wants to save, organize, sync, deduplicate, or search across their knowledge systems.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Knowledge Operations
 

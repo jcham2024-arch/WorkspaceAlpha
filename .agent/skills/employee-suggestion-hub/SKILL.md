@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f4849bc779a8064229426ba43e1a2b842ec75b82b2298dbf4bdfcf8b8c24b84e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: employee-suggestion-hub
 description: 'Suggestion register: submitter or anonymous flag, category, votes, reviewer, decision and response status. Use for employee feedback programs.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, engage]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Employee Suggestion Hub
 

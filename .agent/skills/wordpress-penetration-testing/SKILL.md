@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8bf2c51a4f0d33db98abfa73b1b379fa1a056a6fc0fa02cda125da605a3e62f8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: wordpress-penetration-testing
 description: "Assess WordPress installations for common vulnerabilities and installed core/plugin REST permission boundaries."
+tier: "experimental"
 risk: offensive
 source: community
 author: zebbern
 date_added: "2026-02-27"
 ---
+
 
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.

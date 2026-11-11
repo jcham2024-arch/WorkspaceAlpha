@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a03e24a4b8fb640e8282b98fda1821ec9007fb18fcb42670ff688ebb85a24692"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: understand-project-yylo
 description: Inspect the current product architecture, dependencies, and validation
+tier: "experimental"
   loops before planning or implementing a requested change.
 category: project-management
 risk: safe
@@ -15,6 +26,7 @@ compatibility: Requires read access to the product worktree and the `yy` CLI for
 argument-hint: '[Main Task] [Constraints] [Ultimate Goal]'
 enable-shell-directives: true
 ---
+
 
 # Understand the project
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cef3269d56b67a7f6e1d530049ae583a09cfe1fe110912c2479c567530c05ac9"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: show-the-change
 description: "Explain a specific project change to non-programmers, with evidence and practical checks."
+tier: "experimental"
 category: development
 risk: safe
 source: https://github.com/LydiaTools/show-the-change/tree/f81d5bd297cea1014e2a52b8744e1dd4a2136c18/skills/show-the-change
@@ -12,6 +23,7 @@ license: MIT
 license_source: https://github.com/LydiaTools/show-the-change/blob/f81d5bd297cea1014e2a52b8744e1dd4a2136c18/LICENSE
 tags: [change-explanation, non-technical, acceptance, evidence]
 ---
+
 
 # Show the change
 

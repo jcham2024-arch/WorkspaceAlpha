@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "64a47634079ca337d0cf595eda02b3a342c6bebf9da0c7f6003e5b86b0c99ec1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mmx-cli
 description: "Use mmx to generate text, images, video, speech, and music via the MiniMax AI platform. Use when the user wants to create media content, chat with MiniMax models, perform web search, or manage MiniMax API resources from the terminal."
+tier: "experimental"
 risk: critical
 source: "https://github.com/MiniMax-AI/cli"
 date_added: "2026-04-14"
 ---
+
 
 # MiniMax CLI — Agent Skill Guide
 

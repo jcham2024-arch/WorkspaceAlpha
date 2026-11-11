@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a5523015185da3fca5c810b05ffbe0b78c255a74ad7d6fefb9b71db69cc1df31"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: warp-delegate
 description: Delegate coding tasks to the Warp Agent CLI (`oz`) only when the user
+tier: "experimental"
   explicitly requests it, while the orchestrator retains review and landing responsibility.
 risk: critical
 category: agent-orchestration
@@ -18,6 +29,7 @@ compatibility: Requires the `oz` CLI (Warp Agent CLI) installed and authenticate
 metadata:
   version: 0.5.0
 ---
+
 ## Bundled upstream support
 
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "54a4ea3922193c1808276fc70092a605645c1fe660a3db5a510f94f2e182893a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: micro-saas-launcher
 description: Expert in launching small, focused SaaS products fast - the indie
+tier: "experimental"
   hacker approach to building profitable software. Covers idea validation, MVP
   development, pricing, launch strategies, and growing to sustainable revenue.
   Ship in weeks, not months.
@@ -8,6 +19,7 @@ risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Micro-SaaS Launcher
 

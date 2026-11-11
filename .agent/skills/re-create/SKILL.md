@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "21be24757a6a178d4f1e6b5a1c225c4029ba78470c89c08b0ead2e7cc1a8473f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: re-create
 description: "Completely delete and rewrite a file or module from scratch when structural rot makes patching impossible."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-06-27"
 ---
+
 
 # re-create — Controlled Erasure & Rebuild Protocol
 

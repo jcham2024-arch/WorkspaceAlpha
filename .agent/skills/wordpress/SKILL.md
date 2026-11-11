@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0049466fc3524acf745ef58beb7847ba6945778d0883991305206ebb1f21c62a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: wordpress
 description: "WordPress development workflow covering theme development, plugin creation, WooCommerce integration, performance optimization, and security hardening. Includes WordPress 7.0 features: Real-Time Collaboration, AI Connectors, Abilities API, DataViews, and PHP-only blocks."
+tier: "experimental"
 category: workflow-bundle
 risk: critical
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 # WordPress Development Workflow Bundle
 

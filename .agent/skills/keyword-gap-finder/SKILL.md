@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6179895b17bf25c15581a163a85edacf9593e2e63a78c2a18c5ab895f2811fca"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: keyword-gap-finder
 description: "Keyword Gap Finder. Use when working with your keyword set and competitor keyword sets."
+tier: "experimental"
 category: Keyword Research
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Keyword Gap Finder
 
 ## Overview

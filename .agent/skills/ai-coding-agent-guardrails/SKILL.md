@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9072585b06da11625fcf281fbf33f28ea2c75acb2995adfcfb2b728ddaa72102"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-coding-agent-guardrails
 description: Secure AI coding agents (Claude Code, Cursor, Codex, Copilot) with permission
+tier: "experimental"
   boundaries, secret protection, code review gates, and safe sandbox configurations
   for team environments.
 category: security
@@ -18,6 +29,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # AI Coding Agent Guardrails
 

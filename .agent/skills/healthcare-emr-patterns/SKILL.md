@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "241141d71ebfdbee4dca1b3a88eb21d0bfc773d155aa97b69648e06248435f9c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: healthcare-emr-patterns
 description: EMR/EHR development patterns for healthcare applications. Clinical safety, encounter workflows, prescription generation, clinical decision support integration, and accessibility-first UI for medical data entry. Use when building EMR or EHR features such as encounter workflows, prescription generation, or clinical data entry UI.
+tier: "experimental"
 metadata:
   version: "1.0.0"
   origin: Health1 Super Speciality Hospitals — contributed by Dr. Keyur Patel
 ---
+
 
 # Healthcare EMR Development Patterns
 

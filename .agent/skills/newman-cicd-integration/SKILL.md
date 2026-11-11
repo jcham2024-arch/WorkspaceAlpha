@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4edc034cedb9473d42a05f85a54e95018a912902e9f4f28576f7dc231af08d98"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: newman-cicd-integration
 description: "Generate ready-to-use CI/CD pipeline configurations that install and run Newman for automated API testing."
+tier: "experimental"
 risk: critical
 source: https://github.com/LambdaTest/agent-skills/tree/main/api-skill/newman/newman-cicd-helper
 source_repo: LambdaTest/agent-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/LambdaTest/agent-skills/blob/main/LICENSE
 ---
+
 
 # Newman CI/CD Integration Generator
 ## When to Use

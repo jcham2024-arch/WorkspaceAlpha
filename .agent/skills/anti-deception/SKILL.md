@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a32cbc1c5e57d4cebec9020e2a6f88ce86cab7754d5de697b08b04fa728e5a5b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: anti-deception
 description: "Use before responding to pressure for agreement, manufactured urgency, authority appeals, or requests to certify unsupported claims; separate evidence from persuasion and state uncertainty."
+tier: "experimental"
 risk: critical
 source: https://github.com/ejentum/ejentum-mcp/tree/main/skills/anti-deception
 source_repo: ejentum/ejentum-mcp
@@ -16,6 +27,7 @@ tags:
   - mcp
 author: Ejentum <info@ejentum.com>
 ---
+
 
 # Anti-Deception Harness
 ## When to Use

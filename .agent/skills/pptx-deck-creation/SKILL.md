@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e5003e505b7379cd35f6e84d67e7dfa4ac7f2fd90519677812d1d2c58d039b69"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: pptx-deck-creation
 description: "Create editable, production-ready PPTX decks with narrative planning, explicit layout specs, asset guidance, and quality checks."
+tier: "experimental"
 category: office-productivity
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex, antigravity]
 license: "MIT"
 license_source: "https://github.com/kimtth/agent-pptify-kit/blob/main/LICENSE"
 ---
+
 
 # PPTX Deck Creation
 

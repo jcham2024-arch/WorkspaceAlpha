@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d33b84c7875b3112e6f1b07559d99d8e3a4d39353a2d2c32dcbb29cae9b4c77c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: container-scanning
 description: Scan container images for vulnerabilities using Trivy, Grype, and cloud-native
+tier: "experimental"
   tools.
 category: security
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Container Scanning
 

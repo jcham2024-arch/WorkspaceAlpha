@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "906efcd94e2f9751cce22a6c1e6e0dd8495e9f089e6e5b1ba42d5c723c83a5d0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mac-api-connection-diagnostics
 description: "Diagnose an API or website connection failure from a Mac with Kilobat's read-only JSON probes before changing application code or network settings."
+tier: "experimental"
 category: development
 risk: safe
 source: self
@@ -9,6 +20,7 @@ date_added: "2026-11-01"
 author: seifip
 tags: [macos, networking, api, debugging, kilobat]
 ---
+
 
 # Mac API Connection Diagnostics
 

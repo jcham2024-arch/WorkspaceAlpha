@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "990623eb4241e2325ac1a0589d966b6b713d424731581ae4e7e3a381cbc19143"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: security-arsenal
 description: Security payloads, bypass tables, wordlists, gf pattern names, always-rejected
+tier: "experimental"
   bug list, and conditionally-valid-with-chain table.
 category: security
 risk: offensive
@@ -15,6 +26,7 @@ compatibility: Requires explicit written authorization for a target scope plus t
   not bundled.
 sources: community, public_research
 ---
+
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.

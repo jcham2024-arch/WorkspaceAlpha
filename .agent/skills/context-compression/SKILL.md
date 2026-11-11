@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "32ab21c6df2d5028df4f4f1ba14a7c31f732e0d9aeb86f88ac8cd9d5d41126fc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: context-compression
 description: "When agent sessions generate millions of tokens of conversation history, compression becomes mandatory. The naive approach is aggressive compression to minimize tokens per request."
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-01-30"
 ---
+
 
 # Context Compression Strategies
 

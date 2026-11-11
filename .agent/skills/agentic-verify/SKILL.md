@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "529ea0c776f81e4ec287187caa3ceafa1914077ca41dce333d85036ce0a7d53e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agentic-verify
 description: "Check that a Python change is caught by tests: run every mutant of the changed lines and write tests until they catch them. Reports evidence instead of a diff to read."
+tier: "experimental"
 category: testing
 risk: safe
 source: community
@@ -14,6 +25,7 @@ tags: [testing, pytest, mutation-testing, python, verification]
 tools: [claude]
 argument-hint: "[--base REV] [--budget-minutes N] [path]"
 ---
+
 
 # Verify a change
 

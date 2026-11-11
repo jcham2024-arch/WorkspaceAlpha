@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7cc747d9a673679dad7a38700a4ff78dfab25ad8218d55b98eedc6a1642d10ee"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: laravel-tdd
 description: Laravel testing strategies with PHPUnit, Pest, model factories, HTTP tests, Sanctum authentication testing, mocking, and coverage. Use when writing Laravel tests with PHPUnit or Pest, or driving a Laravel feature test-first.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Laravel Testing with TDD
 

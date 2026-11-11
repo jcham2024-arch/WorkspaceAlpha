@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6dfa68dc36e91d0053eb4a7887b3819ba00981bd668911899f8b1769c23b1864"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mentorship-program
 description: 'Mentorship register: mentor and mentee pair, department, focus area, mentee goal, session counts, last and next session, overall rating, progress notes and status. Use for mentorship tracking.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, develop]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Mentorship Program
 

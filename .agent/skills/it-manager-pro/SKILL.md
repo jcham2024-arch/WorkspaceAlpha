@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "201f143649b4a5b5d3c38c43836537e3bc64cc85f7b7e3ed4a65aa7f0a780f4b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: it-manager-pro
 description: Elite IT Management Advisor specializing in data-driven strategy, executive communication, and human-centric leadership for the 2026 digital era.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-18"
@@ -16,6 +27,7 @@ triggers:
   - "togaf architecture advice"
   - "it framework selection"
 ---
+
 
 # IT Manager Pro (Elite Leadership Advisor)
 

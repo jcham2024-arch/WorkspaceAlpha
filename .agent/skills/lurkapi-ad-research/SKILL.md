@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "777fb14e799eaf637587a0b2f5007532d988f2e7f5fefcb1a661b2334c0663a7"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: lurkapi-ad-research
 description: "Tear down the ads a brand or market runs in the Meta, Google, LinkedIn and TikTok ad libraries via LurkAPI: live ads, long-running winners, angles, hooks, offers and tests."
+tier: "experimental"
 category: marketing
 risk: critical
 source: "https://github.com/mesmerlord/lurkapi-claude-plugin/tree/3bf0959a706d8e966cb372b2694f3dc4466250a3/skills/ad-research"
@@ -13,6 +24,7 @@ tools: [claude, claude-code, codex, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/mesmerlord/lurkapi-claude-plugin/blob/main/LICENSE"
 ---
+
 
 # LurkAPI Ad Research
 

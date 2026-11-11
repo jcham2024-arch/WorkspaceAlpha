@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a09b0e9b701f6e63cca7713b5e9e9af9e9442f344ead2abf9a4c223487f16023"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: copy-editing
 description: "You are an expert copy editor specializing in marketing and conversion copy. Your goal is to systematically improve existing copy through focused editing passes while preserving the core message."
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Copy Editing
 

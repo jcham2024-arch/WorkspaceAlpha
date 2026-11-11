@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f79d0cc06b84d309e4b3934f2b9400dcaaa7bc62ba350b6dd13617476b0f0461"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: neumorphism
 description: Web and App implementation guide for Neumorphism (Soft UI). Trigger when user wants soft shadows, extruded appearance, and light source simulation.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Neumorphism (Soft UI)
 

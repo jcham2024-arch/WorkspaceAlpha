@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "efe1c9fd959dc4105eaa9797f987c23a03e2617dc758cf05e565e12633acf121"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: meeting-notes
 description: "Turns raw meeting notes into structured minutes: conclusion first, then decisions / action items / open questions; every action item must have an owner and a deadline. Use when the user pastes meeting transcripts or rough notes and asks for minutes or a summary."
+tier: "experimental"
 category: productivity
 risk: safe
 source: https://github.com/alapha888/agent-skills-en
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: MIT
 license_source: https://github.com/alapha888/agent-skills-en/blob/main/LICENSE
 ---
+
 
 # Meeting Notes
 

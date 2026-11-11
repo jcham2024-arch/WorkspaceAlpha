@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3d0fa732f098148b0bb09d53dab192b0a3f5e2b48081b6b5c8f8672411a4a462"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: solidity-security
 description: "Master smart contract security best practices, vulnerability prevention, and secure Solidity development patterns."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Solidity Security
 

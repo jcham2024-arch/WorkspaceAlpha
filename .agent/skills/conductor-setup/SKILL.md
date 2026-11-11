@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "964215d2cbc3178a4747d06cc6c254d514306cbd350d3afa7be33ef054edbe1f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: conductor-setup
 description: Configure a Rails project to work with Conductor (parallel coding agents)
+tier: "experimental"
 allowed-tools: Read, Write, Edit, Bash(chmod *), Bash(bundle *), Bash(npm *), Bash(script/server)
 context: fork
 risk: critical
@@ -10,6 +21,7 @@ metadata:
   author: Shpigford
   version: "1.0"
 ---
+
 
 Set up the explicitly selected Rails development project for the Conductor app. Frontmatter tool/context hints are host-specific, not authorization to delegate, alter secrets or broaden permissions. Review existing scripts and lockfiles before running installs; preserve unrelated settings.
 

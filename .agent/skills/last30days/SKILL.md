@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "67f5f86745c3904eecd178b036aa2030a0d3068424bc4171222b3294e6ee65ed"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: last30days
 description: "Research a topic from the last 30 days on Reddit + X + Web, summarize evidence, and write copy-paste-ready prompts for the user's target tool."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # last30days: Research Any Topic from the Last 30 Days
 

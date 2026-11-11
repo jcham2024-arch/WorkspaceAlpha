@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2e9fd577958882f3f04b4d417fe1d1155fb001cd72474a7d137a4ecc6dfec423"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: debate-review
 description: Two-model debate review of a GitHub PR, GitLab MR, Azure DevOps PR, or
+tier: "experimental"
   local working tree, posted as inline comments or printed. Use for any PR/MR review
   request, or a local review before a PR exists.
 risk: critical
@@ -17,6 +28,7 @@ compatibility: Requires Node 18+, Git 2.31+ for Azure DevOps, `gh` (GitHub), `gl
 metadata:
   version: 0.2.0
 ---
+
 # debate-review
 
 ## When to Use

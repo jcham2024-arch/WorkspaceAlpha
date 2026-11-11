@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5726f1ea6bdbc0e264b819bd65324c14d50a78b41d091d22444283c75dff64eb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: netmiko-ssh-automation
 description: Safe Python Netmiko patterns for read-only collection, bounded batch SSH, TextFSM parsing, guarded config changes, timeouts, and network automation error handling. Use when automating network device access with Python Netmiko, whether collecting state or pushing guarded config changes.
+tier: "experimental"
 metadata:
   origin: community
 ---
+
 
 # Netmiko SSH Automation
 

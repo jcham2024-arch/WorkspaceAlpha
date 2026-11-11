@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3943f5d22f815144cc9fe149b8a209e8774520e69e2f89b7ca601dabd8986a0d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: arcmira-find-quotes
 description: "Search indexed YouTube and podcast transcripts for quotes, speakers and clip boundaries with timestamped source links using Arcmira."
+tier: "experimental"
 category: research
 risk: safe
 source: https://github.com/arcmira/mcp/tree/v0.10.6/plugins/arcmira/skills/find-quotes
@@ -18,6 +29,7 @@ plugin:
     summary: "Requires an existing authorized Arcmira MCP connection; the skill never installs or reconfigures it."
     docs: https://arcmira.com/docs/mcp-server
 ---
+
 
 # Arcmira: YouTube Transcript Search
 

@@ -27,6 +27,7 @@ reads:
   - skills/index.json
   - .agent/profiles/README.md
 verify: "Every dispatched subagent has a complete task description, its skills, its context pointers, and a verifiable done condition — and every run ends with a review loop, an integration decision, and a written synthesis."
+owner: "taskmaster"
 ---
 
 # Taskmaster — Subagent-Facing Agent (with internal planning + supervisory authority)

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "18e013c0c1529aed5d0e6863e79178056384fdcbc5afeb774bb5f3941638524b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-resource-manager-durabletask-dotnet
 description: Azure Resource Manager SDK for Durable Task Scheduler in .NET.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Azure.ResourceManager.DurableTask (.NET)
 

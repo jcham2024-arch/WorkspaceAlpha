@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ad1f55f51bdfe8f27079325e58a70fe3549219394295ee90d0392175dbdfe153"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: placecall
 description: "Place real outbound phone calls to US businesses through the PlaceCall API: book, ask, get quotes, then read the outcome and transcript."
+tier: "experimental"
 category: api-integration
 risk: critical
 source: "https://github.com/voygr-tech/placecall"
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/voygr-tech/placecall/blob/main/LICENSE"
 ---
+
 
 # PlaceCall
 

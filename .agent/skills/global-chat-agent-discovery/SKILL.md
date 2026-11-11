@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6149150e12a9368a545178b110796e2ffe96d4892bbcc8b700a74fbcf7a1b032"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: global-chat-agent-discovery
 description: "Discover and compare MCP servers and AI agents using Global Chat's cross-protocol directory and MCP server."
+tier: "experimental"
 category: development
 risk: safe
 source: community
@@ -11,6 +22,7 @@ author: pumanitro
 tags: [mcp, ai-agents, agent-discovery, agents-txt, a2a, developer-tools]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Global Chat Agent Discovery
 

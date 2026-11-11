@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1f0eae0d4bb006922d2ddc7539b8b5547036fbb9922abc32f95f68ad3e9e94f1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: supabase
 description: "Use when doing ANY task involving Supabase."
+tier: "experimental"
 risk: critical
 source: https://github.com/supabase/agent-skills/tree/main/skills/supabase
 source_repo: supabase/agent-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/supabase/agent-skills/blob/main/LICENSE
 ---
+
 
 # Supabase
 ## When to Use

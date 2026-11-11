@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "51359d0bcb04af03f33b86fb92ef8106afeb1a1aa220cef9c96b28a60c9daf69"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cockney
 description: "Cheeky Cockney coding mode: terse replies, the smallest correct change, plain English for anything risky."
+tier: "experimental"
 category: development
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex]
 license: "MIT"
 license_source: "https://github.com/Kadajett/cockney/blob/master/LICENSE"
 ---
+
 
 # Cockney
 

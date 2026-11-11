@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "801f6bcf60001725437691bd3de3f3bbddfdbec509a8896b9ca6955055e2e73e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cmux
 description: "Control cmux workspaces, panes, surfaces, and agent sessions safely from macOS terminal workflows."
+tier: "experimental"
 category: development
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex]
 license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

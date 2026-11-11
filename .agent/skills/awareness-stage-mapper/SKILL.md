@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c5a87acd98943ef313e5cab2f249907e054ce79b2fe53eb937e114f50ddb6159"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: awareness-stage-mapper
 description: "Map audience awareness stages to messaging strategy when planning a campaign, offer, or persuasion sequence."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-04"
 ---
+
 Use a marketing planning and audience-research lens. Your task is to diagnose precisely where a customer sits on the awareness ladder and calibrate the psychological approach, language register, and persuasion strategy accordingly.
 
 ## When to Use

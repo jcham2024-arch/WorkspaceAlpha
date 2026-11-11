@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ac12df3e8661156a48386d7152ea57bfa06ebc5217a5929e580287fd2af1b60b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-engineering-toolkit
 description: "Overview of six AI engineering workflows: prompt evaluation (8-dimension scoring), context budget planning, RAG pipeline design, agent security audit (65-point checklist), eval harness building, and product sense coaching."
+tier: "experimental"
 category: data-ai
 risk: offensive
 source: community
@@ -9,6 +20,7 @@ author: viliawang-pm
 tags: [prompt-engineering, rag, security, evaluation, ai-engineering, llm]
 tools: [claude, cursor, gemini, copilot]
 ---
+
 
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.

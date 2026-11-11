@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f51d767cc2067da17ea6bf5a4e321a9d69407e8f634dceee2ff3df9410f5e0c2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: uxkin-research
 description: "Research how real products handle a screen, flow or visual style before designing it: search UXKIN's real iOS screens, user journeys and website design systems, compare several and report what they share."
+tier: "experimental"
 category: frontend
 risk: safe
 source: https://github.com/uxkin/agent/tree/main/skills/uxkin-research
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, copilot, gemini]
 license: MIT
 license_source: https://github.com/uxkin/agent/blob/main/LICENSE
 ---
+
 
 # UXKIN research
 

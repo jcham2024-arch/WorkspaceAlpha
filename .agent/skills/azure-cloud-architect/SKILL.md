@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0cd1781a1145a2b0ce70e7f6c515f9bebc38bc93eebb6354b7969bdb7d22ba3c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "azure-cloud-architect"
 description: "Use when designing or costing an Azure architecture (AKS, App Service, Functions, Cosmos DB, Bicep or ARM, Azure DevOps, migration to Azure). Designs it with architecture_designer.py, generates Bicep with bicep_generator.py and finds savings with cost_optimizer.py."
+tier: "experimental"
 ---
+
 
 # Azure Cloud Architect
 

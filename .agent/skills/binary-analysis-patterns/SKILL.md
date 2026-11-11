@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e173cce4458df29017e42abc8ccd3bb416db8d7f291d12124123465c9d28226e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: binary-analysis-patterns
 description: "Comprehensive patterns and techniques for analyzing compiled binaries, understanding assembly code, and reconstructing program logic."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Binary Analysis Patterns
 

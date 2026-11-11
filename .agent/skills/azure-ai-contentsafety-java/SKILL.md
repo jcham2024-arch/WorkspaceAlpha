@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5b2a515e7804246881ef9ae552484d533be13d3418069f5ce4f7660c8a1d4617"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-ai-contentsafety-java
 description: "Build content moderation applications using the Azure AI Content Safety SDK for Java."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Azure AI Content Safety SDK for Java
 

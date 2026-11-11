@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "97557fb92319c053f8c00799507400b5c61ed9d5674566f07f0f54e05a51bbfa"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: brand-perception-psychologist
 description: "Audit visual, verbal, and behavioral brand signals and propose alignment changes when market perception differs from the intended position."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-04"
 ---
+
 Use a marketing planning and audience-research lens. Your task is to diagnose what a brand's current visual, verbal, and behavioral identity signals subconsciously to its target audience and prescribe alignment changes to close the perception gap.
 
 ## When to Use

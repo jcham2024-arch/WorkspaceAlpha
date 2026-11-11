@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "039c7fce913a7844b1cd7a811a43df45ac1bcfdd40db3d7403d53c1b61737bc4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: git-commit-message
 description: "Generates conventional-commit messages from staged changes: type prefix + English imperative subject (≤50 chars) + optional body explaining why. Use when the user asks to write, generate, or polish a git commit message."
+tier: "experimental"
 category: development
 risk: safe
 source: https://github.com/alapha888/agent-skills-en
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: MIT
 license_source: https://github.com/alapha888/agent-skills-en/blob/main/LICENSE
 ---
+
 
 # Git Commit Message Generation
 

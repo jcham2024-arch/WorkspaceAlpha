@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5d5b2f8466b13a648475197f5e32827d96acf382c8d30f831ae6e04c574df02d"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: stageshow
 description: "Use when a user asks for a React product illustration, animated walkthrough, product demo, or cursor-led UI animation. Build from the reusable UI kit and verify the result in the browser."
+tier: "experimental"
 risk: critical
 source: community
 source_repo: benjitaylor/skills
@@ -10,6 +21,7 @@ author: Benji Taylor
 license: MIT
 license_source: https://github.com/benjitaylor/skills/blob/802057409787133703c56001080169e347305572/stageshow/LICENSE
 ---
+
 
 # Stageshow
 

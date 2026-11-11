@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "eab10f260c8753ef5fcc02febb9cd49d42e45e46c03f36f61e9f3f43482b9fd0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: wechat-cover-maker
 description: "Install and use the official WeChat Article Cover package, pinned by digest, for paid hosted work on the Beatra service."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/beatra-ai/wechat-article-cover-skill/blob/8441e17291a2c4313223d0d74d4c18eeb14904f0/LICENSE"
 ---
+
 
 # WeChat Article Cover Skill
 

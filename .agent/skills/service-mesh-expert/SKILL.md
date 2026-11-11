@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "671b4e7c66dcb656880db884105bf7ce44e3b317e6498d60f5f5045934862ce6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: service-mesh-expert
 description: "Review Istio or Linkerd topology, traffic policies, mTLS, observability and multi-cluster operations within an authorized environment."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Service Mesh Expert
 

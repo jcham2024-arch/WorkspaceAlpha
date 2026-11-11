@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4524f2456b886f5283f1cba632e9dccdc466114d8299446cc22942e929a6c3ce"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: odoo-shopify-integration
 description: "Connect Odoo with Shopify: sync products, inventory, orders, and customers using the Shopify API and Odoo's external API or connector modules."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-04"
 ---
+
 
 # Odoo ↔ Shopify Integration
 

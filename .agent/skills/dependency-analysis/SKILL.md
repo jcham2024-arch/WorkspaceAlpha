@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b378aa49538814803eae0bf45f3d3b6577c82058d8a91a25ab45ca98d66ac5a6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: dependency-analysis
 description: Analyze internal and package dependencies using Ontoly graph traversal.
+tier: "experimental"
   Use when asked which modules, packages, services, or files depend on each other.
 license: AGPL-3.0-only
 compatibility: Portable Agent Skills format; requires Ontoly CLI and MCP-capable or
@@ -19,6 +30,7 @@ source: community
 date_added: '2026-09-21'
 risk: unknown
 ---
+
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.

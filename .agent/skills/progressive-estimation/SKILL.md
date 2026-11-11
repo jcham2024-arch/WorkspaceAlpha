@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cffc4a5e01d564c01003b5bb21b6e7e42c8fd8c4220bf2fcb2ab430eddb37ad5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: progressive-estimation
 description: "Estimate AI-assisted and hybrid human+agent development work with explicit PERT assumptions and calibration feedback loops"
+tier: "experimental"
 category: project-management
 risk: safe
 source: community
@@ -15,6 +26,7 @@ tags:
 tools:
   - claude
 ---
+
 
 # Progressive Estimation
 

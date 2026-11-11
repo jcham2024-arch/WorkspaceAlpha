@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1d3f60661a22cbdd5de00c23f6b1aaec677da42d4b0b9e6e60256669f6289836"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-mgmt-apicenter-dotnet
 description: Azure API Center SDK for .NET. Centralized API inventory management with governance, versioning, and discovery.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Azure.ResourceManager.ApiCenter (.NET)
 

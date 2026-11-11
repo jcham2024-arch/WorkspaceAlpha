@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0dd8cba3ee253d66c93eec3e5f83df3e107362334f3be03ff86f5332cd856611"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: github-actions
 description: Build, test, and deploy applications using GitHub Actions workflows.
+tier: "experimental"
 category: devops
 risk: critical
 source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # GitHub Actions
 

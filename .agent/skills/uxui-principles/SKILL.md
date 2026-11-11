@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a48b448555df4fc366f02b548f07f16e0e1ee8787474683fde4ccb92daa4fba6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: uxui-principles
 description: "Evaluate interfaces against 168 research-backed UX/UI principles, detect antipatterns, and inject UX context into AI coding sessions."
+tier: "experimental"
 category: design
 risk: safe
 source: community
@@ -9,6 +20,7 @@ author: uxuiprinciples
 tags: [ux, ui, design, evaluation, principles, antipatterns, accessibility]
 tools: [claude, cursor, windsurf]
 ---
+
 
 # UX/UI Principles
 

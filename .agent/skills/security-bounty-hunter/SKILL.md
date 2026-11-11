@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "796ce73be540a2da0bd0e4509af71dec8ef75a7fde1d3b8583bb73d57fa73c8e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: security-bounty-hunter
 description: Hunt for exploitable, bounty-worthy security issues in repositories. Focuses on remotely reachable vulnerabilities that qualify for real reports instead of noisy local-only findings. Use when hunting reportable, remotely reachable vulnerabilities in a repository.
+tier: "experimental"
 metadata:
   version: "1.0.0"
   origin: ECC direct-port adaptation
 ---
+
 
 # Security Bounty Hunter
 

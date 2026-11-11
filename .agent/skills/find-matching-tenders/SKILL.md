@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1d7f168d57b3cef07794b42d4ed01216849801e51a3938efd5a2c1d5d0b71da7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: find-matching-tenders
 description: Find open AU/NZ government tenders matching what a company does, ranked by fit with why and gap analysis. Use when the user asks to find tenders, bid opportunities, government contracts, or RFPs for their business (or a client's).
+tier: "experimental"
 category: document-verification
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: "Apache-2.0"
 license_source: "https://github.com/Sketchjar/stipple-agent-skills/blob/main/LICENSE"
 ---
+
 
 # Find Matching Tenders
 

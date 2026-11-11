@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7b087a8dbe4828878aaff2bb38277d1424fbcd9b2d202f1f9c40a4e64074f77b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: duotone-design
 description: Web and App implementation guide for Duotone Design. Trigger when user wants two-color schemes, striking imagery, and Spotify-like playlist aesthetics.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Duotone Design
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2e270575b2acf72aa1c20db582571b19c32e25fde7495b6a92d3417893fa7bfb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: review-swarm
 description: "Parallel read-only multi-agent review of a current git diff or explicit file scope to find behavioral regressions, security or privacy risks, performance or reliability issues, and contract or test coverage gaps."
+tier: "experimental"
 risk: safe
 source: https://github.com/Dimillian/Skills/tree/main/review-swarm
 source_repo: Dimillian/Skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/Dimillian/Skills/blob/main/LICENSE
 ---
+
 
 # Review Swarm
 ## When to Use

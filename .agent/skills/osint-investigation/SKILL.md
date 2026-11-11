@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4eed8f3da8482bfd9c881faf08edde0792bdb51f60016647a9756fa24fa69e04"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: osint-investigation
 description: Sparse-clue OSINT investigation methodology for extracting overlooked leads, connecting fragmented evidence, and testing explanations across sources. Use for multi-step CTF challenges, image/video geolocation, event reconstruction, public-account and entity verification, artifact interpretation, infrastructure research, or stalled investigations.
+tier: "experimental"
 license: CC-BY-SA-4.0
 metadata:
   origin: Adapted from shoyann/RZK-The-Hunter
 ---
+
 
 # OSINT Investigation
 

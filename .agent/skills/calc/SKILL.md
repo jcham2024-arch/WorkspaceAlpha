@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4332b5125ef3f5fd56a29bba03ee44e749c9fea420afd1a2108d50fd25ff4f5f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: calc
 description: "Spreadsheet creation, format conversion (ODS/XLSX/CSV), formulas, data automation with LibreOffice Calc."
+tier: "experimental"
 category: spreadsheet-processing
 risk: safe
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 # LibreOffice Calc
 

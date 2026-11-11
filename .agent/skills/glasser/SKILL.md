@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "50a44e20cdaf3254ea4aeaed9c0a70fc94b4cb0df18e955e51d15157dde844d6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: glasser
 description: "Search, inspect, and run third-party data APIs through one CLI when the environment has no suitable integration."
+tier: "experimental"
 category: data
 risk: critical
 source: self
@@ -10,6 +21,7 @@ author: adriansurething
 tags: [api, data, search, enrichment, marketing, research, cli]
 tools: [claude, cursor, codex, gemini]
 ---
+
 
 # Glasser
 

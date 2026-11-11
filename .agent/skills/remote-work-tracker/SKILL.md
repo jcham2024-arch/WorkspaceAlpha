@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e6d8d2424243aae931d913ec4803c54791b85b4a49eeed754078cce2ab4a7a3f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: remote-work-tracker
 description: 'Remote work register: employee, location, week start, HQ versus remote days, core-hours compliance and manager approval. Use for hybrid work tracking.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, operate]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Remote Work Tracker
 

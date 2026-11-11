@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "660f08a8e0e7eed3b4fcb15d8668c816c9e9aba8d0462429cca8f38ef21e40cd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: leiloeiro-mercado
 description: Analise de mercado imobiliario para leiloes. Liquidez, desagio tipico, ROI, estrategias de saida (flip/reforma/renda), Selic 2025 e benchmark CDI/FII.
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-03-06'
@@ -17,6 +28,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # SKILL DE MERCADO — ANALISTA DE ATIVOS IMOBILIÁRIOS EM LEILÃO
 

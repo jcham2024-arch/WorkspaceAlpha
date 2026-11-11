@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6bd305857134d1673f951da561aafa8d8a122bc2918de140ce2d58fde02ab0b1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: tdd-workflows-tdd-cycle
 description: "Use when working with tdd workflows tdd cycle"
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 ## Use this skill when
 

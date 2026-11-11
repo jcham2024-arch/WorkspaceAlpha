@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5e92d80462073f5aecde674eab598d174d1e06315d46fedd8f692b54d41c96ca"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: tdd-workflow
 description: "Test-driven development workflow: write a failing test first, watch it fail, implement the smallest change to green, then refactor with 80%+ coverage across unit, integration, and E2E tests. Use when writing a new feature, fixing a bug, refactoring, or when told to write failing tests first."
+tier: "experimental"
 argument-hint: <path/to/*.plan.md>
 metadata:
   origin: ECC
 ---
+
 
 # Test-Driven Development Workflow
 

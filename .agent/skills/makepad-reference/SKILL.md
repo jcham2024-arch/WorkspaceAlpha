@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b29371f85ef62724c9bb043187a76e1f0d530aa2a9a892dfaf23fc7730d9dc36"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: makepad-reference
 description: "Guide to diagnosing Makepad build, widget, redraw and layout issues against the exact runtime revision."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # Makepad Reference
 

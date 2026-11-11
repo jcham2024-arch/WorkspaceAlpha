@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f13a3304870fc853af8846b5c550fba59b4c8ffda78cfb3af3f029a23c3ddc70"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: business-email-template
 description: 'Business email template register: trigger, sender and recipient type, subject pattern, body structure, personalisation tokens and send checks. Use for repeatable outbound email.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, email, templates, spf, dkim, dmarc, deliverability, spam, accessibil
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Business Email Templates
 

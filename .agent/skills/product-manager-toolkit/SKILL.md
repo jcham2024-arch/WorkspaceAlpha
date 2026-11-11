@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fdb1135891d454fd244df3565b76c69824f861f797adc565765f77a2f1fb900e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: product-manager-toolkit
 description: "Essential tools and frameworks for modern product management, from discovery to delivery."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Product Manager Toolkit
 

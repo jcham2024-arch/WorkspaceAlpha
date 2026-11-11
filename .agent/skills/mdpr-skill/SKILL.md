@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "676b2acc762878e630b0bc8562035e69afa6c697a13539f82bde832221746a89"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mdpr-skill
 description: "Review MDPR Markdown presentation workflows with semantic hints, visual checks, and deterministic renderer boundaries."
+tier: "experimental"
 category: productivity
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex, antigravity]
 license: "MIT"
 license_source: "https://github.com/ch040602/mdpr-skill/blob/main/LICENSE"
 ---
+
 
 # mdpr-skill
 

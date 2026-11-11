@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "83588de69c1b85daad9f4a841cd6ba4ffddfe964576f004ce06ea49e15725210"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: matplotlib
 description: "Matplotlib is Python's foundational visualization library for creating static, animated, and interactive plots."
+tier: "experimental"
 license: MIT
 license_source: https://github.com/K-Dense-AI/scientific-agent-skills/blob/0936740e52033a6256085be5fc81e5e56d606110/LICENSE.md
 metadata:
@@ -9,6 +20,7 @@ risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 ## Bundled upstream support
 
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.

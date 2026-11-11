@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cc4af22d87b46cbff3b6e0aa4677bf4261df071ee23183a9eccae7af7a3e7312"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: kotlin-testing
 description: Kotlin testing patterns with Kotest, MockK, coroutine testing, property-based testing, and Kover coverage. Follows TDD methodology with idiomatic Kotlin practices. Use when writing Kotlin tests with Kotest or MockK, or testing coroutines and checking coverage.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Kotlin Testing Patterns
 

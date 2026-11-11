@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9f3b14e99f56ebee64fcdc88e55d5a032f4482dd4093eaa48d8ff9106430c70a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: linux-troubleshooting
 description: "Linux system troubleshooting workflow for diagnosing and resolving system issues, performance problems, and service failures."
+tier: "experimental"
 category: granular-workflow-bundle
 risk: safe
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 # Linux Troubleshooting Workflow
 

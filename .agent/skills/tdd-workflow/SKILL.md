@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c579533e7fb2adfd17d171a917eb0af690ff20c244a335044beb3b53e1510d9b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: tdd-workflow
 description: "Test-Driven Development workflow principles. RED-GREEN-REFACTOR cycle."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # TDD Workflow
 

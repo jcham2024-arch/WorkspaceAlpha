@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2c5f2fb353d0a29e4b70ae348f24c2839caca134baafbdf1356bfdcd7b30d6c2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: vaporwave
 description: Web and App implementation guide for Vaporwave. Trigger when user wants neon colors, retro digital aesthetics, 90s OS elements, and Roman statues.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Vaporwave
 

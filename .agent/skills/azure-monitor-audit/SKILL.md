@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f1f24824a027e6609f50acb2ae5351d89953106cbee80408381b749110357be6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-monitor-audit
 description: Configure Azure Monitor and Activity Log for auditing. Set up diagnostic
+tier: "experimental"
   settings and log analytics. Use when auditing Azure activity.
 category: security
 risk: safe
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Azure Monitor Audit
 

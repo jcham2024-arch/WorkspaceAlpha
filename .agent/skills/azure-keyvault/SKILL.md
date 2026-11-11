@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0634e4505d83eb15ec08472b992bc82f14045929b1d7dd81533ff489a6cb2db2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-keyvault
 description: Manage secrets and certificates in Azure Key Vault. Configure access
+tier: "experimental"
   policies, integrate with Azure services, and implement secure secret management.
   Use when managing secrets in Azure environments.
 category: security
@@ -18,6 +29,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Azure Key Vault
 

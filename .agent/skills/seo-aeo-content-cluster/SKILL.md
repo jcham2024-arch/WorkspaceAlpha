@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a4adfec8ad9cf61eefcb97a28ce4ea3e3820314dcb17e0cd322708371c186985"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-aeo-content-cluster
 description: "Builds a topical authority map from business goals, search intent, existing content, and gaps, then prioritises foundational and supporting pages."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-01"
 ---
+
 
 # Content Cluster Skill
 

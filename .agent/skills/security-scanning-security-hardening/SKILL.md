@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1a96a28185c1c6002af78e7a2da7bb3e9fa457631c6ffc0a1a650b74c3a66274"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: security-scanning-security-hardening
 description: "Coordinate multi-layer security scanning and hardening across application, infrastructure, and compliance controls."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 Implement comprehensive security hardening with defense-in-depth strategy through coordinated multi-agent orchestration:
 

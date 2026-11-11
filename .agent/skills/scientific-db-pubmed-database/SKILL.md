@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "351dbb7949a4b99af6446f79241997bdd5af4c44b699adc08f70e8b026e60ab7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: scientific-db-pubmed-database
 description: Direct PubMed and NCBI E-utilities search workflows for biomedical literature, MeSH queries, PMID lookup, citation retrieval, and API-backed literature monitoring. Use when a task needs biomedical literature from PubMed rather than general web search.
+tier: "experimental"
 metadata:
   origin: community
 ---
+
 
 # PubMed Database
 

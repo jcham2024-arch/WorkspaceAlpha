@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "02e7a346e8eb6917b2e0f55bf44c955e4fde79047dbfc853dadb29463727e640"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hig-components-menus
 description: "Design Apple-platform menus, buttons, toolbars and disclosure controls using the appropriate platform conventions, command hierarchy and accessible interactions."
+tier: "experimental"
 risk: none
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Apple HIG: Menus and Buttons
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "84bbbd74c29daf2a378438c09b5a371efbafa8377adb2ac8ac147dbbebb2f583"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-storage-blob-java
 description: "Build blob storage applications using the Azure Storage Blob SDK for Java."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Azure Storage Blob SDK for Java
 

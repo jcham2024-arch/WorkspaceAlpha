@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b811db759f7a5666b3c36e68192c5a25231a481a726809eed8078867e1d60def"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: session-handoff
 description: "Use when context approaches capacity, before /clear or /compact, when switching tasks, or when ending a coding session: produces a structured handoff artifact for the next session."
+tier: "experimental"
 category: productivity
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, codex]
 license: "MIT"
 license_source: "https://github.com/alapha888/session-handoff-kit/blob/main/LICENSE"
 ---
+
 
 # Session Handoff Skill
 

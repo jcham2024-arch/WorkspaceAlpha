@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "903e41e0f9de8c7c3446e5df9661bb2be6746aacdd88a24c5b24425a4306c517"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: writing-great-skills
 description: Reference for writing and editing skills well — the vocabulary and principles that make a skill predictable.
+tier: "experimental"
 disable-model-invocation: true
 category: "skill-authoring"
 risk: "safe"
@@ -20,6 +31,7 @@ tools:
   - codex-cli
   - cursor
 ---
+
 
 ## When to Use
 

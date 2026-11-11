@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b89391504876115a4a2ba00d8faea0cba43d2edc5a8f73d2b6ee4e27fbf1adb2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: symbolic-equation
 description: Discover scientific equations from data using LLM-guided evolutionary search (LLM-SR). Multi-island algorithm with softmax-based cluster sampling, island reset, and LLM-proposed equation mutations. Use for symbolic regression and equation discovery.
+tier: "experimental"
 argument-hint: [data-and-variables]
 ---
+
 
 # Symbolic Equation Discovery
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "57ac1b0760faac686b49a09a6d2a73ad1a745507792ff79f7fa0dd5513431290"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: dns-management
 description: Configure DNS zones and records. Manage Route53, Cloud DNS, and self-hosted
+tier: "experimental"
   DNS. Use when setting up DNS infrastructure.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # DNS Management
 

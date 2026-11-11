@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1512d2984ddd82ba173886cf391a8b91528a5754b7b930b651f5edda9438d1f1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ponytail
 description: >
+tier: "experimental"
   Lazy senior dev mode: the smallest change that fully solves the task, and a
   reply a busy human understands in one read. Use on any coding task (writing,
   fixing, refactoring, reviewing, choosing dependencies) and when the user says
@@ -9,6 +20,7 @@ description: >
 argument-hint: "[lite|full|ultra|off]"
 license: MIT
 ---
+
 
 # Ponytail
 

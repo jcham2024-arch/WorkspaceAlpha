@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "106db63aba18c5db8b31be0672d33dbe5139cb48f293af0a4b9d4f6f2431de7d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: odoo-migration-helper
 description: "Step-by-step guide for migrating Odoo custom modules between versions (v14→v15→v16→v17). Covers API changes, deprecated methods, and view migration."
+tier: "experimental"
 risk: safe
 source: "self"
 date_added: "2026-03-04"
 ---
+
 
 # Odoo Migration Helper
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ce300ab06c762dc3e0e26f52db630539ffa15195e5199929fabea0e844167182"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: accint-commitments
 description: Triage acc's open promises and close them with honest real-world verdicts via acc_act(runtime="outcome").
+tier: "experimental"
 risk: critical
 source: https://github.com/maxbaluev/accreted-intelligence/tree/main/plugins/claude/skills/commitments
 source_repo: maxbaluev/accreted-intelligence
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: Apache-2.0
 license_source: https://github.com/maxbaluev/accreted-intelligence/blob/main/LICENSE
 ---
+
 
 # commitments
 ## When to Use

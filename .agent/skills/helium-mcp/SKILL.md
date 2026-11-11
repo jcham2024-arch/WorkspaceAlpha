@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e4588a02ae3c469e54757fe6cd886eeeaf917f7fa86b91f817b97f9475e116fd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: helium-mcp
 description: "Connect to Helium's MCP server for news research, media bias analysis, balanced perspectives, stock/options data, and semantic meme search across 3.2M+ articles and 5,000+ sources"
+tier: "experimental"
 risk: safe
 source: "https://heliumtrades.com/mcp-page/"
 source_repo: connerlambden/helium-mcp
@@ -10,6 +21,7 @@ author: connerlambden
 tags: [mcp, news, media-bias, stocks, options, finance, research]
 tools: [claude, cursor, gemini]
 ---
+
 
 # Helium MCP
 

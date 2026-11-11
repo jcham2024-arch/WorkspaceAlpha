@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "506219b77c3bbc55d491f18b6f2f1b28a5e935c2dd16c9020ed5bef57278b015"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: public-relations
 description: "When the user wants help with public relations, earned media, press coverage, journalist outreach, or media strategy (not pull requests)."
+tier: "experimental"
 risk: critical
 source: https://github.com/coreyhaines31/marketingskills/tree/main/skills/public-relations
 source_repo: coreyhaines31/marketingskills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/coreyhaines31/marketingskills/blob/main/LICENSE
 ---
+
 
 # Public Relations & Earned Media
 ## When to Use

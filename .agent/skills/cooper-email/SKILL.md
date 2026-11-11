@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "19b3ec489dde9ff7631c094b9c0bdae551a2627b88cc9200fc11a92226611fb6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cooper-email
 description: "Give an AI agent its own email inbox with Cooper Email: send, receive, reply, and wait for replies or verification codes over MCP or HTTP."
+tier: "experimental"
 category: communication
 risk: critical
 source: "https://github.com/cooper-email/cooper-email"
@@ -13,6 +24,7 @@ tools: [claude, cursor, codex, gemini]
 license: "MIT"
 license_source: "https://github.com/cooper-email/cooper-email/blob/main/LICENSE"
 ---
+
 
 # Cooper Email
 

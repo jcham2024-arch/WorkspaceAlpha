@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "481d9df410edbfa38bed8e8137157f2645b76ca41a22911f9840917b6881d336"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: kpi-dashboard-design
 description: "Comprehensive patterns for designing effective Key Performance Indicator (KPI) dashboards that drive business decisions."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # KPI Dashboard Design
 

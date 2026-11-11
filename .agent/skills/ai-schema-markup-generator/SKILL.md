@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c7ad604dffd112abff87ba76f349e4c3354b7c641c43e6a85fb50c9a4074ac57"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-schema-markup-generator
 description: "Schema Markup Generator. Use when working with entity type or page facts and canonical page URL."
+tier: "experimental"
 category: Schema & Structured Data
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Schema Markup Generator
 
 ## Overview

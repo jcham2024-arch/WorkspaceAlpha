@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "15c672cb3de4a81b101dcc2beae73d5253ecc0559f6f619dd6a8aaeace5ef57c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: go-playwright
 description: "Expert capability for robust, stealthy, and efficient browser automation using Playwright Go."
+tier: "experimental"
 risk: critical
 source: "https://github.com/playwright-community/playwright-go"
 date_added: "2026-02-27"
 ---
+
 
 # Playwright Go Automation Expert
 

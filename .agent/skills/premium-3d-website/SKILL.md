@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "714f3d39051bee5170bc9adbada97262aec4ae4b61add49e631bcc91d0ddbbb3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: premium-3d-website
 description: Guidelines for building premium 3D websites, focusing on custom WebGL shaders, post-processing, physics-based interactions, smooth animations, preloaders, and device optimization.
+tier: "experimental"
 category: frontend
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: Rsmiyani
 tags: [threejs, webgl, shaders, post-processing, creative-coding, premium-design]
 tools: [claude, cursor, gemini]
 ---
+
 
 # Premium 3D Website
 

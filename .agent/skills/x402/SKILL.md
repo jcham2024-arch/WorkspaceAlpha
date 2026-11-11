@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "107be8a2a76178537b8f0c285e8133bde4e8a177daf25a9d25b2a588783f5716"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: x402
 description: Set up Browser Use Cloud payments with x402 — pay per request from a crypto wallet (USDC on Base mainnet), no signup or API key. Two setups it works out up front — "just use it" (set up a wallet so you or Claude Code can run cloud browser tasks paid from the wallet 
+tier: "experimental"
 allowed-tools: Bash, Read, Write, Edit
 ---
+
 
 # Browser Use Cloud — pay with x402 (crypto wallet)
 

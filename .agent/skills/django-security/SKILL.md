@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "96f59fe328c44e56d7fe4deb88127a331d2a547ce376c533f5cad1e2acaae587"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: django-security
 description: Django security best practices, authentication, authorization, CSRF protection, SQL injection prevention, XSS prevention, and secure deployment configurations. Use when reviewing Django authentication, authorization, input handling, or deployment settings.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Django Security Best Practices
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9192e7f53979e398fee66083cfe0a113dfcdebe445c71c7d9208b5dc524c38b2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: healthcare-cdss-patterns
 description: Clinical Decision Support System (CDSS) development patterns. Drug interaction checking, dose validation, clinical scoring (NEWS2, qSOFA), alert severity classification, and integration into EMR workflows. Use when building clinical decision support — drug interaction checks, dose validation, clinical scoring, or alert severity.
+tier: "experimental"
 metadata:
   version: "1.0.0"
   origin: Health1 Super Speciality Hospitals — contributed by Dr. Keyur Patel
 ---
+
 
 # Healthcare CDSS Development Patterns
 

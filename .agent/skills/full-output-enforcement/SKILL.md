@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bfe7ad6bae55e54e04ab37c814f5686ac84170b946648f7fd158dafbac51dbb6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: full-output-enforcement
 description: "Use when a task requires exhaustive unabridged output, complete files, or strict prevention of placeholders and skipped code."
+tier: "experimental"
 category: frontend
 risk: safe
 source: community
@@ -11,6 +22,7 @@ author: Leonxlnx
 tags: [output, code-generation, quality]
 tools: [claude, cursor, codex, antigravity]
 ---
+
 # Full-Output Enforcement
 
 ## When to Use

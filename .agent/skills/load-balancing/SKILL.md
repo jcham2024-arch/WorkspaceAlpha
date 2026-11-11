@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a093e57826a21109393a4d0f206bb3a1e71b9d860a872025d731b1e2bb7dadd4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: load-balancing
 description: Configure load balancers and traffic distribution. Implement health checks
+tier: "experimental"
   and SSL termination. Use when distributing traffic across servers.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Load Balancing
 

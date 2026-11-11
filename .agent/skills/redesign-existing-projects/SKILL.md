@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5389127b396ecba558e04cf9863f4038bc4a83542b7d1891393c798bee624ae0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: redesign-existing-projects
 description: "Use when upgrading existing websites or apps by auditing generic UI patterns and applying premium design fixes without rewrites."
+tier: "experimental"
 category: frontend
 risk: safe
 source: community
@@ -11,6 +22,7 @@ author: Leonxlnx
 tags: [frontend, redesign, design-audit, ui]
 tools: [claude, cursor, codex, antigravity]
 ---
+
 # Redesign Skill
 
 ## When to Use

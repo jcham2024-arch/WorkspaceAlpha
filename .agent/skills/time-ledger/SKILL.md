@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d9946933aaf306ed4b93e61132e3c53811b779a04a862a785bdbddfee4d334f9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: time-ledger
 description: "Natural-language time tracking: parse what the user says they did into Activity/Minutes/Date rows in their own Notion database — asking instead of guessing when unsure."
+tier: "experimental"
 category: productivity
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude]
 license: "MIT"
 license_source: "https://github.com/cruisekkk/time-ledger/blob/main/LICENSE"
 ---
+
 
 # Time Ledger
 

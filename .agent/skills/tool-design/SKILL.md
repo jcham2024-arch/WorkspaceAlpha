@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7c81c984b1c766e53f90da5dd1aff48918f991d9df1e8d60181103207115f63e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: tool-design
 description: "Build tools that agents can use effectively, including architectural reduction patterns. Use when creating new tools for agent systems, debugging tool-related failures or misuse, or optimizing existing tool sets for better agent performance."
+tier: "experimental"
 risk: safe
 source: "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/tool-design"
 date_added: "2026-02-27"
 ---
+
 
 ## When to Use This Skill
 

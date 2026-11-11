@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "08f69ffff4492849bdc7edd4a027664c29e3468aa944d2689196077b384d74f8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: research-ops
 description: Evidence-first current-state research workflow for ECC. Use when the user wants fresh facts, comparisons, enrichment, or a recommendation built from current public evidence and any supplied local context.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Research Ops
 

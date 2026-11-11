@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "06569bf5d041a4b6d9d795d5dac3608cf0cfb2a07bf8ad37ec615357bf5074fa"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hf-cloud-aws-context-discovery
 description: "Discover the effective local AWS profile, region, account, and caller identity before any AWS task without exposing credentials."
+tier: "experimental"
 risk: safe
 source: https://github.com/huggingface/skills/tree/main/skills/hf-cloud-aws-context-discovery
 source_repo: huggingface/skills
@@ -12,6 +23,7 @@ license_source: https://github.com/huggingface/skills/blob/main/LICENSE
 tags: [hugging-face, aws, credentials, discovery, cloud]
 tools: [claude, codex, cursor]
 ---
+
 
 # AWS Context Discovery
 

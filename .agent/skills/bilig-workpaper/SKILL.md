@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b7d516590144dd97273b1990d523714a4f1d45ebe4f0bad85b4b188ec0276239"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: bilig-workpaper
 description: "Use formula-backed WorkPaper JSON and MCP tools for agent spreadsheet tasks without driving Excel or a browser UI."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-05-21"
@@ -15,6 +26,7 @@ plugin:
     codex: blocked
     claude: blocked
 ---
+
 
 # Bilig WorkPaper
 

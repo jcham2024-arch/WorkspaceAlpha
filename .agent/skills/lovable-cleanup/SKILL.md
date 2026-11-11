@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8420bf11e74a3f776d0a66763b3eef5a690e1b4d7c260f862a9862509a33f10a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: lovable-cleanup
 description: "Audits and strips Lovable scaffolding from Vite + React projects — removes lovable-tagger, swaps placeholder assets, prunes unused Radix deps, cleans generated docs, and neutralizes stale favicon/CDN caching so the codebase ships as yours."
+tier: "experimental"
 risk: critical
 source: community
 source_repo: whoisabhishekadhikari/lovable-cleanup
@@ -12,6 +23,7 @@ version: "2.0.0"
 tags: [lovable, cleanup, vite, react, shadcn, devtools, vercel, favicon]
 tools: [claude, cursor, codex, antigravity, gemini-cli]
 ---
+
 
 # lovable-cleanup
 

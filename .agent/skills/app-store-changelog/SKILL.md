@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2382f43036daf3573fb23faa4ee6ce9089be8b50abe4f9f2895b3e2e5d19a52f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: app-store-changelog
 description: Generate user-facing App Store release notes from git history since the last tag.
+tier: "experimental"
 risk: safe
 source: "Dimillian/Skills (MIT)"
 date_added: "2026-03-25"
 ---
+
 
 # App Store Changelog
 

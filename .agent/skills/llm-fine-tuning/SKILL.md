@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0fa99cadfaf68210be0fb071b5a054a8133c2e7dd186b859fc18c38f36728972"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: llm-fine-tuning
 description: Set up infrastructure for fine-tuning LLMs with QLoRA, LoRA, and full
+tier: "experimental"
   fine-tuning using Hugging Face TRL, Axolotl, and distributed training with DeepSpeed
   or FSDP.
 category: devops
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # LLM Fine-Tuning Infrastructure
 

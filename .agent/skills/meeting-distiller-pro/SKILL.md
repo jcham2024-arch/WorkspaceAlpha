@@ -1,7 +1,18 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2552a32a0855689662fbb94f659e1511fd148e643348c70be7940014f8a2d9d7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: meeting-distiller-pro
 version: 1.0.0
 description: Transform messy meeting notes and transcripts into structured action
+tier: "experimental"
   items, decisions, and follow-ups. Never lose a meeting insight again.
 author: yundu-ai
 tags:
@@ -18,6 +29,7 @@ source: community
 date_added: '2026-09-21'
 risk: unknown
 ---
+
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.

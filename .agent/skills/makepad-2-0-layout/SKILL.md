@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "072178e74b80fd217b1a53e9c78b77c5763ae37fdf7c900f5c85d01a588711c6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: makepad-2-0-layout
 description: Makepad 2.0 guidance for layout; use when building or debugging Makepad UI code.
+tier: "experimental"
 source_repo: zhanghandong/makepad-skills
 source_type: community
 source: community
 date_added: '2026-09-21'
 risk: unknown
 ---
+
 ## Limitations
 - Verify against current Makepad 2.0 docs; upstream APIs change frequently.
 - Do not run bundled scripts without explicit user approval.

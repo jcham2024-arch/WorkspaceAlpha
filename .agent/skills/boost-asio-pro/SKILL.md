@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8989204e2b72a4ebd10f4cd0e406ba58a95f5b37e77964806cf815631190ef05"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: boost-asio-pro
 description: "Use when writing asynchronous C++ networking code with Boost.Asio or standalone Asio — TCP/UDP servers and clients, SSL/TLS, timers, strands, composed async ops. Covers io_context, co_spawn, awaitable, async_read/async_write, asio::spawn, yield_context, and pre-C++20 callback styles."
+tier: "experimental"
 category: development
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/alexprivalov/boost-asio-skill/blob/main/LICENSE"
 ---
+
 
 # Boost.Asio / standalone Asio
 

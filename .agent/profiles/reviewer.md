@@ -22,6 +22,7 @@ reads:
   - .context/manifest.json
   - memory/learnings.md
 verify: "Each finding cites file:line or a wiki anchor; no unverified 'tests pass' claims."
+owner: "reviewer"
 ---
 
 # Reviewer

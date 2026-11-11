@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "eb637673d9c1d04abc433b98d528fa717781379aa3639f4d90b2bec49d153251"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: golang-patterns
 description: Idiomatic Go patterns, best practices, and conventions for building robust, efficient, and maintainable Go applications. Use when writing or reviewing Go code and idiomatic structure or conventions are in question.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Go Development Patterns
 

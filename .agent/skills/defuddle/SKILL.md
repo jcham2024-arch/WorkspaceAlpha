@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "569dc41ce01450e7d565aae64c64b213a37fed830742d80852f49da8d3e072ce"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: defuddle
 description: Extract clean markdown content from web pages using Defuddle CLI, removing clutter and navigation to save tokens. Use instead of WebFetch when the user provides a URL to read or analyze, for online documentation, articles, blog posts, or any standard web page.
+tier: "experimental"
 risk: critical
 source: "https://github.com/kepano/obsidian-skills"
 date_added: "2026-03-21"
 ---
+
 
 # Defuddle
 

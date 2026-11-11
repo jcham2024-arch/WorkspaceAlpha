@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4f68872c0678b4225497c3cdf26ae98ae551ec5b6ddf6bd794c8b314336a34e6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: domain-authority-simulator
 description: "Domain Authority Simulator. Use when working with domain signals and an explicit scoring rubric."
+tier: "experimental"
 category: Backlink & Link-Building
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Domain Authority Simulator
 
 ## Overview

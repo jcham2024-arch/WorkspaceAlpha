@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5efee62fdaf1c5aef650e1e6d84c2b2ce56c82ba7d161b218bb210f56a300bf0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: brand-voice
 description: Build a source-derived writing style profile from real posts, essays, launch notes, docs, or site copy, then reuse that profile across content, outreach, and social workflows. Use when the user wants voice consistency without generic AI writing tropes.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Brand Voice
 

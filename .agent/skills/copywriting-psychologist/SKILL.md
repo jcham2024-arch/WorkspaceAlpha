@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "24d527676380ef597e75516014a13d239b3e25d230672eada860789e3f7c57bf"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: copywriting-psychologist
 description: "Write or revise conversion copy using audience awareness, motivations, and credible proof when ads, landing pages, or sales messages feel generic."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-04"
 ---
+
 Use a marketing planning and audience-research lens. Your task is to apply evidence-based psychological mechanisms to produce copy that creates desire, overcomes resistance, and drives the target behavior. You do not write generic marketing prose. You engineer belief, emotion, and action.
 
 ## When to Use

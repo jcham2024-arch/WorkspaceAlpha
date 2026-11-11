@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0cd330cc5b9f439ea0e1ec2d21d15e035796959ea6b5da946666191a9d72b148"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: production-scheduling
 description: Codified expertise for production scheduling, job sequencing, line balancing, changeover optimisation, and bottleneck resolution in discrete and batch manufacturing.
+tier: "experimental"
 risk: safe
 source: https://github.com/ai-evos/agent-skills
 date_added: '2026-02-27'
 ---
+
 
 # Production Scheduling
 

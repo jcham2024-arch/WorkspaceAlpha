@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b4f81fee465d5e62b9a0d2418e2de6a4056039788c310648051c00e0ba78295b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "senior-secops"
 description: "Find and fix application security problems: security reviews, CVE remediation, hardening, secrets and auth, SOC 2, PCI-DSS, HIPAA and GDPR checks. Use whenever the user asks if their app is secure, needs to patch a vulnerable dependency or prepares for an audit."
+tier: "experimental"
 ---
+
 
 # Senior SecOps Engineer
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7f81afc58b5974fe3b51503fedb3d7c985ef2abe3e98b7d79236cb211a878ea5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-studio-image
 description: Geracao de imagens humanizadas via Google AI Studio (Gemini). Fotos realistas estilo influencer ou educacional com iluminacao natural e imperfeicoes sutis.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-03-06'
@@ -17,6 +28,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

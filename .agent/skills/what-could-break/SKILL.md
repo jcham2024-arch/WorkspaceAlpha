@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2526234bee74684b45bdf3fa478c74c69d9e79cf6be9d039c7bc3253d987f595"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: what-could-break
 description: "Find what a change breaks outside its own diff, then prove the one fact that makes it safe by running real code. Use before any multi-file edit or an edit to a shared path."
+tier: "experimental"
 category: development
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/stas4000/what-could-break/blob/main/LICENSE"
 ---
+
 
 # What Could Break
 

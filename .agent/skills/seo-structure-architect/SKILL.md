@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "635b82a2e00623f136344119bedcaab577de1c0d3d5d210956fb60b887bffe6b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-structure-architect
 description: Analyzes and optimizes content structure including header hierarchy, suggests schema markup, and internal linking opportunities. Creates search-friendly content organization.
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-02-27'
 ---
+
 
 ## Use this skill when
 

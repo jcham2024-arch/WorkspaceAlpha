@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0ef6f30d2821e52ae2f3b7b05caac8137abea3140bca3a78ccb02df93eda795d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hunt-llm-ai
 description: Hunt LLM/AI feature bugs
+tier: "experimental"
 category: security
 risk: offensive
 source: https://github.com/elementalsouls/Claude-BugHunter
@@ -15,6 +26,7 @@ compatibility: Requires explicit written authorization for a target scope plus t
 sources: owasp_genai_2025_2026, portswigger_research, embracethered_research, hackerone_public
 report_count: 0
 ---
+
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.

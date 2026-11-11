@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "100c14b259649c79d8315d09d5a2b4d9b7696c19fbd7d3440d9c0617bb36a56d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: telegram-bot-messaging
 description: "Send Telegram messages, files, and alerts via bot API; ask questions with inline buttons and wait for the answer. Supports multiple bots, named chat targets, and CI/cron/hook notifications."
+tier: "experimental"
 category: productivity
 risk: critical
 source: https://github.com/sanjay3290/ai-skills/tree/main/skills/telegram
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "Apache-2.0"
 license_source: "https://github.com/sanjay3290/ai-skills/blob/main/LICENSE"
 ---
+
 
 # Telegram
 

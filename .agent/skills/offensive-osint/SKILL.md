@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ddc0eda44a4f0d7ea8db037b7dc57ceb53a88ce28f90631c5c07e41970dc4b57"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: offensive-osint
 description: Operational arsenal for authorized external red-team and bug-bounty recon.
+tier: "experimental"
 category: security
 risk: offensive
 source: https://github.com/elementalsouls/Claude-BugHunter
@@ -143,6 +154,7 @@ triggers:
 - prior disclosures
 - bug bounty reference
 ---
+
 ## Bundled upstream support
 
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.

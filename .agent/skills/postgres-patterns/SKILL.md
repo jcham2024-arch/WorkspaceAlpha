@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ae389f67f076c654b9113880218dd52f78d1ee6ceb1510b00d964db670de89e9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: postgres-patterns
 description: PostgreSQL database patterns for query optimization, schema design, indexing, and security. Based on Supabase best practices. Use when designing PostgreSQL schemas, indexes, or RLS policies, or when a query is too slow.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # PostgreSQL Patterns
 

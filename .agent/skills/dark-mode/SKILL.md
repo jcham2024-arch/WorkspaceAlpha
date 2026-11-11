@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2056eff28c4d3995377442697196755ea7f7ea78413f3f563adfe1b6b39477b7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: dark-mode
 description: Web and App implementation guide for Dark Mode Design. Trigger when user wants dark surfaces, reduced eye strain, and premium sleek aesthetics.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Dark Mode Design
 

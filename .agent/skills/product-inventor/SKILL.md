@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "189abfd547b232b8cb8a631303f54c2ab68586e79219a1cd054259882a61337c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: product-inventor
 description: "Product Inventor e Design Alchemist de nivel maximo — combina Product Thinking, Design Systems, UI Engineering, Psicologia Cognitiva, Storytelling e execucao impecavel nivel Jobs/Apple."
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-03-06'
@@ -17,6 +28,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # PRODUCT INVENTOR — DESIGN ALCHEMIST v1.0
 

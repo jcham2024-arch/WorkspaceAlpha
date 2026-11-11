@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0dfd81c2bd202dad80bd406026df3b6fa54b2c02a0c9a8402366e463aeda7088"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: engine-selection
 description: >-
+tier: "experimental"
   Selects game engines and frameworks by platform, genre, and architecture
   (full canvas shell vs hybrid DOM shell + guest viewport). Covers Phaser,
   PixiJS, Kaplay, Canvas/WebGL, Three.js, Babylon.js, Godot, Unity, Ink, Twine.
@@ -9,6 +20,7 @@ risk: safe
 source: self
 date_added: "2026-07-17"
 ---
+
 
 # Engine selection
 

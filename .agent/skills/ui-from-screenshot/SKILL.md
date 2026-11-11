@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cef2872618d33b389091dd5a61651130ec02f8cd2256ab304b9eb424e7a309c3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ui-from-screenshot
 description: "Turn a screenshot or mockup into matching UI with the project's own components, then compare the result side by side with the image and fix the differences."
+tier: "experimental"
 category: frontend
 risk: safe
 source: https://github.com/uxkin/agent/tree/main/.agents/skills/ui-from-screenshot
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, copilot, gemini]
 license: MIT
 license_source: https://github.com/uxkin/agent/blob/main/LICENSE
 ---
+
 
 # UI from screenshot · by UXKIN
 

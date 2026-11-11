@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "946f05b1bac7429d8e472e513e9b90e0b450da4af987d8ec73969dd112b7a90e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: faq-generator
 description: "FAQ Generator. Use when working with actual questions plus answer facts."
+tier: "experimental"
 category: Content SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # FAQ Generator
 
 ## Overview

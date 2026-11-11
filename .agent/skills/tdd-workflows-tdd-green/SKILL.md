@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a92bbb106290f3ed0de518f440c0ac8998370a93d83e6698d60e2b9fd2634904"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: tdd-workflows-tdd-green
 description: "Implement the minimal code needed to make failing tests pass in the TDD green phase."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # TDD Green Phase
 

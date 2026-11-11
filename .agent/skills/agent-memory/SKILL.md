@@ -1,6 +1,17 @@
 ---
+tier: "quarantine"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "52285603556a73b981729c80637499302e398d0cd2c090c37fd0ba25999be798"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agent-memory
 description: A hybrid memory system that provides persistent, searchable knowledge management for AI agents.
+tier: "quarantine"
 risk: critical
 source: https://github.com/webzler/agentMemory/tree/main/
 source_repo: webzler/agentMemory
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/webzler/agentMemory/blob/main/LICENSE
 ---
+
 
 # agentMemory Skill
 ## When to Use

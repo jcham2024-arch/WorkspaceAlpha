@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7710530a113517e5eafeebe3c4e655f5645412dd64c8fa9b9399550e77651d1d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: saga-orchestration
 description: "Patterns for managing distributed transactions and long-running business processes."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Saga Orchestration
 

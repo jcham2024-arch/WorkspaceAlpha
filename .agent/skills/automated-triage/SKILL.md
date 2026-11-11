@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7c4c6da2657c52e38f833fd72c2590da7c188dd176281929cdf3a07523cada9a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: automated-triage
 description: Triage Monte Carlo alerts interactively or build an automated workflow. Fetch, score, and troubleshoot alerts using MCP tools now, or design a reusable workflow that runs on a schedule.
+tier: "experimental"
 risk: critical
 source: https://github.com/monte-carlo-data/mc-agent-toolkit/tree/main/skills/automated-triage
 source_repo: monte-carlo-data/mc-agent-toolkit
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: Apache-2.0
 license_source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/LICENSE
 ---
+
 ## Bundled upstream support
 
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.

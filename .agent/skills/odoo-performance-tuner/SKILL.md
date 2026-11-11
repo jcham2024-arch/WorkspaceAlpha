@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b9dc26769e97b3cdaf25e451502243699c0a1b5ba0fbb1ca37bf21fd55c31613"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: odoo-performance-tuner
 description: "Expert guide for diagnosing and fixing Odoo performance issues: slow queries, worker configuration, memory limits, PostgreSQL tuning, and profiling tools."
+tier: "experimental"
 risk: safe
 source: "self"
 date_added: "2026-03-04"
 ---
+
 
 # Odoo Performance Tuner
 

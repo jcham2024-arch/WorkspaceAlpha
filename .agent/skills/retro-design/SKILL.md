@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "eb52867c5cd740b60baa93c58acc3a3188e755dd0b5192708f61bf0b87646821"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: retro-design
 description: Web and App implementation guide for Retro Design (60s-80s). Trigger when user wants vintage aesthetics, warm muted colors, and nostalgic layouts.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Retro Design
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "93261b11e3bc16bf99b9028768948d8d77f06ce90a63d6e07fc4376303418904"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ito-baskets
 description: Read-only Itô basket and prediction-market data skill. Index the live basket catalog, compare a basket against user-supplied research or a watchlist, build a source-grounded market brief, or draft a non-executable planning worksheet. Use when a user asks to browse or index Itô baskets, compare a basket against notes or a thesis, research prediction-market events/venues/liquidity, or plan a basket or market
+tier: "experimental"
 metadata:
   origin: ECC
   aliases: ito-basket-compare, ito-market-intelligence, ito-data-atlas-agent, ito-trade-planner
 ---
+
 
 # Itô Baskets
 

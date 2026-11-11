@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "dc538c5e1bfb95391c01ab840867234c278020fcdc798e16b4be8dfbdfba8294"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: alex
 description: "Turns requirements into a precise, dependency-aware implementation plan."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-06-11"
@@ -10,6 +21,7 @@ squad: agent-squad
 reports-to: agent-squad
 depends-on: rex
 ---
+
 
 # Alex — The Strategist
 

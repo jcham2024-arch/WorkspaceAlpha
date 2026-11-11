@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f9da165e3dcb59b97ba6de3cb20aaed728ceb3f6f05e05a32236e22116624ff7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: case-review
 description: "Quality-gate review of a reverse-engineering or assessment case package: scope readiness, Evidence-to-Finding-to-Path traceability, work-item coverage, timeline consistency, and artifact hashes."
+tier: "experimental"
 risk: safe
 source: "https://github.com/zhaoxuya520/reverse-skill"
 source_repo: "zhaoxuya520/reverse-skill"
@@ -9,6 +20,7 @@ date_added: "2026-08-25"
 license: "MIT"
 license_source: "https://github.com/zhaoxuya520/reverse-skill/blob/main/LICENSE"
 ---
+
 # Evidence Graph Review
 ## When to Use
 

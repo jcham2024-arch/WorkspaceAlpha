@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6a238c4ab9d17459bcc70270576cf30aa4d9df1c25b7786bc41710bb35fcef04"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: developer-churn
 description: When the user wants to understand, reduce, or recover from developer churn. Trigger phrases include "why developers leave," "churn rate," "win-back campaign," "at-risk users," "developer retention," "preventing churn," or "competitor switching."
+tier: "experimental"
 risk: critical
 source: https://github.com/jonathimer/devmarketing-skills/tree/main/skills/developer-churn
 source_repo: jonathimer/devmarketing-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/jonathimer/devmarketing-skills/blob/main/LICENSE
 ---
+
 
 # Developer Churn
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c35a7ad25506a768ac795515b5799091987c7e683d8f5bf5b19633af062c799c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: folder-specific-claude-and-agents-md
 description: "Create folder-scoped CLAUDE.md and AGENTS.md guidance for future agents working in that area."
+tier: "experimental"
 category: development
 risk: critical
 source: community
@@ -14,6 +25,7 @@ license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 user-invocable: true
 ---
+
 
 # Folder CLAUDE.md Creation
 

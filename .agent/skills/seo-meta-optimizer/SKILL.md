@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2f5b5d1ef99c8ba19f08f945b02cd5b243910f2d2e3ba4c9ccab57b627179577"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-meta-optimizer
 description: Creates optimized meta titles, descriptions, and URL suggestions based on character limits and best practices. Generates compelling, keyword-rich metadata. Use PROACTIVELY for new content.
+tier: "experimental"
 risk: none
 source: community
 date_added: '2026-02-27'
 ---
+
 
 ## Use this skill when
 

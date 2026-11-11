@@ -1,1904 +1,2563 @@
 {
-  "version": 1,
+  "contract_version": "1.0.0",
+  "edges": [
+    {
+      "from": "docs/resources/README.md::resources-skills-archive-provenance",
+      "note": "resources route to formatted catalogs",
+      "to": "docs/resources/project-management.md::project-management-skills-shortlist",
+      "type": "requires"
+    }
+  ],
   "generated_from": "graph.json",
   "nodes": [
     {
-      "id": "docs/README.md::baselayer-workspace-project-documentation",
-      "type": "doc",
-      "summary": "Baselayer Workspace — Project Documentation",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         0,
         202
       ],
-      "sha256": "b8263d097420b866fb0a1d11e93b5b0de368ef2d3cd7be811e616c049cab24b7",
       "bytes": 202,
-      "est_tokens": 51
+      "content_ref": "docs/README.md",
+      "est_tokens": 51,
+      "id": "docs/README.md::baselayer-workspace-project-documentation",
+      "sha256": "b8263d097420b866fb0a1d11e93b5b0de368ef2d3cd7be811e616c049cab24b7",
+      "summary": "Baselayer Workspace — Project Documentation",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::project-overview",
-      "type": "doc",
-      "summary": "Project Overview",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         202,
         634
       ],
-      "sha256": "3b64076a3c3e2664ab836763e03b398d05f33711dcbafe2d13f0be8504af923b",
       "bytes": 432,
-      "est_tokens": 108
+      "content_ref": "docs/README.md",
+      "est_tokens": 108,
+      "id": "docs/README.md::project-overview",
+      "sha256": "3b64076a3c3e2664ab836763e03b398d05f33711dcbafe2d13f0be8504af923b",
+      "summary": "Project Overview",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::architecture",
-      "type": "doc",
-      "summary": "Architecture",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         634,
         2712
       ],
-      "sha256": "5598e9e9233521e76d86a0e8445816e4a2897a8b1cb79a7ee373d69654b78628",
       "bytes": 2078,
-      "est_tokens": 520
+      "content_ref": "docs/README.md",
+      "est_tokens": 520,
+      "id": "docs/README.md::architecture",
+      "sha256": "5598e9e9233521e76d86a0e8445816e4a2897a8b1cb79a7ee373d69654b78628",
+      "summary": "Architecture",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::conventions",
-      "type": "doc",
-      "summary": "Conventions",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         2712,
         2728
       ],
-      "sha256": "09ab97e61fa4ae867fad69ee3bf29b038c8adb6d70850155dddf09ea72fcbcf2",
       "bytes": 16,
-      "est_tokens": 4
+      "content_ref": "docs/README.md",
+      "est_tokens": 4,
+      "id": "docs/README.md::conventions",
+      "sha256": "09ab97e61fa4ae867fad69ee3bf29b038c8adb6d70850155dddf09ea72fcbcf2",
+      "summary": "Conventions",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::documentation",
-      "type": "doc",
-      "summary": "Documentation",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         2728,
         3049
       ],
-      "sha256": "fb16948e9464091cf9b39c2cb1b1d7cdc8f1e47eaa6f6c08d5b65342006007f0",
       "bytes": 321,
-      "est_tokens": 81
+      "content_ref": "docs/README.md",
+      "est_tokens": 81,
+      "id": "docs/README.md::documentation",
+      "sha256": "fb16948e9464091cf9b39c2cb1b1d7cdc8f1e47eaa6f6c08d5b65342006007f0",
+      "summary": "Documentation",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::skills",
-      "type": "doc",
-      "summary": "Skills",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         3049,
         3348
       ],
-      "sha256": "d80db16f76e81192879c07632481c8cd9df4b9244242beb0967d2b97aaa9d5d0",
       "bytes": 299,
-      "est_tokens": 75
+      "content_ref": "docs/README.md",
+      "est_tokens": 75,
+      "id": "docs/README.md::skills",
+      "sha256": "d80db16f76e81192879c07632481c8cd9df4b9244242beb0967d2b97aaa9d5d0",
+      "summary": "Skills",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::agent-profiles",
-      "type": "doc",
-      "summary": "Agent Profiles",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         3348,
         4125
       ],
-      "sha256": "ea36149ac5a364db80e0864a33488e0d78132c4409e6ccb446f136353303352d",
       "bytes": 777,
-      "est_tokens": 195
+      "content_ref": "docs/README.md",
+      "est_tokens": 195,
+      "id": "docs/README.md::agent-profiles",
+      "sha256": "ea36149ac5a364db80e0864a33488e0d78132c4409e6ccb446f136353303352d",
+      "summary": "Agent Profiles",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::communication-protocol",
-      "type": "doc",
-      "summary": "Communication Protocol",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         4125,
         4389
       ],
-      "sha256": "98de2fc4d59ded6a4d35cca5b39162954f1f2e523956a5ab1bf82e6e19928153",
       "bytes": 264,
-      "est_tokens": 66
+      "content_ref": "docs/README.md",
+      "est_tokens": 66,
+      "id": "docs/README.md::communication-protocol",
+      "sha256": "98de2fc4d59ded6a4d35cca5b39162954f1f2e523956a5ab1bf82e6e19928153",
+      "summary": "Communication Protocol",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::getting-started",
-      "type": "doc",
-      "summary": "Getting Started",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         4389,
         4409
       ],
-      "sha256": "cb65447f5e27edf51318adf1b81924260fbbf4845fa51d55b56a396f0573b9d7",
       "bytes": 20,
-      "est_tokens": 5
+      "content_ref": "docs/README.md",
+      "est_tokens": 5,
+      "id": "docs/README.md::getting-started",
+      "sha256": "cb65447f5e27edf51318adf1b81924260fbbf4845fa51d55b56a396f0573b9d7",
+      "summary": "Getting Started",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::prerequisites",
-      "type": "doc",
-      "summary": "Prerequisites",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         4409,
         4555
       ],
-      "sha256": "6c996758f33cfb7e2602436df8af725fe2ee69b9a0b665f8cc5a19ce32132933",
       "bytes": 146,
-      "est_tokens": 37
+      "content_ref": "docs/README.md",
+      "est_tokens": 37,
+      "id": "docs/README.md::prerequisites",
+      "sha256": "6c996758f33cfb7e2602436df8af725fe2ee69b9a0b665f8cc5a19ce32132933",
+      "summary": "Prerequisites",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::initial-build",
-      "type": "doc",
-      "summary": "Initial Build",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         4555,
         4582
       ],
-      "sha256": "920a474997887566cedb2ed3f51624c2ad0f2291bbdc07064a8c6d6c8fb3013b",
       "bytes": 27,
-      "est_tokens": 7
+      "content_ref": "docs/README.md",
+      "est_tokens": 7,
+      "id": "docs/README.md::initial-build",
+      "sha256": "920a474997887566cedb2ed3f51624c2ad0f2291bbdc07064a8c6d6c8fb3013b",
+      "summary": "Initial Build",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::full-pipeline",
-      "type": "doc",
-      "summary": "Full pipeline",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         4582,
         4872
       ],
-      "sha256": "9bf0bda12a6f7d01f48b6d34d5294be67a5fdf753eaef3cdf974471fe56f09db",
       "bytes": 290,
-      "est_tokens": 73
+      "content_ref": "docs/README.md",
+      "est_tokens": 73,
+      "id": "docs/README.md::full-pipeline",
+      "sha256": "9bf0bda12a6f7d01f48b6d34d5294be67a5fdf753eaef3cdf974471fe56f09db",
+      "summary": "Full pipeline",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::development-workflow",
-      "type": "doc",
-      "summary": "Development Workflow",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         4872,
         5095
       ],
-      "sha256": "ea7825d2abad9f0200bb72a4b30a3e02e0f46e0bbc382499fbf4de238b23cb07",
       "bytes": 223,
-      "est_tokens": 56
+      "content_ref": "docs/README.md",
+      "est_tokens": 56,
+      "id": "docs/README.md::development-workflow",
+      "sha256": "ea7825d2abad9f0200bb72a4b30a3e02e0f46e0bbc382499fbf4de238b23cb07",
+      "summary": "Development Workflow",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::adding-a-skill",
-      "type": "doc",
-      "summary": "Adding a Skill",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         5095,
         5123
       ],
-      "sha256": "999f18a05ac145f8a911beb6eed0e25b344d03a8e9060e8564cfa95688597db4",
       "bytes": 28,
-      "est_tokens": 7
+      "content_ref": "docs/README.md",
+      "est_tokens": 7,
+      "id": "docs/README.md::adding-a-skill",
+      "sha256": "999f18a05ac145f8a911beb6eed0e25b344d03a8e9060e8564cfa95688597db4",
+      "summary": "Adding a Skill",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::1-create-skill-in-master-library",
-      "type": "doc",
-      "summary": "1. Create skill in master library",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         5123,
         5191
       ],
-      "sha256": "894d8d8bac60a03130b023c00faf7a781b11ebf8c8284d9e76cdde71b2d7e5a6",
       "bytes": 68,
-      "est_tokens": 17
+      "content_ref": "docs/README.md",
+      "est_tokens": 17,
+      "id": "docs/README.md::1-create-skill-in-master-library",
+      "sha256": "894d8d8bac60a03130b023c00faf7a781b11ebf8c8284d9e76cdde71b2d7e5a6",
+      "summary": "1. Create skill in master library",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::write-agent-skills-my-skill-skill-md-with-frontmatter",
-      "type": "doc",
-      "summary": "Write .agent/skills/my-skill/SKILL.md with frontmatter",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         5191,
         5249
       ],
-      "sha256": "af8d3881a9b6a78a8eaa8564ee56f1951487dfae7ed69953e511570845768676",
       "bytes": 58,
-      "est_tokens": 15
+      "content_ref": "docs/README.md",
+      "est_tokens": 15,
+      "id": "docs/README.md::write-agent-skills-my-skill-skill-md-with-frontmatter",
+      "sha256": "af8d3881a9b6a78a8eaa8564ee56f1951487dfae7ed69953e511570845768676",
+      "summary": "Write .agent/skills/my-skill/SKILL.md with frontmatter",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::2-categorize-task-type-subtype-level-os",
-      "type": "doc",
-      "summary": "2. Categorize (task type/subtype/level/OS)",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         5249,
         5294
       ],
-      "sha256": "2fb0b422202b66852c43156eff0d847523193a6ca02e4c1e79006c5e9739aa1a",
       "bytes": 45,
-      "est_tokens": 12
+      "content_ref": "docs/README.md",
+      "est_tokens": 12,
+      "id": "docs/README.md::2-categorize-task-type-subtype-level-os",
+      "sha256": "2fb0b422202b66852c43156eff0d847523193a6ca02e4c1e79006c5e9739aa1a",
+      "summary": "2. Categorize (task type/subtype/level/OS)",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::edit-agent-skills-categorization-csv",
-      "type": "doc",
-      "summary": "Edit .agent/skills/CATEGORIZATION.csv",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         5294,
         5335
       ],
-      "sha256": "5ca0c7d13b43e62998607e3b35f4a651fbe7406799da6d153911a3dfe268482d",
       "bytes": 41,
-      "est_tokens": 11
+      "content_ref": "docs/README.md",
+      "est_tokens": 11,
+      "id": "docs/README.md::edit-agent-skills-categorization-csv",
+      "sha256": "5ca0c7d13b43e62998607e3b35f4a651fbe7406799da6d153911a3dfe268482d",
+      "summary": "Edit .agent/skills/CATEGORIZATION.csv",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::3-provision-to-active-profile",
-      "type": "doc",
-      "summary": "3. Provision to active profile",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         5335,
         5368
       ],
-      "sha256": "6b90af7203edf20304eb8cdc87efcdeefd6d79a2d3928093f9ea811cb1b8f2b4",
       "bytes": 33,
-      "est_tokens": 9
+      "content_ref": "docs/README.md",
+      "est_tokens": 9,
+      "id": "docs/README.md::3-provision-to-active-profile",
+      "sha256": "6b90af7203edf20304eb8cdc87efcdeefd6d79a2d3928093f9ea811cb1b8f2b4",
+      "summary": "3. Provision to active profile",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::edit-agent-profiles-profile-md-skills-list",
-      "type": "doc",
-      "summary": "Edit .agent/profiles/<profile>.md skills list",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         5368,
         5469
       ],
-      "sha256": "1ad791b23f66adab90e6f203e2e0f170e7dc0713634137eecf4fab157196f709",
       "bytes": 101,
-      "est_tokens": 26
+      "content_ref": "docs/README.md",
+      "est_tokens": 26,
+      "id": "docs/README.md::edit-agent-profiles-profile-md-skills-list",
+      "sha256": "1ad791b23f66adab90e6f203e2e0f170e7dc0713634137eecf4fab157196f709",
+      "summary": "Edit .agent/profiles/<profile>.md skills list",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::4-regenerate-router",
-      "type": "doc",
-      "summary": "4. Regenerate router",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         5469,
         5538
       ],
-      "sha256": "af66e78d399121625032359cdaf147a64e7b360163f21f3e4ca258084afa5432",
       "bytes": 69,
-      "est_tokens": 18
+      "content_ref": "docs/README.md",
+      "est_tokens": 18,
+      "id": "docs/README.md::4-regenerate-router",
+      "sha256": "af66e78d399121625032359cdaf147a64e7b360163f21f3e4ca258084afa5432",
+      "summary": "4. Regenerate router",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::key-files-reference",
-      "type": "doc",
-      "summary": "Key Files Reference",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         5538,
         6416
       ],
-      "sha256": "4cd04e94f3d7f5c4ec6c9f36f536d4fd7c811623bcc6873119f9ae7424e2c24a",
       "bytes": 878,
-      "est_tokens": 220
+      "content_ref": "docs/README.md",
+      "est_tokens": 220,
+      "id": "docs/README.md::key-files-reference",
+      "sha256": "4cd04e94f3d7f5c4ec6c9f36f536d4fd7c811623bcc6873119f9ae7424e2c24a",
+      "summary": "Key Files Reference",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::validation-rules-validate-py",
-      "type": "doc",
-      "summary": "Validation Rules (validate.py)",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         6416,
         6908
       ],
-      "sha256": "480e9f9e1c18f384d1689ac1fd4a89582d51f9cb745c92f8b90c977d21c4a4f3",
       "bytes": 492,
-      "est_tokens": 123
+      "content_ref": "docs/README.md",
+      "est_tokens": 123,
+      "id": "docs/README.md::validation-rules-validate-py",
+      "sha256": "480e9f9e1c18f384d1689ac1fd4a89582d51f9cb745c92f8b90c977d21c4a4f3",
+      "summary": "Validation Rules (validate.py)",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::memory-system",
-      "type": "doc",
-      "summary": "Memory System",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         6908,
         7440
       ],
-      "sha256": "72050a119a32ae828df6360c1af8b61b069c1e4303e21e24904982910ee5fce5",
       "bytes": 532,
-      "est_tokens": 133
+      "content_ref": "docs/README.md",
+      "est_tokens": 133,
+      "id": "docs/README.md::memory-system",
+      "sha256": "72050a119a32ae828df6360c1af8b61b069c1e4303e21e24904982910ee5fce5",
+      "summary": "Memory System",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/README.md::license",
-      "type": "doc",
-      "summary": "License",
-      "tags": [],
-      "content_ref": "docs/README.md",
       "byte_range": [
         7440,
         7605
       ],
-      "sha256": "bbdd1aa4ab07e34a38cefed2f519ac04bdae012b4cfbcd81d86e7d0121d5018c",
       "bytes": 165,
-      "est_tokens": 42
+      "content_ref": "docs/README.md",
+      "est_tokens": 42,
+      "id": "docs/README.md::license",
+      "sha256": "bbdd1aa4ab07e34a38cefed2f519ac04bdae012b4cfbcd81d86e7d0121d5018c",
+      "summary": "License",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q1-rpo-rto.md::decision-q1-rpo-rto-targets-for-audit-persistence",
-      "type": "doc",
-      "summary": "Decision: Q1 — RPO/RTO Targets for Audit Persistence",
+      "byte_range": [
+        0,
+        48
+      ],
+      "bytes": 48,
+      "content_ref": "docs/adr/ADR-001-dag-routing.md",
+      "est_tokens": 12,
+      "id": "docs/adr/ADR-001-dag-routing.md::adr-001-why-a-dag-for-documentation-routing",
+      "sha256": "35476b15b522e4e7735cae1f99d8e209b1ef33459dbac9702b3d15d741b5424e",
+      "summary": "ADR-001: Why a DAG for Documentation Routing",
       "tags": [],
-      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        48,
+        69
+      ],
+      "bytes": 21,
+      "content_ref": "docs/adr/ADR-001-dag-routing.md",
+      "est_tokens": 6,
+      "id": "docs/adr/ADR-001-dag-routing.md::status",
+      "sha256": "d4af963b9106f65d12599f5167065fd1fa718606fd92aff26f1090ee67138e89",
+      "summary": "Status",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        69,
+        664
+      ],
+      "bytes": 595,
+      "content_ref": "docs/adr/ADR-001-dag-routing.md",
+      "est_tokens": 149,
+      "id": "docs/adr/ADR-001-dag-routing.md::context",
+      "sha256": "eb087ca91b21de647e90220d6c778ae70ff0dc46ac547d458744f29637f84be0",
+      "summary": "Context",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        664,
+        1136
+      ],
+      "bytes": 472,
+      "content_ref": "docs/adr/ADR-001-dag-routing.md",
+      "est_tokens": 118,
+      "id": "docs/adr/ADR-001-dag-routing.md::decision",
+      "sha256": "8c0855c3d06c69feff3c36c7d22a4df8c929f08a288ecd7ca62e074080bfb5cf",
+      "summary": "Decision",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        1136,
+        1709
+      ],
+      "bytes": 573,
+      "content_ref": "docs/adr/ADR-001-dag-routing.md",
+      "est_tokens": 144,
+      "id": "docs/adr/ADR-001-dag-routing.md::consequences",
+      "sha256": "eb58c96445547c60fe9d6ee763fe0ce738ceda3be30502c14f70ddae31f1f942",
+      "summary": "Consequences",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        1709,
+        1814
+      ],
+      "bytes": 105,
+      "content_ref": "docs/adr/ADR-001-dag-routing.md",
+      "est_tokens": 27,
+      "id": "docs/adr/ADR-001-dag-routing.md::links",
+      "sha256": "c45f78bf8aba7b22d8d3ccf0585d8caaadea19b3bb36e1fc1b4d3556e3a7e90d",
+      "summary": "Links",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        0,
+        53
+      ],
+      "bytes": 53,
+      "content_ref": "docs/adr/ADR-002-byte-ranges.md",
+      "est_tokens": 14,
+      "id": "docs/adr/ADR-002-byte-ranges.md::adr-002-why-byte-ranges-for-section-level-access",
+      "sha256": "9264fc42917289578b6a631632cb813239138dd02e7d1141d1fc1719fdfc9657",
+      "summary": "ADR-002: Why Byte Ranges for Section-Level Access",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        53,
+        74
+      ],
+      "bytes": 21,
+      "content_ref": "docs/adr/ADR-002-byte-ranges.md",
+      "est_tokens": 6,
+      "id": "docs/adr/ADR-002-byte-ranges.md::status",
+      "sha256": "d4af963b9106f65d12599f5167065fd1fa718606fd92aff26f1090ee67138e89",
+      "summary": "Status",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        74,
+        662
+      ],
+      "bytes": 588,
+      "content_ref": "docs/adr/ADR-002-byte-ranges.md",
+      "est_tokens": 147,
+      "id": "docs/adr/ADR-002-byte-ranges.md::context",
+      "sha256": "d3b8a7788296fcc3e663c09a975380f8c89f939396ed67c289d08255bd3cc37b",
+      "summary": "Context",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        662,
+        1081
+      ],
+      "bytes": 419,
+      "content_ref": "docs/adr/ADR-002-byte-ranges.md",
+      "est_tokens": 105,
+      "id": "docs/adr/ADR-002-byte-ranges.md::decision",
+      "sha256": "54cf3f828663b5d118167836a99173bb655686eee606807a594e5541799adc54",
+      "summary": "Decision",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        1081,
+        1649
+      ],
+      "bytes": 568,
+      "content_ref": "docs/adr/ADR-002-byte-ranges.md",
+      "est_tokens": 142,
+      "id": "docs/adr/ADR-002-byte-ranges.md::consequences",
+      "sha256": "f957f79ba50dfa22ffd8a85ff001c946229b10be87057b86a3c22aca726f3101",
+      "summary": "Consequences",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        1649,
+        1775
+      ],
+      "bytes": 126,
+      "content_ref": "docs/adr/ADR-002-byte-ranges.md",
+      "est_tokens": 32,
+      "id": "docs/adr/ADR-002-byte-ranges.md::links",
+      "sha256": "c3921a20dc4758b1943338e737cf43429ae3007de30369a2562f15d38123b2f7",
+      "summary": "Links",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        0,
+        45
+      ],
+      "bytes": 45,
+      "content_ref": "docs/adr/ADR-003-stdlib-only.md",
+      "est_tokens": 12,
+      "id": "docs/adr/ADR-003-stdlib-only.md::adr-003-why-python-standard-library-only",
+      "sha256": "dd5922ee9e5605751c5d997f4c720d3f5b560aa03cc7fc06ce6dd4989f0e958e",
+      "summary": "ADR-003: Why Python Standard Library Only",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        45,
+        66
+      ],
+      "bytes": 21,
+      "content_ref": "docs/adr/ADR-003-stdlib-only.md",
+      "est_tokens": 6,
+      "id": "docs/adr/ADR-003-stdlib-only.md::status",
+      "sha256": "d4af963b9106f65d12599f5167065fd1fa718606fd92aff26f1090ee67138e89",
+      "summary": "Status",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        66,
+        681
+      ],
+      "bytes": 615,
+      "content_ref": "docs/adr/ADR-003-stdlib-only.md",
+      "est_tokens": 154,
+      "id": "docs/adr/ADR-003-stdlib-only.md::context",
+      "sha256": "74d31569a8cbb2816790b66fec7657f9fa0ebe12abffc77ce36cdb2d99f6fd68",
+      "summary": "Context",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        681,
+        924
+      ],
+      "bytes": 243,
+      "content_ref": "docs/adr/ADR-003-stdlib-only.md",
+      "est_tokens": 61,
+      "id": "docs/adr/ADR-003-stdlib-only.md::decision",
+      "sha256": "12d779905732b3210d1174ab13cf11da49d298113b73fbdca785b61c15ddd30f",
+      "summary": "Decision",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        924,
+        1406
+      ],
+      "bytes": 482,
+      "content_ref": "docs/adr/ADR-003-stdlib-only.md",
+      "est_tokens": 121,
+      "id": "docs/adr/ADR-003-stdlib-only.md::consequences",
+      "sha256": "bf7b7123367d17fad77ba59702c9f4cc62fdf4815312b6f142ae6d10683c37a5",
+      "summary": "Consequences",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        1406,
+        1569
+      ],
+      "bytes": 163,
+      "content_ref": "docs/adr/ADR-003-stdlib-only.md",
+      "est_tokens": 41,
+      "id": "docs/adr/ADR-003-stdlib-only.md::links",
+      "sha256": "517ecf6103771196c2a0627b15faeed5adb7441198d0f4f492c05772d8c47a8e",
+      "summary": "Links",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        0,
+        52
+      ],
+      "bytes": 52,
+      "content_ref": "docs/adr/ADR-004-agent-tracked.md",
+      "est_tokens": 13,
+      "id": "docs/adr/ADR-004-agent-tracked.md::adr-004-why-agent-is-tracked-in-git-model-a",
+      "sha256": "46b4adfc4b713b1ef1c95ad82dd3f06261270a31892004987347fe47a862e83e",
+      "summary": "ADR-004: Why .agent/ Is Tracked in Git (Model A)",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        52,
+        73
+      ],
+      "bytes": 21,
+      "content_ref": "docs/adr/ADR-004-agent-tracked.md",
+      "est_tokens": 6,
+      "id": "docs/adr/ADR-004-agent-tracked.md::status",
+      "sha256": "d4af963b9106f65d12599f5167065fd1fa718606fd92aff26f1090ee67138e89",
+      "summary": "Status",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        73,
+        561
+      ],
+      "bytes": 488,
+      "content_ref": "docs/adr/ADR-004-agent-tracked.md",
+      "est_tokens": 122,
+      "id": "docs/adr/ADR-004-agent-tracked.md::context",
+      "sha256": "093152103c501fe5e4db31c159140aa926bb72f1a6fea0156f9466a28f9f1671",
+      "summary": "Context",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        561,
+        1188
+      ],
+      "bytes": 627,
+      "content_ref": "docs/adr/ADR-004-agent-tracked.md",
+      "est_tokens": 157,
+      "id": "docs/adr/ADR-004-agent-tracked.md::decision",
+      "sha256": "a2be171caa1a08722e587b8ae08f96a6c71ad88fd4189174ed7ac6366c1ec5f0",
+      "summary": "Decision",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        1188,
+        1563
+      ],
+      "bytes": 375,
+      "content_ref": "docs/adr/ADR-004-agent-tracked.md",
+      "est_tokens": 94,
+      "id": "docs/adr/ADR-004-agent-tracked.md::consequences",
+      "sha256": "3b62e0ae46c80728f27769ed4c043c6538511670c02c31c3b835d397ed894254",
+      "summary": "Consequences",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        1563,
+        1772
+      ],
+      "bytes": 209,
+      "content_ref": "docs/adr/ADR-004-agent-tracked.md",
+      "est_tokens": 53,
+      "id": "docs/adr/ADR-004-agent-tracked.md::links",
+      "sha256": "9c288b5d0c659785bc7083a23b38f121dbe6c464553f61f35a88803fdea74886",
+      "summary": "Links",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        0,
+        5987
+      ],
+      "bytes": 5987,
+      "content_ref": "docs/architecture.md",
+      "est_tokens": 1497,
+      "id": "docs/architecture.md::workspacealpha-architecture",
+      "sha256": "d55fe80aa52ce01f733ebe780eb5cb7f39acb4b04dbafcaf26bf7b8e43c282c9",
+      "summary": "WorkspaceAlpha Architecture",
+      "tags": [],
+      "type": "doc"
+    },
+    {
       "byte_range": [
         0,
         58
       ],
-      "sha256": "e477fb1c801da874ef96a5a15c8185fdaadacbd7fb52a2157c273b2743831770",
       "bytes": 58,
-      "est_tokens": 15
+      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
+      "est_tokens": 15,
+      "id": "docs/contracts/decisions/Q1-rpo-rto.md::decision-q1-rpo-rto-targets-for-audit-persistence",
+      "sha256": "e477fb1c801da874ef96a5a15c8185fdaadacbd7fb52a2157c273b2743831770",
+      "summary": "Decision: Q1 — RPO/RTO Targets for Audit Persistence",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q1-rpo-rto.md::context",
-      "type": "doc",
-      "summary": "Context",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
       "byte_range": [
         58,
         291
       ],
-      "sha256": "7d719cafee7c09d4df76aa624e1080b3f7c5574c3ec6d839e62b06ab459da4d4",
       "bytes": 233,
-      "est_tokens": 59
+      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
+      "est_tokens": 59,
+      "id": "docs/contracts/decisions/Q1-rpo-rto.md::context",
+      "sha256": "7d719cafee7c09d4df76aa624e1080b3f7c5574c3ec6d839e62b06ab459da4d4",
+      "summary": "Context",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q1-rpo-rto.md::options-considered",
-      "type": "doc",
-      "summary": "Options Considered",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
       "byte_range": [
         291,
         707
       ],
-      "sha256": "c360115a497106549aedd00c1eb23f3ac4e73989cb2c6228cb33665f81c0eb93",
       "bytes": 416,
-      "est_tokens": 104
+      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
+      "est_tokens": 104,
+      "id": "docs/contracts/decisions/Q1-rpo-rto.md::options-considered",
+      "sha256": "c360115a497106549aedd00c1eb23f3ac4e73989cb2c6228cb33665f81c0eb93",
+      "summary": "Options Considered",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q1-rpo-rto.md::decision",
-      "type": "doc",
-      "summary": "Decision",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
       "byte_range": [
         707,
         1107
       ],
-      "sha256": "b6d87f5a65941afa08ce247a0949e3fc01b279aba9ff4b2cf739fa71d5b2471c",
       "bytes": 400,
-      "est_tokens": 100
+      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
+      "est_tokens": 100,
+      "id": "docs/contracts/decisions/Q1-rpo-rto.md::decision",
+      "sha256": "b6d87f5a65941afa08ce247a0949e3fc01b279aba9ff4b2cf739fa71d5b2471c",
+      "summary": "Decision",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q1-rpo-rto.md::configuration",
-      "type": "doc",
-      "summary": "Configuration",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
       "byte_range": [
         1107,
         1287
       ],
-      "sha256": "a2ae82691f798c6eb2668793bf6f03026781b5cc5858e06340d31d0b65b6158d",
       "bytes": 180,
-      "est_tokens": 45
+      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
+      "est_tokens": 45,
+      "id": "docs/contracts/decisions/Q1-rpo-rto.md::configuration",
+      "sha256": "a2ae82691f798c6eb2668793bf6f03026781b5cc5858e06340d31d0b65b6158d",
+      "summary": "Configuration",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q1-rpo-rto.md::rpo-rto-targets",
-      "type": "doc",
-      "summary": "RPO/RTO Targets",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
       "byte_range": [
         1287,
         1614
       ],
-      "sha256": "37f87a589376e5c18eec9304c729cbe351c49c84fd4c48d39b904d69ae60efc0",
       "bytes": 327,
-      "est_tokens": 82
+      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
+      "est_tokens": 82,
+      "id": "docs/contracts/decisions/Q1-rpo-rto.md::rpo-rto-targets",
+      "sha256": "37f87a589376e5c18eec9304c729cbe351c49c84fd4c48d39b904d69ae60efc0",
+      "summary": "RPO/RTO Targets",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q1-rpo-rto.md::validation",
-      "type": "doc",
-      "summary": "Validation",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
       "byte_range": [
         1614,
         1808
       ],
-      "sha256": "58de758357b6e735321b33b820f9427cbf1b2da7f9770da6ea42fc84c789f4a8",
       "bytes": 194,
-      "est_tokens": 49
+      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
+      "est_tokens": 49,
+      "id": "docs/contracts/decisions/Q1-rpo-rto.md::validation",
+      "sha256": "58de758357b6e735321b33b820f9427cbf1b2da7f9770da6ea42fc84c789f4a8",
+      "summary": "Validation",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q1-rpo-rto.md::links",
-      "type": "doc",
-      "summary": "Links",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
       "byte_range": [
         1808,
         2041
       ],
-      "sha256": "baba4c736c953c4f7ffa854397f311b6d661ea7c25ab4bc19b185a84493ab62e",
       "bytes": 233,
-      "est_tokens": 59
+      "content_ref": "docs/contracts/decisions/Q1-rpo-rto.md",
+      "est_tokens": 59,
+      "id": "docs/contracts/decisions/Q1-rpo-rto.md::links",
+      "sha256": "baba4c736c953c4f7ffa854397f311b6d661ea7c25ab4bc19b185a84493ab62e",
+      "summary": "Links",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::decision-q2-sqlite-synchronous-mode-benchmark",
-      "type": "doc",
-      "summary": "Decision: Q2 — SQLite Synchronous Mode Benchmark",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
       "byte_range": [
         0,
         54
       ],
-      "sha256": "15c952acb3431962223a55e0963f2bfb19da8ae5c2dab522613bc05c5a94aa67",
       "bytes": 54,
-      "est_tokens": 14
+      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
+      "est_tokens": 14,
+      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::decision-q2-sqlite-synchronous-mode-benchmark",
+      "sha256": "15c952acb3431962223a55e0963f2bfb19da8ae5c2dab522613bc05c5a94aa67",
+      "summary": "Decision: Q2 — SQLite Synchronous Mode Benchmark",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::context",
-      "type": "doc",
-      "summary": "Context",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
       "byte_range": [
         54,
         300
       ],
-      "sha256": "71c1c8c20d3463fa5f9203db0d14e03c153e8deecbd967e3b919f133654c9632",
       "bytes": 246,
-      "est_tokens": 62
+      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
+      "est_tokens": 62,
+      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::context",
+      "sha256": "71c1c8c20d3463fa5f9203db0d14e03c153e8deecbd967e3b919f133654c9632",
+      "summary": "Context",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::benchmark-setup",
-      "type": "doc",
-      "summary": "Benchmark Setup",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
       "byte_range": [
         300,
         526
       ],
-      "sha256": "4bf1e5508686f3c9c74cea300bfb597cf479503a46b555e24a7ee0538e0d059c",
       "bytes": 226,
-      "est_tokens": 57
+      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
+      "est_tokens": 57,
+      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::benchmark-setup",
+      "sha256": "4bf1e5508686f3c9c74cea300bfb597cf479503a46b555e24a7ee0538e0d059c",
+      "summary": "Benchmark Setup",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::results",
-      "type": "doc",
-      "summary": "Results",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
       "byte_range": [
         526,
         990
       ],
-      "sha256": "9a2f3d2856a4ba0c85ad29067ffab2793b93aa948774a6016f617a43702025d7",
       "bytes": 464,
-      "est_tokens": 116
+      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
+      "est_tokens": 116,
+      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::results",
+      "sha256": "9a2f3d2856a4ba0c85ad29067ffab2793b93aa948774a6016f617a43702025d7",
+      "summary": "Results",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::key-observations",
-      "type": "doc",
-      "summary": "Key Observations",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
       "byte_range": [
         990,
         1342
       ],
-      "sha256": "22dc704253daa73154bd71e5a651347f9a261d7de2f9e94c8bfaaec67edcaf74",
       "bytes": 352,
-      "est_tokens": 88
+      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
+      "est_tokens": 88,
+      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::key-observations",
+      "sha256": "22dc704253daa73154bd71e5a651347f9a261d7de2f9e94c8bfaaec67edcaf74",
+      "summary": "Key Observations",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::decision",
-      "type": "doc",
-      "summary": "Decision",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
       "byte_range": [
         1342,
         1644
       ],
-      "sha256": "97976b91d50c1408d021bd2e5c47116da233b15925595befb21a0cc901af813d",
       "bytes": 302,
-      "est_tokens": 76
+      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
+      "est_tokens": 76,
+      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::decision",
+      "sha256": "97976b91d50c1408d021bd2e5c47116da233b15925595befb21a0cc901af813d",
+      "summary": "Decision",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::configuration",
-      "type": "doc",
-      "summary": "Configuration",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
       "byte_range": [
         1644,
         1672
       ],
-      "sha256": "04198b57a2cbccbbdf75b343c2a3fd3725331c4ba0078604307b007bd5d3d715",
       "bytes": 28,
-      "est_tokens": 7
+      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
+      "est_tokens": 7,
+      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::configuration",
+      "sha256": "04198b57a2cbccbbdf75b343c2a3fd3725331c4ba0078604307b007bd5d3d715",
+      "summary": "Configuration",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::in-knowledge-py-sync",
-      "type": "doc",
-      "summary": "In knowledge.py sync()",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
       "byte_range": [
         1672,
         1866
       ],
-      "sha256": "6fac682b987a206cce6f4ac97e2d4b9d5296930f7613a6048a8fbf4c8c6421bd",
       "bytes": 194,
-      "est_tokens": 49
+      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
+      "est_tokens": 49,
+      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::in-knowledge-py-sync",
+      "sha256": "6fac682b987a206cce6f4ac97e2d4b9d5296930f7613a6048a8fbf4c8c6421bd",
+      "summary": "In knowledge.py sync()",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::validation-gate",
-      "type": "doc",
-      "summary": "Validation Gate",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
       "byte_range": [
         1866,
         2053
       ],
-      "sha256": "767e120aadad478538de9ee966d9beebb44c5dc14e3a2291bf30e8ef7e13670e",
       "bytes": 187,
-      "est_tokens": 47
+      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
+      "est_tokens": 47,
+      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::validation-gate",
+      "sha256": "767e120aadad478538de9ee966d9beebb44c5dc14e3a2291bf30e8ef7e13670e",
+      "summary": "Validation Gate",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::links",
-      "type": "doc",
-      "summary": "Links",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
       "byte_range": [
         2053,
         2297
       ],
-      "sha256": "c4e84db7984b8aef2e3d0e2aab3548f8e01dac0bd8cb506e4c2730b6233ea45d",
       "bytes": 244,
-      "est_tokens": 61
+      "content_ref": "docs/contracts/decisions/Q2-sqlite-sync.md",
+      "est_tokens": 61,
+      "id": "docs/contracts/decisions/Q2-sqlite-sync.md::links",
+      "sha256": "c4e84db7984b8aef2e3d0e2aab3548f8e01dac0bd8cb506e4c2730b6233ea45d",
+      "summary": "Links",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q3-key-rotation.md::decision-q3-key-storage-rotation-strategy-for-mcp-secrets",
-      "type": "doc",
-      "summary": "Decision: Q3 — Key Storage & Rotation Strategy for MCP Secrets",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
       "byte_range": [
         0,
         68
       ],
-      "sha256": "8940948bcb099b1a4ce317ff5844afda666ee910f39a3b99480ab47a23c3a01a",
       "bytes": 68,
-      "est_tokens": 17
+      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
+      "est_tokens": 17,
+      "id": "docs/contracts/decisions/Q3-key-rotation.md::decision-q3-key-storage-rotation-strategy-for-mcp-secrets",
+      "sha256": "8940948bcb099b1a4ce317ff5844afda666ee910f39a3b99480ab47a23c3a01a",
+      "summary": "Decision: Q3 — Key Storage & Rotation Strategy for MCP Secrets",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q3-key-rotation.md::context",
-      "type": "doc",
-      "summary": "Context",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
       "byte_range": [
         68,
         324
       ],
-      "sha256": "5dad2a6cf136153901862151d1330d813390f8333970c1cdccc06c009065d117",
       "bytes": 256,
-      "est_tokens": 64
+      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
+      "est_tokens": 64,
+      "id": "docs/contracts/decisions/Q3-key-rotation.md::context",
+      "sha256": "5dad2a6cf136153901862151d1330d813390f8333970c1cdccc06c009065d117",
+      "summary": "Context",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q3-key-rotation.md::threat-model",
-      "type": "doc",
-      "summary": "Threat Model",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
       "byte_range": [
         324,
         574
       ],
-      "sha256": "ab82bf5faeeab44efa08fc36d6b621d0453d78003204a12bb9dd6ef03c6c6b01",
       "bytes": 250,
-      "est_tokens": 63
+      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
+      "est_tokens": 63,
+      "id": "docs/contracts/decisions/Q3-key-rotation.md::threat-model",
+      "sha256": "ab82bf5faeeab44efa08fc36d6b621d0453d78003204a12bb9dd6ef03c6c6b01",
+      "summary": "Threat Model",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q3-key-rotation.md::options-considered",
-      "type": "doc",
-      "summary": "Options Considered",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
       "byte_range": [
         574,
         1056
       ],
-      "sha256": "7e326c4261169f378d7322af3457d915c025c62638778950fcfb2b7a587b78bc",
       "bytes": 482,
-      "est_tokens": 121
+      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
+      "est_tokens": 121,
+      "id": "docs/contracts/decisions/Q3-key-rotation.md::options-considered",
+      "sha256": "7e326c4261169f378d7322af3457d915c025c62638778950fcfb2b7a587b78bc",
+      "summary": "Options Considered",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q3-key-rotation.md::decision",
-      "type": "doc",
-      "summary": "Decision",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
       "byte_range": [
         1056,
         1519
       ],
-      "sha256": "98f2906c50e01f966a528129a7b1d206f99f6dce5e8b833150c4b5324e45f7c7",
       "bytes": 463,
-      "est_tokens": 116
+      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
+      "est_tokens": 116,
+      "id": "docs/contracts/decisions/Q3-key-rotation.md::decision",
+      "sha256": "98f2906c50e01f966a528129a7b1d206f99f6dce5e8b833150c4b5324e45f7c7",
+      "summary": "Decision",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q3-key-rotation.md::current-implementation",
-      "type": "doc",
-      "summary": "Current Implementation",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
       "byte_range": [
         1519,
         1842
       ],
-      "sha256": "2cc32f9c9e2d2c41d64e06633b10ef5eae9bb9d5724050d83e8620e8ba7a1864",
       "bytes": 323,
-      "est_tokens": 81
+      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
+      "est_tokens": 81,
+      "id": "docs/contracts/decisions/Q3-key-rotation.md::current-implementation",
+      "sha256": "2cc32f9c9e2d2c41d64e06633b10ef5eae9bb9d5724050d83e8620e8ba7a1864",
+      "summary": "Current Implementation",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q3-key-rotation.md::rotation-procedure-manual-v1",
-      "type": "doc",
-      "summary": "Rotation Procedure (Manual v1)",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
       "byte_range": [
         1842,
         2115
       ],
-      "sha256": "e5f877eba80064010cf340bfec7a812491123db05f303cada320d6d3b3105ac2",
       "bytes": 273,
-      "est_tokens": 69
+      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
+      "est_tokens": 69,
+      "id": "docs/contracts/decisions/Q3-key-rotation.md::rotation-procedure-manual-v1",
+      "sha256": "e5f877eba80064010cf340bfec7a812491123db05f303cada320d6d3b3105ac2",
+      "summary": "Rotation Procedure (Manual v1)",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q3-key-rotation.md::migration-path-v2-planned",
-      "type": "doc",
-      "summary": "Migration Path (v2 — Planned)",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
       "byte_range": [
         2115,
         2493
       ],
-      "sha256": "e7d6816feef3d24e35fe67364f5d8f6d7f75b3b4894cd2004f0f7a052e6d2bab",
       "bytes": 378,
-      "est_tokens": 95
+      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
+      "est_tokens": 95,
+      "id": "docs/contracts/decisions/Q3-key-rotation.md::migration-path-v2-planned",
+      "sha256": "e7d6816feef3d24e35fe67364f5d8f6d7f75b3b4894cd2004f0f7a052e6d2bab",
+      "summary": "Migration Path (v2 — Planned)",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q3-key-rotation.md::validation",
-      "type": "doc",
-      "summary": "Validation",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
       "byte_range": [
         2493,
         2743
       ],
-      "sha256": "091ba05023f51231fbd7058f48f4dea5037d741f69e2cd932f63c9fab1e2db1c",
       "bytes": 250,
-      "est_tokens": 63
+      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
+      "est_tokens": 63,
+      "id": "docs/contracts/decisions/Q3-key-rotation.md::validation",
+      "sha256": "091ba05023f51231fbd7058f48f4dea5037d741f69e2cd932f63c9fab1e2db1c",
+      "summary": "Validation",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q3-key-rotation.md::links",
-      "type": "doc",
-      "summary": "Links",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
       "byte_range": [
         2743,
         3046
       ],
-      "sha256": "9423f7f2763d60596203504b058fd3d0e87394d7e2170364d4e4fe1395481384",
       "bytes": 303,
-      "est_tokens": 76
+      "content_ref": "docs/contracts/decisions/Q3-key-rotation.md",
+      "est_tokens": 76,
+      "id": "docs/contracts/decisions/Q3-key-rotation.md::links",
+      "sha256": "9423f7f2763d60596203504b058fd3d0e87394d7e2170364d4e4fe1395481384",
+      "summary": "Links",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::decision-q4-skill-categorization-schema-stability-guarantee",
-      "type": "doc",
-      "summary": "Decision: Q4 — Skill Categorization Schema Stability Guarantee",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
       "byte_range": [
         0,
         68
       ],
-      "sha256": "f83a91f3182394a7848f64f801432c195d35eb2e4f2813fe54927f6c9ee1417d",
       "bytes": 68,
-      "est_tokens": 17
+      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
+      "est_tokens": 17,
+      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::decision-q4-skill-categorization-schema-stability-guarantee",
+      "sha256": "f83a91f3182394a7848f64f801432c195d35eb2e4f2813fe54927f6c9ee1417d",
+      "summary": "Decision: Q4 — Skill Categorization Schema Stability Guarantee",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::question",
-      "type": "doc",
-      "summary": "Question",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
       "byte_range": [
         68,
         312
       ],
-      "sha256": "48fe7d68ba7b9a9c6507f2c642f9986cdea245543cab8547bc94148efa2945ac",
       "bytes": 244,
-      "est_tokens": 61
+      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
+      "est_tokens": 61,
+      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::question",
+      "sha256": "48fe7d68ba7b9a9c6507f2c642f9986cdea245543cab8547bc94148efa2945ac",
+      "summary": "Question",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::chosen-value",
-      "type": "doc",
-      "summary": "Chosen Value",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
       "byte_range": [
         312,
         690
       ],
-      "sha256": "7593107a4d5775a6ead0c5864bda46bd86f4f87f42e0c02ad339d8c5c835acec",
       "bytes": 378,
-      "est_tokens": 95
+      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
+      "est_tokens": 95,
+      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::chosen-value",
+      "sha256": "7593107a4d5775a6ead0c5864bda46bd86f4f87f42e0c02ad339d8c5c835acec",
+      "summary": "Chosen Value",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::approver",
-      "type": "doc",
-      "summary": "Approver",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
       "byte_range": [
         690,
         777
       ],
-      "sha256": "0b7e50aea1f312783771135b249f2357a5c930c854c724f885ec1f6640cbac42",
       "bytes": 87,
-      "est_tokens": 22
+      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
+      "est_tokens": 22,
+      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::approver",
+      "sha256": "0b7e50aea1f312783771135b249f2357a5c930c854c724f885ec1f6640cbac42",
+      "summary": "Approver",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::evidence",
-      "type": "doc",
-      "summary": "Evidence",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
       "byte_range": [
         777,
         1181
       ],
-      "sha256": "e7f0eb40d0cc99ccd4096046e1969582387be1b3cf6a7bbd77cf2bcb7cb41b52",
       "bytes": 404,
-      "est_tokens": 101
+      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
+      "est_tokens": 101,
+      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::evidence",
+      "sha256": "e7f0eb40d0cc99ccd4096046e1969582387be1b3cf6a7bbd77cf2bcb7cb41b52",
+      "summary": "Evidence",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::rationale",
-      "type": "doc",
-      "summary": "Rationale",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
       "byte_range": [
         1181,
         1857
       ],
-      "sha256": "03985200de8940926fc9aa12c0e23a6c8b429632bde393d3380240acd7579392",
       "bytes": 676,
-      "est_tokens": 169
+      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
+      "est_tokens": 169,
+      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::rationale",
+      "sha256": "03985200de8940926fc9aa12c0e23a6c8b429632bde393d3380240acd7579392",
+      "summary": "Rationale",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::constraint-on-future-specs",
-      "type": "doc",
-      "summary": "Constraint on Future Specs",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
       "byte_range": [
         1857,
         2399
       ],
-      "sha256": "98ba558e2897818c76a63acf8fcaffb3e6fcfb79a77b9b5c2af833b9ffbf22cd",
       "bytes": 542,
-      "est_tokens": 136
+      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
+      "est_tokens": 136,
+      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::constraint-on-future-specs",
+      "sha256": "98ba558e2897818c76a63acf8fcaffb3e6fcfb79a77b9b5c2af833b9ffbf22cd",
+      "summary": "Constraint on Future Specs",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::links",
-      "type": "doc",
-      "summary": "Links",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
       "byte_range": [
         2399,
         2698
       ],
-      "sha256": "2dd11e8ad6b8d1529cd4c7c092820482ca8f3271ee2c008344dcd7388e91dc4f",
       "bytes": 299,
-      "est_tokens": 75
+      "content_ref": "docs/contracts/decisions/Q4-skill-categorization-stability.md",
+      "est_tokens": 75,
+      "id": "docs/contracts/decisions/Q4-skill-categorization-stability.md::links",
+      "sha256": "2dd11e8ad6b8d1529cd4c7c092820482ca8f3271ee2c008344dcd7388e91dc4f",
+      "summary": "Links",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::decision-q5-wiki-render-pipeline-incremental-vs-full-rebuild",
-      "type": "doc",
-      "summary": "Decision: Q5 — Wiki Render Pipeline: Incremental vs Full Rebuild",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
       "byte_range": [
         0,
         70
       ],
-      "sha256": "65879a6a9e52acc15acf125a5a95fd1e38205048414628194ca74e3c002b0231",
       "bytes": 70,
-      "est_tokens": 18
+      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
+      "est_tokens": 18,
+      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::decision-q5-wiki-render-pipeline-incremental-vs-full-rebuild",
+      "sha256": "65879a6a9e52acc15acf125a5a95fd1e38205048414628194ca74e3c002b0231",
+      "summary": "Decision: Q5 — Wiki Render Pipeline: Incremental vs Full Rebuild",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::question",
-      "type": "doc",
-      "summary": "Question",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
       "byte_range": [
         70,
         291
       ],
-      "sha256": "05d30256e8a23142b60d79f9c0300d3e7ce23a3dc61adcdf2257eb393c716d74",
       "bytes": 221,
-      "est_tokens": 56
+      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
+      "est_tokens": 56,
+      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::question",
+      "sha256": "05d30256e8a23142b60d79f9c0300d3e7ce23a3dc61adcdf2257eb393c716d74",
+      "summary": "Question",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::chosen-value",
-      "type": "doc",
-      "summary": "Chosen Value",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
       "byte_range": [
         291,
         647
       ],
-      "sha256": "4ffbdb0a2ce77d85786e014f64f8b778be6bd80c6956e1fcc32280a78dad6122",
       "bytes": 356,
-      "est_tokens": 89
+      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
+      "est_tokens": 89,
+      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::chosen-value",
+      "sha256": "4ffbdb0a2ce77d85786e014f64f8b778be6bd80c6956e1fcc32280a78dad6122",
+      "summary": "Chosen Value",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::approver",
-      "type": "doc",
-      "summary": "Approver",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
       "byte_range": [
         647,
         736
       ],
-      "sha256": "2ca0606bc2572690d1c2021a2b90cbb01949c68bf5e86c7c33e8bea7da45e1ea",
       "bytes": 89,
-      "est_tokens": 23
+      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
+      "est_tokens": 23,
+      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::approver",
+      "sha256": "2ca0606bc2572690d1c2021a2b90cbb01949c68bf5e86c7c33e8bea7da45e1ea",
+      "summary": "Approver",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::evidence",
-      "type": "doc",
-      "summary": "Evidence",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
       "byte_range": [
         736,
         1204
       ],
-      "sha256": "f319c44f56b688230b357a20530a57f2dabeaa8bf1f758eeee71f2fafefac8ba",
       "bytes": 468,
-      "est_tokens": 117
+      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
+      "est_tokens": 117,
+      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::evidence",
+      "sha256": "f319c44f56b688230b357a20530a57f2dabeaa8bf1f758eeee71f2fafefac8ba",
+      "summary": "Evidence",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::rationale",
-      "type": "doc",
-      "summary": "Rationale",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
       "byte_range": [
         1204,
         2127
       ],
-      "sha256": "51a0da90b6761ad137c3b33d950acaf28f56772e12891c073e18fda6c08f5879",
       "bytes": 923,
-      "est_tokens": 231
+      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
+      "est_tokens": 231,
+      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::rationale",
+      "sha256": "51a0da90b6761ad137c3b33d950acaf28f56772e12891c073e18fda6c08f5879",
+      "summary": "Rationale",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::constraint-on-future-specs",
-      "type": "doc",
-      "summary": "Constraint on Future Specs",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
       "byte_range": [
         2127,
         2535
       ],
-      "sha256": "bc92f62a4a369e05c9f1ed0c4c0c40a6bc925a3762196cdd1c0d45ecea3d27b0",
       "bytes": 408,
-      "est_tokens": 102
+      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
+      "est_tokens": 102,
+      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::constraint-on-future-specs",
+      "sha256": "bc92f62a4a369e05c9f1ed0c4c0c40a6bc925a3762196cdd1c0d45ecea3d27b0",
+      "summary": "Constraint on Future Specs",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::links",
-      "type": "doc",
-      "summary": "Links",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
       "byte_range": [
         2535,
         2846
       ],
-      "sha256": "a6da59d5ffffffe25b8827eff5711e5f25eb541a99d64a548a436956a543b3f6",
       "bytes": 311,
-      "est_tokens": 78
+      "content_ref": "docs/contracts/decisions/Q5-wiki-render-pipeline.md",
+      "est_tokens": 78,
+      "id": "docs/contracts/decisions/Q5-wiki-render-pipeline.md::links",
+      "sha256": "a6da59d5ffffffe25b8827eff5711e5f25eb541a99d64a548a436956a543b3f6",
+      "summary": "Links",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::decision-q6-profile-provisioning-dynamic-vs-static-skill-lists",
-      "type": "doc",
-      "summary": "Decision: Q6 — Profile Provisioning: Dynamic vs Static Skill Lists",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
       "byte_range": [
         0,
         72
       ],
-      "sha256": "0cde2fc0f2cb88ad495d96302647bb7e18037a8f72faf45831716cf6e8b7cbf2",
       "bytes": 72,
-      "est_tokens": 18
+      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
+      "est_tokens": 18,
+      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::decision-q6-profile-provisioning-dynamic-vs-static-skill-lists",
+      "sha256": "0cde2fc0f2cb88ad495d96302647bb7e18037a8f72faf45831716cf6e8b7cbf2",
+      "summary": "Decision: Q6 — Profile Provisioning: Dynamic vs Static Skill Lists",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::question",
-      "type": "doc",
-      "summary": "Question",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
       "byte_range": [
         72,
         253
       ],
-      "sha256": "64a34008cbaf71fbeb097ac4643e48364d00e2d51d6d436dedd3a32b8e9bd63e",
       "bytes": 181,
-      "est_tokens": 46
+      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
+      "est_tokens": 46,
+      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::question",
+      "sha256": "64a34008cbaf71fbeb097ac4643e48364d00e2d51d6d436dedd3a32b8e9bd63e",
+      "summary": "Question",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::chosen-value",
-      "type": "doc",
-      "summary": "Chosen Value",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
       "byte_range": [
         253,
         748
       ],
-      "sha256": "2fd17f4aaad1f5eaa719f3e3d41b09fa5b530674a59a10775ac8ab5305a8ca95",
       "bytes": 495,
-      "est_tokens": 124
+      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
+      "est_tokens": 124,
+      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::chosen-value",
+      "sha256": "2fd17f4aaad1f5eaa719f3e3d41b09fa5b530674a59a10775ac8ab5305a8ca95",
+      "summary": "Chosen Value",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::approver",
-      "type": "doc",
-      "summary": "Approver",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
       "byte_range": [
         748,
         863
       ],
-      "sha256": "103168285b1d7f573980318e2b2503737d2b50e0afb9ab0a07bb77e9ad52f738",
       "bytes": 115,
-      "est_tokens": 29
+      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
+      "est_tokens": 29,
+      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::approver",
+      "sha256": "103168285b1d7f573980318e2b2503737d2b50e0afb9ab0a07bb77e9ad52f738",
+      "summary": "Approver",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::evidence",
-      "type": "doc",
-      "summary": "Evidence",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
       "byte_range": [
         863,
         1294
       ],
-      "sha256": "6f5f00bc6a8ba0e0627bafad15a6e7266e447c8cb3120042a2fcb76522f0302a",
       "bytes": 431,
-      "est_tokens": 108
+      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
+      "est_tokens": 108,
+      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::evidence",
+      "sha256": "6f5f00bc6a8ba0e0627bafad15a6e7266e447c8cb3120042a2fcb76522f0302a",
+      "summary": "Evidence",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::rationale",
-      "type": "doc",
-      "summary": "Rationale",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
       "byte_range": [
         1294,
         2414
       ],
-      "sha256": "a7648389b4570cc1035338119ed5f61a536a8a0b5642ec8251f99ecaa305ad22",
       "bytes": 1120,
-      "est_tokens": 280
+      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
+      "est_tokens": 280,
+      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::rationale",
+      "sha256": "a7648389b4570cc1035338119ed5f61a536a8a0b5642ec8251f99ecaa305ad22",
+      "summary": "Rationale",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::constraint-on-future-specs",
-      "type": "doc",
-      "summary": "Constraint on Future Specs",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
       "byte_range": [
         2414,
         2875
       ],
-      "sha256": "d7a7a0fe618a7f8b4e8dfcaf34f529b1603b3ef7ddbecf62ec91c624ba78d91e",
       "bytes": 461,
-      "est_tokens": 116
+      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
+      "est_tokens": 116,
+      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::constraint-on-future-specs",
+      "sha256": "d7a7a0fe618a7f8b4e8dfcaf34f529b1603b3ef7ddbecf62ec91c624ba78d91e",
+      "summary": "Constraint on Future Specs",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::links",
-      "type": "doc",
-      "summary": "Links",
-      "tags": [],
-      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
       "byte_range": [
         2875,
         3181
       ],
-      "sha256": "19e686c88b3927b96a40bc877c88c647719ab1dfbf3ad6263ed9a5953fafde45",
       "bytes": 306,
-      "est_tokens": 77
+      "content_ref": "docs/contracts/decisions/Q6-profile-provisioning.md",
+      "est_tokens": 77,
+      "id": "docs/contracts/decisions/Q6-profile-provisioning.md::links",
+      "sha256": "19e686c88b3927b96a40bc877c88c647719ab1dfbf3ad6263ed9a5953fafde45",
+      "summary": "Links",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/quarantine.md::quarantine-ledger-broken-skills",
-      "type": "doc",
-      "summary": "Quarantine Ledger — Broken Skills",
+      "byte_range": [
+        0,
+        275
+      ],
+      "bytes": 275,
+      "content_ref": "docs/integration/harness-contract.md",
+      "est_tokens": 69,
+      "id": "docs/integration/harness-contract.md::harness-adapter-contract",
+      "sha256": "c9916dfdab0c8c3c92cb510c1150dbf252b7c4c39b48bab3acbf28345317bc1c",
+      "summary": "Harness-Adapter Contract",
       "tags": [],
-      "content_ref": "docs/operations/quarantine.md",
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        275,
+        864
+      ],
+      "bytes": 589,
+      "content_ref": "docs/integration/harness-contract.md",
+      "est_tokens": 148,
+      "id": "docs/integration/harness-contract.md::read-order",
+      "sha256": "ff63242401276696ec6ff91736d35d24eda5efb4ea4557eafab5e4c97159607b",
+      "summary": "Read Order",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        864,
+        1566
+      ],
+      "bytes": 702,
+      "content_ref": "docs/integration/harness-contract.md",
+      "est_tokens": 176,
+      "id": "docs/integration/harness-contract.md::invariants",
+      "sha256": "ea6fd14eb3c4382a1fffe4765afa6ae320bd1e225087b66cecfe6b4ffc0da7d2",
+      "summary": "Invariants",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        1566,
+        2055
+      ],
+      "bytes": 489,
+      "content_ref": "docs/integration/harness-contract.md",
+      "est_tokens": 123,
+      "id": "docs/integration/harness-contract.md::what-a-harness-may-assume",
+      "sha256": "b3880ba01bdbd42e3a49b6921139067d2be8537c0328c4b8c5bbd82f50ee9d0e",
+      "summary": "What a Harness May Assume",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        2055,
+        2616
+      ],
+      "bytes": 561,
+      "content_ref": "docs/integration/harness-contract.md",
+      "est_tokens": 141,
+      "id": "docs/integration/harness-contract.md::what-a-harness-must-not-assume",
+      "sha256": "3aff44f86375c788f1c37f6495321ed574dd60fbf811546611719e7b062d6d57",
+      "summary": "What a Harness Must NOT Assume",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        2616,
+        2853
+      ],
+      "bytes": 237,
+      "content_ref": "docs/integration/harness-contract.md",
+      "est_tokens": 60,
+      "id": "docs/integration/harness-contract.md::contract-version",
+      "sha256": "458138a9cd16d02ebecef0ebe1cea429e885abb86847a15af8292f3ecacb591f",
+      "summary": "Contract Version",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        2853,
+        3062
+      ],
+      "bytes": 209,
+      "content_ref": "docs/integration/harness-contract.md",
+      "est_tokens": 53,
+      "id": "docs/integration/harness-contract.md::golden-files",
+      "sha256": "e3a5f81727a65b7f5f1c29ddfa2836cad10bcdd9579ff102b99ecc9f4d4331d2",
+      "summary": "Golden Files",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        3062,
+        3268
+      ],
+      "bytes": 206,
+      "content_ref": "docs/integration/harness-contract.md",
+      "est_tokens": 52,
+      "id": "docs/integration/harness-contract.md::reference-adapter",
+      "sha256": "13849bc736d7d663dd7388c986bd5c4b36c688417799bf89a9f2abee6a190015",
+      "summary": "Reference Adapter",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        3268,
+        3532
+      ],
+      "bytes": 264,
+      "content_ref": "docs/integration/harness-contract.md",
+      "est_tokens": 66,
+      "id": "docs/integration/harness-contract.md::links",
+      "sha256": "cc0229db951497e1468678b0735063102f10fa64635313913bc2fa8eeb4842cc",
+      "summary": "Links",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        0,
+        87
+      ],
+      "bytes": 87,
+      "content_ref": "docs/operations/deprecation.md",
+      "est_tokens": 22,
+      "id": "docs/operations/deprecation.md::deprecation-policy",
+      "sha256": "5bd20bad0e2e5a4dbaa512598d2b931830e9cbf5482a7fac0ec79d7bd024467f",
+      "summary": "Deprecation Policy",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        87,
+        428
+      ],
+      "bytes": 341,
+      "content_ref": "docs/operations/deprecation.md",
+      "est_tokens": 86,
+      "id": "docs/operations/deprecation.md::tier-progression-to-quarantine",
+      "sha256": "fd2677d14f1d787498cc563ecb82c5d62e765feae9e67ded3486dcd69dbe0ca8",
+      "summary": "Tier Progression to Quarantine",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        428,
+        872
+      ],
+      "bytes": 444,
+      "content_ref": "docs/operations/deprecation.md",
+      "est_tokens": 111,
+      "id": "docs/operations/deprecation.md::deprecation-process",
+      "sha256": "ec113a852b62b54557cf4a270cbede990b17f58829bccc956d2ae4adc0661e64",
+      "summary": "Deprecation Process",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        872,
+        1107
+      ],
+      "bytes": 235,
+      "content_ref": "docs/operations/deprecation.md",
+      "est_tokens": 59,
+      "id": "docs/operations/deprecation.md::profile-deprecation",
+      "sha256": "cb8b57273efc08a42dda2f628c800d81ea16997171568793514215827b95ad99",
+      "summary": "Profile Deprecation",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        1107,
+        1422
+      ],
+      "bytes": 315,
+      "content_ref": "docs/operations/deprecation.md",
+      "est_tokens": 79,
+      "id": "docs/operations/deprecation.md::what-breaks",
+      "sha256": "b4663f8b975756c469c1a7a2173e325f5c073723dced16a7384f7715498e9e99",
+      "summary": "What Breaks",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        1422,
+        1859
+      ],
+      "bytes": 437,
+      "content_ref": "docs/operations/deprecation.md",
+      "est_tokens": 110,
+      "id": "docs/operations/deprecation.md::links",
+      "sha256": "e9a3c1f854bfb99dc4864cb7f1455560505b4d61a4d79982b0f77589aa20dc3b",
+      "summary": "Links",
+      "tags": [],
+      "type": "doc"
+    },
+    {
       "byte_range": [
         0,
         313
       ],
-      "sha256": "f325a331fa8ecc70005393bd768e03d135dcd99a16cfb6ab297e0ce011931a8c",
       "bytes": 313,
-      "est_tokens": 79
+      "content_ref": "docs/operations/quarantine.md",
+      "est_tokens": 79,
+      "id": "docs/operations/quarantine.md::quarantine-ledger-broken-skills",
+      "sha256": "f325a331fa8ecc70005393bd768e03d135dcd99a16cfb6ab297e0ce011931a8c",
+      "summary": "Quarantine Ledger — Broken Skills",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/quarantine.md::quarantine-registry",
-      "type": "doc",
-      "summary": "Quarantine Registry",
-      "tags": [],
-      "content_ref": "docs/operations/quarantine.md",
       "byte_range": [
         313,
         674
       ],
-      "sha256": "39efc9fde3517b27ac6143bb10152e6e3fefd9a8189bb730a4f9c49f9cb9f081",
       "bytes": 361,
-      "est_tokens": 91
+      "content_ref": "docs/operations/quarantine.md",
+      "est_tokens": 91,
+      "id": "docs/operations/quarantine.md::quarantine-registry",
+      "sha256": "39efc9fde3517b27ac6143bb10152e6e3fefd9a8189bb730a4f9c49f9cb9f081",
+      "summary": "Quarantine Registry",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/quarantine.md::intake-process",
-      "type": "doc",
-      "summary": "Intake Process",
-      "tags": [],
-      "content_ref": "docs/operations/quarantine.md",
       "byte_range": [
         674,
         1015
       ],
-      "sha256": "0cb4c14ba9582cfb75b8353422c80028b1b6fc212d40199c6860039b4172f9f9",
       "bytes": 341,
-      "est_tokens": 86
+      "content_ref": "docs/operations/quarantine.md",
+      "est_tokens": 86,
+      "id": "docs/operations/quarantine.md::intake-process",
+      "sha256": "0cb4c14ba9582cfb75b8353422c80028b1b6fc212d40199c6860039b4172f9f9",
+      "summary": "Intake Process",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/quarantine.md::review-process",
-      "type": "doc",
-      "summary": "Review Process",
-      "tags": [],
-      "content_ref": "docs/operations/quarantine.md",
       "byte_range": [
         1015,
         1367
       ],
-      "sha256": "751b7d19f7b64d432d9dd6ba321d42c0d078ca0962472e3917f3d5fa023128e8",
       "bytes": 352,
-      "est_tokens": 88
+      "content_ref": "docs/operations/quarantine.md",
+      "est_tokens": 88,
+      "id": "docs/operations/quarantine.md::review-process",
+      "sha256": "751b7d19f7b64d432d9dd6ba321d42c0d078ca0962472e3917f3d5fa023128e8",
+      "summary": "Review Process",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/quarantine.md::un-quarantine-process",
-      "type": "doc",
-      "summary": "Un-Quarantine Process",
-      "tags": [],
-      "content_ref": "docs/operations/quarantine.md",
       "byte_range": [
         1367,
         1692
       ],
-      "sha256": "70daeb1e38fa934811b475845103231fc7c24c7db031ab738cee50bc9048266c",
       "bytes": 325,
-      "est_tokens": 82
+      "content_ref": "docs/operations/quarantine.md",
+      "est_tokens": 82,
+      "id": "docs/operations/quarantine.md::un-quarantine-process",
+      "sha256": "70daeb1e38fa934811b475845103231fc7c24c7db031ab738cee50bc9048266c",
+      "summary": "Un-Quarantine Process",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/quarantine.md::validator-check",
-      "type": "doc",
-      "summary": "Validator Check",
-      "tags": [],
-      "content_ref": "docs/operations/quarantine.md",
       "byte_range": [
         1692,
         1937
       ],
-      "sha256": "7b24c48097fa2f359ac18515bdcf388e5005377d854118f5ff00c2176228c457",
       "bytes": 245,
-      "est_tokens": 62
+      "content_ref": "docs/operations/quarantine.md",
+      "est_tokens": 62,
+      "id": "docs/operations/quarantine.md::validator-check",
+      "sha256": "7b24c48097fa2f359ac18515bdcf388e5005377d854118f5ff00c2176228c457",
+      "summary": "Validator Check",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/quarantine.md::links",
-      "type": "doc",
-      "summary": "Links",
-      "tags": [],
-      "content_ref": "docs/operations/quarantine.md",
       "byte_range": [
         1937,
         2276
       ],
-      "sha256": "e8f2a9b4f462c4fd088a7b693ff1ed9683af7ae3363996fd51e67594b04b3c04",
       "bytes": 339,
-      "est_tokens": 85
+      "content_ref": "docs/operations/quarantine.md",
+      "est_tokens": 85,
+      "id": "docs/operations/quarantine.md::links",
+      "sha256": "e8f2a9b4f462c4fd088a7b693ff1ed9683af7ae3363996fd51e67594b04b3c04",
+      "summary": "Links",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/secrets.md::secret-handling-and-key-rotation",
-      "type": "doc",
-      "summary": "Secret Handling and Key Rotation",
-      "tags": [],
-      "content_ref": "docs/operations/secrets.md",
       "byte_range": [
         0,
         138
       ],
-      "sha256": "864a60ea95a3d142f28c9090dc102f0b7774d4193a3f9a04dea23e42344e2b2b",
       "bytes": 138,
-      "est_tokens": 35
+      "content_ref": "docs/operations/secrets.md",
+      "est_tokens": 35,
+      "id": "docs/operations/secrets.md::secret-handling-and-key-rotation",
+      "sha256": "864a60ea95a3d142f28c9090dc102f0b7774d4193a3f9a04dea23e42344e2b2b",
+      "summary": "Secret Handling and Key Rotation",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/secrets.md::keys",
-      "type": "doc",
-      "summary": "Keys",
-      "tags": [],
-      "content_ref": "docs/operations/secrets.md",
       "byte_range": [
         138,
         474
       ],
-      "sha256": "a6b687a5ff999d67f35ad3d125deb882fae076e71c8c0329e777f24c92b7b09f",
       "bytes": 336,
-      "est_tokens": 84
+      "content_ref": "docs/operations/secrets.md",
+      "est_tokens": 84,
+      "id": "docs/operations/secrets.md::keys",
+      "sha256": "a6b687a5ff999d67f35ad3d125deb882fae076e71c8c0329e777f24c92b7b09f",
+      "summary": "Keys",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/secrets.md::storage",
-      "type": "doc",
-      "summary": "Storage",
-      "tags": [],
-      "content_ref": "docs/operations/secrets.md",
       "byte_range": [
         474,
         703
       ],
-      "sha256": "c5bb81619c898f1034ac086a4324699021c871c8ac19566bd967507b4d3d172b",
       "bytes": 229,
-      "est_tokens": 58
+      "content_ref": "docs/operations/secrets.md",
+      "est_tokens": 58,
+      "id": "docs/operations/secrets.md::storage",
+      "sha256": "c5bb81619c898f1034ac086a4324699021c871c8ac19566bd967507b4d3d172b",
+      "summary": "Storage",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/secrets.md::rotation-procedure",
-      "type": "doc",
-      "summary": "Rotation Procedure",
-      "tags": [],
-      "content_ref": "docs/operations/secrets.md",
       "byte_range": [
         703,
         1153
       ],
-      "sha256": "0062a19b273506172cf96382e083a659c58f8498d8ea43741924793a5fc123fe",
       "bytes": 450,
-      "est_tokens": 113
+      "content_ref": "docs/operations/secrets.md",
+      "est_tokens": 113,
+      "id": "docs/operations/secrets.md::rotation-procedure",
+      "sha256": "0062a19b273506172cf96382e083a659c58f8498d8ea43741924793a5fc123fe",
+      "summary": "Rotation Procedure",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/secrets.md::key-leak-response",
-      "type": "doc",
-      "summary": "Key Leak Response",
-      "tags": [],
-      "content_ref": "docs/operations/secrets.md",
       "byte_range": [
         1153,
         1535
       ],
-      "sha256": "8cde17ed1fd73cf0faaf0932bfddf50ff14197a60c3c077048ac1af423b20ae8",
       "bytes": 382,
-      "est_tokens": 96
+      "content_ref": "docs/operations/secrets.md",
+      "est_tokens": 96,
+      "id": "docs/operations/secrets.md::key-leak-response",
+      "sha256": "8cde17ed1fd73cf0faaf0932bfddf50ff14197a60c3c077048ac1af423b20ae8",
+      "summary": "Key Leak Response",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/secrets.md::example-env-do-not-commit",
-      "type": "doc",
-      "summary": "Example `.env` (do not commit)",
-      "tags": [],
-      "content_ref": "docs/operations/secrets.md",
       "byte_range": [
         1535,
         1574
       ],
-      "sha256": "18763a8af88675343cacd9d459c409afdf914ed30a9ad3dc8c25102d98e97424",
       "bytes": 39,
-      "est_tokens": 10
+      "content_ref": "docs/operations/secrets.md",
+      "est_tokens": 10,
+      "id": "docs/operations/secrets.md::example-env-do-not-commit",
+      "sha256": "18763a8af88675343cacd9d459c409afdf914ed30a9ad3dc8c25102d98e97424",
+      "summary": "Example `.env` (do not commit)",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/secrets.md::agent-env-local-only-never-commit",
-      "type": "doc",
-      "summary": ".agent/.env — local only, never commit",
-      "tags": [],
-      "content_ref": "docs/operations/secrets.md",
       "byte_range": [
         1574,
         1655
       ],
-      "sha256": "a7b93618a8932f2677bb5a2220dc492a45359097cd6a0f7ae036b454b16f37ce",
       "bytes": 81,
-      "est_tokens": 21
+      "content_ref": "docs/operations/secrets.md",
+      "est_tokens": 21,
+      "id": "docs/operations/secrets.md::agent-env-local-only-never-commit",
+      "sha256": "a7b93618a8932f2677bb5a2220dc492a45359097cd6a0f7ae036b454b16f37ce",
+      "summary": ".agent/.env — local only, never commit",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/secrets.md::links",
-      "type": "doc",
-      "summary": "Links",
-      "tags": [],
-      "content_ref": "docs/operations/secrets.md",
       "byte_range": [
         1655,
         1907
       ],
-      "sha256": "b6009b66bbe4875d436ed6fc04ddfcd0d5eab21931461bf7092ba4eb61bf4e53",
       "bytes": 252,
-      "est_tokens": 63
+      "content_ref": "docs/operations/secrets.md",
+      "est_tokens": 63,
+      "id": "docs/operations/secrets.md::links",
+      "sha256": "b6009b66bbe4875d436ed6fc04ddfcd0d5eab21931461bf7092ba4eb61bf4e53",
+      "summary": "Links",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/starter-set.md::starter-skill-set-expansion-guide",
-      "type": "doc",
-      "summary": "Starter Skill Set — Expansion Guide",
+      "byte_range": [
+        0,
+        132
+      ],
+      "bytes": 132,
+      "content_ref": "docs/operations/skill-lifecycle.md",
+      "est_tokens": 33,
+      "id": "docs/operations/skill-lifecycle.md::skill-lifecycle",
+      "sha256": "b93aac9302e4545e22b5b53d3fb220d248618efdfd7cc719770d7a0d12efde48",
+      "summary": "Skill Lifecycle",
       "tags": [],
-      "content_ref": "docs/operations/starter-set.md",
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        132,
+        495
+      ],
+      "bytes": 363,
+      "content_ref": "docs/operations/skill-lifecycle.md",
+      "est_tokens": 91,
+      "id": "docs/operations/skill-lifecycle.md::tiers",
+      "sha256": "f45a871fd3dbe82bbf82ff566dee2fa26be2b9247cafd40d5fedfeb69a8cf89d",
+      "summary": "Tiers",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        495,
+        783
+      ],
+      "bytes": 288,
+      "content_ref": "docs/operations/skill-lifecycle.md",
+      "est_tokens": 72,
+      "id": "docs/operations/skill-lifecycle.md::review-cadence",
+      "sha256": "0ef20070c514a2d240041823a607a2056b8cf8018c1024cfe8daa3a737062e66",
+      "summary": "Review Cadence",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        783,
+        1308
+      ],
+      "bytes": 525,
+      "content_ref": "docs/operations/skill-lifecycle.md",
+      "est_tokens": 132,
+      "id": "docs/operations/skill-lifecycle.md::promotion-demotion",
+      "sha256": "519d6a81782b8faba0ec3c4b303dc556f350fe76c3e07195f95314a6f840d1c6",
+      "summary": "Promotion / Demotion",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        1308,
+        1557
+      ],
+      "bytes": 249,
+      "content_ref": "docs/operations/skill-lifecycle.md",
+      "est_tokens": 63,
+      "id": "docs/operations/skill-lifecycle.md::stale-skill-detection",
+      "sha256": "13eda1a859a588064cd226054ff9c30001554d17b80aa566ed5e4a64f7daa7ee",
+      "summary": "Stale Skill Detection",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        1557,
+        1948
+      ],
+      "bytes": 391,
+      "content_ref": "docs/operations/skill-lifecycle.md",
+      "est_tokens": 98,
+      "id": "docs/operations/skill-lifecycle.md::tools",
+      "sha256": "7314d6569b5da1c955d7ffd1e6588ee72e27c9c4b9636e59f398fae9108a7061",
+      "summary": "Tools",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        1948,
+        2231
+      ],
+      "bytes": 283,
+      "content_ref": "docs/operations/skill-lifecycle.md",
+      "est_tokens": 71,
+      "id": "docs/operations/skill-lifecycle.md::adding-a-new-skill",
+      "sha256": "d4ecbc49153a68e8853e2e1b648c7a86aec8f874b14f96a3355ffa9a2eb76705",
+      "summary": "Adding a New Skill",
+      "tags": [],
+      "type": "doc"
+    },
+    {
       "byte_range": [
         0,
         224
       ],
-      "sha256": "31d7066df96b9f000cd2d1ca418a67c069dd065984eb6e76fd1dadb55c60a924",
       "bytes": 224,
-      "est_tokens": 56
+      "content_ref": "docs/operations/starter-set.md",
+      "est_tokens": 56,
+      "id": "docs/operations/starter-set.md::starter-skill-set-expansion-guide",
+      "sha256": "31d7066df96b9f000cd2d1ca418a67c069dd065984eb6e76fd1dadb55c60a924",
+      "summary": "Starter Skill Set — Expansion Guide",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/starter-set.md::starter-profile",
-      "type": "doc",
-      "summary": "Starter Profile",
-      "tags": [],
-      "content_ref": "docs/operations/starter-set.md",
       "byte_range": [
         224,
         1273
       ],
-      "sha256": "deff21a8c546f1d957d8b9e8a318f5ceb80e6c118e4db80fb7702865d2b8bba9",
       "bytes": 1049,
-      "est_tokens": 263
+      "content_ref": "docs/operations/starter-set.md",
+      "est_tokens": 263,
+      "id": "docs/operations/starter-set.md::starter-profile",
+      "sha256": "deff21a8c546f1d957d8b9e8a318f5ceb80e6c118e4db80fb7702865d2b8bba9",
+      "summary": "Starter Profile",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/starter-set.md::expansion-path-starter-full-library",
-      "type": "doc",
-      "summary": "Expansion Path: Starter → Full Library",
-      "tags": [],
-      "content_ref": "docs/operations/starter-set.md",
       "byte_range": [
         1273,
         1409
       ],
-      "sha256": "e965c00b75a0403b28b24465c8cce6ec824fc63919752209ecc4c5bea5f49b43",
       "bytes": 136,
-      "est_tokens": 34
+      "content_ref": "docs/operations/starter-set.md",
+      "est_tokens": 34,
+      "id": "docs/operations/starter-set.md::expansion-path-starter-full-library",
+      "sha256": "e965c00b75a0403b28b24465c8cce6ec824fc63919752209ecc4c5bea5f49b43",
+      "summary": "Expansion Path: Starter → Full Library",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/starter-set.md::step-1-review-available-skills",
-      "type": "doc",
-      "summary": "Step 1 — Review Available Skills",
-      "tags": [],
-      "content_ref": "docs/operations/starter-set.md",
       "byte_range": [
         1409,
         1603
       ],
-      "sha256": "2a534203bf5775f973704cb07dd2da4c6c97ff0cf52c97cae4bbf90a164683a8",
       "bytes": 194,
-      "est_tokens": 49
+      "content_ref": "docs/operations/starter-set.md",
+      "est_tokens": 49,
+      "id": "docs/operations/starter-set.md::step-1-review-available-skills",
+      "sha256": "2a534203bf5775f973704cb07dd2da4c6c97ff0cf52c97cae4bbf90a164683a8",
+      "summary": "Step 1 — Review Available Skills",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/starter-set.md::step-2-select-additional-skills",
-      "type": "doc",
-      "summary": "Step 2 — Select Additional Skills",
-      "tags": [],
-      "content_ref": "docs/operations/starter-set.md",
       "byte_range": [
         1603,
         1785
       ],
-      "sha256": "70568366febf064a12e2bd9211d791f01e4b3ed6b77a8ed3b4c0331b554a17d8",
       "bytes": 182,
-      "est_tokens": 46
+      "content_ref": "docs/operations/starter-set.md",
+      "est_tokens": 46,
+      "id": "docs/operations/starter-set.md::step-2-select-additional-skills",
+      "sha256": "70568366febf064a12e2bd9211d791f01e4b3ed6b77a8ed3b4c0331b554a17d8",
+      "summary": "Step 2 — Select Additional Skills",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/starter-set.md::step-3-edit-a-profile",
-      "type": "doc",
-      "summary": "Step 3 — Edit a Profile",
-      "tags": [],
-      "content_ref": "docs/operations/starter-set.md",
       "byte_range": [
         1785,
         1954
       ],
-      "sha256": "0bba7c4da910980edcdfa54895a00bd234b43656a8bb0aebacab6009f54a0976",
       "bytes": 169,
-      "est_tokens": 43
+      "content_ref": "docs/operations/starter-set.md",
+      "est_tokens": 43,
+      "id": "docs/operations/starter-set.md::step-3-edit-a-profile",
+      "sha256": "0bba7c4da910980edcdfa54895a00bd234b43656a8bb0aebacab6009f54a0976",
+      "summary": "Step 3 — Edit a Profile",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/starter-set.md::step-4-provision",
-      "type": "doc",
-      "summary": "Step 4 — Provision",
-      "tags": [],
-      "content_ref": "docs/operations/starter-set.md",
       "byte_range": [
         1954,
         2087
       ],
-      "sha256": "4fd32842c7a27aa2123a3aac6ef0ae76fd250ed9033714d8970b3e677ef87ad0",
       "bytes": 133,
-      "est_tokens": 34
+      "content_ref": "docs/operations/starter-set.md",
+      "est_tokens": 34,
+      "id": "docs/operations/starter-set.md::step-4-provision",
+      "sha256": "4fd32842c7a27aa2123a3aac6ef0ae76fd250ed9033714d8970b3e677ef87ad0",
+      "summary": "Step 4 — Provision",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/starter-set.md::step-5-verify",
-      "type": "doc",
-      "summary": "Step 5 — Verify",
-      "tags": [],
-      "content_ref": "docs/operations/starter-set.md",
       "byte_range": [
         2087,
         2143
       ],
-      "sha256": "8b4ea3225e92651301b49ff08dec226fedff6023a9f4a8370584e513b68f0dc6",
       "bytes": 56,
-      "est_tokens": 14
+      "content_ref": "docs/operations/starter-set.md",
+      "est_tokens": 14,
+      "id": "docs/operations/starter-set.md::step-5-verify",
+      "sha256": "8b4ea3225e92651301b49ff08dec226fedff6023a9f4a8370584e513b68f0dc6",
+      "summary": "Step 5 — Verify",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/starter-set.md::provision-one-skill-example",
-      "type": "doc",
-      "summary": "\"Provision One Skill\" Example",
-      "tags": [],
-      "content_ref": "docs/operations/starter-set.md",
       "byte_range": [
         2143,
         2185
       ],
-      "sha256": "3964f6efe909c0d5d15dad97ca3c8b341c7428c9428423704d28085677e77726",
       "bytes": 42,
-      "est_tokens": 11
+      "content_ref": "docs/operations/starter-set.md",
+      "est_tokens": 11,
+      "id": "docs/operations/starter-set.md::provision-one-skill-example",
+      "sha256": "3964f6efe909c0d5d15dad97ca3c8b341c7428c9428423704d28085677e77726",
+      "summary": "\"Provision One Skill\" Example",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/starter-set.md::add-a-single-skill-to-an-existing-profile",
-      "type": "doc",
-      "summary": "Add a single skill to an existing profile",
-      "tags": [],
-      "content_ref": "docs/operations/starter-set.md",
       "byte_range": [
         2185,
         2229
       ],
-      "sha256": "5b1498b21d60ff9e29c20b478e4bf92028c5d8c2197da8b7968e2f341d2dbc31",
       "bytes": 44,
-      "est_tokens": 11
+      "content_ref": "docs/operations/starter-set.md",
+      "est_tokens": 11,
+      "id": "docs/operations/starter-set.md::add-a-single-skill-to-an-existing-profile",
+      "sha256": "5b1498b21d60ff9e29c20b478e4bf92028c5d8c2197da8b7968e2f341d2dbc31",
+      "summary": "Add a single skill to an existing profile",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/starter-set.md::edit-agent-profiles-conceptualizer-md-frontmatter-add-skill-name",
-      "type": "doc",
-      "summary": "Edit .agent/profiles/conceptualizer.md frontmatter, add skill name",
-      "tags": [],
-      "content_ref": "docs/operations/starter-set.md",
       "byte_range": [
         2229,
         2397
       ],
-      "sha256": "97da5bc1ca039940a3c4a2ab39b3fafd864f3a854ae39956fb06a960265a1264",
       "bytes": 168,
-      "est_tokens": 42
+      "content_ref": "docs/operations/starter-set.md",
+      "est_tokens": 42,
+      "id": "docs/operations/starter-set.md::edit-agent-profiles-conceptualizer-md-frontmatter-add-skill-name",
+      "sha256": "97da5bc1ca039940a3c4a2ab39b3fafd864f3a854ae39956fb06a960265a1264",
+      "summary": "Edit .agent/profiles/conceptualizer.md frontmatter, add skill name",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/starter-set.md::what-stays",
-      "type": "doc",
-      "summary": "What Stays",
-      "tags": [],
-      "content_ref": "docs/operations/starter-set.md",
       "byte_range": [
         2397,
         2653
       ],
-      "sha256": "9ac3bb0cf653de5fba120b2d519448499ee549ca497bd57e3336800794682bcd",
       "bytes": 256,
-      "est_tokens": 64
+      "content_ref": "docs/operations/starter-set.md",
+      "est_tokens": 64,
+      "id": "docs/operations/starter-set.md::what-stays",
+      "sha256": "9ac3bb0cf653de5fba120b2d519448499ee549ca497bd57e3336800794682bcd",
+      "summary": "What Stays",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/operations/starter-set.md::what-changes",
-      "type": "doc",
-      "summary": "What Changes",
-      "tags": [],
-      "content_ref": "docs/operations/starter-set.md",
       "byte_range": [
         2653,
         2990
       ],
-      "sha256": "1d46289b2b6ebf223774364c55d79c7f866690494d4a1a3bcdd5e5036e45be00",
       "bytes": 337,
-      "est_tokens": 85
+      "content_ref": "docs/operations/starter-set.md",
+      "est_tokens": 85,
+      "id": "docs/operations/starter-set.md::what-changes",
+      "sha256": "1d46289b2b6ebf223774364c55d79c7f866690494d4a1a3bcdd5e5036e45be00",
+      "summary": "What Changes",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/resources/README.md::resources-skills-archive-provenance",
-      "type": "doc",
-      "summary": "Resources — Skills Archive Provenance",
-      "tags": [],
-      "content_ref": "docs/resources/README.md",
       "byte_range": [
         0,
         452
       ],
-      "sha256": "f0beb590588a4c41d6a4992a7a34c8b06bcab8afd402392bae7286d1aeeed6f9",
       "bytes": 452,
-      "est_tokens": 113
+      "content_ref": "docs/resources/README.md",
+      "est_tokens": 113,
+      "id": "docs/resources/README.md::resources-skills-archive-provenance",
+      "sha256": "f0beb590588a4c41d6a4992a7a34c8b06bcab8afd402392bae7286d1aeeed6f9",
+      "summary": "Resources — Skills Archive Provenance",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/resources/README.md::provenance",
-      "type": "doc",
-      "summary": "Provenance",
-      "tags": [],
-      "content_ref": "docs/resources/README.md",
       "byte_range": [
         452,
         2490
       ],
-      "sha256": "3e89dc3fea9a96d723c547709c54cecc2f5dfe49d79af47316369d3044943c4f",
       "bytes": 2038,
-      "est_tokens": 510
+      "content_ref": "docs/resources/README.md",
+      "est_tokens": 510,
+      "id": "docs/resources/README.md::provenance",
+      "sha256": "3e89dc3fea9a96d723c547709c54cecc2f5dfe49d79af47316369d3044943c4f",
+      "summary": "Provenance",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/resources/README.md::how-to-use-the-master-library",
-      "type": "doc",
-      "summary": "How to use the master library",
-      "tags": [],
-      "content_ref": "docs/resources/README.md",
       "byte_range": [
         2490,
         3064
       ],
-      "sha256": "07ec95fcd7f1b3f4e804402a0b24a92db571cb0dbc246ac3dcb49b06fdcbeb20",
       "bytes": 574,
-      "est_tokens": 144
+      "content_ref": "docs/resources/README.md",
+      "est_tokens": 144,
+      "id": "docs/resources/README.md::how-to-use-the-master-library",
+      "sha256": "07ec95fcd7f1b3f4e804402a0b24a92db571cb0dbc246ac3dcb49b06fdcbeb20",
+      "summary": "How to use the master library",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/resources/README.md::buckets-rough-size",
-      "type": "doc",
-      "summary": "Buckets (rough size)",
-      "tags": [],
-      "content_ref": "docs/resources/README.md",
       "byte_range": [
         3064,
         3439
       ],
-      "sha256": "89b3e711cf9a1187e181e32e73a2d72b9aec85f11fe376e96ce40b8b595b07e1",
       "bytes": 375,
-      "est_tokens": 94
+      "content_ref": "docs/resources/README.md",
+      "est_tokens": 94,
+      "id": "docs/resources/README.md::buckets-rough-size",
+      "sha256": "89b3e711cf9a1187e181e32e73a2d72b9aec85f11fe376e96ce40b8b595b07e1",
+      "summary": "Buckets (rough size)",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/resources/README.md::agent-layer",
-      "type": "doc",
-      "summary": "Agent layer",
-      "tags": [],
-      "content_ref": "docs/resources/README.md",
       "byte_range": [
         3439,
         3639
       ],
-      "sha256": "9741c475837a7534f127a6cfc9069c03a06f81990c2c5501b39aea97315a22ba",
       "bytes": 200,
-      "est_tokens": 50
+      "content_ref": "docs/resources/README.md",
+      "est_tokens": 50,
+      "id": "docs/resources/README.md::agent-layer",
+      "sha256": "9741c475837a7534f127a6cfc9069c03a06f81990c2c5501b39aea97315a22ba",
+      "summary": "Agent layer",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/resources/project-management.md::project-management-skills-shortlist",
-      "type": "doc",
-      "summary": "Project Management — Skills Shortlist",
-      "tags": [],
-      "content_ref": "docs/resources/project-management.md",
       "byte_range": [
         0,
         234
       ],
-      "sha256": "94dcd1ea87ec7e540dbf83010d929211c078219b91acb9207ca4dbe924d1abb0",
       "bytes": 234,
-      "est_tokens": 59
+      "content_ref": "docs/resources/project-management.md",
+      "est_tokens": 59,
+      "id": "docs/resources/project-management.md::project-management-skills-shortlist",
+      "sha256": "94dcd1ea87ec7e540dbf83010d929211c078219b91acb9207ca4dbe924d1abb0",
+      "summary": "Project Management — Skills Shortlist",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/resources/project-management.md::planning-and-execution",
-      "type": "doc",
-      "summary": "Planning and execution",
-      "tags": [],
-      "content_ref": "docs/resources/project-management.md",
       "byte_range": [
         234,
         718
       ],
-      "sha256": "5c7b75efdf4a773a71344d270abd6aa5043ac7b8c58974506e4600b5cf7f333a",
       "bytes": 484,
-      "est_tokens": 121
+      "content_ref": "docs/resources/project-management.md",
+      "est_tokens": 121,
+      "id": "docs/resources/project-management.md::planning-and-execution",
+      "sha256": "5c7b75efdf4a773a71344d270abd6aa5043ac7b8c58974506e4600b5cf7f333a",
+      "summary": "Planning and execution",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/resources/project-management.md::quality-gates-in-the-delivery-path",
-      "type": "doc",
-      "summary": "Quality gates in the delivery path",
-      "tags": [],
-      "content_ref": "docs/resources/project-management.md",
       "byte_range": [
         718,
         1071
       ],
-      "sha256": "ab3b68ac1a6739f233d207b3abfded8e74f868e1d7126eea5f7bb5d9605e605d",
       "bytes": 353,
-      "est_tokens": 89
+      "content_ref": "docs/resources/project-management.md",
+      "est_tokens": 89,
+      "id": "docs/resources/project-management.md::quality-gates-in-the-delivery-path",
+      "sha256": "ab3b68ac1a6739f233d207b3abfded8e74f868e1d7126eea5f7bb5d9605e605d",
+      "summary": "Quality gates in the delivery path",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/resources/project-management.md::relation-to-the-baselayer",
-      "type": "doc",
-      "summary": "Relation to the baselayer",
-      "tags": [],
-      "content_ref": "docs/resources/project-management.md",
       "byte_range": [
         1071,
         1614
       ],
-      "sha256": "983d443ef067c00fb8413c154c53752ec4e3203a4f47b7bf73751663f4eedb94",
       "bytes": 543,
-      "est_tokens": 136
+      "content_ref": "docs/resources/project-management.md",
+      "est_tokens": 136,
+      "id": "docs/resources/project-management.md::relation-to-the-baselayer",
+      "sha256": "983d443ef067c00fb8413c154c53752ec4e3203a4f47b7bf73751663f4eedb94",
+      "summary": "Relation to the baselayer",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/specs/README.md::specs-directory-readiness-table",
-      "type": "doc",
-      "summary": "Specs Directory — Readiness Table",
-      "tags": [],
-      "content_ref": "docs/specs/README.md",
       "byte_range": [
         0,
         230
       ],
-      "sha256": "283273d337f0ee2a7e4c944886070813756dcf69750316410e7eb97053284812",
       "bytes": 230,
-      "est_tokens": 58
+      "content_ref": "docs/specs/README.md",
+      "est_tokens": 58,
+      "id": "docs/specs/README.md::specs-directory-readiness-table",
+      "sha256": "283273d337f0ee2a7e4c944886070813756dcf69750316410e7eb97053284812",
+      "summary": "Specs Directory — Readiness Table",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/specs/README.md::readiness-status",
-      "type": "doc",
-      "summary": "Readiness Status",
-      "tags": [],
-      "content_ref": "docs/specs/README.md",
       "byte_range": [
         230,
         955
       ],
-      "sha256": "21ed301ef6228344c18406a19ec7a2365c446fa7a10998dae7e7cdd56497c8f2",
       "bytes": 725,
-      "est_tokens": 182
+      "content_ref": "docs/specs/README.md",
+      "est_tokens": 182,
+      "id": "docs/specs/README.md::readiness-status",
+      "sha256": "21ed301ef6228344c18406a19ec7a2365c446fa7a10998dae7e7cdd56497c8f2",
+      "summary": "Readiness Status",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/specs/README.md::status-definitions",
-      "type": "doc",
-      "summary": "Status Definitions",
-      "tags": [],
-      "content_ref": "docs/specs/README.md",
       "byte_range": [
         955,
         1290
       ],
-      "sha256": "a78862bd79e0825a54e814ca4e45d828d2199a392338240f3411005f542db0e7",
       "bytes": 335,
-      "est_tokens": 84
+      "content_ref": "docs/specs/README.md",
+      "est_tokens": 84,
+      "id": "docs/specs/README.md::status-definitions",
+      "sha256": "a78862bd79e0825a54e814ca4e45d828d2199a392338240f3411005f542db0e7",
+      "summary": "Status Definitions",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/specs/README.md::governance",
-      "type": "doc",
-      "summary": "Governance",
-      "tags": [],
-      "content_ref": "docs/specs/README.md",
       "byte_range": [
         1290,
         1598
       ],
-      "sha256": "7826048eab107c763347eb90a8cf86e5edac64ec881cf946edbae5ff6cb698f8",
       "bytes": 308,
-      "est_tokens": 77
+      "content_ref": "docs/specs/README.md",
+      "est_tokens": 77,
+      "id": "docs/specs/README.md::governance",
+      "sha256": "7826048eab107c763347eb90a8cf86e5edac64ec881cf946edbae5ff6cb698f8",
+      "summary": "Governance",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/specs/README.md::cross-references",
-      "type": "doc",
-      "summary": "Cross-References",
-      "tags": [],
-      "content_ref": "docs/specs/README.md",
       "byte_range": [
         1598,
         1890
       ],
-      "sha256": "150d49cee1ab8d2d852d1e4b6b65e35467791bb3b220e7ab2424130b544a4d00",
       "bytes": 292,
-      "est_tokens": 73
+      "content_ref": "docs/specs/README.md",
+      "est_tokens": 73,
+      "id": "docs/specs/README.md::cross-references",
+      "sha256": "150d49cee1ab8d2d852d1e4b6b65e35467791bb3b220e7ab2424130b544a4d00",
+      "summary": "Cross-References",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/specs/audit-persistence-spec.md::audit-persistence-specification",
-      "type": "doc",
-      "summary": "Audit Persistence Specification",
-      "tags": [],
-      "content_ref": "docs/specs/audit-persistence-spec.md",
       "byte_range": [
         0,
         35
       ],
-      "sha256": "2aef8c8852e8ae2171bd1249da4407ee15228dcf8b44cc17759ff8494d4ae0ff",
       "bytes": 35,
-      "est_tokens": 9
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "est_tokens": 9,
+      "id": "docs/specs/audit-persistence-spec.md::audit-persistence-specification",
+      "sha256": "2aef8c8852e8ae2171bd1249da4407ee15228dcf8b44cc17759ff8494d4ae0ff",
+      "summary": "Audit Persistence Specification",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/specs/audit-persistence-spec.md::overview",
-      "type": "doc",
-      "summary": "Overview",
-      "tags": [],
-      "content_ref": "docs/specs/audit-persistence-spec.md",
       "byte_range": [
         35,
         221
       ],
-      "sha256": "6dab5b722d3dab9793ad18561a2396b555907a8047b9c868a647f0f94e3eae06",
       "bytes": 186,
-      "est_tokens": 47
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "est_tokens": 47,
+      "id": "docs/specs/audit-persistence-spec.md::overview",
+      "sha256": "6dab5b722d3dab9793ad18561a2396b555907a8047b9c868a647f0f94e3eae06",
+      "summary": "Overview",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/specs/audit-persistence-spec.md::requirements",
-      "type": "doc",
-      "summary": "Requirements",
-      "tags": [],
-      "content_ref": "docs/specs/audit-persistence-spec.md",
       "byte_range": [
         221,
         238
       ],
-      "sha256": "9847786846315cd9627e8e8f8a391f46a055780253236daa667d267bb82b4365",
       "bytes": 17,
-      "est_tokens": 5
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "est_tokens": 5,
+      "id": "docs/specs/audit-persistence-spec.md::requirements",
+      "sha256": "9847786846315cd9627e8e8f8a391f46a055780253236daa667d267bb82b4365",
+      "summary": "Requirements",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/specs/audit-persistence-spec.md::functional-requirements",
-      "type": "doc",
-      "summary": "Functional Requirements",
-      "tags": [],
-      "content_ref": "docs/specs/audit-persistence-spec.md",
       "byte_range": [
         238,
         652
       ],
-      "sha256": "2438e13c3655de4d28adc5a5ff9e050052d2150193056614311022876d610aa9",
       "bytes": 414,
-      "est_tokens": 104
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "est_tokens": 104,
+      "id": "docs/specs/audit-persistence-spec.md::functional-requirements",
+      "sha256": "2438e13c3655de4d28adc5a5ff9e050052d2150193056614311022876d610aa9",
+      "summary": "Functional Requirements",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/specs/audit-persistence-spec.md::non-functional-requirements",
-      "type": "doc",
-      "summary": "Non-Functional Requirements",
-      "tags": [],
-      "content_ref": "docs/specs/audit-persistence-spec.md",
       "byte_range": [
         652,
         942
       ],
-      "sha256": "4b1e87d8ae615d1adb642e677dc2e4c80ead90cda1a0de17f671b50315be7635",
       "bytes": 290,
-      "est_tokens": 73
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "est_tokens": 73,
+      "id": "docs/specs/audit-persistence-spec.md::non-functional-requirements",
+      "sha256": "4b1e87d8ae615d1adb642e677dc2e4c80ead90cda1a0de17f671b50315be7635",
+      "summary": "Non-Functional Requirements",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/specs/audit-persistence-spec.md::data-model",
-      "type": "doc",
-      "summary": "Data Model",
-      "tags": [],
-      "content_ref": "docs/specs/audit-persistence-spec.md",
       "byte_range": [
         942,
         1353
       ],
-      "sha256": "34a787ab05407b323163790aa7eb3e742fb8e498f9fda330667bd2562bb07813",
       "bytes": 411,
-      "est_tokens": 103
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "est_tokens": 103,
+      "id": "docs/specs/audit-persistence-spec.md::data-model",
+      "sha256": "34a787ab05407b323163790aa7eb3e742fb8e498f9fda330667bd2562bb07813",
+      "summary": "Data Model",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/specs/audit-persistence-spec.md::storage-format",
-      "type": "doc",
-      "summary": "Storage Format",
-      "tags": [],
-      "content_ref": "docs/specs/audit-persistence-spec.md",
       "byte_range": [
         1353,
         1372
       ],
-      "sha256": "712d86ddb577fe593e055ee2525005acc1df7ea71c13187e9495d434c474defe",
       "bytes": 19,
-      "est_tokens": 5
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "est_tokens": 5,
+      "id": "docs/specs/audit-persistence-spec.md::storage-format",
+      "sha256": "712d86ddb577fe593e055ee2525005acc1df7ea71c13187e9495d434c474defe",
+      "summary": "Storage Format",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/specs/audit-persistence-spec.md::primary-sqlite-with-fts5",
-      "type": "doc",
-      "summary": "Primary: SQLite with FTS5",
-      "tags": [],
-      "content_ref": "docs/specs/audit-persistence-spec.md",
       "byte_range": [
         1372,
         1624
       ],
-      "sha256": "26811365ecf23392868095016934c2d489ed395f1c58f54be5df0d1ca12c37de",
       "bytes": 252,
-      "est_tokens": 63
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "est_tokens": 63,
+      "id": "docs/specs/audit-persistence-spec.md::primary-sqlite-with-fts5",
+      "sha256": "26811365ecf23392868095016934c2d489ed395f1c58f54be5df0d1ca12c37de",
+      "summary": "Primary: SQLite with FTS5",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/specs/audit-persistence-spec.md::secondary-daily-jsonl-export",
-      "type": "doc",
-      "summary": "Secondary: Daily JSONL (export)",
-      "tags": [],
-      "content_ref": "docs/specs/audit-persistence-spec.md",
       "byte_range": [
         1624,
         1759
       ],
-      "sha256": "69781f66c3e73d4e5600f88fb26f9378efb839bf263924dcec30a7743dc920ad",
       "bytes": 135,
-      "est_tokens": 34
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "est_tokens": 34,
+      "id": "docs/specs/audit-persistence-spec.md::secondary-daily-jsonl-export",
+      "sha256": "69781f66c3e73d4e5600f88fb26f9378efb839bf263924dcec30a7743dc920ad",
+      "summary": "Secondary: Daily JSONL (export)",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/specs/audit-persistence-spec.md::governance",
-      "type": "doc",
-      "summary": "Governance",
-      "tags": [],
-      "content_ref": "docs/specs/audit-persistence-spec.md",
       "byte_range": [
         1759,
         1774
       ],
-      "sha256": "5cc60db3e1d4613ba825b13d2ea29edcc9d76877005b5e94a56f2713c03131de",
       "bytes": 15,
-      "est_tokens": 4
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "est_tokens": 4,
+      "id": "docs/specs/audit-persistence-spec.md::governance",
+      "sha256": "5cc60db3e1d4613ba825b13d2ea29edcc9d76877005b5e94a56f2713c03131de",
+      "summary": "Governance",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/specs/audit-persistence-spec.md::write-path",
-      "type": "doc",
-      "summary": "Write Path",
-      "tags": [],
-      "content_ref": "docs/specs/audit-persistence-spec.md",
       "byte_range": [
         1774,
         2022
       ],
-      "sha256": "22bf7c67a602897bd4b0ce71da15e7c8754cd52efc1c37be925b551fc51d90cb",
       "bytes": 248,
-      "est_tokens": 62
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "est_tokens": 62,
+      "id": "docs/specs/audit-persistence-spec.md::write-path",
+      "sha256": "22bf7c67a602897bd4b0ce71da15e7c8754cd52efc1c37be925b551fc51d90cb",
+      "summary": "Write Path",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/specs/audit-persistence-spec.md::read-path",
-      "type": "doc",
-      "summary": "Read Path",
-      "tags": [],
-      "content_ref": "docs/specs/audit-persistence-spec.md",
       "byte_range": [
         2022,
         2221
       ],
-      "sha256": "44dba2de85336a9e468e6183563c74d396166785ce84f2f9a5998c0b2c08d594",
       "bytes": 199,
-      "est_tokens": 50
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "est_tokens": 50,
+      "id": "docs/specs/audit-persistence-spec.md::read-path",
+      "sha256": "44dba2de85336a9e468e6183563c74d396166785ce84f2f9a5998c0b2c08d594",
+      "summary": "Read Path",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/specs/audit-persistence-spec.md::access-control",
-      "type": "doc",
-      "summary": "Access Control",
-      "tags": [],
-      "content_ref": "docs/specs/audit-persistence-spec.md",
       "byte_range": [
         2221,
         2403
       ],
-      "sha256": "f32cdf1a205f98b2a4c1e4e0fcfa0d566be24325530bc2b3aad7f2cd2b174d7e",
       "bytes": 182,
-      "est_tokens": 46
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "est_tokens": 46,
+      "id": "docs/specs/audit-persistence-spec.md::access-control",
+      "sha256": "f32cdf1a205f98b2a4c1e4e0fcfa0d566be24325530bc2b3aad7f2cd2b174d7e",
+      "summary": "Access Control",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/specs/audit-persistence-spec.md::configuration",
-      "type": "doc",
-      "summary": "Configuration",
-      "tags": [],
-      "content_ref": "docs/specs/audit-persistence-spec.md",
       "byte_range": [
         2403,
         2591
       ],
-      "sha256": "9ce5acf50467a6586eb588c91569b28ad013c11b0f12a87c919f27c32dedd54f",
       "bytes": 188,
-      "est_tokens": 47
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "est_tokens": 47,
+      "id": "docs/specs/audit-persistence-spec.md::configuration",
+      "sha256": "9ce5acf50467a6586eb588c91569b28ad013c11b0f12a87c919f27c32dedd54f",
+      "summary": "Configuration",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/specs/audit-persistence-spec.md::migration-strategy",
-      "type": "doc",
-      "summary": "Migration Strategy",
-      "tags": [],
-      "content_ref": "docs/specs/audit-persistence-spec.md",
       "byte_range": [
         2591,
         2836
       ],
-      "sha256": "ee949c87d7eee82281465c389fc972e51b3edc06b4e612a19d3a08c951dded8a",
       "bytes": 245,
-      "est_tokens": 62
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "est_tokens": 62,
+      "id": "docs/specs/audit-persistence-spec.md::migration-strategy",
+      "sha256": "ee949c87d7eee82281465c389fc972e51b3edc06b4e612a19d3a08c951dded8a",
+      "summary": "Migration Strategy",
+      "tags": [],
+      "type": "doc"
     },
     {
-      "id": "docs/specs/audit-persistence-spec.md::testing",
-      "type": "doc",
-      "summary": "Testing",
-      "tags": [],
-      "content_ref": "docs/specs/audit-persistence-spec.md",
       "byte_range": [
         2836,
         3235
       ],
-      "sha256": "82e5c19b19bfb70439fff6ae9cffebfa0270720a0ff5f66989dd2968e2e98dd8",
       "bytes": 399,
-      "est_tokens": 100
+      "content_ref": "docs/specs/audit-persistence-spec.md",
+      "est_tokens": 100,
+      "id": "docs/specs/audit-persistence-spec.md::testing",
+      "sha256": "82e5c19b19bfb70439fff6ae9cffebfa0270720a0ff5f66989dd2968e2e98dd8",
+      "summary": "Testing",
+      "tags": [],
+      "type": "doc"
     }
   ],
-  "edges": [
-    {
-      "from": "docs/resources/README.md::resources-skills-archive-provenance",
-      "to": "docs/resources/project-management.md::project-management-skills-shortlist",
-      "type": "requires",
-      "note": "resources route to formatted catalogs"
-    }
-  ]
+  "version": 1
 }

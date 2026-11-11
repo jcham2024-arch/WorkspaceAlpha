@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e861171f8ed8e7a641457ca61ca4a3f52a3ec3f9ac745da65a2f7fbbafe5c835"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: title-meta-length-counter
 description: "Title & Meta Length Counter. Use when working with title and/or meta description."
+tier: "experimental"
 category: On-Page Optimization
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Title & Meta Length Counter
 
 ## Overview

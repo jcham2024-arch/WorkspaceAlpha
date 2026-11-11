@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "71fbe8cb3c094791abcf57f46e42f79e682a10c8470174c504cbee291a360e39"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ponytail-gain
 description: >
+tier: "experimental"
   Show ponytail's measured savings (code, cost, speed) from the benchmark.
   One-shot display. Use for /ponytail-gain, "what does ponytail save",
   "ponytail impact".
 ---
+
 
 # Ponytail Gain
 

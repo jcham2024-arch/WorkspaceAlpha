@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a7650980b206deca7aad5879c63e590e967a35e8e241f6aec4f8d3d941dc5748"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: related-work-writing
 description: Write Related Work sections that compare and contrast prior work with your approach. Organize by theme, cite broadly, and explain how your work differs. Use when writing or improving the Related Work section of a paper.
+tier: "experimental"
 argument-hint: [paper-draft]
 ---
+
 
 # Related Work Writing
 

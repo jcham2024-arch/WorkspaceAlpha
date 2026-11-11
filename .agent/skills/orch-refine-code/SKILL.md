@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fde1affaf44caf72428362cdd2db5f205aee90c23091f6aca22481d435a413e4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: orch-refine-code
 description: Orchestrate a behavior-preserving refactor — confirm tests are green, restructure without changing behavior, keep tests green, review, and gated commit. Use when the structure should improve but behavior must not change.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # orch-refine-code
 

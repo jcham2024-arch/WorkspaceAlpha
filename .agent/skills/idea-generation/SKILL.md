@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1d652f9c7ab8ba5904c0654f5efed0789c93951341eb97d9c9c18c75782221fe"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: idea-generation
 description: Generate novel research ideas with iterative refinement and novelty checking against literature. Score ideas on Interestingness, Feasibility, and Novelty. Use when brainstorming research directions or validating idea novelty.
+tier: "experimental"
 argument-hint: [research-area]
 ---
+
 
 # Idea Generation
 

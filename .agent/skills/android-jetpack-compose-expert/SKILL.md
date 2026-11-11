@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0157515aa6a16cf14134eee3e78eb2ee7f0ffc21d78c8b56a2742e5ac31f63da"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: android-jetpack-compose-expert
 description: "Expert guidance for building modern Android UIs with Jetpack Compose, covering state management, navigation, performance, and Material Design 3."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Android Jetpack Compose Expert
 

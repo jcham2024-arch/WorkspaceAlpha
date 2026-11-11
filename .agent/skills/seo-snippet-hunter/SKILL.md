@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bae9404952ac19e704436546c5c93c5d6d558552511019c7db198703df029c54"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-snippet-hunter
 description: Formats content to be eligible for featured snippets and SERP features. Creates snippet-optimized content blocks based on best practices. Use PROACTIVELY for question-based content.
+tier: "experimental"
 risk: none
 source: community
 date_added: '2026-02-27'
 ---
+
 
 ## Use this skill when
 

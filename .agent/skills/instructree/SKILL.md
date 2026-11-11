@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2a81326c2cd2f3da8bf77f56080f14b47bccac34791ab73ca15b968fa8c8deb9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: instructree
 description: "Map, explain, and lint repository-scoped coding-agent instructions before changing code."
+tier: "experimental"
 category: development
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: MIT
 license_source: "https://github.com/kotobuki09/instructree/blob/v0.7.0/LICENSE"
 ---
+
 
 # Instructree
 

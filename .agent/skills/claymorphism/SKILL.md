@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e5ff3ce9d135c8d31e6e0eac7f0b572b8280a4f8a0db6fbd23e95b6f1c3ac2e2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: claymorphism
 description: Web and App implementation guide for Claymorphism. Trigger when user wants soft 3D elements, rounded shapes, and a playful, tactile appearance.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Claymorphism
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5da6e226a3daa7f53dab4a475640fac9e7a9f4a243b154279bbed33923f0144b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sred-work-summary
 description: Go back through the previous year of work and create a Notion doc that groups relevant links into projects that can then be documented as SRED projects.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # SRED Work Summary
 

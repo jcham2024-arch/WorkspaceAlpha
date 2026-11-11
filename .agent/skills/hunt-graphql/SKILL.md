@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "068c75f1cbf0aa35eb17fc55c58629ba4c15430c7ba482dff94ba557df8791e6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hunt-graphql
 description: Hunting skill for graphql vulnerabilities.
+tier: "experimental"
 category: security
 risk: offensive
 source: https://github.com/elementalsouls/Claude-BugHunter
@@ -15,6 +26,7 @@ compatibility: Requires explicit written authorization for a target scope plus t
 sources: hackerone_public, github, gitlab_security
 report_count: 26
 ---
+
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.

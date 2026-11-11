@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f0e4f8f17b256236474a4b2162b03cbd17d2c5ae834c8afd5807430fc69aa1b4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: monochromatic-ui
 description: Web and App implementation guide for Monochromatic UI. Trigger when user wants a single-color palette, high elegance, and strict color discipline.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Monochromatic UI
 

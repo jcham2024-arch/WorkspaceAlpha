@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7e05fe557f072b31b904cd0ffe9934bf6ec43875c54a0c48d5587d5f59f602b0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: marlin-bed-leveling
 description: "Calibrates Marlin 2.x 3D printer firmware bed leveling: Unified Bed Leveling (UBL), Bilinear ABL, M420 S1 post-homing, Z-probe offsets, G26 mesh prints, and EEPROM slots. Trigger phrases: marlin bed leveling, ubl calibration, m420 s1, z probe offset, g29 bed level, first layer adhesion."
+tier: "experimental"
 category: development
 risk: critical
 source: community
@@ -12,6 +23,7 @@ tags: [3d-printing, marlin-firmware, gcode, hardware-calibration, fdm, additive-
 tools: [claude, cursor, gemini, windsurf]
 license: "MIT"
 ---
+
 
 # Marlin Bed Leveling: Deterministic Calibration & First-Layer Mesh Engineering
 

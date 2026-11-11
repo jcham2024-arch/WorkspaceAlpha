@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c05f28467bdcbfe2257945d9ebd09a4b7332da7f560504c2d13a7a8667c3c3f3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: weather-data-lifecycle-management
 description: "Manage ownership, retention, and cleanup of downloaded weather data across one-shot jobs, interactive viewers, caches, failures, and cancellation."
+tier: "experimental"
 category: data
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: ShianMike
 tags: [weather, data-lifecycle, cleanup, caching, desktop-apps]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Weather Data Lifecycle Management
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "255585afad50f9102029927a29f7310d1e6ae7434184d0090283345d86f1325c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: apify-generate-output-schema
 description: Generate output schemas (dataset_schema.json, output_schema.json, key_value_store_schema.json)
+tier: "experimental"
   for an Apify Actor by analyzing its source code. Use when creating or updating Actor
   output schemas.
 source_repo: apify/agent-skills
@@ -9,6 +20,7 @@ source: apify
 date_added: '2026-09-21'
 risk: critical
 ---
+
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.

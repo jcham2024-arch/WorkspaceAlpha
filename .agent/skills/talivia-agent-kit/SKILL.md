@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5f6b6efba4ec2c659c009bfd1e204cd117477a9f2187c0b162b6a2e3756828dd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: talivia-agent-kit
 description: "Set up and verify Talivia revenue analytics through MCP, with explicit confirmation for website changes and payment attribution."
+tier: "experimental"
 category: marketing
 risk: critical
 source: "https://github.com/talivia-group/agent/tree/f4ed3fc6b554ad5183a57ae13ca2a9bd5162c12a"
@@ -13,6 +24,7 @@ tools: [codex, claude]
 license: "MIT"
 license_source: "https://github.com/talivia-group/agent/blob/f4ed3fc6b554ad5183a57ae13ca2a9bd5162c12a/LICENSE"
 ---
+
 
 # Talivia Agent Kit
 

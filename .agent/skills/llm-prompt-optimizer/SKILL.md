@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7c1af52295656d467b5ecaccdb9bfa1d68dfdcd1588a116cff117da7b6d9dc17"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: llm-prompt-optimizer
 description: "Use when improving prompts for any LLM. Applies proven prompt engineering techniques to boost output quality, reduce hallucinations, and cut token usage."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-04"
 ---
+
 
 # LLM Prompt Optimizer
 

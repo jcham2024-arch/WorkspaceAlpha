@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "eac97287f4c79872ec9b214aa78c9a71213706f226f84afd06f004c663212114"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: movie-coupon
 description: "Fetch movie ticket coupons from platforms like Taopiaopiao and Maoyan. Returns coupon links and QR code images for users to redeem via WeChat."
+tier: "experimental"
 category: shopping
 risk: critical
 source: community
@@ -11,6 +22,7 @@ author: moooai
 tags: [coupons, movie, cinema, entertainment]
 tools: [claude, codex]
 ---
+
 
 # Movie Ticket Coupons (Taopiaopiao / Maoyan)
 

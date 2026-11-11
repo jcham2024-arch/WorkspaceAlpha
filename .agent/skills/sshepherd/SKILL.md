@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "37c2e68934c90e91fc5d7321c09a13b3aafc8644033c59dcd83bf4d363249b22"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sshepherd
 description: "Zero-knowledge SSH ops CLI — server health checks, docker/systemd control, log tailing, Postgres introspection, and declarative deploys, without ever exposing credentials to the agent."
+tier: "experimental"
 category: devops
 risk: critical
 source: community
@@ -21,6 +32,7 @@ plugin:
     summary: "Requires a separately installed, user-approved sshepherd executable at an explicit absolute path."
     docs: SKILL.md
 ---
+
 
 # sshepherd
 

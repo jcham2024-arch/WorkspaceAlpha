@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "395b0e67f6c8863fa06b14fb1306dff6ab989f3c3ce3ca79d6643b31863c3bb3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: broken-authentication
 description: "Identify and exploit authentication and session management vulnerabilities in web applications. Broken authentication consistently ranks in the OWASP Top 10 and can lead to account takeover, identity theft, and unauthorized access to sensitive systems."
+tier: "experimental"
 risk: offensive
 source: community
 author: zebbern
 date_added: "2026-02-27"
 ---
+
 
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.

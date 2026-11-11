@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7bd72b72b6b03751aca6a4d0468b30da4d816196972a3e1379108bcaa06ca0f0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: analyze-project
 description: Forensic root cause analyzer for Antigravity sessions. Classifies scope deltas, rework patterns, root causes, hotspots, and recommends prompt and workflow improvements.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-14"
 version: "1.0"
 tags: [analysis, diagnostics, meta, root-cause, project-health, session-review]
 ---
+
 
 # /analyze-project — Root Cause Analyst Workflow
 

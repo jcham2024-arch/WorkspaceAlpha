@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9058c4ff4d5100cb926a05a1413f891ebc39918032ae2e4f5d78b8b74e5c2bb4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: bash
 description: "Language-specific super-code guidelines for bash."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-06-16"
 ---
+
 # Bash / Shell: Idiomatic Efficiency Reference
 
 Apply only within the requested scope and current project conventions. Preserve behavior, ownership, error handling, accessibility and security; examples are independent fragments, not equivalent rewrites in every context. Verify language/library versions and run relevant checks. Required tests and user-facing progress/results take precedence over brevity rules. Do not install dependencies or delete files merely to follow these examples.

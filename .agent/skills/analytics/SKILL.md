@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "05a127b5c950d9d13a8363e82ad89d65fc1bd00819a2ac7ec39d38d3e5fdbec8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: analytics
 description: "When the user wants to set up, improve, or audit analytics tracking and measurement."
+tier: "experimental"
 risk: critical
 source: https://github.com/coreyhaines31/marketingskills/tree/main/skills/analytics
 source_repo: coreyhaines31/marketingskills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/coreyhaines31/marketingskills/blob/main/LICENSE
 ---
+
 
 # Analytics Tracking
 ## When to Use

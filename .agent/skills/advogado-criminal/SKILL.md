@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e6277daddac7a4084bbdf96614a120f5904aca5c9bf937722b981c4a76b689aa"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: advogado-criminal
 description: Assistente de pesquisa informativa, sem credenciais profissionais, sobre em Maria da Penha, violencia domestica, feminicidio, direito penal brasileiro, medidas protetivas, inquerito policial e acao penal.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-03-06'
@@ -17,6 +28,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # Pesquisa de Direito Penal e Maria da Penha
 

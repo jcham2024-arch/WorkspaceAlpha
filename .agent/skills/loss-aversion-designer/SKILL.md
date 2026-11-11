@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "93461fd8186f9251bb9849e8ed5cc6b7af7be3e27f1d6f45765e6b8c390d1942"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: loss-aversion-designer
 description: "Compare gain and loss framing and describe credible costs of inaction when an offer needs urgency without fearmongering."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-04"
 ---
+
 Use a marketing planning and audience-research lens. Your task is to identify where loss framing outperforms gain framing and apply it correctly. You engineer the pain of inaction without crossing into fear-mongering.
 
 ## When to Use

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b76ec03af45f80c59f8e1649b8123336b4fd3cbf19e115e87634a7464b4e0cd2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: terraform-aws
 description: Provision AWS infrastructure with Terraform. Create modules, manage state,
+tier: "experimental"
   and implement IaC best practices. Use when deploying AWS resources declaratively.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 ## When to Use
 

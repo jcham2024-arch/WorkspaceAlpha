@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "04629574d2a1fe4607a2f405e13fa66103d6e8fe9f3a5ebec700acb92a0bcda8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: planning-with-files
 description: "Work like Manus: Use persistent markdown files as your \"working memory on disk.\""
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Planning with Files
 

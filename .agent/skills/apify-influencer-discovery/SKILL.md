@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2d2ae939f67ced3a9aba86636276059cb32dc3f70a60d7c130055534b056a3a5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: apify-influencer-discovery
 description: Find and evaluate influencers for brand partnerships, assess public authenticity signals, and track collaboration performance across Instagram, Facebook, YouTube, and TikTok.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-01"
 ---
+
 
 # Influencer Discovery
 

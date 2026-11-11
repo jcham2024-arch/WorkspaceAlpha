@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ed94e634ee4479ee9d193280b16bb62de8645dd5baf7301af970ef66152b2498"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: phase-gated-debugging
 description: "Use when debugging any bug. Enforces a 5-phase protocol where code edits are blocked until root cause is confirmed. Prevents premature fix attempts."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-28"
 ---
+
 
 # Phase-Gated Debugging
 

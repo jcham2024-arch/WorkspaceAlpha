@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ad0a96e971ddad2211b211eee3fe06595473e4b7461aa97bed5dc7265458be92"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sops-encryption
 description: Encrypt files and configs with Mozilla SOPS.
+tier: "experimental"
 category: security
 risk: critical
 source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # SOPS Encryption
 

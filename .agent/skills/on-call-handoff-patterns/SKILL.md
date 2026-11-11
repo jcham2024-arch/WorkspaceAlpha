@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ca2e6831624303375a6874b324d89d06e2dd3f07ce45ef00d6554de7e034a1f3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: on-call-handoff-patterns
 description: "Effective patterns for on-call shift transitions, ensuring continuity, context transfer, and reliable incident response across shifts."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # On-Call Handoff Patterns
 

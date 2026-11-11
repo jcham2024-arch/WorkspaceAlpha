@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "15a763464972e7d4cbb798abcbc3996a40f83ad4cdee37e9f3ba408553ee4dcd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: recruit
 description: "Turn a job description into an evidence-linked candidate shortlist through Treg, with job-related ranking and optional authorized business contact enrichment."
+tier: "experimental"
 category: business
 risk: critical
 source: https://github.com/superdesigndev/treg
@@ -14,6 +25,7 @@ date_added: "2026-11-06"
 metadata:
   summary: Turns a job post into a ranked candidate shortlist, with the reason each person fits and a checked email and phone for each.
 ---
+
 
 # Recruit
 

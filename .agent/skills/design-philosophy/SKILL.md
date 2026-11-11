@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "620bf30d54a0309d27fe86a82908e4861b53ab827a23127f0295f0070af1d69e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: design-philosophy
 description: Visual philosophy and art-direction for frontend. Use when creating high-concept work, campaigns, or when the user asks for a visual philosophy, manifesto, or unmistakable art-like aesthetic.
+tier: "experimental"
 risk: none
 source: https://github.com/connerkward/ckw-design-skill/tree/main/design-philosophy
 source_repo: connerkward/ckw-design-skill
@@ -10,6 +21,7 @@ license: MIT
 license_source: https://github.com/connerkward/ckw-design-skill/blob/main/LICENSE
 author: Conner K Ward
 ---
+
 
 # Design philosophy
 ## When to Use

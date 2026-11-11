@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "198a3f72ba697483bcc502bc30262d5e398b2c750ae88ba6bc4d031940ddd7ed"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aas-discover
 description: "Discover AAS skills for an explicit task and compare their complete instructions without installing them."
+tier: "experimental"
 category: agent-tooling
 risk: safe
 source: self
@@ -9,6 +20,7 @@ author: Agentic Awesome Skills (AAS)
 date_added: "2026-10-02"
 tags: [aas, skills, mcp, stack-review]
 ---
+
 
 # Aas Discover
 

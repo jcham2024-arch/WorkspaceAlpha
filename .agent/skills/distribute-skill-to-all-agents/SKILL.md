@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7d5356cb47a403fb5c750574a7b57bc35bfca0db6b4f038466c91dae86af1dea"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: distribute-skill-to-all-agents
 description: "Distribute a skill across configured agent skill folders while respecting local symlink layouts."
+tier: "experimental"
 category: development
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex]
 license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 ---
+
 
 # Distribute a Skill Across All Agents
 

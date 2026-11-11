@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c833dc60142c68f007a6fee13a67f716d4e8b695c97daff07e02fc50c2700b3b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hig-components-search
 description: Apple HIG guidance for navigation-related components including search fields, page controls, and path controls.
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Apple HIG: Navigation Components
 

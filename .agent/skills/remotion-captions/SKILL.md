@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8a1cc81fbbcb22b955839e840865edaa7bd14e441e352c904c251de328f40dcc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: remotion-captions
 description: Transcribing, displaying and animating captions
+tier: "experimental"
 version: 4.0.526
 source_repo: remotion-dev/skills
 source_type: official
@@ -8,6 +19,7 @@ source: remotion-dev
 date_added: '2026-09-21'
 risk: critical
 ---
+
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.

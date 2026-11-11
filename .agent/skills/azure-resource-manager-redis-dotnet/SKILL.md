@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9346a2a0fc0af38be9e39895adc017857fd3b0b96558dbdfea5e5e7b25e6f5ac"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-resource-manager-redis-dotnet
 description: Azure Resource Manager SDK for Redis in .NET.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Azure.ResourceManager.Redis (.NET)
 

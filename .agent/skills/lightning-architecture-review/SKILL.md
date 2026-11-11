@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "692bf78c28297e39de4e55aaf61ede5b5e1b5c27657c43eae2609f5e6655b19a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: lightning-architecture-review
 description: Review Bitcoin Lightning Network protocol designs, compare channel factory approaches, and analyze Layer 2 scaling tradeoffs. Covers trust models, on-chain footprint, consensus requirements, HTLC/PTLC compatibility, liveness, and watchtower support.
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-03-03'
 ---
+
 
 ## Use this skill when
 

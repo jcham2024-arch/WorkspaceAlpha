@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ce9edcb2c33bbd5de82c183d003f93c9c19edcf110a17645a69cfe8dbde76d4b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hugging-face-trackio
 description: "Track and visualize ML training experiments with Trackio. Use when logging metrics during training (Python API), firing alerts for training diagnostics, or retrieving/analyzing logged metrics (CLI)."
+tier: "experimental"
 risk: critical
 source: https://github.com/huggingface/skills/tree/main/skills/huggingface-trackio
 source_repo: huggingface/skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: Apache-2.0
 license_source: https://github.com/huggingface/skills/blob/main/LICENSE
 ---
+
 
 # Trackio - Experiment Tracking for ML Training
 

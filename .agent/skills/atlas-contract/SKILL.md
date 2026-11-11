@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "025ee42f021040bb20f72f16b6c6c8246412bc8a3066e3f4b5d8845a4e93a50a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: atlas-contract
 description: "Goal-integrity skill. Use for backend/API/persistence, preserve/do-not-change, tests/validation, mocks, rework, multi-part requests. Emits Goal Contracts, Deviation Notices, Phase Checks, Final Audits. Skip for Q&A or trivial edits."
+tier: "experimental"
 risk: critical
 source: community
 source_repo: wede-wx/atlas
@@ -21,6 +32,7 @@ plugin:
     summary: "Reads workspace Atlas.md as untrusted project memory; keep out of plugin-safe bundles."
     docs: SKILL.md
 ---
+
 
 # Atlas Contract v6.2
 

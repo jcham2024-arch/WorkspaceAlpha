@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9e69a007a125d63bcd1f29aee9d4d35f12b61ded93134a7a2daff1bc0f1277bc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: expo-tailwind-setup
 description: Set up Tailwind CSS v4 in Expo with react-native-css and NativeWind v5 for universal styling
+tier: "experimental"
 risk: critical
 source: https://github.com/expo/skills/tree/main/plugins/expo/skills/expo-tailwind-setup
 source_repo: expo/skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/expo/skills/blob/main/LICENSE
 ---
+
 
 # Tailwind CSS Setup for Expo with react-native-css
 ## When to Use

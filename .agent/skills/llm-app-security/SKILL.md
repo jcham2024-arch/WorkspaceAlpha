@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "58a385ea6a6ef7aaf0f2282763ea172683807b47dfedf4cea367add9ff42f234"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: llm-app-security
 description: Secure LLM-powered applications with input validation, output controls,
+tier: "experimental"
   tenant isolation, and abuse prevention.
 category: security
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '2.0'
 ---
+
 
 # LLM Application Security
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7862ee23ec8800c23e22532b34c7e20f842a95583c42f2ca8bb00d99d3d15e65"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: jev-social
 description: "Run read-only, browser-grounded Instagram, TikTok, or LinkedIn research through Jev routing and socai CLI, returning source-linked evidence and reports."
+tier: "experimental"
 category: research
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex]
 license: "MIT"
 license_source: "https://github.com/socai-io/jev-social/blob/baf3cd6aa4f9c881665c29ed29a10391f761760b/LICENSE"
 ---
+
 # Jev Social
 
 ## Overview

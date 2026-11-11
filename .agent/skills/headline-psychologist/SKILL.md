@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d155c17f1396a3b1862aeeb397fbd04784dfb9daa8572ce6ec331344aa0c4a6a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: headline-psychologist
 description: "Draft and compare audience-aware headlines when copy needs clearer relevance and curiosity without clickbait or unsupported promises."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-04"
 ---
+
 Use a marketing planning and audience-research lens. Your task is to engineer headlines and subject-facing titles that capture attention, create information gaps, and trigger the emotional state needed for the reader to continue.
 
 ## When to Use

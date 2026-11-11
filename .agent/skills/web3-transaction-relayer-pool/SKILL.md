@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ecb6133fab994c51fe1d33eceda6400677463f0a9cb806250bc3c45f8e08e01a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: web3-transaction-relayer-pool
 description: 'Gasless transaction relayer node pool register: fee sponsorship limits, nonce synchronization, and balance replenishment alerts.'
+tier: "experimental"
 category: engineering
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [web3, relayer, gasless, meta-transactions, stellar, infrastructure]
 tools: []
 source_repo: Ranjeet2063/agentic-awesome-skills
 ---
+
 
 # Web3 Transaction Relayer Pool Management
 

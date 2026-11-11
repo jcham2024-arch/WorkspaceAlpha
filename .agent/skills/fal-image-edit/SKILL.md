@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bb7d1f313f353fd86b996014e672a3054787020003430cdeb79123be7e2aba6e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fal-image-edit
 description: "AI-powered image editing with style transfer and object removal"
+tier: "experimental"
 risk: critical
 source: "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-image-edit/SKILL.md"
 date_added: "2026-02-27"
 ---
+
 
 # Fal Image Edit
 

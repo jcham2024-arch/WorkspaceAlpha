@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "856f69dbd8ff848621e2235439954a0f4f24c7fb2166c05a62e5f944946ccd21"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: feature-tracking
 description: "Maintain durable feature-level memory across AI coding sessions with lightweight Markdown tracks for status, source-of-truth docs, decisions, risks, and changes."
+tier: "experimental"
 category: project-management
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: MIT
 license_source: "https://github.com/JunsW/feature-track/blob/main/LICENSE"
 ---
+
 
 # Feature Tracking
 

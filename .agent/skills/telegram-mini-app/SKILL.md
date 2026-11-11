@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "afe3edfa95760e54ea58f01b311f6878cc4514a194ba239213600cac95d50635"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: telegram-mini-app
 description: Expert in building Telegram Mini Apps (TWA) - web apps that run
+tier: "experimental"
   inside Telegram with native-like experience. Covers the TON ecosystem,
   Telegram Web App API, payments, user authentication, and building viral mini
   apps that monetize.
@@ -8,6 +19,7 @@ risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Telegram Mini App
 

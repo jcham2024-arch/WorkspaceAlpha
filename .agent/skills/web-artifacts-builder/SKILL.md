@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e71e04901f66b993c3d908bab74e7cf7bf47238e363c5da95838ced077360150"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: web-artifacts-builder
 description: "Create React frontend artifacts and bundle a reviewed project into a shareable HTML file."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Web Artifacts Builder
 

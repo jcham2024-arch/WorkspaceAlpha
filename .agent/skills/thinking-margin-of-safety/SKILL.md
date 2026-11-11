@@ -1,8 +1,20 @@
 ---
+tier: "core"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9f033da7b63f9d8927e648fd26352bd3157006c47f27452810f486c9f08ce210"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-margin-of-safety
 description: When provisioning, setting a limit, or committing an estimate under uncertainty, size a buffer to residual error and the cost of breach—not to the optimistic edge.
+tier: "core"
 disable-model-invocation: true
 ---
+
 
 # Margin of Safety
 

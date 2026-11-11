@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e1184c3b5d0fe1489e95ba5700c0143a25ab0708044902426834ec7607241e4f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hunt-cors
 description: Hunt CORS Misconfiguration
+tier: "experimental"
 category: security
 risk: offensive
 source: https://github.com/elementalsouls/Claude-BugHunter
@@ -15,6 +26,7 @@ compatibility: Requires explicit written authorization for a target scope plus t
 report_count: 19
 sources: hackerone_public
 ---
+
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.

@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "14e73f7ea258fb5829727b3cabcb71b1f86b7b6f89f0cd8f15dae53864dc414f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: nestjs-patterns
 description: NestJS architecture patterns for modules, controllers, providers, DTO validation, guards, interceptors, config, and production-grade TypeScript backends. Use when building or reviewing a NestJS backend — modules, providers, DTO validation, guards, or interceptors.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # NestJS Development Patterns
 

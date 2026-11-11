@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "49a08605ff45d2f9d6729ee6405986286b6b2031bca4dd7b9e826dc577c977b8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: markdown-rendering
 description: "Open Markdown reliably in cmux panes and recover from blank rendered surfaces."
+tier: "experimental"
 category: productivity
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex]
 license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 ---
+
 
 # Markdown Rendering in cmux
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "93f88dab84c4a3ee16bd3f80b233e5782a5b32495fff6df26b839a9da02752cc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hig-components-layout
 description: Apple Human Interface Guidelines for layout and navigation components.
+tier: "experimental"
 risk: none
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Apple HIG: Layout and Navigation Components
 

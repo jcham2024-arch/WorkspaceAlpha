@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bb722d72a5c8a6ef9c17494942fc67503cd2e6b7e6601d3922476c3777ce19e4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: faber-language
 description: "Write, check and run Faber programs, an experimental statically typed language for coding agents and human authors. Uses version-matched faberlang.dev language documentation."
+tier: "experimental"
 category: development
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: "MIT OR Apache-2.0"
 license_source: "https://github.com/faberlang/faber"
 ---
+
 
 # Faber Language
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ef8575d30795fced2b07a321fb09a946f31293c09fe6b342db6853d42832d3d2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: smart-contract-upgrade-governance
 description: 'Soroban WASM upgrade governance register: executable bytecode hash, timelocked migration delays, and multi-sig authorization quorum.'
+tier: "experimental"
 category: engineering
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [soroban, upgrade, governance, security, wasm, stellar]
 tools: []
 source_repo: Ranjeet2063/agentic-awesome-skills
 ---
+
 
 # Smart Contract Upgrade Governance
 

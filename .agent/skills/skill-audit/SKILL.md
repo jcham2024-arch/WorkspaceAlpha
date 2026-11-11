@@ -1,6 +1,17 @@
 ---
+tier: "core"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "95d1136921c901bf3bc87eea089de08a05cdc41f2dccb5f9670fa8affe309608"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: skill-audit
 description: "Pre-install review framework for AI agent skills: inspect complete content, permissions, dependencies and suspicious behavior before activation."
+tier: "core"
 category: security
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, codex, gemini, copilot]
 license: "MIT"
 license_source: "https://github.com/aptratcn/skill-audit/blob/main/LICENSE"
 ---
+
 
 # Skill Audit — Pre-Install Security Scanner
 

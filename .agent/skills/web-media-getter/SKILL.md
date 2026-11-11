@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d2e044ad9b4e1e2f7052b6ef41242af7008b6370143e6bbebdc3773932a801c5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: web-media-getter
 description: "One query across free image / video / GIF APIs (stock + historical/archival + GIF engines), returning normalized, license-tagged results with optional top-K download + attribution sidecar. The retrieval peer to local semantic search and generative media."
+tier: "experimental"
 risk: safe
 source: community
 source_type: community
@@ -23,6 +34,7 @@ tools:
   - gemini-cli
   - codex-cli
 ---
+
 ## When to Use
 
 Use when a task needs a REAL or ARCHIVAL photo / clip (hero, texture, reference, historical footage) or a reaction / animated GIF, rather than a generated one — fan out across free image/video/GIF sources in one query and download license-tagged results.

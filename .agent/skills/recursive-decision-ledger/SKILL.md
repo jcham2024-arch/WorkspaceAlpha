@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8878ce4e7f124c527714c11516fa5d631af2c2477fe598ec5565166d896f8b87"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: recursive-decision-ledger
 description: Run repeated rollouts ("Prime Gauss" style recursive prompting) while keeping an append-only decision ledger of trials, marks, coherence checks, and promotion gates, so recursive confidence never auto-approves live trading, deploy, or destructive actions. Use when the user asks for repeated rollouts, marked decision processes, high-dimensional search, stochastic optimization, local-optima exploration, ensemble comparison, or recursive reasoning with a visible evidence trail.
+tier: "experimental"
 license: MIT
 metadata:
   origin: ECC
 tools: Read, Write, Edit, Bash, Grep, Glob
 ---
+
 
 # Recursive Decision Ledger
 

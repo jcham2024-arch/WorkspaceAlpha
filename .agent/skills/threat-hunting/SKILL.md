@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "231875496aa1bfdd31edf201b6e2fc32387c4599763affe3c80710b649515eea"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: threat-hunting
 description: "Blue-team threat hunting: detection engineering with Sigma/YARA, SIEM query design, and validation of incident detections against known technique patterns."
+tier: "experimental"
 risk: safe
 source: "https://github.com/zhaoxuya520/reverse-skill"
 source_repo: "zhaoxuya520/reverse-skill"
@@ -9,6 +20,7 @@ date_added: "2026-08-25"
 license: "MIT"
 license_source: "https://github.com/zhaoxuya520/reverse-skill/blob/main/LICENSE"
 ---
+
 # Threat Hunting & Detection Engineering
 ## When to Use
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "618ea8c5b86352aa6db4d2d5e7e7b57ca49e84222191d40c93343506f866c5c1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: c4-container
 description: Expert C4 Container-level documentation specialist.
+tier: "experimental"
 risk: none
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # C4 Container Level: Applications and Data Stores
 

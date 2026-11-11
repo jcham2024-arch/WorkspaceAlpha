@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "81113e5ed45bec12467a276425907b7e824fb06a7605000c23c3cb9c89f4c19b"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: idea-to-blueprint
 description: "Turn a raw product, app, bot or feature idea into one evidence-backed build blueprint (researched stack, epics, Given/When/Then criteria, tests) that coding agents build one epic per session."
+tier: "experimental"
 category: planning
 risk: safe
 source: self
@@ -13,6 +24,7 @@ tools: [claude, codex]
 license: "MIT"
 license_source: "https://github.com/iniesohidham/idea-to-blueprint/blob/main/LICENSE"
 ---
+
 
 # Idea to Blueprint
 

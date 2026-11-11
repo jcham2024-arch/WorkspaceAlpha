@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "59b07bb81365cdde5a56c9632e84193fbb7d9b51e1a7fbdf3082e2748304b354"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: developer-seo
 description: "SEO strategy for technical queries and developer audiences. Covers keyword research for \"how to X in language\" queries, error message SEO, Stack Overflow-style content, technical long-tail keywords, and competing with official documentation sites."
+tier: "experimental"
 risk: critical
 source: https://github.com/jonathimer/devmarketing-skills/tree/main/skills/developer-seo
 source_repo: jonathimer/devmarketing-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/jonathimer/devmarketing-skills/blob/main/LICENSE
 ---
+
 
 # Developer SEO
 ## When to Use

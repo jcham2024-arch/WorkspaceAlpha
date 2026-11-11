@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "548701724a870f3d081366f1566a5a4c51a27a4d4c0c726f51722b37a5211e10"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mock-hunter
 description: "Audit a live web page in five phases (catalog, click, trace, classify, report) to identify mock data, hardcoded values, LLM-generated metrics, and broken endpoints. Outputs a markdown report with REAL/MOCK/LLM/HARDCODED/BROKEN/UNKNOWN verdicts per visible value."
+tier: "experimental"
 category: testing
 risk: critical
 source: community
@@ -17,6 +28,7 @@ plugin:
     codex: blocked
     claude: blocked
 ---
+
 
 # MockHunter — Live Page Reality Check
 

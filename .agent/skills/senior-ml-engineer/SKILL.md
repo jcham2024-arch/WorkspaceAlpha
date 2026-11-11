@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b890f926b1d458eb136b4480c2a1bf537d63e126ae9b962b91bd7ee60dcbe982"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "senior-ml-engineer"
 description: "Use for putting ML models or LLM features into production: deployment, MLOps, drift monitoring, RAG pipelines, LLM API cost and retries. Deploys with model_deployment_pipeline.py, monitors with ml_monitoring_suite.py and builds RAG with rag_system_builder.py."
+tier: "experimental"
 metadata:
   triggers:
     - MLOps pipeline
@@ -14,6 +25,7 @@ metadata:
     - A/B testing ML
     - automated retraining
 ---
+
 
 # Senior ML Engineer
 

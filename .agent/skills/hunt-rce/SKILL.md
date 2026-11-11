@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1b3fdc0c65cf85b1bc235c9846a708486a67b9990b272d26801606d3c2759604"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hunt-rce
 description: Hunting skill for rce vulnerabilities. Built from 67 public bug bounty
+tier: "experimental"
   reports. Use when hunting rce on any target.
 category: security
 risk: offensive
@@ -16,6 +27,7 @@ compatibility: Requires explicit written authorization for a target scope plus t
 sources: github, hackerone_public
 report_count: 87  # imported metadata; not independently verified
 ---
+
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.

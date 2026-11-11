@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "815b9784b4e36db5e3f48015a620a19787a593b349536931e8b2b5430ff94a3e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: makepad-splash
 description: |
+tier: "experimental"
   CRITICAL: Use for Makepad Splash scripting language. Triggers on:
   splash language, makepad script, makepad scripting, script!, cx.eval,
   makepad dynamic, makepad AI, splash 语言, makepad 脚本
@@ -8,6 +19,7 @@ risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "feb764698b986a336e329d25e778278190ea68a5ab3fc30493a366a99c6c30fe"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: makepad-shaders
 description: |
+tier: "experimental"
   CRITICAL: Use for Makepad shader system. Triggers on:
   makepad shader, makepad draw_bg, Sdf2d, makepad pixel,
   makepad glsl, makepad sdf, draw_quad, makepad gpu,
@@ -9,6 +20,7 @@ risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

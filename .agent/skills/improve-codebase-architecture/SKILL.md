@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3886e89c9bb0835a12ac9ab814efeff87eb8ce5e2612b1222c02587d617d5a45"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: improve-codebase-architecture
 description: Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.
+tier: "experimental"
 disable-model-invocation: true
 category: "development"
 risk: "safe"
@@ -20,6 +31,7 @@ tools:
   - codex-cli
   - cursor
 ---
+
 
 # Improve Codebase Architecture
 

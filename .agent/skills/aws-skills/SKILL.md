@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "15624fda3027f55dd70def72d4c921367782091c8b7569d40b30e475c2729d83"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aws-skills
 description: "Plan and review AWS architecture and infrastructure changes using the upstream AWS skill collection."
+tier: "experimental"
 risk: safe
 source: "https://github.com/zxkane/aws-skills"
 date_added: "2026-02-27"
 ---
+
 
 # AWS Skill Collection Workflow
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "45af26807eb9e8ef0583e6bb79304f781def1d59b42cd831dd0ba0311cd0d7f1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: use-dom
 description: Use Expo DOM components to run web code in a webview on native and as-is on web. Migrate web code to native incrementally.
+tier: "experimental"
 risk: critical
 source: https://github.com/expo/skills/tree/main/plugins/expo/skills/use-dom
 source_repo: expo/skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/expo/skills/blob/main/LICENSE
 ---
+
 
 ## What are DOM Components?
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2e058a236a02fefeac00ed9489a224f88a58d9a1a965290659a9c7280aff7c67"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fxmacrodata
 description: "Query FXMacroData for official-source macro indicators, release calendars, central-bank policy rates, FX rates and CFTC positioning across 22 currencies."
+tier: "experimental"
 category: finance
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: fxmacrodata
 tags: [macroeconomics, forex, central-banks, economic-calendar, cot, rest-api]
 tools: [claude, cursor, gemini]
 ---
+
 
 # FXMacroData: Macro and FX Data
 

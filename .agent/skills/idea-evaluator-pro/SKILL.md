@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7f78a973b7f58eca4ca173e26d6fcd67bb8950dc979ce04bec0448d04a481599"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: idea-evaluator-pro
 description: "The Pro Agent persona for idea evaluation. Logically supports an idea, arguing for its market fit, feasibility, and potential."
+tier: "experimental"
 category: agent-persona
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: Prince-1652
 tags: [ideation, validation, persona, supporter]
 tools: [claude, gemini]
 ---
+
 
 # Idea Evaluator: Pro Agent
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fc9cb3379c7a643fd8854ea9dd15755e2f3c425d2f4341e41667dd6baf27b076"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ditto
 description: "Use when a user asks to mine or update a private, evidence-backed work profile from local Claude Code, Codex, Copilot CLI, or OpenCode sessions."
+tier: "experimental"
 category: agent-behavior
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex-cli]
 license: "MIT"
 license_source: "https://github.com/ohad6k/ditto/blob/v0.3.6/LICENSE"
 ---
+
 
 # Ditto
 

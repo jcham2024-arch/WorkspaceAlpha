@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9adc09128a47bb3c32bfe1f65a801cf7e65763e89a54d89490dc8bb9a77980c7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: billing-automation
 description: "Master automated billing systems including recurring billing, invoice generation, dunning management, proration, and tax calculation."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Billing Automation
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "831910765a231e7f5c2653d2c4612cb28d4900bc4e8fc409fa0ddeb678774eef"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agent-squad
 description: Main agent orchestrator that coordinates a specialized squad of agents
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-06-12"
@@ -9,6 +20,7 @@ phase: all
 squad: agent-squad
 version: 1.0
 ---
+
 
 # Main Agent — The Orchestrator
 

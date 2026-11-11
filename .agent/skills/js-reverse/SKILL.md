@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "39d8676d402f0a2b98fe05111e24c294881436e69a025a7e15d0bf79ab3122e6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: js-reverse
 description: "Front-end JavaScript reverse engineering: locate signature chains, analyze encrypted request parameters, sample runtime behavior, and reproduce logic locally in Node for evidence-based output."
+tier: "experimental"
 risk: offensive
 source: "https://github.com/zhaoxuya520/reverse-skill"
 source_repo: "zhaoxuya520/reverse-skill"
@@ -9,6 +20,7 @@ date_added: "2026-08-25"
 license: "MIT"
 license_source: "https://github.com/zhaoxuya520/reverse-skill/blob/main/LICENSE"
 ---
+
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.

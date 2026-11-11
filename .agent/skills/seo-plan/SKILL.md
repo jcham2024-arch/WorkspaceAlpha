@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4ffc62d34e38f748615393cec435ab196252c42d0a609d59289b1ee4dc0f8dc3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-plan
 description: >
+tier: "experimental"
   Strategic SEO planning for new or existing websites. Industry-specific
   templates, competitive analysis, content strategy, and implementation
   roadmap. Use when user says "SEO plan", "SEO strategy", "content strategy",
@@ -18,6 +29,7 @@ allowed-tools:
   - WebFetch
   - Write
 ---
+
 
 # Strategic SEO Planning
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "51296bf3223680335b6b75f685462c22f33644965f285b420f7fd35aa7bd4af5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: stripe-integration
 description: "Implement and verify Stripe checkout, subscriptions, webhooks and refunds with explicit server-side authorization and retry boundaries."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Stripe Integration
 

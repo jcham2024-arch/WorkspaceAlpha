@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c3c2abf1170a4947c14e6f9cdbf09016f4dc239158a69f48afa605828e2b3827"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: service-mesh
 description: Implement Istio and Linkerd service meshes. Configure mTLS, traffic management,
+tier: "experimental"
   and observability. Use when managing microservices communication.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Service Mesh
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c3dcc6215c1e99e7c8dd13a0f7d82fa01af703fb84f1691a7c02ae775f594c41"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: protocol-reverse-engineering
 description: "Comprehensive techniques for capturing, analyzing, and documenting network protocols for security research, interoperability, and debugging."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Protocol Reverse Engineering
 

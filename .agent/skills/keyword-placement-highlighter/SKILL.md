@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bcc36298005fdb8498ef051e3f128e59fbae0728c9d0522fb61e50b9e79ef12a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: keyword-placement-highlighter
 description: "Keyword Placement Highlighter. Use when working with text and target keywords."
+tier: "experimental"
 category: Content SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Keyword Placement Highlighter
 
 ## Overview

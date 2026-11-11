@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "113bcc7cc4e0a41b35bf31f5619d69b6fa38bd9142494df3d02f983f6da50f87"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: antigravity-workflows
 description: "Use when asked to ship a SaaS MVP, audit application security, build an AI agent, run browser QA, or design a domain model with multiple skills and verified checkpoints."
+tier: "experimental"
 risk: none
 source: self
 date_added: "2026-02-27"
 ---
+
 
 # Antigravity Workflows
 

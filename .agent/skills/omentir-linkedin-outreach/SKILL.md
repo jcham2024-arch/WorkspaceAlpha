@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f3258270dc02f6b44aeb9eff18b1f6be433d7e702dea17b36cca49eace14a735"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: omentir-linkedin-outreach
 description: "Run LinkedIn prospecting and outreach through the Omentir MCP server: find people, score fit, draft messages, and check campaigns. Never signs into LinkedIn."
+tier: "experimental"
 category: marketing
 risk: critical
 source: https://github.com/vanshyadav1408/Omentir/tree/main/plugins/omentir/skills/linkedin-outreach
@@ -13,6 +24,7 @@ tools: [claude, cursor, codex]
 license: MIT
 license_source: https://github.com/vanshyadav1408/Omentir/blob/main/LICENSE
 ---
+
 
 # LinkedIn outreach through Omentir
 

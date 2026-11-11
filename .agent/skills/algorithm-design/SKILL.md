@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1b8876dc419e8177a4db4b2e2e1808214755a2cfa2af5b1cbdb831b23dfb3416"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: algorithm-design
 description: Design algorithms with LaTeX pseudocode and UML diagrams. Generate algorithmic environments, Mermaid class/sequence diagrams, and ensure consistency between pseudocode and implementation. Use when formalizing methods for a paper.
+tier: "experimental"
 argument-hint: [method-description]
 ---
+
 
 # Algorithm Design
 

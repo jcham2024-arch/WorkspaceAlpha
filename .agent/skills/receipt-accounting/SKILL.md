@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "57f217d109977fdc2fe6214d1905e0a03f618be282fd221c225c8d2abfa9f7e9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: receipt-accounting
 description: 'Receipt register: payer, mode, gross amount received, invoice allocation, unapplied amount and TDS collected. Use for receipt and sales-income accounting.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, accounting, audit, finance, database, csv, notion, sql, receipts, re
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Receipt Accounting
 

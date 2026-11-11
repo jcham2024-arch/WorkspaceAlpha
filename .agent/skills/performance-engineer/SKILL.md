@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6615999418ab7b0233fef65cf1547541ed2000241bc363b93dfc22cabee5786a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: performance-engineer
 description: "Diagnose performance bottlenecks using profiling, traces, load tests, and observability; verify latency and capacity improvements."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 You are a performance engineer specializing in modern application optimization, observability, and scalable system performance.
 
 ## Use this skill when

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f0896646364a79ad073c3acc4728ad474416158a0a1f2992db907e3cfa4a2830"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: huggingface-lora-space-builder
 description: "Build and publish a Gradio demo on Hugging Face Spaces for a user-provided LoRA."
+tier: "experimental"
 risk: critical
 source: https://github.com/huggingface/skills/tree/main/skills/huggingface-lora-space-builder
 source_repo: huggingface/skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: Apache-2.0
 license_source: https://github.com/huggingface/skills/blob/main/LICENSE
 ---
+
 
 # Gradio LoRA Space Builder
 

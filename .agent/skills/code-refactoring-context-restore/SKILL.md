@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ca347f1fd15e260e70a66616d1690527be7f77bc1c75b9607128b1558604f028"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: code-refactoring-context-restore
 description: "Resume interrupted project work from a handoff and current checkout evidence; reconcile completed work, pending changes and existing user constraints."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 ## Compatibility and maintenance
 

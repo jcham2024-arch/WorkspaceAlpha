@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9f52c7f593bc262901ac4bda754c0a8a7dbb4a6eac15a5b5270eb1dcc375053d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: connection-auth-rules
 description: Build a Connection Auth Rules for a Monte Carlo connection type. Fetches
+tier: "experimental"
   live connector schemas and transform steps from the apollo-agent repo.
 bucket: Setup
 version: 1.0.0
@@ -10,6 +21,7 @@ source: community
 date_added: '2026-09-21'
 risk: critical
 ---
+
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.

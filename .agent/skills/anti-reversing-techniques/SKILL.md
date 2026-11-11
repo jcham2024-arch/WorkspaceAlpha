@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0ed78ebd421d0b7d29e8a834648e267f65752953023cbaa6b7867d2a11e216cd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: anti-reversing-techniques
 description: "Analyze anti-debugging, obfuscation, and anti-tamper techniques during authorized binary analysis and reverse engineering."
+tier: "experimental"
 risk: offensive
 source: community
 date_added: "2026-02-27"
 ---
+
 
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "127d85445b002ddf33ee77affa9735834a4af01e56a598ff4a215e4260c999a8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: molykit
 description: |
+tier: "experimental"
   CRITICAL: Use for MolyKit AI chat toolkit. Triggers on:
   BotClient, OpenAI, SSE streaming, AI chat, molykit,
   PlatformSend, spawn(), ThreadToken, cross-platform async,
@@ -9,6 +20,7 @@ risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # MolyKit Skill
 

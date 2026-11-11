@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "31c97cf8186e943a86bc4b09e2ebcc6876a1e5cd5f20c5666c6b09e206b84655"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: code-simplification
 description: Simplifies code for clarity. Use when refactoring code for clarity without changing behavior. Use when code works but is harder to read, maintain, or extend than it should be. Use when reviewing code that has accumulated unnecessary complexity.
+tier: "experimental"
 risk: critical
 source: https://github.com/addyosmani/agent-skills/tree/main/skills/code-simplification
 source_repo: addyosmani/agent-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/addyosmani/agent-skills/blob/main/LICENSE
 ---
+
 
 # Code Simplification
 

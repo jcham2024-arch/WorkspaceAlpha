@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c77622bc968c30b54486e7e5c49f367a4bb308e9c4c331d32a6f1e8b0b420203"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: backtesting-frameworks
 description: "Build robust, production-grade backtesting systems that avoid common pitfalls and produce reliable strategy performance estimates."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Backtesting Frameworks
 

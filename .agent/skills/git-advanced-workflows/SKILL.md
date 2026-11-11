@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0f6df471d92ea40d75b212e522e4489ee2bc5652d3962c650b1fa514fac87628"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: git-advanced-workflows
 description: "Master advanced Git techniques to maintain clean history, collaborate effectively, and recover from any situation with confidence."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Git Advanced Workflows
 

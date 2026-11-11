@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7cb84d66433e3bcd1d9a89b726820027f3ff703d635df2cc1918feb058f92b98"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: frontend-security-coder
 description: Expert in secure frontend coding practices specializing in XSS prevention, output sanitization, and client-side security patterns.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 ## Use this skill when
 

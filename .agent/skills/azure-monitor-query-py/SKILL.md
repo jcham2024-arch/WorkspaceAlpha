@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "92c4c3b6bebd02154cbeeab3e0d3989571c569df82d309c8ff9718812887b2ce"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-monitor-query-py
 description: Azure Monitor Query SDK for Python. Use for querying Log Analytics workspaces and Azure Monitor metrics.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Azure Monitor Query SDK for Python
 

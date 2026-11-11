@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6d2073958d9e86604e9cd94806a9ff7f8827a83b1eb51260843549509152e646"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: attendance
 description: 'Daily attendance register: check-in and check-out, hours worked, work mode, late minutes, leave and regularisation flags, as CSV, SQL, JSON Schema or Notion on request. Use for payroll input.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -19,6 +30,7 @@ tags:
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Attendance
 

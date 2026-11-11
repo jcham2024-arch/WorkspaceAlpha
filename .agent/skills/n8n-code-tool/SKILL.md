@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5d82f17972ee5aeab4d31ca2ad31d1cb471d097e3d5bd490f53c6041c40037c0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: n8n-code-tool
 description: Write and debug JavaScript or Python for the AI-callable n8n Custom Code Tool, including schemas, sandbox limits, and return formats.
+tier: "experimental"
 risk: critical
 source: https://github.com/czlonkowski/n8n-skills/tree/main/skills/n8n-code-tool
 source_repo: czlonkowski/n8n-skills
@@ -10,6 +21,7 @@ author: Romuald Czlonkowski
 license: MIT
 license_source: https://github.com/czlonkowski/n8n-skills/blob/main/LICENSE
 ---
+
 
 # n8n Custom Code Tool
 

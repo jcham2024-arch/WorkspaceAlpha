@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "13ac0fa28844bb6b9f553694afa014dd5c330b66c6d1afe7e0f35d4296070755"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: pagespeed-enhancer
 description: "Scan, audit, and fix web performance issues across all four Lighthouse/PageSpeed Insights pillars — Performance, Accessibility, Best Practices, and SEO — in structured batches."
+tier: "experimental"
 risk: safe
 source: personal
 date_added: "2026-06-14"
 author: WHOISABHISHEKADHIKARI
 ---
+
 
 # PageSpeed Enhancer Skill
 

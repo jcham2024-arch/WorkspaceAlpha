@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3726ea255bcdb3baabd506f0dc0bf9de7f0ccb097a7eb7297e87e71839c63c5e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mle-workflow
 description: Production machine-learning engineering workflow for data contracts, reproducible training, model evaluation, deployment, monitoring, and rollback. Use when building, reviewing, or hardening ML systems beyond one-off notebooks.
+tier: "experimental"
 allowed-tools: Read, Write, Edit, Bash, Grep, Glob
 license: MIT
 ---
+
 
 # Machine Learning Engineering Workflow
 

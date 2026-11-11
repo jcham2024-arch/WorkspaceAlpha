@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e6eddb0328368993328a0d14edbdc192089a598684fdce4ac618bbc100c98e36"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aws-secrets-rotation
 description: "Automate AWS secrets rotation for RDS, API keys, and credentials"
+tier: "experimental"
 category: security
 risk: critical
 source: community
 tags: "[aws, secrets-manager, security, automation, kiro-cli, credentials]"
 date_added: "2026-02-27"
 ---
+
 
 # AWS Secrets Rotation
 

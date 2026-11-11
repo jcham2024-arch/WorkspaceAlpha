@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "18b311c225bb8b80efddd0e577e36d29b7bbd9dbceed8fb3ea0a8e78f6c68a69"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: saas-mvp-launcher
 description: "Use when planning or building a SaaS MVP from scratch. Provides a structured roadmap covering tech stack, architecture, auth, payments, and launch checklist."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-04"
 ---
+
 
 # SaaS MVP Launcher
 

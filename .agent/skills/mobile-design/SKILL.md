@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "46f1c146b6b4c7e6f79edc2800bfa2634166008c960f73d4155f780d0af7d63d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mobile-design
 description: "Design and review iOS, Android, React Native or Flutter interfaces for touch, accessibility, navigation, offline behavior and measured performance. Use for mobile app UI work; not a mobile compliance certification."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 # Mobile Design System
 
 **(Mobile-First · Touch-First · Platform-Respectful)**

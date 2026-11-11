@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2106b5a2230881dc481f422dfdcd349b6aa2577a833d8f4e64e057a795e152e2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: modellix
 description: "Integrate the Modellix API/CLI for async AI image, video, and speech generation or transcription (model run --wait, task download)."
+tier: "experimental"
 category: creative
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/Modellix/modellix-plugin/blob/main/LICENSE"
 ---
+
 
 # Modellix
 

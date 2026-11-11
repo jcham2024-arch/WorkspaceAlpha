@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "26d8c8aed67f83b93963e6c70e5dc2cbbc6cbbc0f3cd3bdd90eaf4dc6032f936"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: web-security-testing
 description: "Web application security testing workflow for OWASP Top 10 vulnerabilities including injection, XSS, authentication flaws, and access control issues."
+tier: "experimental"
 category: granular-workflow-bundle
 risk: offensive
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.

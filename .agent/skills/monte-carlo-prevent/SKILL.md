@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9f905fe2bc3623dc625e44c59ba0f44479638eefc7e5598c77f6f98966675bcb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: monte-carlo-prevent
 description: "Surfaces Monte Carlo data observability context (table health, alerts, lineage, blast radius) before SQL/dbt edits."
+tier: "experimental"
 category: data
 risk: critical
 source: community
@@ -11,6 +22,7 @@ author: monte-carlo-data
 tags: [data-observability, dbt, schema, monte-carlo, lineage]
 tools: [claude, cursor, codex]
 ---
+
 
 # Monte Carlo Prevent Skill
 

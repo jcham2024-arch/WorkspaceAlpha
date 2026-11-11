@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "05623bd1d9b16a01d274e27ae175b7040784572342f57d378ccf15e66a590c54"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: implement
 description: Implement a piece of work based on a PRD or set of issues.
+tier: "experimental"
 risk: critical
 source: https://github.com/mattpocock/skills/tree/main/skills/engineering/implement
 source_repo: mattpocock/skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/mattpocock/skills/blob/main/LICENSE
 ---
+
 
 
 ## When to Use

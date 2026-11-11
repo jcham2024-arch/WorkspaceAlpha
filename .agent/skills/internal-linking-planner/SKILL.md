@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1b73aa305b54a3d8a77570748adadef556854da768f16dd58f9b594ab2225ff4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: internal-linking-planner
 description: "Internal Linking Planner. Use when working with site page inventory and priority user journeys."
+tier: "experimental"
 category: On-Page Optimization
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Internal Linking Planner
 
 ## Overview

@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b3dd2e0ff6c501cbd11f37d03fe3262245606a6682609ca0117b1eae6150f147"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: benchmark-optimization-loop
 description: Convert 'make it faster' requests into a bounded measured optimization loop — baseline first, generate one-hypothesis variants, benchmark each against a correctness gate, and promote the fastest safe variant with reproducible commands. Use when asked to speed something up, try many variants, run recursive optimization, benchmark latency/throughput/cost, or pick the best implementation by repeated measured tests.
+tier: "experimental"
 license: MIT
 metadata:
   origin: ECC
 tools: Read, Write, Edit, Bash, Grep, Glob
 ---
+
 
 # Benchmark Optimization Loop
 

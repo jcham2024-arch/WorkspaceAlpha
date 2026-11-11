@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "641dacdd0d1240911c3bd2c9f43fe917f1cb6a81e4a19de88947224944eb8d30"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: byagent
 description: "Publish agent-written Markdown or HTML as a shareable link with the byagent CLI, then read readers' line comments back, edit, republish to the same link and resolve them."
+tier: "experimental"
 category: productivity
 risk: critical
 source: "https://github.com/anup-a/agent-artifacts"
@@ -13,6 +24,7 @@ author: anup-a
 tags: [publish, markdown, html, share, comments, review]
 tools: [claude, codex, cursor]
 ---
+
 
 # byagent
 

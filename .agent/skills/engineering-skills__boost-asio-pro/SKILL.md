@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f84f8fe057972c0d425dcdba4123ba97e2a3f1d470ed305b9f92e2b5fc5f6fc3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "boost-asio-pro"
 description: "Use for any C++ networking code with Boost.Asio or standalone Asio (TCP/UDP, SSL, timers, strands, io_context, co_spawn, awaitable, completion handlers), before writing or reviewing it. Applies lifetime, strand and cancellation rules that avoid the classic async bugs."
+tier: "experimental"
 ---
+
 
 # Boost.Asio / standalone Asio
 

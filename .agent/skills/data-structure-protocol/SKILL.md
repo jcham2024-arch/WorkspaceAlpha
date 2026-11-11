@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3cd85eaad52d596fe0338fe8032f4061b924434b9cc0e5a751ea922bedf44f8d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: data-structure-protocol
 description: "Give agents persistent structural memory of a codebase — navigate dependencies, track public APIs, and understand why connections exist without re-reading the whole repo."
+tier: "experimental"
 risk: safe
 source: "https://github.com/k-kolomeitsev/data-structure-protocol"
 date_added: "2026-02-27"
 ---
+
 
 # Data Structure Protocol (DSP)
 

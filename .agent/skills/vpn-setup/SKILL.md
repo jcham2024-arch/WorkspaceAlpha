@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0a6cc17766445b01605131778b6f72252408b3325eb372b858d501a3ee36e46a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: vpn-setup
 description: Configure WireGuard, OpenVPN, and cloud VPNs. Implement secure remote
+tier: "experimental"
   access and site-to-site connectivity. Use when setting up secure network tunnels.
 category: security
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # VPN Setup
 

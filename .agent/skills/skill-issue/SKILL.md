@@ -1,7 +1,18 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4425f2befea24a6470661b7c2add499176a4dd0bf3522c001da0cb9f2796d1e0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 id: skill-issue
 name: skill-issue
 description: "Find out why a coding-agent skill won't fire — grade each SKILL.md A–F on activation, simulate which skill a prompt triggers, and flag collisions where one silently shadows another."
+tier: "experimental"
 category: meta
 risk: safe
 source: community
@@ -14,6 +25,7 @@ tools: [claude, cursor, gemini, codex]
 license: "MIT"
 license_source: "https://github.com/mishanefedov/skill-issue/blob/main/LICENSE"
 ---
+
 
 # skill-issue — skill activation audit
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cd14975a12e4e33694fec0416a353b5772df6721943ee9d20a7f9a4506733ec4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: muapi-media
 description: "Generate images and videos with MuAPI's schema-driven asynchronous media API while protecting keys, polling, and output downloads."
+tier: "experimental"
 category: media
 risk: critical
 source: self
@@ -10,6 +21,7 @@ author: Anil-matcha
 tags: [muapi, image-generation, video-generation, media-api]
 tools: [claude, codex, cursor, gemini]
 ---
+
 
 # MuAPI Media
 

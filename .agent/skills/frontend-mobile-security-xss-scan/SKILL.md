@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f483314e73f55606cef3927643d9c13697efd7c23cf88cfd639bbb424d728661"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: frontend-mobile-security-xss-scan
 description: "Inspect frontend code for XSS injection points, unsafe DOM manipulation, and missing sanitization."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # XSS Vulnerability Scanner for Frontend Code
 

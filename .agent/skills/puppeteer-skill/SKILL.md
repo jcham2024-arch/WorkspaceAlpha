@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "781b15b0257de476217bd70e389bb915f2712941d0de75cf09a3903666f6f010"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: puppeteer-skill
 description: 'Generates Puppeteer scripts for browser automation, scraping, and PDF generation. Triggers on: "Puppeteer", "headless Chrome", "page.goto", "scrape", "PDF generation".'
+tier: "experimental"
 risk: critical
 source: https://github.com/LambdaTest/agent-skills/tree/main/puppeteer-skill
 source_repo: LambdaTest/agent-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/LambdaTest/agent-skills/blob/main/LICENSE
 ---
+
 
 # Puppeteer Automation Skill
 ## When to Use

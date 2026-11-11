@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6f0e87b62f3dd2eda6f4dd4a9c2b90922568bd1b7163f79f897e1dd0e0a262a9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: api-patterns
 description: "API design principles and decision-making. REST vs GraphQL vs tRPC selection, response formats, versioning, pagination."
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # API Patterns
 

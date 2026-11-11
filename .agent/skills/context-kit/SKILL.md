@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "234ef78b4212a19b79840dae21fe0f544a0b454642eb87e29e5f34d54c1f765c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: context-kit
 description: "Evaluate, adapt, and safely install Context Kit personal context artifacts for Claude Code or adjacent agent workflows."
+tier: "experimental"
 category: productivity
 risk: critical
 source: community
@@ -11,6 +22,7 @@ author: JDDavenport
 tags: [personal-context, claude-code, memory, knowledge-management, agent-workflows]
 tools: [claude, codex, cursor, gemini]
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c670c86020d0a3d9e51294612389a6c504371f338b519c937365c6652822946b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: animated-github-profile
 description: Build high-impact, animated GitHub profile READMEs that play like mini-movies using pure SVG, CSS, and SMIL animations. Covers dark/light theme switching, swinging lanyard ID badges, tech orbits, local stat cards, and automated contribution graphs.
+tier: "experimental"
 category: development
 risk: safe
 source: self
@@ -22,6 +33,7 @@ license: MIT
 metadata:
   version: 1.0.0
 ---
+
 
 # Animated GitHub Profile Skill
 

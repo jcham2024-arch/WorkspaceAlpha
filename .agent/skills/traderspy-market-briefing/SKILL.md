@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1abf995b4a0ec639bf10bf8e2f07cfca0196344428ac7156a2a07f8ab1e08a10"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: traderspy-market-briefing
 description: "Crypto market briefing from live TraderSpy data: majors, funding, open interest, top-trader lean, fresh AI signals and screener movers. Use for \"what's happening in crypto\" or a recap."
+tier: "experimental"
 category: finance
 risk: safe
 source: "https://github.com/target1m/traderspy-mcp/tree/069aae5a84640d671f92705a2e3bc0b62efca1e0/skills/market-briefing"
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: MIT
 license_source: "https://github.com/target1m/traderspy-mcp/blob/069aae5a84640d671f92705a2e3bc0b62efca1e0/LICENSE"
 ---
+
 
 # TraderSpy Market Briefing
 

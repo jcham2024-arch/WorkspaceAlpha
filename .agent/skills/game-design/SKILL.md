@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "65b25d8ec78ba3bbd282c26a1b60a82477e140af649ac6ff9a0f919202b75ad2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: game-design
 description: "Game design principles. GDD structure, balancing, player psychology, progression."
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Game Design Principles
 

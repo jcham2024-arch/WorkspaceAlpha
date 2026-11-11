@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3f74c4b192aec6e7c61709d1689164ec05cdc0196c2415ff4a550cea48f71c94"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: viral-generator-builder
 description: Expert in building shareable generator tools that go viral - name
+tier: "experimental"
   generators, quiz makers, avatar creators, personality tests, and calculator
   tools. Covers the psychology of sharing, viral mechanics, and building tools
   people can't resist sharing with friends.
@@ -8,6 +19,7 @@ risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Viral Generator Builder
 

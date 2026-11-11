@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6ebdd9b7f3d1daef4fb7a9680813c0662866aae0b98ab8158097a8673088d063"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: junta-leiloeiros
 description: Consulta e coleta assistida de registros públicos de leiloeiros nas 27 rotas estaduais; cobertura e atualidade exigem validação. Scraper multi-UF, banco SQLite, API FastAPI e exportacao CSV/JSON.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-03-06'
@@ -17,6 +28,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # Registros públicos de leiloeiros
 

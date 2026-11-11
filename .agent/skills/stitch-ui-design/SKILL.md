@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f7a19d05e9ff7f9157b4271787a032893aad8bfa775553c06c5d28de30373549"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: stitch-ui-design
 description: "Expert guidance for crafting effective prompts in Google Stitch, the AI-powered UI design tool by Google Labs. This skill helps create precise, actionable prompts that generate high-quality UI designs for web and mobile applications."
+tier: "experimental"
 risk: safe
 source: self
 date_added: "2026-02-27"
 ---
+
 
 # Stitch UI Design Prompting
 

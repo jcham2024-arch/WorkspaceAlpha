@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3b500b0570a5dd9e4e9d76f394efc6e517e5a377be3ac5fb01ab211dc4b439c3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: desearch-mcp
 description: "Use Desearch MCP when the user chooses Desearch for web research, X posts, people discovery, or company search and enrichment. Confirm before starting billed background tasks."
+tier: "experimental"
 category: mcp
 risk: critical
 source: self
@@ -9,6 +20,7 @@ date_added: "2026-10-31"
 author: Desearch-ai
 tags: [mcp, web-search, x, research, people-search, company-search]
 ---
+
 
 # Desearch MCP
 

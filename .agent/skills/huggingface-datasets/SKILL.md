@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6c780e1c8633b85b948fea81483a1287b30cbe0a1dec86a18a4920dc556c8a67"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: huggingface-datasets
 description: Use this skill for Hugging Face Dataset Viewer API workflows that fetch
+tier: "experimental"
   subset/split metadata, paginate rows, search text, apply filters, download parquet
   URLs, and read size or statistics.
 source_repo: huggingface/skills
@@ -9,6 +20,7 @@ source: huggingface
 date_added: '2026-09-21'
 risk: unknown
 ---
+
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.

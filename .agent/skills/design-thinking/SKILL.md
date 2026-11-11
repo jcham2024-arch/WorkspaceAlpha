@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "68d2e33094837a342e94b2cb6b8c48aa2ad15cbb1c9d342be0302aa2668d4b04"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: design-thinking
 description: Direction and intent for frontend design. Use with design when defining purpose, tone, domain, color world, and review bar; includes cross-domain lens from cinema, architecture, marketing, UX, automotive, industrial design.
+tier: "experimental"
 risk: critical
 source: https://github.com/connerkward/ckw-design-skill/tree/main/design-thinking
 source_repo: connerkward/ckw-design-skill
@@ -10,6 +21,7 @@ license: MIT
 license_source: https://github.com/connerkward/ckw-design-skill/blob/main/LICENSE
 author: Conner K Ward
 ---
+
 
 # Design thinking
 ## When to Use

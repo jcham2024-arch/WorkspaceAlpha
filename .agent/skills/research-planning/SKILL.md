@@ -1,8 +1,20 @@
 ---
+tier: "core"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "dff0e4deac97d4b35ac9f944e135f2dfa438b6324bf8b460f6bb4912ff1d94a2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: research-planning
 description: Design research plans and paper architectures. Given a research topic or idea, generate structured plans with methodology outlines, paper structure, dependency-ordered task lists, UML diagrams, and experiment designs. Use when starting a new research project or paper.
+tier: "core"
 argument-hint: [topic-or-idea]
 ---
+
 
 # Research Planning
 

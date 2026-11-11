@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "859c481fa0a7cc8aead8bfcb50f93585fd05262482cde912fe38a80c0f2f0fa1"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: pick-ui-library
 description: "Choose a frontend library from Emil Kowalski’s curated list after checking the project’s existing stack and requirements."
+tier: "experimental"
 category: frontend
 risk: critical
 source: community
@@ -12,6 +23,7 @@ license: MIT
 license_source: https://github.com/emilkowalski/skills/blob/a81dbca07f2217b7103e510c0f13f8d5b017afc9/LICENSE
 disable-model-invocation: true
 ---
+
 
 # Picking The Right Library
 

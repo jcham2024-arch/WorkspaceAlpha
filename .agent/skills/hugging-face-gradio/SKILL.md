@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ddcdbe1cea748c3c1fe22420a1d022f1aea3ee17dc6691a35fcb2ea28644ba50"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hugging-face-gradio
 description: Build Gradio web UIs and demos in Python. Use when creating or editing Gradio apps, components, event listeners, layouts, or chatbots.
+tier: "experimental"
 risk: critical
 source: https://github.com/huggingface/skills/tree/main/skills/huggingface-gradio
 source_repo: huggingface/skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: Apache-2.0
 license_source: https://github.com/huggingface/skills/blob/main/LICENSE
 ---
+
 
 # Gradio
 ## When to Use

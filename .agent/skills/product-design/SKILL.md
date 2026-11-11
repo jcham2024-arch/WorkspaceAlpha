@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a17283745a8abc3f1f5613fb30399562a13187e26a2a427974692effb7371bc5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: product-design
 description: "Design de produto nivel Apple — sistemas visuais, UX flows, acessibilidade, linguagem visual proprietaria, design tokens, prototipagem e handoff. Cobre Figma, design systems, tipografia, cor, espacamento, motion design e principios de design cognitivo."
+tier: "experimental"
 risk: none
 source: community
 date_added: '2026-03-06'
@@ -18,6 +29,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # PRODUCT DESIGN — Nivel Apple
 

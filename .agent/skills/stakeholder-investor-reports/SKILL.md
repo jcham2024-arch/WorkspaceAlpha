@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "697f8776a7955f975e77542877ce889267ed5894fd0cfc61f3513b0d81bbe3c3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: stakeholder-investor-reports
 description: 'Stakeholder report register: stakeholder, period, key metrics, preparer, approver, send date and report link. Use for investor and board reporting.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, analyze]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Stakeholder & Investor Reports
 

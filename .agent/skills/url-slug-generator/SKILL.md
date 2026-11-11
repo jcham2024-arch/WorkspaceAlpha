@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7355d9da8ce33aa4f61a9bd5e6ba0cf04ae2d94f6e59c4ef4094c87fc70b93b8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: url-slug-generator
 description: "URL Slug Generator. Use when working with page title and optional language or URL policy."
+tier: "experimental"
 category: SEO Utility
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # URL Slug Generator
 
 ## Overview

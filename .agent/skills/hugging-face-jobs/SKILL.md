@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f75f5fd0a3b33bffd3fc12b68d9e5135759f7edf83a5be0451db15fb41728caa"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 source: "https://github.com/huggingface/skills/tree/main/skills/huggingface-jobs"
 date_added: "2026-01-30"
 name: hugging-face-jobs
 description: Run workloads on Hugging Face Jobs with managed CPUs, GPUs, TPUs, secrets, and Hub persistence.
+tier: "experimental"
 risk: critical
 license: Apache-2.0
 license_source: https://github.com/huggingface/skills/blob/main/LICENSE
 ---
+
 
 
 # Running Workloads on Hugging Face Jobs

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d03c3d55617228a3ffb96f04ccf301edd49305f8d373d829d11247921bcf12eb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: tmux
 description: "Expert tmux session, window, and pane management for terminal multiplexing, persistent remote workflows, and shell scripting automation."
+tier: "experimental"
 category: development
 risk: safe
 source: community
@@ -9,6 +20,7 @@ author: kostakost2
 tags: [tmux, terminal, multiplexer, sessions, shell, remote, automation]
 tools: [claude, cursor, gemini]
 ---
+
 
 # tmux — Terminal Multiplexer
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ab93673ff942d18760a0da45be38b53b1a149b106a3a5799d1581258aa84d275"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: simplify-code
 description: "Review a diff for clarity and safe simplifications, then optionally apply low-risk fixes."
+tier: "experimental"
 risk: safe
 source: "Dimillian/Skills (MIT)"
 date_added: "2026-03-25"
 ---
+
 
 # Simplify Code
 

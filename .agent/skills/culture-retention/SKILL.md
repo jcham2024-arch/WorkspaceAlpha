@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7b01756d394e5a9cb698bbeace765fbcdf1b33cb2cd306c7091fe18b8d4e569e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: culture-retention
 description: 'Employee survey and retention register: engagement, growth, happiness, work-life balance and manager-relationship scores, key concern and retention risk. Use for culture surveys.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, engage]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Culture & Retention
 

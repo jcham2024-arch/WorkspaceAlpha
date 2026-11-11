@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ddf859bc016a333a8565ea936b342198b07ac02eaf72383f2247ee662dfb2107"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: linux-hardening
 description: Apply CIS benchmarks and secure Linux servers.
+tier: "experimental"
 category: security
 risk: critical
 source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Linux Hardening
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b0d3a8174b98134c14e92a8d28e84ee4c3570d9c54298c516a5fa34ad84158dc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: legal-compliance-vault
 description: 'Legal and compliance document vault: document type, framework, owner and department, effective and expiry dates, renewal flag, storage link, confidentiality and status. Use for policy tracking.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, protect]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Legal & Compliance Vault
 

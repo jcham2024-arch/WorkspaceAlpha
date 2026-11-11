@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b4063aafda621b16a1e705532ada3d8479de990789a5af24b2e0bac4ee5fe414"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: messages-ops
 description: Evidence-first live messaging workflow for ECC. Use when the user wants to read texts or DMs, recover a recent one-time code, inspect a thread before replying, or prove which message source was actually checked.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Messages Ops
 

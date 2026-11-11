@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "45883da3c8d0265b2393614737a63fa57b8b8f84583c1ca9d5812aaeb58a351e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: deed-page
 description: "Publish an HTML file or static folder to a permanent public https://<slug>.deed.page/ URL with one curl request. No account; the first publish returns a token for updates."
+tier: "experimental"
 category: devops
 risk: critical
 source: "https://github.com/f-o-x11/deed-page-skill"
@@ -13,6 +24,7 @@ author: Avatar 8 LLC
 tags: [deploy, static-site, hosting, publish, html, curl]
 tools: [claude, cursor, codex, gemini]
 ---
+
 
 # deed.page publish
 

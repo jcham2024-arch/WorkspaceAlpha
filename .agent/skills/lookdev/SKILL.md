@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4ef9290e1697bba26777ae4a91e8292e591dae1644d27f50db55d940eb8d93c7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: lookdev
 description: "Human-in-the-loop web studio to tune AI-generated output by eye. Stand up a local interactive studio (sliders, pickers, drag handles) or an inline edit/highlight/comment annotation studio for prose & media, instead of guessing values or shipping a static comparison grid."
+tier: "experimental"
 risk: safe
 source: community
 source_type: community
@@ -23,6 +34,7 @@ tools:
   - gemini-cli
   - codex-cli
 ---
+
 ## When to Use
 
 Use when the user says "lookdev", or asks to tune / dial in / iterate on the look of something, compare variations by feel, or review / edit / annotate a blog post, doc, copy, or media set. Use whenever "show me, I'll pick" beats asking the user to specify a number, and whenever you'd otherwise hand back a static grid or a wall of prose for review.

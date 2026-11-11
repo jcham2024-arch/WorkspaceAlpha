@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "759a7577be458ee46b0fbd7f0eeab526242d3e8835401126d21de8649d95dd24"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: i18n-sync
 description: "Translate and synchronize application JSON locale files using source-key usage, project terminology, and focused validation. Use when adding keys or languages, updating source copy, or reviewing missing and stale translations."
+tier: "experimental"
 metadata:
   origin: community
 ---
+
 
 # i18n Sync
 

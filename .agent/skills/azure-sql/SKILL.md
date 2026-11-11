@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "015ead3437bd9a9986340c41a736e66575f51b55d89c59427205350f31b81be3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-sql
 description: Provision Azure SQL Database and Cosmos DB. Configure security, backups,
+tier: "experimental"
   and replication. Use when deploying managed databases on Azure.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Azure SQL
 

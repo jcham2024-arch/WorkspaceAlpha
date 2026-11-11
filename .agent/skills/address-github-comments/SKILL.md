@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d75909609a1dfbae8afdfbf0d664b072771866e7631ed63b08d9d591e8c3a86b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: address-github-comments
 description: "Use when you need to address review or issue comments on an open GitHub Pull Request using the gh CLI."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Address GitHub Comments
 

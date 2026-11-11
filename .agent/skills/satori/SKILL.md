@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "01c419ac18bce74a66f303f27eb51f66197f36a9318e1cb8ebd16bc6c63f575b"
+fetched_at: "2026-11-10"
+upstream_license: "Apache-2.0"
+owner: "taskmaster"
+---
 name: satori
 description: "Use supportive, non-diagnostic reflection informed by Satori's philosophical and psychological lenses."
+tier: "experimental"
 category: personal-development
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude]
 license: Apache-2.0
 license_source: "https://raw.githubusercontent.com/MetcalfSolutions/Satori/v6.5.5/LICENSE"
 ---
+
 
 # Satori
 

@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "56615993a774157598143fb07f53d5f533281338916476b95e80ccb7abaca039"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: development
 description: "Comprehensive web, mobile, and backend development workflow bundling frontend, backend, full-stack, and mobile development skills for end-to-end application delivery."
+tier: "experimental"
 category: workflow-bundle
 risk: safe
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 # Development Workflow Bundle
 

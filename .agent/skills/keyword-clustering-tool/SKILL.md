@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "eef4ccb57da01a71aea822824ec93b58fed842556a94bb6bf1ad038c6f511808"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: keyword-clustering-tool
 description: "Keyword Clustering Tool. Use when working with keyword list."
+tier: "experimental"
 category: Keyword Research
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Keyword Clustering Tool
 
 ## Overview

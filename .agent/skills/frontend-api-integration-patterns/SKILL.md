@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a8781ffc5c19a7c644afb1d6f759a1b866896e2b5ad11c9c390ca0bbc40b31db"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: frontend-api-integration-patterns
 description: "Production-ready patterns for integrating frontend applications with backend APIs, including race condition handling, request cancellation, retry strategies, error normalization, and UI state management."
+tier: "experimental"
 category: frontend
 risk: safe
 source: community
@@ -18,6 +29,7 @@ tools:
   - gemini
   - codex
 ---
+
 
 # Frontend API Integration Patterns
 

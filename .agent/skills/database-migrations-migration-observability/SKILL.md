@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "003eebd162b9f177e1aca5eb46b28f71bcc1af03607a8dc531bf1b5484a6e120"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: database-migrations-migration-observability
 description: "Migration monitoring, CDC, and observability infrastructure"
+tier: "experimental"
 risk: critical
 source: community
 tags: "database, cdc, debezium, kafka, prometheus, grafana, monitoring"
 date_added: "2026-02-27"
 ---
+
 
 # Migration Observability and Real-time Monitoring
 

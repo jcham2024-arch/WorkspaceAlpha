@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6ed3e094a5cc9427c17d1f53eab9e3015c66416374cec5b95171264391263a3c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: codebase-design
 description: Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more testable or AI-navigable, or when another skill needs the deep-module vocabulary.
+tier: "experimental"
 category: "architecture"
 risk: "safe"
 source: "community"
@@ -19,6 +30,7 @@ tools:
   - codex-cli
   - cursor
 ---
+
 
 # Codebase Design
 

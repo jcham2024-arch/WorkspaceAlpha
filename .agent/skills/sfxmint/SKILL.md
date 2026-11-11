@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6037e76300f399e5d1a7276993947ced3cd32cdb1fbae46fefb78fcf3d55ffac"
+fetched_at: "2026-11-10"
+upstream_license: "CC0-1.0"
+owner: "taskmaster"
+---
 name: sfxmint
 description: "Find and add free CC0 sound effects to an app, game or video by event, set or description over a keyless API or MCP; generate a missing sound with an API key."
+tier: "experimental"
 category: media
 risk: safe
 source: "https://github.com/sfxmint/sfxmint-mcp/blob/edce59b646cea067846206a927707dc79aa3c5f2/skills/sfxmint/SKILL.md"
@@ -13,6 +24,7 @@ tools: [claude, cursor, codex, gemini]
 license: "CC0-1.0"
 license_source: "https://github.com/sfxmint/sfxmint-mcp/blob/master/LICENSE"
 ---
+
 
 # SFXMint
 

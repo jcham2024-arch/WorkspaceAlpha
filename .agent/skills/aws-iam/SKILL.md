@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4159c84491ef861e351555fcb93fdb79509df0035734d917ba706abd83678431"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aws-iam
 description: Manage IAM users, roles, and policies. Implement least-privilege access
+tier: "experimental"
   and security best practices. Use when configuring AWS identity and access management.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # AWS IAM
 

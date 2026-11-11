@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "954f7266fea99c80366555ee868f4f4895292e7d9d7c20e59d1693e59026efc1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: makepad-basics
 description: |
+tier: "experimental"
   CRITICAL: Use for Makepad getting started and app structure. Triggers on:
   makepad, makepad getting started, makepad tutorial, live_design!, app_main!,
   makepad project setup, makepad hello world, "how to create makepad app",
@@ -9,6 +20,7 @@ risk: critical
 source: "https://github.com/makepad/makepad"
 date_added: "2026-03-06"
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

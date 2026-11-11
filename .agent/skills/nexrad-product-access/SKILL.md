@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8cb9f3ce5f1326dbd43cf01eb098af3806903fc6b973272b38282bd69dc5fa02"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: nexrad-product-access
 description: "Discover and access NEXRAD data for a selected radar site, time, product, or Level II moment using completed archive volumes, real-time chunks, or supported Level III sources with metadata validation."
+tier: "experimental"
 category: data
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: ShianMike
 tags: [weather, nexrad, level-ii, level-iii, radar-products, single-site, aws-s3]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # NEXRAD Product Access
 

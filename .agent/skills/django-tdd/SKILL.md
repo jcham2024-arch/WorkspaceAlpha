@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6d8cd5ca0844aba8576d7bd5b7a39d123055122578ce78a3a24830af63b3de15"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: django-tdd
 description: Django testing strategies with pytest-django, TDD methodology, factory_boy, mocking, coverage, and testing Django REST Framework APIs. Use when writing Django or DRF tests with pytest-django, or driving a Django feature test-first.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Django Testing with TDD
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "29b689a6f70d003dd59cc57b835690247a0aa21efbf10eeff7e61e11763d1dea"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: odoo-upgrade-advisor
 description: "Step-by-step Odoo version upgrade advisor: pre-upgrade checklist, community vs enterprise upgrade path, OCA module compatibility, and post-upgrade validation."
+tier: "experimental"
 risk: critical
 source: "self"
 date_added: "2026-03-04"
 ---
+
 
 # Odoo Upgrade Advisor
 

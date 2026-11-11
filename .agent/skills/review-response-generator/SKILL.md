@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "683c13f41b17417a7ee2c61a09ce8154b33c2b0c7260c42cda475c962a9963b5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: review-response-generator
 description: "Review Response Generator. Use when working with review text and verified business context."
+tier: "experimental"
 category: Local SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Review Response Generator
 
 ## Overview

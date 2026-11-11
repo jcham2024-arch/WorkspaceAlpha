@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "99851f037df086090b38a08392333a63f1a74de6f4b34620547787544d0f7436"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: enhance-prompt
 description: Transforms vague UI ideas into polished, Stitch-optimized prompts. Enhances specificity, adds UI/UX keywords, injects design system context, and structures output for better generation results.
+tier: "experimental"
 allowed-tools:
   - "Read"
   - "Write"
@@ -8,6 +19,7 @@ risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # Enhance Prompt for Stitch
 

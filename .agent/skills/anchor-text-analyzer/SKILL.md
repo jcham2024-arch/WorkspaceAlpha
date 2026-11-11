@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4c6b40bbde7116ef5f3b8662ac34252f429cc672d08f0b818d2cf3b12ec88c62"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: anchor-text-analyzer
 description: "Anchor Text Analyzer. Use when working with links with anchor text and destinations."
+tier: "experimental"
 category: Backlink & Link-Building
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Anchor Text Analyzer
 
 ## Overview

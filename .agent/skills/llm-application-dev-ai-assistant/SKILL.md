@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "70e06dac33fc7c2ab1e7c31570500e26d08c13b4bccaa054737ec9d50ced793b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: llm-application-dev-ai-assistant
 description: "Design and implement conversational AI assistants with context management, integration boundaries, and validation."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # AI Assistant Development
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c24dd9af6bb182e89c536fd8a5685d3f7f918b8441b76337a06485e6380d5b6b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: nano-settlement-verify
 description: "Check that a Nano (XNO) payment settled before a seller serves a paid call: one inline read-only script asks a public node about a send block and returns a verdict. No seed, no wallet."
+tier: "experimental"
 category: finance
 risk: critical
 source: self
@@ -9,6 +20,7 @@ date_added: "2026-11-02"
 author: dhyabi2
 tags: [nano, xno, payments, settlement, x402]
 ---
+
 
 # nano-settlement-verify
 

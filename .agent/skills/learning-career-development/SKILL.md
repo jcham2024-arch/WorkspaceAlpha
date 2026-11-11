@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "42491be260d22dcc5a3f99673633507ec67b9a3256ac9b19b3c01ab081321360"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: learning-career-development
 description: 'Training register: course, provider, delivery method, department, employee, duration, progress percentage, score, mandatory flag, certificate earned and skills gained. Use for learning records.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, develop]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Learning & Career Development
 

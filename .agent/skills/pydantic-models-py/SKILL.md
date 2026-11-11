@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4558b3022ecc1fc54ef09762bcb0676d9b72b914179f4d9209c68d6aad37cfc9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: pydantic-models-py
 description: "Create Pydantic models following the multi-model pattern for clean API contracts."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Pydantic Models
 

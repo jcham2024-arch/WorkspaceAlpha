@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c02e1f316793d587a009b42a0b5112c0bc684ee77af7548994a4c56eabb0b174"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mdm-device-management
 description: Manage and secure company devices with MDM solutions
+tier: "experimental"
 category: devops
 risk: critical
 source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
@@ -15,6 +26,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 ## When to Use
 

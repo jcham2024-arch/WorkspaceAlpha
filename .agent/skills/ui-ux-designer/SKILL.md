@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3cf3db5d8c82654d50f63511db6d172a59fcbdcdd219d069f08c9b9a7b619ba1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ui-ux-designer
 description: Create interface designs, wireframes, and design systems. Masters user research, accessibility standards, and modern design tools.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 ## Use this skill when
 

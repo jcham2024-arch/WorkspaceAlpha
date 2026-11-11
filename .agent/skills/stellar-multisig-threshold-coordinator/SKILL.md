@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e8a3f8a904f15908dc59edc0279521318c23ebc6351ee5d739f4462a5c6f56c4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: stellar-multisig-threshold-coordinator
 description: 'Multi-signature signer and threshold coordination register: weight configurations, master key locks, and cosigner quorum thresholds for Stellar.'
+tier: "experimental"
 category: engineering
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [stellar, multisig, security, governance, web3, auth]
 tools: []
 source_repo: Ranjeet2063/agentic-awesome-skills
 ---
+
 
 # Stellar Multi-Sig Threshold Coordinator
 

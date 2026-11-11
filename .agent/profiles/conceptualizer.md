@@ -15,6 +15,7 @@ reads:
   - .context/manifest.json
   - skills/index.json
 verify: "Scope is written down, agreed by the human, and stored outside chat (scope doc); planner can act without asking the same questions again."
+owner: "conceptualizer"
 ---
 
 # Conceptualizer — Human-Facing Agent

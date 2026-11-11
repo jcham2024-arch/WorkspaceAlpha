@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f5bbb304c3ba4d803083398f3f204d3443450b3b2d827897cffbf4c4479c936e"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: diary
 description: "Unified Diary System: A context-preserving automated logger for multi-project development."
+tier: "experimental"
 risk: critical
 source: self
 date_added: "2026-03-09"
 ---
+
 
 # 📔 Unified Diary System
 

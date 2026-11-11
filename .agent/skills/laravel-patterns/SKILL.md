@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "dd291bb0de126b3f7f7f868b42f162b78ca301c90716b0946ff0da977f5f8560"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: laravel-patterns
 description: Laravel architecture patterns, routing/controllers, Eloquent ORM, service layers, queues, events, caching, and API resources for production apps. Use when building or reviewing Laravel apps — controllers, Eloquent, service layers, queues, or API resources.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Laravel Development Patterns
 

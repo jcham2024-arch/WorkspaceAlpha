@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "564103642d1ebd99d8103422868a08e97932b352b48602197dc0a531a5d45004"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cloudflare-zero-trust
 description: Protect internal apps with Cloudflare Access, device posture, and Zero
+tier: "experimental"
   Trust policies.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Cloudflare Zero Trust
 

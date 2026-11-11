@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "41496c3ef52d0cf02b4f6b7c9b8f68bdb96e1c4d8107e9abd19f2b47039363f2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: 3d-web-experience
 description: "Use when building or debugging web 3D scenes, product configurators or portfolios with Three.js, React Three Fiber or Spline; review assets, loading, controls, fallbacks and performance."
+tier: "experimental"
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # 3D Web Experience
 

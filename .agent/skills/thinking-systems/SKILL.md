@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5480988bbf5ed2a5cf0800d4136d73b7e6391c0367ec00a909e9b578997b79cd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-systems
 description: When behavior is emergent across components—fixes elsewhere break, loops/delays dominate—map boundary, stocks/flows, feedback, archetypes, then rank leverage.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Systems Mapping and Leverage
 

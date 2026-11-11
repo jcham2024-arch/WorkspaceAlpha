@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "01f4250291706e7a0f6f6c10e94d6b7e54305c9f71ba2ac2b0895b93b8039e2c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: maximalism
 description: Web and App implementation guide for Controlled Maximalism. Trigger when user wants lots of elements, dense content, but a highly curated and artistic presentation.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Controlled Maximalism
 

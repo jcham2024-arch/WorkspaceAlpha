@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1de02eef52236852af349076dfb4aafd0f2913570b7ecbfa2363fa564e846aca"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: typescript
 description: "Language-specific super-code guidelines for typescript."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-06-16"
 ---
+
 # TypeScript / JavaScript: Idiomatic Efficiency Reference
 
 Apply only within the requested scope and current project conventions. Preserve behavior, ownership, error handling, accessibility and security; examples are independent fragments, not equivalent rewrites in every context. Verify language/library versions and run relevant checks. Required tests and user-facing progress/results take precedence over brevity rules. Do not install dependencies or delete files merely to follow these examples.

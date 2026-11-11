@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "80983c5bcd07e2fab0537425cedfeaaea5d950c3eb216ba33a63b2e2c2979f99"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: shodan-reconnaissance
 description: "Provide systematic methodologies for leveraging Shodan as a reconnaissance tool during penetration testing engagements."
+tier: "experimental"
 risk: offensive
 source: community
 author: zebbern
 date_added: "2026-02-27"
 ---
+
 
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.

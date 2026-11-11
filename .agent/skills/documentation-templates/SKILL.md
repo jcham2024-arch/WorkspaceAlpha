@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d7b93ca82966196f2312168ab6541e28e6b494f871aced9a5da0ae148628fb15"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: documentation-templates
 description: "Documentation templates and structure guidelines. README, API docs, code comments, and AI-friendly documentation."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Documentation Templates
 

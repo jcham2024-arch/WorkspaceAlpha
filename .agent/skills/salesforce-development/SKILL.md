@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d470f7059df63a11a4bcc7b5338026e339039e2b55903ab8e2c5111f20eceb65"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: salesforce-development
 description: Expert patterns for Salesforce platform development including
+tier: "experimental"
   Lightning Web Components (LWC), Apex triggers and classes, REST/Bulk APIs, External Client Apps, and Salesforce DX with scratch orgs and 2nd generation
   packages (2GP).
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Salesforce Development
 

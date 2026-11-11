@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c539f0f1630f1a098ae169eada37866e2432693cbad02418a353d52bb81654f7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hunt-idor
 description: Hunting skill for idor vulnerabilities. Built from 26 public bug bounty
+tier: "experimental"
   reports. Use when hunting idor on any target.
 category: security
 risk: offensive
@@ -16,6 +27,7 @@ compatibility: Requires explicit written authorization for a target scope plus t
 sources: github, hackerone_public
 report_count: 39
 ---
+
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.

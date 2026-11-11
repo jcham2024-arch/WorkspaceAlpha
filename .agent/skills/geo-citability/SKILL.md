@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "19cff70177ab33d7989a61bb2ace2202eebade7b87a4f7efcc10e5d2ed61e967"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: geo-citability
 description: AI citability scoring and optimization.
+tier: "experimental"
 category: seo
 risk: safe
 source: https://github.com/zubair-trabzada/geo-seo-claude
@@ -20,6 +31,7 @@ allowed-tools:
 - WebFetch
 - Write
 ---
+
 
 # AI Citability Scoring Skill
 

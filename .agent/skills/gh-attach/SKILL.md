@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "80d9a0eee49c93e519092dcf54a70971ca643644b9faf648a0ad5dd160832b7c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gh-attach
 description: "Upload and download GitHub user-attachments (screenshots, PDFs, zips, videos) from the terminal; use when asked to attach or embed a file in a PR, issue, or comment, or download an attachment URL."
+tier: "experimental"
 category: developer-tools
 risk: critical
 source: community
@@ -30,6 +41,7 @@ plugin:
     summary: "Installs a reviewed gh-attach release and, for uploads, uses an explicitly approved interactive browser session cookie."
     docs: SKILL.md
 ---
+
 
 # Upload and download GitHub user-attachments (gh-attach)
 

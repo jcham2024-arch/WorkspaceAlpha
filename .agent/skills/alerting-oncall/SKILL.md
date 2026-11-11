@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ec443a90a91210fe121992da63adf1a91cdd6d0a192aaf93fe3b9e9a826faa79"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: alerting-oncall
 description: Set up alerting rules, configure on-call rotations, and manage incident
+tier: "experimental"
   response workflows.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Alerting & On-Call
 

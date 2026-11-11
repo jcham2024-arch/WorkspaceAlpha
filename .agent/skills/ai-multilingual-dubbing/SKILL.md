@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cba4297c77afda3996130d9768fc46d1d62260b8113e635ad4e187e0833f2e64"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-multilingual-dubbing
 description: "Install and use the official Multilingual Voiceover package, pinned by digest, for paid hosted work on the Beatra service."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/beatra-ai/multilingual-voiceover-skill/blob/bcd5d938b872bb50b421f752e1acba29d07965e5/LICENSE"
 ---
+
 
 # Multilingual Voiceover Skill
 

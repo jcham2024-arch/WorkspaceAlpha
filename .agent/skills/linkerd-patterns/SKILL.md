@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ab04b0aa9e4e4a79bfb6deb2007dd4a35ca518f13d7c80457b65f1dbd6e78431"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: linkerd-patterns
 description: "Production patterns for Linkerd service mesh - the lightweight, security-first service mesh for Kubernetes."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Linkerd Patterns
 

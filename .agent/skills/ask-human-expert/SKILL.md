@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bc00184c88590be763e17dec263f61c50a44582c77a601a4f643befda5108f55"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ask-human-expert
 description: "Ask real executives and domain experts a question through Instant Expert for a written answer or short call: practitioner knowledge, customer discovery. Free test mode; live sends need approval."
+tier: "experimental"
 category: research
 risk: critical
 source: "https://github.com/Instant-Expert/skills"
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/Instant-Expert/skills/blob/main/LICENSE"
 ---
+
 
 # Ask a Human Expert
 

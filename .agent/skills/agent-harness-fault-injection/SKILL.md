@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1b4bdbb717c9ee9751ab49c6368d2791605c215db89b1302388eace2070c4964"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agent-harness-fault-injection
 description: "Use when an agent workflow needs deterministic recovery evidence for sandbox, MCP/tool, worker, checkpoint, memory, or orchestration failures."
+tier: "experimental"
 category: development
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: Whxuan0701
 tags: [agent-harness, fault-injection, recovery, state-machine, mcp, multi-agent]
 tools: [claude, cursor, gemini, codex-cli]
 ---
+
 
 # Agent Harness Fault Injection
 

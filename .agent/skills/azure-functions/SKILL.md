@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c5b37e22ea8d8cf5e5cb2c9820fbe2f2476748a613e065210c01306f7272df06"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-functions
 description: Expert patterns for Azure Functions development including isolated
+tier: "experimental"
   worker model, Durable Functions orchestration, cold start optimization, and
   production patterns. Covers .NET, Python, and Node.js programming models.
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Azure Functions
 

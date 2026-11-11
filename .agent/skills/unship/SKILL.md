@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ccabf80eb616b4f1f2ce1bc6355829c929fcf658ae539693d5096d52e27b6fab"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: unship
 description: "Compare AI agent-made UI variants locally in a real app, then keep one and clean up unused temporary code."
+tier: "experimental"
 category: development
 risk: critical
 source: community
@@ -17,6 +28,7 @@ plugin:
     codex: blocked
     claude: blocked
 ---
+
 
 # Unship
 

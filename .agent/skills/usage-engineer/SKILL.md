@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ce0e501c5693514ffb644cb6b2d1920f6cab6efe65fd0d69737263438580a14a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: usage-engineer
 description: "Cut wasted tokens in coding-agent sessions: compact long logs, stop identical retries, check stale project maps, and audit local Codex/OpenCode usage."
+tier: "experimental"
 category: productivity
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini, opencode]
 license: "MIT"
 license_source: "https://github.com/noamshorts22-prog/usage-engineer/blob/main/LICENSE"
 ---
+
 
 # usage-engineer
 

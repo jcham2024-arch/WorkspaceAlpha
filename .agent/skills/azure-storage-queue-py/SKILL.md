@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "73f96d66c00f557db96808ff3866ceff6fd09d76eef3a27caa409c8b886a1005"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-storage-queue-py
 description: Azure Queue Storage SDK for Python. Use for reliable message queuing, task distribution, and asynchronous processing.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Azure Queue Storage SDK for Python
 

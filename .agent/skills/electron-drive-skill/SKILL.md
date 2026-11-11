@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9d337ed2890745ed64004a128d92439edf414b9c4db0408b391fd1fe639213b2"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: electron-drive-skill
 description: "Launch the project's Electron app on a scratch profile and drive it: click, type, screenshot, run renderer or main-process code, read logs. Use to verify UI changes end to end."
+tier: "experimental"
 category: testing
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude]
 license: "MIT"
 license_source: "https://github.com/Search-3D/electron-drive-skill/blob/main/LICENSE"
 ---
+
 
 # Driving the Electron app
 

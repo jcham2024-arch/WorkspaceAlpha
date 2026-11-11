@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ee3945e537ce21c54260200558aa4ba05db2eaae084112391ea76440c6a7da78"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ask-matt
 description: Ask which skill or flow fits your situation. A router over the user-invoked skills in this repo.
+tier: "experimental"
 disable-model-invocation: true
 category: "productivity"
 risk: "safe"
@@ -20,6 +31,7 @@ tools:
   - codex-cli
   - cursor
 ---
+
 
 # Ask Matt
 

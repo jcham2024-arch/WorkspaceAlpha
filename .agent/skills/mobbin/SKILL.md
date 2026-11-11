@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a7051e6a74884cbaeed3fbd2051a2751f64541d3f3fb154d0cc54e837dfc25d2"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: mobbin
 description: "Find real app screens, user flows and website sections on Mobbin through the Mobbin MCP server, to ground UI design and code in shipped products."
+tier: "experimental"
 category: frontend
 risk: safe
 source: official
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: "MIT"
 license_source: "https://github.com/mobbin/skills/blob/main/LICENSE"
 ---
+
 
 # Mobbin UI references
 

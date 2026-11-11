@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d3d449d4a91862e8cb83f1ced0d601c56bb9558901b6c54a66d091d9b2004ee7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gcp-cloud-functions
 description: Deploy serverless functions on Google Cloud Functions. Configure triggers
+tier: "experimental"
   and manage deployments. Use when implementing serverless workloads on GCP.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # GCP Cloud Functions
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8eb7615e492d8b0dc8447270cf903c9b465a727ad86fc0bd33f4e394f15b7e2f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sdk-dx
 description: "Design SDKs that developers love to use—APIs that feel native, error messages that guide, and experiences that reduce friction. This skill covers creating SDKs that drive adoption through exceptional developer experience rather than aggressive marketing."
+tier: "experimental"
 risk: critical
 source: https://github.com/jonathimer/devmarketing-skills/tree/main/skills/sdk-dx
 source_repo: jonathimer/devmarketing-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/jonathimer/devmarketing-skills/blob/main/LICENSE
 ---
+
 
 # SDK Design and Developer Experience
 

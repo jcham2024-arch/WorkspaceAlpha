@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "86082c80aa181d5aedca33b4e4594fa0a969d15f77ca1aae149fdf394fa50680"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "tdd-guide"
 description: "Test-first development and test generation for Jest, Pytest, JUnit, Vitest or Mocha: red-green-refactor, fixtures and mocks, coverage gaps. Use whenever the user asks to write tests (before or after the code), mock a dependency or raise coverage."
+tier: "experimental"
 ---
+
 
 # TDD Guide
 

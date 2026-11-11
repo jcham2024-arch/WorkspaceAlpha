@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c864b011c3c1e089226fecba9b1e96ed81710a5486e425648948c1c445d306a2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: source-driven-development
 description: Grounds every implementation decision in official documentation. Use when you want authoritative, source-cited code free from outdated patterns. Use when building with any framework or library where correctness matters.
+tier: "experimental"
 risk: critical
 source: https://github.com/addyosmani/agent-skills/tree/main/skills/source-driven-development
 source_repo: addyosmani/agent-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/addyosmani/agent-skills/blob/main/LICENSE
 ---
+
 
 # Source-Driven Development
 

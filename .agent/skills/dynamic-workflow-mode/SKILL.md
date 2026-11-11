@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e26ea46db4cdac41fd416f7949a010826c008454619c4eae9eeb078cb0cfe14e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: dynamic-workflow-mode
 description: "Design task-local harnesses, eval gates, and reusable skill extraction for Claude dynamic workflow mode and other adaptive agent harnesses. Use when building a task-local harness, adding eval gates, or extracting a reusable skill from ad-hoc work."
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Dynamic Workflow Mode
 

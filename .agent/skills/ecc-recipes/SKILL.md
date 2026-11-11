@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7a38c22241994f4925e3b0350e2f4f86f14895def4a549c00a76ab66c8012475"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ecc-recipes
 description: Map a described workflow to the right ECC command group with run-order and stop condition, or browse all command-group recipe families read live from the commands directory. Advisory only — never executes. Use when asked which commands run a workflow, the command sequence for a task, or to list ECC pipelines; not for executing the task (route to the command
+tier: "experimental"
 argument-hint: <workflow description | empty=list all>
 origin: community
 author: KyawZinLatt
 metadata:
   version: "1.0.0"
 ---
+
 
 # ECC Recipes
 

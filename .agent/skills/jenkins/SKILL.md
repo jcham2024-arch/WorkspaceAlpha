@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "21c7a82bdcf98f82895da003bcf6302ce40629cba323c5a6b50715a47811e41f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: jenkins
 description: Create and manage Jenkins CI/CD pipelines, configure agents, manage plugins,
+tier: "experimental"
   and automate builds.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Jenkins
 

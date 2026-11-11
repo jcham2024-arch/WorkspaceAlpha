@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a191991755907aa058ca147741b02a87a9ab1b1227b0f48b088004177afc0f9c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: codebase-to-wordpress-converter
 description: "Expert skill for converting any codebase (React/HTML/Next.js) into a pixel-perfect, SEO-optimized, and dynamic WordPress theme."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-12"
 author: WHOISABHISHEKADHIKARI
 ---
+
 
 # Codebase to WordPress Converter
 

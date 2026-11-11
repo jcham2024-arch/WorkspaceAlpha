@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d164f729394f1776eea63cc67c0ab78b735aa22532b54a7b6f4b9752464cda77"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: intern-program
 description: 'Internship register: intern and department, supervisor and mentor, institution, start and end dates, stipend, learning goals, mid-term and final scores, conversion flags. Use for intern tracking.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, onboard]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Intern Program
 

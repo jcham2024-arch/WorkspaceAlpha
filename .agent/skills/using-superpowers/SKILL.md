@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ca3fa352fb3738503d5ee2652ae84fff37d76af29511d70debe07f2a3b97f725"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: using-superpowers
 description: Use when starting any conversation - establishes how to find and use skills, requiring skill invocation before ANY response including clarifying questions
+tier: "experimental"
 ---
+
 
 <SUBAGENT-STOP>
 If you were dispatched as a subagent to execute a specific task, ignore this skill.

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "985549c9763a4f3f101641c45e4aacbd83457640698239f16a991851dd5e0ecb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: avalonia-viewmodels-zafiro
 description: "Optimal ViewModel and Wizard creation patterns for Avalonia using Zafiro and ReactiveUI."
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Avalonia ViewModels with Zafiro
 

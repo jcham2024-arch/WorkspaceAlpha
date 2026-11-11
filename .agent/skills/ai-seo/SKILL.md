@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "51827e8843a2832853d10acabab774a71f07296c8fa05b836d5130956e75044e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-seo
 description: "Optimize content for AI search and LLM citations across AI Overviews, ChatGPT, Perplexity, Claude, Gemini, and similar systems. Use when improving AI visibility, answer engine optimization, or citation readiness."
+tier: "experimental"
 risk: critical
 source: "https://github.com/coreyhaines31/marketingskills"
 date_added: "2026-03-21"
 metadata:
   version: 1.1.0
 ---
+
 
 # AI SEO
 

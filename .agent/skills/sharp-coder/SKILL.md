@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "406b55de248bff71ef79491f0d606d512cf2416c336bef3b320c37c6aa8a388b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sharp-coder
 description: >
+tier: "experimental"
   Two-layer performance skill combining disciplined THINK layer (surgical edits, simplicity) and terse SPEAK layer (caveman compression). Triggers on requests for brevity, token efficiency, or disciplined coding.
 risk: safe
 source: self
 date_added: "2026-06-15"
 source_type: self
 ---
+
 
 # Sharp Coder
 

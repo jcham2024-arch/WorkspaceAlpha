@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a840fd23c085c149bb8b7387d3275f72cfb3803b89e52e0bddf6bc4b9d3f0a41"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: access-review
 description: Conduct periodic access reviews and certifications. Implement access
+tier: "experimental"
   governance and recertification workflows. Use when managing access compliance.
 category: security
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Access Review
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3a7aa4323eabc83ebf45cb5ae419a0e01d0d1751e8c2d8b624630fb320e8b619"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: growth-log
 description: Write growth log entries that extract reusable patterns from completed work — root cause, transferable rule, and a recognizable signal — instead of diary-style event narration, with a 4-8 sentence template and merge-duplicates discipline. Use when capturing what was learned after a complex task, debugging session, failure, or rollback, when reviewing progress over a period, or when a delivery gate
+tier: "experimental"
 metadata:
   version: 1.1.0
   origin: ECC
 ---
+
 
 # Growth Log Skill
 

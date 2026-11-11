@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c5e163769ade17d7123b88facfee13d8f7d71ec2d7c84e68d760edfdb0d5a244"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: supply-chain-risk-auditor
 description: "Identifies dependencies at heightened risk of exploitation or takeover. Use when assessing supply chain attack surface, evaluating dependency health, or scoping security engagements."
+tier: "experimental"
 allowed-tools:
   - Read
   - Write
@@ -11,6 +22,7 @@ risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # Supply Chain Risk Auditor
 

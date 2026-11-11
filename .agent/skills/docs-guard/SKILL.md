@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "23dc5106274df6ff6b7a2c5008849f793ef49fdf7da723a98486426201143bff"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "docs-guard"
 description: "Review generated or changed documentation before it ships, including READMEs, API references, docstrings, changelogs, tutorials, and documentation sites."
+tier: "experimental"
 risk: "critical"
 source: "community"
 source_repo: "amElnagdy/guard-skills"
@@ -10,6 +21,7 @@ author: "community"
 tags: []
 tools: []
 ---
+
 
 
 # Docs Guard

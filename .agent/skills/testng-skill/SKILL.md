@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4281310cc54a3b09f68785a406d92df5175bbe1bd014d56d1225ff652afeecdf"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: testng-skill
 description: 'Generates TestNG tests in Java with groups, data providers, parallel execution, XML suite configuration, and listeners. Use when user mentions "TestNG", "@DataProvider", "testng.xml", "groups". Triggers on: "TestNG", "@DataProvider", "testng.xml", "TestNG suite", "parallel tests Java".'
+tier: "experimental"
 risk: critical
 source: https://github.com/LambdaTest/agent-skills/tree/main/testng-skill
 source_repo: LambdaTest/agent-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/LambdaTest/agent-skills/blob/main/LICENSE
 ---
+
 
 # TestNG Testing Skill
 ## When to Use

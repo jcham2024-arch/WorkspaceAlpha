@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "24a3b76b609123966890d26f4001f87e30d31c3e5e694b00b24b7459f9c955cc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-schema-generator
 description: "AI Schema Generator. Use when working with visible page content and page URL."
+tier: "experimental"
 category: AI-Powered SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # AI Schema Generator
 
 ## Overview

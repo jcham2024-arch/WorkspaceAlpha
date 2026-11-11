@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ede203dd0d0c0d64df2883053dd93b06fb4eb2b78e7063f20c823b1b94b79ee4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: startup-metrics-framework
 description: "Comprehensive guide to tracking, calculating, and optimizing key performance metrics for different startup business models from seed through Series A."
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Startup Metrics Framework
 

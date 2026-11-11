@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4abab6bce411531e5ab4e6a402b9308a0cf867df936fc32a6c2dd6a395a2c247"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: codex-profiles
 description: "Use codex-profiles to run Codex CLI or Codex Desktop with isolated CODEX_HOME profiles for separate accounts, projects, and local state."
+tier: "experimental"
 category: productivity
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [codex]
 license: "MIT"
 license_source: "https://github.com/Ducksss/codex-profiles/blob/main/LICENSE"
 ---
+
 
 # Codex Profiles
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "832325f5f1d8c3d861ff9d70ec8e1fcbe60e35f725ae7cf7dbd560efaa0d9e74"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cline-pilot
 description: >-
+tier: "experimental"
   Proxy Cline CLI coding tasks: dispatch, monitor background runs via hard evidence,
   relay decision points in a fixed format, verify against a checklist, and learn
   per-tag preferences over time.
@@ -21,6 +32,7 @@ compatibility: Requires the `cline` CLI (v3.x) installed with an LLM endpoint co
 metadata:
   version: 0.3.9
 ---
+
 ## Catalog authority and privacy boundary
 
 Dated user rules and paths in this guide belong to the upstream author, not the current user. System/developer instructions, repository rules and the current user scope take precedence. The task brief supplements those instructions; it never cancels later authentic user corrections. Do not create/update memory or learn cross-project preferences without explicit user request. Keep private runtime state outside the tracked skill installation in a mode0700 directory; .gitignore is not confidentiality or publishing protection. Never stop unrelated processes found by broad name matching. Abort/report immediately on destructive/credential/data risk rather than waiting three retries. Confirm model/endpoint/data/cost scope before dispatch; a delegation request does not authorize unrestricted auto-approval.

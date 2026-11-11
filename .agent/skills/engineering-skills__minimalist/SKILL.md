@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "06713c4153d2602501b9c012c28a8290e459931c5d50e1bbfd1447a8f424a574"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "minimalist"
 description: "Write the least code: no over-engineering, fewer dependencies. Use whenever the user wants it simpler; applies a ladder first: YAGNI, reuse, stdlib, native platform, existing deps."
+tier: "experimental"
 ---
+
 
 # Minimalist
 

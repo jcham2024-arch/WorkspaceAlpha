@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c9cf325f851cba279d83788f6937493558644dc9017f4e4b8197645e3af9803f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: context-fundamentals
 description: "Context is the complete state available to a language model at inference time. It includes everything the model can attend to when generating responses: system instructions, tool definitions, retrieved documents, message history, and tool outputs."
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-01-30"
 ---
+
 
 # Context Engineering Fundamentals
 

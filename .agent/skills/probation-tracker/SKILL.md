@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "48e2aec287b1b3eebe3622531b05bb6b7728d5e33317c3c572f43c316b60f357"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: probation-tracker
 description: 'Probation register: employee, start and end dates, 30, 60 and 90-day review scores, overall score and confirmation letter. Use for probation tracking.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, onboard]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Probation Tracker
 

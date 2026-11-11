@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9406f8547913516381f21bf30697e35f33bb00713755aae15db472bbe06afd06"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: deterministic-design
 description: "Measure rendered UI layout with reproducible spatial metrics and a separately assessed usability review; distinguish measurements from subjective judgments and user tests."
+tier: "experimental"
 risk: safe
 source: community
 source_type: community
@@ -22,6 +33,7 @@ tools:
   - gemini-cli
   - codex-cli
 ---
+
 ## When to Use
 
 Use to catch AI-generated UI that "looks off", is misaligned or centered-mush, or fails usability — when you need reproducible spatial measurements and an evidence-based usability review. Metrics do not prove user success, accessibility or overall design quality. Compose it with any taste/token design skill before reporting design "done".

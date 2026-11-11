@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "36953fbcbd56fa239d141d271172b45b186db3524959c65275b2a2d9d8e987ee"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: parcel-coupon
 description: "Call parcel/courier coupon API to fetch one-stop logistics service coupons, including smart shipping and smart price matching. Returns coupon links and QR code images for users to redeem via WeChat."
+tier: "experimental"
 category: shopping
 risk: safe
 source: community
@@ -11,6 +22,7 @@ author: moooai
 tags: [coupons, parcel, courier, sf-express, cainiao]
 tools: [claude, codex]
 ---
+
 
 # Parcel / Courier Coupons (SF, ZTO, YTO, Yunda, STO, Cainiao)
 

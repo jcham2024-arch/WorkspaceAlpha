@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ffd090977e2d42806cf3d37b0edb42afb67a845dd114a2733fd3617a9b726caa"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: constant-time-analysis
 description: "Analyze cryptographic code to detect operations that leak secret data through execution timing variations."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 ## Bundled upstream support
 
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.

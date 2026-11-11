@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d6097785380f3e07297ce41a91b0bd51d709a58efbe77f6494528ef6af5f6de8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: spline-3d-integration
 description: "Use when adding interactive 3D scenes from Spline.design to web projects, including React embedding and runtime control API."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-07"
 ---
+
 
 # Spline 3D Integration Skill
 

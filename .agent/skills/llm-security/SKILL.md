@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7525df69d3c48c88a48589821a38a8de266ab5f83152017b0aa504786f2ad898"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: llm-security
 description: "Authorized security assessment of LLM applications and AI agents: prompt injection, tool abuse, RAG exposure, memory poisoning, system-prompt extraction, and agent-compliance engineering per OWASP LLM/ASI Top 10."
+tier: "experimental"
 risk: offensive
 source: "https://github.com/zhaoxuya520/reverse-skill"
 source_repo: "zhaoxuya520/reverse-skill"
@@ -9,6 +20,7 @@ date_added: "2026-08-25"
 license: "MIT"
 license_source: "https://github.com/zhaoxuya520/reverse-skill/blob/main/LICENSE"
 ---
+
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.

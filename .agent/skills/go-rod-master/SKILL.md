@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "dd9944b03fd8ed904175a6f54822f880ce1a40c55858504b65a01ddd5f4019be"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: go-rod-master
 description: "Comprehensive guide for browser automation and web scraping with go-rod (Chrome DevTools Protocol) including stealth anti-bot-detection patterns."
+tier: "experimental"
 risk: critical
 source: "https://github.com/go-rod/rod"
 date_added: "2026-02-27"
 ---
+
 
 # Go-Rod Browser Automation Master
 

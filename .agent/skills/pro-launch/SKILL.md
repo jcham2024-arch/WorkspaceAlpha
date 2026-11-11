@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d9be8fc6d2ec4d39afce8610cc5a4de5f870c27ea580202795553355bb5cffc3"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: pro-launch
 description: "Build an app or product from 0 to 1, taste-first, with phase gates: references, naming, style frames, UI loop, launch video, GTM and shipping. Use for 做产品, 起名, 找参考, UI 太丑, launch plans."
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor]
 license: "MIT"
 license_source: "https://github.com/jack-reson8/pro-launch/blob/main/LICENSE"
 ---
+
 
 # pro-launch · 产品全生命周期（审美优先）
 

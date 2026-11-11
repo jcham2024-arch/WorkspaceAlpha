@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8e322bc427510000e978e13d6c7180958cef098646f4151ea7a779681d2ff434"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: citation-management
 description: Manage BibTeX citations for LaTeX papers. Harvest missing citations from a draft using Semantic Scholar, validate cite keys against .bib files, deduplicate entries, and format bibliography. Use when working with references, BibTeX, or citations.
+tier: "experimental"
 argument-hint: [tex-or-bib-file]
 ---
+
 
 # Citation Management
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d7fc0cb762545431b3a24bc24cc9ae8ac5a3bf171ac7692253d76f273859ffcc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: dsh-deepread
 description: "Use for evidence-first reading of articles, books, PDFs, web pages, or document sets, with knowledge maps and Feynman checks."
+tier: "experimental"
 category: research
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: "MIT"
 license_source: "https://github.com/xiehuan123/dsh-deepread/blob/main/LICENSE"
 ---
+
 
 # DeepRead
 

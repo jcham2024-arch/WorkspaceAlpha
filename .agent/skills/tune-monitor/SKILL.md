@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6b306d770e6eeae72251aaf0a6aba49e8a654ab7058abe8836e859de25544586"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: tune-monitor
 description: Analyze a Monte Carlo monitor and recommend config changes to reduce alert noise. Supports metric, custom SQL, validation, and table monitors. Fetches the report, identifies patterns, and suggests tuning.
+tier: "experimental"
 risk: critical
 source: https://github.com/monte-carlo-data/mc-agent-toolkit/tree/main/skills/tune-monitor
 source_repo: monte-carlo-data/mc-agent-toolkit
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: Apache-2.0
 license_source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/LICENSE
 ---
+
 ## Bundled upstream support
 
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "88c31448e8ea25b86cbf8321a2c30c0e48a8fd190b2b6fe2d29ef7607f10a560"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: frontend-ui-engineering
 description: Builds production-quality UIs. Use when building or modifying user-facing interfaces. Use when creating components, implementing layouts, managing state, or when the output needs to look and feel production-quality rather than AI-generated.
+tier: "experimental"
 risk: critical
 source: https://github.com/addyosmani/agent-skills/tree/main/skills/frontend-ui-engineering
 source_repo: addyosmani/agent-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/addyosmani/agent-skills/blob/main/LICENSE
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b9ed70eded3527fb5f90ec1c44d12cbc8036537d3f602a4fa705a7d5a4d53f79"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: network-interface-health
 description: Diagnose interface errors, drops, CRCs, duplex mismatches, flapping, speed negotiation issues, and counter trends on routers, switches, and Linux hosts. Use when an interface shows errors, drops, CRCs, flapping, or a duplex or speed mismatch.
+tier: "experimental"
 metadata:
   origin: community
 ---
+
 
 # Network Interface Health
 

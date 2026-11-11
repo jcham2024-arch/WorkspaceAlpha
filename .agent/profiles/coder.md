@@ -25,6 +25,7 @@ tools:
 reads:
   - .context/manifest.json (byte ranges, never whole docs)
 verify: "seed + build pass; Step-6 validation PASS; report matches tool output, never optimistic."
+owner: "coder"
 ---
 
 # Coder

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "65f54ba798bbc14aebe295f91bbbebf910b605a92281ef7a1ed7aad50a99adfb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: event-staffing-compliance
 description: Assess worker-classification and compliance risk for temporary event staffing in the US and Canada — W-2 vs 1099, misclassification penalties, joint-employer liability, COI, and wage/hour rules. Includes live state-by-state lookups via MCP.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-06-05"
 ---
+
 
 # Event Staffing Compliance Assessment
 

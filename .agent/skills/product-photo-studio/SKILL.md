@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "59f1f2f91dad579f7e78e621a823ed8c529ae04e1eb280b4f0097559d70c8334"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: product-photo-studio
 description: "Install and use the official AI Product Photography package, pinned by digest, for paid hosted work on the Beatra service."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/beatra-ai/ai-product-photography-skill/blob/5c64090847d96830e49927924281f04bd576253d/LICENSE"
 ---
+
 
 # AI Product Photography Skill
 

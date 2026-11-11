@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "754ac90218728ac05799e2978d66ea0ec1c651f7ae44ddce55064c6177fcf5ea"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cc-skill-project-guidelines-example
 description: "Project Guidelines Skill (Example)"
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Project Guidelines Skill (Example)
 

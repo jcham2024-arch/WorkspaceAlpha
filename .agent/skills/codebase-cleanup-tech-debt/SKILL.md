@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9bda65df964a33e0c5b5fde22ad921a5e240fd6ec1b44272828e268b9188a4a6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: codebase-cleanup-tech-debt
 description: "Identify technical debt from actual code and change history, estimate its impact, and prioritize bounded improvements with explicit assumptions."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 ## Compatibility and maintenance
 

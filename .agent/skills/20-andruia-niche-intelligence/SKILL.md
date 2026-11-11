@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "70fdae3b024afcdafe5646d716750aed08335329add22a35d21fa25c44c58b55"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 id: 20-andruia-niche-intelligence
 name: 20-andruia-niche-intelligence
 description: "Usar tras definir el sector de un proyecto: prepara un dossier en español con contexto, normas aplicables, patrones UX y riesgos, distinguiendo fuentes verificadas de hipótesis."
+tier: "experimental"
 category: andruia
 risk: safe
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 ## When to Use
 Use this skill once the project's niche or industry has been identified. It is essential for injecting domain-specific intelligence, regulatory requirements, and industry-standard UX patterns into the project.

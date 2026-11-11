@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ac35bfcb1306dbbc0c06293eca66f04e70759d813d081571192e9c60a2d203a0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: skill-picker
 description: >-
+tier: "experimental"
   Use whenever the user has a task and wants to know which installed skill
   applies, or says "which skill", "what skill should I use", "pick a skill",
   "route this", or hands you a task without naming a skill. The picker reads
@@ -11,6 +22,7 @@ description: >-
   skill — do not default to doing the work yourself when a dedicated skill
   exists.
 ---
+
 
 # Skill Picker
 

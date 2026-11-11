@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "708072341e2c50a6f8379160415dddf6d1eb9c1e0d2b35741467fc4d54df7c39"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-native-cli
 description: "Design spec with 98 rules for building CLI tools that AI agents can safely use. Covers structured JSON output, error handling, input contracts, safety guardrails, exit codes, and agent self-description."
+tier: "experimental"
 risk: safe
 source: https://github.com/ChaosRealmsAI/agent-cli-spec
 date_added: "2026-03-15"
 ---
+
 
 # Agent-Friendly CLI Spec v0.1
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e5deaed172ac2e7f899548c7de1bee3787801cd46c9b7fc56f63a49ab685b9e2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: keenable-search-mcp
 description: "Search the public web with site and date filters, and read pages with an extraction prompt, through Keenable's keyless MCP server. Use when the user chooses Keenable or its connected tools."
+tier: "experimental"
 category: mcp
 risk: safe
 source: self
@@ -9,6 +20,7 @@ date_added: "2026-10-19"
 author: ilya-bogin-keenable
 tags: [mcp, web-search, research, citations]
 ---
+
 
 # Keenable Search MCP
 

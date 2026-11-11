@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b7e3c09e72a3bf507ca04d7e0e6edb5e5e7bc6c4b3d6b751dc4903c2d6ab304b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: swiftui-view-refactor
 description: Refactor SwiftUI views into smaller components with stable, explicit data flow.
+tier: "experimental"
 risk: safe
 source: "Dimillian/Skills (MIT)"
 date_added: "2026-03-25"
 ---
+
 
 # SwiftUI View Refactor
 

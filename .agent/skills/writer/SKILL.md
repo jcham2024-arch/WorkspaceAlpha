@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9877c11fbd63992a9b36a89ae6cc229189d3e1683b180d2015cd817c2e7ba82b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: writer
 description: "Document creation, format conversion (ODT/DOCX/PDF), mail merge, and automation with LibreOffice Writer."
+tier: "experimental"
 category: document-processing
 risk: safe
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 # LibreOffice Writer
 

@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "da4d76905c6664987f5df4ea47cb8240b3edfdbe30ba6e6dfebc6ea30de09fd2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: occupational-health-analyzer
 description: 分析职业健康数据、识别工作相关健康风险、评估职业健康状况、提供个性化职业健康建议。支持与睡眠、运动、心理健康等其他健康数据的关联分析。
+tier: "experimental"
 allowed-tools: Read, Grep, Glob, Write, Edit
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # 职业健康分析技能
 

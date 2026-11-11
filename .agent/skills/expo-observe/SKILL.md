@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e256fdc8e81c0823fc4d03386000ade987a0d47b7db421a01c5b62c2f6502647"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: expo-observe
 description: "Set up and query EAS Observe for Expo apps, including root integration, interactive markers, route metrics, CLI summaries, traces, logs, and performance diagnosis."
+tier: "experimental"
 risk: critical
 source: https://github.com/expo/skills/tree/main/plugins/expo/skills/expo-observe
 source_repo: expo/skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/expo/skills/blob/main/LICENSE
 ---
+
 
 # EAS Observe
 ## When to Use

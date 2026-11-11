@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d26823a8411ba28348b36be772158f40ffa325bdd03b3392cadb51d5ed69b481"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: strategic-compact
 description: Suggests manual context compaction at logical intervals to preserve context through task phases rather than arbitrary auto-compaction. Use when a session is approaching a context limit and a task phase is a natural place to compact.
+tier: "experimental"
 license: MIT
 ---
+
 
 # Strategic Compact Skill
 

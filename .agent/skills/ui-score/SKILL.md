@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8255165f38ed77a02b40c2cbfc88f7f83db66c585f6316eb54a3ff43580e8dda"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ui-score
 description: Score a UI file's design quality 0-100 against StyleSeed's design language — per-category breakdown, the worst offenders, and a prioritized fix list. A quantified version of /ss-review.
+tier: "experimental"
 risk: critical
 source: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-score
 source_repo: bitjaru/styleseed
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE
 ---
+
 
 # Design Score
 ## When to Use

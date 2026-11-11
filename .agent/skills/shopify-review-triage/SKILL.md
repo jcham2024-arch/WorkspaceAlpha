@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "14c134c9e2eddc1039451ee3d9891d5860e2e489bdefd70e82c30b015a5c3134"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: shopify-review-triage
 description: "Turn public 1-3-star Shopify App Store review rows into a P0-P3 triage brief: incident risk, repeated friction, pricing confusion, feature requests, and an explicit needs-human-read bucket."
+tier: "experimental"
 category: product
 risk: none
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, codex, gemini, antigravity]
 license: "MIT"
 license_source: "https://github.com/alfredtech2026/shopify-app-review-brief/blob/main/LICENSE"
 ---
+
 
 # Shopify Review Triage — public low-star reviews to a P0–P3 brief
 

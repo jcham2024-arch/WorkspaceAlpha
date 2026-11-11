@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ab49bc4196b59be6b01deabdbf32c1081b0744017e3c217b95bb680f579d7828"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: moodle-external-api-development
 description: "This skill guides you through creating custom external web service APIs for Moodle LMS, following Moodle's external API framework and coding standards."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Moodle External API Development
 

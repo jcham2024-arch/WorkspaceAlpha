@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b783e9e939c796fa8d49babc0b1176cd077622718f928875862fc618ef5f8e2c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: n8n-multi-instance
 description: Select, verify, and safely switch n8n MCP instances across production, staging, teams, or clients, especially before credential writes.
+tier: "experimental"
 risk: critical
 source: https://github.com/czlonkowski/n8n-skills/tree/main/skills/n8n-multi-instance
 source_repo: czlonkowski/n8n-skills
@@ -10,6 +21,7 @@ author: Romuald Czlonkowski
 license: MIT
 license_source: https://github.com/czlonkowski/n8n-skills/blob/main/LICENSE
 ---
+
 
 # Working with multiple n8n instances over MCP
 

@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e95bdb6808c1669b77f5efe38a91dba2fa0fe830107e5d925d82c475473b2b58"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: create-branch
 description: Create a git branch following Sentry naming conventions. Use when asked to "create a branch", "new branch", "start a branch", "make a branch", "switch to a new branch", or when starting new work on the default branch.
+tier: "experimental"
 argument-hint: '[optional description of the work]'
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # Create Branch
 

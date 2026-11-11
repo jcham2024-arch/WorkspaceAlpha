@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bd38f34ca00073516f4868a914fb252f91ee2f1f229849ca6232db822fc95bcf"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cyberpunk-ui
 description: Web and App implementation guide for Cyberpunk UI. Trigger when user wants neon colors, dark backgrounds, high-tech dystopian aesthetics, and hacking interfaces.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Cyberpunk UI
 

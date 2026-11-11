@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3e0fdb76cd267865565d83ed39f7c7f24f810b7dc8b42b02c1f3c60642319086"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: voice-cloning-studio
 description: "Install and use the official AI Voice Cloning package, pinned by digest, for paid hosted work on the Beatra service."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/beatra-ai/ai-voice-cloning-skill/blob/96df577b88e66fd49cc31ce1b290b2eae87fae53/LICENSE"
 ---
+
 
 # AI Voice Cloning Skill
 

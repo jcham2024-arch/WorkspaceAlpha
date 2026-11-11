@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7f37961bd6ee35956e3f9507300463444a43a72f3cf83c4718ae3f504c784eae"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: llm-application-dev-langchain-agent
 description: "You are an expert LangChain agent developer specializing in production-grade AI systems using LangChain 0.1+ and LangGraph."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # LangChain/LangGraph Agent Development Expert
 

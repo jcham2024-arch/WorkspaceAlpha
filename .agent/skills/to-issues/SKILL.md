@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d91f487bb49344693e9bde530ad6efa094d19620930ab86d36e91dc39ed9aa85"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: to-issues
 description: Break a plan, spec, or PRD into independently-grabbable issues on the project issue tracker using tracer-bullet vertical slices.
+tier: "experimental"
 disable-model-invocation: true
 category: "project-management"
 risk: "safe"
@@ -20,6 +31,7 @@ tools:
   - codex-cli
   - cursor
 ---
+
 
 # To Issues
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "38e4ac35c942f9d7b9712b66bb271039bd059cb9bba381677b19a30fdcb8f802"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: nexrad-mosaic-construction
 description: "Construct a quality-aware NEXRAD multi-radar mosaic from aligned single-site products with explicit coverage, beam geometry, quality weighting, overlap resolution, and provenance."
+tier: "experimental"
 category: analysis
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: ShianMike
 tags: [weather, nexrad, mosaic, multi-radar, quality-weighting, coverage, overlap-resolution]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # NEXRAD Mosaic Construction
 

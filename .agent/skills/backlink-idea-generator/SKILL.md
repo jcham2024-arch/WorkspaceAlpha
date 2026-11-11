@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "027fb8709928af07857902ab5d8dec778f790aa70de21355795a644a720fdc44"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: backlink-idea-generator
 description: "Backlink Idea Generator. Use when working with site topic and target audience."
+tier: "experimental"
 category: Backlink & Link-Building
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Backlink Idea Generator
 
 ## Overview

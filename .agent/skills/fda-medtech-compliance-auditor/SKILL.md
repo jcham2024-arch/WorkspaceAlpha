@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fbd203f18116f244e9bee52835b8be7de1790df059c8b7e67142542689b76bac"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fda-medtech-compliance-auditor
 description: "Expert AI auditor for Medical Device (SaMD) compliance, IEC 62304, and 21 CFR Part 820. Reviews DHFs, technical files, and software validation."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-04"
 ---
+
 
 # FDA MedTech Compliance Auditor
 

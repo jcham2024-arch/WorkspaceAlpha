@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d54b2b6379f467cea306f6931b6223a191c11a0abb8e7a33f6597a1ee1aebdb6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: php-pro
 description: 'Write idiomatic PHP code with generators, iterators, SPL data
+tier: "experimental"
 
   structures, and modern OOP features. Use PROACTIVELY for high-performance PHP
 
@@ -11,6 +22,7 @@ risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 ## Use this skill when
 

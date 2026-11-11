@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "44ed0cbe94e012b30cb0854c4146c8e6c5b1f37254318b1407d4bcd664c49860"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: textme
 description: "Text Claude from your phone — set up the njerschow/textme daemon so inbound iMessages drive a Claude Code session on your laptop, with voice notes, image input, code execution, and a phone-number whitelist."
+tier: "experimental"
 category: automation
 risk: critical
 source: community
@@ -17,6 +28,7 @@ plugin:
     codex: blocked
     claude: blocked
 ---
+
 
 # TextMe
 

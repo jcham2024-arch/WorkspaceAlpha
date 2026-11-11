@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4c0dfb3c8b4a173da117ab58497f3277aae95aad648e6b38da5b1c088f672040"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: 360-feedback-system
 description: '360 feedback register: reviewer, subject, review cycle, visibility, due date and score, as CSV, SQL, JSON Schema or Notion on request. Use for 360 reviews or peer feedback cycles.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -19,6 +30,7 @@ tags:
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # 360° Feedback System
 

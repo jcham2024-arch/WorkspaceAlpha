@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3bb0e67a66e0cf7e4b62237cfce9f55cd69a6d3b0a1b24ca4276deda54a28906"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mcp-dependency-review
 description: Statically review MCP configuration for mutable package references before approval or CI, without executing discovered MCP servers. Use when reviewing .mcp.json, Cursor, VS Code, Claude, Windsurf, or other repo-scoped MCP config.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # MCP Dependency Review
 

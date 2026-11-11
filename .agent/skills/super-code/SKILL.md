@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9ec7e4ec293d56b61fcd37286f8a9719c157097e34ce7905aace8236c060029d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: super-code
 description: "Standing house style to enforce dense, correct, and idiomatic code on all coding tasks. Minimizes code bloat and agent operation overhead."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-06-16"
 ---
+
 
 # Super Code Skill
 

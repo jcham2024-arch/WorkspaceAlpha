@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "07fb50e0f5f89ebcbcaf3c9e12194c627d8088a75db9956932236755cb1b29d0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-vms
 description: Manage Azure Virtual Machines and scale sets. Configure availability
+tier: "experimental"
   sets and managed disks. Use when deploying compute resources on Azure.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Azure Virtual Machines
 

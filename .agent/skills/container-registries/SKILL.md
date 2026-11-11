@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8519dba1f425983ca0e31e9f8b635b0c05622c936e349f29908fe13482cbf738"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: container-registries
 description: Manage container registries including ECR, ACR, GCR, and Docker Hub.
+tier: "experimental"
 category: devops
 risk: critical
 source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Container Registries
 

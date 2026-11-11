@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "80a6d0a2c4aaa7965b67ec32831ca5a9815d8238883d948ca3a10cc3f3b6edd0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aider-delegate
 description: Delegate coding tasks to Aider (`aider`) only when the user explicitly
+tier: "experimental"
   requests it, while the orchestrator retains review and landing responsibility.
 risk: critical
 category: agent-orchestration
@@ -19,6 +30,7 @@ compatibility: Requires the `aider` CLI (`python -m pip install aider-chat`), No
 metadata:
   version: 0.5.0
 ---
+
 # Aider Delegate
 
 ## When to Use

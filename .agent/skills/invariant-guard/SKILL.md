@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2204bc972ba94101c13587a0cd4dd961b5fc67397ee82db8eb9179edcd885331"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: invariant-guard
 description: "Correctness-first: forces writing the function contract, loop invariant, termination argument, and edge cases BEFORE code. Catches Boyer-Moore, leftmost binary search, QuickSelect traps."
+tier: "experimental"
 risk: safe
 source: community
 source_repo: morsechimwai/lemmaly
@@ -12,6 +23,7 @@ tools: [claude-code, antigravity, cursor, gemini-cli, codex-cli]
 license: "Apache-2.0"
 license_source: "https://github.com/morsechimwai/lemmaly/blob/main/LICENSE"
 ---
+
 
 # invariant-guard — Correctness-First Coding
 

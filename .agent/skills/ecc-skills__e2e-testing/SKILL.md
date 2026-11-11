@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "76a747a7b1b57a1a64e0c0f1140380ea6a56aebe1a0b0a5333107227c91a497b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: e2e-testing
 description: Playwright E2E testing patterns, Page Object Model, configuration, CI/CD integration, artifact management, and flaky test strategies. Use when writing Playwright tests, structuring page objects, or fixing flaky E2E runs in CI.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # E2E Testing Patterns
 

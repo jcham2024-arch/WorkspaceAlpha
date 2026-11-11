@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0fd31f7c65e80715cfc284035e04ce8ab0bf0e7547ba1b56451e4107b4b7cf6e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: kpi-tracker
 description: 'KPI register: metric by level, department, job title and employee, linked OKR, unit and direction, target against actual, achievement and weight percentages, period and owner. Use for scorecards.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, manage]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # KPI Tracker
 

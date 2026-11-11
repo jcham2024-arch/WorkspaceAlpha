@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2b33ba6200d5cf23584f122b8c5915751500fcdb0f5268522f2f73d8bcd84fd9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-functions-devsec
 description: Build serverless applications on Azure Functions. Configure triggers,
+tier: "experimental"
   bindings, and deployment. Use when implementing serverless workloads on Azure.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Azure Functions
 

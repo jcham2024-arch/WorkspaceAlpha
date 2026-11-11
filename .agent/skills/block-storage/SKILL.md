@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8002d16f1974045836d9369f54f6ccc6bcc0031fa6e1a33aa2fd07a9e1aed579"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: block-storage
 description: Manage block storage volumes and LVM. Configure cloud block storage and
+tier: "experimental"
   local disks. Use when managing disk storage.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Block Storage
 

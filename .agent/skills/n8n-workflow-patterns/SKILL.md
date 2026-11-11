@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f9748d850ebbf4289ac411085c6f9b431ce4232a77d7159af353a517b75539b1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: n8n-workflow-patterns
 description: "Proven architectural patterns for building n8n workflows."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # n8n Workflow Patterns
 

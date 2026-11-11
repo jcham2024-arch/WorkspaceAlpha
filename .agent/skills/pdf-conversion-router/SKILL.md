@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "91c0fa16a1ea51d4699ee40f7eb9df76cc61415ebe7a30fa2de9aee89db92799"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: pdf-conversion-router
 description: Use when converting a PDF into another format such as Markdown, HTML, text, JSON, DOCX, or structured notes and the agent must choose the best extraction route, settings, and cleanup strategy for maximum fidelity and readability.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-05-23"
@@ -8,6 +19,7 @@ metadata:
   category: technique
   triggers: pdf conversion, convert pdf, pdf to markdown, pdf to html, pdf to text, pdf to json, pdf to docx, OCR pdf, slide deck pdf, medical pdf, scanned pdf
 ---
+
 
 # PDF Conversion Router
 

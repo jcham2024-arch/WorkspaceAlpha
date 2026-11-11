@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7331b67e0dddeb582d4fb479793a4f9b27ca80b8a10b160377c44a1aebc37f8b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: parallel-search-mcp
 description: "Search the public web and verify sources with Parallel's free Search MCP. Use when the user chooses Parallel or its connected tools for current information and URL extraction."
+tier: "experimental"
 category: mcp
 risk: safe
 source: self
@@ -9,6 +20,7 @@ date_added: "2026-09-04"
 author: georgeatparallel
 tags: [mcp, web-search, research, citations]
 ---
+
 
 # Parallel Search MCP
 

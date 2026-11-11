@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "73d766bee278e193a984e61c98a1587d837ad62311ae083b90a6987bc526c7bf"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: minimalism
 description: Web and App implementation guide for the Minimalism design style. Trigger when the user wants simple layouts, lots of whitespace, few colors, and clear hierarchy.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Minimalism
 

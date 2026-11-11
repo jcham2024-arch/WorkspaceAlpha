@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "541890a8313f23c2fb9972eefc6d648d195e7d309879f9ff28f0a5dd9f3c84d1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-networking
 description: Configure Azure VNets, NSGs, and Azure Firewall. Implement hub-spoke
+tier: "experimental"
   topology and private endpoints. Use when designing Azure network infrastructure.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Azure Networking
 

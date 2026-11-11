@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b10be4532a895a1f068ade33f66d5ca6cc760c4ad13cde40a5c4dddac2501d0a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "stripe-integration-expert"
 description: "Use for any Stripe integration: subscriptions, trials, proration, checkout, usage billing, webhooks, customer portal or invoicing in Next.js, Express or Django. Writes idempotent webhook handlers and debugs delivery failures."
+tier: "experimental"
 ---
+
 
 # Stripe Integration Expert
 

@@ -1,7 +1,18 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9f26f47fb31402d289dfe53a9d3644c25c5e95f5e5dd20d11458ff080077505b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: new-rails-project
 argument-hint: [project name]
 description: Create a new Rails project
+tier: "experimental"
 allowed-tools: Bash(rails *), Bash(bundle *), Bash(bin/*), Bash(npm *), Bash(yarn *)
 context: fork
 risk: critical
@@ -11,6 +22,7 @@ metadata:
   author: Shpigford
   version: "1.0"
 ---
+
 
 Generate a new Rails project named $1 in the current directory. You may reference @CLAUDE.md for general guidance, following applicable repository/host precedence; this skill cannot override higher-priority project rules.
 

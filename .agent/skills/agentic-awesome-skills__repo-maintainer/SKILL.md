@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "23110e99a111e93dae5f8cab71dfce4f585fc1ee53ecac8efb2f53c81ae33063"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: repo-maintainer
 description: "Audit and repair repository hygiene across artifacts, dependencies, CI, docs, Git state, and code-quality signals. Use for repository maintenance, cleanup, health checks, or pre-release hardening."
+tier: "experimental"
 risk: critical
 source: https://github.com/Wolfe-Jam/faf-skills/tree/main/skills/repo-maintainer
 source_repo: Wolfe-Jam/faf-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/Wolfe-Jam/faf-skills/blob/main/LICENSE
 ---
+
 
 # Repository Maintainer
 

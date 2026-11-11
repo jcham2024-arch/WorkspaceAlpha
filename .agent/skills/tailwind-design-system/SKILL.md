@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ef3348eeacf68c59659d4e4d5182078e64581cc89ee1cb86d07d6d37e45ecba5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: tailwind-design-system
 description: "Build production-ready design systems with Tailwind CSS, including design tokens, component variants, responsive patterns, and accessibility."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Tailwind Design System
 

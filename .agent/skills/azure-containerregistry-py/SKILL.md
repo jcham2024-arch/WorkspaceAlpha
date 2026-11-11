@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2cd8d93a209369772c0d8839f108b3a707b1a3e91fa7705b0994130d3ea9ac1e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-containerregistry-py
 description: Azure Container Registry SDK for Python. Use for managing container images, artifacts, and repositories.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Azure Container Registry SDK for Python
 

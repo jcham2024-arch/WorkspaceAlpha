@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "577ffbf3b03741607fd877687ffc61a331c6fcf2b2a27fb10d3ec1d77dd326b1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: google-drive-automation
 description: "Lightweight Google Drive integration with standalone OAuth authentication. No MCP server required. Full read/write access."
+tier: "experimental"
 license: Apache-2.0
 risk: critical
 source: community
@@ -9,6 +20,7 @@ metadata:
   author: sanjay3290
   version: "1.0"
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

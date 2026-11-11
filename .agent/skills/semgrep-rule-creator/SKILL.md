@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3ff78ccb428f118dabe778711ba4b05503d37e2a6c1897c06cbfd10de404c0d2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: semgrep-rule-creator
 description: Creates custom Semgrep rules for detecting security vulnerabilities, bug patterns, and code patterns. Use when writing Semgrep rules or building custom static analysis detections.
+tier: "experimental"
 allowed-tools:
   - Bash
   - Read
@@ -13,6 +24,7 @@ risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # Semgrep Rule Creator
 

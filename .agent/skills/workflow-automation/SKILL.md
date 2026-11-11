@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "785d9b24c6b4a1ca41b1e47a52aca653fce53aa7d6d488a0096f96ed5ffb76cf"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: workflow-automation
 description: Workflow automation is the infrastructure that makes AI agents
+tier: "experimental"
   reliable. Without durable execution, a network hiccup during a 10-step payment
   flow means lost money and angry customers. With it, workflows resume exactly
   where they left off.
@@ -8,6 +19,7 @@ risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Workflow Automation
 

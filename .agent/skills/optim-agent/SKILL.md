@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "27c7827843fa3edb4eca760a1406e6d80183cd1153322f49b957b2c0d311fc28"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: optim-agent
 description: "Guide agent-driven parameter optimization for configurable systems with measurable objectives. Use for HPO, inference tuning, simulations, or RL/control experiments."
+tier: "experimental"
 category: data
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: MIT
 license_source: "https://github.com/Optim-Agent/optim-agent/blob/main/LICENSE"
 ---
+
 
 # Optim Agent
 

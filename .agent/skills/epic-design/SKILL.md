@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9346402f10fecb5a81738c1d85c5cfa99d1703fa659762adb2a13cb428b9a03a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: epic-design
 description: "Use for any landing page, hero section or scroll-driven web design that should feel cinematic (parallax, scrollytelling, overlapping sections, text reveals, Apple-style animation), before coding. Inspects assets with inspect-assets.py, then builds with 45+ 2.5D techniques, no WebGL."
+tier: "experimental"
 license: MIT
 metadata:
   version: 1.0.0
@@ -8,6 +19,7 @@ metadata:
   category: engineering-team
   updated: 2026-03-13
 ---
+
 
 # Epic Design Skill
 

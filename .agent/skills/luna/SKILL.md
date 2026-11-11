@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "975e252bbe66c7df7ffb9015529bdda168af73d7246b866a513050e94b4ca566"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: luna
 description: "Reviews code for objective correctness, security, and reliability."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-06-11"
@@ -10,6 +21,7 @@ squad: agent-squad
 reports-to: agent-squad
 depends-on: mason, aria
 ---
+
 
 # Luna — The Reviewer
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3bb9475d91853d69369c7e89b9e15a2b2a779b72e01005c175c001bbb01b3a73"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: senior-frontend
 description: Frontend development skill for React, Next.js, TypeScript, and Tailwind CSS applications. Use when building React components, optimizing Next.js performance, analyzing bundle sizes, scaffolding frontend projects, implementing accessibility, or reviewing frontend code quality.
+tier: "experimental"
 risk: critical
 source: https://github.com/alirezarezvani/claude-skills
 date_added: "2026-03-07"
 ---
+
 
 # Senior Frontend
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4c914391ff0eaa2a8951980c481097dd161c24bf207fccbc69bfd790348e136f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "orchestrate-batch-refactor"
 description: "Plan and execute large refactors with dependency-aware work packets and parallel analysis."
+tier: "experimental"
 risk: safe
 source: "Dimillian/Skills (MIT)"
 date_added: "2026-03-25"
 ---
+
 
 # Orchestrate Batch Refactor
 

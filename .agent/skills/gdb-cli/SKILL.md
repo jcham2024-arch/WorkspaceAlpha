@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "24b454abfa2be67bfe08b9d760c331759a7724b34e04fedeae0383966ae363ba"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gdb-cli
 description: "GDB debugging assistant for AI agents - analyze core dumps, debug live processes, investigate crashes and deadlocks with source code correlation"
+tier: "experimental"
 category: development
 risk: critical
 source: community
@@ -20,6 +31,7 @@ tools:
 - codex-cli
 - antigravity
 ---
+
 
 # GDB Debugging Assistant
 

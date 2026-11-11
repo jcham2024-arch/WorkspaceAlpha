@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c1b995dd67c0c204b3de6df6b3f2c3c682ac1ab9dc86c564b0224b7397f48694"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mental-health-analyzer
 description: 分析心理健康数据、识别心理模式、评估心理健康状况、提供个性化心理健康建议。支持与睡眠、运动、营养等其他健康数据的关联分析。
+tier: "experimental"
 allowed-tools: Read, Grep, Glob, Write, Edit
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # 心理健康分析技能
 

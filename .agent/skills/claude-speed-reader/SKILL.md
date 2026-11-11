@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7e99686b10e7ce0cb6a3c71f639b15d0a00438b5175b0f752d2767d955e469f4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: claude-speed-reader
 description: "-Speed read Claude's responses at 600+ WPM using RSVP with Spritz-style ORP highlighting"
+tier: "experimental"
 risk: safe
 source: "https://github.com/SeanZoR/claude-speed-reader"
 date_added: "2026-02-27"
 ---
+
 
 # Claude Speed Reader
 

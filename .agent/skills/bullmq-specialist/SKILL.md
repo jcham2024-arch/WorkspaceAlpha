@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "30acad5e6bf7f6b44825d7684bf2a7910db642406a3e119599f4df7c8c0b4052"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: bullmq-specialist
 description: BullMQ expert for Redis-backed job queues, background processing,
+tier: "experimental"
   and reliable async execution in Node.js/TypeScript applications.
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # BullMQ Specialist
 

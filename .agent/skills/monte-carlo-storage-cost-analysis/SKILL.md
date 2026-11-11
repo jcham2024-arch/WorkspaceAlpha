@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6cf207bb061bacfcf0a6f832002fb9a823b311bbd979695050618e0d8248fed2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: monte-carlo-storage-cost-analysis
 description: Analyze a warehouse for stale, unused, or redundant tables via the analyze_storage_costs MCP tool. Classifies waste patterns and table categories, computes safety tiers, and handles category drill-downs and lineage follow-ups.
+tier: "experimental"
 risk: critical
 source: https://github.com/monte-carlo-data/mc-agent-toolkit/tree/main/skills/storage-cost-analysis
 source_repo: monte-carlo-data/mc-agent-toolkit
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: Apache-2.0
 license_source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/LICENSE
 ---
+
 ## Bundled upstream support
 
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.

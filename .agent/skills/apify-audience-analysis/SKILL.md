@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d197daaaf921acf24c5bb5b9e1bf2db6309c0af7829feaef4403c0418e8276c9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: apify-audience-analysis
 description: Understand audience demographics, preferences, behavior patterns, and engagement quality across Facebook, Instagram, YouTube, and TikTok.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-01"
 ---
+
 
 # Audience Analysis
 

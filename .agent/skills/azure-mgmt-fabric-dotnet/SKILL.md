@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "aef81d6023689f95c85b5d686a1dfba122ebf0e3876c403c6831b1f29a3e82bc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-mgmt-fabric-dotnet
 description: Azure Resource Manager SDK for Fabric in .NET.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Azure.ResourceManager.Fabric (.NET)
 

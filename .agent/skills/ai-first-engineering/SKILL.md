@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ee7ce4e398461b9041e3c79560193adfa476a151b3eb9e7c09ef2f6f707b115a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-first-engineering
 description: Engineering operating model for teams where AI agents generate a large share of implementation output. Use when setting team process, review gates, or ownership rules for a codebase largely written by agents.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # AI-First Engineering
 

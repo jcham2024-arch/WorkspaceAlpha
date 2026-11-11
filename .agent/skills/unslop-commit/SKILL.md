@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "24ed54f330422d2f75f6499b871eeff18e58c0d37a31efe3e35e599af2228af6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: unslop-commit
 description: "Rewrites commit messages so they sound like a careful human engineer wrote them. Strips AI/marketing slop (\"comprehensive solution\", \"robust implementation\", \"leverage\", \"enhance\", \"seamlessly\", \"This commit...\"). Keeps Conventional Commits format."
+tier: "experimental"
 risk: critical
 source: https://github.com/MohamedAbdallah-14/unslop/tree/main/plugins/unslop/skills/unslop-commit
 source_repo: MohamedAbdallah-14/unslop
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/MohamedAbdallah-14/unslop/blob/main/LICENSE
 ---
+
 
 # Unslop Commit
 ## When to Use

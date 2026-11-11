@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1c7b48ea3cb6f34abf0fb4e4dc9799dd6dd073917193c5f9ea405fb81e8701e8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: deployment-patterns
 description: Deployment workflows, CI/CD pipeline patterns, Docker containerization, health checks, rollback strategies, and production readiness checklists for web applications. Use when setting up CI/CD, containerizing an app, or checking production readiness before a release.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Deployment Patterns
 

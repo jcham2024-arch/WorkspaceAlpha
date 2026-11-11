@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "278ca379824b68c20a8c9a9b37138f2afa3b410404c219c6f64e21ee395c5743"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: linkedin-post-writer
 description: "Draft LinkedIn posts from 16 illustrative hook formulas mapped to engagement goals (comments, reposts, likes, saves), with optional formatting conventions and an AI-tell scrub pass before publishing."
+tier: "experimental"
 category: marketing
 risk: none
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/sergebulaev/linkedin-skills/blob/main/LICENSE"
 ---
+
 
 # LinkedIn Post Writer
 

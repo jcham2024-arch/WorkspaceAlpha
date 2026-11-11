@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4ba1e6db8f0b7ae1bdc13ac50b520a6f9f7784cf6320575f29d49ec5d9a6a0be"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: break
 description: Renders a component you choose under every scenario that can reach it on a temporary page and stress tests it.
+tier: "experimental"
 disable-model-invocation: true
 category: design
 risk: critical
@@ -13,6 +24,7 @@ author: jakubkrehel
 upstream_commit: 60bf140e43c98b248e6594487384ec967e89d98a
 date_added: "2026-11-06"
 ---
+
 ## When to Use
 
 Use for the break task described below, within the user-authorized interface or drawing scope. Related skills in this collection own the domains named in the workflow; existing general frontend-design and accessibility audits remain suitable for broader work.

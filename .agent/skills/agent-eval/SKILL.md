@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2fcd623f0758f3bd0b8c4377048356009d253db10920c2eee99a05992e40b04f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agent-eval
 description: Head-to-head comparison of coding agents (Claude Code, Aider, Codex, etc.) on custom tasks with pass rate, cost, time, and consistency metrics. Use when choosing between coding agents, or when a change to an agent setup needs measured pass rate, cost, and time rather than an impression.
+tier: "experimental"
 license: MIT
 metadata:
   origin: ECC
 tools: Read, Write, Edit, Bash, Grep, Glob
 ---
+
 
 # Agent Eval Skill
 

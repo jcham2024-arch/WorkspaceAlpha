@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6b56f8497ac7870e1cdae38d6ed59e3760aa60845b712396e769a7d6a1b49b23"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: obsidian-cli
 description: "Use the Obsidian CLI to read, create, search, and manage vault content, or to develop and debug Obsidian plugins and themes from the command line."
+tier: "experimental"
 risk: critical
 source: "https://github.com/kepano/obsidian-skills"
 date_added: "2026-03-21"
 ---
+
 
 # Obsidian CLI
 

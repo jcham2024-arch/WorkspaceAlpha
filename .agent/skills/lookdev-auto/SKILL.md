@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "94096fb5086512724f9715299c9197749fd530669403e8b5d8ac4893be523225"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: lookdev-auto
 description: "Automated visual tuning: a vision or video model rates rendered variants in a loop. Render several labeled variants into one artifact, ask the model to rate them and suggest better values, render the suggestions, ask it to pick the best, repeat until good — the model is the eye, you run the loop."
+tier: "experimental"
 risk: safe
 source: community
 source_type: community
@@ -21,6 +32,7 @@ tools:
   - gemini-cli
   - codex-cli
 ---
+
 ## When to Use
 
 Use whenever "looks/feels right" is the success criterion and there's no cheap numeric metric — animation easing/timing, zoom/camera feel, color grade, layout/spacing, design params, render/encoder settings, prompt params. Use the automated counterpart to lookdev when there's no human to sit the loop.

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "815a6cea6df7e31c4d4a7283c1170f219f63e760d147a69d518f9b005e0c62cd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: apify-content-analytics
 description: Track engagement metrics, measure campaign ROI, and analyze content performance across Instagram, Facebook, YouTube, and TikTok.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-01"
 ---
+
 
 # Content Analytics
 

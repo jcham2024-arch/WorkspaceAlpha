@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d1f8946b5dae0599b8e6a0e76459cdcbae4bba411a72e6eb9d7ce033462f0856"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: geo-content
 description: Content quality and E-E-A-T assessment for AI citability — evaluate experience,
+tier: "experimental"
   expertise, authoritativeness, trustworthiness, and content structure
 category: seo
 risk: safe
@@ -24,6 +35,7 @@ tags:
 - topical-authority
 allowed-tools: Read, Grep, Glob, Bash, WebFetch, Write
 ---
+
 
 # GEO Content Quality & E-E-A-T Assessment
 

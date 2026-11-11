@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "94d6461c3ad710e1208f8176466bf8c9d902ff3fdb8d3c6e2ab16d496ce395c1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: internal-link-suggestion-tool
 description: "Internal Link Suggestion Tool. Use when working with source text and available destination pages."
+tier: "experimental"
 category: On-Page Optimization
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Internal Link Suggestion Tool
 
 ## Overview

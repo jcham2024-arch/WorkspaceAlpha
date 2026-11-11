@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a25e2cee35e9372b88477a3175d6f54db503c34c93770fc4b6575df5755ab1d6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: deployment-pipeline-design
 description: "Architecture patterns for multi-stage CI/CD pipelines with approval gates and deployment strategies."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Deployment Pipeline Design
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "12e601a842212f024f46b5dbe8f3376bc960e697046c47976dfdd679fa6a48b2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aws-cost-optimization
 description: Reduce AWS spend with rightsizing, autoscaling, commitment planning,
+tier: "experimental"
   and storage lifecycle policies. Use when running FinOps reviews, lowering cloud
   bills, or improving cost-per-request metrics.
 category: devops
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # AWS Cost Optimization
 

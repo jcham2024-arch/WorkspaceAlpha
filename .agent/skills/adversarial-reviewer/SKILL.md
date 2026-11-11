@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1566c2ec15fdccb480eb95f254f83bf72e092e462161cabbbdf52f8b6cb2468f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "adversarial-reviewer"
 description: "Tough, critical review of a diff or PR before merge, through hostile reviewer personas that catch shared blind spots. Use whenever the user wants a change torn apart, a harsh second opinion, or a self-review felt too agreeable."
+tier: "experimental"
 license: "MIT"
 metadata:
   tier: "STANDARD"
@@ -9,6 +20,7 @@ metadata:
   author: "ekreloff"
   version: "2.9.0"
 ---
+
 
 # Adversarial Code Reviewer
 

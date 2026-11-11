@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0f24e67b12eaaee4a5737fa0dee2ddc5fa7926bea88037adcfb1ab1f317e662d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-loop
 description: Runs a bounded spec-build-review development loop with explicit scope, stop conditions, and human approval gates for risky or ambiguous work.
+tier: "experimental"
 category: workflow
 risk: safe
 source: community
@@ -8,6 +19,7 @@ date_added: "2026-06-27"
 tags: [agent-workflow, specification, implementation, review, verification, feedback-loop]
 tools: [claude, cursor, codex, gemini]
 ---
+
 
 # AI-Loop Skill
 

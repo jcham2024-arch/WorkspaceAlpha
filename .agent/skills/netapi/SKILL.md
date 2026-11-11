@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "795053d944626276ed0655adea0f50232f691c382382eed8ce29227e9de5e01a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: netapi
 description: "Check domains and IPs against a free compromised feed, find newly registered lookalike domains, and get TLD stats and Top 1M ranks from NetAPI, with no API key."
+tier: "experimental"
 category: security
 risk: safe
 source: self
@@ -16,6 +27,7 @@ metadata:
   mcp-docs: https://netapi.com/help/mcp/
   mcp-server: https://mcp.netapi.com/mcp
 ---
+
 
 # NetAPI Domain Intelligence
 

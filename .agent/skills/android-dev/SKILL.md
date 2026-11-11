@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "43d0d926a562f69ce5277977bccde291a126182e9ded530114f6e80c19f10a9f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: android-dev
 description: "Production-grade Android app development guide covering native (Kotlin/Java), cross-platform (Flutter, RN, KMM), and hybrid architectures."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-06-08"
 ---
+
 
 # Android App Development Skill
 

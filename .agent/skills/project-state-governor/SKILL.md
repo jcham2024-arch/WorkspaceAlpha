@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "97d03da417b5481318491cfa58c7891d725f3d3eb0edaa559e05615e4c008beb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: project-state-governor
 description: "Govern evidence-backed canonical project state across sessions, branches, reviews, and research cycles without inventing product intent."
+tier: "experimental"
 category: project-management
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex, copilot, opencode]
 license: "Apache-2.0"
 license_source: "https://github.com/Ghost011118/project-state-governor/blob/main/LICENSE"
 ---
+
 
 # Project State Governor
 

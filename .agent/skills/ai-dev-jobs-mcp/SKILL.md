@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a765a69320c7b6caaad944b495b8371ad5e4f2e5811bc18f59d5221c81548cf1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-dev-jobs-mcp
 description: "Search indexed AI and ML jobs, inspect listings and employers, match roles, and view salary and market stats via AI Dev Jobs MCP"
+tier: "experimental"
 category: mcp
 risk: safe
 source: "https://aidevboard.com"
@@ -10,6 +21,7 @@ author: unitedideas
 tags: [mcp, jobs, ai-jobs, ml-jobs, recruiting, job-search, career]
 tools: [claude, cursor, gemini]
 ---
+
 
 # AI Dev Jobs MCP
 

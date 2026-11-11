@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "29009aea547abdaf7cd9c013e8ae1dfff3e5962705492d465d68e02c4a7bbf73"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: xml-sitemap-visualizer
 description: "XML Sitemap Visualizer. Use when working with XML sitemap or sitemap index."
+tier: "experimental"
 category: Technical SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # XML Sitemap Visualizer
 
 ## Overview

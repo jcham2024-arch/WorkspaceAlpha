@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e7cc4821835ca1461bf18fe6a73251e7e8bf539e7115a4ebb15f42bab71e2a5b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: rust-pro
 description: Master Rust 1.75+ with modern async patterns, advanced type system features, and production-ready systems programming.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 You are a Rust expert specializing in modern Rust 1.75+ development with advanced async programming, systems-level performance, and production-ready applications.
 
 ## Use this skill when

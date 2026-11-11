@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "53d4c59b50af4b696ed1c22c4e06e33c9723928d41c137bfc4cac26d43d9f1b2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: create-pr
 description: Alias for pr-writer. Use when users explicitly ask for "create-pr" or reference the legacy skill name. Redirects to the canonical PR writing workflow.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-01-30"
 ---
+
 
 # Alias: create-pr
 

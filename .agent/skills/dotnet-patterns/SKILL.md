@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cf78cd2ba0bd8e9b6e20a29f0a0395b79d8423251040fc19f9ddc4a6ce53cd7c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: dotnet-patterns
 description: Idiomatic C# and .NET patterns, conventions, dependency injection, async/await, and best practices for building robust, maintainable .NET applications. Use when writing or reviewing C# / .NET code — DI, async, or general conventions.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # .NET Development Patterns
 

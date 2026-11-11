@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6d571848a03a3efa9d09c4d56eac38776232724c48f00e102713d66218c06277"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: windows-hardening
 description: Harden Windows servers per security baselines and CIS benchmarks. Configure
+tier: "experimental"
   Group Policy, Windows Defender, and security features. Use when securing Windows
   Server environments.
 category: security
@@ -18,6 +29,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Windows Hardening
 

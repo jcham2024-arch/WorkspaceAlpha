@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0a6a93d2882bb8e14bceb62b98847cac82a69c4008eb50c0311a204bad21f205"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: talking-avatar-video
 description: "Install and use the official Talking Avatar Video package, pinned by digest, for paid hosted work on the Beatra service."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/beatra-ai/talking-avatar-video-skill/blob/03e427c1220ef7efcfee083b37f4f31aa98311ab/LICENSE"
 ---
+
 
 # Talking Avatar Video Skill
 

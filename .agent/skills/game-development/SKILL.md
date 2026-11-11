@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "28a983784e2c180262fb61c9b14be3f19e8f98b85ed71309c55d0631b4da3935"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: game-development
 description: >-
+tier: "experimental"
   Game development orchestrator. Routes by platform, dimension, and engine fit
   (web 2D/3D, hybrid DOM+canvas, narrative tools). Use when starting or
   structuring a game project, choosing frameworks, or picking among Phaser,
@@ -9,6 +20,7 @@ risk: none
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Game Development
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "70d2c29cb4d8deba211948cc8b187cf23b39b4c9b7216567c7a001280f6a7b7a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-product
 description: "Design and evaluate LLM product features, retrieval, validated outputs, latency, and cost controls."
+tier: "experimental"
 risk: safe
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # AI Product Development
 

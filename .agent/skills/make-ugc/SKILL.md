@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1483d5ccd77632a2a82bd42dda9f0c8b9c625b5d435ffcaed8006574da71170b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: make-ugc
 description: "Create original AI UGC-style product videos through Treg: research hooks, approve a licensed presenter and voice, generate clips, add captions and report costs."
+tier: "experimental"
 category: marketing
 risk: critical
 source: https://github.com/superdesigndev/treg
@@ -14,6 +25,7 @@ date_added: "2026-11-06"
 metadata:
   summary: Makes short UGC-style video ads. It studies trending hooks in your niche, creates a presenter, generates talking-head clips and burns in captions.
 ---
+
 
 # Make UGC videos
 

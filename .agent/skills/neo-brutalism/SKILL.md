@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d70c073a4342a56cffbd4f5ad1b3a60aea5e37317dc4d8e6a3e68b0df597806b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: neo-brutalism
 description: Web and App implementation guide for Neo-Brutalism. Trigger when user wants thick borders, hard shadows, bright colors, and a playful yet structured look.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Neo-Brutalism
 

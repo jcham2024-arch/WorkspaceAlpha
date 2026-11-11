@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ae55788a71bd8b55271d5cbb5b38ccd63d3950e01a2c1ef860352b52d459b46a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: dispatch
 description: "Delegate tasks to OpenAI Codex CLI and Google Antigravity CLI from Claude Code with topic-aware sessions"
+tier: "experimental"
 category: agent-behavior
 risk: critical
 source: community
@@ -21,6 +32,7 @@ plugin:
     summary: "Requires separately installed and authenticated Codex CLI and/or Google Antigravity CLI; every external delegation must be explicitly approved by the user."
     docs: SKILL.md
 ---
+
 
 # Dispatch
 

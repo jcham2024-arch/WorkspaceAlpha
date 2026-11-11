@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c3eeb2fbbea1ce0d2f9f268209948ab7a12b3f2276a5d2b6634f238b2b61e9eb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: nextjs-seo-indexing
 description: "Fix SEO indexing issues, crawl budget problems, and Search Console coverage errors for Next.js apps. Covers canonical tags, noindex audits, sitemap health, static rendering, and internal linking."
+tier: "experimental"
 category: seo
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [seo, indexing, nextjs, search-console, crawl-budget, canonical, sitemap]
 tools: [claude, cursor, gemini, claude-code]
 version: 1.0.0
 ---
+
 
 # Next.js SEO Indexing & Crawl Budget Skill
 

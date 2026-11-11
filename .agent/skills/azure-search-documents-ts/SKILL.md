@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "efca97d0c2cc3e761254c33314ab6110ef93451deb76cba0b077ca563240168f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-search-documents-ts
 description: "Build search applications with vector, hybrid, and semantic search capabilities."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Azure AI Search SDK for TypeScript
 

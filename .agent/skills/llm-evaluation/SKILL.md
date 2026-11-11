@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "803fe827607e25f2ab8ca6cff6580a0556e15870991379ae39958e23227d4fe0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: llm-evaluation
 description: "Master comprehensive evaluation strategies for LLM applications, from automated metrics to human evaluation and A/B testing."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # LLM Evaluation
 

@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7bb942ff316c437c3300140d090d3fdf8008e02589e51aebe9342f28d3d9fe7b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: flat-design
 description: Web and App implementation guide for the Flat Design style. Trigger when the user wants no shadows, simple shapes, and bold colors.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Flat Design
 

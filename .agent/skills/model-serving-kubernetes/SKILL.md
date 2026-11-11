@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a56a703fab6c022930ffd7c461f598d3ae81ba4c246e7569a8255717f2ac8f6d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: model-serving-kubernetes
 description: Deploy ML models on Kubernetes with KServe (formerly KFServing) and NVIDIA
+tier: "experimental"
   Triton Inference Server.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Model Serving on Kubernetes
 

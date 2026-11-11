@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ccbfe7e233356d59ea3078a63fc2fcb3cfef793b9bf9f48dee9085e3a1a7150f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-map-territory
 description: When a claim, doc, test, metric, or assumption conflicts with observed behavior, stop theorizing from the map and verify the live code or data; let territory overrule.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Map Territory
 

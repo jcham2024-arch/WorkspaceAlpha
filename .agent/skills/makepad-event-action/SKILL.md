@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "87f3efdd8df60d758d7736268ea220e4a3d68e2e0652e4468f00d38794251d27"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: makepad-event-action
 description: |
+tier: "experimental"
   CRITICAL: Use for Makepad event and action handling. Triggers on:
   makepad event, makepad action, Event enum, ActionTrait, handle_event,
   MouseDown, KeyDown, TouchUpdate, Hit, FingerDown, post_action,
@@ -9,6 +20,7 @@ risk: safe
 source: community
 date_added: "2026-03-06"
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

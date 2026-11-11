@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5cfea1c5e2dbb189e65add6ad962476db9276d902ed56abbe48f2af39051e678"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: conductor-validator
 description: 'Validates Conductor project artifacts for completeness,
+tier: "experimental"
 
   consistency, and correctness. Use after setup, when diagnosing issues, or
 
@@ -11,6 +22,7 @@ risk: safe
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Validate Conductor workflow artifacts
 

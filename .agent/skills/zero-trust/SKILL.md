@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4bdb40371c607d02df6fa2c99694acd2db2c22320fad74a2bdf86570f88bdc26"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: zero-trust
 description: Implement zero-trust network architecture. Configure identity-based access,
+tier: "experimental"
   micro-segmentation, and continuous verification. Use when implementing modern security
   architectures.
 category: security
@@ -18,6 +29,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Zero Trust Architecture
 

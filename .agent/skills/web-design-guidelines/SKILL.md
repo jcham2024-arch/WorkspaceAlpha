@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3118b7bd99424430af1eaceba235c8472062f344fb8904bbdae3ba2788d3d364"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: web-design-guidelines
 description: "Review files for compliance with Web Interface Guidelines."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Web Interface Guidelines
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4784a2c3be1f6f6a9337fb63f24f26725ecfd34ed52b715a15e397260c6e2466"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: web-access
 description: "Use Treg for public web or platform data only when existing search, browser and connected tools cannot cover the task, with explicit cost and data boundaries."
+tier: "experimental"
 category: development
 risk: critical
 source: https://github.com/superdesigndev/treg
@@ -14,6 +25,7 @@ date_added: "2026-11-06"
 metadata:
   summary: Reaches the web data your own tools can't. Pages a normal fetch can't read, and structured data from platforms like X, LinkedIn, Reddit, YouTube and Amazon, starting with free tools.
 ---
+
 
 # Web access
 

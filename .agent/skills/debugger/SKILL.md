@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "68c9e9fb9556e6d292e7629bad619be87470c9d396a04a8e97ca3373288da111"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: debugger
 description: 'Debugging specialist for errors, test failures, and unexpected
+tier: "experimental"
 
   behavior. Use proactively when encountering any issues.
 
@@ -9,6 +20,7 @@ risk: safe
 source: community
 date_added: '2026-02-27'
 ---
+
 
 ## Use this skill when
 

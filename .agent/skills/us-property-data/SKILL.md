@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6ea0b0b06f52579389e3cd58974ec4e856c287405bb7aa43f6e7a1f53328bcad"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: us-property-data
 description: "Use when a task needs real U.S. residential property data: valuation, listings, price or tax history, schools, or a zillow.com URL."
+tier: "experimental"
 category: api-integration
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/ZeroPointRepo/zillow-skills/blob/main/LICENSE"
 ---
+
 
 # U.S. Property Data
 

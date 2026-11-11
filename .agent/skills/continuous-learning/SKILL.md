@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "aeaee90d7fdf77030c9b1685b853591cd67a8e07439e876fbe6eb5b3cf9c4359"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: continuous-learning
 description: "[DEPRECATED - use continuous-learning-v2] Legacy v1 stop-hook skill extractor. v2 is a strict superset with instinct-based, project-scoped, hook-reliable learning. Do not invoke v1: when continuous learning, session learning, or pattern extraction is requested, route to continuous-learning-v2 instead."
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Continuous Learning Skill - DEPRECATED
 

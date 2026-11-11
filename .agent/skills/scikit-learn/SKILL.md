@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "06f40cfbc6016f516c332553258587566606b20b78bc2606ef2df273a4312be3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: scikit-learn
 description: Machine learning in Python with scikit-learn. Use for classification, regression, clustering, model evaluation, and ML pipelines.
+tier: "experimental"
 license: BSD-3-Clause license
 metadata:
     skill-author: K-Dense Inc.
@@ -8,6 +19,7 @@ risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # Scikit-learn
 

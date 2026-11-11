@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c889b2c6e3fe5527e85a1b2b573512edf94730ab612374848e0ee32f9dc762d8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mailtrap-sending-emails
 description: Configure or troubleshoot Mailtrap live email sending with Email API, SMTP, transactional streams, bulk streams, or batches.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-06-19"
 ---
+
 
 # Sending emails (Mailtrap)
 

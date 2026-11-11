@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fa2b09cf0a59ede268d1afcf19659be6218ade31adaffba58c2d1a3970f28148"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: taisly-social-media-posting
 description: "Use Taisly Agent Kit to prepare and publish approved short-form video posts across TikTok, Instagram Reels, YouTube Shorts, X, and Facebook."
+tier: "experimental"
 category: marketing
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [codex, claude]
 license: "MIT"
 license_source: "https://github.com/taisly/agent/blob/main/LICENSE"
 ---
+
 
 # Taisly Social Media Posting
 

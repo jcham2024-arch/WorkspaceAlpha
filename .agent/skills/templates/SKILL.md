@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1213f853e864f79b9a61b224f401cd35c6f56c68059fb01654905a11186900d3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: templates
 description: "Project scaffolding templates for new applications. Use when creating new projects from scratch. Contains 12 templates for various tech stacks."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Project Templates
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2e7072e0e3e35b32b9e9fea9416031d91ed9f04faed481501bbb8f8bade2646f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: screenshots
 description: "Generate marketing screenshots of your app using Playwright. Use when the user wants to create screenshots for Product Hunt, social media, landing pages, or documentation."
+tier: "experimental"
 risk: critical
 source: "https://github.com/Shpigford/skills/tree/main/screenshots"
 date_added: "2026-02-27"
 ---
+
 
 # Screenshots
 

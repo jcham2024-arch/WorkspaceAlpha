@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ca2db6fddd286e063ef2a51ab93167efa6067d77690ad0cdc398f167a666183b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: oss-hunter
 description: "Automatically hunt for high-impact OSS contribution opportunities in trending repositories."
+tier: "experimental"
 risk: safe
 source: "https://github.com/jackjin1997/ClawForge"
 date_added: "2026-02-27"
 ---
+
 
 # OSS Hunter 🎯
 

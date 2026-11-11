@@ -1,4 +1,6 @@
-# AGENTS.md Effectiveness Test
+---
+owner: "taskmaster"
+---# AGENTS.md Effectiveness Test
 
 No rigorous evidence yet that AGENTS.md improves task success (arXiv
 2602.11988). Run this quarterly A/B on a small task set:

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "83c4b3d6105eede1aeea9ad86b81912d174b896c41337d17cddae53668636bb6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: setup-help
 description: "Walk a user through setup or installation one step at a time with the remaining steps visible."
+tier: "experimental"
 category: productivity
 risk: safe
 source: community
@@ -14,6 +25,7 @@ license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 disable-model-invocation: true
 ---
+
 
 # setup-help
 

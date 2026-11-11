@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f070f77f608b79aaa4ed32d6134871239097282fae7d67eddc2f27c34c114190"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: drizzle-orm-expert
 description: "Expert in Drizzle ORM for TypeScript — schema design, relational queries, migrations, and serverless database integration. Use when building type-safe database layers with Drizzle."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-04"
 ---
+
 
 # Drizzle ORM Expert
 

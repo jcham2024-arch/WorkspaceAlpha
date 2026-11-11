@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ffeaa0c36474cce136756deacdb86cebe36e5c3fc66d10bd5996765ac6cee864"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: graphql
 description: GraphQL gives clients exactly the data they need - no more, no
+tier: "experimental"
   less. One endpoint, typed schema, introspection. But the flexibility that
   makes it powerful also makes it dangerous. Without proper controls, clients
   can craft queries that bring down your server.
@@ -8,6 +19,7 @@ risk: safe
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # GraphQL
 

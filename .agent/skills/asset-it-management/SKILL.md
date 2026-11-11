@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "678c69793f2b7fc46be17dceff1c5ad95344be6e02b09f546ef826bb2e063c3e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: asset-it-management
 description: 'Asset and IT register: serial, model, condition, assignee, location, purchase value, warranty expiry and return date, as CSV, SQL, JSON Schema or Notion on request. Use for asset audits.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -19,6 +30,7 @@ tags:
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Asset & IT Management
 

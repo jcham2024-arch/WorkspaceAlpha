@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1c39f63a32205d93a2d839ffc5029eab8bd6146fa48197e9b75b1f56f1abe08d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: noaa-radar-satellite-fetching
 description: "Retrieve NOAA NEXRAD and GOES products from public cloud archives using verified site, product, channel, sector, and scan-time selection."
+tier: "experimental"
 category: data
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: ShianMike
 tags: [weather, noaa, nexrad, goes, radar, satellite, aws-s3]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # NOAA Radar and Satellite Fetching
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3abfe05ee61aca9fe0f7814be6e67dc363fc5a43d5fb0361a3fe7da2c2aa0017"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-appconfiguration-ts
 description: "Centralized configuration management with feature flags and dynamic refresh."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Azure App Configuration SDK for TypeScript
 

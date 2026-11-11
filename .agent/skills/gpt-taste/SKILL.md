@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5fe2ea7db1a83dd05c727da40151b865a5b0835306e97a9ded52f84eecb1cbb6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gpt-taste
 description: "Use when generating elite GSAP-heavy frontend pages with strict AIDA structure, wide hero typography, and gapless bento grids."
+tier: "experimental"
 category: frontend
 risk: safe
 source: community
@@ -11,6 +22,7 @@ author: Leonxlnx
 tags: [frontend, design, gsap, motion]
 tools: [claude, cursor, codex, antigravity]
 ---
+
 # CORE DIRECTIVE: AWWWARDS-LEVEL DESIGN ENGINEERING
 
 ## When to Use

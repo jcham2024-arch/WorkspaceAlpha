@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7dad401dede5267404c48486d6279573b44f0591f78e9110abee85502580f41b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: perq
 description: "Find verified free AI credits, free tiers, startup programs and student perks for AI APIs, GPUs and dev tools, each with the vendor's source link and a last-verified date."
+tier: "experimental"
 category: research
 risk: safe
 source: "https://github.com/f-o-x11/perq-skill"
@@ -13,6 +24,7 @@ tools: [claude, cursor, codex, gemini]
 license: "MIT"
 license_source: "https://github.com/f-o-x11/perq-skill/blob/main/LICENSE"
 ---
+
 
 # Perq
 

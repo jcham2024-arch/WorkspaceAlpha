@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "50100db14acfb50659bd061672355db59f708bad5caf4ac7f32209ee2f3f2add"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: git-pushing
 description: "Safely stage, commit, and push intended git changes with conventional commit messages. Use for ordinary non-release pushes when explicitly asked to push, save work remotely, or share a completed change."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Git Push Workflow
 

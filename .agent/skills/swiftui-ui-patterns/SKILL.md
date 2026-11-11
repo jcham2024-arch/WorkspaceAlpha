@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "62ce1c08498f4aa397be496c0d240b5d166690b1731279afefe6a22d3d56a62b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: swiftui-ui-patterns
 description: Apply proven SwiftUI UI patterns for navigation, sheets, async state, and reusable screens.
+tier: "experimental"
 risk: safe
 source: "Dimillian/Skills (MIT)"
 date_added: "2026-03-25"
 ---
+
 
 # SwiftUI UI Patterns
 

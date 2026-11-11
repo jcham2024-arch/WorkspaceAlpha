@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c66798596e8ce978c8d4a33885ce3fa6742fb30fb8f76b53afc38ca944a6da3d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sci-fi-interface
 description: Web and App implementation guide for Sci-Fi Interface Design. Trigger when user wants HUDs, spacecraft dashboards, or tactical military readouts.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Sci-Fi Interface Design (HUD)
 

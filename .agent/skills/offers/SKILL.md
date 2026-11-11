@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7249854d23f84fff388eaca0af07d08731f60ccb75655ebb10e7e086aa8c27dc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: offers
 description: "When the user wants to design, construct, or improve an offer — the thing they actually sell — including value framing, bonus stacking, guarantee design, scarcity/urgency, naming, and payment structure."
+tier: "experimental"
 risk: safe
 source: https://github.com/coreyhaines31/marketingskills/tree/main/skills/offers
 source_repo: coreyhaines31/marketingskills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/coreyhaines31/marketingskills/blob/main/LICENSE
 ---
+
 
 # Offer Design
 ## When to Use

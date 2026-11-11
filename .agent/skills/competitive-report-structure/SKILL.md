@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "18b9ad2c9b56bef9be00065fed39b8f5d933eaf326feb1fcbb35fe6a590b3b4b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: competitive-report-structure
 description: >-
+tier: "experimental"
   Use after benchmark-methodology has produced scored competitor profile cards.
   Assembles findings into a decision-grade report: landscape map, competitor
   profiles, benchmarking matrix, white-space analysis, strategic recommendations,
@@ -8,6 +19,7 @@ description: >-
   pipeline.
 license: MIT
 ---
+
 
 # Competitive Report Structure
 

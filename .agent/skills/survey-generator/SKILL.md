@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5d62e1ffb9f64e813a9ee0ea8e87d1a13641a7c6c40f6348631ae76a11ad95b5"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: survey-generator
 description: "Generate source-backed AI/ML survey paper artifacts with curated bibliographies and Fireworks/Kimi HTML rendering."
+tier: "experimental"
 allowed-tools: Read, Write, Bash, WebFetch, AskUserQuestion
 category: "research"
 risk: "critical"
@@ -20,6 +31,7 @@ tools:
   - codex-cli
   - cursor
 ---
+
 
 # Survey Generator Skill
 

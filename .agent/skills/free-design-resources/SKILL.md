@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "44757372ecf7cd2308ea7a2a3aea97c9dd1c7a7ed22c2a9d2f8b0cfd769235e2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: free-design-resources
 description: 'Design resource register: resource and provider, licence type, commercial-use and attribution rules, export format, lock-in risk, free tier limit and accessibility notes. Use for tool vetting.'
+tier: "experimental"
 category: design
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, design-tools, free-licences, fonts, icons, images, templates, access
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

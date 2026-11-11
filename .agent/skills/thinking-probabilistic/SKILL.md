@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1d0c3da4f1c32bd73d990c004c6eb60db8cb9f6a43dc04ab5ca1626e190c98f0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-probabilistic
 description: Use when forecasting, estimating, or sizing risk — anchor on base rates, give ranges, update prior→likelihood→posterior on evidence, and factor unmeasured quantities into order-of-magnitude bounds.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Probabilistic Thinking
 

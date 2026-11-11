@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2f753a09cdc747272d170c33b58ff2fc60bfa5787b4ae3ee7c13a0980eb0ec69"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "senior-fullstack"
 description: "Start a fullstack project or audit a codebase: pick a stack (Next.js, FastAPI, MERN, Django), scaffold it and score code quality. Use whenever the user asks which stack to use, wants a new web app set up, or asks how good or messy their codebase is."
+tier: "experimental"
 ---
+
 
 # Senior Fullstack
 

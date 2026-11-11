@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3d8dc0213d99b393625346af11e91add245e6dc1ac7f0039ec8ce7b71e57c623"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: workorai
 description: "WorkorAI talent-marketplace skill: candidates search jobs and manage applications; employers run the job lifecycle and get ranked candidate matches with white-box fit explanations."
+tier: "experimental"
 category: productivity
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/work0r-ai/agent-kit/blob/main/skills/workorai/LICENSE.txt"
 ---
+
 
 # WorkorAI
 

@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "506a3f90d35ae4ed06f507a3b2bc232b4fbf38f781e16b07ec5d4edded2cd46c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: prediction-market-oracle-research
 description: Research prediction markets as data sources or oracle signals for products, agents, dashboards, and corporate decision intelligence. Use for source-grounded analysis of market-implied probabilities, caveats, and integration patterns without investment advice. Use when evaluating prediction markets as a data source or oracle signal for a product, agent, or dashboard.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Prediction Market Oracle Research
 

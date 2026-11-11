@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fbb81116ee84e56d5eb087ba409cd078ad08b30230f06027de56fa0e3f670ec5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: email-systems
 description: Design transactional and marketing email delivery, queues, templates, authentication, suppression and monitoring.
+tier: "experimental"
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Email Systems
 

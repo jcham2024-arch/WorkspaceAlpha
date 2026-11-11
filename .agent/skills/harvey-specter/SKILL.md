@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a3c2df356e734955622a54d07c321ba0e10ec21b582545770c5dbe7069d5c301"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: harvey-specter
 description: "Prepare negotiations, difficult conversations, and leadership replies with evidence, clear boundaries, relationship-aware tone, and Harvey Specter-inspired composure."
+tier: "experimental"
 category: business
 risk: none
 source: https://github.com/YannisKiefer/harvey-specter/tree/372bac9104d7511d8cf64a9bd10d9e7de461af0e/skills/harvey-specter
@@ -12,6 +23,7 @@ date_added: "2026-10-29"
 author: YannisKiefer
 tags: [negotiation, communication, leadership, decision-making]
 ---
+
 
 # SPECTER
 

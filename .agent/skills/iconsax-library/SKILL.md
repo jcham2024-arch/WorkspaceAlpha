@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c1efaf45b546cd1339dcbc6195994e13e32b4df26b6f58aeac8bb5dfe3f2c362"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: iconsax-library
 description: Extensive icon library and AI-driven icon generation skill for premium UI/UX design.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-07"
 ---
+
 
 # Iconsax Library Skill
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "01d17177b0bdaffd3810eacc98540f080c77823a3c887f11c2200ebf29c6d05b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: brain-to-docs
 description: "Interview the user to turn project vision and decisions into README and ADR documentation."
+tier: "experimental"
 category: productivity
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex]
 license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 ---
+
 
 # brain-to-docs
 

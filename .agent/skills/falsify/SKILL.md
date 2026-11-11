@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "66aafcdb52e7d10bcee875ef6492b3b3f786844f9e8cae9e2451516e7f8d6d9c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: falsify
 description: "The scientific thinking protocol for AI agents. Use when facing complex, ambiguous, or high-stakes questions where guessing is costly: hypothesis → attempt to break it → evidence → calibrated conclusion."
+tier: "experimental"
 risk: safe
 source: community
 source_repo: 263311487-ux/falsify
@@ -13,6 +24,7 @@ tools: [codex, claude, cursor, gemini, deepseek-harness]
 license: "MIT"
 license_source: "https://github.com/263311487-ux/falsify/blob/main/LICENSE"
 ---
+
 
 # Falsify — The Scientific Thinking Protocol
 

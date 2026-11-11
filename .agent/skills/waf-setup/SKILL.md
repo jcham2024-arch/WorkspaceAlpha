@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0c32093a6f4f5f0e085c504d6c4d24a5ad807f03b5b78b81e842c7c44b832a79"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: waf-setup
 description: Deploy and tune Web Application Firewalls. Configure rules for OWASP
+tier: "experimental"
   Top 10 protection. Use when protecting web applications from common attacks.
 category: security
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # WAF Setup
 

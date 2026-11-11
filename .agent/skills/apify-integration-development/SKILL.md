@@ -1,5 +1,16 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9b1e80f00ae1af17e04b522d236e5297d9b546113dad871386bd61c60abff709"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 description: Curated upstream guidance for Apify Integration Development; use when the workflow matches the user goal.
+tier: "experimental"
 name: apify-integration-development
 source_repo: apify/agent-skills
 source_type: official
@@ -7,6 +18,7 @@ source: apify
 date_added: '2026-09-21'
 risk: critical
 ---
+
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.

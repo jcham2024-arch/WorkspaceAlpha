@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c12d93edd33cca869ab41c58312f45e48194d4adbbe1c35ea1e00ad76ec06ec0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: scarf-single-cell
 description: "Analyze single-cell RNA-seq at million-cell scale with Scarf: out-of-core Zarr stores on disk or object storage, provenance-tracked artifacts, audited QC, clustering, markers and donor comparisons."
+tier: "experimental"
 category: science
 risk: critical
 source: "https://github.com/NygenAnalytics/scarf/tree/master/skills/scarf-single-cell"
@@ -16,6 +27,7 @@ metadata:
 tags: [single-cell, scrna-seq, bioinformatics, genomics, zarr, out-of-core, python]
 tools: [claude, codex, cursor, gemini]
 ---
+
 
 # Scarf single-cell analysis
 

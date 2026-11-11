@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "da65ba73df683d397af3c40f5f999c256edc77af9bfed287feffc5a38a3c5ad4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: nexrad-mosaic-access
 description: "Access official NOAA/NCEP MRMS radar and multisensor composites for a region and time; validate product, grid, domain, quality, timestamp, and provenance."
+tier: "experimental"
 category: data
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: ShianMike
 tags: [weather, nexrad, mrms, mosaic, qpe, vil, vii, mesh, composite-products]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # NEXRAD Mosaic Access
 

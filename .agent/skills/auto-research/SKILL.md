@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3b934d435c8b1961969f9571d16ffcd685f35f855a79210de2f3840222432ea1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: auto-research
 description: Research uncertain questions with an explicit, user-approved web search or ChatGPT consultation, then present options and wait for implementation approval.
+tier: "experimental"
 category: automation
 risk: critical
 source: self
@@ -11,6 +22,7 @@ tags: [research, chatgpt, playwright, browser-automation, decision-support, chin
 tools: [claude, playwright]
 license: MIT
 ---
+
 
 # Auto-Research Skill
 

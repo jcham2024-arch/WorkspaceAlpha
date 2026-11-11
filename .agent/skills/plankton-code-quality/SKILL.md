@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0c9ad426509005b1423a9d3303e0cbf2cbd5b91ba8f47bc3326291eef192ff30"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: plankton-code-quality
 description: "Write-time code quality enforcement using Plankton — auto-formatting, linting, and Claude-powered fixes on every file edit via hooks. Use when setting up write-time formatting, linting, or auto-fix hooks on file edits."
+tier: "experimental"
 metadata:
   origin: community
 ---
+
 
 # Plankton Code Quality Skill
 

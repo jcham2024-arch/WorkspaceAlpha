@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "95029a360fdbcc3a2eb7c70d00e99cd3706af4fc963f5d531bd6232d81e38536"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cyber-audit
 description: "Run read-only exposure checks for security advisories and write a structured local audit report."
+tier: "experimental"
 category: security
 risk: safe
 source: community
@@ -14,6 +25,7 @@ license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 disable-model-invocation: true
 ---
+
 
 # cyber-audit
 

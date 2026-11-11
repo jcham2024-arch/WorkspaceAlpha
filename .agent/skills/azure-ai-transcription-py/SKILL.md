@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "206bacdfa1c5be63c4b24fc0171b9b6e957d5ecbf4a0db2716891604c94e3b0b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-ai-transcription-py
 description: Azure AI Transcription SDK for Python. Use for audio-file transcription with timestamps; distinguish this client from streaming and asynchronous batch Speech APIs.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Azure AI Speech Transcription for Python
 

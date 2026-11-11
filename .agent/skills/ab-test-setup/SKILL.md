@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "704781088a0b2ce0e9a9610b3aedf85090ad83e47626831858c2308fde0421bd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ab-test-setup
 description: "Use when designing an A/B or split test: define the hypothesis, control and variants, estimate sample size, verify tracking, and predeclare metrics and stopping rules."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # A/B Test Setup
 

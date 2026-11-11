@@ -1,14 +1,26 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0b02062adfca2af039721222f0c05608d59f2e9462167df4515de72e64b84299"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: build
 argument-hint: "[subcommand] [name]"
 metadata:
   author: Shpigford
   version: "1.0"
 description: "Use when developing a major feature: research the project, create a phased implementation plan, track progress and verify phase outcomes before declaring completion."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 
 Feature development pipeline - research, plan, track, and implement major features.

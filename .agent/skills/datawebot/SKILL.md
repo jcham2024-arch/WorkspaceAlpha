@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4f3be3b2a94f307550bc8da002c0ce3f26b0c8138875e38eb4f9fc5e1135413c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: datawebot
 description: "Find products for sale across online shops, list returned sellers' prices with direct links, and run Amazon and Shopify extraction Jobs through the hosted datawebot MCP server."
+tier: "experimental"
 category: data
 risk: critical
 source: "https://github.com/datawebot/datawebot-mcp/tree/main/skills/datawebot"
@@ -13,6 +24,7 @@ tools: [claude-code, codex, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/datawebot/datawebot-mcp/blob/main/LICENSE"
 ---
+
 
 # datawebot
 

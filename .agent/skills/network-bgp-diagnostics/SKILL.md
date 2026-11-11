@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "aa36bc5753632a34c20a67b41d5e128a3a2cec95761758fd951aaab06816866b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: network-bgp-diagnostics
 description: Diagnostics-only BGP troubleshooting patterns for neighbor state, route exchange, prefix policy, AS path inspection, and safe evidence collection. Use when a BGP neighbor is down, routes are missing, or prefix policy and AS path need inspection.
+tier: "experimental"
 metadata:
   origin: community
 ---
+
 
 # Network BGP Diagnostics
 

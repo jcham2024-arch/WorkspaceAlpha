@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f58406d0b58c6a37c86d17156eeba626f04c49ed2d19df31689793a0fedd2306"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-inference-service-mesh
 description: Use verified service mesh patterns for AI inference traffic management, mTLS,
+tier: "experimental"
   canary releases, policy enforcement, and cross-cluster resilience.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # AI Inference Service Mesh
 

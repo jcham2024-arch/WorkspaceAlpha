@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1b8f61e9a776de3bec8199c297d236991a428e28837817081c97f18b9baf89a8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: since-cutoff
 description: "Find which APIs of a project's pinned Python dependencies changed after the model's training cutoff, where the code uses them, and write short AGENTS.md or CLAUDE.md notes."
+tier: "experimental"
 category: development
 risk: safe
 source: https://github.com/MohammadHijjawi97/since-cutoff/tree/f2108c13c112dce0ca3597b5a2b79ca01afa7b80/skills/since-cutoff
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: MIT
 license_source: https://github.com/MohammadHijjawi97/since-cutoff/blob/f2108c13c112dce0ca3597b5a2b79ca01afa7b80/LICENSE
 ---
+
 
 # since-cutoff: dependency API changes after the model's training cutoff
 

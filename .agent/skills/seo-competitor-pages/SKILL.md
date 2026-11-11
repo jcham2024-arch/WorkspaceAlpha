@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "359d918ad1373cd520c1398f8dd5f479b4c651f11dcac9dd669fe4f9e56096ae"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-competitor-pages
 description: >
+tier: "experimental"
   Generate SEO-optimized competitor comparison and alternatives pages. Covers
   "X vs Y" layouts, "alternatives to X" pages, feature matrices, schema markup,
   and conversion optimization. Use when user says "comparison page", "vs page",
@@ -17,6 +28,7 @@ allowed-tools:
   - Bash
   - WebFetch
 ---
+
 
 # Competitor Comparison & Alternatives Pages
 

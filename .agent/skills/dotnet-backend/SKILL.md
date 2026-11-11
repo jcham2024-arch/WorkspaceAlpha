@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "74204a6a8624ac9c50bf678aa6e46e91b5f6994dde39190dc2f28a1a95bfa42f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: dotnet-backend
 description: "Build ASP.NET Core 8+ backend services with EF Core, auth, background jobs, and production API patterns."
+tier: "experimental"
 risk: safe
 source: self
 date_added: "2026-02-27"
 ---
+
 
 # .NET Backend Agent - ASP.NET Core & Enterprise API Expert
 

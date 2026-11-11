@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2a2fd73c4ce16b534bec89a9e69e8c05262d8e2e90c6c307485a50c182f90d88"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: onboarding
 description: "When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value."
+tier: "experimental"
 risk: safe
 source: https://github.com/coreyhaines31/marketingskills/tree/main/skills/onboarding
 source_repo: coreyhaines31/marketingskills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/coreyhaines31/marketingskills/blob/main/LICENSE
 ---
+
 
 # Onboarding CRO
 ## When to Use

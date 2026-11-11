@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "94fb32adcafb14f76452f25f2756a7d88432c7b8efe7f73c3ca103befc63bf5e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: huggingface-spaces
 description: "Build, deploy, and maintain applications on Hugging Face Spaces — Gradio / Docker / Static SDKs, ZeroGPU and dedicated hardware, model loading, debugging, buckets, inference providers, community grants."
+tier: "experimental"
 risk: critical
 source: https://github.com/huggingface/skills/tree/main/skills/huggingface-spaces
 source_repo: huggingface/skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: Apache-2.0
 license_source: https://github.com/huggingface/skills/blob/main/LICENSE
 ---
+
 
 # Hugging Face Spaces
 ## When to Use

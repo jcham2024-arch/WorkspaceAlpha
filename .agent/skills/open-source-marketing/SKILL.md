@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9e7f7151e0c82d701666750b1e624119d2ec9cfe9893a74c11b1ce8f53e57303"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: open-source-marketing
 description: When the user wants to market an open source project authentically. Trigger phrases include "open source marketing," "OSS marketing," "GitHub marketing," "promote my library," "grow stars," "launch open source," "open source growth," or "contributor marketing."
+tier: "experimental"
 risk: critical
 source: https://github.com/jonathimer/devmarketing-skills/tree/main/skills/open-source-marketing
 source_repo: jonathimer/devmarketing-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/jonathimer/devmarketing-skills/blob/main/LICENSE
 ---
+
 
 # Open Source Marketing
 ## When to Use

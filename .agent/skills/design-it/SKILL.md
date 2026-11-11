@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8f5fcc63f3001b8118ac49e2e0a08e471f2092140701b9e9cd9beadd976bb1c3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: design-it
 description: "Routes frontend design tasks to 48 specific UI styles. Triggers for websites, app screens, or UI components requesting a specific aesthetic."
+tier: "experimental"
 category: frontend
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: community
 tags: [design, ui, frontend]
 tools: [claude, cursor, gemini]
 ---
+
 
 # Design-It: Sophisticated UI Style Router
 

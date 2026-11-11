@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5cceef914a8cd0b7cc465471b29a982d408d9812ef718e3fef7ec5598891d5d7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: beatra
 description: "Install and use the official AI Media Generator package, pinned by digest, for paid hosted work on the Beatra service."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/beatra-ai/ai-media-generator-skill/blob/26a5f7963aca434c2cbced911a2914e3224c2107/LICENSE"
 ---
+
 
 # AI Media Generator Skill
 

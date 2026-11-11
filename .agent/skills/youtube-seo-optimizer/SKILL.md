@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "dc544c1f6e0b8ce5843ba7d3788382b1da89afcb9947ccedf05d490f21e36fb9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: youtube-seo-optimizer
 description: >
+tier: "experimental"
   Generate complete YouTube & podcast SEO packages with live-researched keywords —
   titles, descriptions, tags, hashtags, chapters, and audit fixes. Use for new or
   underperforming content.
@@ -11,6 +22,7 @@ author: whoisabhishekadhikari
 date_added: "2026-06-15"
 allowed-tools: web_search web_fetch
 ---
+
 
 # YouTube & Podcast SEO Optimizer
 

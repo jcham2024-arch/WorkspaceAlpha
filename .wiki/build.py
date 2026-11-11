@@ -76,6 +76,7 @@ def build_manifest(graph: dict) -> dict:
     return {
         "version": graph.get("version", 1),
         "generated_from": "graph.json",
+        "contract_version": "1.0.0",
         "nodes": nodes,
         "edges": graph.get("edges", []),
     }
@@ -230,7 +231,7 @@ def main():
     validate(graph)
     manifest = build_manifest(graph)
     MANIFEST_PATH.parent.mkdir(parents=True, exist_ok=True)
-    MANIFEST_PATH.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    MANIFEST_PATH.write_text(json.dumps(manifest, indent=2, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
     WIKI_PATH.parent.mkdir(parents=True, exist_ok=True)
     WIKI_PATH.write_text(build_wiki(graph), encoding="utf-8")
     print(f"wrote {MANIFEST_PATH.relative_to(ROOT)} ({len(manifest['nodes'])} nodes)")

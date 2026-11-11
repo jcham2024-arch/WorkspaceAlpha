@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cd1f98bc99329f415a1db0dee1389cfa86f2a654d90244517c0f019880e9dde2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fixing-accessibility
 description: Audit and fix HTML accessibility issues including ARIA labels, keyboard navigation, focus management, color contrast, and form errors. Use when adding interactive controls, forms, dialogs, or reviewing WCAG compliance.
+tier: "experimental"
 risk: critical
 source: https://github.com/ibelick/ui-skills/tree/main/skills/fixing-accessibility
 source_repo: ibelick/ui-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/ibelick/ui-skills/blob/main/LICENSE
 ---
+
 
 # fixing-accessibility
 ## When to Use

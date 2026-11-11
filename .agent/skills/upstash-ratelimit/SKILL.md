@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "11118990632922e067a6a1235321b924a9e1ced167d246bf30cd73732d8eb3d1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: upstash-ratelimit
 description: "Add rate limiting to API routes, middleware, and edge functions with @upstash/ratelimit: sliding window, fixed window, and token bucket backed by Upstash Redis."
+tier: "experimental"
 category: backend
 risk: critical
 source: self
@@ -10,6 +21,7 @@ author: CahidArda
 tags: [upstash, rate-limiting, redis, serverless, edge, middleware, 429]
 tools: [claude, codex, cursor, gemini]
 ---
+
 
 # Upstash Ratelimit
 

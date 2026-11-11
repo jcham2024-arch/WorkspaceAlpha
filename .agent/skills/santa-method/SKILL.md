@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ff53909feb3577ed2db1c723295fe233399dd45505a1dd9fdf4ebb973fffa6c9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: santa-method
 description: "Multi-agent adversarial verification: two independent reviewers with the same rubric must both pass before output ships, with a fix-and-re-review convergence loop and human escalation cap. Use when gating publishing, production deploys, compliance or brand-sensitive content, or hallucination-prone claims before they ship."
+tier: "experimental"
 metadata:
   origin: "Ronald Skelton - Founder, RapportScore.ai"
 ---
+
 
 # Santa Method
 

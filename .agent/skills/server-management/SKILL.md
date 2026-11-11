@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ad7da00b33462330628261e5db18951ae3897092dd61c47e27b1fa1b1f83ba97"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: server-management
 description: "Server management principles and decision-making. Process management, monitoring strategy, and scaling decisions. Teaches thinking, not commands."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Server Management
 

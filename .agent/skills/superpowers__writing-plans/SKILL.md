@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1e9ca4adba694487df330284e2689e000ac417f5e73b810e4863d477488aedbb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: writing-plans
 description: Use when you have a spec or requirements for a multi-step task, before touching code
+tier: "experimental"
 ---
+
 
 # Writing Plans
 

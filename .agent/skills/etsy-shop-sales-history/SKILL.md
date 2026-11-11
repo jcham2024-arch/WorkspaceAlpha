@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1e4861197dcdd0f7e42e060f10ab2db26bce0477be993cf0f4ad5369cc1d2581"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: etsy-shop-sales-history
 description: "Read Etsy shop sales counters, deltas, and breakout flags from Apify Actor publicrecords/etsy-shop-velocity (MCP panel snapshot). Needs an Apify token; Actor run is billed."
+tier: "experimental"
 category: ecommerce
 risk: critical
 source: self
@@ -10,6 +21,7 @@ author: GeminiGeorge22
 tags: [etsy, ecommerce, shop, sales, velocity, apify, mcp]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Etsy Shop Sales History
 

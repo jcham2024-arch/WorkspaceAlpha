@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8921edba624da65ee9d8650fa01d62348d464f3921ffbf65d7ce05433f22b354"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: uncle-bob-craft
 description: "Use when performing code review, writing or refactoring code, or discussing architecture; complements clean-code and does not replace project linter/formatter."
+tier: "experimental"
 category: code-quality
 risk: safe
 source: community
@@ -9,6 +20,7 @@ author: antigravity-contributors
 tags: [clean-code, clean-architecture, solid, code-review, craftsmanship, uncle-bob]
 tools: [claude, cursor, gemini]
 ---
+
 
 # Uncle Bob Craft
 

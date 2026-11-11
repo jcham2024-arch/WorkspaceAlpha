@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4fe6d316fe82966d087bd4a5a51e2044827cfec8510212cacb7fb12b6c56c481"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: teach
 description: Teach the user a new skill or concept, within this workspace.
+tier: "experimental"
 disable-model-invocation: true
 argument-hint: "What would you like to learn about?"
 category: "education"
@@ -21,6 +32,7 @@ tools:
   - codex-cli
   - cursor
 ---
+
 
 ## When to Use
 

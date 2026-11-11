@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d68cd34799967ade1d25f645161a48c04906623127c4823136693d1a4d941e36"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: health-wellness
 description: 'Wellbeing check-in register: anonymous flag, department, check-in date, wellbeing score, stress and energy levels, support and resource flags, confidentiality and status. Use for wellness programmes.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, engage]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Health & Wellness
 

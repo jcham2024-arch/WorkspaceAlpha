@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b8923da5ba3aa650676c37c51da727850d1108008a281eb98c456cf201b2b915"
+fetched_at: "2026-11-10"
+upstream_license: "Apache-2.0"
+owner: "taskmaster"
+---
 name: webly
 description: "Publish a website or share files at a live URL in seconds with no account, then let the person claim it, edit it over Webly's MCP server, and publish drafts they approve."
+tier: "experimental"
 category: devops
 risk: critical
 source: "https://github.com/Webly-AI/webly-plugin/tree/main/skills/webly"
@@ -19,6 +30,7 @@ metadata:
   api-contract: https://api.webly.ai/llms.txt
   mcp-server: https://api.webly.ai/v1/mcp
 ---
+
 
 # Webly
 

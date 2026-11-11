@@ -10,6 +10,7 @@ tools:
 reads:
   - .context/manifest.json (byte ranges only)
 verify: "<how a reviewer proves this step is done>"
+owner: "taskmaster"
 ---
 
 # <Name> (fill from TEMPLATE; delete this line)

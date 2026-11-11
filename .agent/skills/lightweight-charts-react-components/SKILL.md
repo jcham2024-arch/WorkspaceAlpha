@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e00fdf278b251eea856b4ce7271c27068ae0d9855461719da176dce7ef0e5a28"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: lightweight-charts-react-components
 description: "Build and debug React financial charts with realtime candles, viewport-preserving history, indicator panes, markers, and chart API refs using lightweight-charts-react-components."
+tier: "experimental"
 category: development
 risk: critical
 source: https://github.com/ukorvl/lightweight-charts-react-components/tree/0368191127568e48aef6f7bda2ff3900e8e24756/skills/lightweight-charts-react-components
@@ -12,6 +23,7 @@ date_added: "2026-11-01"
 author: ukorvl
 tags: [react, typescript, financial-charts, lightweight-charts]
 ---
+
 
 # lightweight-charts-react-components guide
 

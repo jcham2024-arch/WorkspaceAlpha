@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4c40339fd7554f685f834d540feab72d58ee576e653ceab13c77678946253943"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: plan-canvas
 description: Open plans and HTML artifacts in a local browser canvas where the human annotates elements, chats, and approves or requests changes without leaving the page. Use when presenting a plan for review, or when feedback like "move this, change that" is easier pointed at than typed.
+tier: "experimental"
 metadata:
   version: "1.0.0"
   origin: ECC
 ---
+
 
 # Plan Canvas
 

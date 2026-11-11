@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2b9f02efeaa360bc5e017f2623e5a18371618e8ae98893712b10b35eb40efaa4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fal-platform
 description: "Platform APIs for model management, pricing, and usage tracking"
+tier: "experimental"
 risk: critical
 source: "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-platform/SKILL.md"
 date_added: "2026-02-27"
 ---
+
 
 # Fal Platform
 

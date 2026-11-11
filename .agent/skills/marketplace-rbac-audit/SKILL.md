@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "64168e6c121260eba3f1625f5e5ebcbf30238d57b2cabab8e0947105f0a57e57"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: marketplace-rbac-audit
 description: "Audit multi-role marketplace authorization across roles, resource ownership, tenant boundaries, and order-state transitions; use when access rules need evidence, not UI assumptions."
+tier: "experimental"
 category: security
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: mosinlshaikh
 tags: [marketplace, rbac, authorization, access-control, security]
 tools: [claude, cursor, codex, gemini]
 ---
+
 
 # Marketplace RBAC Audit
 

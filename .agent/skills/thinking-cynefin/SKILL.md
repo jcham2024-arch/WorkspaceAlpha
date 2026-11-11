@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "407b38407d05db608ada8edae6dba3ebf8e0aedd06ba23916ebdbe9c00dad30f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-cynefin
 description: When the right response mode is unclear, classify the cause-effect domain first; decompose disorder.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Cynefin Classification
 

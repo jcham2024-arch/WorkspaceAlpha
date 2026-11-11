@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3ef015c15d4ffb101ee9645088f1d37cb90edc3a1aa113c40fc560213a2489f3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: helm-charts
 description: Create, manage, and deploy Helm charts for Kubernetes package management.
+tier: "experimental"
 category: devops
 risk: critical
 source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Helm Charts
 

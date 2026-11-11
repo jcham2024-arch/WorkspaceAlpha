@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3d5d37e094c4f82dc9d6f073729e31aa2e7e7a1f244615b3453e72aba99f0f59"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: speed
 description: Launch RSVP speed reader for text
+tier: "experimental"
 trigger: command
 risk: critical
 source: community
 date_added: "2026-03-06"
 tools: Write, Bash, Read
 ---
+
 
 # Speed Reader
 

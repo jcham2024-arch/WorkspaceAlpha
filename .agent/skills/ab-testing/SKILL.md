@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "21650bba14c16df6c0b0626d6fe6e8dcdfc4b57a51b5a4690b6db82727ddaec1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ab-testing
 description: "When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program."
+tier: "experimental"
 risk: critical
 source: https://github.com/coreyhaines31/marketingskills/tree/main/skills/ab-testing
 source_repo: coreyhaines31/marketingskills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/coreyhaines31/marketingskills/blob/main/LICENSE
 ---
+
 
 # A/B Test Setup
 ## When to Use

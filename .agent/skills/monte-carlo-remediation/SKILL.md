@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "887558df31870d6acd6e1a6d8695b2655fb0fc6c26ee24d0762bdc3187583094"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: monte-carlo-remediation
 description: Investigate and remediate data quality alerts using Monte Carlo MCP tools. Runs root cause analysis, assesses blast radius, discovers available tools (MCP/CLI/API), proposes and executes fixes, or escalates with full context when uncertain.
+tier: "experimental"
 risk: critical
 source: https://github.com/monte-carlo-data/mc-agent-toolkit/tree/main/skills/remediation
 source_repo: monte-carlo-data/mc-agent-toolkit
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: Apache-2.0
 license_source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/LICENSE
 ---
+
 ## Bundled upstream support
 
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.

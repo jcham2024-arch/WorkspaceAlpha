@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bcb1885111df4466a208647e2efec841233cebf6d96e2acf0cfcafdf88ea7b7e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: rehabilitation-analyzer
 description: 分析康复训练数据、识别康复模式、评估康复进展，并提供个性化康复建议
+tier: "experimental"
 allowed-tools: Read, Grep, Glob, Write, Edit
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # 康复训练分析技能
 

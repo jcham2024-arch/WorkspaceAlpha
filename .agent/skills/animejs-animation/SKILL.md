@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fdbd2b2c9dc3c4a5b2d3bbbee96d717ad846cd502706376c02cc237a627dc227"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: animejs-animation
 description: Advanced JavaScript animation library skill for creating complex, high-performance web animations.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-07"
 ---
+
 
 # Anime.js Animation Skill
 

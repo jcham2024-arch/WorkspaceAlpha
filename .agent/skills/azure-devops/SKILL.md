@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7c158c99efc2760cdde7ef099d2b544775a464d9b086e8f4a481ffe821337eb2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-devops
 description: Set up Azure Pipelines for CI/CD, configure build and release pipelines,
+tier: "experimental"
   manage Azure DevOps projects, and integrate with Azure services.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Azure DevOps Pipelines
 

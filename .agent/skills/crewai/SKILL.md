@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e84aa12308de9ea65044a7df26f41970ee82af936d6b133981602b21e4673563"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: crewai
 description: Design role-based agents, tasks, crews, and flows with CrewAI.
+tier: "experimental"
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # CrewAI
 

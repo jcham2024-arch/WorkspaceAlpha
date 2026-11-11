@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "eadc278af45c53da2e48fb2ff70caabd1c3db28c3d89d16cfdbc714613272794"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: build-ui
 description: "Step-by-step workflow for UI work: read the project, follow the plan for the job (new screen, dashboard, polish, simplify, review), then render, fix and check again."
+tier: "experimental"
 category: frontend
 risk: safe
 source: https://github.com/uxkin/agent/tree/main/.agents/skills/build-ui
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, copilot, gemini]
 license: MIT
 license_source: https://github.com/uxkin/agent/blob/main/LICENSE
 ---
+
 
 # Build UI · by UXKIN
 

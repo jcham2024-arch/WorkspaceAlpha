@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d7a204c5f2cb45078bdbf387ffdbeb0e86c5925a14be7dc6f27d457226e53f7d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: opentelemetry
 description: Instrument applications and infrastructure with OpenTelemetry for unified
+tier: "experimental"
   traces, metrics, and logs.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # OpenTelemetry
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fcb32424d0e680c28ff25995468e566892a9621cf2a5e99b19d48ba1dc0c507c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: dei-dashboard
 description: 'Diversity, equity and inclusion dashboard: metric by department and period, value against target, group size and minimum-threshold flag. Use for DEI reporting.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, engage]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # DEI Dashboard
 

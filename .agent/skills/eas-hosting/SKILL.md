@@ -1,5 +1,16 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0049551f38e99276887b2d790f0b367f05df3fee6aea284129597e153ca86aa1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 description: Curated upstream guidance for Eas Hosting; use when the workflow matches the user goal.
+tier: "experimental"
 name: eas-hosting
 version: 1.0.0
 license: MIT
@@ -9,6 +20,7 @@ source: expo
 date_added: '2026-09-21'
 risk: critical
 ---
+
 # EAS Hosting
 
 > **EAS service - costs apply.** EAS Hosting is a paid Expo Application Services product with free-tier limits; production deploys use your plan's request and bandwidth allowance. See https://expo.dev/pricing. Authoring API routes and exporting the web bundle are free and open source, and you can self-host the exported server output instead of EAS Hosting.

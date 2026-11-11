@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a30036b76ce8eff808daf30406801f9c84fe8ac07ef1dfbd6ddd53726652aa6b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: geo-keyword-expansion-tool
 description: "Geo Keyword Expansion Tool. Use when working with seed keyword and target locations."
+tier: "experimental"
 category: Local SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Geo Keyword Expansion Tool
 
 ## Overview

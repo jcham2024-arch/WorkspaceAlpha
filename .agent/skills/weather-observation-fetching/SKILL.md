@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a3c0544ae7c0b9178197cc8dde6f2a1cfbb494ebd2475f7a063416c5ea5fb0d4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: weather-observation-fetching
 description: "Retrieve surface and upper-air weather observations from authoritative APIs and archives with station identity, time, units, and quality flags preserved."
+tier: "experimental"
 category: data
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: ShianMike
 tags: [weather, observations, metar, radiosonde, noaa, quality-control]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Weather Observation Fetching
 

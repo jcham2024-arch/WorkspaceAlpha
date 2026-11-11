@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2e76411797a9644b23c45603eb8d2677e078d9614b1a605ca918935a50177217"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: equibles
 description: "Query Equibles for US stock market data: SEC filing search, XBRL financial statements, earnings call transcripts, insider and 13F holdings, and daily prices."
+tier: "experimental"
 category: finance
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: equibles
 tags: [finance, stocks, sec-filings, earnings-calls, insider-trading, 13f, rest-api, mcp]
 tools: [claude, cursor, gemini]
 ---
+
 
 # Equibles: US Stock Market Data
 

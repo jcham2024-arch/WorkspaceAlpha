@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "74e8ec43d4149538846aa61490ed784844174c0a8529b00bc9bb6666aee46a88"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: defi-yield-strategy-allocator
 description: 'Multi-vault automated yield strategy allocation register: APY benchmarks, impermanent loss risk tiers, and rebalancing triggers.'
+tier: "experimental"
 category: engineering
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [defi, yield, soroban, vault, liquidity, finance, stellar]
 tools: []
 source_repo: Ranjeet2063/agentic-awesome-skills
 ---
+
 
 # DeFi Yield Strategy Allocation Register
 

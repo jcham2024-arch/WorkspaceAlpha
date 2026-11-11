@@ -82,6 +82,30 @@ if QUARANTINE_REG.exists():
                 else:
                     break
 
+# Tier validation: every skill has a valid tier field
+SKILLS_DIR = ROOT / ".agent" / "skills"
+VALID_TIERS = {"core", "curated", "experimental", "quarantine"}
+if SKILLS_DIR.exists():
+    for skill_dir in sorted(SKILLS_DIR.iterdir()):
+        if not skill_dir.is_dir():
+            continue
+        skill_file = skill_dir / "SKILL.md"
+        if not skill_file.exists():
+            continue
+        text = skill_file.read_text(encoding="utf-8")
+        if not text.startswith("---\n"):
+            fail(f"skill {skill_dir.name}: missing frontmatter")
+        fm = text.split("\n---", 1)[0]
+        tier = None
+        for line in fm.splitlines():
+            if line.startswith("tier:"):
+                tier = line.split(":", 1)[1].strip().strip('"').strip("'")
+                break
+        if tier is None:
+            fail(f"skill {skill_dir.name}: missing tier field")
+        if tier not in VALID_TIERS:
+            fail(f"skill {skill_dir.name}: invalid tier '{tier}' (must be one of {sorted(VALID_TIERS)})")
+
 print("PASS")
 print(f"  nodes: {len(m['nodes'])}, edges: {len(m.get('edges', []))}")
 print(f"  wiki bytes: {len(wiki)}, AGENTS.md lines: {len(lines)}")

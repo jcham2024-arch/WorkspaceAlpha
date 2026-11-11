@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "886138e229eada7be35f7632e4bcbc2117c07ead95a2ef18c0f33ab1e6151bb2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: leiloeiro-edital
 description: Analise e auditoria de editais de leilao judicial e extrajudicial. Riscos ocultos, clausulas perigosas, debitos, ocupante e classificacao da oportunidade.
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-03-06'
@@ -17,6 +28,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # SKILL DE EDITAL — ANÁLISE PERICIAL DE EDITAIS DE LEILÃO
 

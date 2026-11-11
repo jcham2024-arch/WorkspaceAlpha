@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "20c88d0b490c64b3884c86de5cf9817701f8fa0fe1f1c44683126e12a0681c1b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: busabase
 description: "Use when managing Busabase workspace records, knowledge, apps, or skills through permission-aware ChangeRequests with auditable history."
+tier: "experimental"
 category: productivity
 risk: critical
 source: https://github.com/busabase/skills/tree/main/skills/busabase
@@ -13,6 +24,7 @@ tools: [claude, cursor, codex]
 license: MIT
 license_source: https://github.com/busabase/skills/blob/f44e1124e7b6a5ab9c50931173bc52eed82bd429/skills/busabase/LICENSE
 ---
+
 
 # Busabase workspace operations
 

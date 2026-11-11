@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "adc0c3cf934e40f86edc185c0b85baab836e38a8a14b12b1aec84a20d1799629"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: odoo-l10n-compliance
 description: "Country-specific Odoo localization: tax configuration, e-invoicing (CFDI, FatturaPA, SAF-T), fiscal reporting, and country chart of accounts setup."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-04"
 ---
+
 
 # Odoo Localization & Compliance (l10n)
 

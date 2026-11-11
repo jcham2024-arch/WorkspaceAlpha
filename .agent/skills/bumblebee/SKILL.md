@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fa8cd16526d6e5a9fb298c3d3f1b99eacf423d050f6eda26f6a50ba30cb2836c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: bumblebee
 description: "Run Bumblebee supply-chain inventory and exposure scans on macOS/Linux to detect compromised packages, extensions, and MCP host configs."
+tier: "experimental"
 category: security
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude]
 license: "MIT"
 license_source: "https://github.com/mycelos-ai/bumblebee-skill/blob/main/LICENSE"
 ---
+
 
 # Bumblebee Security Scan
 

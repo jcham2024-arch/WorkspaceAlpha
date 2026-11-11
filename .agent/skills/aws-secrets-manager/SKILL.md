@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "78c5d8633a8c6e36ed4bf28361bf5662af6686b9cd8760a528db4cb6f352bf20"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aws-secrets-manager
 description: Store and rotate secrets in AWS Secrets Manager.
+tier: "experimental"
 category: security
 risk: critical
 source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # AWS Secrets Manager
 

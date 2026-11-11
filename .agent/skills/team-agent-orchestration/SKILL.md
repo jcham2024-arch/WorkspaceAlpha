@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2c1b7d919aed38b0ac385bbdbb730088a9aa0a0969e042b650b39633eae07b52"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: team-agent-orchestration
 description: "Run team-based orchestration for agent squads: work items with owners and scope, agent Kanban state, branch isolation, control pane visibility, and merge gates. Use when coordinating multiple agents in parallel across branches or worktrees — multi-agent fan-out, agent Kanban, squad coordination, or merging agent output into one product."
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Team Agent Orchestration
 

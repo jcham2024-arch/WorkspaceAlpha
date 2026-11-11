@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "120ad5f66aa39df4c3eb9773e819d3397f6ca66304610afe859bb4585f819205"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: improve-animations
 description: "Audit existing motion and write prioritized implementation plans with exact evidence, scope, and verification steps."
+tier: "experimental"
 category: frontend
 risk: critical
 source: community
@@ -11,6 +22,7 @@ author: Emil Kowalski
 license: MIT
 license_source: https://github.com/emilkowalski/skills/blob/a81dbca07f2217b7103e510c0f13f8d5b017afc9/LICENSE
 ---
+
 
 # Improving Animations
 

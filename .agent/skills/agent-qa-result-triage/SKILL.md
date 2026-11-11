@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4b4119932d770ea71d30f846ecd39e44141f6468551cb12c0095d8f00fc05ae6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agent-qa-result-triage
 description: "Triage failed Agent QA runs with MCP evidence, artifacts, logs, fixed failure categories, confidence, and actionable next steps."
+tier: "experimental"
 category: testing
 risk: safe
 source: https://github.com/vostride/agent-qa/tree/main/skills/agent-qa-result-triage
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: FSL-1.1-ALv2
 license_source: https://github.com/vostride/agent-qa/blob/main/LICENSE.md
 ---
+
 
 # Agent QA Result Triage
 

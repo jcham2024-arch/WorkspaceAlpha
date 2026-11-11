@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "76fb3462a2916d605215e9d49b18399fc12a2741b7487b4390ad4c4effe96c78"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: zustand-store-ts
 description: "Create Zustand stores following established patterns with proper TypeScript types and middleware."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Zustand Store
 

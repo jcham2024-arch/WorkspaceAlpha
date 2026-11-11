@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c7e4ca517e67a2665e5995914bcb9c91a9acac4b0d81d0fcfb79d6ac9718c222"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: monte-carlo-push-ingestion
 description: "Review and adapt warehouse metadata, lineage and query-log collection templates for an explicitly authorized Monte Carlo destination."
+tier: "experimental"
 category: data
 risk: critical
 source: community
@@ -11,6 +22,7 @@ author: monte-carlo-data
 tags: [data-observability, ingestion, monte-carlo, pycarlo, metadata]
 tools: [claude, cursor, codex]
 ---
+
 # Monte Carlo Push Ingestion
 
 ## When to Use

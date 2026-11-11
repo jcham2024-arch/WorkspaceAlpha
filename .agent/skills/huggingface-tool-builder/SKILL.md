@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6bf213e223bdeee1a9f98923d636027d71dfd8c7b8e54ddf154a3706c29865dd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: huggingface-tool-builder
 description: "Use this skill when the user wants to build tool/scripts or achieve a task where using data from the Hugging Face API would help. This is especially useful when chaining or combining API calls or the task will be repeated/automated."
+tier: "experimental"
 risk: critical
 source: https://github.com/huggingface/skills/tree/main/skills/huggingface-tool-builder
 source_repo: huggingface/skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: Apache-2.0
 license_source: https://github.com/huggingface/skills/blob/main/LICENSE
 ---
+
 
 # Hugging Face API Tool Builder
 ## When to Use

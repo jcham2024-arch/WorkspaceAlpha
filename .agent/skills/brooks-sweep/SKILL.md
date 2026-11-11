@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a4990dae050dab7c4ae9373b1366bf9e164298fd398fa2ee23ebef0e34df349c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: brooks-sweep
 description: "Full-sweep mode: runs a unified analysis across all quality dimensions — code decay, architecture, tech debt, and test quality — then applies fixes directly to the codebase. Safe changes are auto-applied; risky changes are confirmed before execution."
+tier: "experimental"
 risk: critical
 source: https://github.com/hyhmrright/brooks-lint/tree/main/skills/brooks-sweep
 source_repo: hyhmrright/brooks-lint
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/hyhmrright/brooks-lint/blob/main/LICENSE
 ---
+
 
 # Brooks-Lint — Full Sweep & Auto-Fix
 ## When to Use

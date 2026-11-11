@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0ab1a48dc5070d977194a8bf9ec73d0ce3412dc93a810b42256bc68f9c0d2c63"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "threat-detection"
 description: "Use when hunting threats, sweeping IOCs or looking for anomalies in logs and telemetry. Ranks ATT&CK-mapped signals and z-score anomalies with threat_signal_analyzer.py."
+tier: "experimental"
 ---
+
 
 # Threat Detection
 

@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b149c79b9be2abed2d5471a8c9842e3c0ea74fa03893c71bb58ee8749b22173b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: retro-futurism
 description: Web and App implementation guide for Retro Futurism. Trigger when user wants vintage future concepts, 1950s space age aesthetics, or atompunk vibes.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Retro Futurism
 

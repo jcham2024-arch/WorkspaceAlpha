@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6c726b16f3d0cbe98a09939080267a9594755f4de15c01a3ec514662d5a057ac"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: incident-response-smart-fix
 description: "Investigate production issues, reproduce root causes, implement scoped fixes, and verify recovery using tests and observability."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Intelligent Issue Resolution with Multi-Agent Orchestration
 

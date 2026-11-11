@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0aeeca9faa19380e81819dad1754cfd30b9c05fd03f708fff81f07ef6bd57700"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: x-article-publisher-skill
 description: "Publish articles to X/Twitter"
+tier: "experimental"
 risk: critical
 source: "https://github.com/wshuyi/x-article-publisher-skill"
 date_added: "2026-02-27"
 ---
+
 
 # X Article Publisher Skill
 

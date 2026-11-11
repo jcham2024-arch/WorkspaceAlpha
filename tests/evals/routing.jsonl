@@ -1,0 +1,15 @@
+{"task": "brainstorm project requirements and user goals", "expected_profile": "conceptualizer", "expected_skill": "brainstorming"}
+{"task": "write an implementation plan for a new feature", "expected_profile": "conceptualizer", "expected_skill": "writing-plans"}
+{"task": "analyze a constraint from first principles", "expected_profile": "conceptualizer", "expected_skill": "thinking-first-principles"}
+{"task": "estimate risk buffer under uncertainty", "expected_profile": "conceptualizer", "expected_skill": "thinking-margin-of-safety"}
+{"task": "audit a skill for security before installation", "expected_profile": "starter", "expected_skill": "skill-audit"}
+{"task": "validate skill structure against spec", "expected_profile": "starter", "expected_skill": "skill-check"}
+{"task": "analyze capability gaps in the skill library", "expected_profile": "starter", "expected_skill": "skill-gap-analysis"}
+{"task": "check skill frontmatter for host compatibility", "expected_profile": "starter", "expected_skill": "skill-host-compat"}
+{"task": "present a plan in a canvas for review", "expected_profile": "starter", "expected_skill": "plan-canvas"}
+{"task": "orchestrate plan into slash commands", "expected_profile": "starter", "expected_skill": "plan-orchestrate"}
+{"task": "design a research methodology and paper structure", "expected_profile": "starter", "expected_skill": "research-planning"}
+{"task": "measure agent compliance with skills and rules", "expected_profile": "starter", "expected_skill": "skill-comply"}
+{"task": "dispatch subagents and supervise execution", "expected_profile": "taskmaster", "expected_skill": "writing-plans"}
+{"task": "review code quality and standards", "expected_profile": "reviewer", "expected_skill": "writing-plans"}
+{"task": "research a technical topic comprehensively", "expected_profile": "starter", "expected_skill": "research-planning"}

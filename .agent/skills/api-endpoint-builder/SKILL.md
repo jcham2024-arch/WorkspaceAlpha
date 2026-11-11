@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c31ab3a859293954011dbb15990db8be10d52a1e5516a4401cca5ef1545b49ad"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: api-endpoint-builder
 description: "Builds reviewable REST API endpoint scaffolds with validation, error handling, authentication, and documentation. Follows best practices for security and scalability."
+tier: "experimental"
 category: development
 risk: critical
 source: community
 date_added: "2026-03-05"
 ---
+
 
 # API Endpoint Builder
 

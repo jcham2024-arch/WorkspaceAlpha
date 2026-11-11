@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f9fa3484f740cb6d85bc6d9214022f5660769624099a29a0dfffc9aa07e3c7a3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: rayden-use
 description: Build and maintain Rayden UI components and screens in Figma via Figma MCP with full design token enforcement
+tier: "experimental"
 category: design
 risk: safe
 source: https://github.com/playbookTV/rayden-ui-design-skill
@@ -10,6 +21,7 @@ author: Leslie Williams
 tags: figma, design-system, ui, components, mcp, rayden, rayna-ui
 tools: mcp__claude_ai_Figma__use_figma, mcp__claude_ai_Figma__get_screenshot, mcp__claude_ai_Figma__whoami, Read
 ---
+
 
 # Rayden UI Design Skill
 

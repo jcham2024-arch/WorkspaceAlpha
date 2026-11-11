@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "621e85a5587969d5902953d35479d70c4f5191dae87c69e38739bb49891fb663"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: papers-skill
 description: "Skill for academic research workflows: search Semantic Scholar (200M+ papers), inspect citations, download arXiv PDFs, and extract PDF text. Bundles a self-contained Python CLI."
+tier: "experimental"
 category: research
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude-code, antigravity, cursor, gemini-cli, codex-cli, opencode]
 license: "MIT"
 license_source: "https://github.com/xwmxcz/papers-skill/blob/main/LICENSE"
 ---
+
 
 # Papers Skill
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fa2b5e4597f1b87954f35cff2456e8eb1c825273f87b16576ced89a92a6f8a18"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: pangolinfo-amazon-data-research
 description: "Plan and run read-only Amazon product, review, category, seller, and market research through Pangolinfo's documented MCP bridge."
+tier: "experimental"
 category: data
 risk: safe
 source: self
@@ -12,6 +23,7 @@ tags: [amazon, ecommerce, product-research, reviews, market-research, mcp, data]
 tools: [claude, cursor, gemini, codex]
 license: "MIT"
 ---
+
 
 # Pangolinfo Amazon Data Research
 

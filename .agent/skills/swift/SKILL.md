@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0dd7ca48511ee290971c9a080eaf6a0fc24c4bbc9bd155ad47648b01ff9047e1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: swift
 description: "Language-specific super-code guidelines for swift."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-06-16"
 ---
+
 # Swift: Idiomatic Efficiency Reference
 
 Apply only within the requested scope and current project conventions. Preserve behavior, ownership, error handling, accessibility and security; examples are independent fragments, not equivalent rewrites in every context. Verify language/library versions and run relevant checks. Required tests and user-facing progress/results take precedence over brevity rules. Do not install dependencies or delete files merely to follow these examples.

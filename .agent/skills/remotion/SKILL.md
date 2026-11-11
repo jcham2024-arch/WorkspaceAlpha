@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "147b91d2aa8fcb5f238e0c82ef9455440f1024c5c3e233d1aa387f4ccbc124d8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: remotion
 description: Generate walkthrough videos from Stitch projects using Remotion with smooth transitions, zooming, and text overlays
+tier: "experimental"
 allowed-tools:
   - "stitch*:*"
   - "remotion*:*"
@@ -12,6 +23,7 @@ risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # Stitch to Remotion Walkthrough Videos
 

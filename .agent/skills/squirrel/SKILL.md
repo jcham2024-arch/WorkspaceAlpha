@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1cef30fefdd57ed375d66ec5851249971d922b1f22d0ccd20ed8cbdb839e332a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: squirrel
 description: "Full-cycle AI coding skill: plans, builds, tests, lints, fixes bugs, and writes production-grade docs. Auto-detects project state and adapts its 8-phase pipeline."
+tier: "experimental"
 category: development
 risk: safe
 source: community
@@ -13,6 +24,7 @@ author: flying_squirrel__
 tags: [development, testing, planning, code-review, documentation, ci-cd]
 tools: [claude, cursor, codex, antigravity, gemini, windsurf, opencode, copilot]
 ---
+
 
 # Squirrel — Full-Cycle Software Development Skill
 

@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f2b39268496b38823cfe1beae7f7cf5dc57a9e1096c0deebbd6a0342242198f4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "senior-data-scientist"
 description: "Design experiments and analyze tabular data: A/B tests, causal inference, feature engineering, model evaluation. Use whenever the user asks how to set up or read an A/B test, whether a change caused a lift, which features to build, or how good a model is."
+tier: "experimental"
 ---
+
 
 # Senior Data Scientist
 

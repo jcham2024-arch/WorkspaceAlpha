@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ff8e2e5e5e4fe59d940ae2b04354c872325e91c5f36084f0a847ad4e94582202"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: keyword-expansion-tool
 description: "Keyword Expansion Tool. Use when working with seed terms and optional industry."
+tier: "experimental"
 category: Keyword Research
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Keyword Expansion Tool
 
 ## Overview

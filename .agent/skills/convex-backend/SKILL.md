@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b4ba40c5c04b2e6dc3a3af0104bdb78c7566dd384a7f4e8efba05b584af7e8c2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: convex-backend
 description: Build reactive backends with Convex functions, schema validation, auth
+tier: "experimental"
   integration, and deployment workflows. Use when building real-time apps with type-safe
   server functions and automatic caching.
 category: devops
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Convex Backend
 

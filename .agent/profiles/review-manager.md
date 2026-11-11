@@ -21,6 +21,7 @@ reads:
   - .context/manifest.json
   - memory/learnings.md
 verify: "Every finding cites file:line or a wiki anchor; one packaged report; the orchestrator can act without re-running checks."
+owner: "review-manager"
 ---
 
 # Review Manager

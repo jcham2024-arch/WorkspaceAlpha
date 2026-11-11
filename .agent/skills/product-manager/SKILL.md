@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "79cf6a4edd208ef7ddef18d5cebdc85d3758f1d122c0af3722af18c92451036e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: product-manager
 description: "Guide product strategy, discovery, prioritization and metrics; upstream templates and formula collections are external prerequisites."
+tier: "experimental"
 risk: safe
 version: "1.0.0"
 author: "Digidai"
@@ -8,6 +19,7 @@ tags: ["product-management", "saas", "frameworks", "metrics", "strategy"]
 source: "Digidai/product-manager-skills (MIT)"
 date_added: "2026-03-06"
 ---
+
 
 # Product Manager Skills
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1595b2ddc7868cd519ba3817bd8fea67ad9d283128a822e2f2d06aeeddeab502"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: chatexport-need-miner
 description: "Mines offline Telegram Desktop chat exports (result.json) for unmet market needs and product opportunities using chunked streaming and verbatim quote grounding. Trigger phrases: mine chat export, telegram result.json, find unmet needs, analyze telegram chat."
+tier: "experimental"
 category: development
 risk: safe
 source: community
@@ -12,6 +23,7 @@ tags: [telegram, market-research, text-mining, offline-analytics, developer-tool
 tools: [claude, cursor, gemini, windsurf]
 license: "MIT"
 ---
+
 
 # ChatExport Need Miner: Offline Market Signal & Pain-Point Extractor
 

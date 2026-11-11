@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bb8bc13b740f870349fe3a1de68e946569a75c95235a02a11e226161b680366c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: literature-review
 description: Conduct comprehensive literature reviews using multi-perspective dialogue simulation. Generate diverse expert personas, conduct grounded Q&A conversations, and synthesize findings into structured knowledge. Use when starting a new research project or writing a survey section.
+tier: "experimental"
 argument-hint: [topic]
 ---
+
 
 # Literature Review
 

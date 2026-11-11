@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3ccf8b22cc50d7a2ef8d631391444be9ccfd7ada4e3ab4287448178f892653e5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: temporal-golang-pro
 description: "Use when building durable distributed systems with Temporal Go SDK. Covers deterministic workflow rules, mTLS worker configs, and advanced patterns."
+tier: "experimental"
 risk: safe
 source: self
 date_added: "2026-02-27"
 ---
+
 
 # Temporal Go SDK (temporal-golang-pro)
 

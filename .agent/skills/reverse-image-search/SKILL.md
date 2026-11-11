@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a6b1aedd4095d1102dec0a39ad5eea52be7584566de63b1f4006b25c7375664c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: reverse-image-search
 description: "Reverse Image Search. Use when working with image or public image URL."
+tier: "experimental"
 category: SEO Utility
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Reverse Image Search
 
 ## Overview

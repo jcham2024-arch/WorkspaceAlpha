@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "08451e5dcba75ecddea0454ae952837b66f6657a5b22d42dea5a74fefe5e07e4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: runapi-cli
 description: Generate AI images, videos, and music/audio from agents using the RunAPI CLI.
+tier: "experimental"
 category: development
 risk: critical
 source: official
@@ -13,6 +24,7 @@ tools: [claude, codex, gemini, cursor, antigravity]
 license: "Apache-2.0"
 license_source: "https://github.com/runapi-ai/cli-skill/blob/main/LICENSE"
 ---
+
 
 # RunAPI CLI
 

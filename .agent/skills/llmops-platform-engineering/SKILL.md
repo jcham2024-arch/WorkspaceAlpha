@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8131a5c80d979ef691c9e384f195d496164663c6c32dcd73b854fbce65c95a04"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: llmops-platform-engineering
 description: Build production LLMOps platforms with CI/CD, model promotion workflows,
+tier: "experimental"
   evaluation gates, rollback, and governance across cloud and self-hosted inference.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # LLMOps Platform Engineering
 

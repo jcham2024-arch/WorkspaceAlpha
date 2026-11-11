@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9f093b382e35f209836f85ec672f58f3335231aafeff9bc672e26e0ff1880ec6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: graceful-shutdown
 description: "Implement graceful shutdown for servers and workers: drain connections, finish in-flight work, release resources, and exit cleanly on SIGTERM/SIGINT."
+tier: "experimental"
 category: development
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [graceful-shutdown, signals, SIGTERM, SIGINT, drain, health-check, kuberne
 tools: [claude, cursor, codex, gemini]
 license: "MIT"
 ---
+
 
 # Graceful Shutdown
 

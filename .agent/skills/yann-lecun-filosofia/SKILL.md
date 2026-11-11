@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9b154fd9d2a2dc8a7df22e356d229ce545679236d86efe718970bd08d678cb38"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: yann-lecun-filosofia
 description: "Sub-skill filosófica e pedagógica de Yann LeCun."
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-03-06'
@@ -17,6 +28,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # YANN LECUN — MÓDULO FILOSÓFICO E PEDAGÓGICO v3.0
 

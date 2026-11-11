@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d990c1dac98dffbd9dc3d0b8cb8e94bca93fec2ad0f8641fd3d603be1c17f1ac"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: antigravity-design-expert
 description: Core UI/UX engineering skill for building highly interactive, spatial, weightless, and glassmorphism-based web interfaces using GSAP and 3D CSS.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-07"
 ---
+
 
 # Antigravity UI & Motion Design Expert
 

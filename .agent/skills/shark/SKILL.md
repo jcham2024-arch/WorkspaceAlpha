@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "93b29b0eeff4810025d68e1c97bc63b7bea6df947a7beee393e3a41db4846df8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: shark
 description: "Pitch a business idea to a Shark Tank-style panel of Claude sub-agent investors who grill it, hear a founder agent answer, and each go IN or OUT with a practice offer."
+tier: "experimental"
 category: business
 risk: safe
 source: community
@@ -14,6 +25,7 @@ license: "MIT"
 license_source: "https://github.com/alexyc9381/shark-skill/blob/main/LICENSE"
 argument-hint: "[--investors N] [--seed S] <the business idea>"
 ---
+
 
 # shark
 

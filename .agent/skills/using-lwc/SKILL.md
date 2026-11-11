@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5bf61757f986858a0683885e7a247d9246f9c25f0e5428e6178365f080d15370"
+fetched_at: "2026-11-10"
+upstream_license: "Apache-2.0"
+owner: "taskmaster"
+---
 name: using-lwc
 description: "Use when project decisions, code structure, research, incidents, or verified context must survive future coding-agent sessions through LWC memory and graph indexes."
+tier: "experimental"
 category: development
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: Apache-2.0
 license_source: "https://github.com/JanYork/using-lwc/blob/7bd8052e6fa012786e50eee09f46df06b0cda1b8/LICENSE"
 ---
+
 
 <!-- Modified for AAS individual review: scope, consent, recovery and factual guidance corrected; upstream attribution retained. -->
 

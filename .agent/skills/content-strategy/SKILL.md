@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c4259631ad069a7589be99d433c83a86ceea49736b62d1c0925df4cb0f77fc31"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: content-strategy
 description: "Plan a content strategy, topic clusters, editorial roadmap, and content mix for traffic, authority, and lead generation. Use when deciding what to publish, what topics to prioritize, or how to structure a content program."
+tier: "experimental"
 risk: critical
 source: "https://github.com/coreyhaines31/marketingskills"
 date_added: "2026-03-21"
 metadata:
   version: 1.1.0
 ---
+
 
 # Content Strategy
 

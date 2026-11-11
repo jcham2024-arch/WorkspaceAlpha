@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "224be2525e980cdd8e3ea5e4bea65cd2baf3c18dc586134864c05f9ec18c24dd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: five-axis-code-review
 description: "Five-axis code review checklist (correctness, security, readability, performance, test coverage) producing actionable comments instead of style nitpicks. Use when the user asks to review code, a diff, or a pull request."
+tier: "experimental"
 category: development
 risk: safe
 source: https://github.com/alapha888/agent-skills-en
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: MIT
 license_source: https://github.com/alapha888/agent-skills-en/blob/main/LICENSE
 ---
+
 
 # Code Review Checklist
 

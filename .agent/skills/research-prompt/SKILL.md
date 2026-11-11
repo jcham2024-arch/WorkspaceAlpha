@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "492527694cd118648d73a08af5e85deeb7c8ffae241f42a51436eb8a3968df8e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: research-prompt
 description: "Turn vague research needs into one precise deep-research prompt with context and output criteria."
+tier: "experimental"
 category: research
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex]
 license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 ---
+
 
 # Research Prompt
 

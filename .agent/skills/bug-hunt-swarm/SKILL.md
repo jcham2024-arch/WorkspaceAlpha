@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d2390701b2343464d3a2cef7f7c6ff2ee7497f2492a7b01cf455aaa8fee7c96f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: bug-hunt-swarm
 description: "Parallel read-only multi-agent root-cause investigation for bugs, regressions, crashes, flaky behavior, or unexplained failures."
+tier: "experimental"
 risk: safe
 source: https://github.com/Dimillian/Skills/tree/main/bug-hunt-swarm
 source_repo: Dimillian/Skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/Dimillian/Skills/blob/main/LICENSE
 ---
+
 
 # Bug Hunt Swarm
 ## When to Use

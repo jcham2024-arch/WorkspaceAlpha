@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "86f9219f139c642a92e8f01043ed1e82a7750981bb29ce0d3c22b06d60f033f3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: telegram-channel-ads
 description: "Vet and price ad posts in Telegram channels: reach benchmarks by size, topic and language, ad-network and channel-age checks, CPM and deletion-window math."
+tier: "experimental"
 category: marketing
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: Courier-Britva
 tags: [telegram, advertising, influencer-marketing, media-buying, cpm, marketing]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Telegram Channel Ads
 

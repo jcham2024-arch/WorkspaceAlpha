@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "80b10d1f7740f09d926506de1d3cb70b1c8b7ae65624716170dc5d4852065da0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hunt-lfi
 description: Hunt Local File Inclusion (LFI), Remote File Inclusion (RFI), and Path
+tier: "experimental"
   Traversal
 category: security
 risk: offensive
@@ -16,6 +27,7 @@ compatibility: Requires explicit written authorization for a target scope plus t
 sources: hackerone_public, synacktiv_research, portswigger_research
 report_count: 24
 ---
+
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6a0d24808d70d19cc5e592f128a46e7c31705e7ebb731c9dec6271e9c44111ab"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: employment-contract-templates
 description: "Templates and patterns for creating draft employment documentation for jurisdiction-specific legal review including contracts, offer letters, and HR policies."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Employment Contract Templates
 

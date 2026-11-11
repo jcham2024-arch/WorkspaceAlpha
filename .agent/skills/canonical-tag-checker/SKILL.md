@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4e088f9edf30524cf1cf55cfb1474e099bcb0356e9c3a7a73df11aae779b0c1a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: canonical-tag-checker
 description: "Canonical Tag Checker. Use when working with HTML and page URL, or accessible page URL."
+tier: "experimental"
 category: Technical SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Canonical Tag Checker
 
 ## Overview

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f27ec4f29324b8c20b694b019dc82df028540f14aa54b20587cbe3be278de000"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: skill-skill
 description: "Write, upgrade or audit a Claude skill so it changes what gets generated: forcing functions, triggerable descriptions, and a static audit script with a 0-100 health score. Use for 写 skill, 改 skill."
+tier: "experimental"
 category: meta
 risk: safe
 source: self
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor]
 license: "MIT"
 license_source: "https://github.com/jack-reson8/skill-skill/blob/main/LICENSE"
 ---
+
 
 # Skill · skill
 

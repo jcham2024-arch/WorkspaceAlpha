@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3f2226334f655bc03b943566ab4b03e3fee3d4f77cd708cdbac242c9ffadcf15"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hunt-spa-api
 description: Discover a single-page-app's hidden backend API from its public JS bundle,
+tier: "experimental"
   then test that API for broken access control / missing authentication.
 category: security
 risk: offensive
@@ -16,6 +27,7 @@ compatibility: Requires explicit written authorization for a target scope plus t
 sources: authorized-engagement
 report_count: 1
 ---
+
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.

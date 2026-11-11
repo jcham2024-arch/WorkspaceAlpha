@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f1d647042e5496b3c70ba888075be8fb832249defd1a8a3d2d495507bf98f4ae"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mcp-dependency-drift-audit
 description: "Statically audit MCP configs for mutable npm/npx package references before approval or CI, without executing discovered MCP servers."
+tier: "experimental"
 category: security
 risk: safe
 source: "https://github.com/tomelias10/mcp-drift-check"
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex, windsurf]
 license: MIT
 license_source: "https://github.com/tomelias10/mcp-drift-check/blob/v0/LICENSE"
 ---
+
 
 # MCP Dependency Drift Audit
 

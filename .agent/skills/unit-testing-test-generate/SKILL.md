@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ce21f5bb10f5ae66b2595a5e8d34ff4b2d96204f53d71e126d09f87ace2b99b7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: unit-testing-test-generate
 description: "Generate comprehensive, maintainable unit tests across languages with strong coverage and edge case focus."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Automated Unit Test Generation
 

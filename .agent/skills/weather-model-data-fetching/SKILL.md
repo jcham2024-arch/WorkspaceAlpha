@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e2bc77ceab69ad97b7250374996cc9b00d3b42a2d63110b0a0a8840fab98f69e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: weather-model-data-fetching
 description: "Retrieve numerical weather prediction data from public AWS S3 and HTTP archives using GRIB2 inventories, byte ranges, Herbie, provider fallbacks, and verified caching."
+tier: "experimental"
 category: data
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: ShianMike
 tags: [weather, grib2, aws-s3, herbie, noaa, nwp]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Weather Model Data Fetching
 

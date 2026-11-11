@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6c8e9ff09ea672e969960b0d56901528ee1a5ce6c381d7bda553d4d0b694c6ef"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: pc-games
 description: "PC and console game development principles. Engine selection, platform features, optimization strategies."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # PC/Console Game Development
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "82ccf3a1facd584732c54930cc477030f0907fdee5d486a710847efa96d23a99"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-aks
 description: Deploy and manage Azure Kubernetes Service clusters. Configure node pools,
+tier: "experimental"
   networking, and integrations. Use when running Kubernetes workloads on Azure.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Azure Kubernetes Service
 

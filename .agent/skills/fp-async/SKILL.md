@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6c1fb7dd4b1a250d34487f9ca4268c031a8d2ca36a2adc6097d191f53e7b3c8d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fp-async
 description: Practical async patterns using TaskEither - clean pipelines instead of try/catch hell, with real API examples
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
@@ -16,6 +27,7 @@ tags:
   - api
   - fetch
 ---
+
 
 # Practical Async Patterns with fp-ts
 

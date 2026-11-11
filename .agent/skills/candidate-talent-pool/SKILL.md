@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "20a4cb234f18f2b78ee14b8d33367ab7137466eadec38d19a8fe874933ed328e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: candidate-talent-pool
 description: 'Candidate and prospect pool: contact details, experience, skills, consent status and date, referral source and last contact. Use for talent pipelines and re-engagement.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, acquire]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Candidate Talent Pool
 

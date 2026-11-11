@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "91ee2290d0e65dd33db51e4bf39f95543c3b9234a551c28dd4ba8c8e37d23a58"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: marketing-mindset
 description: "Use when a user asks how to win first customers, whether doing X will produce Y, how to write an ad or judge a marketing test — a marketer's decision framework, not a tactic library."
+tier: "experimental"
 category: marketing
 risk: safe
 source: https://github.com/axelfreeman/marketing-mindset
@@ -13,6 +24,7 @@ tools: [claude-code, cursor, codex-cli, gemini-cli]
 license: MIT
 license_source: https://github.com/axelfreeman/marketing-mindset/blob/master/LICENSE
 ---
+
 
 # Marketing Mindset
 

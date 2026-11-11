@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2186d0097f1881fade84a3f20ad7426e6507121b97ffa71ab5193f3dc63b14ee"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: using-agent-skills
 description: Meta-skill for discovering and invoking the right agent skill for the
+tier: "experimental"
   work at hand, applied at session start.
 category: meta
 risk: safe
@@ -12,6 +23,7 @@ license: MIT
 license_source: https://github.com/addyosmani/agent-skills/blob/main/LICENSE
 compatibility: Portable instruction skill; no CLI, MCP server, or network access required.
 ---
+
 ## Bundled upstream support
 
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.

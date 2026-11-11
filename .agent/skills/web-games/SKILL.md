@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6f07c424b59195817a15748215a4083c4070d1116634a395995f88026333247b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: web-games
 description: >-
+tier: "experimental"
   Web browser game development. Framework selection (Phaser, PixiJS, Kaplay,
   Canvas/WebGL, Three.js, Babylon.js), hybrid DOM+canvas, WebGPU, optimization,
   PWA, audio unlock. Use when building HTML5/WebGL/WebGPU games or choosing a
@@ -9,6 +20,7 @@ risk: none
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Web Browser Game Development
 

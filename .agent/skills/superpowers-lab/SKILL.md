@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2e9de5f6cc2bdd951571a119bf3a5b1f92a243ed393aaff009409514afbd742a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: superpowers-lab
 description: "Evaluate experimental Claude workflow skills in an isolated lab with reproducible tasks, observed results, and explicit adoption criteria."
+tier: "experimental"
 risk: safe
 source: "https://github.com/obra/superpowers-lab"
 date_added: "2026-02-27"
 ---
+
 
 # Superpowers Lab
 

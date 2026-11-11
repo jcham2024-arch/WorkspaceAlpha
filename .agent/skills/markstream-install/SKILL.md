@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "54264a445691158f916d2852eb3cc3958505a08989769e2bfa21273967208b05"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: markstream-install
 description: "Install and configure Markstream streaming Markdown renderers for Vue, React, Svelte, Angular, Nuxt, Next.js, and Vue 2 applications."
+tier: "experimental"
 category: frontend
 risk: critical
 source: https://github.com/Simon-He95/markstream-vue/tree/main/.agents/skills/markstream-install
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: MIT
 license_source: https://github.com/Simon-He95/markstream-vue/blob/main/license
 ---
+
 
 # Markstream Install
 

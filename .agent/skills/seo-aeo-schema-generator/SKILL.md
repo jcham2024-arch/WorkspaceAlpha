@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f2a9a2193fba87149c59a9e2e878c69d3fe4577230a60d323b4bf34bf9fe8f0e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-aeo-schema-generator
 description: "Generates and validates implementation-ready JSON-LD structured data for relevant page types and rich-result eligibility."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-01"
 ---
+
 
 # Schema Generator Skill
 

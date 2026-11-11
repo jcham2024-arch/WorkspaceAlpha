@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "335e6bde2b1b406c7b4f7d002c1548eee699ed5d7579c7ac175cf0a767330f33"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agy-delegate
 description: Delegate coding tasks to the Google Antigravity CLI (`agy`) only when
+tier: "experimental"
   the user explicitly requests it, while the orchestrator retains review and landing
   responsibility.
 risk: critical
@@ -17,6 +28,7 @@ compatibility: Requires the `agy` CLI installed and authenticated, Node.js, and 
 metadata:
   version: 0.5.0
 ---
+
 # Antigravity Delegate
 
 ## When to Use

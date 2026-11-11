@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "11c33d8724ecb3790aad088ed2d6dde1f69e2db021d060988c503457db990bc9"
+fetched_at: "2026-11-10"
+upstream_license: "Apache-2.0"
+owner: "taskmaster"
+---
 name: fact-check-x-unified
 description: Fact-Check-X 流程编排能力，依次组织各方答案汇总、各方答案聚合（未核验）、权威核验后的最终答案和各方答案测评，生成可打开、可审计、可迁移的阶段产物与完整报告包。
+tier: "experimental"
 license: Apache-2.0
 source_repo: asi2030/fact-check-x
 source_type: official
@@ -9,6 +20,7 @@ date_added: '2026-09-21'
 risk: critical
 compatibility: Requires Python 3, separately reviewed sibling skills and their runtime; online collection/search needs authorized accounts and data-sharing approval.
 ---
+
 ## When to Use
 - 用户需要比较一个或多个平台的回答、区分未核验草案与已核验结论，并保留来源、逐知识点裁决和可迁移报告。
 - 已有采集结果或准备好独立安装并审查的三个依赖技能；联网、账户配置和本机写入必须符合用户授权。

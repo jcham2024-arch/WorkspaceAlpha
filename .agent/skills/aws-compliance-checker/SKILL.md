@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2555e0f3b764aba87c0daff694dd0af42558c654f2480138e22ff01e4ccabc17"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aws-compliance-checker
 description: "Automated compliance checking against CIS, PCI-DSS, HIPAA, and SOC 2 benchmarks"
+tier: "experimental"
 category: security
 risk: critical
 source: community
 tags: "[aws, compliance, audit, cis, pci-dss, hipaa, kiro-cli]"
 date_added: "2026-02-27"
 ---
+
 
 # AWS Compliance Checker
 

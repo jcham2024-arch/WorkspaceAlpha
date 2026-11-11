@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "849d0fd34575d58883294a1c386d00d2ca8515db70c90c2d064789fe06131cf0"
+fetched_at: "2026-11-10"
+upstream_license: "Apache-2.0"
+owner: "taskmaster"
+---
 name: memory-handoff
 description: "Portable session handoff across agent CLIs: read a project's handoff file at session start, rewrite it at session end, so the next session starts mid-thought instead of cold."
+tier: "experimental"
 category: memory
 risk: critical
 source: https://github.com/WyattAu/memory-handoff-skill
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "Apache-2.0"
 license_source: "https://github.com/WyattAu/memory-handoff-skill/blob/main/LICENSE"
 ---
+
 
 # Memory Handoff
 

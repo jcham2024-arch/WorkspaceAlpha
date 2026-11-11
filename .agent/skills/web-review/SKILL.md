@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e0d7d65174446edc43f07589b0521610745b607fe3646ee160e499a93d5441cd"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: web-review
 description: "Review a website or landing page and list what to fix, most important first: message, generic AI look, consistency, copy, mobile, accessibility, speed and missing states."
+tier: "experimental"
 category: frontend
 risk: safe
 source: https://github.com/uxkin/agent/tree/ee24e34dd0d2361417a48b96e4a0ad4e27d251ca/.agents/skills/design-md
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, copilot, gemini]
 license: MIT
 license_source: https://github.com/uxkin/agent/blob/ee24e34dd0d2361417a48b96e4a0ad4e27d251ca/LICENSE
 ---
+
 
 # Web review · derived from UXKIN
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "18e233effd4830af0ed0c9f092c8aa65c62e7d4ca39ea3db8dbca292eea9fb2f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sendblue-notify
 description: "Text the user's phone when a long-running task, agent turn, or scheduled job finishes — via @sendblue/cli for outbound, optionally wired to a Claude Code Stop hook for automatic fire."
+tier: "experimental"
 category: automation
 risk: critical
 source: community
@@ -14,6 +25,7 @@ plugin:
     codex: blocked
     claude: blocked
 ---
+
 
 # Sendblue Notify
 

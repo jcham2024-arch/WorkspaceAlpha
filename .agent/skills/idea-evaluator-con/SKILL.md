@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a497a5437b58d00605331e50fc78f382dc146955b3d6656e587b32522b659f3d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: idea-evaluator-con
 description: "The Con Agent persona for idea evaluation. Critiques an idea by identifying potential flaws, risks, and market challenges."
+tier: "experimental"
 category: agent-persona
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: Prince-1652
 tags: [ideation, validation, persona, critic]
 tools: [claude, gemini]
 ---
+
 
 # Idea Evaluator: Con Agent
 

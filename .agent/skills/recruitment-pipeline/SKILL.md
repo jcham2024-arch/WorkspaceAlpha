@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b205865927262b096e481c5c21d2b4cc9eeca895386e1646a9031669abe4b27f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: recruitment-pipeline
 description: 'Recruitment pipeline: candidate, position, stage, source, applied and interview dates, interview score, notice period and offer. Use for hiring tracking.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, acquire]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Recruitment Pipeline
 

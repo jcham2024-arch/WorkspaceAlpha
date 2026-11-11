@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "789a62f029e959e0ff3abafcf0937135aec2e8834a3fc858c81724d2e40da235"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: browser-extension-launch
 description: "Builds, tests, packages, and prepares Chrome extensions for store launch from a plain-language idea; use for new extensions, fixes, releases, and submission recovery."
+tier: "experimental"
 category: development
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex, copilot, opencode]
 license: "MIT"
 license_source: "https://github.com/xiehuan123/browser-extension-launch/blob/main/LICENSE"
 ---
+
 
 # 浏览器插件一站式上线
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8bb38a5dca8f8c3aa0b219539398fe9a5bed662b3d4c47379980086aadb74852"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: openclaw-local-mac-mini
 description: Set up OpenClaw locally and run it reliably on a Mac mini for private,
+tier: "experimental"
   always-on local agent workflows.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # OpenClaw Local + Mac mini Setup
 

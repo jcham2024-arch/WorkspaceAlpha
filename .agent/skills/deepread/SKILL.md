@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2dc99d46814c2a436a0eddeda32e9581501e6c75c1c82e242ce168a245adb7a0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: deepread
 description: "Use when the user asks to deeply read a book, article, PDF, or document set; extract claims and evidence; build a knowledge map; or learn through Feynman explanation and recall. Covers quick, deep, map, Feynman, and whole-book reading modes."
+tier: "experimental"
 ---
+
 
 # DeepRead
 

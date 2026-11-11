@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "39c252204e6990068c35e102bafe967afab02b8c2a9b15854e5e2becbdae29ce"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agent-manager-skill
 description: "Manage multiple local CLI agents via tmux sessions (start/stop/monitor/assign) in an explicitly authorized workspace."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Agent Manager Skill
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "df268a80bf71fd12c084c5ec3b7733b3beb080922ef6ab4d6ef64d0c32cf0b70"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: game-art
 description: "Game art principles. Visual style selection, asset pipeline, animation workflow."
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Game Art Principles
 

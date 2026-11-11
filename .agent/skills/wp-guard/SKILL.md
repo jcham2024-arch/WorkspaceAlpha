@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6fc9a623d7553fb4eebc2e65c0f98ac8a1a053364c65690599e0125bd2168034"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "wp-guard"
 description: "Review generated or changed WordPress plugins, themes, and blocks for security, internationalization, performance, and API correctness."
+tier: "experimental"
 risk: "offensive"
 source: "community"
 source_repo: "amElnagdy/guard-skills"
@@ -10,6 +21,7 @@ author: "community"
 tags: []
 tools: []
 ---
+
 
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.

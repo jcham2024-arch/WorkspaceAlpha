@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c787eb496bd4089e74154a0ce2f0f5da3ebf69a6236337798c822efc561e18c8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: database-optimizer
 description: Expert database optimizer specializing in modern performance tuning, query optimization, and scalable architectures.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 ## Use this skill when
 

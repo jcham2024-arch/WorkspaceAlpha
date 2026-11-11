@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "da030436aab503150f8d1c2b91edc797c3c49b81c6237b0b5d241471d7200078"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mobile-security-coder
 description: Expert in secure mobile coding practices specializing in input validation, WebView security, and mobile-specific security patterns.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 ## Use this skill when
 

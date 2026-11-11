@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f13c587d792c080818de37a8b028ace702bdb9cf9f4aaf1068b140d121c433c1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: safety-guard
 description: Guard against destructive operations with three modes: Careful intercepts dangerous commands (rm -rf, git push --force, DROP TABLE) for confirmation, Freeze locks writes to one directory, and Guard combines both. Advisory: the agent applies these rules itself; no hook ships with it. Use when working on production systems, running agents autonomously, restricting edits to a directory, or during migrations, deploys
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Safety Guard — Prevent Destructive Operations
 

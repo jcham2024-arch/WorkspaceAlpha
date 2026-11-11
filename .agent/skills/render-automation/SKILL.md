@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "caad0c392a9ae6c60bd2d4ab1efb77795c934d6a6baac75d6d63454a5f62ac4c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: render-automation
 description: "Automate Render tasks via Rube MCP (Composio): services, deployments, projects. Always search tools first for current schemas."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Render Automation via Rube MCP
 

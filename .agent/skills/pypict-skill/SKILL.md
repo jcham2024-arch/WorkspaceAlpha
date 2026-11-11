@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "477aac5941a3e640bee3f7fe0a7291604a6cb8a84713047ff50e99065f8ce4da"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: pypict-skill
 description: "Pairwise test generation"
+tier: "experimental"
 risk: safe
 source: "https://github.com/omkamal/pypict-claude-skill/blob/main/SKILL.md"
 date_added: "2026-02-27"
 ---
+
 
 # Pypict Skill
 

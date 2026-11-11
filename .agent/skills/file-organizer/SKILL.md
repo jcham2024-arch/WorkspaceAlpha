@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9efd2cf30114e48a79240e521c49500b9ea78a2e802999c89ad2f5dfa3e0308d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: file-organizer
 description: "Organize files and folders by inspecting their contents, proposing a structure, and reviewing duplicates before authorized changes."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # File Organizer
 

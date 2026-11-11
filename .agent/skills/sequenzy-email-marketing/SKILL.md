@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d0dea0255272fdf0842cee0d77c58a6c8af37e7c7d42e45116931e8a5c4171ed"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: sequenzy-email-marketing
 description: "Operate Sequenzy email campaigns through an authorized CLI or MCP connection: inspect audiences, prepare drafts, schedule approved sends, and verify delivery results."
+tier: "experimental"
 category: marketing
 risk: critical
 source: https://github.com/Sequenzy/skills/tree/eba0df500fc71489b115044ebb97e63de32bf61a/skills/sequenzy-email-marketing
@@ -12,6 +23,7 @@ date_added: "2026-11-02"
 author: Sequenzy
 tags: [email-marketing, campaigns, mcp]
 ---
+
 
 # Sequenzy Email Marketing
 

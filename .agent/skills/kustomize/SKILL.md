@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8f8783d577e3c7ee0e1770c1cad82d79a858f07af50a32a05cf9eb521cbbe0b1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: kustomize
 description: Customize Kubernetes manifests without templating using Kustomize.
+tier: "experimental"
 category: devops
 risk: critical
 source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Kustomize
 

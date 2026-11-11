@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "416734b6d0a1c73c16f057b993ca172046193de097119df668b6091a583292fe"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: delegating-to-agents
 description: "Delegate bounded work to other AI agents while preserving context, ownership, and progress checks."
+tier: "experimental"
 category: agent-orchestration
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex]
 license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 ---
+
 
 # Delegating to Agents
 

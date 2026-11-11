@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7570945db37bf87e1d36a4b06d3c62f72859a66c2f520c6b325f4dfc0ae202df"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: identity-access-management
 description: Set up and manage SSO, SCIM provisioning, and MFA for startup teams using
+tier: "experimental"
   Google Workspace, Okta, or Azure AD.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Identity & Access Management for Startups
 

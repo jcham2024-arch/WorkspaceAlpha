@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2b0a86247f3ce640c60d9cecdecbcc060ee37ed664e53cec775ea34fe37d7702"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: access-matrix
 description: 'Access matrix of role-by-module permissions, with per-role scope, confidentiality level and SME tier, as CSV, SQL, JSON Schema or Notion on request. Use for access reviews.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -19,6 +30,7 @@ tags:
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Access Matrix
 

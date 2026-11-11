@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "70791c2842476d89d290bfd2d59bbccc8b9e36efd4938bec067a4fd6fd63e17a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: firewall-config
 description: Configure iptables, nftables, and cloud firewalls. Implement network
+tier: "experimental"
   segmentation and traffic filtering. Use when securing network perimeters or implementing
   security zones.
 category: security
@@ -18,6 +29,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Firewall Configuration
 

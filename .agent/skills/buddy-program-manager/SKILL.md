@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "24e82f36f28feea6b7e86fde1f41fda28737e03b460ba95ffcb3b3e885f1d509"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: buddy-program-manager
 description: 'Buddy programme register: new hire, assigned buddy, department, start and end dates, check-ins planned and done, and feedback score. Use for onboarding buddy schemes.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, onboard]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Buddy Program Manager
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1a12460fafbfeb9bb936fef0b1e2706cf5c0c9c327b3d1d1f8157031d5299623"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: data-storytelling
 description: "Transform raw data into compelling narratives that drive decisions and inspire action."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Data Storytelling
 

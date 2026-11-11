@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1fedab3c7b724491ab50e07d1c4086f97aa64b1f05531183335e074d171d0fa2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: logistics-exception-management
 description: Codified freight-exception handling expertise for shipment delays, damages, losses, shortages, and carrier disputes, with escalation protocols, carrier-specific behaviors by mode, claims procedures, and eat-the-cost vs fight-the-claim judgment frameworks. Use when handling shipping exceptions, freight claims, delivery issues, or carrier disputes.
+tier: "experimental"
 license: Apache-2.0
 homepage: https://github.com/affaan-m/ECC
 metadata:
@@ -10,6 +21,7 @@ metadata:
   clawdbot:
     emoji: ""
 ---
+
 
 # Logistics Exception Management
 

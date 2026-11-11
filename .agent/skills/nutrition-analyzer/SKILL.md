@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d00b6a79abafab472ce5fdbb9b974765602fa60a4880c2d8ebaa297477b8fc65"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: nutrition-analyzer
 description: 分析营养数据、识别营养模式、评估营养状况，并提供个性化营养建议。支持与运动、睡眠、慢性病数据的关联分析。
+tier: "experimental"
 allowed-tools: Read, Grep, Glob, Write
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # 营养分析器技能
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3b21d77e9ca8769e5e0d02d06e74fd3966950c43867f2d7d038ca9980625ba52"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-pipeline-orchestration
 description: Orchestrate AI/ML pipelines for data ingestion, model training, batch
+tier: "experimental"
   inference, and RAG indexing using Prefect, Airflow, or Dagster.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # AI Pipeline Orchestration
 

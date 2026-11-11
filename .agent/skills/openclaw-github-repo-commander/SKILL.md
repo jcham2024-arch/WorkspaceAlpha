@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8d31477d759320fb14a032afeb117cbb59fa5ca72ec8cebdca030b82b22b6b06"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: openclaw-github-repo-commander
 description: "7-stage super workflow for GitHub repo audit, cleanup, PR review, and competitor analysis"
+tier: "experimental"
 category: development-and-testing
 risk: safe
 source: community
@@ -9,6 +20,7 @@ author: wd041216-bit
 tags: [github, git, repository, audit, cleanup, workflow, devtools, automation, code-review, security]
 tools: [claude, cursor]
 ---
+
 # OpenClaw GitHub Repo Commander
 
 ## Overview

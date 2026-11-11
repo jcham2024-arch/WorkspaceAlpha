@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e96175986eefa0d018e0b36e03b3f73432158dd8ca9de3730877d29318d04754"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: autonomous-loops
 description: "Patterns and architectures for autonomous Claude Code loops — from simple sequential pipelines to RFC-driven multi-agent DAG systems. Retained for compatibility only: when new autonomous loop guidance is needed, use continuous-agent-loop instead."
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Autonomous Loops Skill
 

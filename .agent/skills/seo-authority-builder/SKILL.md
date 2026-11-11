@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bc6aedec52553953988ef21fa38c0f4367d31b950a853b66cb53645e4d62b341"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-authority-builder
 description: 'Analyzes content for E-E-A-T signals and suggests improvements to
+tier: "experimental"
 
   build authority and trust. Identifies missing credibility elements. Use
 
@@ -11,6 +22,7 @@ risk: none
 source: community
 date_added: '2026-02-27'
 ---
+
 
 ## Use this skill when
 

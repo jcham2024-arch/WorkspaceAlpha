@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e2f31baa6cf23f201c34bdbfefb3f82a436c82c6b7e6e5addb2a1fcccdc958f4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: odoo-backup-strategy
 description: "Complete Odoo backup and restore strategy: database dumps, filestore backup, automated scheduling, cloud storage upload, and tested restore procedures."
+tier: "experimental"
 risk: critical
 source: "self"
 date_added: "2026-03-04"
 ---
+
 
 # Odoo Backup Strategy
 

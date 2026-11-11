@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5dd670952fc0bb46442c0d97fd8708fbdb8211919890c45ee13873e9e65ea90e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mise-configurator
 description: "Generate production-ready mise.toml setups for local development, CI/CD pipelines, and toolchain standardization."
+tier: "experimental"
 category: devops
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: community
 tags: [mise, devops, ci-cd, toolchain, runtimes, automation]
 tools: [claude, cursor, gemini]
 ---
+
 # Mise Configurator
 
 ## Overview

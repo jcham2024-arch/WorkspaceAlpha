@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "caad0bf475cca96dad284b068d79dfdc776fd911d3773a797ca6924897e7a1f1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: remotion-best-practices
 description: "Best practices for Remotion - Video creation in React"
+tier: "experimental"
 risk: critical
 source: community
 tags: "remotion, video, react, animation, composition"
 date_added: "2026-02-27"
 ---
+
 
 ## When to Use
 Use this skills whenever you are dealing with Remotion code to obtain the domain-specific knowledge.

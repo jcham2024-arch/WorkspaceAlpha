@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "11d8bf684df4c158340b3888b225c3467fe0343cf02669227764939347854ead"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: apify-trend-analysis
 description: Discover and track emerging trends across Google Trends, Instagram, Facebook, YouTube, and TikTok to inform content strategy.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-01"
 ---
+
 
 # Trend Analysis
 

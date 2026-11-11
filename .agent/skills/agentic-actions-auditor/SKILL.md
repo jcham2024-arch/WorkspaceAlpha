@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7e440c9cbe8ec3eb450443209f81e2a373522bc0f3cf11ff6ac0ad67a2cebe32"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agentic-actions-auditor
 description: >
+tier: "experimental"
   Audits GitHub Actions workflows for security
   vulnerabilities in AI agent integrations
   including Claude Code Action,
@@ -12,6 +23,7 @@ risk: safe
 source: community
 date_added: 2026-03-18
 ---
+
 ## Supporting material availability
 
 This AAS tree bundles the inline methodology only. The contributed guide named a foundations file, action profiles, cross-file resolution and nine vector reference files, but those files and an independently verified upstream source are absent. Do not claim they were read. Apply the inline checks below and report unsupported action-version details as unverified; recover external materials only from a verified source with a confirmed license.

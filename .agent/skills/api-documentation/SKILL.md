@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "44fad689335c7c6bd6807ffda6acad5c27d38870356d9826ca0b587df3207d90"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: api-documentation
 description: "API documentation workflow for generating OpenAPI specs, creating developer guides, and maintaining comprehensive API documentation."
+tier: "experimental"
 category: granular-workflow-bundle
 risk: safe
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 # API Documentation Workflow
 

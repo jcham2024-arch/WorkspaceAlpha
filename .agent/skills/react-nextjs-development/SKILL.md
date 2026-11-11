@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "73a7dfc8075a2a5e2460434a75d926aba4a1ef413a14a63ec132bc67af3f73a6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: react-nextjs-development
 description: "React and Next.js 14+ application development with App Router, Server Components, TypeScript, Tailwind CSS, and modern frontend patterns."
+tier: "experimental"
 category: granular-workflow-bundle
 risk: safe
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 # React/Next.js Development Workflow
 

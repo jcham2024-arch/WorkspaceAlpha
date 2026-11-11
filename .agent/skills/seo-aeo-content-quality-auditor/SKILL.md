@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e57125b6e917d53e97eea30038d58a8aa684249156af7ec22499bf9394cbbd93"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-aeo-content-quality-auditor
 description: "Audits a website, codebase, page, or content set for technical SEO, search intent, AEO, conversion paths, and publishing readiness, then produces prioritised fixes that can be implemented and verified."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-01"
 ---
+
 
 
 # Content Quality Auditor Skill

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "01dbd3e8d322c3457fd650f5d54f1f1aa278918f952a04a5759ed424a3f1e4d7"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: ios-flows
 description: "Plan an iPhone app flow from how real apps handle it: onboarding, sign-up, paywalls, permissions, cancellation, account deletion and settings."
+tier: "experimental"
 category: frontend
 risk: safe
 source: https://github.com/uxkin/agent/tree/0c44dd6e44f565643fcf45339fce19d0696f9b8c/plugins/mobile-app-design/skills/ios-flows
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, copilot, gemini]
 license: MIT
 license_source: https://github.com/uxkin/agent/blob/0c44dd6e44f565643fcf45339fce19d0696f9b8c/plugins/mobile-app-design/skills/ios-flows/LICENSE
 ---
+
 
 # iOS flows · derived from UXKIN
 

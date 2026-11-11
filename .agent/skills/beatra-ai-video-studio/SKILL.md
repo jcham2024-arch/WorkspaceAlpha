@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "59f100880c5638aa91aa51bedd6e22fc54e9ca74a996b7a7d6d07f09e547c747"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: beatra-ai-video-studio
 description: "Install and use the official Beatra AI Video Studio package, pinned by digest, for paid text-to-video, image-to-video, and video edit or extend jobs on the hosted Beatra service."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/beatra-ai/beatra-skills/blob/b7ab8ed02980ee44b6dac62633f8d79daf0809ab/LICENSE"
 ---
+
 
 # Beatra AI Video Studio
 

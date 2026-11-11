@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6547c93f5d02e88f2e080c7ea8768d52f04c606fe59b93d6684172806a4bee08"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: bdistill-behavioral-xray
 description: "X-ray any AI model's behavioral patterns — refusal boundaries, hallucination tendencies, reasoning style, formatting defaults. No API key needed."
+tier: "experimental"
 category: ai-testing
 risk: safe
 source: community
@@ -9,6 +20,7 @@ author: FrancyJGLisboa
 tags: [ai, testing, behavioral-analysis, model-evaluation, red-team, compliance, mcp]
 tools: [claude, cursor, codex, copilot]
 ---
+
 
 # Behavioral X-Ray
 

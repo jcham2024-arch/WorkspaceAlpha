@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "af03a3a82d0c47f52d34c66689844e624fc1f8a990ce3aa7d7bd4526255af4d2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: brand-discovery
 description: >-
+tier: "experimental"
   Use when a brand needs to discover or articulate its identity through
   structured multi-session interviews. Covers purpose, positioning, audience,
   personality, voice, narrative, and founder-brand tension across 8 modules
@@ -8,6 +19,7 @@ description: >-
   session with disk-persisted state and a master brandbook (90_SYNTHESIS.md).
 license: MIT
 ---
+
 
 # Brand Discovery
 

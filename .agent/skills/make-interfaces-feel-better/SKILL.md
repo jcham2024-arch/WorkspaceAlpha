@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "dc12784b35b64327a36e5ef813079e9b8c456e8106861d4adf9ea3ec40c6e6ab"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: make-interfaces-feel-better
 description: Apply concrete design-engineering details that make interfaces feel polished. Use when reviewing or improving UI spacing, typography, borders, shadows, motion, hit areas, icons, text wrapping, and interaction states.
+tier: "experimental"
 metadata:
   origin: community
 ---
+
 
 # Make Interfaces Feel Better
 

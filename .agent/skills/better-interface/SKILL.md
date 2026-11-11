@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "69b6d992af424bd78a1e3ada4e58168e397824ef31ef968ac4def2484f23512f"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: better-interface
 description: Reviews a screen, flow or whole interface across accessibility, layout, writing, typography, color and UI polish, and returns one ranked report.
+tier: "experimental"
 category: design
 risk: critical
 source: https://github.com/jakubkrehel/skills
@@ -12,6 +23,7 @@ author: jakubkrehel
 upstream_commit: 60bf140e43c98b248e6594487384ec967e89d98a
 date_added: "2026-11-06"
 ---
+
 ## When to Use
 
 Use for the better interface task described below, within the user-authorized interface or drawing scope. Related skills in this collection own the domains named in the workflow; existing general frontend-design and accessibility audits remain suitable for broader work.

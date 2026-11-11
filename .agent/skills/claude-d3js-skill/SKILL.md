@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "374810f02efcfc92ca6fd858ae55299d290e2cfd7aea149c6ae5da72610c2717"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: claude-d3js-skill
 description: "This skill provides guidance for creating sophisticated, interactive data visualisations using d3.js."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # D3.js Visualisation
 

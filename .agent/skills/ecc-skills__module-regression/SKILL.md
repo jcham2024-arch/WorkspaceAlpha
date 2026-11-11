@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bb97353d07bb0c08c01596a45424224834d16d4c322310de9c335e2f33fb1cca"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: module-regression
 description: >-
+tier: "experimental"
   Govern cross-module regression in large repositories with a REGRESSION.md ledger that records each module's downstream consumers and executable acceptance command. After a change, run the changed module and every affected downstream command, and use observed exit codes as regression evidence under the project's delivery policy. Use for module regression, regression ledgers, impact audits, downstream verification, and changes where modifying A may break B.
 metadata:
   origin: ECC
 ---
+
 
 # Module Regression Ledger
 

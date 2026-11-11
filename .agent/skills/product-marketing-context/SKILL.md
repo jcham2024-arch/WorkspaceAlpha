@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d73a6cde2a663c275eb1adaa53c8bdcf7372f7c16e7d877399416fee36201655"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: product-marketing-context
 description: "Create or update a reusable product marketing context document with positioning, audience, ICP, use cases, and messaging. Use at the start of a project to avoid repeating core marketing context across tasks."
+tier: "experimental"
 risk: critical
 source: "https://github.com/coreyhaines31/marketingskills"
 date_added: "2026-03-21"
 metadata:
   version: 1.1.0
 ---
+
 
 # Product Marketing Context
 

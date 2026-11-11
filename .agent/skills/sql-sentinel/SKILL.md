@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5922f1460b580edf465bf4a16e9491fe3b86d4db2cedfa6976545e609ea0baac"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sql-sentinel
 description: "Audit SQL for the cost & performance anti-patterns that burn warehouse credits. Scores warehouse health 0-100 and outputs a prioritized cost-reduction plan for BigQuery, Snowflake, Redshift, and Postgres."
+tier: "experimental"
 category: data
 risk: critical
 source: community
@@ -21,6 +32,7 @@ plugin:
 license: "MIT"
 license_source: "https://github.com/takeaseatventure/sql-sentinel/blob/main/LICENSE"
 ---
+
 
 # sql-sentinel
 

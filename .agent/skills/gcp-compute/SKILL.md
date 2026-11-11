@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c7a3dcf216dac0fd6037fa278cf7f93d39c6a0b260e423bf329db9cc3a0995be"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gcp-compute
 description: Manage Compute Engine instances and instance templates. Configure managed
+tier: "experimental"
   instance groups and preemptible VMs. Use when deploying compute resources on GCP.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # GCP Compute Engine
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "65805e2731993d8a8952c28c7cdb516b79d307ea116b1476171bf613268a3e48"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: android_ui_verification
 description: Automated end-to-end UI testing and verification on an Android Emulator using ADB.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-28"
 ---
+
 
 # Android UI Verification Skill
 

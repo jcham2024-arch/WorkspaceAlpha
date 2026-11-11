@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8bd530f9d905ef1d05bb77c8091f8593b645525855fce9b24ab33aef36afedac"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: linkdigest-social-link-reader
 description: "Read one public Xiaohongshu, Douyin, TikTok, YouTube, X or WeChat article link into text an agent can use (transcript, image text, key points) via the LinkDigest API or MCP server."
+tier: "experimental"
 category: research
 risk: critical
 source: https://github.com/jcaiagent7143-ui/linkdigest-mcp
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: "MIT"
 license_source: "https://github.com/jcaiagent7143-ui/linkdigest-mcp/blob/main/LICENSE"
 ---
+
 
 # LinkDigest Social Link Reader
 

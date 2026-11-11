@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e03dbe80df9b4b1ad5c56111ff15ad73d6186c5e030a04561f627ff934a924e7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-model-combination
 description: When one mental model leaves a material blind spot on a multi-domain or high-stakes problem, sequence complementary models with named roles and a conflict rule.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Model Combination
 

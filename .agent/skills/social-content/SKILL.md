@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "39be95620eb407cd67e4e760cf71012d5fdcf14c36bd7c2d0db8e6b882bb76bd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: social-content
 description: "Help plan and draft social content; publishing capabilities depend on the actual connected account and tool permissions. Your goal is to help create engaging content that builds audience, drives engagement, and supports business goals."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Social Content
 

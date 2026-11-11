@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "629ccf441bd7f065affbea841f43c5e2c2e700c0d23116886dd7bf74f7ce97d2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: terraform-gcp
 description: Provision GCP infrastructure with Terraform. Configure providers and
+tier: "experimental"
   deploy Google Cloud resources. Use when implementing IaC for GCP.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Terraform GCP
 

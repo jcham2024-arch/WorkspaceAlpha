@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0224cb9f71251e01df20554f6a0ff7c72afd1e5107eb5cb21bbfe5bc41cb62c4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: event-staffing-ordering
 description: Order W-2 compliant temporary event staff for conventions, trade shows, festivals, concerts, sporting events, and brand activations across 300+ US and Canadian markets via TempGuru. Covers city coverage, role pricing, availability, state compliance lookups via MCP, and request submission.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-06-05"
 ---
+
 
 # Ordering Event Staffing Through TempGuru
 

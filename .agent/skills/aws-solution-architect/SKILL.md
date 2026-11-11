@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4528d07dd6a361461854f0eae1d89dbd29277b3e05185c3ec17c0db43e66842c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "aws-solution-architect"
 description: "Use when designing or costing an AWS architecture (serverless, Lambda, API Gateway, DynamoDB, ECS, Aurora, CloudFormation, migration to AWS). Designs it with architecture_designer.py, generates stacks with serverless_stack.py and finds savings with cost_optimizer.py."
+tier: "experimental"
 ---
+
 
 # AWS Solution Architect
 

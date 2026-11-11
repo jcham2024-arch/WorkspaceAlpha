@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "97eb24a2a52eb6fe3130ad221caa73d2c6837b8372e624091e97cfae320e3163"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: markstream-vue
 description: "Integrate markstream-vue into plain Vue 3 with renderer modes, code and DOM choices, streaming state, virtualization, optional peers, and scoped components."
+tier: "experimental"
 category: frontend
 risk: critical
 source: https://github.com/Simon-He95/markstream-vue/tree/main/.agents/skills/markstream-vue
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: MIT
 license_source: https://github.com/Simon-He95/markstream-vue/blob/main/license
 ---
+
 
 # Markstream Vue 3
 

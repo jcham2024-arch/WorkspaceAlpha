@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fe084597c827555be6d8f2aeafed4030d37a6432a94c600b8c5f147831d7f156"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sandbase-mcp
 description: "Discover, inspect, and invoke 2,000+ AI models and APIs through SandBase's local MCP bridge with explicit schema and cost checks."
+tier: "experimental"
 category: ai-ml
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: Apache-2.0
 license_source: "https://github.com/sandbaseai/cli/blob/main/LICENSE"
 ---
+
 
 # SandBase MCP
 

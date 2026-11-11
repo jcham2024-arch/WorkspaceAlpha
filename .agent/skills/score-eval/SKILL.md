@@ -1,4 +1,14 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d077bccd1bc04cd7a838cd997c911387313c0045bd81c92f4cc02d7d9d463acb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: score-eval
 disable-model-invocation: true
 source_repo: neondatabase/agent-skills
@@ -7,7 +17,9 @@ source: neondatabase
 date_added: '2026-09-21'
 risk: critical
 description: "Use when scoring an evaluation diff against a supplied rubric and baseline fixture: retain evidence for detected/fixed findings and report unscorable or unexecuted checks."
+tier: "experimental"
 ---
+
 
 # Score an Evaluation Diff
 

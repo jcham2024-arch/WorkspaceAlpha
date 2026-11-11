@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "acf77ef0fa23a6a52faa306445293ab123fbf82691928bd2655626da3df9564c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: neon-functions
 description: "Long-running, serverless Node.js HTTP functions deployed onto your Neon branch, with DATABASE_URL injected automatically and compute that runs next to your data."
+tier: "experimental"
 risk: critical
 source: https://github.com/neondatabase/agent-skills/tree/main/skills/neon-functions
 source_repo: neondatabase/agent-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: Apache-2.0
 license_source: https://github.com/neondatabase/agent-skills/blob/main/LICENSE
 ---
+
 
 # Neon Functions
 

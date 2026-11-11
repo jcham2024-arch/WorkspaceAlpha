@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d66f3be1666989b533ef300502b8d4ead8cf8ec32ab6da4ba49ef2f3e0e76aa2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: startup-it-troubleshooting
 description: Practical IT troubleshooting playbooks for small teams without dedicated
+tier: "experimental"
   IT staff.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '2.0'
 ---
+
 
 # Startup IT Troubleshooting
 

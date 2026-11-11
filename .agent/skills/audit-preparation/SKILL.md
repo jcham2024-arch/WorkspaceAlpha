@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8bfc45ad1c5c809683eeb6970919c0710f4f36cdbbd0506a54f66823497743b4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: audit-preparation
 description: 'Audit preparation register: required document, period covered, request and receipt dates, preparer and reviewer, auditor queries and adjustments. Use for assembling an audit file.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, accounting, audit, finance, database, csv, notion, sql, audit-file]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Audit Preparation
 

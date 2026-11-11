@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6270cd2df9b72ce426b6a34fa52c4404c2cb8ed1bfc7206cf018b49ad8e8f684"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agy-powerline
 description: "Install, check and restyle the agy-powerline statusline for Antigravity CLI (agy): quotas, model, context window and git on agy's status bar."
+tier: "experimental"
 category: developer-tools
 risk: critical
 source: "https://github.com/wassim-azi/agy-powerline"
@@ -13,6 +24,7 @@ author: wassim-azi
 tags: [antigravity, agy, statusline, terminal, quota, cli]
 tools: [antigravity]
 ---
+
 
 # agy-powerline
 

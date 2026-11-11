@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "14c15c0d49636bd98999d1f966f752615cb9e720dff9da8090c3bc65ec132527"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: rebuttal-writing
 description: Write point-by-point rebuttals to reviewer comments. Extract concerns from reviews, generate evidence-based responses, and format as a structured rebuttal document. Use after receiving peer review feedback.
+tier: "experimental"
 argument-hint: [reviews-file]
 ---
+
 
 # Rebuttal Writing
 

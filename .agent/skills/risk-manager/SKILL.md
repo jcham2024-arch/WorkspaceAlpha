@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "dc467c5348a0ee57e9006fcb5dfa681a71dfbc2cbc09ee44b7741311d8a29e42"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: risk-manager
 description: Monitor portfolio risk, R-multiples, and position limits. Creates hedging strategies, calculates expectancy, and analyzes proposed stop-loss levels.
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-02-27'
 ---
+
 
 ## Use this skill when
 

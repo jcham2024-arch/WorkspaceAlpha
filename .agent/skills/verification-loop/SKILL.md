@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "91593ad71331b35ab892f48b1a0bf1a2956bad778ddd2e42061aa70fac1c558f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: verification-loop
 description: "A comprehensive verification system for Claude Code sessions. Use when verifying a Claude Code session's work before claiming it is complete."
+tier: "experimental"
 license: MIT
 ---
+
 
 # Verification Loop Skill
 

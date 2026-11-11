@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "38a62e1cd99f9505ec6db412a1ae7447ab02641b26b574f4a7a400af82ca6dc5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: git-pr-review
 description: Generate a concise and structured PR description from commit history with minimal token usage
+tier: "experimental"
 risk: safe
 source: community
 source_type: community
 date_added: "2026-05-03"
 author: community
 ---
+
 
 ## Objective
 

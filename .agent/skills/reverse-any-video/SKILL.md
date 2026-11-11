@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d56ea288ac84ca8f1b1b61faddd7b8af4c3fad946fd811e0e2184f19b842721e"
+fetched_at: "2026-11-10"
+upstream_license: "Apache-2.0"
+owner: "taskmaster"
+---
 name: reverse-any-video
 description: "Reconstruct authorized video as an editable HyperFrames project, with measured timing, rights and likeness boundaries."
+tier: "experimental"
 category: content
 risk: critical
 source: community
@@ -13,6 +24,7 @@ date_added: "2026-11-01"
 metadata:
   internal: true
 ---
+
 
 Modified by AAS on 2026-11-01 from [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes/tree/6b3e7a7a95e11d5d290123ea821b53109d6103c9/skills/reverse-any-video) at `6b3e7a7a95e11d5d290123ea821b53109d6103c9`. Apache-2.0 license retained in LICENSE; operational boundaries and examples are AAS adaptations.
 

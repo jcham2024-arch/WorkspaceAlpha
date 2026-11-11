@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0d3bba929e0087aeced82a799d8d4cb501f12eecbc9ad1219845ec683b128d70"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: local-legal-seo-audit
 description: "Audit and improve local SEO for law firms, attorneys, forensic experts and legal/professional services sites with local presence, focusing on GBP, directories, E-E-A-T and practice/location pages."
+tier: "experimental"
 risk: safe
 source: original
 date_added: "2026-02-27"
 ---
+
 
 # Local Legal SEO Audit
 

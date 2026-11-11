@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "89aa8be2fcf197299cfe2dde4aaae371672693e4c6c3933f28cb770ff479c117"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: embedding-strategies
 description: "Guide to selecting and optimizing embedding models for vector search applications."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Embedding Strategies
 

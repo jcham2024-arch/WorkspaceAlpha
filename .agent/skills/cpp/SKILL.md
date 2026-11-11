@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e7a3399e78fb9fbcd77ae2dab7704b93f5ce57e267cc5de46d8c970d5a4d3e26"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cpp
 description: "Language-specific super-code guidelines for cpp."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-06-16"
 ---
+
 # C++: Idiomatic Efficiency Reference
 
 Apply only within the requested scope and current project conventions. Preserve behavior, ownership, error handling, accessibility and security; examples are independent fragments, not equivalent rewrites in every context. Verify language/library versions and run relevant checks. Required tests and user-facing progress/results take precedence over brevity rules. Do not install dependencies or delete files merely to follow these examples.

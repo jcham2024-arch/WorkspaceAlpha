@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "dced3bab4d6e8d21389c8f4a6f6cfd2b1ec4eb2cf58796e22aad9d4368d42997"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: teardown
 description: Creates technical illustrations of physical objects and of how things work, such as display pixels or interface layers, with coherent views, fine linework and part fills.
+tier: "experimental"
 category: design
 risk: critical
 source: https://github.com/jakubkrehel/skills
@@ -12,6 +23,7 @@ author: jakubkrehel
 upstream_commit: 60bf140e43c98b248e6594487384ec967e89d98a
 date_added: "2026-11-06"
 ---
+
 ## When to Use
 
 Use for the teardown task described below, within the user-authorized interface or drawing scope. Related skills in this collection own the domains named in the workflow; existing general frontend-design and accessibility audits remain suitable for broader work.

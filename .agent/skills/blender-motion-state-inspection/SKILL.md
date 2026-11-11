@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a1eb4def268521102483888d5dba7b6b274778eaf4e5334efb4d44e949469edb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: blender-motion-state-inspection
 description: Use this skill when inspecting Blender characters, rigs, poses, animation retargeting, ground contact, facing direction, or model-vs-motion alignment where screenshots alone are not enough.
+tier: "experimental"
 metadata:
   origin: ECC
 tools: Read, Write, Edit, Bash, Grep, Glob
 ---
+
 
 # Blender Motion State Inspection
 

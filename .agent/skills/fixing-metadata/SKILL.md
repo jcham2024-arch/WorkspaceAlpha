@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "aac66f2674b7cd394287bd89222a4a6a8b7e061744ad69c5f1fc3d52eb970a1c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fixing-metadata
 description: "Audit and fix HTML metadata including page titles, meta descriptions, canonical URLs, Open Graph tags, Twitter cards, favicons, JSON-LD structured data, and robots directives."
+tier: "experimental"
 risk: critical
 source: https://github.com/ibelick/ui-skills/tree/main/skills/fixing-metadata
 source_repo: ibelick/ui-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/ibelick/ui-skills/blob/main/LICENSE
 ---
+
 
 
 ## When to Use

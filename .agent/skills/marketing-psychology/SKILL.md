@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3c76c1a23f55782e5b56fd909cc3e12d694b1905c68037920d3416d91a1bf05d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: marketing-psychology
 description: "Apply behavioral science and mental models to marketing decisions, prioritized using a psychological leverage and feasibility scoring system."
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-02-27"
 ---
+
 # Marketing Psychology & Mental Models
 
 **(Applied · Ethical · Prioritized)**

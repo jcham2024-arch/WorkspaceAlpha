@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2a639926d9265ae6c9c986a84692094810fd97b36f50ec4f87fd07bd25a5cf79"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: active-directory-attacks
 description: "Assess Active Directory attack paths using scoped configuration review and controlled synthetic lab validation; identify prerequisites, evidence and mitigations."
+tier: "experimental"
 risk: offensive
 source: community
 author: zebbern
 date_added: "2026-02-27"
 ---
+
 
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.

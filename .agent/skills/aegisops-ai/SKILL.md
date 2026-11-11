@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "808ac58efc32339e5cde5ec217e6f670a16dd6492481936001aa940eb425e537"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aegisops-ai
 description: "Autonomous DevSecOps & FinOps Guardrails. Guide to reviewing Linux kernel patches, Terraform cost changes and Kubernetes policy with a separately reviewed upstream tool and configured model."
+tier: "experimental"
 risk: critical
 source: community
 author: Champbreed
 date_added: "2026-03-24"
 ---
+
 
 # /aegisops-ai — Autonomous Governance Orchestrator
 

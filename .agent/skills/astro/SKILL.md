@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5ed77e75f1a5e829c39fb9aa9cba970d43f07f3f70533502ea06531c7bcd0943"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: astro
 description: "Build content-focused websites with Astro — zero JS by default, islands architecture, multi-framework components, and Markdown/MDX support."
+tier: "experimental"
 category: frontend
 risk: safe
 source: community
@@ -9,6 +20,7 @@ author: suhaibjanjua
 tags: [astro, ssg, ssr, islands, content, markdown, mdx, performance]
 tools: [claude, cursor, gemini]
 ---
+
 
 # Astro Web Framework
 

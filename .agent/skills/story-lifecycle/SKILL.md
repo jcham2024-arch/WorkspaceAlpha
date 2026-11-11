@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "832def3bbbf0cdb2a694d3a00ef823a8ebe70bb63c749c3db4106b5595dcd154"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: story-lifecycle
 description: Manage a file-based epic → story → sprint development loop without requiring an external project management tool. Creates and tracks epics, breaks them into user stories, assigns them to sprints, and drives implementation story by story. Use when starting a new feature initiative or when the team has no Jira/Linear/Taiga but needs structured delivery tracking.
+tier: "experimental"
 metadata:
   origin: community
   inspired-by: bmad-method (bmad-create-epics-and-stories, bmad-dev-story, bmad-sprint-planning)
 ---
+
 
 # Story Lifecycle
 

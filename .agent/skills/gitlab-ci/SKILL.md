@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "251f5ad89a5495fc7d7f7c0b7cfc83af7be135f3e85f0aa3ee703f4627263e5f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gitlab-ci
 description: Configure GitLab CI/CD pipelines and runners for automated building,
+tier: "experimental"
   testing, and deployment.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # GitLab CI/CD
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "70c04af421794bcda6c08310d870ac66c64848a4a21c74611008bc62fa3497c2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cron-doctor
 description: "Diagnose and validate cron expressions before they ship. Catches the five silent death-traps: impossible dates that never fire, OR-semantics that fire too often, midnight spikes, uneven step drift, and leap-year February 29."
+tier: "experimental"
 category: devops
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, codex, gemini, opencode]
 license: "MIT"
 license_source: "https://github.com/takeaseatventure/devops-skills/blob/main/LICENSE"
 ---
+
 
 # cron-doctor
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "80629328a63c875c020b95bb5c3637566875ceeeec3e9d82c720c4d48ca7ed0c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: moltnode-chain-reader
 description: "Read 31 blockchains over keyless JSON-RPC with MoltNode (balances, blocks, contract calls) and get Chord swap quotes with an unsigned transaction and simulation."
+tier: "experimental"
 category: blockchain
 risk: critical
 source: https://github.com/tuantqse90/moltnode-mcp/tree/main/skills/moltnode
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: MIT
 license_source: https://github.com/tuantqse90/moltnode-mcp/blob/main/LICENSE
 ---
+
 
 # MoltNode: Keyless Chain Reads and Swap Quotes
 

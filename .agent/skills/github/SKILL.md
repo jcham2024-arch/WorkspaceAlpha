@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "79b37f2559523a92a4c7d23b40e1f45f32684eed9507f64c698202fd04527ca4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: github
 description: "Use the `gh` CLI for issues, pull requests, Actions runs, and GitHub API queries."
+tier: "experimental"
 risk: safe
 source: "Dimillian/Skills (MIT)"
 date_added: "2026-03-25"
 ---
+
 
 # GitHub Skill
 

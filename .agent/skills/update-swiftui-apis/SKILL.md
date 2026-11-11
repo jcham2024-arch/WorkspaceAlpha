@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6fc581640d63dd2fec119fc4aa4680fb05b510b1e8ed14cf86a6c7b1269a253b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: update-swiftui-apis
 description: "Scan Apple's SwiftUI documentation for deprecated APIs and update the SwiftUI Expert Skill with modern replacements."
+tier: "experimental"
 risk: critical
 source: https://github.com/AvdLee/SwiftUI-Agent-Skill/tree/main/.agents/skills/update-swiftui-apis
 source_repo: AvdLee/SwiftUI-Agent-Skill
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/AvdLee/SwiftUI-Agent-Skill/blob/main/LICENSE
 ---
+
 
 # Update SwiftUI APIs
 ## When to Use

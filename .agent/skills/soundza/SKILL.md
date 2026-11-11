@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fffdc0cb23433b9a45b334b75eacc4b77dec0cec0872f64c4891162bae4930e6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: soundza
 description: "Find, audition and add free sound effects, ambience or music to a game, video or app with Soundza, or generate a new sound effect from a prompt, over MCP or a REST API."
+tier: "experimental"
 category: media
 risk: safe
 source: "https://github.com/soundza/soundza-mcp/blob/main/skills/soundza/SKILL.md"
@@ -13,6 +24,7 @@ tools: [claude, cursor, codex, gemini]
 license: "MIT"
 license_source: "https://github.com/soundza/soundza-mcp/blob/main/LICENSE"
 ---
+
 
 # Soundza
 

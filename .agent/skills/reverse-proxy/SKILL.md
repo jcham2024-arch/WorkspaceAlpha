@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3a7168f4b7f4972615efe8d1b50c37d018f95b2ff30dd12809a767e22a26f9ae"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: reverse-proxy
 description: Configure nginx and Traefik as reverse proxies. Implement SSL termination
+tier: "experimental"
   and routing. Use when setting up application gateways.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Reverse Proxy
 

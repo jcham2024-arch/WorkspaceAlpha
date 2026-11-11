@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7c1360d3e0744bc1431475a392db547ed4a66981f0572874ddbef79a2a9025cd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: vercel-deployments
 description: Deploy frontend and full-stack apps on Vercel with previews, edge functions,
+tier: "experimental"
   environment promotion, and production guardrails.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Vercel Deployments
 

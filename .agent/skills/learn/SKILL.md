@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "99d53dbda983cb9359ba477633a1c0cc16571530bf427280a04a8d0b4e38f614"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: learn
 description: Help a user learn a topic through adaptive tutoring, lesson planning, practice, retrieval checks, explanations, study guides, or exercises. Use when the user asks to learn, understand, practice, drill, review, study, or be tutored on something.
+tier: "experimental"
 category: "education"
 risk: "safe"
 source: "official"
@@ -19,6 +30,7 @@ tools:
   - codex-cli
   - cursor
 ---
+
 
 ## When to Use
 

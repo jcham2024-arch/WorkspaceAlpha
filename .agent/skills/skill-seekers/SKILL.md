@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1a01e566d5f9ab5652862cccbbcf556fe7058565e8d212349dc59f7aec1b707a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: skill-seekers
 description: "Convert approved documentation, repositories, or PDFs into an agent skill using the Skill Seekers workflow, then review the generated content."
+tier: "experimental"
 risk: safe
 source: "https://github.com/yusufkaraaslan/Skill_Seekers"
 date_added: "2026-02-27"
 ---
+
 
 # Skill Seekers
 

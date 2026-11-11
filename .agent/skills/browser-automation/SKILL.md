@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c2baa422a8d244f8b612cd989e17f8c403607c5ca3418558c1986832970c1d4c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: browser-automation
 description: Build reliable browser checks using observed UI state, semantic locators, bounded waits, isolated test data and explicit outcome verification.
+tier: "experimental"
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Browser Automation
 

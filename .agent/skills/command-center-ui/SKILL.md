@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fb8fefccaf9e6a50ceae3d0e58a4125508f1d929866a5e7abd288f79a3c45a44"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: command-center-ui
 description: Web and App implementation guide for Command Center UI. Trigger when user wants monitoring systems, enterprise dashboards, NOCs, and global maps.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Command Center UI
 

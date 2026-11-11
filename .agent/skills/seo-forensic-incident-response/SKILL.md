@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "442221563d46e01529af521a8fd24267c565557bb540c6c091a8fe66a5e0283f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-forensic-incident-response
 description: "Investigate sudden drops in organic traffic or rankings and run a structured forensic SEO incident response with triage, root-cause analysis and recovery plan."
+tier: "experimental"
 risk: safe
 source: original
 date_added: "2026-02-27"
 ---
+
 
 # SEO Forensic Incident Response
 

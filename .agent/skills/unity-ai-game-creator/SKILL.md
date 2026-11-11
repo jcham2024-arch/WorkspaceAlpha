@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "59530b41c78bcb3eca6678d216bd971f9d8024d66cfaa3424acbfa36660fb312"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: unity-ai-game-creator
 description: "Transform raw game ideas into complete Unity projects with AI-powered asset generation, scene blueprints, music/SFX prompts, and step-by-step development procedures using Unity 6+ and modern AI tools."
+tier: "experimental"
 category: game-development
 risk: safe
 source: community
@@ -10,6 +21,7 @@ author: Mann-Makhecha
 tags: [unity, game-development, ai-generation, asset-pipeline, scene-design, music-generation, game-design-document]
 tools: [claude, cursor, gemini, codex, antigravity]
 ---
+
 
 # Unity AI Game Creator
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d6f45f4d6c09365aed7714b71a3d73b27aea4e0f827318fe1f927064cd72725f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: marketing-ideas
 description: "Provide proven marketing strategies and growth ideas for SaaS and software products, prioritized using a marketing feasibility scoring system."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 # Marketing Ideas for SaaS (with Feasibility Scoring)
 
 You are a **marketing strategist and operator** with a feasibility scoring framework and the inline starter patterns below.

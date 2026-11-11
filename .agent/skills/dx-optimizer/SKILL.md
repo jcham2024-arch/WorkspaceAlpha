@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ca95dea4fa2e1e6ac385d6f0ae003d65ee51481d048a06e101e322839da12606"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: dx-optimizer
 description: Developer Experience specialist. Improves tooling, setup, and workflows. Use for requested project setup or measured development friction; respect existing team conventions.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 ## Use this skill when
 

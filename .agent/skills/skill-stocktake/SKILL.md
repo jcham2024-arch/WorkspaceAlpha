@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7960aa6c518497839c5001692596ad5b0c459b1501469eefffb25c6c5f6e1b45"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: skill-stocktake
 description: "Use when auditing Claude skills and commands for quality. Supports Quick Scan (changed skills only) and Full Stocktake modes with sequential subagent batch evaluation."
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # skill-stocktake
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7f4fc8e83efc84829cfafd566f129cbcd0b2188b37f959b4a4f793173b5f3c7d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fal-generate
 description: "Generate images and videos using fal.ai AI models"
+tier: "experimental"
 risk: critical
 source: "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-generate/SKILL.md"
 date_added: "2026-02-27"
 ---
+
 
 # Fal Generate
 

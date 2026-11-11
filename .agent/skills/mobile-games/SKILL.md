@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d0b0911fd3b6bd542383b093b054d92da63eb19567951ad377c20ff6290f9879"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mobile-games
 description: "Mobile game development principles. Touch input, battery, performance, app stores."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Mobile Game Development
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e4570af4468f693b30d719c299c101476c49c39ad0b17d0da351439e369e3a10"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: create-issue-gate
 description: Use when starting a new implementation task and an issue must be created with strict acceptance criteria gating before execution.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-12"
 ---
+
 
 # Create Issue Gate
 

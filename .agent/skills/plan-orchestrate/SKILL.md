@@ -1,9 +1,21 @@
 ---
+tier: "core"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b3821749de7763c5d70a3d75606679f31ddd3ada18677c7b94a8de9666ad44ed"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: plan-orchestrate
 description: Read a plan document, decompose it into steps, classify each step, and emit the ready-to-paste ECC slash command for that step, carrying the step identifier and scope in the command's own documented argument form. Generative only — never invokes commands itself and never claims to control what a command runs internally. Steps whose command cannot carry plan scope fail closed
+tier: "core"
 metadata:
   origin: ECC
 ---
+
 
 # Plan Orchestrate
 

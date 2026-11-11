@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "77026c57f6efab9170dfb4fb46eceb6ff1abaafcef1cfda44b21b5112b934d56"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: orch-change-feature
 description: Orchestrate altering an existing, working feature to new desired behavior — update its tests to the new spec, change the implementation to match, review, and gated commit. Use when behavior is not broken but should be different.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # orch-change-feature
 

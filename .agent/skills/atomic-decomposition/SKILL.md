@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b451ecb4328b9e0e68155148053d07777d1266cc594519328ee163dfc97d6465"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: atomic-decomposition
 description: Decompose research ideas into atomic, self-contained concepts with bidirectional math-code mapping. For each concept, extract the math formula from papers and find code implementations. Use for complex system papers requiring formal grounding.
+tier: "experimental"
 argument-hint: [idea-or-paper]
 ---
+
 
 # Atomic Decomposition
 

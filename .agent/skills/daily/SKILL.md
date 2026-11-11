@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "dedc85fb7bc230ab606a3de5bf8efcee958e9504fc3fc553a6b7872c692f202c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: daily
 description: Documentation and capabilities reference for Daily
+tier: "experimental"
 metadata:
   mintlify-proj: daily
   version: "1.0"
@@ -8,6 +19,7 @@ risk: safe
 source: community
 date_added: "2026-03-07"
 ---
+
 
 ## When to Use
 - You are building a real-time voice or multimodal AI application that uses Daily or Pipecat-style transports.

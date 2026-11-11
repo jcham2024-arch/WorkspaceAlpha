@@ -62,6 +62,31 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
 <a class="nav-item" href="#docs/README.md::skills">Skills</a>
 <a class="nav-item" href="#docs/README.md::validation-rules-validate-py">Validation Rules (validate.py)</a>
 <a class="nav-item" href="#docs/README.md::write-agent-skills-my-skill-skill-md-with-frontmatter">Write .agent/skills/my-skill/SKILL.md with frontmatter</a>
+<a class="nav-item" href="#docs/adr/ADR-001-dag-routing.md::adr-001-why-a-dag-for-documentation-routing">ADR-001: Why a DAG for Documentation Routing</a>
+<a class="nav-item" href="#docs/adr/ADR-001-dag-routing.md::consequences">Consequences</a>
+<a class="nav-item" href="#docs/adr/ADR-001-dag-routing.md::context">Context</a>
+<a class="nav-item" href="#docs/adr/ADR-001-dag-routing.md::decision">Decision</a>
+<a class="nav-item" href="#docs/adr/ADR-001-dag-routing.md::links">Links</a>
+<a class="nav-item" href="#docs/adr/ADR-001-dag-routing.md::status">Status</a>
+<a class="nav-item" href="#docs/adr/ADR-002-byte-ranges.md::adr-002-why-byte-ranges-for-section-level-access">ADR-002: Why Byte Ranges for Section-Level Access</a>
+<a class="nav-item" href="#docs/adr/ADR-002-byte-ranges.md::consequences">Consequences</a>
+<a class="nav-item" href="#docs/adr/ADR-002-byte-ranges.md::context">Context</a>
+<a class="nav-item" href="#docs/adr/ADR-002-byte-ranges.md::decision">Decision</a>
+<a class="nav-item" href="#docs/adr/ADR-002-byte-ranges.md::links">Links</a>
+<a class="nav-item" href="#docs/adr/ADR-002-byte-ranges.md::status">Status</a>
+<a class="nav-item" href="#docs/adr/ADR-003-stdlib-only.md::adr-003-why-python-standard-library-only">ADR-003: Why Python Standard Library Only</a>
+<a class="nav-item" href="#docs/adr/ADR-003-stdlib-only.md::consequences">Consequences</a>
+<a class="nav-item" href="#docs/adr/ADR-003-stdlib-only.md::context">Context</a>
+<a class="nav-item" href="#docs/adr/ADR-003-stdlib-only.md::decision">Decision</a>
+<a class="nav-item" href="#docs/adr/ADR-003-stdlib-only.md::links">Links</a>
+<a class="nav-item" href="#docs/adr/ADR-003-stdlib-only.md::status">Status</a>
+<a class="nav-item" href="#docs/adr/ADR-004-agent-tracked.md::adr-004-why-agent-is-tracked-in-git-model-a">ADR-004: Why .agent/ Is Tracked in Git (Model A)</a>
+<a class="nav-item" href="#docs/adr/ADR-004-agent-tracked.md::consequences">Consequences</a>
+<a class="nav-item" href="#docs/adr/ADR-004-agent-tracked.md::context">Context</a>
+<a class="nav-item" href="#docs/adr/ADR-004-agent-tracked.md::decision">Decision</a>
+<a class="nav-item" href="#docs/adr/ADR-004-agent-tracked.md::links">Links</a>
+<a class="nav-item" href="#docs/adr/ADR-004-agent-tracked.md::status">Status</a>
+<a class="nav-item" href="#docs/architecture.md::workspacealpha-architecture">WorkspaceAlpha Architecture</a>
 <a class="nav-item" href="#docs/contracts/decisions/Q1-rpo-rto.md::configuration">Configuration</a>
 <a class="nav-item" href="#docs/contracts/decisions/Q1-rpo-rto.md::context">Context</a>
 <a class="nav-item" href="#docs/contracts/decisions/Q1-rpo-rto.md::decision">Decision</a>
@@ -114,6 +139,21 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
 <a class="nav-item" href="#docs/contracts/decisions/Q6-profile-provisioning.md::links">Links</a>
 <a class="nav-item" href="#docs/contracts/decisions/Q6-profile-provisioning.md::question">Question</a>
 <a class="nav-item" href="#docs/contracts/decisions/Q6-profile-provisioning.md::rationale">Rationale</a>
+<a class="nav-item" href="#docs/integration/harness-contract.md::contract-version">Contract Version</a>
+<a class="nav-item" href="#docs/integration/harness-contract.md::golden-files">Golden Files</a>
+<a class="nav-item" href="#docs/integration/harness-contract.md::harness-adapter-contract">Harness-Adapter Contract</a>
+<a class="nav-item" href="#docs/integration/harness-contract.md::invariants">Invariants</a>
+<a class="nav-item" href="#docs/integration/harness-contract.md::links">Links</a>
+<a class="nav-item" href="#docs/integration/harness-contract.md::read-order">Read Order</a>
+<a class="nav-item" href="#docs/integration/harness-contract.md::reference-adapter">Reference Adapter</a>
+<a class="nav-item" href="#docs/integration/harness-contract.md::what-a-harness-may-assume">What a Harness May Assume</a>
+<a class="nav-item" href="#docs/integration/harness-contract.md::what-a-harness-must-not-assume">What a Harness Must NOT Assume</a>
+<a class="nav-item" href="#docs/operations/deprecation.md::deprecation-policy">Deprecation Policy</a>
+<a class="nav-item" href="#docs/operations/deprecation.md::deprecation-process">Deprecation Process</a>
+<a class="nav-item" href="#docs/operations/deprecation.md::links">Links</a>
+<a class="nav-item" href="#docs/operations/deprecation.md::profile-deprecation">Profile Deprecation</a>
+<a class="nav-item" href="#docs/operations/deprecation.md::tier-progression-to-quarantine">Tier Progression to Quarantine</a>
+<a class="nav-item" href="#docs/operations/deprecation.md::what-breaks">What Breaks</a>
 <a class="nav-item" href="#docs/operations/quarantine.md::intake-process">Intake Process</a>
 <a class="nav-item" href="#docs/operations/quarantine.md::links">Links</a>
 <a class="nav-item" href="#docs/operations/quarantine.md::quarantine-ledger-broken-skills">Quarantine Ledger — Broken Skills</a>
@@ -129,6 +169,13 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
 <a class="nav-item" href="#docs/operations/secrets.md::rotation-procedure">Rotation Procedure</a>
 <a class="nav-item" href="#docs/operations/secrets.md::secret-handling-and-key-rotation">Secret Handling and Key Rotation</a>
 <a class="nav-item" href="#docs/operations/secrets.md::storage">Storage</a>
+<a class="nav-item" href="#docs/operations/skill-lifecycle.md::adding-a-new-skill">Adding a New Skill</a>
+<a class="nav-item" href="#docs/operations/skill-lifecycle.md::promotion-demotion">Promotion / Demotion</a>
+<a class="nav-item" href="#docs/operations/skill-lifecycle.md::review-cadence">Review Cadence</a>
+<a class="nav-item" href="#docs/operations/skill-lifecycle.md::skill-lifecycle">Skill Lifecycle</a>
+<a class="nav-item" href="#docs/operations/skill-lifecycle.md::stale-skill-detection">Stale Skill Detection</a>
+<a class="nav-item" href="#docs/operations/skill-lifecycle.md::tiers">Tiers</a>
+<a class="nav-item" href="#docs/operations/skill-lifecycle.md::tools">Tools</a>
 <a class="nav-item" href="#docs/operations/starter-set.md::add-a-single-skill-to-an-existing-profile">Add a single skill to an existing profile</a>
 <a class="nav-item" href="#docs/operations/starter-set.md::edit-agent-profiles-conceptualizer-md-frontmatter-add-skill-name">Edit .agent/profiles/conceptualizer.md frontmatter, add skil</a>
 <a class="nav-item" href="#docs/operations/starter-set.md::expansion-path-starter-full-library">Expansion Path: Starter → Full Library</a>
@@ -582,6 +629,454 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
 <p>Proprietary — internal tooling for AndroidHarness.</p>
 <p>---</p>
 <p><em>This documentation is indexed by the baselayer. Edit source files in <code>docs/</code>, then rebuild.</em></p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-001-dag-routing.md::adr-001-why-a-dag-for-documentation-routing" data-sha256="35476b15b522e4e7735cae1f99d8e209b1ef33459dbac9702b3d15d741b5424e">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-001-dag-routing.md</span>
+  </div>
+  <h2>docs/adr/ADR-001-dag-routing.md::adr-001-why-a-dag-for-documentation-routing</h2>
+  <p class="summary">ADR-001: Why a DAG for Documentation Routing</p>
+  <div class="content"><h1>ADR-001: Why a DAG for Documentation Routing</h1></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-001-dag-routing.md::status" data-sha256="d4af963b9106f65d12599f5167065fd1fa718606fd92aff26f1090ee67138e89">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-001-dag-routing.md</span>
+  </div>
+  <h2>docs/adr/ADR-001-dag-routing.md::status</h2>
+  <p class="summary">Status</p>
+  <div class="content"><h2>Status</h2>
+<p>Accepted</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-001-dag-routing.md::context" data-sha256="eb087ca91b21de647e90220d6c778ae70ff0dc46ac547d458744f29637f84be0">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-001-dag-routing.md</span>
+  </div>
+  <h2>docs/adr/ADR-001-dag-routing.md::context</h2>
+  <p class="summary">Context</p>
+  <div class="content"><h2>Context</h2>
+<p>The baselayer workspace needs a documentation system that serves two audiences: - <strong>Humans</strong> who need an explorable, cross-linked wiki - <strong>AI agents</strong> who need a token-efficient router that surfaces only relevant sections</p>
+<p>A flat directory of Markdown files doesn&#x27;t scale: agents can&#x27;t tell which sections are relevant without reading everything, and humans can&#x27;t navigate cross-references without manual link maintenance.</p>
+<p>A graph database would be powerful but adds dependencies and operational complexity. A simple index file loses the structural relationships between sections.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-001-dag-routing.md::decision" data-sha256="8c0855c3d06c69feff3c36c7d22a4df8c929f08a288ecd7ca62e074080bfb5cf">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-001-dag-routing.md</span>
+  </div>
+  <h2>docs/adr/ADR-001-dag-routing.md::decision</h2>
+  <p class="summary">Decision</p>
+  <div class="content"><h2>Decision</h2>
+<p>Use a Directed Acyclic Graph (DAG) where: - <strong>Nodes</strong> are documentation sections (one per Markdown heading), identified by <code>path::slug</code> - <strong>Edges</strong> are <code>requires</code> relationships between sections - <strong>Byte ranges</strong> pin each node to an exact slice of its source file - <strong>SHA-256 hashes</strong> verify content integrity</p>
+<p>The graph is compiled from <code>docs/</code> by <code>seed.py</code>, then rendered to <code>manifest.json</code> (agent router) and <code>.wiki/index.html</code> (human wiki) by <code>build.py</code>.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-001-dag-routing.md::consequences" data-sha256="eb58c96445547c60fe9d6ee763fe0ce738ceda3be30502c14f70ddae31f1f942">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-001-dag-routing.md</span>
+  </div>
+  <h2>docs/adr/ADR-001-dag-routing.md::consequences</h2>
+  <p class="summary">Consequences</p>
+  <div class="content"><h2>Consequences</h2>
+<p><strong>Positive:</strong> - Agents read only relevant sections (byte-range hydration), keeping router under ~15% of context budget - Humans get an explorable, cross-linked wiki with search - Content integrity verified via SHA-256 on every build - DAG acyclicity enforced at build time — no circular references</p>
+<p><strong>Negative:</strong> - Adding a new section requires editing <code>docs/</code> then rebuilding (not live-editing the graph) - Edge relationships are manual (declared in manifest edges, not auto-discovered) - The DAG is a compile-time artifact, not a runtime query engine</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-001-dag-routing.md::links" data-sha256="c45f78bf8aba7b22d8d3ccf0585d8caaadea19b3bb36e1fc1b4d3556e3a7e90d">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-001-dag-routing.md</span>
+  </div>
+  <h2>docs/adr/ADR-001-dag-routing.md::links</h2>
+  <p class="summary">Links</p>
+  <div class="content"><h2>Links</h2>
+<p>- Build pipeline: <code>BOOTSTRAPPER.md</code> §3 - Agent router: <code>AGENTS.md</code> - Wiki: <code>.wiki/index.html</code></p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-002-byte-ranges.md::adr-002-why-byte-ranges-for-section-level-access" data-sha256="9264fc42917289578b6a631632cb813239138dd02e7d1141d1fc1719fdfc9657">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-002-byte-ranges.md</span>
+  </div>
+  <h2>docs/adr/ADR-002-byte-ranges.md::adr-002-why-byte-ranges-for-section-level-access</h2>
+  <p class="summary">ADR-002: Why Byte Ranges for Section-Level Access</p>
+  <div class="content"><h1>ADR-002: Why Byte Ranges for Section-Level Access</h1></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-002-byte-ranges.md::status" data-sha256="d4af963b9106f65d12599f5167065fd1fa718606fd92aff26f1090ee67138e89">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-002-byte-ranges.md</span>
+  </div>
+  <h2>docs/adr/ADR-002-byte-ranges.md::status</h2>
+  <p class="summary">Status</p>
+  <div class="content"><h2>Status</h2>
+<p>Accepted</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-002-byte-ranges.md::context" data-sha256="d3b8a7788296fcc3e663c09a975380f8c89f939396ed67c289d08255bd3cc37b">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-002-byte-ranges.md</span>
+  </div>
+  <h2>docs/adr/ADR-002-byte-ranges.md::context</h2>
+  <p class="summary">Context</p>
+  <div class="content"><h2>Context</h2>
+<p>The baselayer indexes <code>docs/</code> Markdown files at the section level (one node per heading). Two approaches were considered:</p>
+<p>1. <strong>File-level indexing</strong>: Each <code>.md</code> file is one node. Agents must read entire files to find relevant content. 2. <strong>Section-level indexing</strong>: Each heading-delimited section is one node with a <code>byte_range</code> pinpointing its exact location in the file.</p>
+<p>File-level indexing wastes tokens: an agent looking for one configuration detail must read the whole file. Section-level indexing enables token-efficient hydration but requires precise byte tracking.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-002-byte-ranges.md::decision" data-sha256="54cf3f828663b5d118167836a99173bb655686eee606807a594e5541799adc54">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-002-byte-ranges.md</span>
+  </div>
+  <h2>docs/adr/ADR-002-byte-ranges.md::decision</h2>
+  <p class="summary">Decision</p>
+  <div class="content"><h2>Decision</h2>
+<p>Use section-level indexing with <code>byte_range: [start, end]</code> in every manifest node. The <code>seed.py</code> compiler scans each Markdown file, identifies heading lines via regex, and computes exact byte offsets. The <code>build.py</code> compiler validates that each byte range&#x27;s SHA-256 matches the content at that slice.</p>
+<p>Agents hydrate sections by reading exactly <code>content_ref</code> bytes <code>[start:end]</code> — never the whole file.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-002-byte-ranges.md::consequences" data-sha256="f957f79ba50dfa22ffd8a85ff001c946229b10be87057b86a3c22aca726f3101">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-002-byte-ranges.md</span>
+  </div>
+  <h2>docs/adr/ADR-002-byte-ranges.md::consequences</h2>
+  <p class="summary">Consequences</p>
+  <div class="content"><h2>Consequences</h2>
+<p><strong>Positive:</strong> - Token-efficient: agents read only relevant sections - Content integrity: SHA-256 on byte slice detects any drift - Progressive disclosure: frontmatter (~50-100 tokens) always loaded, body on demand - Router stays under ~15% of context budget (~1,400-10,000 tokens depending on corpus size)</p>
+<p><strong>Negative:</strong> - Byte ranges break if file content shifts (sections insert/delete lines) — requires rebuild - No live editing of individual sections without re-indexing - Slightly more complex compiler (must track byte positions during scan)</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-002-byte-ranges.md::links" data-sha256="c3921a20dc4758b1943338e737cf43429ae3007de30369a2562f15d38123b2f7">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-002-byte-ranges.md</span>
+  </div>
+  <h2>docs/adr/ADR-002-byte-ranges.md::links</h2>
+  <p class="summary">Links</p>
+  <div class="content"><h2>Links</h2>
+<p>- Compiler: <code>.wiki/seed.py</code> - Validator: <code>validate.py</code> (hash check on every node) - Agent protocol: <code>AGENTS.md</code> §2</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-003-stdlib-only.md::adr-003-why-python-standard-library-only" data-sha256="dd5922ee9e5605751c5d997f4c720d3f5b560aa03cc7fc06ce6dd4989f0e958e">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-003-stdlib-only.md</span>
+  </div>
+  <h2>docs/adr/ADR-003-stdlib-only.md::adr-003-why-python-standard-library-only</h2>
+  <p class="summary">ADR-003: Why Python Standard Library Only</p>
+  <div class="content"><h1>ADR-003: Why Python Standard Library Only</h1></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-003-stdlib-only.md::status" data-sha256="d4af963b9106f65d12599f5167065fd1fa718606fd92aff26f1090ee67138e89">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-003-stdlib-only.md</span>
+  </div>
+  <h2>docs/adr/ADR-003-stdlib-only.md::status</h2>
+  <p class="summary">Status</p>
+  <div class="content"><h2>Status</h2>
+<p>Accepted</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-003-stdlib-only.md::context" data-sha256="74d31569a8cbb2816790b66fec7657f9fa0ebe12abffc77ce36cdb2d99f6fd68">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-003-stdlib-only.md</span>
+  </div>
+  <h2>docs/adr/ADR-003-stdlib-only.md::context</h2>
+  <p class="summary">Context</p>
+  <div class="content"><h2>Context</h2>
+<p>The baselayer tooling (<code>seed.py</code>, <code>build.py</code>, <code>validate.py</code>, and all <code>tools/</code>) runs in the AndroidHarness environment (Android 17, API 37, app UID). Three dependency options were considered:</p>
+<p>1. <strong>pip install</strong>: Requires network access, package management, and potential compilation of native extensions. Not always available in the Android/Termux environment. 2. <strong>Vendored dependencies</strong>: Bundling third-party packages in the repo increases size and creates supply-chain concerns. 3. <strong>Standard library only</strong>: Uses only Python 3.14 stdlib modules. Zero dependencies, zero network, zero compilation.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-003-stdlib-only.md::decision" data-sha256="12d779905732b3210d1174ab13cf11da49d298113b73fbdca785b61c15ddd30f">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-003-stdlib-only.md</span>
+  </div>
+  <h2>docs/adr/ADR-003-stdlib-only.md::decision</h2>
+  <p class="summary">Decision</p>
+  <div class="content"><h2>Decision</h2>
+<p>All baselayer tooling uses Python 3 standard library only. No <code>pip install</code> of any kind. Tools that need HTTP (e.g., <code>check_links.py</code>) use <code>urllib.request</code>. Tools that need hashing use <code>hashlib</code>. Tools that need JSON use <code>json</code>.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-003-stdlib-only.md::consequences" data-sha256="bf7b7123367d17fad77ba59702c9f4cc62fdf4815312b6f142ae6d10683c37a5">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-003-stdlib-only.md</span>
+  </div>
+  <h2>docs/adr/ADR-003-stdlib-only.md::consequences</h2>
+  <p class="summary">Consequences</p>
+  <div class="content"><h2>Consequences</h2>
+<p><strong>Positive:</strong> - Zero network required — works fully offline - Zero installation — runs on any Python 3.14+ system - No supply-chain attacks via compromised packages - Predictable behavior across environments - Smaller repo (no vendored packages)</p>
+<p><strong>Negative:</strong> - More verbose code for common tasks (e.g., HTTP, argument parsing) - Some modern Python features unavailable (but 3.14 is quite complete) - Cannot use rich ecosystem (requests, click, pyyaml, etc.)</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-003-stdlib-only.md::links" data-sha256="517ecf6103771196c2a0627b15faeed5adb7441198d0f4f492c05772d8c47a8e">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-003-stdlib-only.md</span>
+  </div>
+  <h2>docs/adr/ADR-003-stdlib-only.md::links</h2>
+  <p class="summary">Links</p>
+  <div class="content"><h2>Links</h2>
+<p>- Build scripts: <code>.wiki/seed.py</code>, <code>.wiki/build.py</code> - Validator: <code>validate.py</code> - Tooling: <code>tools/</code> - Environment: <code>.agent/agent.md</code> §&quot;Environment facts&quot;</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-004-agent-tracked.md::adr-004-why-agent-is-tracked-in-git-model-a" data-sha256="46b4adfc4b713b1ef1c95ad82dd3f06261270a31892004987347fe47a862e83e">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-004-agent-tracked.md</span>
+  </div>
+  <h2>docs/adr/ADR-004-agent-tracked.md::adr-004-why-agent-is-tracked-in-git-model-a</h2>
+  <p class="summary">ADR-004: Why .agent/ Is Tracked in Git (Model A)</p>
+  <div class="content"><h1>ADR-004: Why .agent/ Is Tracked in Git (Model A)</h1></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-004-agent-tracked.md::status" data-sha256="d4af963b9106f65d12599f5167065fd1fa718606fd92aff26f1090ee67138e89">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-004-agent-tracked.md</span>
+  </div>
+  <h2>docs/adr/ADR-004-agent-tracked.md::status</h2>
+  <p class="summary">Status</p>
+  <div class="content"><h2>Status</h2>
+<p>Accepted</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-004-agent-tracked.md::context" data-sha256="093152103c501fe5e4db31c159140aa926bb72f1a6fea0156f9466a28f9f1671">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-004-agent-tracked.md</span>
+  </div>
+  <h2>docs/adr/ADR-004-agent-tracked.md::context</h2>
+  <p class="summary">Context</p>
+  <div class="content"><h2>Context</h2>
+<p>The <code>.agent/</code> directory holds the master skill library (3,520 skills), agent profiles, tools, MCP server, and machine registry. Two deployment models were considered:</p>
+<p><strong>Model A (tracked):</strong> <code>.agent/</code> is source-controlled. Only <code>.agent/.env</code> (secrets) and <code>.agent/.harness/</code> (provisioned snapshot) are gitignored.</p>
+<p><strong>Model B (untracked):</strong> <code>.agent/</code> is provisioned by bootstrap on each clone. Only <code>.agent/README.md</code> and <code>.agent/.env.example</code> are tracked via negation rules.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-004-agent-tracked.md::decision" data-sha256="a2be171caa1a08722e587b8ae08f96a6c71ad88fd4189174ed7ac6366c1ec5f0">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-004-agent-tracked.md</span>
+  </div>
+  <h2>docs/adr/ADR-004-agent-tracked.md::decision</h2>
+  <p class="summary">Decision</p>
+  <div class="content"><h2>Decision</h2>
+<p><strong>Model A (tracked)</strong>. The full master skill library is committed to git. Rationale:</p>
+<p>- <strong>Source of truth</strong>: <code>.agent/skills/</code> is the canonical library; tracking it enables history, review, and reproducible provisioning - <strong>Auditability</strong>: Skill curation (add/edit/quarantine) is auditable via <code>git log</code> - <strong>Reproducibility</strong>: Same commit → same active skill set - <strong>Already committed</strong>: 12,000+ files already in the repository; switching to Model B would lose history</p>
+<p>Model B would be better for very large libraries (&gt;50K skills) or when skills are fetched from external registries, but neither applies here.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-004-agent-tracked.md::consequences" data-sha256="3b62e0ae46c80728f27769ed4c043c6538511670c02c31c3b835d397ed894254">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-004-agent-tracked.md</span>
+  </div>
+  <h2>docs/adr/ADR-004-agent-tracked.md::consequences</h2>
+  <p class="summary">Consequences</p>
+  <div class="content"><h2>Consequences</h2>
+<p><strong>Positive:</strong> - Git history for all skill changes - Reproducible skill provisioning from any commit - Pre-commit validation on skill changes - Easy to review skill additions/modifications</p>
+<p><strong>Negative:</strong> - Large repo size (12,000+ skill files) - <code>.agent/.env</code> must be carefully gitignored to prevent secret leaks - Clone/download time is larger than Model B</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-004-agent-tracked.md::links" data-sha256="9c288b5d0c659785bc7083a23b38f121dbe6c464553f61f35a88803fdea74886">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-004-agent-tracked.md</span>
+  </div>
+  <h2>docs/adr/ADR-004-agent-tracked.md::links</h2>
+  <p class="summary">Links</p>
+  <div class="content"><h2>Links</h2>
+<p>- .gitignore: root <code>.gitignore</code> - BOOTSTRAPPER.md: §2 Directory contract, §7 Build-from-scratch checklist - Agent runtime: <code>.agent/agent.md</code> - Skill lifecycle: <code>docs/operations/skill-lifecycle.md</code></p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/architecture.md::workspacealpha-architecture" data-sha256="d55fe80aa52ce01f733ebe780eb5cb7f39acb4b04dbafcaf26bf7b8e43c282c9">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/architecture.md</span>
+  </div>
+  <h2>docs/architecture.md::workspacealpha-architecture</h2>
+  <p class="summary">WorkspaceAlpha Architecture</p>
+  <div class="content"><h1>WorkspaceAlpha Architecture</h1>
+<pre><code>┌─────────────────────────────────────────────────────────────────────────┐
+│                           WORKSPACEALPHA                                 │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────┐      ┌──────────────┐      ┌──────────────┐
+│   HUMAN      │      │    AGENT     │      │   SUBCON     │
+│  (reads      │      │  (reads      │      │   AGENT      │
+│   .wiki/)    │      │   AGENTS.md  │      │  (tasks via  │
+│              │      │              │      │  protocol)   │
+└──────┬───────┘      └──────┬───────┘      └──────┬───────┘
+       │                     │                     │
+       ▼                     ▼                     ▼
+┌──────────────┐      ┌──────────────┐      ┌──────────────┐
+│  .wiki/      │      │  AGENTS.md   │      │  Protocol:   │
+│  index.html  │      │  (≤150 lines)│      │  SCOPE-LOCK  │
+│  (human wiki)│      │  (agent router)│     │  PLAN-READY  │
+│              │      │              │      │  APPROVAL    │
+└──────┬───────┘      └──────┬───────┘      │  STATUS      │
+       │                     │             │  ESCALATION    │
+       │                     │             │  FINAL-REPORT  │
+       ▼                     ▼             └──────┬─────────┘
+┌──────────────────────────────────────────────────────────────────────┐
+│                    .context/graph.json  (canonical DAG)              │
+│                     nodes, edges, byte ranges, SHA-256               │
+└──────────────────────────────────────────────────────────────────────┘
+                           ▲                   ▲
+                           │                   │
+                    seed.py             build.py
+                    (docs/ →            (graph →
+                     graph.json)        manifest +
+                                         wiki)
+                           │                   │
+                           ▼                   ▼
+┌──────────────────────────────────────────────────────────────────────┐
+│                          docs/                                        │
+│   (source documentation, read-only to build)                          │
+└──────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────┐
+│                       .agent/  (master skill library)                │
+│                                                                       │
+│  skills/          profiles/       tools/                             │
+│  3,520 skills   conceptualizer   seed/build/validate                 │
+│  tiered (core/  taskmaster       context.py                           │
+│   curated/     coder             mcp/server.py                       │
+│   experimental  researcher       knowledge.py                        │
+│   quarantine)   reviewer         sync_active.py                      │
+│              *-manager           release.py                          │
+└──────────────────────────────────────────────────────────────────────┘
+                           ▲
+                           │ provision
+                           │ sync_active.py
+                           ▼
+┌──────────────────────────────────────────────────────────────────────┐
+│                    .harness/skills/  (active set)                    │
+│                     (provisioned per profile)                        │
+└──────────────────────────────────────────────────────────────────────┘
+
+Data flow:
+  docs/ ──seed.py──&gt; graph.json ──build.py──&gt; manifest.json + wiki
+  .agent/ ──sync──&gt; .harness/skills/ ──agent uses──&gt; tasks
+  AGENTS.md ──────────────────────────────────────&gt; routes to skills</code></pre>
+<p>See <a href="docs/integration/harness-contract.md">harness-contract.md</a> for the integration contract.</p></div>
   <div class="edges">
     <div><strong>requires</strong><br><em>none</em></div>
     <div><strong>required by</strong><br><em>none</em></div>
@@ -1396,6 +1891,239 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
   </div>
 </section>
 
+<section id="docs/integration/harness-contract.md::harness-adapter-contract" data-sha256="c9916dfdab0c8c3c92cb510c1150dbf252b7c4c39b48bab3acbf28345317bc1c">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/integration/harness-contract.md</span>
+  </div>
+  <h2>docs/integration/harness-contract.md::harness-adapter-contract</h2>
+  <p class="summary">Harness-Adapter Contract</p>
+  <div class="content"><h1>Harness-Adapter Contract</h1>
+<p><strong>contract_version: 1.0.0</strong></p>
+<p>This document specifies the file-based integration surface between the WorkspaceAlpha baselayer and any harness that consumes it. The contract is versioned using semver; breaking changes require a major version bump.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/integration/harness-contract.md::read-order" data-sha256="ff63242401276696ec6ff91736d35d24eda5efb4ea4557eafab5e4c97159607b">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/integration/harness-contract.md</span>
+  </div>
+  <h2>docs/integration/harness-contract.md::read-order</h2>
+  <p class="summary">Read Order</p>
+  <div class="content"><h2>Read Order</h2>
+<p>A harness must consume workspace artifacts in this order:</p>
+<p>1. <strong><code>AGENTS.md</code></strong> — Agent router entry point (≤150 lines). Read first for orientation. 2. <strong><code>.context/manifest.json</code></strong> — Generated routing table. Contains node IDs, byte ranges, SHA-256 hashes, and edges. Defines the DAG structure. 3. <strong><code>.harness/skills/</code></strong> — Currently-used skill set, provisioned per active profile via <code>python3 .harness/sync_active.py --profile &lt;name&gt;</code>.</p>
+<p>Do NOT read <code>docs/</code> directly. Do NOT <code>grep</code> for content in docs. Hydrate sections only by <code>byte_range</code> from <code>manifest.json</code>.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/integration/harness-contract.md::invariants" data-sha256="ea6fd14eb3c4382a1fffe4765afa6ae320bd1e225087b66cecfe6b4ffc0da7d2">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/integration/harness-contract.md</span>
+  </div>
+  <h2>docs/integration/harness-contract.md::invariants</h2>
+  <p class="summary">Invariants</p>
+  <div class="content"><h2>Invariants</h2>
+<p>A harness may assume the following are always true:</p>
+<p>| Invariant | Description | |-----------|-------------| | Manifest is acyclic | No cycles in the DAG (validated by <code>build.py</code> and <code>validate.py</code>) | | Node IDs are unique | No duplicate IDs in <code>manifest.json</code> | | Byte ranges are valid | <code>byte_range[0]</code> &lt; <code>byte_range[1]</code> and within file bounds | | SHA-256 hashes match | Each node&#x27;s hash matches the content at its byte range | | Active skills ⊆ provisioned skills | Every skill in <code>.harness/skills/</code> exists in <code>.agent/skills/</code> | | Contract version present | <code>manifest.json</code> contains <code>contract_version</code> field | | AGENTS.md ≤ 150 lines | Router stays under ~15% of context budget |</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/integration/harness-contract.md::what-a-harness-may-assume" data-sha256="b3880ba01bdbd42e3a49b6921139067d2be8537c0328c4b8c5bbd82f50ee9d0e">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/integration/harness-contract.md</span>
+  </div>
+  <h2>docs/integration/harness-contract.md::what-a-harness-may-assume</h2>
+  <p class="summary">What a Harness May Assume</p>
+  <div class="content"><h2>What a Harness May Assume</h2>
+<p>- <code>manifest.json</code> is regenerated by <code>python3 .wiki/build.py</code> after any docs change - <code>.context/graph.json</code> is the source of truth; manifest is derived - <code>.wiki/index.html</code> is the human-readable rendering of the same graph - Skill frontmatter in <code>.agent/skills/&lt;name&gt;/SKILL.md</code> is authoritative for skill metadata - Profile frontmatter in <code>.agent/profiles/&lt;name&gt;.md</code> determines which skills are active - <code>validate.py</code> passes on every commit (pre-commit hook)</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/integration/harness-contract.md::what-a-harness-must-not-assume" data-sha256="3aff44f86375c788f1c37f6495321ed574dd60fbf811546611719e7b062d6d57">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/integration/harness-contract.md</span>
+  </div>
+  <h2>docs/integration/harness-contract.md::what-a-harness-must-not-assume</h2>
+  <p class="summary">What a Harness Must NOT Assume</p>
+  <div class="content"><h2>What a Harness Must NOT Assume</h2>
+<p>- <strong>Do not grep docs/ directly.</strong> Use manifest.json byte ranges instead. - <strong>Do not read <code>.wiki/index.html</code> for programmatic decisions.</strong> It&#x27;s for humans. - <strong>Do not assume skill files have a particular structure beyond frontmatter.</strong> Body format varies. - <strong>Do not assume <code>.agent/</code> is untracked.</strong> It may or may not be in git depending on deployment model. - <strong>Do not assume network access.</strong> All tools are stdlib-only; no external API calls. - <strong>Do not assume <code>.env</code> contains real keys.</strong> It&#x27;s gitignored and may be empty.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/integration/harness-contract.md::contract-version" data-sha256="458138a9cd16d02ebecef0ebe1cea429e885abb86847a15af8292f3ecacb591f">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/integration/harness-contract.md</span>
+  </div>
+  <h2>docs/integration/harness-contract.md::contract-version</h2>
+  <p class="summary">Contract Version</p>
+  <div class="content"><h2>Contract Version</h2>
+<p>- Current: <code>1.0.0</code> - Semver rules: major = breaking change to read order or invariants; minor = new optional fields; patch = documentation fixes - The <code>contract_version</code> field is present in <code>.context/manifest.json</code></p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/integration/harness-contract.md::golden-files" data-sha256="e3a5f81727a65b7f5f1c29ddfa2836cad10bcdd9579ff102b99ecc9f4d4331d2">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/integration/harness-contract.md</span>
+  </div>
+  <h2>docs/integration/harness-contract.md::golden-files</h2>
+  <p class="summary">Golden Files</p>
+  <div class="content"><h2>Golden Files</h2>
+<p>Golden copies of <code>AGENTS.md</code> and <code>.context/manifest.json</code> are stored in <code>tests/fixtures/golden/</code>. Any deliberate change to these files requires updating the golden copies via the test suite.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/integration/harness-contract.md::reference-adapter" data-sha256="13849bc736d7d663dd7388c986bd5c4b36c688417799bf89a9f2abee6a190015">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/integration/harness-contract.md</span>
+  </div>
+  <h2>docs/integration/harness-contract.md::reference-adapter</h2>
+  <p class="summary">Reference Adapter</p>
+  <div class="content"><h2>Reference Adapter</h2>
+<p>A minimal reference adapter exists at <code>tools/reference_adapter.py</code> demonstrating end-to-end consumption: reads AGENTS.md → manifest.json → active skills → validates invariants.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/integration/harness-contract.md::links" data-sha256="cc0229db951497e1468678b0735063102f10fa64635313913bc2fa8eeb4842cc">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/integration/harness-contract.md</span>
+  </div>
+  <h2>docs/integration/harness-contract.md::links</h2>
+  <p class="summary">Links</p>
+  <div class="content"><h2>Links</h2>
+<p>- Build pipeline: <code>BOOTSTRAPPER.md</code> §3 - Agent profiles: <code>.agent/profiles/*.md</code> - Skill library: <code>.agent/skills/</code> - Validation: <code>validate.py</code></p>
+<p>---</p>
+<p><em>This contract is versioned. Changes require updating <code>contract_version</code> in manifest and this document.</em></p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/deprecation.md::deprecation-policy" data-sha256="5bd20bad0e2e5a4dbaa512598d2b931830e9cbf5482a7fac0ec79d7bd024467f">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/deprecation.md</span>
+  </div>
+  <h2>docs/operations/deprecation.md::deprecation-policy</h2>
+  <p class="summary">Deprecation Policy</p>
+  <div class="content"><h1>Deprecation Policy</h1>
+<p>How skills and profiles are retired without breaking harnesses.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/deprecation.md::tier-progression-to-quarantine" data-sha256="fd2677d14f1d787498cc563ecb82c5d62e765feae9e67ded3486dcd69dbe0ca8">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/deprecation.md</span>
+  </div>
+  <h2>docs/operations/deprecation.md::tier-progression-to-quarantine</h2>
+  <p class="summary">Tier Progression to Quarantine</p>
+  <div class="content"><h2>Tier Progression to Quarantine</h2>
+<p>| Stage | Tier | Notice Period | Action | |-------|------|---------------|--------| | Active | <code>core</code> / <code>curated</code> | — | Fully provisionable | | Deprecated | <code>experimental</code> | None | Still usable, not default | | Quarantined | <code>quarantine</code> | Immediate | Not provisionable; <code>SKILL.md</code> = &quot;404: Not Found&quot; |</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/deprecation.md::deprecation-process" data-sha256="ec113a852b62b54557cf4a270cbede990b17f58829bccc956d2ae4adc0661e64">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/deprecation.md</span>
+  </div>
+  <h2>docs/operations/deprecation.md::deprecation-process</h2>
+  <p class="summary">Deprecation Process</p>
+  <div class="content"><h2>Deprecation Process</h2>
+<p>1. <strong>Decide</strong>: Maintainer decides a skill or profile should be retired 2. <strong>Tier change</strong>: Move skill from <code>core</code>/<code>curated</code> to <code>experimental</code> (demotion) 3. <strong>Review period</strong>: 30 days minimum — skill remains usable but not default-provisionable 4. <strong>Quarantine</strong>: Move skill to <code>quarantine</code> tier; add to <code>.agent/quarantine/registry.json</code> 5. <strong>Archive</strong>: Remove skill folder from <code>.agent/skills/</code> (after notice period)</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/deprecation.md::profile-deprecation" data-sha256="cb8b57273efc08a42dda2f628c800d81ea16997171568793514215827b95ad99">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/deprecation.md</span>
+  </div>
+  <h2>docs/operations/deprecation.md::profile-deprecation</h2>
+  <p class="summary">Profile Deprecation</p>
+  <div class="content"><h2>Profile Deprecation</h2>
+<p>Profiles follow the same pattern: 1. Add <code>status: deprecated</code> to profile frontmatter 2. 30-day notice period — profile still works but shows deprecation warning 3. Remove profile file from <code>.agent/profiles/</code></p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/deprecation.md::what-breaks" data-sha256="b4663f8b975756c469c1a7a2173e325f5c073723dced16a7384f7715498e9e99">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/deprecation.md</span>
+  </div>
+  <h2>docs/operations/deprecation.md::what-breaks</h2>
+  <p class="summary">What Breaks</p>
+  <div class="content"><h2>What Breaks</h2>
+<p>- <strong>Harnesses referencing a quarantined skill</strong>: <code>validate.py</code> fails if any active profile references a quarantine-tier skill - <strong>Harnesses referencing a removed profile</strong>: <code>sync_active.py</code> fails with &quot;unknown profile&quot; - <strong>No silent breakage</strong>: All deprecation is validated at build/provision time</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/deprecation.md::links" data-sha256="e9a3c1f854bfb99dc4864cb7f1455560505b4d61a4d79982b0f77589aa20dc3b">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/deprecation.md</span>
+  </div>
+  <h2>docs/operations/deprecation.md::links</h2>
+  <p class="summary">Links</p>
+  <div class="content"><h2>Links</h2>
+<p>- Quarantine registry: <code>.agent/quarantine/registry.json</code> - Quarantine process: <code>docs/operations/quarantine.md</code> - Tier definitions: <code>.agent/skills/TIERS.md</code> - Skill lifecycle: <code>docs/operations/skill-lifecycle.md</code> - Contract version: <code>docs/integration/harness-contract.md</code> (semver for breaking changes)</p>
+<p>---</p>
+<p><em>Deprecation follows semver: removing a skill or profile is a breaking change requiring a major contract_version bump.</em></p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
 <section id="docs/operations/quarantine.md::quarantine-ledger-broken-skills" data-sha256="f325a331fa8ecc70005393bd768e03d135dcd99a16cfb6ab297e0ce011931a8c">
   <div class="node-meta">
     <span class="badge">doc</span>
@@ -1633,6 +2361,112 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
 <p>- Template: <code>.agent/.env.example</code> - MCP server: <code>.agent/tools/mcp/server.py</code> - Profile docs: <code>.agent/profiles/agent.md</code> - Root docs: <code>README.md</code></p>
 <p>---</p>
 <p><em>This document is linked from <code>agent.md</code> and <code>README.md</code>. Update when new keys are added.</em></p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/skill-lifecycle.md::skill-lifecycle" data-sha256="b93aac9302e4545e22b5b53d3fb220d248618efdfd7cc719770d7a0d12efde48">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/skill-lifecycle.md</span>
+  </div>
+  <h2>docs/operations/skill-lifecycle.md::skill-lifecycle</h2>
+  <p class="summary">Skill Lifecycle</p>
+  <div class="content"><h1>Skill Lifecycle</h1>
+<p>Governance for the master skill library (<code>.agent/skills/</code>): tier promotion, review cadence, and demotion rules.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/skill-lifecycle.md::tiers" data-sha256="f45a871fd3dbe82bbf82ff566dee2fa26be2b9247cafd40d5fedfeb69a8cf89d">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/skill-lifecycle.md</span>
+  </div>
+  <h2>docs/operations/skill-lifecycle.md::tiers</h2>
+  <p class="summary">Tiers</p>
+  <div class="content"><h2>Tiers</h2>
+<p>Defined in <code>.agent/skills/TIERS.md</code>:</p>
+<p>| Tier | Meaning | Default-provisionable? | |------|---------|----------------------| | <strong>core</strong> | Vetted, tested, in starter set | Yes | | <strong>curated</strong> | Reviewed, not default | No (on request) | | <strong>experimental</strong> | Auto-sourced, unreviewed | No | | <strong>quarantine</strong> | Broken (<code>SKILL.md</code> = &quot;404: Not Found&quot;) | No |</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/skill-lifecycle.md::review-cadence" data-sha256="0ef20070c514a2d240041823a607a2056b8cf8018c1024cfe8daa3a737062e66">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/skill-lifecycle.md</span>
+  </div>
+  <h2>docs/operations/skill-lifecycle.md::review-cadence</h2>
+  <p class="summary">Review Cadence</p>
+  <div class="content"><h2>Review Cadence</h2>
+<p>| Tier | Frequency | Owner | |------|-----------|-------| | <strong>core</strong> | Quarterly | Profile owner + conceptualizer | | <strong>curated</strong> | Semi-annual | Profile owner | | <strong>experimental</strong> | Ad-hoc (on use) | Skill author | | <strong>quarantine</strong> | On source restore | taskmaster |</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/skill-lifecycle.md::promotion-demotion" data-sha256="519d6a81782b8faba0ec3c4b303dc556f350fe76c3e07195f95314a6f840d1c6">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/skill-lifecycle.md</span>
+  </div>
+  <h2>docs/operations/skill-lifecycle.md::promotion-demotion</h2>
+  <p class="summary">Promotion / Demotion</p>
+  <div class="content"><h2>Promotion / Demotion</h2>
+<p>| Transition | Rule | Required | |------------|------|----------| | experimental → curated | Human review completes; passes <code>skill-check</code>; reviewer signs off | Review + sign-off | | curated → core | Demonstrated production use; added to starter profile | Starter profile update | | any → quarantine | <code>SKILL.md</code> returns &quot;404: Not Found&quot; or fails validation | Automatic (import script) | | quarantine → experimental | Source restored; skill re-imports successfully | Re-import + validation |</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/skill-lifecycle.md::stale-skill-detection" data-sha256="13eda1a859a588064cd226054ff9c30001554d17b80aa566ed5e4a64f7daa7ee">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/skill-lifecycle.md</span>
+  </div>
+  <h2>docs/operations/skill-lifecycle.md::stale-skill-detection</h2>
+  <p class="summary">Stale Skill Detection</p>
+  <div class="content"><h2>Stale Skill Detection</h2>
+<p>Run <code>python3 tools/stale.py</code> to list skills unreviewed for &gt; 180 days, grouped by tier. Stale core skills are escalated for review; stale curated skills are flagged; stale experimental skills may be demoted to quarantine.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/skill-lifecycle.md::tools" data-sha256="7314d6569b5da1c955d7ffd1e6588ee72e27c9c4b9636e59f398fae9108a7061">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/skill-lifecycle.md</span>
+  </div>
+  <h2>docs/operations/skill-lifecycle.md::tools</h2>
+  <p class="summary">Tools</p>
+  <div class="content"><h2>Tools</h2>
+<p>- <code>tools/backfill_tiers.py</code> — backfill <code>tier:</code> field (one-time migration) - <code>tools/backfill_last_reviewed.py</code> — backfill <code>last_reviewed:</code> field (one-time migration) - <code>tools/dedup.py</code> — find duplicate/overlapping skills (report only) - <code>tools/stale.py</code> — list unreviewed skills by tier - <code>validate.py</code> — enforces tier field presence, valid values, quarantine invariants</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/skill-lifecycle.md::adding-a-new-skill" data-sha256="d4ecbc49153a68e8853e2e1b648c7a86aec8f874b14f96a3355ffa9a2eb76705">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/skill-lifecycle.md</span>
+  </div>
+  <h2>docs/operations/skill-lifecycle.md::adding-a-new-skill</h2>
+  <p class="summary">Adding a New Skill</p>
+  <div class="content"><h2>Adding a New Skill</h2>
+<p>1. Create <code>.agent/skills/&lt;name&gt;/SKILL.md</code> with frontmatter including <code>tier:</code>, <code>last_reviewed:</code>, <code>owner:</code> 2. Default tier is <code>experimental</code> 3. Run <code>python3 validate.py</code> to confirm no violations 4. Promote to <code>curated</code> or <code>core</code> through the review process above</p></div>
   <div class="edges">
     <div><strong>requires</strong><br><em>none</em></div>
     <div><strong>required by</strong><br><em>none</em></div>

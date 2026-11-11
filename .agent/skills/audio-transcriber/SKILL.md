@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "80ff2828b551917df23e6bc292cd514820225099096ba2e5c2726f5b1eb60608"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: audio-transcriber
 description: "Transform audio recordings into professional Markdown documentation with intelligent summaries using LLM integration"
+tier: "experimental"
 category: content
 risk: critical
 source: community
 tags: "[audio, transcription, whisper, meeting-minutes, speech-to-text]"
 date_added: "2026-02-27"
 ---
+
 
 ## Detailed Guide
 

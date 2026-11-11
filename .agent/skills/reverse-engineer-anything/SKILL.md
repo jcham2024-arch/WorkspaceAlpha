@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c52ab89e0184dae985144745a7588d4e59a28c87239684c3c129f36bea5d50ac"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: reverse-engineer-anything
 description: Use REA to investigate shipped apps, binaries, packages, and runtimes; trace features with evidence, compare versions, or guide reconstruction. Skip ordinary source-code analysis.
+tier: "experimental"
 risk: critical
 source: "https://github.com/morluto/rea/tree/main/skill-src/reverse-engineer-anything"
 source_repo: "morluto/rea"
@@ -11,6 +22,7 @@ license_source: "https://github.com/morluto/rea/blob/main/LICENSE"
 metadata:
   version: "34"
 ---
+
 
 # REA
 

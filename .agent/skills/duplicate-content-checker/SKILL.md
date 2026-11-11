@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "dd0a90e947d2f8b1895cb50b869a1974ee31f8e30ab8fa057ab7dfa8f824081c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: duplicate-content-checker
 description: "Duplicate Content Checker. Use when working with two or more texts or accessible pages."
+tier: "experimental"
 category: On-Page Optimization
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Duplicate Content Checker
 
 ## Overview

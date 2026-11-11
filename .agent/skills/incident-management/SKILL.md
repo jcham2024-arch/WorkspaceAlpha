@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "059647f5884a4e285916f2717c19e14c3779811debfdc1ded8c9951d8cb74703"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: incident-management
 description: Implement incident management processes and escalation procedures. Configure
+tier: "experimental"
   on-call schedules and post-incident reviews. Use when managing production incidents.
 category: security
 risk: safe
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Incident Management
 

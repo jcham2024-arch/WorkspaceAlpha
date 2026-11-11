@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3342b5eb6924f670b2bd1c5d5cf4c19dbab3b8a1ef6fbd81c12b56881bd539ad"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: schema-markup-generator
 description: "Generate and implement JSON-LD structured data for web apps, blogs, FAQs, and SaaS sites. Supports WebSite, SoftwareApplication, BlogPosting, FAQPage, HowTo, and more."
+tier: "experimental"
 category: seo
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [seo, schema, json-ld, structured-data, rich-results, nextjs, technical-se
 tools: [claude, cursor, gemini, claude-code]
 version: 1.0.0
 ---
+
 
 # Schema Markup Generator Skill
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8608d2ba5a5bca30d58fc243c326afa8e9e5c1091f53e2d85a6b0a17369ab378"
+fetched_at: "2026-11-10"
+upstream_license: "Apache-2.0"
+owner: "taskmaster"
+---
 name: slideshow
 description: "Build live HyperFrames slide decks with fragments, branching hotspots and presenter notes."
+tier: "experimental"
 category: content
 risk: critical
 source: community
@@ -11,6 +22,7 @@ license: Apache-2.0
 license_source: https://github.com/heygen-com/hyperframes/blob/33c17df5aeb7bc45f717e7091e81ea0e0ebe6e23/LICENSE
 date_added: "2026-11-01"
 ---
+
 
 Modified by AAS on 2026-11-05 from [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes/tree/33c17df5aeb7bc45f717e7091e81ea0e0ebe6e23/skills/slideshow) at `33c17df5aeb7bc45f717e7091e81ea0e0ebe6e23`. Apache-2.0 license retained in LICENSE; operational boundaries and examples are AAS adaptations.
 

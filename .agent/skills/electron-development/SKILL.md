@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7e32dddcdd3df519ba297c9d55bc29beb0238aaff9d3aba58473b5d6db7f945e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: electron-development
 description: "Master Electron desktop app development with secure IPC, contextIsolation, preload scripts, multi-process architecture, electron-builder packaging, code signing, and auto-update."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-12"
 ---
+
 
 # Electron Development
 

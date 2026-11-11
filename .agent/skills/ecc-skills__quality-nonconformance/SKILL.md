@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7998baea45dfa61624ef9b3a1e2d857abb84347e77d607c4d73f5090b6310eaa"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: quality-nonconformance
 description: "Quality control and non-conformance management for regulated manufacturing (FDA 21 CFR 820, IATF 16949, AS9100): NCR lifecycle and disposition, 5-Why/Ishikawa/fault-tree/8D root cause analysis, CAPA systems, SPC interpretation, AQL sampling, and supplier quality audits. Use when investigating non-conformances, performing root cause analysis, managing CAPAs, interpreting SPC data, or handling supplier quality issues."
+tier: "experimental"
 license: Apache-2.0
 homepage: https://github.com/affaan-m/ECC
 metadata:
@@ -10,6 +21,7 @@ metadata:
   clawdbot:
     emoji: ""
 ---
+
 
 # Quality & Non-Conformance Management
 

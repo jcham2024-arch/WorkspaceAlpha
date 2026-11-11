@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3d3ba88d20ce3d05cf1de1a8e419c8d6f5d0e15c999bfcb1e9e3c3986212397a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hipaa-compliance
 description: HIPAA-specific entrypoint for healthcare privacy and security work. Use when a task is explicitly framed around HIPAA, PHI handling, covered entities, BAAs, breach posture, or US healthcare compliance requirements.
+tier: "experimental"
 metadata:
   version: "1.0.0"
   origin: ECC direct-port adaptation
 ---
+
 
 # HIPAA Compliance
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4bf0e67c93e65cfad392c5c705016af69a8814a241af73581a793ae7c1f9a29e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-ai-document-intelligence-ts
 description: "Extract text, tables, and structured data from documents using prebuilt and custom models."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Azure Document Intelligence REST SDK for TypeScript
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e2e9cb4d1e6bed11c7546f3ca271c67d75aae50b32dfdbabb6bd3547e4483477"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hunt-rag-vector
 description: Hunt vector-store / embedding-layer weaknesses in RAG pipelines (OWASP
+tier: "experimental"
   LLM08 Vector and Embedding Weaknesses)
 category: security
 risk: offensive
@@ -16,6 +27,7 @@ compatibility: Requires explicit written authorization for a target scope plus t
 sources: owasp_genai_2025_2026, public_research
 report_count: 0
 ---
+
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.

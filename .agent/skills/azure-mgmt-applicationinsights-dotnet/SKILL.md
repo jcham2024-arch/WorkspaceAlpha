@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5ac106cda5b79422155f712e1490053f61473ec4ad67e416ed09e451bfefe82a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-mgmt-applicationinsights-dotnet
 description: Azure Application Insights SDK for .NET. Application performance monitoring and observability resource management.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Azure.ResourceManager.ApplicationInsights (.NET)
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f1ee434619a2739bfa1b9b814364cfd1d0dea806805581823b0eeb74115a446e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: code-review-checklist
 description: "Comprehensive checklist for conducting thorough code reviews covering functionality, security, performance, and maintainability"
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Code Review Checklist
 

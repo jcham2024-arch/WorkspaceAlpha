@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d92856ffbb0e5715aebc87782f0b38b7f10bfeefd4e4ccbf5450300341d2b60d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: business-continuity
 description: Develop business continuity plans and impact analysis. Implement BCP
+tier: "experimental"
   testing and communication procedures. Use when building organizational resilience.
 category: security
 risk: safe
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Business Continuity Planning
 

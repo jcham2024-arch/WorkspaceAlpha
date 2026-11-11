@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ca426e0a61b29ed4c875eff04b63e89977fcbe52754fe79af7638f4ae534835c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: dbos-python
 description: "Guide for building reliable, fault-tolerant Python applications with DBOS durable workflows. Use when adding DBOS to existing Python code, creating workflows and steps, or using queues for concurrency control."
+tier: "experimental"
 risk: critical
 source: "https://docs.dbos.dev/"
 date_added: "2026-02-27"
 ---
+
 
 # DBOS Python Best Practices
 

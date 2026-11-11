@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "61aeb06b7aed8eb1de66e925917b36bcc203a0923360aa81a26c60e7785a78cb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: workflow-yylo
 description: Create and maintain validated YYLO Ledger workflow Records while keeping
+tier: "experimental"
   storage, execution, and run evidence as separate explicit boundaries.
 category: project-management
 risk: safe
@@ -16,6 +27,7 @@ compatibility: Requires the `yy` CLI with the `workflow` record group installed.
 argument-hint: '[workflow to find/create/update or execution question]'
 enable-shell-directives: true
 ---
+
 
 # Use YYLO workflow Records
 

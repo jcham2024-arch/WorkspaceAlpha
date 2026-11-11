@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e39c61c81ba3548b95096d85473a549db3532964b8a2f3ac634608658824621e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: footval-stats-and-transfer-news
 description: "Football season leaderboards and transfer news from FootVal: top scorers, assists, minutes and appearances per competition, plus confirmed transfers and rumours with reliability."
+tier: "experimental"
 category: data
 risk: safe
 source: "https://github.com/target1m/footval-mcp/tree/e852de8dd9b714a8b159e8d349d8f397f8f35870/skills/stats-and-transfer-news"
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: MIT
 license_source: "https://github.com/target1m/footval-mcp/blob/e852de8dd9b714a8b159e8d349d8f397f8f35870/LICENSE"
 ---
+
 
 # Leaderboards and the transfer wire
 

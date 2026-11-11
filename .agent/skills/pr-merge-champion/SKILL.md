@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d2cf7f0cd99e27ee974087fb0f66c1b3353b0d18b15f633b2b83f89256431b88"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: pr-merge-champion
 description: "Optimize pull requests for quick approval and merging by ensuring clean diffs, comprehensive self-reviews, and structured documentation."
+tier: "experimental"
 category: workflow
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: himanshu-2l
 tags: [git, github, pull-request, code-review, workflow]
 tools: [claude, cursor, gemini, antigravity]
 ---
+
 
 # PR Merge Champion
 

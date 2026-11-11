@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e8ce951679379c7cbb26ea313394f87a1e77bc9b81ed78bbc35c1b174e00ca96"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sveltekit
 description: "Build full-stack web applications with SvelteKit — file-based routing, SSR, SSG, API routes, and form actions in one framework."
+tier: "experimental"
 category: frontend
 risk: safe
 source: community
@@ -9,6 +20,7 @@ author: suhaibjanjua
 tags: [svelte, sveltekit, fullstack, ssr, ssg, typescript]
 tools: [claude, cursor, gemini]
 ---
+
 
 # SvelteKit Full-Stack Development
 

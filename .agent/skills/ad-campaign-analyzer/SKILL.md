@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c4b7966d2d36e1e2eb77ef0a4d7d510ceba5884713993eb36ddaebe5948cfb74"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ad-campaign-analyzer
 description: "Analyze cross-channel campaign data, quantify uncertainty, and propose evidence-labeled budget tests without overstating causality."
+tier: "experimental"
 category: marketing
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: "MIT"
 license_source: "https://github.com/gooseworks-ai/goose-skills/blob/main/LICENSE"
 ---
+
 
 # Ad Campaign Analyzer
 

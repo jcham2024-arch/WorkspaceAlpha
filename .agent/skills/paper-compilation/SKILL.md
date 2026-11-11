@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "80cba33a0a064d77d903ae4f776ee6e42aba7b07c14dfc8f7a3455cfa8d9e42d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: paper-compilation
 description: Compile LaTeX papers to PDF with automatic error detection, chktex style checking, and citation/reference validation. Runs the full pdflatex + bibtex pipeline. Use when the user wants to compile a paper, fix compilation errors, or debug LaTeX.
+tier: "experimental"
 argument-hint: [tex-file-path]
 ---
+
 
 # Paper Compilation
 

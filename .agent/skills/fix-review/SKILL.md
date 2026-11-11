@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "18395d2e7cf61825ab5edbcb40b008f04c7476e63b0bacb90ab694887b5ac751"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fix-review
 description: "Verify fix commits address audit findings without new bugs"
+tier: "experimental"
 risk: safe
 source: "https://github.com/trailofbits/skills/tree/main/plugins/fix-review"
 date_added: "2026-02-27"
 ---
+
 
 # Fix Review
 

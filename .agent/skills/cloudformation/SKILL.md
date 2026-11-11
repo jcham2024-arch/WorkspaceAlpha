@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8de1566580314f83c28131d421c6c3ce9138ee49f765b9427e75c5c263ccfc22"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cloudformation
 description: Deploy AWS resources with CloudFormation templates. Create stacks, use
+tier: "experimental"
   nested stacks, and implement drift detection. Use when deploying AWS-native IaC.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # CloudFormation
 

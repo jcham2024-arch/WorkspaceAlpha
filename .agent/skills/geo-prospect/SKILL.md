@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "28d83d7d42e952042330fad3b3965033263a302d4fa0caf35b570259a991e47b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: geo-prospect
 description: CRM-lite for managing GEO agency prospects and clients.
+tier: "experimental"
 category: seo
 risk: safe
 source: https://github.com/zubair-trabzada/geo-seo-claude
@@ -22,6 +33,7 @@ tags:
 - sales
 allowed-tools: Read, Write, Bash, Glob
 ---
+
 
 # GEO Prospect Manager
 

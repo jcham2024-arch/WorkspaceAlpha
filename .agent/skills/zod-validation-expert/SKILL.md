@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a7337210d8530ff95f235eeb71a62f1c8140483aae46670ddb889770df9b4c05"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: zod-validation-expert
 description: "Expert in Zod — TypeScript-first schema validation. Covers parsing, custom errors, refinements, type inference, and integration with React Hook Form, Next.js, and tRPC."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-05"
 ---
+
 
 # Zod Validation Expert
 

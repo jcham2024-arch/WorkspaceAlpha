@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c999ea9a42940b295985166d51dc87db5cf03427fe61e2f29a5a691af9fc0dcf"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "email-template-builder"
 description: "Use when adding or reworking transactional email (React Email templates, Resend, Postmark, SendGrid or SES, preview, i18n, dark mode, deliverability). Builds the template system and provider integration end to end."
+tier: "experimental"
 ---
+
 
 # Email Template Builder
 

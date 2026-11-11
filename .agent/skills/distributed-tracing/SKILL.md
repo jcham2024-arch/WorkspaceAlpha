@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f566856392cc492b87543a9b18a5b604815e1b008ee6638673a0be51f0445961"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: distributed-tracing
 description: "Implement distributed tracing with Jaeger and Tempo for request flow visibility across microservices."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Distributed Tracing
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e2a0259ae95cc9f619532634eb652347eedf21f5c85cafb5defa738f7225372b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: visibility-index-calculator
 description: "Visibility Index Calculator. Use when working with keyword weights and rank-to-CTR mapping with rankings."
+tier: "experimental"
 category: SEO Performance
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Visibility Index Calculator
 
 ## Overview

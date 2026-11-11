@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "764de36fdee9ab62ad804e95b415d4db853ff8025f2e58bc1d76ad1dea1f1cc7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: logistics-exception-management
 description: Triage freight delays, damage, shortages, loss and carrier disputes; prepare evidence, recovery options and communications with jurisdiction-specific review.
+tier: "experimental"
 risk: critical
 source: https://github.com/ai-evos/agent-skills
 date_added: '2026-02-27'
 ---
+
 
 # Logistics Exception Management
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "91f1843485f6ce340e38d8160c6e5a78ce578fdc7efac1a7eb0ea5bfc5a1acfb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: error-detective
 description: Search logs and codebases for error patterns, stack traces, and anomalies. Correlates errors across systems and identifies root causes.
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-02-27'
 ---
+
 
 ## Use this skill when
 

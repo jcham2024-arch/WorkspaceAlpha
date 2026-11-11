@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f2eb7a5b34192979d373ba0c3b9ffc477583c589d4329c1b6aa1ac1dbf86898e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: redirect-checker
 description: "Redirect Checker. Use when working with URL or recorded response chain."
+tier: "experimental"
 category: Technical SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Redirect Checker
 
 ## Overview

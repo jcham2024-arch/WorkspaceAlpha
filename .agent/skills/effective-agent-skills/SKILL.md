@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7ab547d4a62991da19a9f1c5a8c4320c2bcee0b8fc4c15c11207cf742e261fe0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: effective-agent-skills
 description: "Author and review high-quality agent skills with triggers, progressive disclosure, and safety notes."
+tier: "experimental"
 category: development
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex]
 license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 ---
+
 
 # Agent Skills: A Complete Guide
 

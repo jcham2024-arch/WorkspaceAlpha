@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c30158a2e0aa9cbbf45f11991f448d611f9f1f398485a5c8686eab7e5353fff0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: dropthehassle-publish
 description: "Publish a finished static site to a free HTTPS link with DropTheHassle: build it if needed, deploy, hand over the claim link, verify it is live, never spend money."
+tier: "experimental"
 category: devops
 risk: critical
 source: "https://github.com/bosmdavid-gif/dropthehassle-skill"
@@ -13,6 +24,7 @@ author: bosmdavid-gif
 tags: [deploy, static-site, hosting, domain, mcp]
 tools: [claude, cursor, codex, windsurf]
 ---
+
 
 # DropTheHassle publish
 

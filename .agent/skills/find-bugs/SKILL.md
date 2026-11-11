@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "066019e625e392008eb4146e0b2351dcbad472a84c7501f80bfa74c64a46f07d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: find-bugs
 description: Find bugs, security vulnerabilities, and code quality issues in local branch changes. Use when asked to review changes, find bugs, security review, or audit code on the current branch.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-01-30"
 ---
+
 
 # Find Bugs
 

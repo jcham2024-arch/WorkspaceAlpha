@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7e0e5c7f8664945f8119a010aaae48da256094ff0da37ef576098e9ddefc0311"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: resumable-implementation-contracts
 description: "Create repository-based execution contracts for multi-session implementation work, with stable task IDs, evidence, checkpoints, and exact resume state."
+tier: "experimental"
 category: project-management
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: ShianMike
 tags: [project-management, execution-contracts, checkpoints, verification, agent-workflows]
 tools: [claude, cursor, gemini, codex, antigravity]
 ---
+
 
 # Resumable Implementation Contracts
 

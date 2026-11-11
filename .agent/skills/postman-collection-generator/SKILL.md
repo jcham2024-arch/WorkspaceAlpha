@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "563571485633d5ca87deb41b611600669710a9fdf83694878910e5d83b144fce"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: postman-collection-generator
 description: "Generate complete, import-ready Postman Collection v2.1 JSON files from natural language API descriptions or cURL commands."
+tier: "experimental"
 risk: critical
 source: https://github.com/LambdaTest/agent-skills/tree/main/api-skill/postman/postman-collection-generator
 source_repo: LambdaTest/agent-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/LambdaTest/agent-skills/blob/main/LICENSE
 ---
+
 
 # Postman Collection Generator
 ## When to Use

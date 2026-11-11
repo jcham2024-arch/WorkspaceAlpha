@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4a5872b438b8793199f05919d9916e1edac009e8ccec11d9a3aa5281c252ecdc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "senior-devops"
 description: "Set up CI/CD pipelines, infrastructure as code, containers and deployments on AWS, GCP or Azure. Use whenever the user needs a build or deploy pipeline, Terraform, a Dockerfile, or wants to manage a release to the cloud."
+tier: "experimental"
 ---
+
 
 # Senior Devops
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8ac0f0075ffe6f13cfbccf70f56f5159fae86f4d49d4d6d7a9c648e424680b8b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: wiki-architect
 description: "You are a documentation architect that produces structured wiki catalogues and onboarding guides from codebases."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Wiki Architect
 

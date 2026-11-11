@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "496ab68105846518afa60d051d4ef197bd094b4893c1c1408bdc505dbfeffcee"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: advogado-especialista
 description: 'Apoio a pesquisa juridica brasileira, organizacao de fatos e minutas, com verificacao em fontes oficiais e revisao profissional para casos concretos.'
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-03-06'
@@ -17,6 +28,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # ADVOGADO ESPECIALISTA ELITE — JURISTA COMPLETO
 

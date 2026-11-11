@@ -1,10 +1,22 @@
 ---
+tier: "core"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "90099b33a310178cb64705b00f1115dc1706c4f6f7334444f6c1c8ed9bdcc71a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: skill-comply
 description: Visualize whether skills, rules, and agent definitions are actually followed — auto-generates scenarios at 3 prompt strictness levels, runs agents, classifies behavioral sequences, and reports compliance rates with full tool call timelines. Use when checking whether agents actually follow the skills, rules, and definitions they were given, rather than assuming they do.
+tier: "core"
 metadata:
   origin: ECC
 tools: Read, Bash
 ---
+
 
 # skill-comply: Automated Compliance Measurement
 

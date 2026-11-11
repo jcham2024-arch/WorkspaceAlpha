@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d12052184c82ea741a720bdfaf26ac117757823ca5eae1e5f33a3ad96ef016a6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: latex-paper-conversion
 description: "This skill should be used when the user asks to convert an academic paper in LaTeX from one format (e.g., Springer, IPOL) to another format (e.g., MDPI, IEEE, Nature). It automates extraction, injection, fixing formatting, and compiling."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-14"
 ---
+
 
 # LaTeX Paper Conversion
 

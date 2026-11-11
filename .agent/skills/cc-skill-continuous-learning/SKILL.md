@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cdbbc0dfda62d3401143c45dfc9854080fe34df43bfc663827f72baab2d3fd09"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cc-skill-continuous-learning
 description: "Turn a completed debugging session or repeated user correction into a small, evidence-backed procedure. Use for explicit requests to capture reusable lessons; does not automatically extract or save memories."
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Continuous Learning from a Completed Session
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b991a82fa30afff468accbb452161f7b7b14337aaf18e6f1f272f0a9b03df1ab"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ui-skills
 description: "Opinionated, evolving constraints to guide agents when building interfaces"
+tier: "experimental"
 risk: safe
 source: "https://github.com/ibelick/ui-skills"
 date_added: "2026-02-27"
 ---
+
 
 # Ui Skills
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e9e62c3270436958ceb9ccafdb0aed3782cf1aac5e1e09add63f0ccb08b8b323"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: get-seen-in-replies
 description: "Write a reply to someone else's tweet that is worth reading on its own. Use when someone asks what to reply, wants to grow by replying on Twitter/X, or says their replies go nowhere."
+tier: "experimental"
 category: marketing
 risk: safe
 source: "https://github.com/prateeks367/voicemoat-skills/tree/7623a3effbee426554e8c5df55e77f3479fd0ec0/skills/get-seen-in-replies"
@@ -13,6 +24,7 @@ author: prateeks367
 tags: [twitter, replies, engagement, social-media]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Get seen in the replies
 

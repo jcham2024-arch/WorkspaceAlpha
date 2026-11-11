@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a8e98f915d4e7313ea40e525a7e81f5e17227d1e62b2fedfed96c844204e5078"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: prompt-caching
 description: Caching strategies for LLM prompts including Anthropic prompt
+tier: "experimental"
   caching, response caching, and CAG (Cache Augmented Generation)
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Prompt Caching
 

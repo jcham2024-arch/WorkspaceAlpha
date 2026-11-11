@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5b9eb18cbbd9c0003c9ee0f33fc64c84df37bbd71651cb1e714272e996ace748"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: commandcode-delegate
 description: Delegate coding tasks to the Command Code CLI (`cmd`) only when the user
+tier: "experimental"
   explicitly requests it, while the orchestrator retains review and landing responsibility.
 risk: critical
 category: agent-orchestration
@@ -16,6 +27,7 @@ compatibility: Requires the Command Code CLI (`cmd`, or `cmdc` on Windows, from 
 metadata:
   version: 0.5.0
 ---
+
 # Command Code Delegate
 
 ## Runtime availability

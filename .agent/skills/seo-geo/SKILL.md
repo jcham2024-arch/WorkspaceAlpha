@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1af24b05dd291f7d3c2930af79e4687ec436fa3d81c364ee98b26600cf36fb29"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-geo
 description: "Optimize content for AI Overviews, ChatGPT, Perplexity, and other AI search systems. Use when improving GEO, AI citations, llms.txt readiness, crawler accessibility, and passage-level citability."
+tier: "experimental"
 risk: critical
 source: "https://github.com/AgriciDaniel/claude-seo"
 date_added: "2026-03-21"
@@ -13,6 +24,7 @@ allowed-tools:
   - Bash
   - WebFetch
 ---
+
 
 # AI Search / GEO Optimization (February 2026)
 

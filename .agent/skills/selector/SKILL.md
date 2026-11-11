@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b4da143e08d2ca871082de4e9b5268cc650a24077950c4be69fd37cb7facf4a8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: selector
 description: "Select a specialized 100seotools skill from a plain-language SEO or project-documentation request. Use when the user needs help choosing the appropriate workflow."
+tier: "experimental"
 category: Skill Discovery
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, discovery, workflow]
 tools: [codex]
 ---
+
 # 100seotools Skill Selector
 
 ## Overview

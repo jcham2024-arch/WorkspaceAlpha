@@ -1,5 +1,16 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9cb499e14271db760154185f0d2661e9ac2fdccfe9fd627ae2a6a40c5f96927a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 description: Curated upstream guidance for Writing Guidelines; use when the workflow matches the user goal.
+tier: "experimental"
 name: writing-guidelines
 metadata:
   author: vercel
@@ -11,6 +22,7 @@ source: vercel-labs
 date_added: '2026-09-21'
 risk: unknown
 ---
+
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c17388ae25d5ddf6dcdb49288d6feafb5a4c28937c94bd7df0a4fcb83df9fa53"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-faq-creator
 description: "AI FAQ Creator. Use when working with source content or topic."
+tier: "experimental"
 category: AI-Powered SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # AI FAQ Creator
 
 ## Overview

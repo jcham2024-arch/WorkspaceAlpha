@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f9f49244305e3bf1bd41b7eec94c1ee9dc726e4392771d30dafc004ebe9c49eb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-servicebus-rust
 description: 'Azure Service Bus library for Rust. Send and receive messages using queues, topics, and subscriptions. Triggers: "service bus rust", "ServiceBusClient rust", "send message servicebus rust", "receive message servicebus rust", "queue rust messaging", "topic subscription rust".'
+tier: "experimental"
 risk: critical
 source: https://github.com/microsoft/skills/tree/main/.github/plugins/azure-sdk-rust/skills/azure-servicebus-rust
 source_repo: microsoft/skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/microsoft/skills/blob/main/LICENSE
 ---
+
 
 # Azure Service Bus library for Rust
 ## When to Use

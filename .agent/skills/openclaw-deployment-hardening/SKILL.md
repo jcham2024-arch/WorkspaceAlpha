@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3182134a62e660fd90ed5df8b6509d4ce0db60cf16ce5241b28cfccd617a2bc5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: openclaw-deployment-hardening
 description: Secure OpenClaw deployments with preflight hardening checks, CI/CD guardrails,
+tier: "experimental"
   container runtime restrictions, and post-deploy verification.
 category: security
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # OpenClaw Deployment Hardening
 

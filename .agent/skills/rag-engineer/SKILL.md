@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "934c9f5f9487f1952294eaee9a7a143a919a8a92148d2d5b2d0fbd3236b3fa12"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: rag-engineer
 description: Expert in building Retrieval-Augmented Generation systems. Masters
+tier: "experimental"
   embedding models, vector databases, chunking strategies, and retrieval
   optimization for LLM applications.
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # RAG Engineer
 

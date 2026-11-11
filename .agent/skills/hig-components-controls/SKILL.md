@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0e7de00b5c58ed2f80a505acf1b8fef5159b452e3cbed1ca2f2e5497bcfce39a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hig-components-controls
 description: "Choose and review Apple selection and input controls: toggles, segmented controls, sliders, pickers, steppers, text fields, labels and keyboard behavior."
+tier: "experimental"
 risk: none
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Apple HIG: Selection and Input Controls
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c6c6ae8b9fcbfd21ba40a42ce3c53c58cafb86bcfd96de010acf03009855724c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: geo-compare
 description: Monthly delta tracking and progress reporting for GEO clients.
+tier: "experimental"
 category: seo
 risk: safe
 source: https://github.com/zubair-trabzada/geo-seo-claude
@@ -23,6 +34,7 @@ tags:
 - progress
 allowed-tools: Read, Write, Bash, Glob
 ---
+
 
 # GEO Monthly Delta Report Generator
 

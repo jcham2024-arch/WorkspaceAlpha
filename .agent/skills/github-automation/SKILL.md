@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e9a5b09ebd6a7d7624fff7389fc062f609a1a47bc01f6f5f78788a253faebca4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: github-automation
 description: "Operate GitHub issues, pull requests, branches, checks, workflows, and permissions through Rube MCP. Use when GitHub work must be queried or changed programmatically with repository-policy safeguards."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # GitHub Automation via Rube MCP
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "935f71ad1093f723facd9e51099253de3d83f9b6b01184446f28a993e76da1e3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: using-git-worktrees
 description: "Git worktrees create isolated workspaces sharing the same repository, allowing work on multiple branches simultaneously without switching."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Using Git Worktrees
 

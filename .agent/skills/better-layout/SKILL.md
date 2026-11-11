@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "617fad2dc6784dc0afba6944673c0f6100df5891b0306e3086dfc777a597ace6"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: better-layout
 description: Sets grouping, alignment, reading order, responsive structure and room for translated text, so a layout holds up when it is resized, translated or mirrored.
+tier: "experimental"
 category: design
 risk: critical
 source: https://github.com/jakubkrehel/skills
@@ -12,6 +23,7 @@ author: jakubkrehel
 upstream_commit: 60bf140e43c98b248e6594487384ec967e89d98a
 date_added: "2026-11-06"
 ---
+
 ## When to Use
 
 Use for the better layout task described below, within the user-authorized interface or drawing scope. Related skills in this collection own the domains named in the workflow; existing general frontend-design and accessibility audits remain suitable for broader work.

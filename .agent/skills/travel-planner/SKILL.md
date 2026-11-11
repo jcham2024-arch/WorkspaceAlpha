@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a4cd6d3515ba1037d313867c4ca4275fe347acab7015c7b99259df9b3e304329"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: travel-planner
 description: "旅行/行程规划需求时使用:规划去某地旅行、X天X城、带老人孩子、自驾、假期安排等。产出逐日行程表、预算估算(经济/舒适/奢华三档)、交通住宿建议、景点美食清单。必须先问预算,预算未确认只输出问题清单;事实数据带来源和查询日期。"
+tier: "experimental"
 category: travel
 risk: safe
 source: community
@@ -12,6 +23,7 @@ tags: [travel, itinerary, planning, trip, chinese]
 license: "MIT"
 license_source: "https://github.com/saudademjj/luopan/blob/main/LICENSE"
 ---
+
 
 # 旅行规划 (Travel Planner)
 

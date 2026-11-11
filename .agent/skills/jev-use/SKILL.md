@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "22cdbb390fed51175249b28821d09b50cf71098daf62be1bcf40e32664bb0e28"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: jev-use
 description: "Route enumerable judgment steps - did it work, which option, how risky, is this safe to run - to the Jev judgment model through the jev_judge and jev_gate MCP tools, batched into one call per state."
+tier: "experimental"
 category: agent-orchestration
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex]
 license: "MIT"
 license_source: "https://github.com/shitianfang/jev-use/blob/main/LICENSE"
 ---
+
 
 # Jev Use
 

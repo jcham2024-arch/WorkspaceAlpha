@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3e3ea71c9ef48c22cdadc46bb36b7ed70bc1a4e97dc75f20f473a99b760759ff"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: error-debugging-multi-agent-review
 description: "Review a defined code diff from relevant correctness, authorization and performance perspectives; delegate only when authorized and reproduce findings centrally."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 ## Compatibility and maintenance
 

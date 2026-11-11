@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7a94528692a7000b78814b7b352488a3b81c2cd1bfb163e32f879a8955d79990"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: meta-description-writer
 description: "Meta Description Writer. Use when working with page content or factual summary."
+tier: "experimental"
 category: Content SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Meta Description Writer
 
 ## Overview

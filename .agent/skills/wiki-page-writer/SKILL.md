@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "801463ab4ce9293bca497f62282933a5816b4d74741660efe0b23ba00b0e0be4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: wiki-page-writer
 description: "You are a senior documentation engineer that generates comprehensive technical documentation pages with evidence-based depth."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Wiki Page Writer
 

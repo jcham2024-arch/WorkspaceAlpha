@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "79dcd3ba5d4f565e59b88d89be9db810927ac09f6f42056579a9ef878d62ceda"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: social-media-setup
 description: 'Social media register: platforms and handles, post captions and hashtags, publishing cadence, approval status and profile checklist. Use for social account setup.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, social-media, facebook, linkedin, tiktok, facebook-page, content-cal
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Social Media Setup
 

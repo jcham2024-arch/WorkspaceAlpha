@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3ba2677cea3859deb70d40dbca56a9df79bf37e82f1683767002b41f184abd41"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: osint-methodology
 description: Comprehensive OSINT methodology for external red-team operations and
+tier: "experimental"
   authorized attack-surface assessments.
 category: security
 risk: offensive
@@ -74,6 +85,7 @@ triggers:
 - threat actor investigation
 - attribution
 ---
+
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.

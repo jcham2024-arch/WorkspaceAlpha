@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "790b810f8b47e9d7e9a3ed25b86cc39e140540c2d43e623a7df916dcb13fed6c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: pre-boarding
 description: 'Pre-boarding checklist: task, employee and department, owner, category, joining and due dates, documents received, laptop, email and account-record readiness, status. Use for pre-boarding.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, onboard]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Pre-boarding
 

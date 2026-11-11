@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "67f07e0b1d618d9c33734c4c5a38ff8ef30d24e72f1f0fd54e59901511322d43"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: swiss-design
 description: Web and App implementation guide for Swiss Design (International Typographic Style). Trigger when user wants strict grid systems, strong typography, and clean, asymmetrical alignment.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Swiss Design (International Typographic Style)
 

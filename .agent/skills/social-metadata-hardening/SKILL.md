@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bc2ca92f038ce2dac2879ca9e673fafba314ae5255f4c64dafe9c93f2cd35dbc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: social-metadata-hardening
 description: "Fix social sharing previews so URLs render as rich cards on Facebook, LinkedIn, X/Twitter, WhatsApp, Telegram, and more. Covers OG tags, Twitter cards, absolute image URLs, and debugging."
+tier: "experimental"
 category: seo
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [seo, open-graph, twitter-card, social-sharing, og-image, nextjs, metadata
 tools: [claude, cursor, gemini, claude-code]
 version: 1.0.0
 ---
+
 
 # Social Metadata Hardening Skill
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ed894be3671300dacdd9e7832457520ae68ebe381dce09df33769fbcc8c04f7c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: model-registry-governance
 description: Establish model registry standards, governance controls, metadata schemas,
+tier: "experimental"
   approvals, and lifecycle policies for enterprise AI deployments.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Model Registry Governance
 

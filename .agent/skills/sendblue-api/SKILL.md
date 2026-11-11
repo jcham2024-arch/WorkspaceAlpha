@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9b800c042f541ea1edaec605f0ae1667c26730c3cf98fbc8a4094bb54661cf0c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sendblue-api
 description: "Send and receive iMessage, SMS, and RCS from application code via the Sendblue HTTP API — text, media, group messages, send styles, reactions, typing indicators, status callbacks, and inbound webhooks."
+tier: "experimental"
 category: api-integration
 risk: critical
 source: community
@@ -14,6 +25,7 @@ plugin:
     codex: blocked
     claude: blocked
 ---
+
 
 # Sendblue API
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "311451fe92a348cb3cc4831f49e82653e2e2eafe0a3defe2c5bfd35f0a8ea4a4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: advanced-evaluation
 description: "Design LLM-as-judge rubrics, direct scores and pairwise comparisons. Use for judge models, evals, position bias and calibration against human labels."
+tier: "experimental"
 risk: safe
 source: community
 date_added: 2026-03-18
 ---
+
 
 # Advanced Evaluation
 

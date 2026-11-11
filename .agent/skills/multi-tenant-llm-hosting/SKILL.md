@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e3d87cc4c108021d9af2c4772f106b3dc24b1ee2d8b6516259a0e822234bcfa7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: multi-tenant-llm-hosting
 description: Design secure, multi-tenant LLM hosting platforms with tenant isolation,
+tier: "experimental"
   quotas, billing attribution, noisy-neighbor protection, and per-tenant policy controls.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Multi-Tenant LLM Hosting
 

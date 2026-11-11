@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "da5a7426ea6ebba49d0a6861fda1c99bdab37e26bf342b1abd5c88009191404b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: logic-fix-all
 description: "Autonomous repository-wide audit-and-fix pipeline: health → review → locate/explain → fix → diff-verify → iterate until clean. Starts with a mandatory consent prompt (token-intensive); after consent runs hands-free."
+tier: "experimental"
 risk: critical
 source: https://github.com/hyhmrright/logic-lens/tree/main/skills/logic-fix-all
 source_repo: hyhmrright/logic-lens
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/hyhmrright/logic-lens/blob/main/LICENSE
 ---
+
 
 # Logic-Lens — Logic Fix All
 ## When to Use

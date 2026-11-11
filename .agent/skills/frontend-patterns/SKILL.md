@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "63317cd173a80a7ddb707d9cb39e9d00050f19ddae5226697b78ce64f26a73ce"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: frontend-patterns
 description: Frontend development patterns for React, Next.js, state management, performance optimization, and UI best practices. Use when building or reviewing React or Next.js components, state, or render performance.
+tier: "experimental"
 license: MIT
 ---
+
 
 # Frontend Development Patterns
 

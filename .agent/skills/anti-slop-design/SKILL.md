@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f690f2df75f70e6a0f12bb57ff98b211364efaa442b640da9ba657881c99a067"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: anti-slop-design
 description: "Autonomous Principal Design Technologist. Cures vibe-coded software from AI frontend slop using curated token archetypes and 7-axis quality gating."
+tier: "experimental"
 category: frontend
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/wwewtech/anti-slop-design/blob/main/LICENSE"
 ---
+
 
 # Anti-Slop Design
 

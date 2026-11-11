@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c0a8f963c24ee86df6471dad95f57bc8676287406fa7b48a3da7b18baa768d33"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: django-patterns
 description: Django architecture patterns, REST API design with DRF, ORM best practices, caching, signals, middleware, and production-grade Django apps. Use when building or reviewing Django apps, DRF APIs, ORM queries, or caching.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Django Development Patterns
 

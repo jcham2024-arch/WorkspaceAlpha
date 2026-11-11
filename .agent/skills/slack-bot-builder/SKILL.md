@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2fe69346a44107674e0386bd2d167ca51211c9a75cb91c7d5641b5a69b559f31"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: slack-bot-builder
 description: Build Slack apps using the Bolt framework across Python,
+tier: "experimental"
   JavaScript, and Java. Covers Block Kit for rich UIs, interactive components,
   slash commands, event handling, OAuth installation flows, and Workflow Builder
   integration.
@@ -8,6 +19,7 @@ risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Slack Bot Builder
 

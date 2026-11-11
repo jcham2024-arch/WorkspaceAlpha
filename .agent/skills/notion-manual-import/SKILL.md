@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "001215470a623500a5c6814155bbdf651f77f6530d4308dbbc6f7127abafc1e7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: notion-manual-import
 description: 'Notion Manual Import: the Notion step for any module - CSV, property mapping, import steps and verification for the field list the active module confirmed. Use whenever the user picks Notion.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [notion, csv, import, manual, operations, template, helper]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Notion Manual Import
 

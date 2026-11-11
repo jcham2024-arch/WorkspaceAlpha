@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f3510e52303457018355e32157be4a5f019e9c767fac7def4c8424dde2ae1ef4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: write-in-my-voice
 description: "Draft a Twitter/X or LinkedIn post that sounds like the person asking, from posts they already wrote. Use when someone asks for a post or rewrite in their voice, or asks if text sounds like them."
+tier: "experimental"
 category: marketing
 risk: critical
 source: "https://github.com/prateeks367/voicemoat-skills/tree/7623a3effbee426554e8c5df55e77f3479fd0ec0/skills/write-in-my-voice"
@@ -13,6 +24,7 @@ author: prateeks367
 tags: [linkedin, twitter, writing, voice, social-media]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Write it in my voice
 

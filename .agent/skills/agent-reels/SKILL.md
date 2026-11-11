@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8d9037783d6d8c15cdb61cbb46a86c558ccb3744683a704821caa83908868a4e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agent-reels
 description: "Find animation and video references on 1human, consult a human-agent shared library, and contribute public creations only with prior owner permission."
+tier: "experimental"
 category: design
 risk: critical
 source: "https://github.com/mdagnolops/1human-reels"
@@ -13,6 +24,7 @@ tools: [codex, claude]
 license: MIT
 license_source: "https://github.com/mdagnolops/1human-reels/blob/717c0a28d9b62182854f832fd1a63dc32775a701/LICENSE"
 ---
+
 
 # 1human
 

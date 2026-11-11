@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "be5e941a8e1efe76ef696ea598b08068195bc63fe22e4a4fcad19424b1e41191"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: loki-mode
 description: "Historical 2.35.x multi-agent workflow for turning a scoped PRD into reviewed implementation; includes experimental runner and benchmark artifacts."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Loki Mode - Multi-Agent Autonomous Startup System
 

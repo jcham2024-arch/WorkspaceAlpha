@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "802c330a385c94b53ecf6663aeb87035fb192ed697bbb444470d786e2f99f638"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: performance-testing-review-multi-agent-review
 description: "Review a defined code diff from relevant correctness, authorization and performance perspectives; delegate only when authorized and reproduce findings centrally."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 ## Compatibility and maintenance
 

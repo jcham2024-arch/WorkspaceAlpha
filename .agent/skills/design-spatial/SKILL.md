@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fa21e4655f575db31d828801a34033900406e23e4947cb3fcfd410bfd00e1f83"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: design-spatial
 description: Design — spatial composition
+tier: "experimental"
 risk: critical
 source: https://github.com/connerkward/ckw-design-skill/tree/main/deterministic-design/design-spatial
 source_repo: connerkward/ckw-design-skill
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/connerkward/ckw-design-skill/blob/main/LICENSE
 ---
+
 
 # Design — spatial composition
 ## When to Use

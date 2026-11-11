@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "28c09435525f072942b372d494960905966684258f181d4eb82c2c4ef8fc53aa"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: accint-frames
 description: Drain acc's deliberation queue — open/waiting brain_frames checkpointed by headless runs — via acc_act(runtime="continue").
+tier: "experimental"
 risk: critical
 source: https://github.com/maxbaluev/accreted-intelligence/tree/main/plugins/claude/skills/frames
 source_repo: maxbaluev/accreted-intelligence
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: Apache-2.0
 license_source: https://github.com/maxbaluev/accreted-intelligence/blob/main/LICENSE
 ---
+
 
 # frames
 ## When to Use

@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a639238965ef66c7a4f793608de0c35d0fe7c6526ccac36b16f65eedd7251d9a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: paper-assembly
 description: Orchestrate the full paper pipeline end-to-end. Manage state propagation between phases (literature → plan → code → experiments → figures → tables → writing → review), support checkpointing and resumption. Use for assembling a complete paper from components.
+tier: "experimental"
 argument-hint: [paper-directory]
 ---
+
 
 # Paper Assembly
 

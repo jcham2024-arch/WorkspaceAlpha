@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "22083b319a53c3f805ca3f0891bd866cb0c779ebdc3aa4840551faf0c3320543"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cis-benchmarks
 description: Audit and remediate CIS benchmark violations.
+tier: "experimental"
 category: security
 risk: critical
 source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # CIS Benchmarks
 

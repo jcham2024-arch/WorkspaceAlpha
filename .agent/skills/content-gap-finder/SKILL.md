@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "400de3720fb7a53ac54fde54ce5075ed99c5d5b76e48ab4f255ac23c7c5d6eb3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: content-gap-finder
 description: "Content Gap Finder. Use when working with existing content inventory and audience goal."
+tier: "experimental"
 category: Content SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Content Gap Finder
 
 ## Overview

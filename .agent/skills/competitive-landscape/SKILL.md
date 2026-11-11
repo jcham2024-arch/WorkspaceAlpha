@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fdb82976bbe43af1d9f916522209cd426230435d5ba85193ed617804ff475abf"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: competitive-landscape
 description: "Comprehensive frameworks for analyzing competition, identifying differentiation opportunities, and developing winning market positioning strategies."
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Competitive Landscape Analysis
 

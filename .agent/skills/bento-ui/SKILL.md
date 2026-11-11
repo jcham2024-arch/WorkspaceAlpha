@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8f108140db363b841cd75d644586ba9f3922e8c746fbcc7edf977eaa3e71f0e5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: bento-ui
 description: Web and App implementation guide for Bento UI. Trigger when user wants modular grid cards, Apple-like dashboard style, or sections arranged like a bento box.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Bento UI
 

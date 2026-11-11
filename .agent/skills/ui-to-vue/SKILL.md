@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "65f47b5476d36ddbb3cda207729a853043dacbf428d2bde3a7ce1eb7bcf14dca"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ui-to-vue
 description: Use when the user has UI screenshots or design exports that need batch conversion into Vue 3 components, especially with Vant, Element Plus, or Ant Design Vue.
+tier: "experimental"
 metadata:
   origin: community
 ---
+
 
 # UI To Vue
 

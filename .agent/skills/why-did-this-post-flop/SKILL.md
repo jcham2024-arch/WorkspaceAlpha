@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d259b4ccb8ec3eb0ac6b1e38d82249979cbe04377390d1ca7e007a1dad81db38"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: why-did-this-post-flop
 description: "Diagnose why one Twitter/X or LinkedIn post underperformed: not seen, seen and skipped, or read and ignored. Use when someone asks why a post did badly or got no engagement."
+tier: "experimental"
 category: marketing
 risk: safe
 source: "https://github.com/prateeks367/voicemoat-skills/tree/7623a3effbee426554e8c5df55e77f3479fd0ec0/skills/why-did-this-post-flop"
@@ -13,6 +24,7 @@ author: prateeks367
 tags: [linkedin, twitter, analytics, post-review, social-media]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Why did this post flop?
 

@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0b5805d42a2aa5af0ad89da2e7925f3dcd01ca903e2e19ddb21806442d09a806"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: pytorch-patterns
 description: PyTorch deep learning patterns and best practices for building robust, efficient, and reproducible training pipelines, model architectures, and data loading. Use when writing or reviewing PyTorch training loops, model architectures, or data loading, or when a run will not reproduce.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # PyTorch Development Patterns
 

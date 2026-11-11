@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6935b886162f2f63ba8a98749388eeabcc4784d4c39af556f40984319aa712d6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: saas-multi-tenant
 description: "Design and implement multi-tenant SaaS architectures with row-level security, tenant-scoped queries, shared-schema isolation, and safe cross-tenant admin patterns in PostgreSQL and TypeScript."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-28"
 tags: [multi-tenancy, saas, row-level-security, postgresql, tenant-isolation]
 tools: [claude, cursor, gemini]
 ---
+
 
 # SaaS Multi-Tenant Architecture
 

@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1cabc4bd79bd0a8b1c492c1a469fe70b3bc9ef9c955a92faf8a57db19af71541"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: python-patterns
 description: Pythonic idioms, PEP 8 standards, type hints, and best practices for building robust, efficient, and maintainable Python applications. Use when writing or reviewing Python code and idiomatic structure, typing, or PEP 8 is in question.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Python Development Patterns
 

@@ -1,10 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "eabee897388257804db4697549733b0df8990a3cfa7ec3927246967475ea7254"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 # ═══════════════════════════════════════════════════════════════════════════════
 # CLAUDE OFFICE SKILL - Web Search
 # ═══════════════════════════════════════════════════════════════════════════════
 
 name: web-search
 description: "Formulate effective web search queries, analyze search results, and synthesize findings. Optimize search strategies for different types of information needs."
+tier: "experimental"
 version: "1.0.0"
 author: claude-office-skills
 license: MIT
@@ -48,6 +59,7 @@ related_skills:
   - academic-search
   - news-monitor
 ---
+
 
 # Web Search Skill
 

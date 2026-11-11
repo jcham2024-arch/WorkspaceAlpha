@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "14fb17718f0ef6af18be6ee4e74f439e839a00c9bbcb6077fe2a3928205e6cd2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-bounded-rationality
 description: Use when search or investigation could run forever. Set an explicit good-enough threshold first, then stop at the first option that clears it.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Bounded Rationality
 

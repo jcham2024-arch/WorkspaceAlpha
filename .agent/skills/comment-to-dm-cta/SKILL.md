@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fac74f34e8d3b46bfa9d1a4b373600e8c3ee502dc85df92bf7d55c423cd2d74a"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: comment-to-dm-cta
 description: "Plan the \"Comment KEYWORD\" CTA of an Instagram Reel (keyword, overlay, caption, DM copy), then, after explicit user confirmation, set up the matching auto-DM in CommentKeyword."
+tier: "experimental"
 category: marketing
 risk: critical
 source: "https://github.com/commentkeyword/agent-toolkit/tree/c8117ca569b4b8d0de9bbec14aa9a90b59e6bb35/skills/comment-to-dm-cta"
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: "MIT"
 license_source: "https://github.com/commentkeyword/agent-toolkit/blob/c8117ca569b4b8d0de9bbec14aa9a90b59e6bb35/LICENSE"
 ---
+
 
 # Comment-to-DM CTA
 

@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3284f50969c66b417fa3ef5892f757790da1e49d761df4cb1a4efe5ae8808753"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "cloud-security"
 description: "Use when checking AWS, Azure or GCP for security misconfigurations: IAM privilege escalation, public buckets, open security groups, IaC gaps. Runs cloud_posture_check.py and maps findings to MITRE ATT&CK."
+tier: "experimental"
 ---
+
 
 # Cloud Security
 

@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f86ccd27189af694eb13674952c8575c51fda5f40d1cbd9a125d05678bef35f3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "senior-computer-vision"
 description: "Computer vision models: object detection, segmentation, training a custom model, and optimizing or deploying inference (YOLO, DETR, SAM, ONNX, TensorRT). Use whenever the user wants to detect objects in images or video, train on their own labeled images, or speed up a slow vision model."
+tier: "experimental"
 ---
+
 
 # Senior Computer Vision Engineer
 

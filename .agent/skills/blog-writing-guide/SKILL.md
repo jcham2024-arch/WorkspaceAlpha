@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b72544cb0242758105b395555152bada90aee1215f24ad590f863b892be888cf"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: blog-writing-guide
 description: "This skill enforces Sentry's blog writing standards across every post — whether you're helping an engineer write their first blog post or a marketer draft a product announcement."
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-03-06'
 ---
+
 
 # Sentry Blog Writing Skill
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7792a8614f887d3c5d086c4893ffe4d464b88242baebc4ee30e7909f0876bbb0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: petty-cash-management
 description: 'Petty cash register: entry number, date and type, payee and purpose, cash in and out, running balance, cash limit flag, custodian, physical count and variance. Use for petty cash.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, accounting, audit, finance, database, csv, notion, sql, petty-cash, 
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Petty Cash Management
 

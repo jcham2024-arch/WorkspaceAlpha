@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "85c1625c87f9def7e4a351dcc80482ef2617a751848776f632536de813686be7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: apify-reddit-scraper
 description: "Scrape Reddit posts, comments, subreddits and users with the harshmaur/reddit-scraper Apify Actor. No Reddit API key. Keyword search, date windows, full threads."
+tier: "experimental"
 category: data
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: "MIT"
 license_source: "https://github.com/harshmaur/apify-reddit-scraper-skill/blob/main/LICENSE.txt"
 ---
+
 
 # Reddit Scraper
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8072dba9a8c3cc762d4976b3447911020f650a98b2391ba8128477216a297e70"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-mgmt-apimanagement-py
 description: Azure API Management SDK for Python. Use for managing APIM services, APIs, products, subscriptions, and policies.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Azure API Management SDK for Python
 

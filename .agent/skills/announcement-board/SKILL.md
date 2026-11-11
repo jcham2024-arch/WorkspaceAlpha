@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "850b5ab9f678329d8f1c06088863ff46044d4787a10c8fc89e986c0d9ab3124d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: announcement-board
 description: 'Announcement board: author, category, department, priority, audience, publish and expiry dates, status and acknowledgements, as CSV, SQL, JSON Schema or Notion on request. Use for internal notices.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -19,6 +30,7 @@ tags:
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Announcement Board
 

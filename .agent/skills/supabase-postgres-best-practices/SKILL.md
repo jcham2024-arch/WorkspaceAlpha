@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b870f3b33e1861db66677ce16a66ebd3b69001aa4bc2907dc3e797ea3138e694"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: supabase-postgres-best-practices
 description: Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations.
+tier: "experimental"
 risk: critical
 source: https://github.com/supabase/agent-skills/tree/main/skills/supabase-postgres-best-practices
 source_repo: supabase/agent-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/supabase/agent-skills/blob/main/LICENSE
 ---
+
 
 # Supabase Postgres Best Practices
 ## When to Use

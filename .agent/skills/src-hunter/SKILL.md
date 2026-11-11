@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b6bcb7ec956c04f0b8d82a497f1fb2275d42f3e14c147a91f8cc5af0c30a447a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: src-hunter
 description: "Bug-bounty/SRC vulnerability-hunting workflow: five-phase methodology (intake, recon, enumeration, hunt, report) with attack playbooks for SQLi, XSS, RCE, SSRF, IDOR, CSRF, path traversal, and file upload."
+tier: "experimental"
 risk: offensive
 source: "https://github.com/zhaoxuya520/reverse-skill"
 source_repo: "zhaoxuya520/reverse-skill"
@@ -9,6 +20,7 @@ date_added: "2026-08-25"
 license: "MIT"
 license_source: "https://github.com/zhaoxuya520/reverse-skill/blob/main/LICENSE"
 ---
+
 ## Supporting material availability
 
 The report template is bundled at `references/templates/report-submission.md`. Historical upstream inventories below describe raw H1/WooYun datasets and router tools that are not all included in this catalog tree; do not claim those datasets were read or those tools were run. Resolve available references relative to this directory.

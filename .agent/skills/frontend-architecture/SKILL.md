@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "00f5f85bca1619820af55966fc8e1869c2e084d8d9989c6ccb6177c625bdbcda"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: frontend-architecture
 description: "A portable, framework-agnostic architecture style for any React or React Native frontend. Organizes apps into feature modules with page/screen directories, a strict server-state vs UI-state split, barrel-only cross-module imports, co-located styles, and clear component-promotion rules."
+tier: "experimental"
 risk: critical
 source: https://github.com/stareezy-1/frontend-architecture-skill/tree/main/skills/frontend-architecture
 source_repo: stareezy-1/frontend-architecture-skill
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/stareezy-1/frontend-architecture-skill/blob/main/LICENSE
 ---
+
 
 # Frontend Architecture (portable, module-based)
 ## When to Use

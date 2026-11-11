@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2eb6e7b075a3933773a538a2761bcae8166ecb92f15c58fb9a3e24d68a375cdd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: soc2-compliance
 description: Implement SOC 2 Trust Services Criteria. Configure security, availability,
+tier: "experimental"
   and processing integrity controls. Use when preparing for a SOC 2 examination.
 category: security
 risk: safe
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # SOC 2 Compliance
 

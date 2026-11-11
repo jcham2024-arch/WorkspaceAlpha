@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a9c3be3d16a0dc5976a0952e0107e0de3cdfe276cc6dbdfe0f5cb3ccb1e84992"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: zcode-delegate
 description: Delegate coding tasks to the Z.AI ZCode CLI only when the user explicitly
+tier: "experimental"
   requests it, while the orchestrator retains review and landing responsibility.
 risk: critical
 category: agent-orchestration
@@ -18,6 +29,7 @@ compatibility: Requires the `zcode` CLI (Z.AI ZCode) with a configured model pro
 metadata:
   version: 0.5.0
 ---
+
 ## Bundled upstream support
 
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.

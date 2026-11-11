@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "544c690c6507d4c0fa73da21dd3eb6a1ea6487629534b22a8e5db24b912ec854"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: pipecat-friday-agent
 description: "Build a low-latency, Iron Man-inspired tactical voice assistant (F.R.I.D.A.Y.) using Pipecat, Gemini, and OpenAI."
+tier: "experimental"
 category: voice-agents
 risk: critical
 source: community
@@ -8,6 +19,7 @@ date_added: "2026-03-10"
 tags: [pipecat, voice, gemini, openai, python]
 tools: [pipecat]
 ---
+
 
 # Pipecat Friday Agent
 

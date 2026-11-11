@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c2ece72f72a21ae7a33a0e57cbc81e23e19dd4fb7da59e06bd5666344ea7d98c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hermes-imports
 description: Convert local Hermes operator workflows into sanitized ECC skills and release-pack artifacts. Use when preparing a Hermes workflow for public ECC reuse without leaking private workspace state, credentials, or local-only paths.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Hermes Imports
 

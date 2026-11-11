@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "465ad0df8b97987b452c1d625a502b70944baab7ad4764b42c980e4899c2bfb5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "senior-backend"
 description: "Build and fix backend services: REST or GraphQL APIs, auth, microservices, PostgreSQL queries, migrations and load tests. Use whenever the user's API is slow or broken, needs login or auth added, a schema change, or a new endpoint or service scaffolded."
+tier: "experimental"
 ---
+
 
 # Senior Backend Engineer
 

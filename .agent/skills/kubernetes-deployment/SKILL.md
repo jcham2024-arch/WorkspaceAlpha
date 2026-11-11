@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "677b3a2c8815f4c2242b0aeb22e2d6b765661fc5ce4507d7eeb42d346ac4cf0a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: kubernetes-deployment
 description: "Kubernetes deployment workflow for container orchestration, Helm charts, service mesh, and production-ready K8s configurations."
+tier: "experimental"
 category: granular-workflow-bundle
 risk: critical
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 # Kubernetes Deployment Workflow
 

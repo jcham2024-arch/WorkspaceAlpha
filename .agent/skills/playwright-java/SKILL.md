@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ec1a133553da94b178755d611545c5570559563d22cbd7a1a36ad6a92fb9b6ac"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: playwright-java
 description: "Scaffold, write, debug, and enhance enterprise-grade Playwright E2E tests in Java using Page Object Model, JUnit 5, Allure reporting, and parallel execution."
+tier: "experimental"
 category: test-automation
 risk: critical
 source: community
@@ -9,6 +20,7 @@ author: amalsam18
 tags: [playwright, java, e2e-testing, junit5, page-object-model, allure, selenium-alternative]
 tools: [claude, cursor,antigravity]
 ---
+
 ## Supporting material
 
 The bundled files are [configuration](config.md), [page objects](page-objects.md), [assertions](assertions.md), [fixtures](fixtures.md), [BaseTest.java](BaseTest.java) and [BasePage.java](BasePage.java). Copy/adapt them into the target project with their dependencies; `src/test/resources/junit-platform.properties` below is a project file to create, not a bundled file.

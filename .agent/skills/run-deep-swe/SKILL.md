@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7969f61cfa207f4b9e3b2b01e7bd8440b41ba6f99f255285c6c71a452ac12c5e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: run-deep-swe
 description: "Run reproducible DeepSWE coding-agent benchmark evaluations through OpenRouter and mini-swe-agent."
+tier: "experimental"
 category: agent-evaluation
 risk: critical
 source: community
@@ -14,6 +25,7 @@ license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 disable-model-invocation: true
 ---
+
 
 # Run DeepSWE via OpenRouter
 

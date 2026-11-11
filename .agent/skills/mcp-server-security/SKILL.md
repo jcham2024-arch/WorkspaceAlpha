@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d28c5d83f5d6a3103fecd0a0a5a51e9b772906dc8eb6fae020d08eba396b7324"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mcp-server-security
 description: Secure Model Context Protocol (MCP) servers with transport encryption,
+tier: "experimental"
   tool authorization, input validation, and audit logging for safe AI agent integrations.
 category: security
 risk: safe
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # MCP Server Security
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "35085a220c7251038d7e1b76ca55c34929f94fcbd22e9e61615db7715914d67f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: product-marketing
 description: "When the user wants to create or update their product marketing context document."
+tier: "experimental"
 risk: critical
 source: https://github.com/coreyhaines31/marketingskills/tree/main/skills/product-marketing
 source_repo: coreyhaines31/marketingskills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/coreyhaines31/marketingskills/blob/main/LICENSE
 ---
+
 
 # Product Marketing Context
 ## When to Use

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5b59b591dde15a9027dfb7acffcae24976bb435d40fc086bf9c6edb199b9d289"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: terraform-aws-modules
 description: "Terraform module creation for AWS — reusable modules, state management, and HCL best practices. Use when building or reviewing Terraform AWS infrastructure."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 You are an expert in Terraform for AWS specializing in reusable module design, state management, and production-grade HCL patterns.
 
 ## Use this skill when

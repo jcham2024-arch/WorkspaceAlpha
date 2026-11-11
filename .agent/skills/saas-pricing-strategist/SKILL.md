@@ -1,7 +1,18 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "82ef138f9b514161f3c7b30e9ce6865d923a81a49a9a26230d2973de36248495"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: saas-pricing-strategist
 version: 1.0.0
 description: Design, optimize, and test pricing strategies for SaaS products using
+tier: "experimental"
   data-driven frameworks, competitive analysis, and psychological pricing principles.
 author: yundu-ai
 tags:
@@ -18,6 +29,7 @@ source: community
 date_added: '2026-09-21'
 risk: unknown
 ---
+
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.

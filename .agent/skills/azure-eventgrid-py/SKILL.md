@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c22fd5979b7b7eab18b15bc616c56c7b9e75d1bb104aaf04c0aed67e8092e235"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-eventgrid-py
 description: Azure Event Grid SDK for Python. Use for publishing events, handling CloudEvents, and event-driven architectures.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Azure Event Grid SDK for Python
 

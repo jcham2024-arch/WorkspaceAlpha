@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2bd897a9cfcc944cb10c4a8aefcb26fb65a9e0aa52e73c676e7a7532928b1091"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: edr-bypass-re
 description: "Review EDR telemetry and known defense-evasion classes using offline evidence and controlled defensive coverage assessments."
+tier: "experimental"
 risk: offensive
 source: "https://github.com/zhaoxuya520/reverse-skill"
 source_repo: "zhaoxuya520/reverse-skill"
@@ -9,6 +20,7 @@ date_added: "2026-08-25"
 license: "MIT"
 license_source: "https://github.com/zhaoxuya520/reverse-skill/blob/main/LICENSE"
 ---
+
 # EDR telemetry coverage review
 
 > Adapted from [zhaoxuya520/reverse-skill](https://github.com/zhaoxuya520/reverse-skill) (MIT). This catalog revision replaces operational blinding, implant deployment, and evidence-erasure recipes with defensive review procedures. The skill ID is retained for compatibility.

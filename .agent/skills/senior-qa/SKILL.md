@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "718ae5a8ce0da6d9c7ec3190270863d2dda719eb548879bc7050ae5b1837dd3b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "senior-qa"
 description: "Write and improve tests for React or Next.js apps: Jest, React Testing Library, MSW mocks, Playwright E2E, coverage gaps. Use whenever the user asks to add tests to a component or page, mock an API, set up end-to-end tests or raise coverage."
+tier: "experimental"
 ---
+
 
 # Senior QA Engineer
 

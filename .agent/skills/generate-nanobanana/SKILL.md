@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e67151c73c9807d2c636a891cd2e8b1fb5b2f5c4b95f385bdc857c4bbb91f7ed"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: generate-nanobanana
 description: "Generate and edit images/video with Google's Gemini media models (Nano Banana 2/Pro, Gemini Omni Flash), with cost-approval gates, reference-image support, and a prompt/output log per call."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex, antigravity]
 license: "MIT"
 license_source: "https://github.com/AntonioCardenas/generate-nanobanana/blob/main/LICENSE"
 ---
+
 
 # Generate Nanobanana
 

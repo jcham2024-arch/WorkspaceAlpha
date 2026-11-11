@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f4ac148228c8c3648ece84eff06b7ed766a00709b7664bf6e052352ea57deabf"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: performance-optimizer
 description: "Identifies and fixes performance bottlenecks in code, databases, and APIs. Measures before and after to prove improvements."
+tier: "experimental"
 category: development
 risk: safe
 source: community
 date_added: "2026-03-05"
 ---
+
 
 # Performance Optimizer
 

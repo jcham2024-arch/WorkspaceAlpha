@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b24b50cf3c435db2ac06d7629ed9debc4a609f7add300e239b84d58be83daf60"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: baseline-ui
 description: Quickly deslop UI code by fixing spacing, hierarchy, typography, and small layout issues. Use when the interface needs a fast cleanup or polish pass.
+tier: "experimental"
 risk: critical
 source: https://github.com/ibelick/ui-skills/tree/main/skills/baseline-ui
 source_repo: ibelick/ui-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/ibelick/ui-skills/blob/main/LICENSE
 ---
+
 
 # Baseline UI
 ## When to Use

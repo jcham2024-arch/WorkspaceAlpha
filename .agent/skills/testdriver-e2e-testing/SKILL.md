@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e75df7cd35005ff5de474e758e9ec4520746ef3e0998d8b0a151fab1f1d9650c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: testdriver-e2e-testing
 description: "Build E2E tests with TestDriver.ai, the AI code reviewer that runs every pull request in a real desktop sandbox, finds bugs, and builds regression tests"
+tier: "experimental"
 category: testing
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "Apache-2.0"
 license_source: "https://github.com/testdriverai/testdriverai/blob/main/LICENSE"
 ---
+
 
 # TestDriver End-to-End Testing
 

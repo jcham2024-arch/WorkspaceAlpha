@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1e30e68ad056f8ac6a44c7212768edf82f9f8cc5ec0cf121fd3869ef9a241e73"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: nerdzao-elite
 description: "Software engineering and product design workflow and Senior Product Designer. Full workflow with planning, architecture, TDD, clean code, and pixel-perfect UX validation."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # @nerdzao-elite
 

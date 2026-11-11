@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c86931a30126359365c5ac9cbca20c693dc2ee2e7e3c212e9b4b15a978b1f85e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: radar-satellite-analysis
 description: "Interpret weather radar and satellite observations by validating product metadata and geometry, deriving storm and cloud structures, tracking evolution, and quantifying uncertainty."
+tier: "experimental"
 category: analysis
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: ShianMike
 tags: [weather, radar, satellite, nexrad, goes, nowcasting, storm-analysis, remote-sensing, uncertainty]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Radar and Satellite Analysis
 

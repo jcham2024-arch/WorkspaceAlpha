@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "93d8829aa02e6c8835ac8e3beedf8af80f0bcf8ae8ea5695db8c28b951427482"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: crossframe-org
 description: "Use when CrossFrame Suite routes explicit Chinese analysis of teams, projects, organizations, responsibility chains, feedback write-back, repair, or retrospectives."
+tier: "experimental"
 category: business
 risk: safe
 source: community
@@ -21,6 +32,7 @@ tags:
   - retrospective
   - repair
 ---
+
 # CrossFrame Org
 
 

@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1641bc66934237a0ce7ff88db559dee0cb773f7c8dcecc9d0a68aac12d054234"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: llm-structured-output
 description: >
+tier: "experimental"
   Get reliable JSON, enums, and typed objects from LLMs using response_format, tool_use, and schema-constrained decoding across OpenAI, Anthropic, and Google APIs.
 risk: safe
 source: community
 date_added: "2026-03-12"
 ---
+
 
 # LLM Structured Output
 

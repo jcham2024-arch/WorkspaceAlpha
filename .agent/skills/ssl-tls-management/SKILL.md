@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "803c4f89f3c268f1ce8317c21601b549bd8c05e033419e1f25c3498390a94c1a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ssl-tls-management
 description: Manage SSL/TLS certificates with Let's Encrypt and internal PKI. Configure
+tier: "experimental"
   secure HTTPS, certificate renewal, and cipher suites. Use when implementing secure
   communications.
 category: security
@@ -18,6 +29,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # SSL/TLS Management
 

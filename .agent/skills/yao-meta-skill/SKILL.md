@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "168a5cbe01277032c464d1bfd2beeaf24288230214e351ab2d48ca31007ba402"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: yao-meta-skill
 description: Create, refactor, evaluate, and package agent skills from workflows, prompts, transcripts, docs, or notes. Use for skill creation, reusable workflow packaging, skill improvement, evals, and team-ready distribution.
+tier: "experimental"
 metadata:
   author: Yao Team
 category: "skill-authoring"
@@ -23,6 +34,7 @@ tools:
   - cursor
   - gemini-cli
 ---
+
 
 # Yao Meta Skill
 

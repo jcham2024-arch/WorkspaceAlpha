@@ -1,4 +1,14 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "962ba497a5c9eb3b6e43c405977cbb6e94812628e6ef2cf3f06b57a5b35a9300"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: meteora-dlmm-pool-screening
 risk: critical
 source: community
@@ -6,6 +16,7 @@ source_repo: romankurnovskii/etemaro
 source_type: community
 date_added: "2026-09-17"
 description: >
+tier: "experimental"
   Screen and rank Meteora DLMM pools for LP quality using public Meteora APIs (fee/TVL,
   bin step, organic score). Read-only: never deploys, swaps, or signs.
 metadata:
@@ -14,6 +25,7 @@ metadata:
 license: MIT
 compatibility: Network access to public Meteora datapi. No API key. The Python 3 stdlib screener is documented in references/meteora-screener.md.
 ---
+
 
 # Meteora DLMM pool screening
 

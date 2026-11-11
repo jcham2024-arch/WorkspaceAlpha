@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "44dc1f85dbc6868cb9f1b28a91eb37a9ecd3bdb5953e2db352a88a622026027e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cloudflare-pages
 description: Deploy static sites and full-stack apps on Cloudflare Pages with previews,
+tier: "experimental"
   functions, and custom domains.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Cloudflare Pages
 

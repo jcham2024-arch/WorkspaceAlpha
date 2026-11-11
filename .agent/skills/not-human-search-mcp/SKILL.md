@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "92a5f2d4bc268b1c14657318328f711e7e85318b416eab605e9a3858aa4870a4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: not-human-search-mcp
 description: "Search AI-ready websites, inspect indexed site details, verify MCP endpoints, and discover tools and APIs using the Not Human Search MCP server"
+tier: "experimental"
 category: mcp
 risk: safe
 source: "https://nothumansearch.ai"
@@ -10,6 +21,7 @@ author: unitedideas
 tags: [mcp, search, ai-discovery, api-discovery, mcp-verification, agent-tools]
 tools: [claude, cursor, gemini]
 ---
+
 
 # Not Human Search MCP
 

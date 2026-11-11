@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "39a53dd13532eae3ca99f4a2af966994c480a2f639a83da82f68952a98920e02"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: security-automation
 description: Automate security workflows and remediation. Build security pipelines,
+tier: "experimental"
   automate compliance checks, and implement SOAR capabilities. Use when scaling security
   operations or implementing DevSecOps.
 category: security
@@ -18,6 +29,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Security Automation
 

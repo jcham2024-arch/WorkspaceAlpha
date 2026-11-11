@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "38d274e39e51c2caa33d6a1ca861baf77cbacadb0f95f1f431b815da417ddcd9"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: bowmark
 description: "Use Bowmark when a task depends on what a live website shows right now: current prices, availability or stock, fares and quotes, a site search, or data behind a form or a login. The agent writes a short JavaScript script against typed site functions and gets typed results back."
+tier: "experimental"
 category: mcp
 risk: critical
 source: https://github.com/bowmark-ai/skill/tree/a872ed29015c7fec61a24c6d21d0d47cbaf2b73b/bowmark
@@ -12,6 +23,7 @@ date_added: "2026-11-03"
 author: bowmark-ai
 tags: [mcp, web-data, live-websites, prices, availability, typed-functions]
 ---
+
 
 # Bowmark
 

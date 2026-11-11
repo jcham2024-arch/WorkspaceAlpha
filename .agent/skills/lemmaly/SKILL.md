@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "21b1e2c30bc79d1f51a057a80d1d8c9ad02345fa85d00be642c536ee8c8bf434"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: lemmaly
 description: "Algorithm-first discipline: state Big-O, data structure, and algorithm family BEFORE writing loops, queries, or recursion. Catches O(n^2), N+1, and brute-force defaults."
+tier: "experimental"
 risk: safe
 source: community
 source_repo: morsechimwai/lemmaly
@@ -12,6 +23,7 @@ tools: [claude-code, antigravity, cursor, gemini-cli, codex-cli]
 license: "Apache-2.0"
 license_source: "https://github.com/morsechimwai/lemmaly/blob/main/LICENSE"
 ---
+
 
 # lemmaly — Algorithm-First Proof
 

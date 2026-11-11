@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "515270ad9a8172dfc98cd8a0fbe8465858a1c8235d02872ff45fdec20230f733"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: photopea-embedded-editor
 description: Embed Photopea in web apps using photopea.js. Covers embedding, file I/O, scripting, exporting, layers, text, filters, and selected Photoshop-like scripting patterns.
+tier: "experimental"
 risk: critical
 source: community
 source_repo: yikuansun/PhotopeaAPI
@@ -9,6 +20,7 @@ license: MIT
 license_source: "https://github.com/yikuansun/PhotopeaAPI/blob/master/LICENSE"
 date_added: 2026-05-20
 ---
+
 
 # Photopea Embedded Editor Skill
 

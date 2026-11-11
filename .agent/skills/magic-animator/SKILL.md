@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1a78bb0773e09899ea3552105f45d06c0397fe83410aca567aae06f01b93d89a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: magic-animator
 description: AI-powered animation tool for creating motion in logos, UI, icons, and social media assets.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-07"
 ---
+
 
 # Magic Animator Skill
 

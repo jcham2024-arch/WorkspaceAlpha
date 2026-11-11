@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "067882fa44fe8da7bc1c86f373cc6b396966b77f39a4ff877f3c1a637bd2f188"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: structured-data-validator
 description: "Structured Data Validator. Use when working with JSON-LD, Microdata or RDFa source."
+tier: "experimental"
 category: Schema & Structured Data
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Structured Data Validator
 
 ## Overview

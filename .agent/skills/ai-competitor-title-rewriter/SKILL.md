@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d78a10075dfc7ece5fe9a2447d1fa02ab85048d620a22864b85dcf0f82af85a5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-competitor-title-rewriter
 description: "AI Competitor Title Rewriter. Use when working with competitor title and your page topic."
+tier: "experimental"
 category: AI-Powered SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # AI Competitor Title Rewriter
 
 ## Overview

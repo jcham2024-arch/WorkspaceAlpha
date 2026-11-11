@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b5823cc291513b246854e66bb4e14bd5f81b1a428b9568cd6036671d7cc60031"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: accesslint-audit
 description: "Find and fix WCAG 2.2 accessibility issues. Two modes — report (sweep a codebase or page, produce a prioritized written report, no edits) and fix (audit→edit→verify loop on a target). Prefers direct-CDP live-DOM auditing; falls back to a browser-MCP composition or HTML-string audits."
+tier: "experimental"
 risk: safe
 source: "https://github.com/AccessLint/skills"
 date_added: "2026-06-02"
 ---
+
 
 You audit accessibility and optionally fix what's broken.
 

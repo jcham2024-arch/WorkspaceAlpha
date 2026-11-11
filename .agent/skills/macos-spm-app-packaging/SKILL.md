@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "adf206230a8b4386abbd763f316e510ada2010c4894152331cd9e16b568cc587"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: macos-spm-app-packaging
 description: Scaffold, build, sign, and package SwiftPM macOS apps without Xcode projects.
+tier: "experimental"
 risk: critical
 source: "Dimillian/Skills (MIT)"
 date_added: "2026-03-25"
 ---
+
 
 # macOS SwiftPM App Packaging (No Xcode)
 

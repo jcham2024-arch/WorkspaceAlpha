@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e84145dbe240107f6af21784dd18506a563039e54001474554716d5656b70cd4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: geo-platform-optimizer
 description: Platform-specific AI search optimization — audit and optimize for Google
+tier: "experimental"
   AI Overviews, ChatGPT, Perplexity, Gemini, and Bing Copilot individually
 category: seo
 risk: safe
@@ -24,6 +35,7 @@ tags:
 - aio
 allowed-tools: Read, Grep, Glob, Bash, WebFetch, Write
 ---
+
 
 # GEO Platform Optimizer
 

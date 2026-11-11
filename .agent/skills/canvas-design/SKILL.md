@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "88f7be013655e330cc6d4463b2b9b8f1dbfb9b9a79e8ace9805e8f96f1356592"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: canvas-design
 description: "These are instructions for creating design philosophies - aesthetic movements that are then EXPRESSED VISUALLY. Output only .md files, .pdf files, and .png files."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 <!-- Catalog review 2026-10-23: clarified user constraints, asset licensing, truthful authorship and export verification. -->
 

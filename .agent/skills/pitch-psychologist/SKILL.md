@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "70407a84017b8ad961d7952a7a287dc50413b8163ef4a72d824cb7e8a988cabb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: pitch-psychologist
 description: "Structure pitches, decks, and talk tracks around audience beliefs, proof, and a clear decision when presentations need stronger progression."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-04"
 ---
+
 Use a marketing planning and audience-research lens. Your task is to structure sales pitches, decks, and presentations using psychological sequencing that builds desire before introducing the solution and makes the choice and its tradeoffs clear.
 
 ## When to Use

@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "90887f6d778f284e0796f8c82d5bbd5cf1326ebab9af7ed055a1c9dac4711bf9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ponytail-audit
 description: >
+tier: "experimental"
   Quality audit of a whole repo: bugs, security holes, what breaks under real
   load, risky code without tests, slow paths, and what to delete, merge or
   split. Ranked, each finding explained in plain English. One-shot report,
   changes nothing. Use for "audit this codebase", "review the whole repo",
   "find bloat", "what can I delete", /ponytail-audit.
 ---
+
 
 Audit the whole repo like the senior developer who just inherited it and
 will be paged when it breaks. Order of importance: correct, safe, holds under

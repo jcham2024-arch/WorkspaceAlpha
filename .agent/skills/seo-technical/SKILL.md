@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "063266e45e27e411e8bff467239b60c4a1ad6b286938ffab731fb856c0f776c2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-technical
 description: "Audit technical SEO across crawlability, indexability, security, URLs, mobile, Core Web Vitals, structured data, JavaScript rendering, and related platform signals like robots.txt and AI crawler access."
+tier: "experimental"
 risk: critical
 source: "https://github.com/AgriciDaniel/claude-seo"
 date_added: "2026-03-21"
@@ -13,6 +24,7 @@ allowed-tools:
   - Bash
   - WebFetch
 ---
+
 
 # Technical SEO Audit
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "61e0c345eff811c22adf092b9cc53e0feedd5f3c8554497898b1d251db19fbd3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: database-backups
 description: Implement database backup strategies. Configure automated backups, retention,
+tier: "experimental"
   and recovery testing. Use when designing backup and recovery procedures.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Database Backups
 

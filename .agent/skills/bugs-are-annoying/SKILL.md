@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fb8c18cf5c4978ae3e15ecd43ee8d6e624088e764630e9522faa52a35cbedc51"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: bugs-are-annoying
 description: Adversarial code auditor that hunts down bugs, logic errors, and security flaws. Use for deep correctness passes, not style reviews.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-06-19"
 ---
+
 
 # Bugs Are Annoying
 

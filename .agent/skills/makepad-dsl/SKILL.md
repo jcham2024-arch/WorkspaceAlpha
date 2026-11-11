@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "91168d368b8778545be9cec7e32180f563b5edc3832772792204290871ddeb53"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: makepad-dsl
 description: |
+tier: "experimental"
   CRITICAL: Use for Makepad DSL syntax and inheritance. Triggers on:
   makepad dsl, live_design, makepad inheritance, makepad prototype,
   "<Widget>", "Foo = { }", makepad object, makepad property,
@@ -9,6 +20,7 @@ risk: safe
 source: community
 date_added: "2026-03-06"
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

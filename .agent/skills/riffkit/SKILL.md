@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e02d2deece439e396d3314d7f4b4fe3459adeb96f9af0a983657120783a11a97"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: riffkit
 description: "Create short videos with Riffkit: Adapt a source formula, Swap approved footage, or generate from an idea. Use for UGC ads and localized video; requires an account and render approval."
+tier: "experimental"
 category: api-integration
 risk: critical
 source: community
@@ -18,6 +29,7 @@ plugin:
 license: "MIT"
 license_source: "https://github.com/riffkit/skill/blob/main/LICENSE"
 ---
+
 
 # Riffkit — riff winning TikToks into your own short videos
 

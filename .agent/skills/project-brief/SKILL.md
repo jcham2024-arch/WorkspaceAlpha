@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c0f596dfd73adeaee2c72da5286b38fe9228d259a6e7ecd6088f529802f097f4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: project-brief
 description: "Project Detail Optimizer. Use when working with one sentence, rough notes or an existing project brief."
+tier: "experimental"
 category: Project Management
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [pm, tool, documentation]
 tools: [codex]
 ---
+
 # Project Detail Optimizer
 
 ## Overview

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b29a1111a082d4726a53cb54a364d25c87d6b6180f937ae755da81ee94f644d2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: defi-protocol-templates
 description: "Implement DeFi protocols with educational templates for staking, AMMs, governance, and lending systems. Use when building decentralized finance applications or smart contract protocols."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d7b067927845bb25dfe87fa280ad9ee16af19051e2ad6553ce31ad145a45e37f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: skill-scout
 description: Search existing local, marketplace, GitHub, and web skill sources before creating a new skill. Use when the user wants to create, build, fork, or find a skill for a workflow.
+tier: "experimental"
 metadata:
   origin: community
 ---
+
 
 # Skill Scout
 

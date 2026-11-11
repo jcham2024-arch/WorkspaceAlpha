@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a1ff918148cf593d540c51399c08f944c51cb1e3140157f56f1adeeb9894cd4d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: llm-council
 description: "Run Fireworks-hosted open-weight model councils that compare responses and synthesize a final answer."
+tier: "experimental"
 allowed-tools: Read, Write, Bash, AskUserQuestion
 category: "ai-agents"
 risk: "critical"
@@ -20,6 +31,7 @@ tools:
   - codex-cli
   - cursor
 ---
+
 
 # LLM Council (Fireworks AI)
 

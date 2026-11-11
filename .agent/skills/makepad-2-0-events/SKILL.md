@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d5feb91205b17c7978b7cfe550a99ce6c9bedc7618c53699de0b19924c5131af"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: makepad-2-0-events
 description: Makepad 2.0 guidance for events; use when building or debugging Makepad UI code.
+tier: "experimental"
 source_repo: zhanghandong/makepad-skills
 source_type: community
 source: community
 date_added: '2026-09-21'
 risk: unknown
 ---
+
 ## Limitations
 - Pin the Makepad Git revision from Cargo.lock and use that revision’s source/examples for every macro, event and widget method. “2.0” alone is not an API compatibility guarantee; these imported snippets span a changing development branch.
 - Do not run bundled scripts without explicit user approval.

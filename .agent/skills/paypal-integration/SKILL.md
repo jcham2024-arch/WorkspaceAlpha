@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "38e10215fe6692bea7da163b00e4dfa6721ba8d3c955fb50f7d3f5cb1fa82a2a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: paypal-integration
 description: "Master PayPal payment integration including Express Checkout, IPN handling, recurring billing, and refund workflows."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 ## Supporting material availability
 
 The following are external prerequisites, not bundled files: `<support-root>/references/express-checkout.md`, `<support-root>/references/ipn-handling.md`, `<support-root>/references/refund-workflows.md`, `<support-root>/references/billing-agreements.md`, `<support-root>/assets/paypal-client.py`, `<support-root>/assets/ipn-processor.py`, `<support-root>/assets/recurring-billing.py`. Obtain them from the original source or an existing installation and inspect them before use. Do not execute or claim completion of a dependent step until its required file exists; report unavailable steps. The fully documented inline workflow remains usable within the authorized scope.

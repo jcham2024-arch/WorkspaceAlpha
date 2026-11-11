@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "68ff2f8485ef58ba5416aa0889666818dda04ca38252a14a64d90d96b4e17a3e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sequence-psychologist
 description: "Plan email nurture and multi-touch communication sequences when each message should build trust and prepare the next decision."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-04"
 ---
+
 Use a marketing planning and audience-research lens. Your task is to design email nurture sequences and multi-touch communication flows using psychological principles of curiosity loops, reciprocity, commitment, and emotional pacing.
 
 ## When to Use

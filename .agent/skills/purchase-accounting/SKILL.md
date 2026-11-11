@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1d0db1ea7b76bf7971e7b93e2c96f254882625e09f9bfe7f8fac3c7f9a463a71"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: purchase-accounting
 description: 'Purchase register: supplier, invoice, gross amount, VAT and TDS, net payable, ledger account and payment balance. Use for purchase accounting.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, accounting, audit, finance, database, csv, notion, sql, purchase]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Purchase Accounting
 

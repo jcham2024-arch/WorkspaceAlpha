@@ -20,6 +20,7 @@ reads:
   - .context/manifest.json (byte ranges, never whole docs)
   - skills/index.json
 verify: "Every step is a minimal-context package; the packaged result passes the step tests; nothing waits on the orchestrator to assemble."
+owner: "coding-manager"
 ---
 
 # Coding Manager (task-agnostic)

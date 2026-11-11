@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "11995a7c4a5f0c17166ac276f09352dda80320f60b8937e728bfc9b1e9c157cd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mysql
 description: Administer MySQL/MariaDB databases. Configure replication and optimize
+tier: "experimental"
   performance. Use when managing MySQL deployments.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # MySQL / MariaDB
 

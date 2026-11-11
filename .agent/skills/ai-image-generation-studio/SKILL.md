@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5342375c5f1a5c0993d73a774ceedd48dfedc098fec318b000befcb153217b00"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-image-generation-studio
 description: "Install and use the official AI Image Generator package, pinned by digest, for paid hosted work on the Beatra service."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/beatra-ai/ai-image-generator-skill/blob/8e1b53d105701194f03a8d4566a37b33fc7560b9/LICENSE"
 ---
+
 
 # AI Image Generator Skill
 

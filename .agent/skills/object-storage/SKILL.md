@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3904c93b711c8b865a77ae63e87f91fa66cd534808714c728fa1629f8bc8f399"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: object-storage
 description: Configure object storage with S3, GCS, and MinIO. Implement lifecycle
+tier: "experimental"
   policies and access controls. Use when managing object storage.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Object Storage
 

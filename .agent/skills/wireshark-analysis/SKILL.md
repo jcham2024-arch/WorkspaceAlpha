@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d28800c249bb87cf40288ca8467ba38dd4b30ada4fea7b7befd1cc539cffb062"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: wireshark-analysis
 description: "Execute comprehensive network traffic analysis using Wireshark to capture, filter, and examine network packets for security investigations, performance optimization, and troubleshooting."
+tier: "experimental"
 risk: critical
 source: community
 author: zebbern
 date_added: "2026-02-27"
 ---
+
 
 # Wireshark Network Traffic Analysis
 

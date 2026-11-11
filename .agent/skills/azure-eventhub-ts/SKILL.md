@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d9af35142e5eb198c0f76d45342222d1d604d71ccbca42086f53be4281243bc6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-eventhub-ts
 description: "High-throughput event streaming and real-time data ingestion."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Azure Event Hubs SDK for TypeScript
 

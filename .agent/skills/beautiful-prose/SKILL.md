@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f0cf9471ed7088bd96adaaec51e1845c41ef26bf47131bd6cb3ef2531b61d12f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: beautiful-prose
 description: A hard-edged writing style contract for timeless, forceful English prose without modern AI tics. Use when users ask for prose or rewrites that must be clean, exact, concrete, and free of AI cadence, filler, or therapeutic tone.
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-01-30"
 ---
+
 # Beautiful Prose (Claude Skill)
 
 A hard-edged writing skill for producing timeless, forceful English prose without modern AI tics.

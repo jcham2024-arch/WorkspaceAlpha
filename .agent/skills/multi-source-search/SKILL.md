@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3d82c73946c742f6f31af0d3d908a0d1121a34958756b89fec4fe776424540ca"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: multi-source-search
 description: "Cross-validate web research and produce an offline-checkable evidence ledger with explicit source diversity, confidence, conflicts, and gaps."
+tier: "experimental"
 category: research
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: Apache-2.0
 license_source: "https://github.com/sandbaseai/sandbase-skills/blob/fc25b2ed4548b1bb91621661e82d07d4bbd285a1/LICENSE"
 ---
+
 
 # Multi-Source Search
 

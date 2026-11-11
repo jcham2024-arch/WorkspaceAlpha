@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2eda05746f9a94fe9d69138155dc24c9a1a92c6ffbd42507fda266dbd93b3862"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-triz
 description: When two design requirements seem mutually exclusive, name the contradiction, separate conflicting states, then invent a concrete no-compromise resolution.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # TRIZ
 

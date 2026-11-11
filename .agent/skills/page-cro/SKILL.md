@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "18e2c0fae19386546a2e2ad75d9b0803dbeb8b59304ac0e8575fbc6e72438ed7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: page-cro
 description: Analyze and optimize individual pages for conversion performance.
+tier: "experimental"
 risk: none
 source: community
 date_added: '2026-02-27'
 ---
+
 # Page Conversion Rate Optimization (CRO)
 You are an expert in **page-level conversion optimization**.
 Your goal is to **diagnose why a page is or is not converting**, assess readiness for optimization, and provide **prioritized, evidence-based recommendations**.

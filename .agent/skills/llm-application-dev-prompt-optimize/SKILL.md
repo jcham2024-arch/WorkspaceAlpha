@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ffe2808b81df3b6515492e9b6ff316448add91e3bbe2856f0f64d8a44aa60e96"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: llm-application-dev-prompt-optimize
 description: "Improve LLM prompts using task-specific evaluation, structured instructions, and regression checks."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Prompt Optimization
 

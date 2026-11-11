@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a8a0418761ddc335679ba024e5b139a4d5ca0731e349cb08bb7989b74998a572"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: protect-mcp-governance
 description: "Agent governance skill for MCP tool calls — Cedar policy authoring, shadow-to-enforce rollout, and Ed25519 receipt verification."
+tier: "experimental"
 risk: critical
 source: community
 source_repo: scopeblind/scopeblind-gateway
 source_type: official
 date_added: "2026-04-05"
 ---
+
 
 # MCP Agent Governance with protect-mcp
 

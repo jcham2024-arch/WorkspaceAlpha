@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5847e933c2ed5aac62a3131976815fa93c6df04e6d12168af6ffa6cceb264005"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: writing-skills
 description: Use when creating new skills, editing existing skills, or verifying skills work before deployment
+tier: "experimental"
 ---
+
 
 # Writing Skills
 

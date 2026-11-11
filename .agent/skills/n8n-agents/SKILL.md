@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6a239042c3c5cb9e0747a17c457f675938a425f105aa62281baed6d4371efc48"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: n8n-agents
 description: Design n8n AI agents, chains, classifiers, extractors, tool calling, memory, RAG, structured output, and human-review flows.
+tier: "experimental"
 risk: critical
 source: https://github.com/czlonkowski/n8n-skills/tree/main/skills/n8n-agents
 source_repo: czlonkowski/n8n-skills
@@ -10,6 +21,7 @@ author: Romuald Czlonkowski
 license: MIT
 license_source: https://github.com/czlonkowski/n8n-skills/blob/main/LICENSE
 ---
+
 
 # n8n Agents
 

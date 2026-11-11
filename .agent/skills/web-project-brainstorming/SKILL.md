@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a30a2ecf614250ac33cba361413a0c87709bd2143586542d379b2a8d44a830be"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: web-project-brainstorming
 description: Masterclass framework for brainstorming web development projects and page designs. Outlines structural phases for concept, UX flow, styling aesthetics, technical architecture, and SEO.
+tier: "experimental"
 category: consulting
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: Rsmiyani
 tags: [brainstorming, project-planning, web-development, product-scoping, design-system, architecture]
 tools: [claude, cursor, gemini]
 ---
+
 
 # Web Project Brainstorming
 

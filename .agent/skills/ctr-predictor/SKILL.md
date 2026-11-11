@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "38da060fc474dd1e6372ae7dad79a5c94eb6371866a40eaecfbbd70726957a7d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ctr-predictor
 description: "CTR Predictor. Use when working with impressions and an explicitly supplied CTR assumption or historical benchmark."
+tier: "experimental"
 category: SEO Performance
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # CTR Predictor
 
 ## Overview

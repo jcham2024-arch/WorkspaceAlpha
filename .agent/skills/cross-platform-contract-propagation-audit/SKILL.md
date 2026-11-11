@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "54a4b9b6a1d218da838b5495dee45d33cd4c18660c8aab0bc6d49f62637330b5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cross-platform-contract-propagation-audit
 description: "Use when auditing whether a field, enum, flag, or API contract propagates consistently across storage, services, clients, analytics, and tests."
+tier: "experimental"
 category: development
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: Whxuan0701
 tags: [contract-audit, cross-platform, api, schema, feature-flags]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Cross-Platform Contract Propagation Audit
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "93bd1d766f1f792fed58b17dca0db4c285b925dc87eb7b82240c76fd8ba03ffe"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: '007'
 description: Security audit, hardening, threat modeling (STRIDE/PASTA), Red/Blue Team, OWASP checks, code review, incident response, and infrastructure security for any project.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-03-06'
@@ -19,6 +30,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # 007 — Licenca para Auditar
 

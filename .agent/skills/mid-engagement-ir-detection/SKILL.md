@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2ba3f8a8102ceb59d2ad783beea5e99f018d15488707ce00aa4d8a6d1e56ff51"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mid-engagement-ir-detection
 description: Methodology for detecting client SOC patches, attacker activity, and
+tier: "experimental"
   security-state changes that occur DURING a red-team engagement
 category: security
 risk: offensive
@@ -15,6 +26,7 @@ compatibility: Process guidance; no tooling required. Docs-only; upstream templa
 sources: authorized-engagement
 report_count: 1
 ---
+
 
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.

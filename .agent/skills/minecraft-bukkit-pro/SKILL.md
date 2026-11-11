@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c315cfcc78fa818146edc4c9ffce07fdfd62c35e27120c41d25b25374c96c2bf"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: minecraft-bukkit-pro
 description: Master Minecraft server plugin development with Bukkit, Spigot, and Paper APIs.
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-02-27'
 ---
+
 
 ## Use this skill when
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c2e4d09be5e67e1ac314b209f79f99680a2e63dde40a3b394d207aad37e7556c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: programmatic-seo
 description: Design and evaluate programmatic SEO strategies for creating SEO-driven pages at scale using templates and structured data.
+tier: "experimental"
 risk: none
 source: community
 date_added: '2026-02-27'
 ---
+
 
 ---
 

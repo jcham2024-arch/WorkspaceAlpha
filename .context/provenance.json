@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-11-10",
+  "output_hashes": {
+    "graph.json": "f70fb864c71e1d254ad86db3342a71e4e8a6647c63b47702a16ce2b362afe02f",
+    "manifest.json": "a5485ee28aa9dabf993c02a2f528af7558d35f5a270530bfc4067bf4024facb6",
+    "wiki/index.html": "a8ba9b6a21ec8af6471a0c49f947feac7896cf09b4c49f8193f094c91fa7f695"
+  },
+  "script_hashes": {
+    "build.py": "3677a6714b1c3c9b6fc6ea9f69598c83c729fc146a95291410202e71b959973f",
+    "seed.py": "16a70965c2f27915aefd49faa0644000cda2612faab6b7b4ca6788710c531652",
+    "validate.py": "5999742a5357d7270a9bbb4c1b2338d0bc6d28990e33dc698358d20caae6007f"
+  }
+}

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8559e8a3caeeb82769a228de234f0c48297f48063e48724978cf0480c4581838"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: capacity-workload-planner
 description: 'Weekly capacity and workload register: available and allocated hours, utilisation percentage, over-allocation check and leave days. Use for resource planning.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, manage]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Capacity & Workload Planner
 

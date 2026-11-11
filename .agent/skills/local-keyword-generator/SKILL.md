@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fbf1be55dc6b11ad0400d5393f3f31455218ac5b420c0b4828f5124cf1d6474b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: local-keyword-generator
 description: "Local Keyword Generator. Use when working with service or product and actual target location."
+tier: "experimental"
 category: Local SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Local Keyword Generator
 
 ## Overview

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cd7c63b8336a6744ad9fdff94bc5acac2c3a40cf2853fb6e954bd1f605c40f15"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: not-a-vibe-coder
 description: Turns vague prompts into 8 structured planning files for brand new projects. DO NOT use on existing codebases.
+tier: "experimental"
 source: community
 date_added: "2026-06-12"
 risk: critical
 ---
+
 
 # Not-a-Vibe-Coder
 

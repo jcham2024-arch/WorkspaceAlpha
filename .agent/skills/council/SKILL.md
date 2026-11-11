@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9f34f6bacc10ac17fa8e86dd9dc8f0cddcd8fa49cede181d581e9384359bff81"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: council
 description: Convene a four-voice council for ambiguous decisions, tradeoffs, and go/no-go calls. Use when multiple valid paths exist and you need structured disagreement before choosing.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Council
 

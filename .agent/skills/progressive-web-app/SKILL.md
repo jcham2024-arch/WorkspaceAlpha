@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4d168fc88d58be95644a8941f4a4cf32debe7e579945c2c2fa7e604c0fd8a34a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: progressive-web-app
 description: "Build Progressive Web Apps (PWAs) with offline support, installability, and caching strategies. Trigger whenever the user mentions PWA, service workers, web app manifests, Workbox, 'add to home screen', or wants their web app to work offline, feel native, or be installable."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-17"
 tags: [pwa, web-dev, service-worker, frontend, offline, caching]
 tools: [gemini, cursor, claude]
 ---
+
 
 # Progressive Web Apps (PWAs)
 

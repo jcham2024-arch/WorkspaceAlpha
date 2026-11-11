@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4740055177d9df47f10017f155deca44e9b4315d1780b9650ce6f64c77650655"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fp-refactor
 description: Comprehensive guide for refactoring imperative TypeScript code to fp-ts functional patterns
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
@@ -17,6 +28,7 @@ tags:
   - task
   - reader
 ---
+
 
 # Refactoring Imperative Code to fp-ts
 

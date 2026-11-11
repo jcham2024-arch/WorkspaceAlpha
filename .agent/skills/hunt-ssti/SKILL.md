@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e5d8d521b506c55717b3754b3ba3f02be4ce8a16a5e1140e24e31cbb7234c13e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hunt-ssti
 description: Hunt server-side template injection (SSTI) across Jinja2 (Flask/Django),
+tier: "experimental"
   Twig (Symfony), Freemarker (Java), ERB (Rails), Spring, Velocity, Mako, Thymeleaf,
   Smarty.
 category: security
@@ -17,6 +28,7 @@ compatibility: Requires explicit written authorization for a target scope plus t
 sources: hackerone_public, cve_database, public_research
 report_count: 6
 ---
+
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.

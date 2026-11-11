@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a4b7864bb03166f0d83abaa0f2d7c8c444afc72759439bfa2f6682062eb395e7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: design-taste-frontend
 description: "Use when building high-agency frontend interfaces with strict design taste, calibrated color, responsive layout, and motion rules."
+tier: "experimental"
 category: frontend
 risk: safe
 source: community
@@ -11,6 +22,7 @@ author: Leonxlnx
 tags: [frontend, design, ui, react]
 tools: [claude, cursor, codex, antigravity]
 ---
+
 # High-Agency Frontend Skill
 
 ## When to Use

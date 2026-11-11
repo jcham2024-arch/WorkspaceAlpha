@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "741df69b30e0e3c71061ae02f032b87f4e7030d29b7abd28201aeb1355112395"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fp-errors
 description: Stop throwing everywhere - handle errors as values using Either and TaskEither for cleaner, more predictable code
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-01-30"
@@ -15,6 +26,7 @@ tags:
   - validation
   - practical
 ---
+
 
 # Practical Error Handling with fp-ts
 

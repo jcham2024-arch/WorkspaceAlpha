@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c437d2203b4086dde38f409dc1851b92dbf41a93b24110f8a786e0770ac12854"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: meta-tag-comparison-tool
 description: "Meta Tag Comparison Tool. Use when working with HTML or extracted metadata from two or more labeled pages."
+tier: "experimental"
 category: Competitor Analysis
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Meta Tag Comparison Tool
 
 ## Overview

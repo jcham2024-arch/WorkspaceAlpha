@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bb8741ff6ba708afd270da75f9781397316124bd727b2fef73849d0b1d28e043"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cline-delegate
 description: Delegate coding tasks to the Cline CLI (`cline`) only when the user explicitly
+tier: "experimental"
   requests it, while the orchestrator retains review and landing responsibility.
 risk: critical
 category: agent-orchestration
@@ -16,6 +27,7 @@ compatibility: Requires the `cline` CLI installed and authenticated with `cline 
 metadata:
   version: 0.5.0
 ---
+
 # Cline Delegate
 
 ## Runtime availability gate

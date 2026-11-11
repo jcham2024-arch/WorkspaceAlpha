@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "03090315d69a42695ef569865449a1cf837f6c9fd5375fee4b53b3ff584c165d"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: ask-sonner
 description: "Set up and troubleshoot Sonner React toasts, including promises, loading states, updates, styling, theming, and placement."
+tier: "experimental"
 category: frontend
 risk: critical
 source: community
@@ -11,6 +22,7 @@ author: Emil Kowalski
 license: MIT
 license_source: https://github.com/emilkowalski/skills/blob/a81dbca07f2217b7103e510c0f13f8d5b017afc9/LICENSE
 ---
+
 
 # Working With Sonner
 

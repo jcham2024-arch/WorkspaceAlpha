@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d1ab254b3ced81a1e078f688851c1ef5f4d76cb9988ef0cb0e79643d31766398"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "senior-security"
 description: "Check if a design or code is secure: STRIDE threat model, DREAD risk scores, leaked secret scan. Use whenever the user asks what could be attacked, how risky a feature is, or to find exposed keys."
+tier: "experimental"
 ---
+
 
 # Senior Security Engineer — Threat Modeling + Security Router
 

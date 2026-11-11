@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6665ca402f56fa34996ca63d4c98968a8aedd64fd4165f82a0adfc6463ce1bc1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: differential-review
 description: "Security-focused code review for PRs, commits, and diffs."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # Differential Security Review
 

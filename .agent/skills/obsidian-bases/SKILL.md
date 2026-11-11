@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "273fd3793e21534eab27d59ff4a0cb79a23e3f932919dc2a00e2221cd19c0261"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: obsidian-bases
 description: Create and edit Obsidian Bases (.base files) with views, filters, formulas, and summaries. Use when working with .base files, creating database-like views of notes, or when the user mentions Bases, table views, card views, filters, or formulas in Obsidian.
+tier: "experimental"
 risk: critical
 source: "https://github.com/kepano/obsidian-skills"
 date_added: "2026-03-21"
 ---
+
 
 # Obsidian Bases Skill
 

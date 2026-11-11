@@ -1,7 +1,18 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ff8c217ab44a7c13ef8c850609fb8f065e28483d02edd9b4905350d67851b677"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: permission-manager
 version: 1.0.0
 description: "Manage opencode permissions: review always-allow lists, suggest safe read-only commands, configure permission patterns"
+tier: "experimental"
 risk: critical
 source: community
 source_type: community
@@ -10,6 +21,7 @@ license: MIT
 license_source: "https://github.com/mskadu/opencode-agent-skills/blob/main/LICENSE"
 date_added: "2026-06-05"
 ---
+
 
 ## What I do
 - Review and summarize currently always-allowed commands

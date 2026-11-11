@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "83ff5cc07267a551a804fbae25bc3b6ea29086b534b4c507c38c59590960e807"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: write-design-md
 description: "Write or update a project's DESIGN.md from the colors, type, spacing and components it really uses, with rules agents follow so new screens match."
+tier: "experimental"
 category: frontend
 risk: safe
 source: https://github.com/uxkin/agent/tree/main/.agents/skills/design-md
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, copilot, gemini]
 license: MIT
 license_source: https://github.com/uxkin/agent/blob/main/LICENSE
 ---
+
 
 # DESIGN.md · by UXKIN
 

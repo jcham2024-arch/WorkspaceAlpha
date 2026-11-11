@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "90b0d6191f67642e605d9977dbe618908b080f18eccac2597e4a6e0259d2495c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: rust
 description: "Language-specific super-code guidelines for rust."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-06-16"
 ---
+
 # Rust: Idiomatic Efficiency Reference
 
 Apply only within the requested scope and current project conventions. Preserve behavior, ownership, error handling, accessibility and security; examples are independent fragments, not equivalent rewrites in every context. Verify language/library versions and run relevant checks. Required tests and user-facing progress/results take precedence over brevity rules. Do not install dependencies or delete files merely to follow these examples.

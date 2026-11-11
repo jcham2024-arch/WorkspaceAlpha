@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "339de880393680d5fa0936cf71b476615216d12e35d6426be9010def7856d2b0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: evaluation
 description: "Build evaluation frameworks for agent systems. Use when testing agent performance systematically, validating context engineering choices, or measuring improvements over time."
+tier: "experimental"
 risk: safe
 source: "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/evaluation"
 date_added: "2026-02-27"
 ---
+
 
 ## When to Use This Skill
 

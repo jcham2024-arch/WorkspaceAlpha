@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e2ea1947d2b8398bf98685d2933511f819fd709081275858d6e3584a37311b9b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-steel-manning
 description: Before rejecting a proposal or reflexively agreeing, build the strongest faithful opposing case, state agreement conditions, then update or reaffirm.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Steel-Manning
 

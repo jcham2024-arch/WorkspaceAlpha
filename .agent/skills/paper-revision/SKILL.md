@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c079ccd0c8fefbdf6698c5464e497fcfda7fd6e3c0dd9d43e4fb9366defc4039"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: paper-revision
 description: Revise papers based on reviewer feedback. Map reviewer concerns to specific sections, apply targeted edits, run additional experiments if needed, and verify improvements. Use after receiving peer review with revision requests.
+tier: "experimental"
 argument-hint: [reviews-or-draft]
 ---
+
 
 # Paper Revision
 

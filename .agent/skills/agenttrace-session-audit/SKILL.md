@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a8fec2f830b4f9961108094ad374cf1591085cee6a4a3eb01492bcb8e6b9ff4d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agenttrace-session-audit
 description: "Audit local AI coding-agent sessions with agenttrace for cost, tool failures, latency, anomalies, health, diffs, and CI gates."
+tier: "experimental"
 category: development
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex-cli]
 license: "MIT"
 license_source: "https://github.com/luoyuctl/agenttrace/blob/master/LICENSE"
 ---
+
 
 # agenttrace Session Audit
 

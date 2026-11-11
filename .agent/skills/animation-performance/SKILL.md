@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f9a8b5e5eb0657133fb01c0f33e9b80cdd4c3ef74e2738818a6a3bdf085ab15f"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: animation-performance
 description: "Diagnose dropped animation frames and choose properties, rendering paths, and profiling checks for smooth web motion."
+tier: "experimental"
 category: frontend
 risk: critical
 source: community
@@ -11,6 +22,7 @@ author: Emil Kowalski
 license: MIT
 license_source: https://github.com/emilkowalski/skills/blob/a81dbca07f2217b7103e510c0f13f8d5b017afc9/LICENSE
 ---
+
 
 # Animation Performance
 

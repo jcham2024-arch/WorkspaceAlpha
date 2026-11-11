@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4e9689aa78160b1776eceef421987a6f3efd8a6845e1d0e9fd2997f817fb8352"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: security-auditor
 description: Expert security auditor specializing in DevSecOps, comprehensive cybersecurity, and compliance frameworks.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 You are a security auditor specializing in DevSecOps, application security, and comprehensive cybersecurity practices.
 
 ## Use this skill when

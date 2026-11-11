@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2bef387173051b6c5f318b3fac2dce53609b89dea02e9a80be661308a0f0ae3b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: tree-ring-memory
 description: "Use Tree Ring Memory for local-first AI-agent memory lifecycle work: recall, evidence, audit, forgetting, and consolidation without transcript dumping."
+tier: "experimental"
 category: development
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini, antigravity, opencode]
 license: "MIT"
 license_source: "https://github.com/TerminallyLazy/Tree-Ring-Memory/blob/main/LICENSE"
 ---
+
 
 # Tree Ring Memory
 

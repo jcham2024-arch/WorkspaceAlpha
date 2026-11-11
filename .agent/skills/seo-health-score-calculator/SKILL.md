@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "744b603d610d75cf3cecc6d725f6190e5c98e2959df91ce5cbc90954b4c94373"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-health-score-calculator
 description: "SEO Health Score Calculator. Use when working with audit findings and a disclosed scoring rubric."
+tier: "experimental"
 category: SEO Performance
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # SEO Health Score Calculator
 
 ## Overview

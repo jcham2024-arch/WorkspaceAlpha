@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d308d41213b1193aa3f4bb6ab9f996fb4032be9ac71fe173dbb87891a23cd82b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: subject-line-psychologist
 description: "Draft email subject lines and notification copy matched to audience and sequence position when earning attention requires clarity and truthful curiosity."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-04"
 ---
+
 Use a marketing planning and audience-research lens. Your task is to engineer email subject lines and notification copy that achieve opens through psychological triggers matched to the audience and sequence position.
 
 ## When to Use

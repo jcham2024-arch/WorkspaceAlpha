@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9a71faed27a4018f4fcb780af0e5a7809a9ef5f59e0915c3669ceb69838127bc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: brutalist-typography
 description: Web and App implementation guide for Brutalist Typography. Trigger when user wants huge fonts, raw presentation, and aggressive layout decisions.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Brutalist Typography
 

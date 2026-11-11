@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a57ef5e955c07bb73eee2f27d19fa048e956dbee60164ae26910e89078aae18f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-via-negativa
 description: Use when the reflex is to add a feature, layer, or process. Prefer removing harmful or nonessential elements first, with an irreversibility guard before deletion.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Via Negativa
 

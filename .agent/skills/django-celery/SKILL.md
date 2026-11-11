@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f8744add52f3dc890dca84fee1265dde9a060f7e2026b87708e49cbc609d2d98"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: django-celery
 description: Django + Celery async task patterns — configuration, task design, beat scheduling, retries, canvas workflows, monitoring, and testing. Use when adding background jobs, scheduled tasks, or async processing to a Django app.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Django + Celery Async Task Patterns
 

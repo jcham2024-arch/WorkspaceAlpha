@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9d54a59a70e4a20e90f80e5e9d9fee19f3f908f2cc339b3be383e9df366cc5a0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: llm-trading-agent-security
 description: Security patterns for autonomous trading agents with wallet or transaction authority. Covers prompt injection, spend limits, pre-send simulation, circuit breakers, MEV protection, and key handling. Use when an autonomous agent holds wallet or transaction authority and its limits, simulation, or key handling need review.
+tier: "experimental"
 metadata:
   version: "1.0.0"
   origin: ECC direct-port adaptation
 ---
+
 
 # LLM Trading Agent Security
 

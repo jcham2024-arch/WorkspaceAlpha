@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1220d61c1e49fffeba3af5f200b47a5574d0f1de6b6c952734f93ad5dc15cde1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "senior-data-engineer"
 description: "Data pipelines: Airflow DAGs, Spark, dbt, Kafka, ETL/ELT, data quality checks. Load whenever a DAG or batch job times out or fails, data arrives wrong, or the user designs an ingestion pipeline."
+tier: "experimental"
 ---
+
 
 # Senior Data Engineer
 

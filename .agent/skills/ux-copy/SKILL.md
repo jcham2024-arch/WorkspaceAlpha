@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b77a63f9c8fa90e0286738c69e32da2bc2ec838601a8f563d726d062c7d0a66c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ux-copy
 description: Generate UX microcopy (button labels, error messages, empty states, toasts) following a casual-but-polite voice and tone
+tier: "experimental"
 risk: critical
 source: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-copy
 source_repo: bitjaru/styleseed
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE
 ---
+
 
 # UX Microcopy Generator
 ## When to Use

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "361e393bfb12bf5a8ba6a17f802c8e4e0ddc736a0aef1de58289e5251829a8d8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: codex-delegate
 description: Delegate coding tasks to the OpenAI Codex CLI only when the user explicitly
+tier: "experimental"
   requests it, while the orchestrator retains review and landing responsibility.
 risk: critical
 category: agent-orchestration
@@ -16,6 +27,7 @@ compatibility: Requires the `codex` CLI (OpenAI Codex) installed and authenticat
 metadata:
   version: 0.5.0
 ---
+
 # Codex Delegate
 
 ## When to Use

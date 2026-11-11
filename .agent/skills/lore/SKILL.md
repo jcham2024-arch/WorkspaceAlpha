@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "dd406ee3e5829bfeb452eea1905a1259b09b57e0a86da79d97e6263c843f69ba"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: lore
 description: "Markdown project memory for AI agents. Use for decisions, architecture, conventions, monorepo scopes, `.lore/`, or `lore` commands; not native `/init`/`/compact` or generic init/compress/audit/query."
+tier: "experimental"
 category: development
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex, copilot, opencode, cline, aider]
 license: MIT
 license_source: "https://github.com/TheaDust/lore/blob/25111dead1b54053d65124e43c35d307951c1844/LICENSE"
 ---
+
 
 # lore — Framework-agnostic Memory Management
 

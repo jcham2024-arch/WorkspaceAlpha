@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8e44b4c8c34dfb5fcd7146f304a52195c8ac9c2c89dd0ac77301fb38e3a69ead"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: invoices-billing
 description: 'Invoice and billing register: invoice number, client, project, issue and due dates, subtotal, discount, tax and withholding, total, payments, balance and aging. Use for billing follow-up.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, operate]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Invoices & Billing
 

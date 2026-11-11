@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2d5db03e7342bfbcbd98e050782f5b981226f1f2f316131752e126c326af4097"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: keyword-difficulty-estimator
 description: "Keyword Difficulty Estimator. Use when working with keyword plus supplied SERP or competitor evidence."
+tier: "experimental"
 category: Keyword Research
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Keyword Difficulty Estimator
 
 ## Overview

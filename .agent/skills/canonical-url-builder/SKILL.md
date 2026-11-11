@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "14ead70085c0bdd599a947cac88b8f2adb97e7a97fe3333437b6e5eb9b6c0f81"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: canonical-url-builder
 description: "Canonical URL Builder. Use when working with preferred page URL and duplicate URL variants."
+tier: "experimental"
 category: SEO Utility
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Canonical URL Builder
 
 ## Overview

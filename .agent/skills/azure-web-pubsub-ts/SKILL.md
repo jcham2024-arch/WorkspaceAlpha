@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ef69f56f1795682ca87b100a56eb2d492e797221fe4b8c44207ce883fe5276f9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-web-pubsub-ts
 description: "Real-time messaging with WebSocket connections and pub/sub patterns."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Azure Web PubSub SDKs for TypeScript
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cd9808a83d4a41140fce61b22db76f95e8ce58c83d568decb8f7fe0171c7c5a2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: pre-release-review
 description: "Run a read-only pre-release review for deploy readiness, migrations, config, secrets, rollout order, rollback risk, and launch blockers."
+tier: "experimental"
 category: operations
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [git, gh, rg]
 license: "Apache-2.0"
 license_source: "https://github.com/chaunsin/agent-skills/blob/master/LICENSE"
 ---
+
 # Pre-release Review
 
 Use this skill to run a read-only production release readiness review. The goal is to reduce

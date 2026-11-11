@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "03eb4e0488e0d35f81459a7e4aed7748505286041ebfd40cbd720839c6448ee7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agent-harness-construction
 description: Design and optimize AI agent action spaces, tool definitions, and observation formatting for higher completion rates. Use when defining or revising an agent's tool set, action space, or observation format.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Agent Harness Construction
 

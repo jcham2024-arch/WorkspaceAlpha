@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4265a0cdbfeff392cedfafe485ac5abde7f53b479c7188b94811e4455db6a119"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: csharp-testing
 description: C# and .NET testing patterns with xUnit, FluentAssertions, mocking, integration tests, and test organization best practices. Use when writing or reviewing xUnit tests, mocks, or integration tests in a C# / .NET project.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # C# Testing Patterns
 

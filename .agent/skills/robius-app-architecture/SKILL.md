@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "30b9af7cbdcabee9b1b5033d85a629b8addcb4ac3452217bfe8d4719ab1eee03"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: robius-app-architecture
 description: |
+tier: "experimental"
   CRITICAL: Use for Robius app architecture patterns. Triggers on:
   Tokio, async, submit_async_request, 异步, 架构,
   SignalToUI, Cx::post_action, worker task,
@@ -9,6 +20,7 @@ risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

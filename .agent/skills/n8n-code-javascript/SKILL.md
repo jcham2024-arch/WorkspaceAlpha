@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "773fba24ae73d6ce052c729d3c9f888fcb1756655690c2f74c4d90fd29b7d5eb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: n8n-code-javascript
 description: Write JavaScript code in n8n Code nodes. Use when writing JavaScript in n8n, using $input/$json/$node syntax, selecting the HTTP Request node for network access, working with dates using DateTime, troubleshooting Code node errors, or choosing between Code node modes.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # JavaScript Code Node
 

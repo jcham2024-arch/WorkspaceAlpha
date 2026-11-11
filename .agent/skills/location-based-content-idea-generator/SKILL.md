@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3a8053a687e45ad5edca1eb5d0cef0a660d9619f073ba3adaabaf62bc46040f9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: location-based-content-idea-generator
 description: "Local Content Idea Generator. Use when working with location, audience and business topic."
+tier: "experimental"
 category: Local SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Local Content Idea Generator
 
 ## Overview

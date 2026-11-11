@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4eea5aee539c2d0f2588ac152a43756f56921a0dfbc1dd591403df794f532617"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: find-complementary-founders
 description: "Use when an owner explicitly asks for a cofounder or project partner, or explicitly says they need a complementary builder, operator, go-to-market partner, or scaling capability. Assess and publish only the agent's own owner, then rank only approved own-owner profiles."
+tier: "experimental"
 category: business-strategy
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, codex, gemini, copilot]
 license: MIT
 license_source: https://github.com/merc1305/findMate/blob/main/LICENSE
 ---
+
 
 # Find Complementary Founders
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f3c25a79ec01fa356191c8428b1b790f44b84a79480529ce8a76026a9c1490b5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-md
 description: "Convert human-written CLAUDE.md into AI-native structured-label format. Propose and evaluate structured-label rewrites while preserving rule meaning; benefits require measured evidence."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-11"
 ---
+
 
 # AI.MD v4 — The Complete AI-Native Conversion System
 

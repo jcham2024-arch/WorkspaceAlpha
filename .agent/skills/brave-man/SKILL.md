@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8debe7243fbe41789e297001cd0b471a2d126a7974f99f6d074182f2c9165844"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: brave-man
 description: "Runs a structured clarifying interview for new project requests before building. Instead of writing code, it outputs a fully specified prompt.md for a fresh agent session to execute, preventing expensive mistakes."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-06-16"
 ---
+
 
 # Brave Man
 

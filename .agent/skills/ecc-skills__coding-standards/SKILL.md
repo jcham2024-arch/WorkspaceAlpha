@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f940afa3f72e8462c2501f391dc60f381c274dda7666fa49a11875adc0ee592e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: coding-standards
 description: Baseline cross-project coding conventions for naming, readability, immutability, and code-quality review. Use detailed frontend or backend skills for framework-specific patterns. Use when reviewing code quality or naming with no framework-specific skill that applies.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Coding Standards & Best Practices
 

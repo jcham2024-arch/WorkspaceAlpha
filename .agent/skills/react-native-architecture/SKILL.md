@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cb3c7835c377acabc06921e5a95cf3e1f958c6f91cc08d4122d2697ed7585bdd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: react-native-architecture
 description: "Architecture and integration patterns for React Native development with Expo, including navigation, state management, native modules, and offline-first architecture."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # React Native Architecture
 

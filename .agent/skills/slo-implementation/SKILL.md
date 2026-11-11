@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cdf89588767266c6c0800b8d74e3f0b2e66a5b20bbab40cf83d5822f09612303"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: slo-implementation
 description: "Framework for defining and implementing Service Level Indicators (SLIs), Service Level Objectives (SLOs), and error budgets."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # SLO Implementation
 

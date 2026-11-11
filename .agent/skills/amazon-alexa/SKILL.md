@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6d552c561982d22af2b85c07e0e4ef70c54321fa5253c3f84fe7bba4bb6da98d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: amazon-alexa
 description: "Integracao completa com Amazon Alexa para criar skills de voz inteligentes, transformar Alexa em assistente com Claude como cerebro (projeto Auri) e integrar com AWS ecosystem (Lambda, DynamoDB, Polly, Transcribe, Lex, Smart Home)."
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-03-06'
@@ -18,6 +29,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # AMAZON ALEXA — Voz Inteligente com Claude
 

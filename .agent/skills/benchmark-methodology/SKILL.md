@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a5995ffc05c4fa46a3114f91a401fa1b8ac85525d7eff7187885038660964a5f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: benchmark-methodology
 description: >-
+tier: "experimental"
   Use after competitive-platform-analysis has produced a tiered competitor set.
   Scores each competitor across nine weighted dimensions (positioning, voice,
   visual craft, offer packaging, evidence, enterprise-readiness, thought
@@ -8,6 +19,7 @@ description: >-
   and a tension-plot. Precedes competitive-report-structure.
 license: MIT
 ---
+
 
 # Benchmark Methodology
 

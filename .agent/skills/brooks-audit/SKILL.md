@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8a0a1c10f480bea301f15a22d4ba468743090e06e1d36637291fd1aa16bbf4b2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: brooks-audit
 description: "Architecture audit that maps module dependencies, checks layering integrity, and flags structural decay across a codebase, drawing on twelve classic engineering books."
+tier: "experimental"
 risk: safe
 source: https://github.com/hyhmrright/brooks-lint/tree/main/skills/brooks-audit
 source_repo: hyhmrright/brooks-lint
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/hyhmrright/brooks-lint/blob/main/LICENSE
 ---
+
 
 # Brooks-Lint — Architecture Audit
 ## When to Use

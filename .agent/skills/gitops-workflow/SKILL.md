@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "005e30e78683496cb8130c2dccbca274466c738ae97de9598712536903ead58b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gitops-workflow
 description: "Complete guide to implementing GitOps workflows with ArgoCD and Flux for automated Kubernetes deployments."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # GitOps Workflow
 

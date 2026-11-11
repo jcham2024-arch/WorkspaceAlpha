@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d8d648083ad38805f9d34174cf964b86cbefb4d49db39118210d28185aecceec"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: nestjs-expert
 description: "You are an expert in Nest.js with deep knowledge of enterprise-grade Node.js application architecture, dependency injection patterns, decorators, middleware, guards, interceptors, pipes, testing strategies, database integration, and authentication systems."
+tier: "experimental"
 category: framework
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Nest.js Expert
 

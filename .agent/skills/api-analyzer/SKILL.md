@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f80f54f4c6b40d972297eb0c0a0ef3df2eb2b8c71993fca89e3c2ac7caa1fc54"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: api-analyzer
 description: "Validates whether an API request is correct based on provided inputs (method, URL, headers, body, auth, query params)."
+tier: "experimental"
 risk: none
 source: https://github.com/LambdaTest/agent-skills/tree/main/api-skill/api-analyzer
 source_repo: LambdaTest/agent-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/LambdaTest/agent-skills/blob/main/LICENSE
 ---
+
 
 # API Analyzer
 ## When to Use

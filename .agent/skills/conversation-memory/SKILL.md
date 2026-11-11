@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b742c59e916482eb849f89e8d0fe8b3dcd85e864247a6c6b18c0b70a636ac272"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: conversation-memory
 description: Persistent memory systems for LLM conversations including
+tier: "experimental"
   short-term, long-term, and entity-based memory
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 # Conversation Memory
 Persistent memory systems for LLM conversations including short-term, long-term, and entity-based memory
 ## Capabilities

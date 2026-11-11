@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c6ca45e5538e552a1ea94082dde444c6686d5c3b5e0ed933f6cfcad018797a86"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ios-debugger-agent
 description: Debug the current iOS project on a booted simulator with XcodeBuildMCP.
+tier: "experimental"
 risk: safe
 source: "Dimillian/Skills (MIT)"
 date_added: "2026-03-25"
 ---
+
 
 # iOS Debugger Agent
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "84914bd29e6af5d354454cb46b889de42724299d19e035f7c847a83f50e1e9c5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: nextjs-best-practices
 description: "Next.js App Router principles. Server Components, data fetching, routing patterns."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Next.js Best Practices
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "eb5c237233da10795fb7c5f8a338c99ddd82a541ddc0d46288fdf088373650db"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: qiskit
 description: "Build and transpile Qiskit circuits, test local simulators and prepare authorized hardware workloads with Sampler/Estimator primitives."
+tier: "experimental"
 license: MIT
 metadata:
     skill-author: K-Dense Inc.
@@ -8,6 +19,7 @@ risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 ## Bundled upstream support
 
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.

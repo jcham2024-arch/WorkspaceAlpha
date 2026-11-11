@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9b3c91e24027cbfb42433e8f31ae8dfe950eef24a50cd8f177f0b9951ffc5d17"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: conductor-manage
 description: "Manage track lifecycle: archive, restore, delete, rename, and cleanup"
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Track Manager
 

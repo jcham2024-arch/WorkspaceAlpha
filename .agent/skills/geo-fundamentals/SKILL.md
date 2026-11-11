@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "136cb98d15dc24854c34c5452503e9fbafe637f890fd0ecd20a77a3bade56363"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: geo-fundamentals
 description: "Generative Engine Optimization for AI search engines (ChatGPT, Claude, Perplexity)."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # GEO Fundamentals
 

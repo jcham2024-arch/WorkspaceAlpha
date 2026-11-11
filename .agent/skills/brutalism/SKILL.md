@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "50970096d901eb99ef7ede502b7edb9d7605c3a8ca442eb42e388c8a28daaf27"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: brutalism
 description: Web and App implementation guide for Brutalism. Trigger when user wants a raw appearance, intentionally unfinished look, and rejection of standard design conventions.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Brutalism
 

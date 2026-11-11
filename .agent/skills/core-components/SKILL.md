@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "28cf2ebcb76025191da34702bd5a8a549aa94e262c210395ae4f37d2184f6585"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: core-components
 description: "Core component library and design system patterns. Use when building UI, using design tokens, or working with the component library."
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Core Components
 

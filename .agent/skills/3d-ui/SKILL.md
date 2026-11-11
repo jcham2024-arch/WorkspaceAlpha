@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a0c8e7df51d8e070b9f6948fa1729cee18777c1ad41b0fef9cb2c8986a2b69d1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: 3d-ui
 description: Web and App implementation guide for 3D UI. Trigger when user wants actual 3D objects, perspective effects, and spatial depth.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # 3D UI
 

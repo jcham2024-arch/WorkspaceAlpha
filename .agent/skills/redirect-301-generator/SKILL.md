@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "34867c17959789718a5eb23cf1ee462aaaa8dc8066548f243a04e379365a56d0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: redirect-301-generator
 description: "301 Redirect Generator. Use when working with source-to-destination mapping and deployment platform."
+tier: "experimental"
 category: SEO Utility
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # 301 Redirect Generator
 
 ## Overview

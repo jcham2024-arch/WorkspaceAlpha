@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "42271b625a4abeba057e3fb2cd8a85fd1111344dcdd568927c7f373a8a1a4e27"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aws-lambda
 description: Build and deploy serverless functions on AWS Lambda. Configure triggers,
+tier: "experimental"
   manage permissions, and optimize performance. Use when implementing serverless applications.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # AWS Lambda
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1f273d4140c8d35a20e51caa0367616f1c7e2ec0f76eacbea1b582af57dda3f2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: project-skill-audit
 description: Audit a project and recommend the highest-value skills to add or update.
+tier: "experimental"
 risk: safe
 source: "Dimillian/Skills (MIT)"
 date_added: "2026-03-25"
 ---
+
 
 # Project Skill Audit
 

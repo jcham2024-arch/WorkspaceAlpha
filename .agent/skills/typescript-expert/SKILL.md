@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "da5b4db790d619fba02cb873bfed836298f7d6cfa0a888f1f47432be3ad840b9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: typescript-expert
 description: TypeScript and JavaScript expert with deep knowledge of type-level programming, performance optimization, monorepo management, migration strategies, and modern tooling.
+tier: "experimental"
 category: framework
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # TypeScript Expert
 

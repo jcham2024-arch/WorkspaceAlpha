@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4167b6bac74c0dc78b62089d9b551aca42e008ecb66a1140cd3fab7169c0ed5b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: architect-review
 description: "Master software architect specializing in modern architecture"
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 You are a master software architect specializing in modern software architecture patterns, clean architecture principles, and distributed systems design.
 
 ## Use this skill when

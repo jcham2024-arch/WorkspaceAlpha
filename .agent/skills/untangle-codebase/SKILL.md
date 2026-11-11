@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ba101a39d622d6f43ff2834663b80fa6e9d4eab0daec31c0224b88aa9dd91ffc"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: untangle-codebase
 description: Untangle a whole codebase in one pass, so agents working in it read less per change, break less without noticing, and debug faster.
+tier: "experimental"
 category: development
 risk: critical
 source: https://github.com/caldoai/skills
@@ -14,6 +25,7 @@ date_added: "2026-11-05"
 disable-model-invocation: true
 argument-hint: "[optional area or concern to focus on]"
 ---
+
 
 # Untangle Codebase
 

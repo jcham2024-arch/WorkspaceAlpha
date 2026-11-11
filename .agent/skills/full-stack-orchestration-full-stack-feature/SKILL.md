@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "10e5828c1c58e069cee75dc49e2361d543eb4c092b7f1f206542408f7adef061"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: full-stack-orchestration-full-stack-feature
 description: "Use when working with full stack orchestration full stack feature"
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 ## Use this skill when
 

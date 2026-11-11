@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3d756b136b99e19ca5ba031407968e5fc2a75c7eedec3404923c18e7573536fd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-aeo-landing-page-writer
 description: "Writes or improves conversion-focused landing pages for products, services, and offers with practical SEO and AEO structure."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-01"
 ---
+
 
 
 # Landing Page Writer Skill

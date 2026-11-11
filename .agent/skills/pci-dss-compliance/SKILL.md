@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3fc1cd8c91940cbedbcec8f04b15367700c3e4d263bca8c2af6b7eade92a5be5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: pci-dss-compliance
 description: Implement PCI DSS requirements for payment card data. Configure cardholder
+tier: "experimental"
   data environment and security controls. Use when processing payment cards.
 category: security
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # PCI DSS Compliance
 

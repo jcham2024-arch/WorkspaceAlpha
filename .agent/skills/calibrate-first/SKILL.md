@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fe5b77a195388f538c3e04e64a996624f0576f362506186cfb0630b068cd3ff1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: calibrate-first
 description: "Measure a dataset's detection floor before reading any trading-signal result, pre-register every test, and report too-small-to-see as UNDECIDABLE, not 'no effect'."
+tier: "experimental"
 category: finance
 risk: critical
 source: "https://github.com/assaylabdesk-sudo/assay-lite"
@@ -13,6 +24,7 @@ tools: [claude]
 license: MIT
 license_source: "https://github.com/assaylabdesk-sudo/assay-lite/blob/main/LICENSE"
 ---
+
 
 # Calibrate First
 

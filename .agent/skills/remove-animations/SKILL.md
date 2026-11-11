@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3c5a3bbfc41a3c85596b58e8beffba33fb9cd7d231da9bd8544ff4fe7c158ebd"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: remove-animations
 description: "Remove unnecessary interface motion while preserving final states, focus, layout, and animation-dependent behavior."
+tier: "experimental"
 category: frontend
 risk: critical
 source: community
@@ -11,6 +22,7 @@ author: Emil Kowalski
 license: MIT
 license_source: https://github.com/emilkowalski/skills/blob/a81dbca07f2217b7103e510c0f13f8d5b017afc9/LICENSE
 ---
+
 
 # Removing Animations
 

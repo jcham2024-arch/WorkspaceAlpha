@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "66ce46abcc98f306cdf71829828fc206ee6a98b8e769000fcc89a8b7ca40c7de"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: frontend-mobile-development-component-scaffold
 description: "Scaffold React and React Native components with TypeScript, accessibility, tests, styles, and documentation."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # React/React Native Component Scaffolding
 

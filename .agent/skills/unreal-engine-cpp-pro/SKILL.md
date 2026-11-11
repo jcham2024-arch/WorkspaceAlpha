@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "821c1d81812661123d00308a4083161eeb35071a85019a619098aa6c5539796e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: unreal-engine-cpp-pro
 description: "Expert guide for Unreal Engine 5.x C++ development, covering UObject hygiene, performance patterns, and best practices."
+tier: "experimental"
 risk: safe
 source: self
 date_added: "2026-02-27"
 ---
+
 
 # Unreal Engine C++ Pro
 

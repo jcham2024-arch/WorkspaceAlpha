@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a3168cc3afcf36063d2ee2ee9f4312328c6f140df53ea1d82e56085b62abf7c3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: idea-autopsy
 description: "Autopsy a business idea before you build it: kill-list check, five hard filters, a free-AI one-prompt test, live ad-market verification, and a verdict with a named kill-pattern."
+tier: "experimental"
 category: product
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/hafiz-actyte/idea-autopsy/blob/main/LICENSE"
 ---
+
 
 # Idea Autopsy
 

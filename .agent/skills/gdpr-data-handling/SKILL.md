@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7ba8ca86a45350dc2a5e1c999f77bec9437e7cf3295fc777d905bf10c5d60814"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gdpr-data-handling
 description: "Practical implementation guide for GDPR-oriented data-processing design, consent management, and privacy controls."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # GDPR Data Handling
 

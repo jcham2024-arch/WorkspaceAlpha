@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ed815a3ca5d35d226fc0314401d0c83c54c42654dc2d345fffc8c52e6552ed46"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hig-project-context
 description: Create or update a shared Apple design context document that other HIG skills use to tailor guidance.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Apple HIG: Project Context
 

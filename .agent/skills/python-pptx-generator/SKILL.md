@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2b695d0065265acc251a3ff1e3c00158433cec6870c36b23cfc652a9d1d43927"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: python-pptx-generator
 description: "Generate complete Python scripts that build polished PowerPoint decks with python-pptx and real slide content."
+tier: "experimental"
 category: development
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: spideyashith
 tags: [python, powerpoint, python-pptx, presentations, slide-decks]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Python PPTX Generator
 

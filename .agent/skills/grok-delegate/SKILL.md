@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3cc4aff43b0a1b09707746ba5b8f33a946b5d67ae2fe4b787a43d56f7c3db577"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: grok-delegate
 description: Delegate coding tasks to the Grok Build CLI only when the user explicitly
+tier: "experimental"
   requests it, while the orchestrator retains review and landing responsibility.
 risk: critical
 category: agent-orchestration
@@ -17,6 +28,7 @@ compatibility: Requires the `grok` CLI (Grok Build) installed and authenticated 
 metadata:
   version: 0.5.0
 ---
+
 # Grok Delegate
 
 ## When to Use

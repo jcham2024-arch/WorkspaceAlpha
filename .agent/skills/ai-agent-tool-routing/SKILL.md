@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3fc85f2f03d5efcd60d99f6fae03634734ca7dc0b017179d7dab56f03064d379"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-agent-tool-routing
 description: 'Use when designing or reviewing an AI agent tool registry or MCP router: document parameter schemas, caller authorization, execution limits, replay-safe retries and verification evidence.'
+tier: "experimental"
 category: engineering
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [ai, agents, tool-use, mcp, llm, automation, python]
 tools: []
 source_repo: Ranjeet2063/agentic-awesome-skills
 ---
+
 
 # AI Agent Tool Routing Register
 

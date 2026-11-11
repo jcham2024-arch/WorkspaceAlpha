@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1caa1646c4cdefdce35268249fab5a20595774d89651456ec2be25841da52310"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: client-secret-exposure-audit
 description: "Audit a deployed web app for secrets exposed to the browser: hardcoded API keys/tokens in JS, secrets in HTML meta/attributes/comments, publicly reachable source/config/deploy files, and header/CORS misconfig."
+tier: "experimental"
 category: security
 risk: critical
 source: self
@@ -10,6 +21,7 @@ author: siddanta-ar1
 tags: [security, secrets, owasp, reconnaissance, web, headers]
 tools: [claude, cursor, gemini]
 ---
+
 
 # Client-Side Secret & Sensitive-File Exposure Audit
 

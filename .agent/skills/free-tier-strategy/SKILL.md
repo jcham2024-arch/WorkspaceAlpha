@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "614e4125bde8ba4d0323a36acf44071239278e0bd721e318f5243e92e5d56a93"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: free-tier-strategy
 description: "Design free tiers that convert to paid without creating resentment or abuse. Trigger phrases: free tier design, freemium model, free trial strategy, free tier limits, developer free plan, open source commercial, feature gating, upgrade triggers, free tier conversion"
+tier: "experimental"
 risk: none
 source: https://github.com/jonathimer/devmarketing-skills/tree/main/skills/free-tier-strategy
 source_repo: jonathimer/devmarketing-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/jonathimer/devmarketing-skills/blob/main/LICENSE
 ---
+
 
 # Free Tier Strategy
 ## When to Use

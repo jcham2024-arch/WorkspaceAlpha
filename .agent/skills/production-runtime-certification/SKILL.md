@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8b0a5c8be6130d642f9485c7697fa43938d7f9e4ab895a78822ca5064b431a4e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: production-runtime-certification
 description: "Certify a deployed service with fresh evidence across source, CI, migrations, runtime health, readiness, and critical routes; use before declaring a release production-ready."
+tier: "experimental"
 category: devops
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: mosinlshaikh
 tags: [production, deployment, verification, reliability, devops]
 tools: [claude, cursor, codex, gemini]
 ---
+
 
 # Production Runtime Certification
 

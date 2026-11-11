@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "51e32d5fc63aa61674a1c8755a1f840516c41f894283882814b1d74fabc4af42"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: qoder-delegate
 description: Delegate coding tasks to the Qoder CLI (`qodercli`) only when the user
+tier: "experimental"
   explicitly requests it, while the orchestrator retains review and landing responsibility.
 risk: critical
 category: agent-orchestration
@@ -13,6 +24,7 @@ license_source: https://github.com/amElnagdy/delegate-skills/blob/master/LICENSE
 metadata:
   version: 0.5.0
 ---
+
 ## Bundled upstream support
 
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "410d246cbe085289f31deca7eb4075a9d6161307ae4f0283a0ec98f98cb38256"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-image-realism
 description: "Install and use the official AI Image Realism package, pinned by digest, for paid hosted work on the Beatra service."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/beatra-ai/ai-image-realism-skill/blob/0b29222a61c52917887efa40d39e100683b03625/LICENSE"
 ---
+
 
 # AI Image Realism Skill
 

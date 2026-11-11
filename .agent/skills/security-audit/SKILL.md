@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b922d7115fc25e6313b7840fc0af2b706b4d836f21891b685fd30d11e787dbb8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: security-audit
 description: "Comprehensive security auditing workflow covering web application testing, API security, penetration testing, vulnerability scanning, and security hardening."
+tier: "experimental"
 category: workflow-bundle
 risk: offensive
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 # Security Auditing Workflow Bundle
 

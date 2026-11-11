@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c7ce745e7e1413d75bd81129d1a5a10cef23381eaa0b91f9ce68b304b7aed7c3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: feature-flags
 description: Implement feature flags for progressive feature rollout using LaunchDarkly,
+tier: "experimental"
   Unleash, or custom solutions.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Feature Flags
 

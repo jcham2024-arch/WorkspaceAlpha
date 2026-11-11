@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "532fd9f49b5e53d1d9167dfe4556aaea2cb43c7ab438ee35ace767dfee64a78e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: skeleton-first
 description: "Prove a data/AI/agent workflow end to end on a tiny sample, find cheap wins, then scale in cost-gated steps within budget."
+tier: "experimental"
 category: workflow
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: Dan He
 tags: [llm, cost, pipeline, etl, rag, dbt, snowflake, budget, data-engineering]
 tools: [claude, codex, cursor]
 ---
+
 
 # Skeleton first: prove the workflow cheaply, then scale
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "131a7c78cf09da515ddbe9d06e356405f6ee6e9e288f42048fe0ee367f9d6f9b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: swiftui-expert-skill
 description: "Write, review, and refactor SwiftUI for iOS or macOS, covering data flow, view composition, performance, identity, environment, localization, animation, API migration, and Instruments traces."
+tier: "experimental"
 risk: critical
 source: https://github.com/AvdLee/SwiftUI-Agent-Skill/tree/main/swiftui-expert-skill
 source_repo: AvdLee/SwiftUI-Agent-Skill
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/AvdLee/SwiftUI-Agent-Skill/blob/main/LICENSE
 ---
+
 
 # SwiftUI Expert Skill
 ## When to Use

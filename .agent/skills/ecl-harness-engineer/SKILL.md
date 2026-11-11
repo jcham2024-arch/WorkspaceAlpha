@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d41d9e7dceec6ee5f16698c1af22ad4bec49e68d19e473935ac4c1078c7f3d63"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: ecl-harness-engineer
 description: "Create or audit ECL Agent Harness infrastructure: AGENTS.md, change tracking, repository guidance, lint checks, CI gates, and agent handoff docs."
+tier: "experimental"
 category: development
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [codex, claude, cursor, gemini, antigravity]
 license: MIT
 license_source: "https://github.com/qinghui316/ecl-harness-engineer/blob/main/LICENSE"
 ---
+
 
 # ECL Harness Engineer
 Design and create Harness Engineering infrastructure so AI agents can work reliably in a codebase.

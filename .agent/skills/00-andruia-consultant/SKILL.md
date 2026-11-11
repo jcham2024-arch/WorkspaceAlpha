@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "511c0bab0084fac48b09173e8ad7a7768d382f15d61c034e443a38209242c100"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 id: 00-andruia-consultant
 name: 00-andruia-consultant
 description: "Usar al iniciar o mejorar un proyecto de IA: diagnostica código y restricciones, propone skills existentes y redacta tareas y un plan de implementación en español."
+tier: "experimental"
 category: andruia
 risk: safe
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 ## When to Use
 Use this skill at the very beginning of a project to diagnose the workspace, determine whether it's a "Pure Engine" (new) or "Evolution" (existing) project, and to set the initial technical roadmap and expert squad.

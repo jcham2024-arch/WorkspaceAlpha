@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "946b28cb24800faf0b23f7bfa84cdec71c203ef84f07f72e6bd81cf4284f7c5d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: link-toxicity-checker
 description: "Link Toxicity Checker. Use when working with backlink examples and available evidence."
+tier: "experimental"
 category: Backlink & Link-Building
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Link Toxicity Checker
 
 ## Overview

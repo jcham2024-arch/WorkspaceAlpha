@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c25a38b90be11b97093b1c2ae32ed38a7815636b843ccb0c5e3a9275a3544aed"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: deep-research
 description: Produce cited research reports from multiple web sources using firecrawl and exa MCP tools — plan sub-questions, search and deep-read sources, then synthesize findings with inline citations and confidence levels. Use when the user asks to research a topic in depth, run a deep dive or investigation, or do competitive analysis, technology evaluation, market sizing, or due diligence on a
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Deep Research
 

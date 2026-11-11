@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b8d45621000c8ad3ca5363fcf1364e60f5e0d3457c1cb867f15a1e83f7778ab5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gcp-audit-logs
 description: Configure GCP Cloud Audit Logs for compliance. Set up log routing and
+tier: "experimental"
   BigQuery analysis. Use when auditing GCP activity.
 category: security
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # GCP Audit Logs
 

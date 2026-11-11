@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ae904d185e36c4eed83fb3f3b34f4750233ffad8a27f51a2ea4dfd5fba7aea98"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: audit-agent-run-evidence
 description: "Use when an agent, harness, gateway, MCP workflow, or multi-step automation claims completion and the available traces, checkpoints, approvals, tool calls, or deployment records must be judged without trusting self-reported success."
+tier: "experimental"
 risk: safe
 source: self
 date_added: "2026-08-19"
 ---
+
 
 # Audit Agent Run Evidence
 

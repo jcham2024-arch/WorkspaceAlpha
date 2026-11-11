@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "77d81588d16c57ab93fa0fb08baaab795025add021cae61d3da4dddf47b79479"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: court
 description: "Put an idea on trial: a prosecutor and a defense Claude argue, 12 juror sub-agents vote independently, and a judge reads the verdict and the changes that would flip it."
+tier: "experimental"
 category: productivity
 risk: critical
 source: community
@@ -14,6 +25,7 @@ license: "MIT"
 license_source: "https://github.com/alexyc9381/court-skill/blob/main/LICENSE"
 argument-hint: "[--jury N | --quick] [--seed S] <the idea, plan or claim>"
 ---
+
 
 # court
 

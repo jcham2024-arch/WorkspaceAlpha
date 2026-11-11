@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2bcb649e3ba0a46ea7fc9ad6490ccf6afb206b9f559a8f26d1f212ae505418a2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: delegate-setup
 description: Configure approved delegation lanes across installed implementer CLIs,
+tier: "experimental"
   including optional model and effort choices, then write global or project config
   only after explicit user approval.
 risk: safe
@@ -16,6 +27,7 @@ compatibility: Requires Node 18+. No implementer CLIs are required — the skill
 metadata:
   version: 0.5.0
 ---
+
 # Delegate Setup
 
 ## When to Use

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e851c8c942540936b7e29d6d24821b2ce0af48ee735b964ca7f32700562fb486"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: markstream-custom-components
 description: "Override Markstream node renderers and add trusted custom tags across Vue, React, Svelte, and Angular using scoped or renderer-local mappings."
+tier: "experimental"
 category: frontend
 risk: critical
 source: https://github.com/Simon-He95/markstream-vue/tree/main/.agents/skills/markstream-custom-components
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: MIT
 license_source: https://github.com/Simon-He95/markstream-vue/blob/main/license
 ---
+
 
 # Markstream Custom Components
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "acd5aec5d63c36b5df508e9db3d8e9abc798959058cd267ee9ef77d88a83a492"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: goal-loop
 description: "Draft and explain persistent goal-loop prompts for long-running agent work with clear stop conditions."
+tier: "experimental"
 category: agent-orchestration
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex]
 license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 ---
+
 
 # Agent `/goal` Loop
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5a19d56a26c843c8a8f4100f12f33146ed35817af93909292a0767d0fa35621f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: deepapi
 description: "Use DeepAPI for supported scraping, research, and email workflows with explicit credentials and approval."
+tier: "experimental"
 category: research
 risk: critical
 source: community
@@ -14,6 +25,7 @@ license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 version: b17ad5148ab7
 ---
+
 
 # DeepAPI
 

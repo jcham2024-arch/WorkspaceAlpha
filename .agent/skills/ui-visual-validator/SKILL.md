@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "913cf228cc9a7647843108bf45e71baa97ec4902c58097f7aa599eccb7aa21a4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ui-visual-validator
 description: Rigorous visual validation expert specializing in UI testing, design system compliance, and accessibility verification.
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-02-27'
 ---
+
 
 ## Use this skill when
 

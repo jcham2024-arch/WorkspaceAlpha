@@ -1,7 +1,18 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "895643cd311de073ca99183867257f9cd8cd1ea0740606850f2e6f0f450bc1ba"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: anti-sycophancy
 version: 2.0.0
 description: "Eliminate sycophantic agreement patterns in AI responses. Load via /skill anti-sycophancy."
+tier: "experimental"
 risk: safe
 source: community
 source_type: community
@@ -11,6 +22,7 @@ license_source: "https://github.com/mskadu/opencode-agent-skills/blob/main/LICEN
 compatibility: opencode
 date_added: "2026-06-05"
 ---
+
 
 ## When to Use
 

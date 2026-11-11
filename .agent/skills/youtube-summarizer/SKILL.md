@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "45315ec77ac6a3d2d7fd66b2b650620b0d75162caa1321946b91b9214ebb0359"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: youtube-summarizer
 description: "Extract transcripts from YouTube videos and generate comprehensive, detailed summaries using intelligent analysis frameworks"
+tier: "experimental"
 category: content
 risk: safe
 source: community
 tags: "[video, summarization, transcription, youtube, content-analysis]"
 date_added: "2026-02-27"
 ---
+
 
 # youtube-summarizer
 

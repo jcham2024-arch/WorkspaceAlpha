@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "75cb84a8d44e88ff77a11fb1d59a0d2451a7b9213ae3d3b4d18001da0dc9c4cf"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: keyword-comparison-tool
 description: "Keyword Comparison Tool. Use when working with two or more keywords and optional metrics."
+tier: "experimental"
 category: Keyword Research
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Keyword Comparison Tool
 
 ## Overview

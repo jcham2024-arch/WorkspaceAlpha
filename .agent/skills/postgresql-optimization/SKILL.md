@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "90aba10b4d345af81438c62b8f6c652a6e679d5b7812624c21a7f84dc9f18236"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: postgresql-optimization
 description: "PostgreSQL database optimization workflow for query tuning, indexing strategies, performance analysis, and production database management."
+tier: "experimental"
 category: granular-workflow-bundle
 risk: safe
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 # PostgreSQL Optimization Workflow
 

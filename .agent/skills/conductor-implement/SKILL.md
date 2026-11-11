@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ed9c368c962f40450d4831f5d1d5246566427c4947770669be8d3ebfe7cc0ef1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: conductor-implement
 description: "Execute tasks from a track's implementation plan following TDD workflow"
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Implement Track
 

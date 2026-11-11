@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3b12e5b2b715596f382f6c9c4364f46d1ca302e8173948ffbb89659b8e1d4e70"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: disciplinary-pip-tracker
 description: 'Disciplinary and performance-improvement case register: case type, linked review or issue, improvement goals, review dates, outcome and confidentiality. Use for PIP tracking.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, manage]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Disciplinary & PIP Tracker
 

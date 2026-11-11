@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "06383523fcb10b89bf71ac890a94709c5b158c067b6759c540224f171d14d340"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: golang-pro
 description: Master Go 1.21+ with modern patterns, advanced concurrency, performance optimization, and production-ready microservices.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 You are a Go expert specializing in modern Go 1.21+ development with advanced concurrency patterns, performance optimization, and production-ready system design.
 
 ## Use this skill when

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8d967e5f21cd4cf3f578eef6423a83bda4c9508c2ba63084a0580afe31715be7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: privacy-mask
 description: "Mask, redact, anonymize and censor sensitive information (PII) in screenshots and images — phone numbers, emails, IDs, API keys, crypto wallets, credit cards, passwords, and more."
+tier: "experimental"
 risk: critical
 source: https://github.com/fullstackcrew-alpha/privacy-mask/tree/main/
 source_repo: fullstackcrew-alpha/privacy-mask
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/fullstackcrew-alpha/privacy-mask/blob/main/LICENSE
 ---
+
 
 # Privacy Mask
 

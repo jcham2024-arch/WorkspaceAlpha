@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "49bddfd6bbb3e5611860eb1d0b8e840b4a269448e26a37ac8e818384e6b0e37f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: xiaohongshu-content-strategist
 description: "Create viral Xiaohongshu (小红书) content with platform-native strategy, save-rate optimization, trending formats, and search SEO for China's #1 lifestyle platform."
+tier: "experimental"
 category: marketing
 risk: safe
 source: community
@@ -11,6 +22,7 @@ author: yundu-ai
 tags: [xiaohongshu, chinese-market, content-strategy, social-media, marketing, 红书, 小红书]
 tools: [claude, cursor, gemini]
 ---
+
 
 # Xiaohongshu Content Strategist
 

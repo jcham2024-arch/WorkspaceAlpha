@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2d772dd20098f0cb939f038b0a23a89cd36a6c47ad76c0edd5b3ff93f859df00"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: email-marketing-bible
 description: "Data-backed email marketing for AI agents: automation flows, deliverability triage, copy de-slopping, AI email design, ESP control via MCP with send gates and compliance."
+tier: "experimental"
 category: marketing
 risk: critical
 source: "https://github.com/CosmoBlk/email-marketing-bible"
@@ -13,6 +24,7 @@ author: George Hartley
 tags: [email-marketing, deliverability, copywriting, marketing-automation, email-design, ecommerce, saas, cold-email, mcp]
 tools: [claude, codex, cursor, gemini]
 ---
+
 
 # Email Marketing Bible
 

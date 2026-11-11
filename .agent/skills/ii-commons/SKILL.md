@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7d3758aed9fd63451aec2f1d553f4d52d80170141d31b286dc26fe6eef0f06d4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ii-commons
 description: "Deterministic search across arXiv, PubMed/PMC, and US policy corpora with daily freshness cutoffs."
+tier: "experimental"
 category: research
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex, antigravity]
 license: "Apache-2.0"
 license_source: "https://github.com/Intelligent-Internet/II-Commons-Skills/blob/main/LICENSE"
 ---
+
 
 # II-Commons
 

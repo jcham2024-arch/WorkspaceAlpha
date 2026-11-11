@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "16167d6ba07db478cbf12562a6824a306bcc7d4a796ecdc2db1cdfe7c1d56611"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: blueprint
 description: "Turn a one-line objective into a step-by-step construction plan any coding agent can execute cold. Each step has a self-contained context brief — a fresh agent in a new session can pick up any step without reading prior steps."
+tier: "experimental"
 category: planning
 risk: critical
 source: community
 date_added: "2026-03-10"
 ---
+
 
 # Blueprint — Construction Plan Generator
 

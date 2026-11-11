@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c0852ef2b93ad6b86adf0068b09c1779a64d724ed90f5aba124780079eabecbd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: geo-brand-mentions
 description: Brand mention and authority scanner for AI visibility.
+tier: "experimental"
 category: seo
 risk: safe
 source: https://github.com/zubair-trabzada/geo-seo-claude
@@ -20,6 +31,7 @@ allowed-tools:
 - WebFetch
 - Write
 ---
+
 
 # Brand Mention Scanner Skill
 

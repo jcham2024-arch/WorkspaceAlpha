@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d11fd59cb18ea12c931b58fe1a0f2e5f8c802812b58d114010a7af861b890196"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: emil-ui-prototype
 description: "Build distinct UI variants behind a development-only picker and integrate the variant the user selects."
+tier: "experimental"
 category: frontend
 risk: critical
 source: community
@@ -12,6 +23,7 @@ license: MIT
 license_source: https://github.com/emilkowalski/skills/blob/a81dbca07f2217b7103e510c0f13f8d5b017afc9/LICENSE
 disable-model-invocation: true
 ---
+
 
 # Prototyping Variants
 

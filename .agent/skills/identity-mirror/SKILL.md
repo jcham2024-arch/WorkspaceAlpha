@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "194ec2ba5405c192809871aa49db258550d9177e8b4e61ffb975dc3adec95d44"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: identity-mirror
 description: "Map an audience's current and aspirational identity into credible messaging when copy needs stronger personal relevance."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-04"
 ---
+
 Use a marketing planning and audience-research lens. Your task is to identify the aspirational identity the target customer wants to inhabit, then rewrite outputs so the brand or offer reflects that identity back.
 
 ## When to Use

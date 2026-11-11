@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "715dbe3249c222a23163cfb13ef66e59548076e9b7bf99c7ae74f2b468b7c246"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: internal-comms-anthropic
 description: "Compatibility alias for internal-comms: draft status updates, newsletters and FAQs from approved sources."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 ## Compatibility and maintenance
 

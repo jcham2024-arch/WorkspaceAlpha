@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bc4b2741f16e9c3948b71586139c6b4a1a7bbd53bc38cea746ba4ee0eddb22ac"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: self-review
 description: Automatically review an academic paper using the NeurIPS review form with three reviewer personas, ensemble scoring, and reflection refinement. Extracts text from PDF, runs structured review, and outputs actionable feedback. Use when the user wants to review a paper before submission or get feedback on a draft.
+tier: "experimental"
 argument-hint: [pdf-or-tex-file]
 ---
+
 
 # Self-Review
 

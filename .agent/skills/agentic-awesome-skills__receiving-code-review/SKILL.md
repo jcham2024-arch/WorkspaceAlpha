@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "41b6adde8e1f669215bfeb5f7947a8a2585b1540fa15bbd22f8c5da7658c282c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: receiving-code-review
 description: "Code review requires technical evaluation, not emotional performance."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Code Review Reception
 

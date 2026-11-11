@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c07ba1bc2fc5d1601ddc62cee830e76f81a3f22d1e9a53b1be62ceca5ac86b62"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: pi-custom-model
 description: "Register custom Pi Agent model slugs so saved OpenRouter variants resolve correctly."
+tier: "experimental"
 category: operations
 risk: critical
 source: community
@@ -14,6 +25,7 @@ license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 disable-model-invocation: true
 ---
+
 
 # Pi custom / variant model
 

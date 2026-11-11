@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c89ee8602a560769bcb57d49f4188961ae62292e2ef5cec8d3b1ee34ec2792af"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: knowledge-base
 description: 'Knowledge base register: article title, category, department, owner, tags, summary, linked SOP, audience, last and next review dates and status. Use for documentation management.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, develop]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Knowledge Base
 

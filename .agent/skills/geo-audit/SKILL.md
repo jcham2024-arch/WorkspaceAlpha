@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "43f5e8088025e9db0e8ba45f4e9d2a2bdbb231e4a7fd78e787f26cbad1288068"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: geo-audit
 description: Full website GEO+SEO audit with parallel subagent delegation.
+tier: "experimental"
 category: seo
 risk: safe
 source: https://github.com/zubair-trabzada/geo-seo-claude
@@ -20,6 +31,7 @@ allowed-tools:
 - WebFetch
 - Write
 ---
+
 
 # GEO Audit Orchestration Skill
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2db2ffb8831073a10889af989f8327233dd9f5cf8c2fd60901d593c180ddb706"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: robots-txt-creator
 description: "Robots.txt Creator. Use when working with site origin and desired crawl rules."
+tier: "experimental"
 category: SEO Utility
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Robots.txt Creator
 
 ## Overview

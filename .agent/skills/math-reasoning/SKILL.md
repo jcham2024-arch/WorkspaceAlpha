@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bd5b13d042c3e80e46ba1389546859e36d6f09a19f6e6b67fd1560836f8652b9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: math-reasoning
 description: Formal mathematical reasoning for research papers — derive equations, write proofs, formalize problem settings, select statistical tests, and generate LaTeX math notation. Use when the user needs mathematical derivations, theorem proofs, notation tables, or statistical analysis formalization.
+tier: "experimental"
 argument-hint: [task-or-context]
 ---
+
 
 # Mathematical Reasoning
 

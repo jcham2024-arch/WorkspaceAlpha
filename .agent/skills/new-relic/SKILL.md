@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "950df990572236d942eb366b639afa0a66c5dd5d85ae950bbcba0e33bd6105c2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: new-relic
 description: Configure New Relic observability platform for infrastructure and application
+tier: "experimental"
   monitoring.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # New Relic
 

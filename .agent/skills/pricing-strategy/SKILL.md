@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "15e45709ba52c74f946d4291d3e34b11bef76786061a1204e3fb9d9ff8913e78"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: pricing-strategy
 description: "Design pricing, packaging, and monetization strategies based on value, customer willingness to pay, and growth objectives."
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Pricing Strategy
 

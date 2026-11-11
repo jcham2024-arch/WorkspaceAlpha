@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0a97313da2800dda2a3621a845ab9a9524298972dfba4d7a8b3331c5c347b586"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: production-audit
 description: "Audit a shipped repo for production-readiness gaps across RLS, webhooks, secrets, grants, Stripe idempotency, mobile UX, and deployment health."
+tier: "experimental"
 category: security
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex, antigravity]
 license: "MIT"
 license_source: "https://github.com/commitshow/production-audit/blob/main/LICENSE"
 ---
+
 
 # Production Audit
 

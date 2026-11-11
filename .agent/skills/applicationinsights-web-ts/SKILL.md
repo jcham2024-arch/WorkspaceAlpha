@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4aacfa5a456f8f2ef6f903d4774b45979322b4431616683f23a0aff1e1d4c83c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: applicationinsights-web-ts
 description: "Instrument browser/web apps with the Application Insights JavaScript SDK (@microsoft/applicationinsights-web)."
+tier: "experimental"
 risk: critical
 source: https://github.com/microsoft/skills/tree/main/.github/plugins/azure-sdk-typescript/skills/applicationinsights-web-ts
 source_repo: microsoft/skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/microsoft/skills/blob/main/LICENSE
 ---
+
 
 # Application Insights JavaScript SDK (Web) for TypeScript
 ## When to Use

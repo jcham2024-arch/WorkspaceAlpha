@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "da1046d3cc32d7e629df2bf34e7d379209bd60cbeca1bbdaf89d40edcb696702"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: short
 description: "Rewrite the previous response more briefly while preserving the substance."
+tier: "experimental"
 category: writing
 risk: safe
 source: community
@@ -14,6 +25,7 @@ license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 disable-model-invocation: true
 ---
+
 
 rewrite your last response to be simpler & shorter. do not do anything else.
 

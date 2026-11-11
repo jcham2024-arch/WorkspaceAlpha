@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9719c3feea893823aa10dde49606fbb360288dbc11481bf783438b1bdc29cdd0"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: landing-page-design
 description: "Plan and build conversion-focused landing pages with intake, proof-based copy, explicit page structure, and the ELAYA visual system."
+tier: "experimental"
 risk: critical
 source: community
 source_repo: ELAYADESIGN/AI-DESIGN-SKILLS
@@ -10,6 +21,7 @@ license: MIT
 license_source: https://github.com/ELAYADESIGN/AI-DESIGN-SKILLS/blob/456d9e0d3e2d84c748bb143c6ca3d90c45e16213/LICENSE
 date_added: "2026-11-03"
 ---
+
 # Landing Page Design
 
 Adapted by AAS from [ELAYADESIGN/AI-DESIGN-SKILLS](https://github.com/ELAYADESIGN/AI-DESIGN-SKILLS/tree/456d9e0d3e2d84c748bb143c6ca3d90c45e16213) at `456d9e0d3e2d84c748bb143c6ca3d90c45e16213`. Retains upstream design guidance and credits; AAS adds scoped activation, operational boundaries, examples and limitations, and clarifies the corrections called out below. See LICENSE.

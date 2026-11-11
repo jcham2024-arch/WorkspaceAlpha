@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a16262e6d72688d9cada9850acc487e1106b0ebafec51fe2c1503158e52c308b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: healthcare-job-search
 description: "Find open US healthcare jobs (nursing, CNA, allied health, therapy, imaging, pharmacy, physicians) and the hourly pay employers post, via CareJobs.Now's free MCP server or JSON endpoints."
+tier: "experimental"
 category: career-jobs
 risk: safe
 source: community
@@ -13,6 +24,7 @@ license_source: "https://github.com/yumaheymans/carejobs-mcp/blob/main/LICENSE"
 tags: [jobs, healthcare, nursing, job-search, pay, mcp]
 tools: [claude, cursor, gemini]
 ---
+
 
 # Healthcare Job Search (US)
 

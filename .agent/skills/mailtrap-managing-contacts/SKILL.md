@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "be3348fba057e5eaa2de6a2a613aaa865b843634e748a450bb50260305e3f73a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mailtrap-managing-contacts
 description: Manage Mailtrap contacts, lists, segments, custom fields, imports, CRM syncs, and campaign audiences through the UI or API.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-06-19"
 ---
+
 
 # Managing Mailtrap contacts
 

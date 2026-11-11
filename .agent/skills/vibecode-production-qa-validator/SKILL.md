@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2b57b9699f10c4e8db7ac1008e67cb80f9ff77e04c8c485b40ffd04a4fc5071d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: vibecode-production-qa-validator
 description: "13-phase production QA for fullstack Next.js apps: build verification, SEO tags, OG images, favicon, route regression, API auth, page speed, lazy load, vulnerability scan, UI/UX cards, error boundaries, database, secure rendering, and cleanup."
+tier: "experimental"
 category: devops
 risk: critical
 source: self
@@ -11,6 +22,7 @@ tags: [qa, nextjs, production, deployment, seo, authentication, api, performance
 tools: [claude, cursor, gemini, claude-code, opencode]
 version: 2.0.0
 ---
+
 
 # Production QA Validator
 

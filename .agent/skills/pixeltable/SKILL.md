@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "32f995e030f7fe240aa7ce24a32394c0052ef463c39c00a55d29d2aaf4c95d37"
+fetched_at: "2026-11-10"
+upstream_license: "Apache-2.0"
+owner: "taskmaster"
+---
 name: pixeltable
 description: "Build Pixeltable apps for multimodal RAG, video and image search, audio transcription, agent memory, embeddings stored with the data, incremental pipelines, dataset versioning, and tool-calling agents."
+tier: "experimental"
 category: databases
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: Apache-2.0
 license_source: "https://github.com/pixeltable/pixeltable-skill/blob/9296e22ad083307ac983217eef8e62f488409c67/LICENSE"
 ---
+
 
 # Pixeltable
 

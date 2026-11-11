@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a63fbb981635954cf31b2a5d068c6ae0d61ece395e35a1456966a9411ff9c21b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: anywrite
 description: "Compiled CLI covering all 52 endpoints of the Anytype local API — objects, properties, tags, search, chat, files — one binary, no MCP server needed."
+tier: "experimental"
 category: productivity
 risk: critical
 source: community
@@ -21,6 +32,7 @@ plugin:
     summary: "Requires a separately installed, user-approved anywrite executable at an explicit absolute path."
     docs: SKILL.md
 ---
+
 
 # anywrite
 

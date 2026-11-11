@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4bf9c7618a3113cf0da0d1f451084fcf270a34032414fdfb73b01734a2f5506c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: check-identity-pack
 description: Run an AFP 100-point or AUSTRAC safe-harbour identity check over a set of documents, and report exactly what's missing. Use when the user asks to check identity documents, verify someone's ID for onboarding, or assess whether a document pack satisfies Australian identity requirements.
+tier: "experimental"
 category: document-verification
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: "Apache-2.0"
 license_source: "https://github.com/Sketchjar/stipple-agent-skills/blob/main/LICENSE"
 ---
+
 
 # Check Identity Pack
 

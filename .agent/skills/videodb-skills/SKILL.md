@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "984fff62ebe685057d7cf1fbcd11bb8ca116b6a40d151413cdf2c354f23e2a98"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: videodb-skills
 description: "Upload, stream, search, edit, transcribe, and generate AI video and audio using the VideoDB SDK."
+tier: "experimental"
 category: media
 risk: critical
 source: community
 tags: "[video, editing, transcription, subtitles, search, streaming, ai-generation, media]"
 date_added: "2026-02-27"
 ---
+
 
 # VideoDB Skills
 

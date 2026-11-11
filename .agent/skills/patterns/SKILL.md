@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f479ae2014fa791c5b96a2b40f8d84080aff114f5ec77c45920b2fd035f32e7d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: patterns
 description: Reference document for monopoly patterns.
+tier: "experimental"
 source: community
 date_added: "2026-06-14"
 risk: safe
 reports-to: monopoly
 ---
+
 
 # MONOPOLY — Design Patterns Deep Dive
 

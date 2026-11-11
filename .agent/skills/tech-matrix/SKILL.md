@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "80464ca4cc36792a55b1209db858e786a4c4f68159c44f452e9da3e9ec98e450"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: tech-matrix
 description: Reference document for monopoly tech-matrix.
+tier: "experimental"
 source: community
 date_added: "2026-06-14"
 risk: safe
 reports-to: monopoly
 ---
+
 
 # MONOPOLY — Technology Decision Matrix
 

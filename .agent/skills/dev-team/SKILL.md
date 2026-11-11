@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f13bdd0315635428a1cd211957c86517ff5641a28808a2003f13b5558fc0b4d1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: dev-team
 description: Simulate a collaborative dev team session where multiple role-based personas (PM, Architect, Developer, QA) respond to the same problem together in one session. Use when designing a feature, reviewing a proposal, or onboarding a new initiative and you want multi-role perspective without switching agents manually.
+tier: "experimental"
 metadata:
   origin: community
   inspired-by: bmad-method (party mode)
 ---
+
 
 # Dev Team
 

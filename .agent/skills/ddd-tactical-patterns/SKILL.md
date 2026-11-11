@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7046b774727b7c72de302d37987e0730603c07962424c8cdd3183de1e173252d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ddd-tactical-patterns
 description: "Apply DDD tactical patterns in code using entities, value objects, aggregates, repositories, and domain events with explicit invariants."
+tier: "experimental"
 risk: safe
 source: self
 tags: "[ddd, tactical, aggregates, value-objects, domain-events]"
 date_added: "2026-02-27"
 ---
+
 
 # DDD Tactical Patterns
 

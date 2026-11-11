@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "91547954e28e6bc25f070624b6be464666d2430fe1f4c816885325cdb804cdf0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: lead-signals
 description: "Find and qualify public buying signals through Treg, rank fitting business accounts and optionally enrich authorized business contact information."
+tier: "experimental"
 category: marketing
 risk: critical
 source: https://github.com/superdesigndev/treg
@@ -14,6 +25,7 @@ date_added: "2026-11-06"
 metadata:
   summary: Finds people ready to buy. It searches public signals such as complaints, job changes, hiring and funding, qualifies who fits and finds how to reach them.
 ---
+
 
 # Lead signals
 

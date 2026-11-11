@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8c29490f67809e78dc975d60da197d8042da4dd0adba11e1884a33fc6985633e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agent-evals
 description: Build automated evaluation suites for AI agents using golden datasets,
+tier: "experimental"
   rubrics, and regression gates. Use when shipping agent features, validating prompt
   changes, or gating deployments on quality.
 category: devops
@@ -18,6 +29,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Agent Evals
 

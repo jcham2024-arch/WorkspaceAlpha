@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cc8ff07ec4d0eb95b9782b61d6f9e8e6d4ff3d9c4315a4fe52db68f95498ba81"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cc-skill-coding-standards
 description: "Universal coding standards, best practices, and patterns for TypeScript, JavaScript, React, and Node.js development."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Coding Standards & Best Practices
 

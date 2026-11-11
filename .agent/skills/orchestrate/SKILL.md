@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "47594f8e8a3178ba8d6a93acd522ddb0b0aabbe1f39a87abbd5bec936ce69b5c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: orchestrate
 description: "Coordinate focused subagents on substantial work, keep their ownership non-overlapping, and integrate verified results. Use for large-scope Codex tasks; keep trivial work with the coordinator."
+tier: "experimental"
 category: agent-orchestration
 risk: safe
 source: https://github.com/provencher/codex-skills/tree/8aa6c42b73781c905c55f8a1253a18127079ac21/orchestrate
@@ -13,6 +24,7 @@ tools: [codex]
 license: MIT
 license_source: https://github.com/provencher/codex-skills/blob/8aa6c42b73781c905c55f8a1253a18127079ac21/LICENSE
 ---
+
 
 # Orchestrate
 

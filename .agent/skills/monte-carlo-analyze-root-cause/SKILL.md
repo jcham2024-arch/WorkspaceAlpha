@@ -1,5 +1,16 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4d0c07190ca306be4e4e0ce6ff42339bc802d107fedaaeffe76d410116e9d8f0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 description: Curated upstream guidance for Monte Carlo Analyze Root Cause; use when the workflow matches the user goal.
+tier: "experimental"
 name: monte-carlo-analyze-root-cause
 risk: critical
 source: https://github.com/monte-carlo-data/mc-agent-toolkit/tree/main/skills/analyze-root-cause
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: Apache-2.0
 license_source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/LICENSE
 ---
+
 ## Bundled upstream support
 
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.

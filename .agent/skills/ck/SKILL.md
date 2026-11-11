@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8c27562e7ccb64c66d9fc4685634ba4bbe232fdd6b9ab1b44313e232cd1ae107"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ck
 description: Persistent per-project memory for Claude Code (Context Keeper) driven by deterministic Node.js /ck commands: init, save, resume, info, list, forget, and v1-to-v2 migrate, plus a SessionStart hook that injects a compact project brief. Use when context must survive across sessions, saving session state with next steps and decisions, resuming where a previous session left off, or picking up a project
+tier: "experimental"
 metadata:
   version: 2.0.0
   origin: community
 author: sreedhargs89
 repo: https://github.com/sreedhargs89/context-keeper
 ---
+
 
 # ck — Context Keeper
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fc47f743152e1282396314025cc994c8b5eaf3b94d03c808cce2c93d8ce1a937"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "test-guard"
 description: "Review generated or changed test code against universal testing rules before it ships or is presented for approval."
+tier: "experimental"
 risk: "critical"
 source: "community"
 source_repo: "amElnagdy/guard-skills"
@@ -10,6 +21,7 @@ author: "community"
 tags: []
 tools: []
 ---
+
 
 
 # Test Guard

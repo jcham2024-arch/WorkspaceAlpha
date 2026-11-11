@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5f7c467283f45ea799c8a5ac0ef892ed63435009b1ac53670d4f45d6c5dbe4fa"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fp-data-transforms
 description: Everyday data transformations using functional patterns - arrays, objects, grouping, aggregation, and null-safe access
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
@@ -17,6 +28,7 @@ tags:
   - aggregation
   - null-safety
 ---
+
 
 # Practical Data Transformations
 

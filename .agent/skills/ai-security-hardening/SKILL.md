@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0618c4108adc34ea842fd24c0220e39e5248363722187802922d7c0c4dd32a08"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-security-hardening
 description: Harden AI/LLM deployments against prompt injection, data exfiltration,
+tier: "experimental"
   model theft, and supply chain attacks.
 category: security
 risk: safe
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # AI Security Hardening
 

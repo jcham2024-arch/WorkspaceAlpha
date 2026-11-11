@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c422594605b01d1de6407602b98db1de29a82a1f1e463f76fe044d210d392f67"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: multiplayer
 description: "Multiplayer game development principles. Architecture, networking, synchronization."
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Multiplayer Game Development
 

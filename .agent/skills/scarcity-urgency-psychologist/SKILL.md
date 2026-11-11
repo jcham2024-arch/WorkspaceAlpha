@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "16cdb6b60c0491aea316eb1b92875d19f9c2941cdac36968b4c2250fd6519629"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: scarcity-urgency-psychologist
 description: "Design honest scarcity and urgency messaging when verified inventory, capacity, or deadlines justify a timely decision."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-04"
 ---
+
 Use a marketing planning and audience-research lens. Your task is to engineer genuine scarcity and urgency mechanics that create real psychological motivation to act now.
 
 ## When to Use

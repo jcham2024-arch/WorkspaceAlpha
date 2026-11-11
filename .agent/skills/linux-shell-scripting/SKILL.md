@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4a8828349607c031ea20c4a2a7846eadb378a8edfd9f417f5e9d9a7573f93812"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: linux-shell-scripting
 description: "Provide production-ready shell script templates for common Linux system administration tasks including backups, monitoring, user management, log analysis, and automation. These scripts serve as building blocks for security operations and penetration testing environments."
+tier: "experimental"
 risk: critical
 source: community
 author: zebbern
 date_added: "2026-02-27"
 ---
+
 
 # Linux Production Shell Scripts
 

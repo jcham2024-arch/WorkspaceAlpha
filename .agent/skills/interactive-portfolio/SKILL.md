@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "379b3c51f1cd89df1bfcc3c5ddf8c327ddf53f569cf47d2856c96777fe32de8c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: interactive-portfolio
 description: Expert in building portfolios that actually land jobs and clients -
+tier: "experimental"
   not just showing work, but creating memorable experiences. Covers developer
   portfolios, designer portfolios, creative portfolios, and portfolios that
   convert visitors into opportunities.
@@ -8,6 +19,7 @@ risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Interactive Portfolio
 

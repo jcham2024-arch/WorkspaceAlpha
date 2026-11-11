@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a1221c924a9192bc8b07f9af5ffacdc59da401f00b5ba679f14c68b6f960e580"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: subagent-driven-development
 description: Use when executing implementation plans with independent tasks in the current session
+tier: "experimental"
 ---
+
 
 # Subagent-Driven Development
 

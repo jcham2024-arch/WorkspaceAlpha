@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b319909d2ebf5b45db585f4eeac69b51da992e9196039bbc05fc146fc167c483"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: screen-reader-testing
 description: "Practical guide to testing web applications with screen readers for comprehensive accessibility validation."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Screen Reader Testing
 

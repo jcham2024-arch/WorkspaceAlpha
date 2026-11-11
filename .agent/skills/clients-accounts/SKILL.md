@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d2fefcb1e6c2f43744f383f06e7ea23c5b680e7d181ac67dbf5d2691a4b6f56c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: clients-accounts
 description: 'Client and account register: contacts, billing address, tax ID and basis, payment terms, invoice totals, amounts paid and outstanding balance. Use for account tracking.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, operate]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Clients & Accounts
 

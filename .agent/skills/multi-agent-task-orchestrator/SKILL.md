@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0e397b6c6b3d98c060227bc3b6260980b21b33713ab60766f71806a5ac65bc0e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: multi-agent-task-orchestrator
 description: "Route tasks to specialized AI agents with anti-duplication, quality gates, and 30-minute heartbeat monitoring"
+tier: "experimental"
 category: agent-orchestration
 risk: safe
 source: community
@@ -11,6 +22,7 @@ author: milkomida77
 tags: [multi-agent, orchestration, task-routing, quality-gates, anti-duplication]
 tools: [claude, cursor, gemini]
 ---
+
 
 # Multi-Agent Task Orchestrator
 

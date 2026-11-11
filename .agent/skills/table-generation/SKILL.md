@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b05505111a84ac53c0567f83f41baa0df5e07cb2b473c4accc53585e134eac40"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: table-generation
 description: Generate publication-quality LaTeX tables from experimental results. Convert JSON/CSV data to booktabs-styled tables with bold best results, multi-row layouts, and proper captions. Use when creating result tables, comparison tables, or ablation tables for papers.
+tier: "experimental"
 argument-hint: [data-source]
 ---
+
 
 # Table Generation
 

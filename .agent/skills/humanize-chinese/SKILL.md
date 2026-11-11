@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8c58487aae8c33eaae0ba0a4a55d449bfacfaf9575cdfa6da2bddfee3b4d1072"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: humanize-chinese
 description: Detect and rewrite AI-like Chinese text with a practical workflow for scoring, humanization, academic AIGC reduction, and style conversion. Use when the user asks to 去AI味, 降AIGC, 去除AI痕迹, 论文降重, 知网检测, 维普检测, humanize chinese, detect AI text, or make Chinese text sound more natural.
+tier: "experimental"
 category: content
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tags:
   - style-transfer
 date_added: "2026-04-03"
 ---
+
 
 # Humanize Chinese
 

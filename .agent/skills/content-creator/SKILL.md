@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "83e6317e2a795ae17f5dafce46e0e8a85d885cf3d5cd0798aed7768956959254"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: content-creator
 description: "Draft and review audience-specific content using supplied brand examples, local text diagnostics, and adaptable channel templates."
+tier: "experimental"
 category: marketing
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Content Creator
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a563d2201e3278a8ddf3232206237ce614a0b3c67c258e2b3299407f45ba5c81"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: skill-rails-upgrade
 description: "Analyze Rails apps and provide upgrade assessments"
+tier: "experimental"
 risk: critical
 source: "https://github.com/robzolkos/skill-rails-upgrade"
 date_added: "2026-02-27"
 ---
+
 
 ## When to Use This Skill
 

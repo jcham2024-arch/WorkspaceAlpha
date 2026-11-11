@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d738e0dc23f595111a3476620906524de431c2f0bab18dcd452092f511da2db3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: interview-me
 description: Draw out what the user actually wants with one-question-at-a-time interviews
+tier: "experimental"
   until intent is clear — before any plan, spec, or code exists.
 category: productivity
 risk: safe
@@ -12,6 +23,7 @@ license: MIT
 license_source: https://github.com/addyosmani/agent-skills/blob/main/LICENSE
 compatibility: Portable instruction skill; no CLI, MCP server, or network access required.
 ---
+
 
 # Interview Me
 

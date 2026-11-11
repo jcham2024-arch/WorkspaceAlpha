@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "55acbb410bbccb02ebdbf3d73272bd53f4880f06fb849bb8e8428b9a75035615"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aws-mcp-setup
 description: "Configure AWS MCP servers for documentation search and API access. Use when setting up AWS MCP, configuring AWS documentation tools, troubleshooting MCP connectivity, or when user mentions aws-mcp, awsdocs, uvx setup, or MCP server configuration."
+tier: "experimental"
 risk: critical
 source: https://github.com/zxkane/aws-skills/tree/main/plugins/aws-common/skills/aws-mcp-setup
 source_repo: zxkane/aws-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/zxkane/aws-skills/blob/main/LICENSE
 ---
+
 
 # AWS MCP Server Configuration Guide
 ## When to Use

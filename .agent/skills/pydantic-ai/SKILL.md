@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1fa90be33c72bae9deb1e4dad4c4170f7de48020053b87de70d6c863def4b095"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: pydantic-ai
 description: "Build production-ready AI agents with PydanticAI — type-safe tool use, structured outputs, dependency injection, and multi-model support."
+tier: "experimental"
 category: ai-agents
 risk: safe
 source: community
@@ -9,6 +20,7 @@ author: suhaibjanjua
 tags: [pydantic-ai, ai-agents, llm, openai, anthropic, gemini, tool-use, structured-output, python]
 tools: [claude, cursor, gemini]
 ---
+
 
 # PydanticAI — Typed AI Agents in Python
 

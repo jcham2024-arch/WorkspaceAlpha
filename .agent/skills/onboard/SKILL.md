@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "530bd1829f79a1d7839a114b0c62543a1609b6924aff2aeef892785195e427d0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: onboard
 description: "Decompose mixed project materials (code, docs, PDF/Excel/PPT) into a sourced overview and a goal-driven three-tier learning path, then teach it interactively."
+tier: "experimental"
 category: learning
 risk: safe
 source: https://github.com/Keviniscool-boy/onboard
@@ -20,6 +31,7 @@ tools:
 license: "MIT"
 license_source: "https://github.com/Keviniscool-boy/onboard/blob/main/LICENSE"
 ---
+
 
 ## When to Use
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "260d75727ac9d9c87e844c4c2961c3ca5507986e4be5e35dd0ae9791ea1a5e90"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: codex-subagent
 description: "Launch Codex CLI as an isolated subagent for bounded coding, review, or verification tasks."
+tier: "experimental"
 category: agent-orchestration
 risk: critical
 source: community
@@ -14,6 +25,7 @@ license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 disable-model-invocation: true
 ---
+
 
 # Codex CLI as a Subagent
 

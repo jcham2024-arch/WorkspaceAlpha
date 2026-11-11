@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4b81a38a493fd077d7e94597d6a1dbb62c01b31b36bcc44f6d15476a8f254abe"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: code-refactoring-tech-debt
 description: "Identify technical debt from actual code and change history, estimate its impact, and prioritize bounded improvements with explicit assumptions."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 ## Compatibility and maintenance
 

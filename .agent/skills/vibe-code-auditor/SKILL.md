@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "99179ede6e915d09df9e7c84e6de8fe79dd55973e8843df99f04149111885173"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: vibe-code-auditor
 description: Audit rapidly generated or AI-produced code for structural flaws, fragility, and production risks.
+tier: "experimental"
 risk: safe
 source: original
 date_added: "2026-02-28"
 metadata:
   version: 2.0.0
 ---
+
 
 # Vibe Code Auditor
 

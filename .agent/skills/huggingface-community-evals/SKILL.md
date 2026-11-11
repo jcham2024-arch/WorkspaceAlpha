@@ -1,5 +1,16 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "063561c1bf0e04b2196b40b3180f12e0fa3a641d52a5e29e916c75f4f16f8142"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 description: Curated upstream guidance for Huggingface Community Evals; use when the workflow matches the user goal.
+tier: "experimental"
 name: huggingface-community-evals
 source_repo: huggingface/skills
 source_type: official
@@ -7,6 +18,7 @@ source: huggingface
 date_added: '2026-09-21'
 risk: unknown
 ---
+
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.

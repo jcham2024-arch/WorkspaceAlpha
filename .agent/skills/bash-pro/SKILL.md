@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "26e82c2b96d17774c310f3d82e6145774214590e7fdbe0e860efce2912cf138e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: bash-pro
 description: 'Master of defensive Bash scripting for production automation, CI/CD
+tier: "experimental"
 
   pipelines, and system utilities. Expert in safe, portable, and testable shell
 
@@ -11,6 +22,7 @@ risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 ## Use this skill when
 
 - Writing or reviewing Bash scripts for automation, CI/CD, or ops

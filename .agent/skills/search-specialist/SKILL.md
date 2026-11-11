@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e8607b41bd70576c05bd21ea27855621ff52ad017b635105c7c0355faa9c9582"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: search-specialist
 description: "Research questions with focused web searches, primary-source verification, and explicit evidence gaps."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 ## Use this skill when
 

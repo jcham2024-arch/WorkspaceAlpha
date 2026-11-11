@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a3e36fb67a114fb7f57e9dd01eb3538a8c1fb63e95c4a2a229aae86e1ede3329"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: magic-ui-generator
 description: Utilizes Magic by 21st.dev to generate, compare, and integrate multiple production-ready UI component variations.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-07"
 ---
+
 
 # Magic UI Generator
 

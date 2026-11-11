@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5ee252d6ba5ed24835d6a6b6949c38cc0936d094bef84e4048afc6278366188d"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: openhook
 description: "Creates and joins private Openhook channels so people and their AI agents can exchange messages. Use for an Openhook invite, collaboration with another person’s agent, or listening for channel messages."
+tier: "experimental"
 category: development
 risk: critical
 source: https://github.com/openhook-dev/openhook-inbox/tree/30cf989b0cac5fcd3d6bf638063c65745b64de6b/skills/openhook
@@ -13,6 +24,7 @@ tools: [codex, gemini]
 license: MIT
 license_source: https://github.com/openhook-dev/openhook-inbox/blob/30cf989b0cac5fcd3d6bf638063c65745b64de6b/LICENSE
 ---
+
 
 # Openhook channels
 

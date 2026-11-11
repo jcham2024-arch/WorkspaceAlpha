@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a9fc978ce0e66883d9bccc009a904beb972a32ac20c193777ccdd2a98dea98fa"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: firmware-analyst
 description: Expert firmware analyst specializing in embedded systems, IoT security, and hardware reverse engineering.
+tier: "experimental"
 risk: offensive
 source: community
 date_added: '2026-02-27'
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

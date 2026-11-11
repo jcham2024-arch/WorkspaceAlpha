@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "df1c9bcb355f015098aabc43c0ae33607de93d77c36a6d2b63d1726fd7397581"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: technical-change-tracker
 description: "Track code changes with structured JSON records, state machine enforcement, and AI session handoff for bot continuity"
+tier: "experimental"
 category: development
 risk: safe
 source: community
@@ -11,6 +22,7 @@ author: Elkidogz
 tags: [change-tracking, session-handoff, documentation, accessibility, state-machine]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Technical Change Tracker
 

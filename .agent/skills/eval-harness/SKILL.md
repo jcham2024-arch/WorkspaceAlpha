@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "37611473c095e240c428688709f6bf376f5e0833e2d41c6d066d5b316857774c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: eval-harness
 description: Formal evaluation framework for Claude Code sessions implementing eval-driven development (EDD) principles. Use when a Claude Code workflow needs a formal eval before it is trusted or changed.
+tier: "experimental"
 allowed-tools: Read, Write, Edit, Bash, Grep, Glob
 license: MIT
 ---
+
 
 # Eval Harness Skill
 

@@ -1,6 +1,17 @@
 ---
+tier: "quarantine"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "64e02d0197c027560e8cb6dbb9230d79a4815dc5b573bb361856917b1a1b070a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: grill-with-docs
 description: A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go.
+tier: "quarantine"
 disable-model-invocation: true
 category: "productivity"
 risk: "safe"
@@ -20,6 +31,7 @@ tools:
   - codex-cli
   - cursor
 ---
+
 
 ## When to Use
 

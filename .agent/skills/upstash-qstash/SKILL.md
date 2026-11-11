@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "81a1271d490ead82fa5d7ed65578d0251bd97b6ef2cdf3543e268b26f76e7575"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: upstash-qstash
 description: Upstash QStash expert for serverless message queues, scheduled
+tier: "experimental"
   jobs, and reliable HTTP-based task delivery without managing infrastructure.
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Upstash QStash
 

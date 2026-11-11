@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8d438c684d7f2a1a3adebd57ce9543d4f0ae7d39ea9eead34667e6c8a5bc98e2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: linkedin-profile-optimizer
 description: "High-intent expert for LinkedIn profile checks and SEO optimization. Silently audits and rewrites profiles, delivering only the finished, ready-to-paste result."
+tier: "experimental"
 category: growth
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [linkedin, branding, career, growth, personal-brand]
 tools: [claude, cursor, gemini, antigravity]
 ---
+
 
 
 # LinkedIn Profile Optimizer & Authority Builder

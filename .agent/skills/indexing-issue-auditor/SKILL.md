@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "45c1073de912e68181352651f3122dc118debab0690851ca2ce55e688f34bc6a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: indexing-issue-auditor
 description: "High-level technical SEO and site architecture auditor. Invoke to scan local or live environments for indexing, crawl budget, and structural errors."
+tier: "experimental"
 category: growth
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, architecture, indexing, crawler, sitemap]
 tools: [claude, cursor, gemini, antigravity]
 ---
+
 
 # Indexing Issue Auditor & Technical SEO Architect
 

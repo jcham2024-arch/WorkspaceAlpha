@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "037d60d7632bc252f24a53299278982654483a319a6c5d0da4dcd41516c8716e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-ai-formrecognizer-java
 description: "Build document analysis applications using the Azure AI Document Intelligence SDK for Java."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Azure Document Intelligence (Form Recognizer) SDK for Java
 

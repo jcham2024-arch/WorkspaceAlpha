@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "751654e16e6439635c4f149ec15727ab101a0d1922874a10b6aa9b12965cf5b6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: chord-onchain-trading
 description: "Read DEX market data and prepare best-route swap quotes and unsigned swap transactions on eight EVM chains with the Chord API. Never signs or moves funds."
+tier: "experimental"
 category: blockchain
 risk: critical
 source: https://github.com/getchordlabs/chord/tree/main/skills/chord
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: MIT
 license_source: https://github.com/getchordlabs/chord/blob/main/LICENSE
 ---
+
 
 # Chord: On-chain Market Data and Swap Preparation
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5fcd756b16a931fe74e2550a5ca668d14c15ebe7bf4c98204caaa7665b1d3848"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-blog-intro-writer
 description: "AI Blog Intro Writer. Use when working with topic and article angle, or article draft."
+tier: "experimental"
 category: AI-Powered SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # AI Blog Intro Writer
 
 ## Overview

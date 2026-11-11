@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "84c38a7434b11bd424c4c242e2348b5d0669fd22f1af28c8efcc68a13301b9fe"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: apify-ultimate-scraper
 description: "Select a candidate Apify Actor for the requested extraction after checking its current schema, provenance, pricing and limits. The Actor table is a historical shortlist, not a verified availability or best-choice guarantee."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-01"
 ---
+
 
 # Universal Web Scraper
 

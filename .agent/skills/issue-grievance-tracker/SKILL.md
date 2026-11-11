@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5af8756bd2de55f3c2539b3192df88ea54480d55b116a12596a5270b0b9fc24e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: issue-grievance-tracker
 description: 'Grievance register: issue type, raised by or anonymous, person or team concerned, department, date raised, policy reference, severity, assignee, action taken and status. Use for complaint handling.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, manage]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Issue & Grievance Tracker
 

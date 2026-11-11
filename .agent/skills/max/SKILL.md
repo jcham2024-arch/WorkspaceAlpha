@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b6c8ae1c2aa597e935b979ea7a023e500bc731fbe038474a37eb8e78a7f26b57"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: max
 description: "Cleans up and improves existing code without changing behavior."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-06-11"
@@ -10,6 +21,7 @@ squad: agent-squad
 reports-to: agent-squad
 depends-on: mason, luna, quinn
 ---
+
 
 # Max — The Optimizer
 

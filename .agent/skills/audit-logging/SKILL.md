@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "575bb2f3ed46e88138400a2faf32e6527c502d1c3cf6249095f4b0ae15211068"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: audit-logging
 description: Implement centralized audit logging and SIEM integration. Configure log
+tier: "experimental"
   retention and security monitoring. Use when implementing audit trail requirements.
 category: security
 risk: safe
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Audit Logging
 

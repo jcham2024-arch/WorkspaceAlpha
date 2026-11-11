@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0d7ac63244872e8e4ab162abedb97c6b72daf336a604b3f49037076802d848ea"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: arrowspace
 description: "Spectral vector search using graph Laplacian eigenstructure. Use when cosine/L2 similarity misses latent structure in your embeddings."
+tier: "experimental"
 category: data
 risk: safe
 source: community
@@ -13,6 +24,7 @@ license_source: "https://github.com/Genefold/arrowspace-skills/blob/main/LICENSE
 tags: [vector-search, spectral-analysis, graph-laplacian, embeddings, lambda-tau]
 tools: [claude, cursor, codex, gemini, opencode]
 ---
+
 
 # ArrowSpace
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1b37273e8811e6afcc0fbc3fa20c3cbc848d7e7667838d519ef8a9a41fe65549"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: audit-skills
 description: "Expert security auditor for AI Skills and Bundles. Performs non-intrusive static analysis to identify malicious patterns, data leaks, system stability risks, and obfuscated payloads across Windows, macOS, Linux/Unix, and Mobile (Android/iOS)."
+tier: "experimental"
 category: security
 risk: safe
 source: community
@@ -9,6 +20,7 @@ author: MAIOStudio
 tags: [security, audit, skills, bundles, cross-platform]
 tools: [claude, gemini, gpt, llama, mistral, etc]
 ---
+
 
 # Audit Skills (Premium Universal Security)
 

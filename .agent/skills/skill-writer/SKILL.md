@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3e5f3ce3b6683d4b7c1633425744a387e8c326d1a109b88ca2302cadfdddfc4e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: skill-writer
 description: Create and improve agent skills following the Agent Skills specification. Use when asked to create, write, or update skills.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # Skill Writer
 

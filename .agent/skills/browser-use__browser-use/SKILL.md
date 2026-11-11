@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "16c42f97ef4b800b531d95852acd31fdacf0491c0c25f90afaa2d33a4234b1ed"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: browser-use
 description: "Direct browser control via CDP for web interaction: automation, scraping, testing, screenshots, and site/app work. Also covers hosted cloud browsers for AI agents: the browser-use Python library (Browser(use_cloud=True)), Playwright, Puppeteer or any CDP client."
+tier: "experimental"
 homepage: https://browser-use.com
 metadata:
   {
@@ -20,6 +31,7 @@ metadata:
       },
   }
 ---
+
 
 # Browser Use
 

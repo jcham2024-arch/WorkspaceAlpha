@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cc36b42a3c4edffaf0134174d29d98280577f3f898cec6bb5d288c8e799207a7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gpu-server-management
 description: Set up and manage NVIDIA GPU servers for AI workloads
+tier: "experimental"
 category: devops
 risk: critical
 source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
@@ -15,6 +26,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # GPU Server Management
 

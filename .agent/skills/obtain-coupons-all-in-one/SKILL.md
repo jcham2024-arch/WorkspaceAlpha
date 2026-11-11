@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e2e6e8d01bfdfabbb663d48d11a4350374a7f97b24a1da0176ad317ccd38ce58"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: obtain-coupons-all-in-one
 description: "All-in-one coupon fetcher supporting takeout (Meituan, Ele.me, JD), parcel/courier (SF, ZTO, YTO, etc.), travel (DiDi, Ctrip), and movie tickets (Taopiaopiao, Maoyan) coupons with one-click access to all discounts."
+tier: "experimental"
 category: shopping
 risk: critical
 source: community
@@ -11,6 +22,7 @@ author: moooai
 tags: [coupons, all-in-one, takeout, travel, movie, parcel]
 tools: [claude, codex]
 ---
+
 
 # All-in-one Coupons (Takeout / Travel / Movie / Parcel)
 

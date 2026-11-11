@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3ee91aa2cb1d1a5a297259933a085e7ac3878bf60634c7ee64d0c757e1d1db57"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gemini-interactions-api
 description: "Build with the Gemini Interactions API for text, chat, multimodal generation, streaming, managed or background agents, function calling, structured output, and generateContent migrations."
+tier: "experimental"
 risk: critical
 source: https://github.com/google-gemini/gemini-skills/tree/main/skills/gemini-interactions-api
 source_repo: google-gemini/gemini-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: Apache-2.0
 license_source: https://github.com/google-gemini/gemini-skills/blob/main/LICENSE
 ---
+
 
 # Gemini Interactions API Skill
 ## When to Use

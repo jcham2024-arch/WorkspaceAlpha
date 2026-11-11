@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a0bdf41405ff4ad59d3e5f5a9744cd385ef70e964d626703a4b3ebea803130c9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: experiment-design
 description: Design experiment plans with progressive stages — initial implementation, baseline tuning, creative research, and ablation studies. Plan baselines, datasets, hyperparameter sweeps, and evaluation metrics. Use when planning experiments for a research paper.
+tier: "experimental"
 argument-hint: [idea-or-plan]
 ---
+
 
 # Experiment Design
 

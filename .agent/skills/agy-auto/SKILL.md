@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "604264b253d4e25d0c6f2c6bcd270c67a5d35b6b3d29d27392c2e07c5093b185"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agy-auto
 description: "Configure agy-auto PreToolUse security gate to run Antigravity CLI (agy) unattended with layered policy controls instead of --dangerously-skip-permissions."
+tier: "experimental"
 category: security
 risk: critical
 source: community
@@ -13,6 +24,7 @@ license: "MIT"
 license_source: "https://github.com/onkarbadve/agy-auto/blob/main/LICENSE"
 tools: [antigravity]
 ---
+
 
 # agy-auto — Antigravity Auto-Permission & Security Gate
 

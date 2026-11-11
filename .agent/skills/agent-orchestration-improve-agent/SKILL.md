@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f50c26bc8786d40e5be551b25aa42442f415c1a1e9b8e6cd3fa502102da3d3e3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agent-orchestration-improve-agent
 description: "Systematic improvement of existing agents through performance analysis, prompt engineering, and continuous iteration."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Agent Performance Optimization Workflow
 

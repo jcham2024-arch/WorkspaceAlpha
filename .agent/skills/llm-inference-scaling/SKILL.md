@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7d1838a2712ddd890df10d754d46e3b7f01514de77bef8b90d284435394270dd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: llm-inference-scaling
 description: Auto-scale LLM inference clusters on Kubernetes using KEDA, custom GPU
+tier: "experimental"
   metrics, and horizontal pod autoscaling.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # LLM Inference Scaling
 

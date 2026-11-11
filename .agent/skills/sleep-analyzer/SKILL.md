@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9f140f360c75d7a33789ad5fec2ea3316d0d52d40fd14d3d2dc9b1b1600aa362"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sleep-analyzer
 description: 分析睡眠数据、识别睡眠模式、评估睡眠质量，并提供个性化睡眠改善建议。支持与其他健康数据的关联分析。
+tier: "experimental"
 allowed-tools: Read, Grep, Glob, Write
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # 睡眠分析器技能
 

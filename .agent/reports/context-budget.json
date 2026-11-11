@@ -1,0 +1,133 @@
+{
+  "ceiling_default": 25000,
+  "base_tokens": 20238,
+  "profiles": [
+    {
+      "profile": "coder",
+      "base_tokens": 20238,
+      "skill_tokens": 37395,
+      "total_tokens": 57633,
+      "ceiling": 60000,
+      "over_budget": false,
+      "active_skill_count": 15
+    },
+    {
+      "profile": "taskmaster",
+      "base_tokens": 20238,
+      "skill_tokens": 32905,
+      "total_tokens": 53143,
+      "ceiling": 55000,
+      "over_budget": false,
+      "active_skill_count": 14
+    },
+    {
+      "profile": "coding-manager",
+      "base_tokens": 20238,
+      "skill_tokens": 27892,
+      "total_tokens": 48130,
+      "ceiling": 50000,
+      "over_budget": false,
+      "active_skill_count": 9
+    },
+    {
+      "profile": "starter",
+      "base_tokens": 20238,
+      "skill_tokens": 24361,
+      "total_tokens": 44599,
+      "ceiling": 45000,
+      "over_budget": false,
+      "active_skill_count": 12
+    },
+    {
+      "profile": "research-manager",
+      "base_tokens": 20238,
+      "skill_tokens": 22409,
+      "total_tokens": 42647,
+      "ceiling": 45000,
+      "over_budget": false,
+      "active_skill_count": 9
+    },
+    {
+      "profile": "researcher",
+      "base_tokens": 20238,
+      "skill_tokens": 22043,
+      "total_tokens": 42281,
+      "ceiling": 45000,
+      "over_budget": false,
+      "active_skill_count": 11
+    },
+    {
+      "profile": "review-manager",
+      "base_tokens": 20238,
+      "skill_tokens": 19778,
+      "total_tokens": 40016,
+      "ceiling": 45000,
+      "over_budget": false,
+      "active_skill_count": 10
+    },
+    {
+      "profile": "reviewer",
+      "base_tokens": 20238,
+      "skill_tokens": 17597,
+      "total_tokens": 37835,
+      "ceiling": 40000,
+      "over_budget": false,
+      "active_skill_count": 11
+    },
+    {
+      "profile": "wiki-producer",
+      "base_tokens": 20238,
+      "skill_tokens": 10084,
+      "total_tokens": 30322,
+      "ceiling": 35000,
+      "over_budget": false,
+      "active_skill_count": 4
+    },
+    {
+      "profile": "conceptualizer",
+      "base_tokens": 20238,
+      "skill_tokens": 8337,
+      "total_tokens": 28575,
+      "ceiling": 35000,
+      "over_budget": false,
+      "active_skill_count": 4
+    },
+    {
+      "profile": "README",
+      "base_tokens": 20238,
+      "skill_tokens": 0,
+      "total_tokens": 20238,
+      "ceiling": 25000,
+      "over_budget": false,
+      "active_skill_count": 0
+    },
+    {
+      "profile": "TEMPLATE",
+      "base_tokens": 20238,
+      "skill_tokens": 0,
+      "total_tokens": 20238,
+      "ceiling": 25000,
+      "over_budget": false,
+      "active_skill_count": 1
+    },
+    {
+      "profile": "eval-agents",
+      "base_tokens": 20238,
+      "skill_tokens": 0,
+      "total_tokens": 20238,
+      "ceiling": 25000,
+      "over_budget": false,
+      "active_skill_count": 0
+    },
+    {
+      "profile": "protocol",
+      "base_tokens": 20238,
+      "skill_tokens": 0,
+      "total_tokens": 20238,
+      "ceiling": 25000,
+      "over_budget": false,
+      "active_skill_count": 0
+    }
+  ],
+  "generated_at": "2026-11-10"
+}

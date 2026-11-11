@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "35364ee5803f3618929ad12433f0a2c799986365fbf0d75192da4dc38470f0d0"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: break-ai-fix-loops
 description: "Stop ineffective AI coding repair loops with stable failure fingerprints, a three-attempt budget, real-path proof, negative controls, and tested rollback."
+tier: "experimental"
 category: code-quality
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude-code, codex-cli, copilot, cursor, gemini-cli]
 license: "MIT"
 license_source: "https://github.com/twoicewoo/awesome-copilot/blob/886bf799bb05501bfd1afa7aae9cc5a77dedb03e/LICENSE"
 ---
+
 
 # Break AI Fix Loops
 

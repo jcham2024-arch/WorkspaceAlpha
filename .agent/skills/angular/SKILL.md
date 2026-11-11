@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7fe039750edb2c161bf48eeaa04db99aa1d8149f0675c492b4df037497edaca4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: angular
 description: Modern Angular (v20+) expert with deep knowledge of Signals, Standalone Components, Zoneless applications, SSR/Hydration, and reactive patterns.
+tier: "experimental"
 risk: safe
 source: self
 date_added: '2026-02-27'
 ---
+
 
 # Angular Expert
 

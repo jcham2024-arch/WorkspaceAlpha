@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3aba3667b30e308cf93b3cb5091be87bde9fb75192cd302586ca4b6f0bda419f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: browser-bridge
 description: "Inspect, control, and automate tasks in your real Microsoft Edge or Google Chrome browser via Chrome DevTools Protocol (CDP) with bilingual UI, native tab grouping, and self-healing daemon."
+tier: "experimental"
 category: automation
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [gemini, cursor, claude]
 license: "Apache-2.0"
 license_source: "https://github.com/AshenJyy/antigravity-browser-bridge/blob/main/LICENSE"
 ---
+
 
 # Browser Bridge Automation
 

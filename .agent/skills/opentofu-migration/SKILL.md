@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b5342539f2a17731d18d65d8bad7cfa30b7b97b122c363b1c1b88c1713e77859"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: opentofu-migration
 description: Migrate from Terraform to OpenTofu with state compatibility, provider
+tier: "experimental"
   registry setup, and CI/CD pipeline updates. Use when adopting the open-source Terraform
   fork or evaluating license-free IaC.
 category: devops
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # OpenTofu Migration
 

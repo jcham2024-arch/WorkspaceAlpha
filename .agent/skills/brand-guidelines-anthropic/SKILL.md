@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6b58a3a37a51295715b958eb53913565476325bd2eb500f7a7b34bccd0190864"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: brand-guidelines-anthropic
 description: "To access Anthropic's official brand identity and style resources, use this skill."
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-02-27"
 ---
+
 
 ## Compatibility and maintenance
 

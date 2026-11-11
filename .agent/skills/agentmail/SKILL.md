@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "72d0b7eddfd87ba3c7c0620303e3ccdfe618ccc87e35df766a9c0742fd627335"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agentmail
 description: Email infrastructure for AI agents. Create accounts, send/receive emails, manage webhooks, and inspect billing balance via the AgentMail API.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-03"
 ---
+
 
 # AgentMail — Email for AI Agents
 

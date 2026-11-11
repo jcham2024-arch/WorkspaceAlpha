@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "aa1c6f693edf8e960d23fd6e2bb9fb81bf60056bae45637160e856ff6d2fa5cd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: dispatching-parallel-agents
 description: "Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies"
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Dispatching Parallel Agents
 

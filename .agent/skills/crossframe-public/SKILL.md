@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "dd49151f961a1d091760e850e170fe6cf957b08b296bdc22efebeb8918f7099d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: crossframe-public
 description: "Use when CrossFrame Suite routes explicit Chinese analysis of public issues, platform governance, policy, institutional responsibility, appeals, or compliance evidence."
+tier: "experimental"
 category: workflow
 risk: safe
 source: community
@@ -21,6 +32,7 @@ tags:
   - governance
   - evidence
 ---
+
 # CrossFrame Public
 
 

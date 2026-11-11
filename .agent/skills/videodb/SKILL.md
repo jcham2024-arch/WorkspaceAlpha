@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "506eceb67cd072359addb1e6dc986552f23e65608c03fe20419e0f5b1939fdcc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: videodb
 description: Video and audio perception, indexing, and editing. Ingest files/URLs/live streams, build visual/spoken indexes, search with timestamps, edit timelines, add overlays/subtitles, generate media, and create real-time alerts.
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -9,6 +20,7 @@ date_added: "2026-02-27"
 allowed-tools: Read Grep Glob Bash(python:*)
 argument-hint: "[task description]"
 ---
+
 
 # VideoDB Skill
 

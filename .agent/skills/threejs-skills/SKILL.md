@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "21880966ba03e033413ae56a8a833a9e795dad01d97c5f500f3b5fcf7827a1c1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: threejs-skills
 description: "Create 3D scenes, interactive experiences, and visual effects using Three.js. Use when user requests 3D graphics, WebGL experiences, 3D visualizations, animations, or interactive 3D elements."
+tier: "experimental"
 risk: safe
 source: "https://github.com/CloudAI-X/threejs-skills"
 date_added: "2026-02-27"
 ---
+
 
 # Three.js Skills
 

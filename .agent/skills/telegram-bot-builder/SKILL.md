@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "72a2c14cf06bed31c76536080c448b7169491a3a46b3d0259d9f52c6abd01055"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: telegram-bot-builder
 description: Expert in building Telegram bots that solve real problems - from
+tier: "experimental"
   simple automation to complex AI-powered bots. Covers bot architecture, the
   Telegram Bot API, user experience, monetization strategies, and scaling bots
   to thousands of users.
@@ -8,6 +19,7 @@ risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Telegram Bot Builder
 

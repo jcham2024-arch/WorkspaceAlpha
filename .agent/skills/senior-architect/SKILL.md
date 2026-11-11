@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "19058cac577957ef8bf244d6c2ca3eb4f1c2028df60248bb722df2bae96aac43"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: senior-architect
 description: "Plan and review system architecture using explicit requirements, tradeoffs and evidence; bundled scripts are incomplete stubs."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Senior Architect
 

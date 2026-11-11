@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6b3bc51200e4843f7d51b7cdb302ef3c8eac9b2b2a638320fa07fd6b9a1e8850"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: brevo-automation
 description: "Automate Brevo (formerly Sendinblue) email marketing operations through Composio's Brevo toolkit via Rube MCP."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Brevo Automation via Rube MCP
 

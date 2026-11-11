@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "83dc3e98b574af3a4ab218bbabfe3673ae39ce0dbc5a736e46d014a332fde894"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-aeo-orchestrator
 description: "Runs an audit-first SEO/AEO growth workflow from project discovery through implementation, foundational content, measurement setup, deployment verification, and optional weekly monitoring."
+tier: "experimental"
 risk: critical
 source: self
 source_type: self
 date_added: "2026-09-16"
 ---
+
 
 # SEO-AEO Growth Orchestrator Workflow
 

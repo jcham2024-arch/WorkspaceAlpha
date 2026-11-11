@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0e20988ee7a54f5c7562b5a809c6c9a18fffb39c7ac04d1d7a0f7aee5817fe4b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: repurpose-into-a-post
 description: "Turn an article, newsletter, transcript or video into a Twitter/X or LinkedIn post that stands on its own. Use when someone wants to repurpose, share or promote content they already made."
+tier: "experimental"
 category: marketing
 risk: critical
 source: "https://github.com/prateeks367/voicemoat-skills/tree/7623a3effbee426554e8c5df55e77f3479fd0ec0/skills/repurpose-into-a-post"
@@ -13,6 +24,7 @@ author: prateeks367
 tags: [linkedin, twitter, repurposing, content, social-media]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Repurpose this into a post
 

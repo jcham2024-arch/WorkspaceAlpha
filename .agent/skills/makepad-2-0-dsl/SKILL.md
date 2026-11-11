@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ac08acc7e9a65c9d812de724840891f8005c4b9acb7fabd2ae5db32e1b096428"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: makepad-2-0-dsl
 description: Makepad 2.0 guidance for dsl; use when building or debugging Makepad UI code.
+tier: "experimental"
 source_repo: zhanghandong/makepad-skills
 source_type: community
 source: community
 date_added: '2026-09-21'
 risk: unknown
 ---
+
 
 ## Limitations
 

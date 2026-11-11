@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "28df2606b06478783d1d17121ce2c6fa5f2a381ed5c724e0adf594534b161172"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: rich-elicitation
 description: "Asks clarifying questions in multiple rounds before starting ambiguous tasks. Fires when 2+ task dimensions each have 3+ viable answers."
+tier: "experimental"
 category: productivity
 risk: none
 source: self
@@ -10,6 +21,7 @@ author: abubakar
 tags: [elicitation, clarifying-questions, ambiguity, multi-round, prompt-engineering]
 tools: [antigravity]
 ---
+
 
 # Rich Elicitation Skill
 

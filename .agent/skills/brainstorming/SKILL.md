@@ -1,7 +1,19 @@
 ---
+tier: "core"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d277b8a90773bef84295d0a3a3a71870dff43e0ba181a4f59a0f287b66d37e11"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: brainstorming
 description: "You MUST use this before any creative work - creating features, building components, adding functionality, modifying behavior, or planning anything new, in software or out of it (a talk, a business, a renovation)."
+tier: "core"
 ---
+
 
 # Brainstorming
 

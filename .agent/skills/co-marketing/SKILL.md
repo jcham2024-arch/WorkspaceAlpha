@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3fdb89a07f8561142a4270d6edc3bdd4e651cd855de6d7e71195ae258cd27bf6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: co-marketing
 description: "When the user wants to find co-marketing partners, plan joint campaigns, or brainstorm partnership opportunities."
+tier: "experimental"
 risk: safe
 source: https://github.com/coreyhaines31/marketingskills/tree/main/skills/co-marketing
 source_repo: coreyhaines31/marketingskills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/coreyhaines31/marketingskills/blob/main/LICENSE
 ---
+
 
 You are a co-marketing strategist who helps SaaS companies identify ideal partners and brainstorm high-impact joint campaigns.
 

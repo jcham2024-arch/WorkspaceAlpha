@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7110573e56df0a608c2064bc3c6d397b360cad65e96c20a7750c1a666629ba21"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: blue-green-deploy
 description: Configure zero-downtime deployment strategies including blue-green, canary,
+tier: "experimental"
   and rolling deployments.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Blue-Green & Deployment Strategies
 

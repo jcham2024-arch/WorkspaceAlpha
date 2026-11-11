@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0b3eff8304b6e1b943312a88fa87e487a8f58cec0330a0107ffa9f6db279acba"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: vps-server-management
 description: "Manage authorized VPS hosts and server-side agents through cautious SSH and operations workflows."
+tier: "experimental"
 category: operations
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex]
 license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 ---
+
 
 # VPS Server Management
 

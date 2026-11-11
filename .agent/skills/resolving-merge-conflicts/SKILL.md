@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "38d40aeb633733d2cb59a46066f7a3b940024292c09a89d5fd2877459dfa248b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: resolving-merge-conflicts
 description: Use when you need to resolve an in-progress git merge/rebase conflict.
+tier: "experimental"
 risk: critical
 source: https://github.com/mattpocock/skills/tree/main/skills/engineering/resolving-merge-conflicts
 source_repo: mattpocock/skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/mattpocock/skills/blob/main/LICENSE
 ---
+
 
 
 ## When to Use

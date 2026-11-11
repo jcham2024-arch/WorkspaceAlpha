@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5142730fbb750a93dd32bffa0abb790077e10307a754793e70c0feae850cc404"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "strict-api"
 description: "Use when the user says 'no hallucinations', 'verify APIs' or 'don't invent functions', or code depends on a library version you have not checked. Requires proof that every method, import and variable exists in the installed version before using it."
+tier: "experimental"
 ---
+
 
 # Strict API Verification
 

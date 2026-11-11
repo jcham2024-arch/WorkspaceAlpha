@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cee8642e8163499a2e1d6689951a890d249cdaba5af97d7e3b8b5ed4875e240e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: supply-chain-attack-recon
 description: Authorized read-only review of public software supply-chain exposure
+tier: "experimental"
 category: security
 risk: offensive
 source: https://github.com/elementalsouls/Claude-BugHunter
@@ -16,6 +27,7 @@ sources: alex-birsan-dependency-confusion, supply-chain-research, github-actions
   cisa-advisories, mandiant-tag, github-security-blog, snyk-research
 report_count: 12
 ---
+
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.

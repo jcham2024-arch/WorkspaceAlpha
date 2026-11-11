@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "305f1e6b156cd88887da4aaff8ff17f6203c954854a0919f09965ee4c5f70a99"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: internal-communication
 description: 'Internal communication log: title, type, date, department, host and attendees, agenda, action items, follow-up date, meeting link and delivery status. Use for internal comms tracking.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, engage]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Internal Communication
 

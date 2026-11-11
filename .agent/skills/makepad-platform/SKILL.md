@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "76fd3b2a212192e80c18c170fc6b46bbdb336bf337554270c21665065d01de21"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: makepad-platform
 description: |
+tier: "experimental"
   CRITICAL: Use for Makepad cross-platform support. Triggers on:
   makepad platform, makepad os, makepad macos, makepad windows, makepad linux,
   makepad android, makepad ios, makepad web, makepad wasm, makepad metal,
@@ -10,6 +21,7 @@ risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

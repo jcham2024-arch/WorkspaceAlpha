@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c7749fca22e66944e8df80bd325c7143819cead4e7cc59b159721e29df26316e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: soroban-contract-audit
 description: 'Soroban smart contract security audit register: authorization checks, panic pathways, integer overflows, and storage footprint verification for Stellar.'
+tier: "experimental"
 category: engineering
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [stellar, soroban, rust, smart-contracts, security, audit, web3]
 tools: []
 source_repo: Ranjeet2063/agentic-awesome-skills
 ---
+
 
 # Soroban Contract Security Audit
 

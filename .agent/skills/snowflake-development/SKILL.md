@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5bdab276b96ec37a96a3e27f7e81f1a2d57d8a132a1f12ff3385db8411c8e98f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: snowflake-development
 description: "Comprehensive Snowflake development assistant covering SQL best practices, data pipeline design (Dynamic Tables, Streams, Tasks, Snowpipe), Cortex AI functions, Cortex Agents, Snowpark Python, dbt integration, performance tuning, and security hardening."
+tier: "experimental"
 category: data-engineering
 risk: safe
 source: community
 date_added: "2026-03-24"
 ---
+
 
 # Snowflake Development
 

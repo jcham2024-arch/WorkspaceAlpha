@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "043c1d3583f5163ccabea666a154b23ad9b7340a95f96b2a0c16f3acd058e809"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: audit-context-building
 description: Enables ultra-granular, line-by-line code analysis to build deep architectural context before vulnerability or bug finding.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # Deep Context Builder Skill (Ultra-Granular Pure Context Mode)
 

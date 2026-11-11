@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5e5cef9cc399b38fb24531fa47624cc8c1d19a7c7c227c7dc41ff9be3d9661ad"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: langgraph
 description: Expert in LangGraph - the production-grade framework for building
+tier: "experimental"
   stateful, multi-actor AI applications. Covers graph construction, state
   management, cycles and branches, persistence with checkpointers,
   human-in-the-loop patterns, and the ReAct agent pattern.
@@ -8,6 +19,7 @@ risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # LangGraph
 

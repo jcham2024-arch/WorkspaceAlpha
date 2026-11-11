@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8c6b0a9b2a5967ed5359c85235e2e740fdbebf44cb63e7f03675e03145afb276"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: infinite-gratitude
 description: "Plan and synthesize multi-perspective research; use parallel agents only when authorized and verify findings against sources."
+tier: "experimental"
 risk: safe
 source: "https://github.com/sstklen/infinite-gratitude"
 date_added: "2026-02-27"
 ---
+
 
 # Infinite Gratitude
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "eabbbac7e2a9c8ba10de90a7e03dda57f74390c152686e7a62e56a133ffcc179"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: api-rate-limit-handler
 description: "Implement bounded, idempotency-aware API throttling, backoff, and retry handling for 429 and transient 5xx responses."
+tier: "experimental"
 category: development
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [rate-limiting, retry, backoff, api, resilience, throttle, 429]
 tools: [claude, cursor, codex, gemini]
 license: "MIT"
 ---
+
 
 # API Rate Limit Handler
 

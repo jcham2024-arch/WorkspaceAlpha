@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4cf608751108474d12f14124594c4ee71ee84c958cab7227625fb63a0c036723"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fp-option-ref
 description: Quick reference for Option type. Use when user needs to handle nullable values, optional data, or wants to avoid null checks.
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-03-06"
 version: 1.0.0
 tags: [fp-ts, option, nullable, maybe, quick-reference]
 ---
+
 
 # Option Quick Reference
 

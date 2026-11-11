@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e7c4b5e46ab3df4e2c191ca2f531a0b426743d4db880054c9f572450df189d4c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: convex
 description: "Convex reactive backend expert: schema design, TypeScript functions, real-time subscriptions, auth, file storage, scheduling, and deployment."
+tier: "experimental"
 risk: safe
 source: "https://docs.convex.dev"
 date_added: "2026-02-27"
 ---
+
 
 # Convex
 

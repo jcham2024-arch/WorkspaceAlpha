@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7e5aec7a63574d2258167efc11d61e4c927ac89b28520a9813247f108c48fbcf"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-servicebus-dotnet
 description: Azure Service Bus SDK for .NET. Enterprise messaging with queues, topics, subscriptions, and sessions.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Azure.Messaging.ServiceBus (.NET)
 

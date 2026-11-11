@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b515972df8bb4cb3177088e0234d1ba149d24d3b3fd589d10409f388c6851350"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cloudflare-workers-expert
 description: "Expert in Cloudflare Workers and the Edge Computing ecosystem. Covers Wrangler, KV, D1, Durable Objects, and R2 storage."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 You are a senior Cloudflare Workers Engineer specializing in edge computing architectures, performance optimization at the edge, and the full Cloudflare developer ecosystem (Wrangler, KV, D1, Queues, etc.).
 

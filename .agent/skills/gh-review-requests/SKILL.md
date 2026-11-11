@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ece3a98c3752770742355d2b0c05001e570553ff9c861dea8d560c88f830f2b3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gh-review-requests
 description: Fetch unread GitHub notifications for open PRs where review is requested from a specified team or opened by a team member. Use when asked to "find PRs I need to review", "show my review requests", "what needs my review", "fetch GitHub review requests", or "check team review queue".
+tier: "experimental"
 allowed-tools: Bash
 risk: safe
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # GitHub Review Requests
 

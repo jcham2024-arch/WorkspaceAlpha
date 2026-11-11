@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "56dcb709d2446296589b31f0bdb8c8b0bbdd6dddb77dc77aec8ab9d12051d29f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: options-flow-analyzer
 description: Compare raw and explicitly filtered options put/call ratios with documented premium, delta and expiry assumptions
+tier: "experimental"
 category: finance
 risk: safe
 source: community
@@ -10,6 +21,7 @@ author: tellmefrankie
 tags: [options, sentiment-analysis, trading, polygon, market-analysis]
 tools: [websearch]
 ---
+
 # Options Flow Analyzer
 
 Analyze options chain data with explicitly labeled heuristic filters. The historical upstream calls these “real” and “lottery” buckets; those names do not establish trader intent, trade quality or a predictive signal. Verify the current data provider (Polygon.io/Massive), plan and schema.

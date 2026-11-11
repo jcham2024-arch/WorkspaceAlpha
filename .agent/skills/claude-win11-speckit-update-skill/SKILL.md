@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0ea3a7970e29839ea947bc12d38b2ae1c3a5cd63021e3d2c9ee7e298248d25be"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: claude-win11-speckit-update-skill
 description: "Review updates to GitHub SpecKit on Windows 11 with PowerShell, preserving local templates and customizations"
+tier: "experimental"
 risk: critical
 source: "https://github.com/NotMyself/claude-win11-speckit-update-skill"
 date_added: "2026-02-27"
 ---
+
 
 # Claude Win11 Speckit Update Skill
 

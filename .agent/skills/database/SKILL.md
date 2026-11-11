@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1dbfb1198af1c253748a488a83b390ff40a8b87057950901e4b71c1152a41e2e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: database
 description: "Database development and operations workflow covering SQL, NoSQL, database design, migrations, optimization, and data engineering."
+tier: "experimental"
 category: workflow-bundle
 risk: safe
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 # Database Workflow Bundle
 

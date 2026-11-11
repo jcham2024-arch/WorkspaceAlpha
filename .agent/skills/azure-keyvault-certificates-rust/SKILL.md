@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "54591ad31196286a9c5e9ddc3d661491ed0f76491a7facec2698e5c8fb3dbd4c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-keyvault-certificates-rust
 description: Azure Key Vault Certificates SDK for Rust. Use for creating, importing, and managing certificates.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Azure Key Vault Certificates SDK for Rust
 

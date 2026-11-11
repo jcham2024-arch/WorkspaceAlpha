@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7acb6399d4e1c9d83b7059f8c4c3af36e42729662206fc9bd450ff4eacbd79bb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: antigravity-maintainer-batch-release
 description: "Run protected AAS maintainer sweeps, PR merge batches, resumable review, immutable distribution, Core checks, and scripted releases. Use for repository maintenance, main alignment, CLI/MCP/Workbench changes, or release work; not ordinary contribution tasks."
+tier: "experimental"
 risk: critical
 source: self
 date_added: "2026-07-18"
 ---
+
 
 # Antigravity Maintainer Batch Release
 

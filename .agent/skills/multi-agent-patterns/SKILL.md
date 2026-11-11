@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ef097dfacdd141e7da71e0499cda3ebba54cacaaf813751b3669d67ad72d6967"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: multi-agent-patterns
 description: This skill should be used when the user asks to "design multi-agent system", "implement supervisor pattern", "create swarm architecture", "coordinate multiple agents", or mentions multi-agent patterns, context isolation, agent handoffs, sub-agents, or parallel agent execution.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-01-30"
 ---
+
 
 # Multi-Agent Architecture Patterns
 

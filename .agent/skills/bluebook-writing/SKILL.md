@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ad6079269ad0de7e83cdb76b458fe2c354bc99b72e72040ef15dfe5d8e42b487"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: bluebook-writing
 description: "Write design-reading books and articles in plain language with a two-layer skeleton: a zero-terminology everyday story first, then the professional layer with formal names, mechanisms, boundaries, and costs. Use when explaining unfamiliar systems to non-programmers."
+tier: "experimental"
 category: writing
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/TobeMagic/deepseek-harness-bluebook/blob/main/LICENSE"
 ---
+
 
 # Bluebook Writing
 

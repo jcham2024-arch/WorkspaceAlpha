@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f160a0ba1015880cd0a019aec99c82cd26d72b297d1b72e9cf91dfb5c19ea76b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: kotler-macro-analyzer
 description: "Professional PESTEL/SWOT analysis agent based on Kotler's methodology for strategic market audits."
+tier: "experimental"
 category: business-strategy
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: justmiroslav
 tags: [marketing, economics, strategy, kotler, pestel]
 tools: [claude, cursor]
 ---
+
 
 # Kotler Macro-Environment Analyzer
 

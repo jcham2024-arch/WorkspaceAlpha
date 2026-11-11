@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ae998d2a74e30055a86498ff9f6160c6c5032b4f2c07ab91e0f2311cf3808b0a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: api-contract-testing
 description: "Design and review API contract tests across providers and consumers. Use for schema changes, compatibility regressions and client integration failures."
+tier: "experimental"
 category: development
 risk: safe
 source: self
@@ -10,6 +21,7 @@ tags: [api, contracts, testing, compatibility]
 tools: [claude, codex, cursor]
 license: MIT
 ---
+
 
 # API Contract Testing
 

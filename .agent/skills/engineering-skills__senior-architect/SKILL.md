@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a6a09f151aa80800eab856cc17ac7746d05c6f5b46e8ce897bf6b48c45db1844"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "senior-architect"
 description: "System architecture decisions with a written rationale: monolith vs microservices, database choice, scaling limits, ADRs, Mermaid diagrams. Load whenever the user asks should we split, which database, will it scale, or wants an ADR."
+tier: "experimental"
 ---
+
 
 # Senior Architect
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a50250bcfd85074cdf655ba29f41aabe85d294bfc1f9b1933b95d8e3ebb041ae"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: pci-compliance
 description: "Review payment data flows and engineering control evidence for a scoped PCI assessment, without claiming certification."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Payment Data and PCI Evidence Review
 

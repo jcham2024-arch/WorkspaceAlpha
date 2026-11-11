@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b9463871d0ededdf06deb7a1a9bc5f447320a7345f6bd08d5c58775bcb66e8d2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: image-alt-tag-generator
 description: "Image Alt Tag Generator. Use when working with image or accurate image description and page context."
+tier: "experimental"
 category: On-Page Optimization
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Image Alt Tag Generator
 
 ## Overview

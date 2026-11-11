@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f1775294eb885728cd90dbdcac9e8deb8e245e0c6205bf13533ed07e115c1dca"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: traffic-potential-calculator
 description: "Traffic Potential Calculator. Use when working with search volume and explicit CTR assumptions for matching period and market."
+tier: "experimental"
 category: SEO Performance
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Traffic Potential Calculator
 
 ## Overview

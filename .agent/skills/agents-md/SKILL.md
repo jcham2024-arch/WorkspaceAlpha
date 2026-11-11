@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ee3e736167fdeb14ed2f34bb248c3a8f8fe99014ff82be5afab16df4309aa4fa"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agents-md
 description: Create, revise, or audit AGENTS.md files from repository evidence, verified commands, and correctly scoped instructions without overwriting maintainer intent.
+tier: "experimental"
 category: development
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # Maintain AGENTS.md from repository evidence
 

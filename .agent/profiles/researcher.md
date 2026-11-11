@@ -22,6 +22,7 @@ reads:
   - .context/manifest.json
   - docs/resources/
 verify: "Every claim cites a source (URL or wiki anchor / byte range)."
+owner: "researcher"
 ---
 
 # Researcher

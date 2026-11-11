@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "94947593429a9a2a45a03079799bfdca10912cb4a3f7194524bb7a663648b3f7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sitemap-generator
 description: "XML Sitemap Generator. Use when working with canonical public page URLs and optional real modification dates."
+tier: "experimental"
 category: SEO Utility
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # XML Sitemap Generator
 
 ## Overview

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "09aeeb42e28356fc25693f05152005607e7bc8b3ea4424bf0cd5e95c2a15bb22"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: skill-optimizer
 description: "Diagnose and optimize Agent Skills (SKILL.md) with real session data and research-backed static analysis. Works with Claude Code, Codex, and any Agent Skills-compatible agent."
+tier: "experimental"
 risk: safe
 source: hqhq1025/skill-optimizer (MIT)
 date_added: "2026-04-11"
 ---
+
 
 ## When to Use This Skill
 

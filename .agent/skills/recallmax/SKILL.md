@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d6becc9b5b95dd4f530b57bead04a9bcf88103f62e2dbae44d15e2db3998f8fb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: recallmax
 description: "Prepare source-linked conversation handoffs and bounded document summaries, preserving decisions, uncertainty and task state within the host context limit."
+tier: "experimental"
 category: memory
 risk: safe
 source: community
@@ -9,6 +20,7 @@ author: christopherlhammer11-ai
 tags: [memory, context, rag, summarization, compression, long-context, agent-infrastructure]
 tools: [claude, cursor, codex, gemini, copilot, windsurf, antigravity, grok]
 ---
+
 
 # RecallMax — Conversation Handoff
 

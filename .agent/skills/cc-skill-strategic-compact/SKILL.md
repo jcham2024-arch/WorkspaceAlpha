@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "97f6fd18af97a3b61a1817224f583a5e91b52bb7cd472e52360c865238445726"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cc-skill-strategic-compact
 description: "Prepare a verified checkpoint before condensing an agent conversation at a phase boundary. Use during long tasks when context is repetitive; preserves constraints, evidence, decisions and the next action."
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Strategic Context Checkpoints
 

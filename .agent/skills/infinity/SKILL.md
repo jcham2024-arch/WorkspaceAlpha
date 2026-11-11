@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d2b7a5c67d4a1c79a28a36acd4b0a74f6a812fc8fde05293375efa7c93860865"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: infinity
 description: "Enforces a strict input boundary protocol (detect, classify, filter, verify) to ensure untrusted data never reaches business logic raw."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-06-23"
 ---
+
 
 # infinity — Input Boundary & Validation Protocol
 

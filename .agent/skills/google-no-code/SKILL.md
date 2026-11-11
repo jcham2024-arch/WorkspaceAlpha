@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d806f6e6f671aeed62f60a80053229fa467c412d7fde150af2f0f4aa7b198107"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: google-no-code
 description: "Design Google Forms and wire Apps Script triggers (onFormSubmit) for email alerts, spreadsheet logging, and dynamic questions — no code editor required."
+tier: "experimental"
 category: automation
 risk: critical
 source: self
@@ -10,6 +21,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [google, forms, apps-script]
 tools: [claude, cursor, gemini]
 ---
+
 
 # Google No-Code Forms Automation
 

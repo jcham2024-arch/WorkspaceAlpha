@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0f1ae097ea19a69c17397a67cd0a95638b09fa239f1b0346835c74748f486da6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: loopy
 description: "Discover, find, compare, audit, repair, adapt, craft, run, debrief, and prepare repeatable AI-agent loops for publication."
+tier: "experimental"
 risk: critical
 source: https://github.com/Forward-Future/loop-library/tree/main/skills/loopy
 source_repo: Forward-Future/loop-library
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/Forward-Future/loop-library/blob/main/LICENSE
 ---
+
 
 # Loopy
 ## When to Use

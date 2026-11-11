@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e13fb757416d93363180fd09504d9c7128412a8165cb7474aed0585a54629998"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: yield-intelligence
 description: Passive income portfolio analysis — activate when user asks about dividend yields, Treasury rates, REIT income, monthly passive income goals, or portfolio yield optimization. Scans 4 asset classes, ranks by risk-adjusted return, and builds allocations targeting a specific monthly income.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-05-31"
 ---
+
 
 # Yield Intelligence
 

@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a19b9ab4af463c02f248c00f025541621995418758e93a84a03b8e428b8c09f1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fp-types-ref
 description: Quick reference for fp-ts types. Use when user asks which type to use, needs Option/Either/Task decision help, or wants fp-ts imports.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-06"
 version: 1.0.0
 tags: [fp-ts, typescript, quick-reference, option, either, task]
 ---
+
 
 # fp-ts Quick Reference
 

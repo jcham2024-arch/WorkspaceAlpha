@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "850a8649c90e49636f1abad5d27c0456f1960c72f82e5c1202ec0e9df4e4d6c2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: policy-acknowledgement
 description: 'Policy acknowledgement register: employee, policy and version, sent and due dates, acknowledged date and flag, days overdue, reminder sent and status. Use for policy sign-off tracking.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, foundation]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Policy Acknowledgement
 

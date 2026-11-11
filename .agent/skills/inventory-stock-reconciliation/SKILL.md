@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0af056e44b1121cfb5c681bcfca4490266519554e2e3003b1e91019f205e31cb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: inventory-stock-reconciliation
 description: 'Stock reconciliation register: count date, item, warehouse, book vs physical quantity, variance quantity and value, variance reason, damage and expiry, adjustment and approval. Use for stock counts.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, accounting, audit, finance, database, csv, notion, sql, reconciliati
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Inventory / Stock Reconciliation
 

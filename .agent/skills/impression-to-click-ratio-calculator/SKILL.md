@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7fae65670e04033f36631484da9d25cba5efb44e9d17a431cf7a62cfdd498b68"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: impression-to-click-ratio-calculator
 description: "Impression-to-Click Ratio Calculator. Use when working with clicks and impressions for the same scope."
+tier: "experimental"
 category: SEO Performance
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Impression-to-Click Ratio Calculator
 
 ## Overview

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e7ffe06f4d2519595bd83c223da39fdc9e2a2b413588cf2d429a02b9c482225c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-mgmt-mongodbatlas-dotnet
 description: "Manage MongoDB Atlas Organizations as Azure ARM resources with unified billing through Azure Marketplace."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Azure.ResourceManager.MongoDBAtlas SDK
 

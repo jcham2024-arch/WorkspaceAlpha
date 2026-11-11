@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3144881439e05624acb68d8c9e5eb9086b00ea334dda944496706c1e6aec088d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: vercel-cli-with-tokens
 description: "Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel CLI using access tokens rather than interactive login — e.g. \"deploy to vercel\", \"set up vercel\", \"add environment variables to vercel\"."
+tier: "experimental"
 risk: safe
 source: "https://github.com/vercel-labs/agent-skills"
 date_added: "2026-06-02"
 ---
+
 
 # Vercel CLI with Tokens
 

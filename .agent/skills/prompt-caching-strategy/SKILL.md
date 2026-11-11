@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9d69480c86891aaa57a461e1d3026ec811e31455b9a87ed871c13c652eed1794"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: prompt-caching-strategy
 description: >-
+tier: "experimental"
   Optimize LLM prompt caching hit rate to reduce API costs and improve latency.
   Analyzes prompt structure, identifies cacheable vs non-cacheable content,
   and recommends restructuring to maximize cache reuse.
@@ -14,6 +25,7 @@ metadata:
   author: cyberspace-cs
   version: "1.0.0"
 ---
+
 
 # Prompt Caching Strategy
 

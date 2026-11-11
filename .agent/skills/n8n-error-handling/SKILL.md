@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "12ce9a615799d941ad04e2407db9f439071df2a44e804c383a5293e382dc7312"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: n8n-error-handling
 description: Design visible, structured, recoverable n8n failures using error outputs, retries, Error Trigger workflows, and HTTP error responses.
+tier: "experimental"
 risk: critical
 source: https://github.com/czlonkowski/n8n-skills/tree/main/skills/n8n-error-handling
 source_repo: czlonkowski/n8n-skills
@@ -10,6 +21,7 @@ author: Romuald Czlonkowski
 license: MIT
 license_source: https://github.com/czlonkowski/n8n-skills/blob/main/LICENSE
 ---
+
 
 # n8n Error Handling
 

@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f6687d250d479d8df57f645834a2728857dcff9d0167d6f2e6cf4fffbae6f7fd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fsharp-testing
 description: F# testing patterns with xUnit, FsUnit, Unquote, FsCheck property-based testing, integration tests, and test organization best practices. Use when writing F# tests with xUnit, FsUnit, Unquote, or FsCheck.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # F# Testing Patterns
 

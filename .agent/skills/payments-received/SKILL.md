@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c4f1ac247da92877bc6e2c7ee05eddbc0e7c9a5df63b7c63427a0861055704c5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: payments-received
 description: 'Payments received log: reference, client and invoice, amount and currency, payment date and method, withholding tax, bank account, received-by and receipt-sent status. Use for incoming payments.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, operate]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Payments Received
 

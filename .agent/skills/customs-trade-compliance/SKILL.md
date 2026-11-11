@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "56de8066e0d2c9b661f1ffb8c1c9d41b3db49471f2f637eca09003223a48813c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: customs-trade-compliance
 description: Codified expertise for customs documentation, tariff classification, duty optimisation, restricted party screening, and regulatory compliance across multiple jurisdictions.
+tier: "experimental"
 risk: safe
 source: https://github.com/ai-evos/agent-skills
 date_added: '2026-02-27'
 ---
+
 
 # Customs & Trade Compliance
 

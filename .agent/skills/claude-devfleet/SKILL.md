@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "32956fe5b8aabb508f689ca8106a816f4088c9ec14d5adf407802f4a363454b1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: claude-devfleet
 description: Orchestrate multi-agent coding tasks via Claude DevFleet — plan projects, dispatch parallel agents in isolated worktrees, monitor progress, and read structured reports. Use when dispatching parallel coding agents across isolated worktrees and tracking their reports.
+tier: "experimental"
 metadata:
   origin: community
 ---
+
 
 # Claude DevFleet Multi-Agent Orchestration
 

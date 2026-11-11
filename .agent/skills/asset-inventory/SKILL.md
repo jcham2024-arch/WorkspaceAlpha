@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d9ce51c9488c8d261d77a1a3bd739102b3be0f01d852e1bec4baeb2738b58a2c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: asset-inventory
 description: Maintain IT asset inventory and configuration management database. Track
+tier: "experimental"
   hardware, software, and cloud resources. Use when managing IT assets.
 category: security
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Asset Inventory
 

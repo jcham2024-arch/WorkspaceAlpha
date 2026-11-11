@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b8404b241c3b0c0f2b8aa63c9fc2b3f3349afd23c5244bed9b235205e9f72987"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: meta-tag-generator
 description: "Meta Tag Generator. Use when working with page summary, URL and optional brand or social image."
+tier: "experimental"
 category: On-Page Optimization
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Meta Tag Generator
 
 ## Overview

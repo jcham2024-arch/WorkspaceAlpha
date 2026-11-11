@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "61f018e54bb93df267437e9e3ab56582d9a4d315110f7a24e3870f318ffad222"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: content-length-comparator
 description: "Content Length Comparator. Use when working with two or more labeled text samples."
+tier: "experimental"
 category: Competitor Analysis
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Content Length Comparator
 
 ## Overview

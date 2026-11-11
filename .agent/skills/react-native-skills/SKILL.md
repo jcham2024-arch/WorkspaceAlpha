@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "644eeeef415ab9fbe341e13d0b1c6d7212b87e7964fccb2b0833df7b955e994e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: react-native-skills
 description: "Review React Native and Expo rendering, lists, animations, navigation and native UI against project versions and measured behavior."
+tier: "experimental"
 risk: safe
 source: "https://github.com/vercel-labs/agent-skills"
 date_added: "2026-06-02"
 ---
+
 
 # React Native Skills
 

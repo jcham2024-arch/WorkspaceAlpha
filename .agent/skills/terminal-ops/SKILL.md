@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "695625df606f9ac45a675e250d1683b05f14317df7795921d6fd1f99459177e1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: terminal-ops
 description: Evidence-first repo execution workflow for ECC. Use when the user wants a command run, a repo checked, a CI failure debugged, or a narrow fix pushed with exact proof of what was executed and verified.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Terminal Ops
 

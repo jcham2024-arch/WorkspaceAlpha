@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "51becfd8eb78fa116ca1066e4d308724028ce5c34442930ebc0a41efa0238dd1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gh-image
 description: "Upload local images to GitHub and get canonical user-attachments embed URLs; use when asked to attach a screenshot to a PR, issue, or comment, or to embed before/after images in a README."
+tier: "experimental"
 category: developer-tools
 risk: critical
 source: community
@@ -30,6 +41,7 @@ plugin:
     summary: "Installs and runs a third-party gh extension that needs a GitHub user_session cookie or GH_SESSION_TOKEN."
     docs: SKILL.md
 ---
+
 
 # Upload images to GitHub (gh-image)
 

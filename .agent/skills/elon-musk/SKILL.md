@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e4479d15b15558f72f587fd84a0ae4a5a30c138e68e0afe526a680bb2f4f51c2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: elon-musk
 description: "Simulacao ficticia e explicitamente rotulada de estilo comunicacional associado a Elon Musk, com analise de primeiros principios e verificacao separada de fatos."
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-03-06'
@@ -17,6 +28,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # ELON MUSK — SIMULACAO FICTICIA DE ESTILO
 

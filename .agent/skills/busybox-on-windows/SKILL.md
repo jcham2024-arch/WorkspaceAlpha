@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4236a05df5784be0cb2727e00f6ce3037b23f5c0d646b2f05a9a59b7fe0c11e9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: busybox-on-windows
 description: "How to use a Win32 build of BusyBox to run many of the standard UNIX command line tools on Windows."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 BusyBox is a single binary that implements many common Unix tools.
 

@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cca3bd6d1a9fe624787679379018cb02d5319cdbd1d7eac26e3aa5d099b670f0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: clerk-auth
 description: Expert patterns for Clerk auth implementation, middleware,
+tier: "experimental"
   organizations, webhooks, and user sync
 risk: safe
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Clerk Authentication
 

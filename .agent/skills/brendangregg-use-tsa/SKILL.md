@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "eb5a25f6cde2e5513f6933e7f022ad672220b9585bda891b2bdd10d038c67fb8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: brendangregg-use-tsa
 description: "Methodical performance troubleshooting and root-cause analysis with Brendan Gregg's USE and TSA methods, plus evidence-backed RCA and postmortem reports."
+tier: "experimental"
 category: devops
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: "MIT"
 license_source: "https://github.com/thecsdoctor/brendangregg-use-tsa-skill/blob/main/LICENSE"
 ---
+
 
 # Brendan Gregg USE+TSA Performance Analysis
 

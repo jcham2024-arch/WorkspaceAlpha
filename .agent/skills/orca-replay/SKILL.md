@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8c65d8b1ae6044af95953908a0f45cb25d1791c231e19409fd6e10b959eeb48c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: orca-replay
 description: Answers questions about a past agent run from its recording rather than from memory, and replays or forks that run. Use when asked why an earlier run did something, or to reproduce a failure.
+tier: "experimental"
 category: development
 risk: critical
 source: community
@@ -23,6 +34,7 @@ tools:
 license: "Apache-2.0"
 license_source: "https://github.com/Continuum-AI-Corp/OrcaReplay/blob/main/LICENSE"
 ---
+
 
 # Reading a recorded agent run
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7b35998f2728eb6aae2cc2e7415070a34562ec00679aa97977caf5002d8e5702"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: poster-design-studio
 description: "Install and use the official AI Poster Maker package, pinned by digest, for paid hosted work on the Beatra service."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/beatra-ai/ai-poster-maker-skill/blob/c2c81e2f6b41691c9da65e71b4350f59cb6eace5/LICENSE"
 ---
+
 
 # AI Poster Maker Skill
 

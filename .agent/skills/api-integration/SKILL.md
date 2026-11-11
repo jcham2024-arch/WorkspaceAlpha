@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5b88b8955bd4a736d3409be4a5407bb2914e581a48503f67decc796acd2ca30a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: api-integration
 description: "Designs event-driven architectures, webhook systems, API chaining flows, ETL pipelines, and integration patterns between services."
+tier: "experimental"
 risk: none
 source: https://github.com/LambdaTest/agent-skills/tree/main/api-skill/api-integration-helper
 source_repo: LambdaTest/agent-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/LambdaTest/agent-skills/blob/main/LICENSE
 ---
+
 
 # API Integration Skill
 ## When to Use

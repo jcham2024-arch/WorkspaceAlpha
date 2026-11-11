@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f64b7b03e12b4d9c0ae1e5318f924891773e77acbe5eca4ff537a4ea8a8a94d7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: requesting-code-review
 description: Use when completing tasks, implementing major features, or before merging to verify work meets requirements
+tier: "experimental"
 ---
+
 
 # Requesting Code Review
 

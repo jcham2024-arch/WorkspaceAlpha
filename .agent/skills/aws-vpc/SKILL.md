@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "58591bf05a7b9373475434674af15b43977e2d47391c8c1e7dffc95d6d6313aa"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aws-vpc
 description: Design and implement VPCs and networking. Configure subnets, route tables,
+tier: "experimental"
   and security groups. Use when setting up AWS network infrastructure.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # AWS VPC
 

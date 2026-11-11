@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ee1091a36ef029a6e936e28933874bfc777aa273cfcb814133248834c3fe65b1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: routerbase-model-gateway
 description: "Integrate RouterBase as an OpenAI-compatible model gateway for routing GPT, Claude, Gemini, media, audio, and embedding requests."
+tier: "experimental"
 category: ai-ml
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex, antigravity]
 license: "MIT-0"
 license_source: "https://github.com/zenlee123/routerbase-agent-skills/blob/main/LICENSE"
 ---
+
 
 # RouterBase Model Gateway
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5e5830dc1c2c918a1cd3d395d329380d0d946cc46bf6fd51ff90de0e12ceef81"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: repo-native-refactor
 description: "Review diffs without editing, or perform evidence-based cleanup while preserving authorized behavior, public contracts, and domain ownership."
+tier: "experimental"
 category: development
 risk: critical
 source: https://github.com/Natchannnn/repository-engineering-skills
@@ -16,6 +27,7 @@ metadata:
   version: "0.3.0"
   license: "MIT"
 ---
+
 
 # Repo-native refactor
 

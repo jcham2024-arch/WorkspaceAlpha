@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f89330354b63dc21a915b9db8f7b4fe64d0eeb3237df1523c0cfbe00e611cdec"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: skill-porter
 description: "Preview conservative tool-name translations and copy complete local skill bundles for manual adaptation to Google Antigravity."
+tier: "experimental"
 category: developer-tools
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/Pranav-Nexus/antigravity-skill-porter/blob/7a5b42c0fe1be283ae9f5b5fe70792aa78733af7/LICENSE"
 ---
+
 
 # Skill Porter for Google Antigravity
 

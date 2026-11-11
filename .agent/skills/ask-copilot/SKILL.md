@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e464afcd840c43a3b5ed5fabdc7767f01faf8eec58dd9bca5e53f0fc550a1814"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ask-copilot
 description: "Use GitHub Copilot CLI in non-interactive mode to ask questions, review code, or generate snippets without manual interaction."
+tier: "experimental"
 category: development
 risk: critical
 source: self
@@ -11,6 +22,7 @@ author: cshara1
 tags: [copilot, github, cli, review, prompt]
 tools: [claude, cursor, gemini]
 ---
+
 
 # Ask Copilot
 

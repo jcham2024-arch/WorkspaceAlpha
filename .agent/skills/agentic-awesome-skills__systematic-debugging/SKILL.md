@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4e89098a8d61f22889eefb9a3d42834670ee3fb691ee5b414f36a59281c22d23"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: systematic-debugging
 description: "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes"
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Systematic Debugging
 

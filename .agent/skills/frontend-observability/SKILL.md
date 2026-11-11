@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d5deab56d56428e9a28fe997925a1428ce8411106287c81256c502f77ead84bf"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: frontend-observability
 description: "A portable, framework-agnostic field-side observability pattern for React or React Native integrations."
+tier: "experimental"
 risk: critical
 source: https://github.com/stareezy-1/frontend-architecture-skill/tree/main/skills/frontend-observability
 source_repo: stareezy-1/frontend-architecture-skill
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/stareezy-1/frontend-architecture-skill/blob/main/LICENSE
 ---
+
 
 # Frontend Observability (the field side)
 ## When to Use

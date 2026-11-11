@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4839ec645d023ab52e0f38cf35bc7c94ba7cecebf8da5263999bcd540de5d946"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: apify-ecommerce
 description: "Extract product data, prices, reviews, and seller information from any e-commerce platform using Apify's E-commerce Scraping Tool."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-01"
 ---
+
 
 # E-commerce Data Extraction
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "815c2550517e02d4fa87262df9b13c15864e00d17c3cdb6a438026fef9f8f796"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-audit
 description: Diagnose and audit SEO issues affecting crawlability, indexation, rankings, and organic performance.
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # SEO Audit
 

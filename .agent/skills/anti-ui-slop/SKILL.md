@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5bcf6179dbe19075c7c7c1bac8f8c9d9feb2da30b062cf7d2df055394bdb280d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: anti-ui-slop
 description: "Stop coding agents from shipping generic UI. Extend the product's design system, use UIZZE evidence only when useful, cover required states, and inspect the rendered result."
+tier: "experimental"
 category: frontend
 risk: safe
 source: https://github.com/uizze/uizze/tree/main/skills/anti-ui-slop
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, copilot]
 license: MIT
 license_source: https://github.com/uizze/uizze/blob/main/LICENSE
 ---
+
 
 # Stop Making UI Slop
 

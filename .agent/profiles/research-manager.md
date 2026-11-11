@@ -20,6 +20,7 @@ reads:
   - .context/manifest.json (byte ranges)
   - skills/index.json
 verify: "Every step is a self-contained, low-context package; the packaged answer cites one source per claim."
+owner: "research-manager"
 ---
 
 # Research Manager

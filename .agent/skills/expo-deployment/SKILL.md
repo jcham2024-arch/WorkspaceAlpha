@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a1f536dc72f489e87f0c135de8e84bc81370e557adc32b424781c6b3875859c6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: expo-deployment
 description: "Deploy Expo apps with EAS: build and submit iOS and Android releases, configure build and submit profiles, manage versions and store metadata, and deploy web bundles or API routes."
+tier: "experimental"
 risk: critical
 source: https://github.com/expo/skills/tree/main/plugins/expo/skills/expo-deployment
 source_repo: expo/skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/expo/skills/blob/main/LICENSE
 ---
+
 
 # Deployment
 ## When to Use

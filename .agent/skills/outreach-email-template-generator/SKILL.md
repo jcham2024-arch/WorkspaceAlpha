@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2a76572ec54ae43437febc76a0454a403fa999a677e4effb2c1d94eca446ca6e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: outreach-email-template-generator
 description: "Outreach Email Template Generator. Use when working with recipient context, outreach purpose and genuine offer."
+tier: "experimental"
 category: Backlink & Link-Building
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Outreach Email Template Generator
 
 ## Overview

@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "895ad1ab6b201776058152e3ffe59830206197d25db7fb71c17879fb064db95b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: jira-integration
 description: Use this skill when retrieving Jira tickets, analyzing requirements, updating ticket status, adding comments, or transitioning issues. Provides Jira API patterns via MCP or direct REST calls.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Jira Integration Skill
 

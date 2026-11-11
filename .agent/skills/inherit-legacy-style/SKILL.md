@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ad7c2c5c8bc983ee786a12538279beb874772d79b82cdfff382eff7b0f6cd4e9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: inherit-legacy-style
 description: Prevent AI style drift on legacy projects by scanning the codebase for implicit conventions, resolving conflicts with the operator one at a time, and writing an enforceable .ai-style-rules.md (Golden Files, naming rules, DONTs) plus an optional CLAUDE.md hook. Use when onboarding an AI agent onto a hand-written legacy codebase or extracting a project's unwritten coding rules.
+tier: "experimental"
 metadata:
   origin: community
 allowed-tools: Read, Glob, Grep, Bash, Edit, Write, AskUserQuestion
 ---
+
 
 # Inherit Legacy Style
 

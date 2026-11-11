@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0a68bb83a7948e844dc947b2d820ce5e242dea2694a725f83a92f377568803ce"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: x402-express-wrapper
 description: Wrapper oficial de M2MCent (Node.js) para inyectar muros de pago x402 en APIs o servidores Model Context Protocol (MCP). Usar al construir nuevos servicios que requieran monetización máquina a máquina.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-04-19"
 tags: [x402, defi, monetization, express, mcp]
 ---
+
 
 # x402-express-wrapper
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5462a071f1082d1fffcbc43f60d728a63d98d7369f5105ea50f3e77ca5ccf267"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-programmatic
 description: "Plan and audit programmatic SEO pages generated at scale from structured data. Use when designing templates, URL systems, internal linking, quality gates, and index-bloat safeguards for pages at scale."
+tier: "experimental"
 risk: critical
 source: "https://github.com/AgriciDaniel/claude-seo"
 date_added: "2026-03-21"
@@ -14,6 +25,7 @@ allowed-tools:
   - WebFetch
   - Write
 ---
+
 
 # Programmatic SEO Analysis & Planning
 

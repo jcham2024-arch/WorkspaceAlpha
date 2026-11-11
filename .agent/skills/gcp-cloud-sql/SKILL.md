@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7aa12b3caa692feb0bb767c26b5a410f8a563f3dd0946af0aaf63495219d5c9c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gcp-cloud-sql
 description: Provision Cloud SQL databases. Configure high availability,
+tier: "experimental"
   backups, and security. Use when deploying managed databases on GCP.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # GCP Cloud SQL
 

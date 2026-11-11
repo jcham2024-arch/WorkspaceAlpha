@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cd88afee507f87b8d52268db653422cded06b982b0c5ea43e023243fad0bb325"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: outreachgenie-list-audit
 description: "Audit saved OutreachGenie prospect lists against an outreach flow for missing template values, text limits and incomplete collection, using read-only MCP snapshots and local reports."
+tier: "experimental"
 category: business
 risk: safe
 source: "https://github.com/Outreachgenie/outreachgenie-linkedin-mcp/tree/0d0447f599fd161eed4385b72c475f0f887c1bd9/skills/outreachgenie-list-audit"
@@ -13,6 +24,7 @@ tools: [codex]
 license: MIT
 license_source: "https://github.com/Outreachgenie/outreachgenie-linkedin-mcp/blob/0d0447f599fd161eed4385b72c475f0f887c1bd9/skills/outreachgenie-list-audit/LICENSE"
 ---
+
 
 # OutreachGenie saved-list audit
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "888aafc751089cf4d017984265e1d7d1c929a7a72a424601ab279139dffbb7d0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: k6-load-testing
 description: "Comprehensive k6 load testing skill for API, browser, and scalability testing. Write realistic load scenarios, analyze results, and integrate with CI/CD."
+tier: "experimental"
 category: testing
 risk: safe
 source: community
@@ -9,6 +20,7 @@ author: Kairo Official
 tags: [k6, load-testing, performance, api-testing, ci-cd]
 tools: [claude, cursor, gemini]
 ---
+
 
 # k6 Load Testing
 

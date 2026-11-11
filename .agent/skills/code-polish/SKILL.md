@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5022feda5f5a487dd7facf611b96e0d0ba91c7cd2e82c2272a9b40a480aa5692"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: code-polish
 description: Rewrites unprofessional code comments into clear ones and performs non-semantic cleanup. Use to professionalize code without altering logic or behavior.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-07-02"
 ---
+
 
 # Code Polish
 

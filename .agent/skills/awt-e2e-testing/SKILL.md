@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "be5fa0e93c3a1bcb87ea7ae2eff54949fc12b17b7d6f077063f5e709138f1e5f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: awt-e2e-testing
 description: "AI-powered E2E web testing — eyes and hands for AI coding tools. Declarative YAML scenarios, Playwright execution, visual matching (OpenCV + OCR), platform auto-detection (Flutter/React/Vue), learning DB. Install: npx skills add ksgisang/awt-skill --skill awt -g"
+tier: "experimental"
 risk: critical
 source: "https://github.com/ksgisang/awt-skill"
 date_added: "2026-03-16"
 ---
+
 
 # AWT — AI-Powered E2E Testing (Beta)
 

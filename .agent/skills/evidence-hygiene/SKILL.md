@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6a3720bbcea29a8d160193295614b172d4a3f438ad35c71ec5eab719fb554e63"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: evidence-hygiene
 description: Evidence-capture and PoC-redaction discipline for bug-bounty submissions
+tier: "experimental"
 category: security
 risk: safe
 source: https://github.com/elementalsouls/Claude-BugHunter
@@ -13,6 +24,7 @@ compatibility: Process guidance; no tooling required. Docs-only; upstream templa
   not bundled.
 sources: community, operator_experience
 ---
+
 
 # EVIDENCE HYGIENE — PoC Capture & Redaction Discipline
 

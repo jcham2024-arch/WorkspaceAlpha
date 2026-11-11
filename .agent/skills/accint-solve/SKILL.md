@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "822a84164d807270910c619ce11a8f1a284f38184587e5ed885d2d02a5dc662c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: accint-solve
 description: Route a goal through acc's scored-memory loop via acc_act(runtime="solve"); deliberate any returned brain_frame and submit via continue.
+tier: "experimental"
 risk: critical
 source: https://github.com/maxbaluev/accreted-intelligence/tree/main/plugins/claude/skills/solve
 source_repo: maxbaluev/accreted-intelligence
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: Apache-2.0
 license_source: https://github.com/maxbaluev/accreted-intelligence/blob/main/LICENSE
 ---
+
 
 # solve
 ## When to Use

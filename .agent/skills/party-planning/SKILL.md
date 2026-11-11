@@ -1,14 +1,25 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5e55e77796f83f5cb6639be1f5e639c3795b24e1981c431346eb0beef339ec35"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: party-planning
 description: "Estimate party food and drink quantities, select games, and draft hosting timelines using HostPartyPlay's published planning heuristics."
+tier: "experimental"
 category: lifestyle
 risk: safe
 source: self
 source_type: self
 author: tarunbatta
 date_added: "2026-10-21"
-
 ---
+
 
 # Party Planning
 

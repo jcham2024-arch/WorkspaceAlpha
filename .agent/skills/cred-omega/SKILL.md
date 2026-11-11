@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "25b09043b9be6787a0085d9a2da4cca58c7291ae7cec5f382f7d6b3ed8c6f6bf"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cred-omega
 description: "CISO operacional enterprise para gestao total de credenciais e segredos."
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-03-06'
@@ -18,6 +29,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # CRED-OMEGA: Security Engine for All API Keys (Enterprise)
 

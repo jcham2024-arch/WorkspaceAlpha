@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b705dd6154d1b9bb2e4e6e216c98dcc17c1479f95f2b809dc16141bf95b95d30"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: page-speed-score-simulator
 description: "Page Speed Score Simulator. Use when working with performance report or explicit hypothetical performance inputs."
+tier: "experimental"
 category: Technical SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Page Speed Score Simulator
 
 ## Overview

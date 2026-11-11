@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "29cd638f08b99a3edc7c04bcad3f4c99e12d9c373ad4e12ac00639527ccc5603"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: compose-multiplatform-patterns
 description: Compose Multiplatform and Jetpack Compose patterns for KMP projects — state management, navigation, theming, performance, and platform-specific UI. Use when building Compose or Jetpack Compose UI, state, navigation, or theming in a KMP project.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Compose Multiplatform Patterns
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8adf19ccea300886d7d980dfca9b4fbcbecf15214ac9f0b54be8b6fbbc3a808b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: constraint-driven-development
 description: 'Write the project quality bar as enforced CONSTRAINTS.md so agents stop
+tier: "experimental"
   quietly lowering it: coverage, performance, accessibility thresholds watched on
   every diff.'
 category: code-quality
@@ -13,6 +24,7 @@ license: MIT
 license_source: https://github.com/addyosmani/agent-skills/blob/main/LICENSE
 compatibility: Portable instruction skill; no CLI, MCP server, or network access required.
 ---
+
 
 # Constraint-Driven Development
 

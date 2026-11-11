@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8145bd4718d347046e84d789b7d5bc015de982020909d46f4fbe3aff528683cd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: pi-delegate
 description: Delegate coding tasks to the Pi coding agent CLI (`pi`) only when the
+tier: "experimental"
   user explicitly requests it, while the orchestrator retains review and landing responsibility.
 risk: critical
 category: agent-orchestration
@@ -13,6 +24,7 @@ license_source: https://github.com/amElnagdy/delegate-skills/blob/master/LICENSE
 metadata:
   version: 0.5.0
 ---
+
 ## Bundled upstream support
 
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.

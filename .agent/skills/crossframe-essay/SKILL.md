@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "26d4eced9fe1cfbb1f19552ef169613de8efe0ef0f76c79ffbff17cf1e4a6140"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: crossframe-essay
 description: "Use when explicit CrossFrame work needs a Chinese critical insight essay, commentary, concept essay, public piece, or structure-to-article draft after diagnosis."
+tier: "experimental"
 category: content
 risk: safe
 source: community
@@ -21,6 +32,7 @@ tags:
   - writing
   - commentary
 ---
+
 # CrossFrame Essay
 
 

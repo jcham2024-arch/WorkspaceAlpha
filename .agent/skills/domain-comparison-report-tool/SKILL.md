@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a6dcdcb3c47b625ac5edbfb50902d55b43932ed4588fa8177b88fd3affac179e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: domain-comparison-report-tool
 description: "Domain Comparison Report Tool. Use when working with two or more domains with dated comparable metrics."
+tier: "experimental"
 category: Competitor Analysis
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Domain Comparison Report Tool
 
 ## Overview

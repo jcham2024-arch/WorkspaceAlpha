@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "85472d2e0b4c678ed8a16ae3ff9c0e08ea941af084427fba591c30c9d352f489"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: monorepo-management
 description: "Build efficient, scalable monorepos that enable code sharing, consistent tooling, and atomic changes across multiple packages and applications."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Monorepo Management
 

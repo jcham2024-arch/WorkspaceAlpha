@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cd12dbbeb90811e63cf04788a46d2337dae62ff2b53b01caad3c30ec2e15c3f7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aws-cdk-development
 description: "AWS Cloud Development Kit (CDK) expert for building cloud infrastructure with TypeScript/Python."
+tier: "experimental"
 risk: critical
 source: https://github.com/zxkane/aws-skills/tree/main/plugins/aws-iac/skills/aws-cdk-development
 source_repo: zxkane/aws-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/zxkane/aws-skills/blob/main/LICENSE
 ---
+
 ## Bundled upstream support
 
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.

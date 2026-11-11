@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f69f27bff9c5c616f26e3ea2830a3cd7b06261a35acb518ecb600bd6df0f9be9"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: famulor-skill
 description: "Operate Famulor assistants, communication history, campaigns, knowledge, automations, telephony, and workspace administration through its hosted MCP server."
+tier: "experimental"
 category: api-integration
 risk: critical
 source: "https://github.com/bekservice/Famulor-Skill"
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: MIT
 license_source: "https://github.com/bekservice/Famulor-Skill/blob/main/LICENSE"
 ---
+
 
 # Famulor
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c13e4e36b59c678c77a2abe46c5b9f37cda09b7f4ba8c55e6122e18f4d9e307b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mailtrap-setting-up-sending-domain
 description: Add or verify a Mailtrap sending domain, troubleshoot DNS propagation, publish SPF/DKIM/DMARC records, and complete compliance.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-06-19"
 ---
+
 
 # Setting up a Mailtrap sending domain
 

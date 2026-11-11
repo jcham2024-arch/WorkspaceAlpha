@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4ffceca193b02e9df5907aa27f6e0131d583e31e111d900c3d10c9f8d5925115"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agent-evaluation-reporting
 description: "Use when summarizing agent evaluations where autonomous, assisted, failed, timed-out, or invalid outcomes must remain distinct and comparable."
+tier: "experimental"
 category: agent-evaluation
 risk: none
 source: self
@@ -10,6 +21,7 @@ author: Whxuan0701
 tags: [agent-evaluation, metrics, reporting, reliability, benchmarking]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Agent Evaluation Reporting
 

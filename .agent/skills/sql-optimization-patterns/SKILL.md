@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "414308bf1fc7dba41a8a7f1d9c9e151796def51e3b91f305acbf66df9070b209"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sql-optimization-patterns
 description: "Diagnose slow SQL with query plans, preserve query results, and verify indexing or query changes against representative data."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # SQL Optimization Patterns
 

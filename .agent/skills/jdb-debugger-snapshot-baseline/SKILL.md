@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3d79805deada636b2e18f14181f52e63dbadda273fcabb37c98ad63368674243"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: jdb-debugger-snapshot-baseline
 description: Debug Java applications in real time using JDB (Java Debugger CLI). Attach to running JVMs or launch new ones under JDB, set breakpoints, step through code, inspect variables, analyze threads, and diagnose exceptions. Use when debugging Java programs, investigating runtime behavior, or diagnosing production issues on JVMs with JDWP enabled.
+tier: "experimental"
 compatibility: Requires JDK (jdb command), Bash shell, and a running or launchable Java application
 allowed-tools: Bash(jdb:*) Bash(java:*) Bash(python3:*) Read
 metadata:
   author: brunoborges
   version: "1.0"
 ---
+
 
 # Java Debugger (JDB) Skill
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ee75ced057a0e6612839d5854be753ea3cfcbff9db3dfedcd670d483e495cdfe"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: poka-yoke
 description: "Mistake-proof code, config and process: make the wrong action impossible or self-announcing rather than documented."
+tier: "experimental"
 category: development
 risk: safe
 source: rainmanjam/poka-yoke
@@ -13,6 +24,7 @@ tools: [claude, cursor, codex]
 license: "MIT"
 license_source: "https://github.com/rainmanjam/poka-yoke/blob/v0.1.2/LICENSE"
 ---
+
 
 # Poka-Yoke: Mistake-Proofing for Software
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "90562c86dc857dba386f05c1c04e4c90bab5577e857a8826d883774398ba45ff"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: plan-ledger-tasks-yylo
 description: Create a concise Product Development Requirement and one or more implementation-sized
+tier: "experimental"
   YYLO Ledger tasks when the user explicitly asks to plan or register work.
 category: project-management
 risk: critical
@@ -16,6 +27,7 @@ compatibility: Requires the `yy` CLI with the `ledger` and `artifact` groups ins
 argument-hint: '[Required Features] [Constraints] [Acceptance Criteria]'
 enable-shell-directives: true
 ---
+
 
 # Plan Kanban work
 

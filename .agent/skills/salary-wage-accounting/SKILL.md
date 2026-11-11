@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "edb5ef6239b9098bf3823be89288205bf0bbdb35db24f3aefa93e38bf7f415a1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: salary-wage-accounting
 description: 'Payroll register: gross, allowances, TDS and provident fund deductions, net pay, payment date and statutory reconciliation. Use for salary accounting.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, accounting, audit, finance, database, csv, notion, sql, payroll]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Salary & Wage Accounting
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c8d6e1e6a8ad89e83d6f207b0e71af18000b1156e0df3c98b00deee5cae17f07"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: spec-to-code-compliance
 description: Verifies code implements exactly what documentation specifies for blockchain audits. Use when comparing code against whitepapers, finding gaps between specs and implementation, or performing compliance checks for protocol implementations.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-06"
 ---
+
 
 ## When to Use
 Use this skill when you need to:

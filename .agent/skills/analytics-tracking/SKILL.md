@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "82e54a663c68a50c682acd2d24c93c2173e02716723147402c214acea9c5589f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: analytics-tracking
 description: Design, audit, and improve analytics tracking systems that produce reliable, decision-ready data.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Analytics Tracking & Measurement Strategy
 

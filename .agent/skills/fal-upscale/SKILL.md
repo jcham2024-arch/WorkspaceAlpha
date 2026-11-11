@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e03989e24de50709df9aeb58fef79194fbf4c5b8a59224ad92a241d8e5fa19ad"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fal-upscale
 description: "Upscale and enhance image and video resolution using AI"
+tier: "experimental"
 risk: critical
 source: "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-upscale/SKILL.md"
 date_added: "2026-02-27"
 ---
+
 
 # Fal Upscale
 

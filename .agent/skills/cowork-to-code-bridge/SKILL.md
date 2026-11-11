@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b54c0aea3b42d6acd404d49b44fb3f23ab1d9134a5f3f83584d60f3e45e0908c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cowork-to-code-bridge
 description: "Use an already-installed, independently verified cowork-to-code bridge to run narrowly approved actions on the user's own macOS, Linux, or WSL2 machine through a local file queue."
+tier: "experimental"
 risk: critical
 source: https://github.com/abhinaykrupa/cowork-to-code-bridge/tree/97f515d425df587c281effb02cda9ad0fd470790
 source_repo: abhinaykrupa/cowork-to-code-bridge
@@ -9,6 +20,7 @@ license: MIT
 license_source: https://github.com/abhinaykrupa/cowork-to-code-bridge/blob/97f515d425df587c281effb02cda9ad0fd470790/LICENSE
 date_added: "2026-07-30"
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "145915b6c31b2ce287e6422e1f30c9aa81294b977e8d48bd6be48c9939e832c2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: auth-implementation-patterns
 description: "Implement or review authentication and authorization with explicit token, session and resource-access boundaries."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Authentication & Authorization Implementation Patterns
 

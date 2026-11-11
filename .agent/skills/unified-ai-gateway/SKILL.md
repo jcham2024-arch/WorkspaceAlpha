@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fd7e82bc6c5ea57a8b8e8534a98b3594d638abd5f53a17bae6c61dbd3637e2db"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: unified-ai-gateway
 description: Operate and evaluate Unified AI System through fifteen governed MCP tools, including provider-free prompt enhancement, while preserving fake-provider, authorization, and evidence boundaries.
+tier: "experimental"
 category: ai-ml
 risk: critical
 source: https://github.com/happy520ai/unified-ai-system/tree/master/skills/unified-ai-gateway
@@ -13,6 +24,7 @@ tools: [codex]
 license: Apache-2.0
 license_source: https://github.com/happy520ai/unified-ai-system/blob/master/LICENSE
 ---
+
 
 # Unified AI Gateway
 

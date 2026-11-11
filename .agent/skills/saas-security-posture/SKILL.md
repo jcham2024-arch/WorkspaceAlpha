@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "89ece9ed24452d873e63cdd8527ebac999b157ca7b109cbeccbde97fc7ca027f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: saas-security-posture
 description: Audit and harden your SaaS tool stack
+tier: "experimental"
 category: devops
 risk: critical
 source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
@@ -15,6 +26,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # SaaS Security Posture Management for Startups
 

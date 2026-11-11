@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "eb6d2376f77c039562f8af1754f131f9d87b74a2bcf41dfe4e6084f68fde7a23"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agentic-test-audit
 description: "Audit a pytest suite: surviving mutants and untested code, flaky, order-dependent and slow tests, and removal candidates checked on held-out mutants. Report-only."
+tier: "experimental"
 category: testing
 risk: safe
 source: community
@@ -14,6 +25,7 @@ tags: [testing, pytest, mutation-testing, python, flaky-tests, test-audit]
 tools: [claude]
 argument-hint: "quick | deep [--budget-minutes N] [--max-mutants N] [path]"
 ---
+
 
 # Audit a test suite
 

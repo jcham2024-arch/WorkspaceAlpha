@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ff74791f65adcac9fb47fc301800b227baba3ebf8e10bb11969c53c791bd98f2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: lambda-lang
 description: "Native agent-to-agent language for compact multi-agent messaging. A shared tongue agents speak directly, not a translation layer. 340+ atoms across 7 domains; 3x smaller than natural language."
+tier: "experimental"
 category: ai-agents
 risk: safe
 source: community
@@ -17,6 +28,7 @@ tags:
 tools:
   - claude
 ---
+
 
 # Λ (Lambda) Language
 

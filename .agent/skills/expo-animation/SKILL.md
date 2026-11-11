@@ -1,5 +1,16 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1daa5aeea299719b68a6f284b3416e9cf4f53e93eb0e2ef2d68f3814b51e3a55"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 description: Curated upstream guidance for Expo Animation; use when the workflow matches the user goal.
+tier: "experimental"
 name: expo-animation
 version: 1.0.0
 license: MIT
@@ -9,6 +20,7 @@ source: expo
 date_added: '2026-09-21'
 risk: unknown
 ---
+
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8f9f4ef09f8c3afe32426f1947706d812e4ab46b6bddcf122033efe6e5ba7c5b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: styleseed-design-review
 description: "Reviews UI/frontend code and tells you exactly why it \"looks AI-generated\" — then how to fix it."
+tier: "experimental"
 risk: safe
 source: https://github.com/bitjaru/styleseed/tree/main/skills/styleseed-design-review
 source_repo: bitjaru/styleseed
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE
 ---
+
 
 # StyleSeed Design Review
 

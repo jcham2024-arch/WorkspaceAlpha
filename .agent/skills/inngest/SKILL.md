@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d2df2af7681f50221af6ae8c8033378b234e447925561b518abcbc7436ac2557"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: inngest
 description: Inngest expert for serverless-first background jobs, event-driven
+tier: "experimental"
   workflows, and durable execution without managing queues or workers.
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Inngest Integration
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "94f406b6099a027fc775c23395fe32f233606ed56f80c8c4fd167d3c536bcec0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: local-schema-builder
 description: "Local Schema Builder. Use when working with business facts, page URL and actual address or service area."
+tier: "experimental"
 category: Schema & Structured Data
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Local Schema Builder
 
 ## Overview

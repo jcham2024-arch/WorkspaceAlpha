@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f6b79a6d69bf667e6922f0cfdcecf86e6212d137311435246d1a41e841cece27"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: competitor-summary-report-creator
 description: "Competitor Summary Report Creator. Use when working with competitor names or URLs and evidence to summarize."
+tier: "experimental"
 category: Competitor Analysis
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Competitor Summary Report Creator
 
 ## Overview

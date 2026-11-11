@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "67c5c2acc5c3d517aa431ecdbff0bfd59409cdb1f99005681e09d5b3b839a38b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: verify-citations
 description: Verify citations and references in a document, report, or article against real sources. Use when the user asks to fact-check, verify references, check citations, or validate evidence in research reports, tender responses, whitepapers, or academic writing.
+tier: "experimental"
 category: document-verification
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: "Apache-2.0"
 license_source: "https://github.com/Sketchjar/stipple-agent-skills/blob/main/LICENSE"
 ---
+
 
 # Citation Verification
 

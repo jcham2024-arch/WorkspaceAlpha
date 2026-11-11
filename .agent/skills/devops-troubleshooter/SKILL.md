@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9760f2efcd598c4faaf9eca67e2b2155cdf055ece4af816febf355bbc78acca2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: devops-troubleshooter
 description: Expert DevOps troubleshooter specializing in rapid incident response, advanced debugging, and modern observability.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 ## Use this skill when
 

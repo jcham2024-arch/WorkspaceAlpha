@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3a3719706591a15fbf248e67b0aa1a694d64b4eb4e7e79e4a2021b31613b767b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: terraform-azure
 description: Provision Azure infrastructure with Terraform. Configure providers, manage
+tier: "experimental"
   state, and deploy resources. Use when implementing IaC for Azure.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Terraform Azure
 

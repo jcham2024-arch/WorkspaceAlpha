@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a4b10ae435eba6e9b152fc58cfcf3b86161ee4bcf7897a6281912f97c7cc61df"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: kubestellar-console
 description: "Multi-cluster Kubernetes dashboard with AI-powered operations via MCP server and 10+ built-in agent skills"
+tier: "experimental"
 category: devops
 risk: critical
 source: community
@@ -18,6 +29,7 @@ plugin:
     summary: "Requires kc-agent binary (brew tap kubestellar/tap && brew install kc-agent)"
     docs: "https://github.com/kubestellar/console#quick-start"
 ---
+
 
 # KubeStellar Console
 

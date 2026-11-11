@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5a68007660dda95926318163d34b7c4840fae5193836783ef28b9c922612618e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: task-intelligence
 description: "Protocolo de Inteligência Pré-Tarefa — planeja a tarefa e consulta apenas agentes disponíveis, relevantes e autorizados quando o benefício justificar o custo."
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-03-06'
@@ -17,6 +28,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # Task Intelligence — Protocolo de Amplificação Pré-Tarefa
 

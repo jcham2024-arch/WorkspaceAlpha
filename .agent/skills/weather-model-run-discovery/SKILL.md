@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fadf3a6253a2ec6c2930e420ac1dac327b5fcad7d86cdc9c05801c5cd1320805"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: weather-model-run-discovery
 description: "Resolve the newest complete numerical weather prediction cycle and forecast objects across provider mirrors without downloading full payloads."
+tier: "experimental"
 category: data
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: ShianMike
 tags: [weather, nwp, model-cycle, aws-s3, nomads, herbie]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Weather Model Run Discovery
 

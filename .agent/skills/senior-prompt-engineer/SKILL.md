@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bb5b20972b33fadedf29f04c289d789ef70d79d7dbecf27d81e1a3ceb8f3e4aa"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "senior-prompt-engineer"
 description: "Improve prompts and measure LLM quality: fix inconsistent prompts, build eval sets, score RAG retrieval, check agent tool configs. Use whenever the user's prompt, chatbot or RAG answers are unreliable or they ask how to test them."
+tier: "experimental"
 ---
+
 
 # Senior Prompt Engineer
 

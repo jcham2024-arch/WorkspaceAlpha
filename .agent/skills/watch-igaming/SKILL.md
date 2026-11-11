@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e26386a4f349ea6db3bddf093d8eda4a152194568dcea4a0f7ab84b750b9e71b"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: watch-igaming
 description: "Reviews a video link or local screen recording from transcript and scene-change frames matched by timecode, then returns a review, QA table, UX audit, comparison or minutes."
+tier: "experimental"
 category: media
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude]
 license: "MIT"
 license_source: "https://github.com/igamingsychov/watch-igaming/blob/main/LICENSE"
 ---
+
 
 # watch-igaming: video review from transcript and frames
 

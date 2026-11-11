@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a02cc40b5bea0e9ac0ecc8b99fe95917a01a0d0b53b6ee294de11412269cd4d7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: llm-app-patterns
 description: "Architecture and integration sketches for LLM applications, with explicit retrieval, tool, privacy and verification boundaries."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # 🤖 LLM Application Patterns
 

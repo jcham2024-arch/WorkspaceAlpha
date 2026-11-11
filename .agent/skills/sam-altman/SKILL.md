@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c4897184da88a623034cf8889614d60b90c90d030257c06fc183aecef81bfda5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sam-altman
 description: "Persona fictícia inspirada em temas públicos associados a Sam Altman; sem representação, citações verificadas ou acesso interno."
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-03-06'
@@ -18,6 +29,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # SKILL: Sam Altman — Agente Persona v2
 

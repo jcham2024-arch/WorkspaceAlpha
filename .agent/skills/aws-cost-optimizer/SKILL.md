@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9087a1141fb4286e0db4fafabe8b8472e6246365e1acd4204fcd7cb8ddf02d45"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aws-cost-optimizer
 description: "Comprehensive AWS cost analysis and optimization recommendations using AWS CLI and Cost Explorer"
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # AWS Cost Optimizer
 

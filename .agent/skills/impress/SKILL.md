@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "89bb3cf0bd8bd0c4e5277d79d16848654951a50742c162ea7b4073783439446f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: impress
 description: "Presentation creation, format conversion (ODP/PPTX/PDF), slide automation with LibreOffice Impress."
+tier: "experimental"
 category: presentation-processing
 risk: safe
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 # LibreOffice Impress
 

@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "aaf2d2da191807ee8fd7ecec02ca4ea0ae6311c62461e6e9be806519641637e4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: y2k-design
 description: Web and App implementation guide for Y2K Design. Trigger when user wants chrome effects, futuristic 2000s look, blob shapes, and tech optimism.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Y2K Design
 

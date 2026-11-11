@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "68b1ac775974bbf03420037ebe322039dd179791b146391ab4a22383d7fbb83d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-aeo-meta-description-generator
 description: "Writes title tags, meta descriptions, Open Graph tags, and Twitter Card tags aligned to page intent and conversion goals."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-01"
 ---
+
 
 # Meta Description Generator Skill
 

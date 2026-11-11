@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9a37b5b0ef24f17d99f448ed7c89847db4eed6654e26476d4468c5bfd0a871b1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-headshot-studio
 description: "Install and use the official AI Headshot Generator package, pinned by digest, for paid hosted work on the Beatra service."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/beatra-ai/ai-headshot-generator-skill/blob/c5a2ab9483f81b36b501a16868516f960ec84ede/LICENSE"
 ---
+
 
 # AI Headshot Generator Skill
 

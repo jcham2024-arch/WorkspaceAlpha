@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "81cea1289d031ed28d58d58d3f5199792eb36ce195c093a4c4c31c3c4fd5ec63"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: moyu
 description: >
+tier: "experimental"
   Anti-over-engineering guardrail that activates when an AI coding agent expands
   scope, adds abstractions, or changes files the user did not request.
 risk: safe
@@ -8,6 +19,7 @@ source: community
 date_added: "2026-03-23"
 license: MIT
 ---
+
 
 # Moyu
 

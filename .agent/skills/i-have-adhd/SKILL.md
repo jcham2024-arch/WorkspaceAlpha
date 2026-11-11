@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "da436d332989f9e7cd0851c84f6886793652fa2f8c7e91718484efde6edfd408"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: i-have-adhd
 description: 'Shape output for ADHD readers: next action first, numbered steps, restated
+tier: "experimental"
   state, no tangents, time estimates, visible wins. Toggle with /i-have-adhd.'
 category: productivity
 risk: safe
@@ -17,6 +28,7 @@ metadata:
   tags: ADHD, Output Style, Productivity, Formatting
   category: productivity
 ---
+
 
 # i-have-adhd
 

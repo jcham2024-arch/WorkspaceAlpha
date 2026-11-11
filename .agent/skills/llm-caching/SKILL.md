@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "962365fbb4ab4c8e7d34b4aaefccf3654c21aeb08870442e25f8187e642e95c7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: llm-caching
 description: Implement multi-layer LLM caching with exact match, semantic similarity,
+tier: "experimental"
   and provider-side prompt caching.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # LLM Caching
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b87e02848d2a84fab44c0be195b02d8249fb6ebd6f126e29397adb3c281f1d26"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hig-platforms
 description: Apple Human Interface Guidelines for platform-specific design.
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Apple HIG: Platform Design
 

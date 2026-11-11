@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c9eeff3c4440494286878ad7b533f1c83ceee6713e652f29a9827dae55596ccd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agents-generator
 description: "Generate project-specific AGENTS.md and companion rules by analyzing a codebase. Supports full, minimal, update, and dry-run modes with package-manager detection, monorepos, backups, managed blocks, confidence scoring, and command validation."
+tier: "experimental"
 category: developer-tools
 risk: critical
 source: https://github.com/OJPalenzuela/agents-generator/tree/7a3201208a01bd25e69ad11e665efc1392f5356a
@@ -17,6 +28,7 @@ metadata:
   author: OJPalenzuela
   version: "1.2.3"
 ---
+
 
 # Skill: agents-generator
 

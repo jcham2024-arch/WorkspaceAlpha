@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e9ff69cb673e0d273d619d1b0b60a91e3bc077d1ff4e2cbb7997806f567153f1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: tds-booking-payment
 description: 'TDS register: payee PAN, payment nature, rate and amount deducted, deposit date and challan reference, return filing and ledger variance. Use for TDS compliance.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, accounting, audit, finance, database, csv, notion, sql, tds]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # TDS Booking & Payment
 

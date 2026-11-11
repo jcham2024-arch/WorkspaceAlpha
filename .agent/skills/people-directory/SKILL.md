@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ae69296f5f79abe8f28a36a59d1f7f5de2011ee1b15b26579709d7ab6b58e2d3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: people-directory
 description: 'Employee master record: name, employee id, department, job title, grade, manager, employment type, contact and emergency details, access role, start and end dates, status. Use for people records.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, onboard]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # People Directory
 

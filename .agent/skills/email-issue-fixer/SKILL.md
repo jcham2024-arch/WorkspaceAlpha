@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "47ef388df8af0c81c3c3b95c58e65a73f670425609a7e737179119c495cecf33"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: email-issue-fixer
 description: "Fix small email mistakes without touching the writer's voice, and strip tracking parameters from links on request. Always returns the corrected draft plus a change list."
+tier: "experimental"
 category: writing
 risk: safe
 source: self
@@ -9,6 +20,7 @@ date_added: "2026-09-01"
 author: whoisabhishekadhikari
 tags: [email, proofreading, grammar, links]
 ---
+
 
 # Email Issue Fixer
 

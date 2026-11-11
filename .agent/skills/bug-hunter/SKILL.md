@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "280867af4372c4fa8cfddbe41e2285054c157ff673a59b4dd74a99bcc198c1a0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: bug-hunter
 description: "Systematically finds and fixes bugs using proven debugging techniques. Traces from symptoms to root cause, implements fixes, and prevents regression."
+tier: "experimental"
 category: development
 risk: safe
 source: community
 date_added: "2026-03-05"
 ---
+
 
 # Bug Hunter
 

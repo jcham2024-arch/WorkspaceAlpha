@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ddc017dc819284a2cba68267baa29dfa267c90fe6a476c85ae499dc9be85556b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: issues
 description: Interact with GitHub issues - create, list, and view issues.
+tier: "experimental"
 allowed-tools: Bash(gh *)
 risk: critical
 source: community
@@ -9,6 +20,7 @@ metadata:
   author: Shpigford
   version: "1.0"
 ---
+
 
 Interact with GitHub issues - create, list, and view issues.
 

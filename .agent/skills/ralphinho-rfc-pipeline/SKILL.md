@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8af39d62b860a5e8172c47f2f80e2df19061bdc76b27e533515185b8dcb8485b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ralphinho-rfc-pipeline
 description: Split an RFC into a multi-agent execution DAG — decompose into work units with dependencies and acceptance tests, run research, plan, implement, test, and review per unit, then merge through a queue with re-based branches and final system verification. Use when a feature is too large for a single agent pass, orchestrating RFC-driven multi-agent execution, or managing merge queues across
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Ralphinho RFC Pipeline
 

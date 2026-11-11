@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "51d26ff147fb8ebad38d3c050c88d9a854e57a30ee78c1b7c793e04b534ac1e1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: buywhere-product-catalog
 description: "Use BuyWhere's MCP and API surfaces to add product search, price comparison, and deal discovery to AI shopping agents."
+tier: "experimental"
 category: ecommerce
 risk: safe
 source: official
@@ -13,6 +24,7 @@ author: BuyWhere
 tags: [buywhere, ecommerce, shopping, mcp, api, product-catalog]
 tools: [claude, cursor, codex, gemini]
 ---
+
 
 # BuyWhere Product Catalog
 

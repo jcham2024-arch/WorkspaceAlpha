@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2247f065c6ebdac07943afe0205351c0645b61fc2a5a1c01143170e3877104da"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ssh-configuration
 description: Configure SSH servers and clients securely. Manage keys, tunnels, and
+tier: "experimental"
   config files. Use when setting up secure remote access.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # SSH Configuration
 

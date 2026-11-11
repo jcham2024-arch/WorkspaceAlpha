@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "20adfae8cc21f72a76e1c1766921f83db475dda5a6536bc6a1ef4bdc652456a1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: career-ops
 description: 'Open-source AI job search agent for AI coding CLIs: evaluate offers,
+tier: "experimental"
   scan portals, tailor CVs, track applications, prep interviews. Invoke per mode.'
 category: productivity
 risk: safe
@@ -22,6 +33,7 @@ argument-hint: '[scan | discover | deep | pdf | text | latex | latex-tex | cover
   | interview/practice | interview/debrief | interview-redflag | patterns | offer-prep
   | titles | upskill | followup | reply-watch | outcome | update]'
 ---
+
 
 # career-ops: open-source AI job search agent
 

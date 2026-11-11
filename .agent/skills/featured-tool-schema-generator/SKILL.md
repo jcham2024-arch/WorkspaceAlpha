@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "69f3346420793628ce9749d4d60f0a1668074d68e28c298414e0a20f00362737"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: featured-tool-schema-generator
 description: "Featured Tool Schema Generator. Use when working with tool page URL and visible tool capabilities."
+tier: "experimental"
 category: Schema & Structured Data
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Featured Tool Schema Generator
 
 ## Overview

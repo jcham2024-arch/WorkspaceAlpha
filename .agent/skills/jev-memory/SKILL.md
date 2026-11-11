@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7aba5b12d3b0d14ceb377a265a68a4f85757026bd69e43cac4167abc19bb0e23"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: jev-memory
 description: "Set up an explicitly requested Claude Code memory mod using Treg and Jev, with informed consent for prompt transmission, recurring charges and local preference storage."
+tier: "experimental"
 category: development
 risk: critical
 source: https://github.com/superdesigndev/treg
@@ -12,6 +23,7 @@ author: superdesigndev
 upstream_commit: cf3955032ef8f15dfeff90a84ae24e31583e93e8
 date_added: "2026-11-06"
 ---
+
 
 # Jev memory for Claude Code
 

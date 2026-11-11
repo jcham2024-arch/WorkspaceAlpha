@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9fec12ff626e1d883b672e0a38411d9a0a689a931087f1c5651bdf1907594d1c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-wrapper-product
 description: Expert in building products that wrap AI APIs (OpenAI, Anthropic,
+tier: "experimental"
   etc. ) into focused tools people will pay for. Not just "ChatGPT but
   different" - products that solve specific problems with AI.
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # AI Wrapper Product
 

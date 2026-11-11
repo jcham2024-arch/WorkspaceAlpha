@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "08821e029644592354f18832d45c962f7e555ba4efd567c9fd568a048a404592"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: laravel-plugin-discovery
 description: Discover and evaluate Laravel packages via LaraPlugins.io MCP. Use when the user wants to find plugins, check package health, or assess Laravel/PHP compatibility.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Laravel Plugin Discovery
 

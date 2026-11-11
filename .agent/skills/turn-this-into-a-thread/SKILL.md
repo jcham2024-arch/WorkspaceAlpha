@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5e7a0be27ad46ae2ae6ca301ab4310c3b6e6f6135ce6afcf2aef805d3a4b047e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: turn-this-into-a-thread
 description: "Turn a long idea, transcript, article or draft into a Twitter/X thread where every tweet stands alone. Use when someone asks for a thread or to break long writing into tweets."
+tier: "experimental"
 category: marketing
 risk: critical
 source: "https://github.com/prateeks367/voicemoat-skills/tree/7623a3effbee426554e8c5df55e77f3479fd0ec0/skills/turn-this-into-a-thread"
@@ -13,6 +24,7 @@ author: prateeks367
 tags: [twitter, threads, writing, social-media]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Turn this into a thread
 

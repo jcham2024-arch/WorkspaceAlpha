@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1c49542ca1f8a99b1519ab5aceaf89b4a267c3a27ed88993dd5bb675a154f1a9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: postgres-readonly-queries
 description: "Execute safe read-only SQL queries against PostgreSQL databases with multi-connection support and defense-in-depth write protection."
+tier: "experimental"
 category: data
 risk: critical
 source: https://github.com/sanjay3290/ai-skills/tree/main/skills/postgres
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "Apache-2.0"
 license_source: "https://github.com/sanjay3290/ai-skills/blob/main/LICENSE"
 ---
+
 
 # PostgreSQL Read-Only Query Skill
 

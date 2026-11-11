@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "400c4d4a309c8cc96252ac387a7cf6e1e4873aa7d7f9d21eb80911f29495d658"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: springboot-patterns
 description: Spring Boot architecture patterns, REST API design, layered services, data access, caching, async processing, and logging. Use for Java Spring Boot backend work. Use when building or reviewing a Spring Boot backend — REST layer, services, data access, caching, or async work.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Spring Boot Development Patterns
 

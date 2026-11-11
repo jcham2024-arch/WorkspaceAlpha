@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fffd55c1d164b60d57d7bd3c030cc85ac09eaa71858586c708a8e40d5704a28e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gcp-secret-manager
 description: Secure secrets in Google Cloud Secret Manager. Configure IAM policies,
+tier: "experimental"
   integrate with GKE, and manage secret versions. Use when managing secrets in GCP
   environments.
 category: security
@@ -18,6 +29,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # GCP Secret Manager
 

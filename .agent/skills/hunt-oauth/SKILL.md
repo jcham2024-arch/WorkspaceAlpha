@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a37b2fc346cb1e7c2d4b29b82ce9b92260ef63345b9ce68e8a752044a329d077"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hunt-oauth
 description: Hunting skill for oauth vulnerabilities. Built from 19 public bug bounty
+tier: "experimental"
   reports. Use when hunting oauth on any target.
 category: security
 risk: offensive
@@ -16,6 +27,7 @@ compatibility: Requires explicit written authorization for a target scope plus t
 sources: github, hackerone_public, salt_labs, descope, detectify_labs, harel_research
 report_count: 22
 ---
+
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.

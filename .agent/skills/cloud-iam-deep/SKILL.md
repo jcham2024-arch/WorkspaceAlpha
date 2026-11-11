@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0a45d14ec7ed8ba1e4cf39b34d4cf21a43c43df89a640cd95b3b4f5f1bd168a8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cloud-iam-deep
 description: Cloud IAM red-team attack chain across AWS, Azure, GCP
+tier: "experimental"
 category: security
 risk: offensive
 source: https://github.com/elementalsouls/Claude-BugHunter
@@ -16,6 +27,7 @@ sources: aws-iam-docs, azure-rbac-docs, gcp-iam-docs, hackingthe.cloud, pacu, pe
   prowler, rhinosecuritylabs_research, hackerone_public
 report_count: 6
 ---
+
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "561bdc56f0fb1f31bd5147d1b494182336a4806fe21df47ea40028c79281c02f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-agent-security
 description: Secure AI agents against prompt injection, tool abuse, and data exfiltration
+tier: "experimental"
   with defense-in-depth controls.
 category: security
 risk: safe
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '2.0'
 ---
+
 
 # AI Agent Security
 

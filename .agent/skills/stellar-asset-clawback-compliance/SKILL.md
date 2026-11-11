@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "014580c5d405abd88e6a11240b3b04399043850009510c5245870ec0fac12f56"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: stellar-asset-clawback-compliance
 description: 'Regulated Stellar asset clawback architecture register: issuer authorization flags, claimable balance revocations, and regulatory audit trail.'
+tier: "experimental"
 category: engineering
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [stellar, clawback, compliance, fintech, regtech, security]
 tools: []
 source_repo: Ranjeet2063/agentic-awesome-skills
 ---
+
 
 # Stellar Asset Clawback Compliance
 

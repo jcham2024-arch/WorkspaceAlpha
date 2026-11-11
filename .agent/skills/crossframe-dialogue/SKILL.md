@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "15c03356f941ff4002d782cc652b20bf37b85a96f92f5e2dfe728ef48f5c38d6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: crossframe-dialogue
 description: "Use when CrossFrame Suite routes explicit Chinese reader replies, editor responses, consultation-style short answers, or boundary-aware structural advice."
+tier: "experimental"
 category: content
 risk: safe
 source: community
@@ -21,6 +32,7 @@ tags:
   - reader-reply
   - consultation
 ---
+
 # CrossFrame Dialogue
 
 

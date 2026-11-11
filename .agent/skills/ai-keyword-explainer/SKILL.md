@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cd6be174da90bc04d9edb6f1f5fce4d1b2ee47c50ed7805159dc48bb01dd82e7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-keyword-explainer
 description: "AI Keyword Explainer. Use when working with keyword or phrase."
+tier: "experimental"
 category: AI-Powered SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # AI Keyword Explainer
 
 ## Overview

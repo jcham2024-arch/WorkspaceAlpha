@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "23fc398b5ded91ebef1c3aad89d0447d5256565d6bcdea54efbe2c8fc9302dc1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-native-ui
 description: Web and App implementation guide for AI Native UI. Trigger when user wants conversational interfaces, adaptive layouts, and generative AI aesthetics.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # AI Native UI
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "76b6c3739e6cc7a5c4eb5740fe4461376fc261753aad75f93e81a839621ab1b5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: upstash-redis
 description: "Use the @upstash/redis HTTP client for caching, sessions, counters, and Redis data structures from serverless and edge runtimes without connection pooling."
+tier: "experimental"
 category: backend
 risk: critical
 source: self
@@ -10,6 +21,7 @@ author: CahidArda
 tags: [upstash, redis, cache, serverless, edge, key-value]
 tools: [claude, codex, cursor, gemini]
 ---
+
 
 # Upstash Redis
 

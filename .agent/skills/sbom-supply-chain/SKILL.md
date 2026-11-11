@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "884f7d5fd661b7b7b43c0db67e1607ceb89263d7d0c5c664c25fa66674f69174"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sbom-supply-chain
 description: Generate, sign, and verify SBOMs and provenance attestations to secure
+tier: "experimental"
   the software supply chain. Use when implementing SLSA controls, artifact trust policies,
   or compliance evidence for releases.
 category: security
@@ -18,6 +29,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # SBOM & Supply Chain Security
 

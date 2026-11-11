@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e4aeafbf38fa8ce33df03b58d1d7ef5f889bb33e415d1a0a881c90d9c5de6749"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: codehealth-mcp
 description: Real-time structural Code Health via CodeScene MCP — review before edits, verify score deltas after changes, gate commits and PRs. Use when reviewing code quality, refactoring, checking if AI changes degraded a file, or before commit/PR.
+tier: "experimental"
 metadata:
   origin: community
 ---
+
 
 # Code Health MCP (CodeScene)
 

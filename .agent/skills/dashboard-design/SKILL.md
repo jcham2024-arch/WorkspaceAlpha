@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "80fc9423f22fcbffb74a635ef865647cda5919977cb1cc7262e915f70342152f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: dashboard-design
 description: Web and App implementation guide for Dashboard Design. Trigger when user wants analytics-focused layouts, data visualization, and modular overview screens.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Dashboard Design
 

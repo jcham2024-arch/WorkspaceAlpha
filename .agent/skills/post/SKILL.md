@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b451d9fb52cac5f28507ae3a5bb7459418adc633ceee12e3d225317616f3b806"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: post
 description: "Make share-post image sets that look native: Xiaohongshu carousels, X images, covers, App Store poster layouts, real screenshots and faithful app-UI mocks. Use for 图文, 配图, 组图, 封面, 分享帖."
+tier: "experimental"
 category: marketing
 risk: safe
 source: self
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor]
 license: "MIT"
 license_source: "https://github.com/jack-reson8/post-skill/blob/main/LICENSE"
 ---
+
 
 # Post — share images that look native and sell
 

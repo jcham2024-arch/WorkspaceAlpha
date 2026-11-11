@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "144d30270952ff86180ba435e2d220d692aeead11746280d75d4ee54706c6af8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: competitive-platform-analysis
 description: >-
+tier: "experimental"
   Use when scoping a competitive landscape — identifying, categorising, and
   score-filtering a competitor set before any benchmarking begins. Decides who
   counts as a competitor, which tier they belong to, and which sources to mine.
@@ -8,6 +19,7 @@ description: >-
   benchmark-methodology.
 license: MIT
 ---
+
 
 # Competitive Platform Analysis
 

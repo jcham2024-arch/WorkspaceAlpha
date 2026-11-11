@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "24649e4c547bfde97008885d1c2b690faa8a27d04192483315192ee817ad5d70"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: grilling
 description: Interview the user relentlessly about a plan or design. Use when the user wants to stress-test a plan before building, or uses any 'grill' trigger phrases.
+tier: "experimental"
 category: "productivity"
 risk: "safe"
 source: "community"
@@ -19,6 +30,7 @@ tools:
   - codex-cli
   - cursor
 ---
+
 
 ## When to Use
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "712ef23000c0c5d129fa54d14ad4a75d977c9befb72548d4fda6523782254766"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azd-deployment
 description: "Prepare and verify authorized Azure Container Apps deployments with azd. Use for azure.yaml, Bicep, remote builds, managed identity and post-deploy checks."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Azure Developer CLI (azd) Container Apps Deployment
 

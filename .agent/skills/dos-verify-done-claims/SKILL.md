@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "572458e76c0560e15bafff96b1b6aead272b6ad0b70666dda9c5ed27a312c6aa"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: dos-verify-done-claims
 description: "Before accepting an agent's 'done / shipped / fixed' claim, verify it against ground truth (git ancestry + the commit's own diff) using the DOS kernel's `dos verify` and `dos commit-audit` — never the agent's own narration."
+tier: "experimental"
 category: quality
 risk: critical
 source: community
@@ -21,6 +32,7 @@ plugin:
     summary: "Setup installs and executes an external PyPI CLI; keep out of plugin-safe bundles."
     docs: SKILL.md
 ---
+
 
 # Verify done-claims against ground truth, not the agent's word
 

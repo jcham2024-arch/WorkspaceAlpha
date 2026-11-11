@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7bda2e07b482e5b059c1c55aa8d023c6fbe8b63d2905f014284907d6e541bc00"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: cloudish
 description: "Deploy a Dockerfile, source folder, or existing image to Cloudish as a running container at a live URL, built server-side with no local Docker, with confirmation before spending credits."
+tier: "experimental"
 category: devops
 risk: critical
 source: "https://github.com/cloudishai/skills"
@@ -13,6 +24,7 @@ author: cloudishai
 tags: [deploy, docker, containers, hosting, persistent-storage]
 tools: [claude, codex, cursor]
 ---
+
 
 # Cloudish
 

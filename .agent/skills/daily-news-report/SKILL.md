@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7c31b5ade17f931ad518b30a9b1d9ac7c708a38b88687f1ab18e9dfff2b24526"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: daily-news-report
 description: "Scrapes content based on a preset URL list, filters high-quality technical information, and generates daily Markdown reports."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Daily News Report v3.0
 

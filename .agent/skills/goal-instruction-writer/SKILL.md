@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ad697f38111dd0b868ad4e226de523366d5fb91ea40e91a6c9b116df9486460d"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: goal-instruction-writer
 description: "Preview, draft, refine, or audit durable agent Goals with acceptance evidence, drift controls, proportional verification, and bounded waiting. Use for multi-stage work, not one-shot prompts."
+tier: "experimental"
 category: agent-orchestration
 risk: safe
 source: "https://github.com/wu736139669/goal-instruction-writer"
@@ -13,6 +24,7 @@ tools: [codex]
 license: "MIT"
 license_source: "https://github.com/wu736139669/goal-instruction-writer/blob/1e5d106a2092c1ab8ab4f2f5836cf85167d1b3e7/LICENSE"
 ---
+
 
 # Goal Instruction Writer
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8b08b0a3de7625430711b34dbb0de72350e708935f5c12cc44e8e6df55282996"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: n8n-subworkflows
 description: Build reusable n8n sub-workflows with typed inputs, all-vs-each execution, discoverable naming, and agent-tool exposure.
+tier: "experimental"
 risk: critical
 source: https://github.com/czlonkowski/n8n-skills/tree/main/skills/n8n-subworkflows
 source_repo: czlonkowski/n8n-skills
@@ -10,6 +21,7 @@ author: Romuald Czlonkowski
 license: MIT
 license_source: https://github.com/czlonkowski/n8n-skills/blob/main/LICENSE
 ---
+
 
 # n8n Sub-workflows
 

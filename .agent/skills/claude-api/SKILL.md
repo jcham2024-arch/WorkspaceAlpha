@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c55bdd0a65e0e595286a668e4aab51c2620d9115c8166a7ac94dfb24a396ef26"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: claude-api
 description: "Build apps with the Claude API or Anthropic SDK. TRIGGER when: code imports `anthropic`/`@anthropic-ai/sdk`/`claude_agent_sdk`, or user asks to use Claude API, Anthropic SDKs, or Agent SDK. DO NOT TRIGGER when: code imports `openai`/other AI SDK, general programming, or ML/data-science tasks."
+tier: "experimental"
 risk: critical
 source: "https://github.com/anthropics/skills"
 date_added: "2026-03-21"
 license: Complete terms in LICENSE.txt
 ---
+
 
 # Building LLM-Powered Applications with Claude
 

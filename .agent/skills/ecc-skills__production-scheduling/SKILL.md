@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "59e13cad61bcf5a5c3b678fd27bd8013d4e287ed7fee5623a0fb7a0c21871ecf"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: production-scheduling
 description: Codified expertise for production scheduling, job sequencing, line balancing, changeover optimization, and bottleneck resolution in discrete and batch manufacturing. Informed by production schedulers with 15+ years experience. Includes TOC/drum-buffer-rope, SMED, OEE analysis, disruption response frameworks, and ERP/MES interaction patterns. Use when scheduling production, resolving bottlenecks, optimizing changeovers, responding to disruptions, or balancing manufacturing lines.
+tier: "experimental"
 license: Apache-2.0
 homepage: https://github.com/affaan-m/ECC
 metadata:
@@ -10,6 +21,7 @@ metadata:
   clawdbot:
     emoji: ""
 ---
+
 
 # Production Scheduling
 

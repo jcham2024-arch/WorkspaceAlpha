@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "193f48d5f4a8983fbaebaad19406f529ab02f84eaf69dc61681bd6de35688ff3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gbp-local-seo-intent
 description: 'Google Business Profile register: element, primary and supporting keywords, search intent, landing page, post dates, review rating and reply status, visibility and status. Use for local SEO.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, gbp, google-business-profile, local-seo, local-pack, map-pack, inten
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # GBP & Local SEO Intent
 

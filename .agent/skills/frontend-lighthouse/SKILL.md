@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e9c854153cf1371b176a8fbe218ee5f5d9618f45ac24cb4969a77639f45dde3b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: frontend-lighthouse
 description: "Add a portable Lighthouse CI gate for production frontend builds with Core Web Vitals budgets, category floors, median runs, and CI artifacts."
+tier: "experimental"
 category: frontend
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [lighthouse, node, github-actions]
 license: "MIT"
 license_source: "https://github.com/stareezy-1/frontend-architecture-skill/blob/main/LICENSE"
 ---
+
 
 # Frontend Lighthouse (portable performance gate)
 

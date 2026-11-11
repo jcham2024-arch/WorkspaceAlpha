@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7221feb3459e6b94a58086e6c3ba8f0cabeb8c9d3649de5c693ca807fbc84e1d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: perl-patterns
 description: Modern Perl 5.36+ idioms, best practices, and conventions for building robust, maintainable Perl applications. Use when writing or reviewing modern Perl 5.36+ code.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Modern Perl Development Patterns
 

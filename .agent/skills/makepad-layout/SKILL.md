@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2e9572e2c9ce46b6a691a8a0434a6b74cfe6ec1e7b368e4f438e01b875d3763b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: makepad-layout
 description: |
+tier: "experimental"
   CRITICAL: Use for Makepad layout system. Triggers on:
   makepad layout, makepad width, makepad height, makepad flex,
   makepad padding, makepad margin, makepad flow, makepad align,
@@ -10,6 +21,7 @@ risk: safe
 source: community
 date_added: "2026-03-06"
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

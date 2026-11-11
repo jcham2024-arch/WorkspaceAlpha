@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "78bde1793f9a5eb9ea52d66b927ba5a9a81b047ddb2129df992946a1fa6148d5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: writing-plans
 description: "Use when you have a spec or requirements for a multi-step task, before touching code"
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Writing Plans
 

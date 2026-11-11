@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a975bd9a158f370e5c650a5b05cbf6c2dec5da1003e13faa4aa02596bf0d42e9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cv-generator
 description: "Generate professional, ATS-optimized CVs for FlowCV, Canva, Google Docs, or Word. Handles multi-source merging, JD targeting, seniority adaptation, and humanized rewriting. Outputs paste-ready text with an ATS flaw report and improvement suggestions."
+tier: "experimental"
 category: content
 risk: safe
 source: community
@@ -15,6 +26,7 @@ tags:
   - job-application
   - career-change
 ---
+
 
 # CV Generator Skill — FlowCV / Canva Edition
 

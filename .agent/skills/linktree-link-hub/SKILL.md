@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8c63b30030df2469fb7a49900e33525f07db5db19ba30c0fb6628009edbb5659"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: linktree-link-hub
 description: 'Link-in-bio register: label, destination URL, link type, priority order, audience, click tracking, UTM source, schedule, click count and status. Use for link hub tracking.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, brand, linktree, link-in-bio, social, tracking, utm, call-to-action,
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Link-in-Bio Hub
 

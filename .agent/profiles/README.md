@@ -1,4 +1,6 @@
-# Profiles — Specialized Agent Definitions
+---
+owner: "taskmaster"
+---# Profiles — Specialized Agent Definitions
 
 One Markdown file per specialized agent (general form; sub-profiles
 come later as additional files). Frontmatter is the machine routing

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8391ec34e28f551507b523e0fbaf5b448ebb89ec33302bfbe3bfa9d823f5d03e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gan-style-harness
 description: "GAN-inspired Generator-Evaluator agent harness for building high-quality applications autonomously. Based on Anthropic's March 2026 harness design paper. Use when a feature should be built autonomously through generator and evaluator iteration until it clears a quality bar."
+tier: "experimental"
 metadata:
   origin: ECC-community
 tools: Read, Write, Edit, Bash, Grep, Glob, Task
 ---
+
 
 # GAN-Style Harness Skill
 

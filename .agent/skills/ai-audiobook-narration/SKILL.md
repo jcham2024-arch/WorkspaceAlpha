@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9995b349bbc155a59cfc2bdc25523be08a5fcc21d3ff98b72d1b5bd4314f5bbe"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-audiobook-narration
 description: "Install and use the official AI Audiobook Generator package, pinned by digest, for paid hosted work on the Beatra service."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/beatra-ai/ai-audiobook-generator-skill/blob/4f5f6b5ec10ee989be010c4990a7a087cc3c721c/LICENSE"
 ---
+
 
 # AI Audiobook Generator Skill
 

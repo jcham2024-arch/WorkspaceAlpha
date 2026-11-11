@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cdf23653c58179394e34ab2e67d1e3fe0ae8ff9187b6eb456e53f4509c102088"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: accesslint-diff
 description: "Diff a live page's accessibility violations against a baseline — by default compares uncommitted changes (stash-based), or pass --branch [<name>] to diff against a branch. Reports only new violations introduced, violations fixed, and pre-existing count. Use `scan` for a full audit with no diffing."
+tier: "experimental"
 risk: safe
 source: "https://github.com/AccessLint/skills"
 date_added: "2026-06-02"
 ---
+
 
 ## When to Use
 

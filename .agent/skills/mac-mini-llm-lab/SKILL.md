@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fa225c1053de63b0e6c499822ecb31cd2cb2f422042cbb032a086c1692f36834"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mac-mini-llm-lab
 description: Configure a Mac mini as a reliable local LLM server with remote access,
+tier: "experimental"
   observability, and power-safe operation. Use when building an always-on private
   AI inference server on Apple Silicon.
 category: devops
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Mac mini LLM Lab
 

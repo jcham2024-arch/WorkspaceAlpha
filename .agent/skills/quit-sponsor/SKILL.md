@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "da090c240c1eeb69e71df6e98364a77df7f62de767cfd79fc89ffe74e25f0de3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: quit-sponsor
 description: "Helps an AI agent provide non-judgmental, evidence-informed quit-smoking support with user-consented tracking, craving check-ins, and escalation to human or clinical help. Not medical care."
+tier: "experimental"
 category: personal-development
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude]
 license: "MIT"
 license_source: "https://github.com/metrox-eth/quit-sponsor/blob/main/LICENSE"
 ---
+
 
 # Quit-sponsor
 

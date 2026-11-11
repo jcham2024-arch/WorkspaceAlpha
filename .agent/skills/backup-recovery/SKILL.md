@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "110aebe432c47ec8baebe20437874640d1e4991f465f6a7df7af11f35cb0065d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: backup-recovery
 description: Implement backup and recovery strategies. Configure rsync, Restic, and
+tier: "experimental"
   cloud backups. Use when designing data protection solutions.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Backup and Recovery
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c8f40f7aeafa4fbcbbf07b0b077792b039e980f7f8f369c524199ba9f8aee829"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: iso27001-compliance
 description: Implement ISO 27001 Information Security Management System. Configure
+tier: "experimental"
   ISMS controls and risk management. Use when implementing enterprise security frameworks.
 category: security
 risk: safe
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # ISO 27001 Compliance
 

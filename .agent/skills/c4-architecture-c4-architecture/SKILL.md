@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d62beb472de0cc5c7f8e26957f748683bb825f88052a07fbad5f693d943a3456"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: c4-architecture-c4-architecture
 description: "Generate comprehensive C4 architecture documentation for an existing repository/codebase using a bottom-up analysis approach."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # C4 Architecture Documentation Workflow
 

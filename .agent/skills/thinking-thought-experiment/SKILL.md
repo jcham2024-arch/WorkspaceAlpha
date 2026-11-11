@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "95ab6b9c442c762ced9c346a5ea09879fd296211397296f5a1b49b02fda5e09f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-thought-experiment
 description: 'When a real test is too rare, large, or irreversible, run a controlled counterfactual: isolate one variable, fix conditions, trace the mechanistic chain, and bound what the result implies.'
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Thought Experiment
 

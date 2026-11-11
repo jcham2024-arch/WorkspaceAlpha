@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "adb4af6a82730ff6d22397150e22bde3ee6f570b88d0872771f481770b57a424"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: closed-loop-delivery
 description: Use when a coding task must be completed against explicit acceptance criteria with minimal user re-intervention across implementation, review feedback, deployment, and runtime verification.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-12"
 ---
+
 
 # Closed-Loop Delivery
 

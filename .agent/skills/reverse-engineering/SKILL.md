@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "84d90f2b861a03715992ac68928e41d0c63fb49498930e6f5fe875aeb6a89866"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: reverse-engineering
 description: "General reverse-engineering methodology for compiled, obfuscated, packed, or virtualized targets: GDB, Frida, angr, Unicorn, and Qiling workflows across languages and platforms, with anti-analysis countermeasures."
+tier: "experimental"
 risk: critical
 source: "https://github.com/zhaoxuya520/reverse-skill"
 source_repo: "zhaoxuya520/reverse-skill"
@@ -9,6 +20,7 @@ date_added: "2026-08-25"
 license: "MIT"
 license_source: "https://github.com/zhaoxuya520/reverse-skill/blob/main/LICENSE"
 ---
+
 # Reverse Engineering
 ## When to Use
 

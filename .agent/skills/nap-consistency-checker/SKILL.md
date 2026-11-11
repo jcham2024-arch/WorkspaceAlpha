@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "91f35fa183112320ed6a1e97778454214b277f51060d56cfd9706a3832534940"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: nap-consistency-checker
 description: "NAP Consistency Checker. Use when working with canonical business name, address and phone plus listing records."
+tier: "experimental"
 category: Local SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # NAP Consistency Checker
 
 ## Overview

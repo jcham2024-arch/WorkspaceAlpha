@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7af0dca305b090b1161899a15aa596a8aafde31efdd595b67c344f46dedba15b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: wgm
 description: "Turns a rough request into working software via a governed build loop: align first, plan, then iterate one task at a time with deterministic backpressure and holdout-scenario judging."
+tier: "experimental"
 category: meta
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, copilot, codex]
 license: "MIT"
 license_source: "https://github.com/agent-frontier/wgm/blob/main/LICENSE"
 ---
+
 
 # wgm
 

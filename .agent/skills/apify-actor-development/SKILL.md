@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5e6454a891f1d072a5426764abd6ec376c336b52023e9b73739128fd83ff044d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: apify-actor-development
 description: "Create, modify and validate Apify Actors with scoped inputs, storage schemas, runtime logic and deployment review."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-01"
 ---
+
 
 # Apify Actor Development
 

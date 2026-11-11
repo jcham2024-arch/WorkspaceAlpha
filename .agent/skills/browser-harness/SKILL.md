@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "484bf3a4bf0aa1065b6550fa7815a5e42308bbf58d675efe759a23fe7fe909cd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: browser-harness
 description: "Drive an existing browser through CDP for authenticated, visual, or interactive web automation."
+tier: "experimental"
 category: browser-automation
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex]
 license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 ---
+
 
 # browser-harness
 

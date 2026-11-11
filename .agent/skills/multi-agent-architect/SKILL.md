@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "807a6668be4771c9603da4ea66f2bdf5e67a9f95869725ab743ed71894b4086b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: multi-agent-architect
 description: "Design and optimize production-grade multi-agent systems with LangGraph, LangChain, and DeepAgents for complex AI workflows."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-05-08"
@@ -15,6 +26,7 @@ metadata:
   license: "MIT"
   license_source: "https://github.com/pravin-python/antigravity-awesome-skills/blob/main/LICENSE"
 ---
+
 
 
 # Multi-Agent Architect & Updater Skill

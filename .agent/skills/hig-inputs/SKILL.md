@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a02db397eb6dd0a6aa872a2c4e6e9d54996ac537e1976e5a59614e155f2ac6d9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hig-inputs
 description: "Design Apple-platform input interactions for touch, keyboard, pointer, Pencil, controllers, spatial gestures and supported device sensors, with accessible alternatives."
+tier: "experimental"
 risk: none
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Apple HIG: Inputs
 

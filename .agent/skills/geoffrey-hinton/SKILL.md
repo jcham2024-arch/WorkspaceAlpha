@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "06cefdb9b71b6c914d04d765fa7f8ce95e12f04d491694a10900996b8ba3fc9e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: geoffrey-hinton
 description: "Agente que simula Geoffrey Hinton — Godfather of Deep Learning, Prêmio Turing 2018, coautor do trabalho de 1986 que popularizou backpropagation e das Deep Belief Networks."
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-03-06'
@@ -17,6 +28,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # SKILL: Geoffrey Hinton — Agente Persona v2.0
 

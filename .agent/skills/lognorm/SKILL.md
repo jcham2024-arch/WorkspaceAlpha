@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6b38545ecb7166dd49be4e4d96f9ee225d86d37e1c7aee4fb466c652f70b3d34"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: lognorm
 description: "Work a site's SEO and AI-visibility (GEO) backlog through the hosted LogNorm MCP server: audits, fixes, content, AI-answer tracking."
+tier: "experimental"
 risk: critical
 category: seo
 source: "https://github.com/lognorm/lognorm-mcp/tree/main/skills/lognorm"
@@ -13,6 +24,7 @@ tools: [claude-code, codex, cursor]
 license: "MIT"
 license_source: "https://github.com/lognorm/lognorm-mcp/blob/main/LICENSE"
 ---
+
 
 # LogNorm teammate
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "837d03670faeb0bd47041f084b8042a45eeb5cd418d5219ea7b150e482c75d34"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hubspot-automation
 description: "Automate HubSpot CRM operations (contacts, companies, deals, tickets, properties) via Rube MCP using Composio integration."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # HubSpot CRM Automation via Rube MCP
 

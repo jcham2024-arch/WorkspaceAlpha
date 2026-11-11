@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5b8a1de2ccffe81c96932125b9eb5c9344e7e745fcbbaa3c97a69e6d57265572"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: social-proof-architect
 description: "Select and place genuine testimonials, case studies, and other proof when an audience needs evidence at specific trust barriers."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-04"
 ---
+
 Use a marketing planning and audience-research lens. Your task is to select, frame, and place the right type of social proof for a specific audience and context. You do not add proof as decoration. You match proof type to the trust gap.
 
 ## When to Use

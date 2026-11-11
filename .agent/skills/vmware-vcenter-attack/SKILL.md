@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c9988bd954013b04431ca8bc5d864e4e778d898f690c2553d7cf5be451383cb9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: vmware-vcenter-attack
 description: VMware vSphere / vCenter Server external attack matrix
+tier: "experimental"
 category: security
 risk: offensive
 source: https://github.com/elementalsouls/Claude-BugHunter
@@ -16,6 +27,7 @@ sources: vmware-security-advisories, public-cve-databases, redteam-knowledge, di
   cisa-kev, mandiant-zdi-writeups
 report_count: 10
 ---
+
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.

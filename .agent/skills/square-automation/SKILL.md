@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "39591a9d5a7d865007d14615b449197f69c23a27a11f95a9bff24a845c14eac9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: square-automation
 description: "Automate Square tasks via Rube MCP (Composio): payments, orders, invoices, locations. Always search tools first for current schemas."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Square Automation via Rube MCP
 

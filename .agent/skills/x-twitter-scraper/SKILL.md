@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f2807bfaedb3cd1a60859306d1f507003ad9c018764e3b9b3b4b7d921290740e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: x-twitter-scraper
 description: "Use Xquik for X data workflows: tweet search, user lookup, follower export, media downloads, monitors, webhooks, REST API, MCP, SDK setup, and approval-gated account actions."
+tier: "experimental"
 category: data
 risk: critical
 source: community
@@ -16,6 +27,7 @@ plugin:
     codex: blocked
     claude: blocked
 ---
+
 
 # X (Twitter) Scraper - Xquik
 

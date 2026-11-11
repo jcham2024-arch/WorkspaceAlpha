@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2f9ae8a78874b4c991c601124d49343cdca506ff14636bbeb2bde49ef255f17a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: frontend-slides
 description: Create stunning, animation-rich HTML presentations from scratch or by converting PowerPoint files.
+tier: "experimental"
 risk: safe
 source: https://github.com/zarazhangrui/frontend-slides
 date_added: "2026-03-07"
 ---
+
 
 # Frontend Slides
 

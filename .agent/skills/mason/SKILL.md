@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d6a247d7ed0eab3227225421aff0075eaf6b9da749839f8fd0dbece641790d63"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mason
 description: "Produces clean, functional code that matches the architecture and checklists."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-06-11"
@@ -10,6 +21,7 @@ squad: agent-squad
 reports-to: agent-squad
 depends-on: rex, alex, aria
 ---
+
 
 # Mason — The Builder
 

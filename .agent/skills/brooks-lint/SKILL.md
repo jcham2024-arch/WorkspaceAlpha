@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "adaf0f28df9364de40c75cb9d4726d7e1abc16f40308bd1e1d948b491a85a8c0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: brooks-lint
 description: "AI code reviewer grounded in classic software engineering books for catching design smells, coupling issues, and architectural risks."
+tier: "experimental"
 category: development
 risk: safe
 source: community
@@ -13,6 +24,7 @@ author: hyhmrright
 tags: [code-review, architecture, software-design, refactoring, claude-code]
 tools: [claude, codex, cursor, gemini]
 ---
+
 
 # Brooks Lint
 

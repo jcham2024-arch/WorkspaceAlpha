@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "57cd82dd0a2bb24832377fb2fa3928f3150792e9135e1ded6d44bb49c09e2775"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: 2slides-ppt-generator
 description: "AI-powered presentation generation via the 2slides API — create slides from text, match a reference image style, summarize documents into decks, add AI voice narration, and export pages/audio. Use for any \"make slides\", \"create a deck\", or \"slides from this document\" request."
+tier: "experimental"
 category: api-integration
 risk: critical
 source: community
@@ -16,6 +27,7 @@ plugin:
     summary: "Install Python requirements and configure a 2slides API key before running generation scripts."
     docs: SKILL.md
 ---
+
 
 # 2slides Presentation Generation
 

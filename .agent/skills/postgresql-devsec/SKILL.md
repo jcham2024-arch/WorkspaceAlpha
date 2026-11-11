@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ece86b177a73b2fc798770a487e597b1a2b0cb2cfb8fbd002df10818bc23006a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: postgresql-devsec
 description: Administer PostgreSQL databases. Configure replication, backups, and
+tier: "experimental"
   performance tuning. Use when managing PostgreSQL deployments.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # PostgreSQL
 

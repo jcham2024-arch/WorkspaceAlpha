@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "96349023389ed1b155273b784ae6ccd2b71e90b7b38442e871e54c0975141ced"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: literature-search
 description: Search academic literature using Semantic Scholar, arXiv, and OpenAlex APIs. Returns structured JSONL with title, authors, year, venue, abstract, citations, and BibTeX. Use when the user needs to find papers, check related work, or build a bibliography.
+tier: "experimental"
 argument-hint: [search-query]
 ---
+
 
 # Literature Search
 

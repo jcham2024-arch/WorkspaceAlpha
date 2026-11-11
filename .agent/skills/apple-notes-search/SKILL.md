@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ff47b4f31d651c259947c36056e002e702b2b47c854a82b380a631218c84d7b2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: apple-notes-search
 description: "Semantic + keyword search and connection-discovery across the user's own Apple Notes via the apple-notes MCP server. Use when the user wants to find, recall, or synthesize something from their notes, or surface non-obvious bridges/related notes. macOS, on-device."
+tier: "experimental"
 risk: critical
 source: community
 source_repo: connerkward/mcp-apple-notes
@@ -20,6 +31,7 @@ plugin:
     summary: "Requires third-party MCP setup and macOS Full Disk Access; keep out of plugin-safe bundles."
     docs: SKILL.md
 ---
+
 
 # Apple Notes search & connection-discovery
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8e4fb17ae964fb0c15d70a7c64c76e0aa59156ffa57206287808dcf1433f1a0b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: tone-of-voice-analyzer
 description: "Tone of Voice Analyzer. Use when working with text and optional brand voice sample."
+tier: "experimental"
 category: Content SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Tone of Voice Analyzer
 
 ## Overview

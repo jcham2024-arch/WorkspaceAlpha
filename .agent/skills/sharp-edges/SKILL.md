@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "81d2b3defdd31e615e98716b888c1722a7ad199e819387ead454e84f1411df22"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sharp-edges
 description: "Review misuse-prone security APIs, configuration defaults, cryptographic interfaces and authentication ergonomics; verify concrete failure paths and version assumptions."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-01-30"
 ---
+
 ## Bundled upstream support
 
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.

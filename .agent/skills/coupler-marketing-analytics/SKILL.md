@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cf2edd01987c1faae1e4aa51453e8cd3ca9e72e81c828868a9bce4256135cfcf"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: coupler-marketing-analytics
 description: "Analyze cross-channel marketing performance from live Coupler.io data through its hosted MCP server: channel and campaign comparison, ROI, anomalies and budget insights."
+tier: "experimental"
 category: marketing
 risk: critical
 source: "https://github.com/coupler-io/skills/tree/d25f3b33c62682049577af3e2e96e3efcdf7867b/marketing-and-ads/marketing-analytics"
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/coupler-io/skills/blob/d25f3b33c62682049577af3e2e96e3efcdf7867b/LICENSE"
 ---
+
 
 # Coupler.io Marketing Analytics
 

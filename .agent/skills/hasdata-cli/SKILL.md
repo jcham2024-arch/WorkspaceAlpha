@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "401fe4ee968649319ce04672962878fe65c2a24d00a5caa34dd1f9fbae32e17a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hasdata-cli
 description: Command-line access to search, scraping, and structured web data.
+tier: "experimental"
 risk: critical
 source: official
 source_type: official
@@ -9,6 +20,7 @@ license: MIT
 license_source: "https://github.com/HasData/hasdata-cli/blob/main/LICENSE"
 date_added: "2026-06-04"
 ---
+
 
 # hasdata
 

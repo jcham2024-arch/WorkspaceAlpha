@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0aa7f57b3d5235cdc095e226c73e596187a1f6265a937fca8e6f6f367174aeed"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: crossframe-suite
 description: "Use when the user explicitly invokes CrossFrame Suite for Chinese structural diagnosis workflows across relationships, organizations, public issues, philosophy, research, or essay output."
+tier: "experimental"
 category: workflow
 risk: safe
 source: community
@@ -21,6 +32,7 @@ tags:
   - multi-skill
   - structural-diagnosis
 ---
+
 ## 用户目标与执行边界（优先适用）
 
 仅在用户明确调用本套件时启用。用户要求的格式、长度、任务阶段及已有偏好优先于下文长文和菜单默认；评审请求本身只授权评审，不自动追加改写文章。模式/角色未指定时可采用客观+学术专家并简短说明；只有答案会实质改变交付物时才询问，不强制两轮菜单。公开输出提供结论、必要依据、来源、假设和局限的简明说明，不要求展示内部思维链或完整私有推理。

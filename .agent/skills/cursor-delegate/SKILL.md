@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "aaa3faaf0f1b1a5dbf26a55a6f750372652ba2a1683c153fc79e6075fcbfa476"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cursor-delegate
 description: Delegate coding tasks to the Cursor Agent CLI (`cursor-agent`) only when
+tier: "experimental"
   the user explicitly requests it, while the orchestrator retains review and landing
   responsibility.
 risk: critical
@@ -18,6 +29,7 @@ compatibility: Requires the `cursor-agent` CLI installed and authenticated, Node
 metadata:
   version: 0.5.0
 ---
+
 # Cursor Delegate
 
 ## When to Use

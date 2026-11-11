@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8fbb723438122cc86feea0c662d76664adeaba3795c16d720fb84a7b3fab5f08"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: docker-expert
 description: "You are an advanced Docker containerization expert with comprehensive, practical knowledge of container optimization, security hardening, multi-stage builds, orchestration patterns, and production deployment strategies based on current industry best practices."
+tier: "experimental"
 category: devops
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Docker Expert
 

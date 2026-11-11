@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6887ffd3fe3864853ab3121dd9f436b1b4fc26002e4cc70fbd54c46461b446f7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: complexity-cuts
 description: "Lower Big-O on existing code via a one-transformation-at-a-time playbook with verify-revert-stop. For new code use lemmaly; for math-level wins escalate to mathguard."
+tier: "experimental"
 risk: safe
 source: community
 source_repo: morsechimwai/lemmaly
@@ -12,6 +23,7 @@ tools: [claude-code, antigravity, cursor, gemini-cli, codex-cli]
 license: "Apache-2.0"
 license_source: "https://github.com/morsechimwai/lemmaly/blob/main/LICENSE"
 ---
+
 
 # complexity-cuts — Lower Big-O on Existing Code
 

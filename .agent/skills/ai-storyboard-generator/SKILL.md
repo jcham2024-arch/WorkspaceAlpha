@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "75580809da758bd6273fcfc4129faa3101ff461603ee58f85ef94fca8b310734"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-storyboard-generator
 description: "Install and use the official AI Storyboard Generator package, pinned by digest, for paid hosted work on the Beatra service."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/beatra-ai/ai-storyboard-generator-skill/blob/4736c45d40bb0823385c1eae407aa2886cd2ff1c/LICENSE"
 ---
+
 
 # AI Storyboard Generator Skill
 

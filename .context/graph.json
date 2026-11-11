@@ -277,6 +277,281 @@
       "tags": []
     },
     {
+      "id": "docs/adr/ADR-001-dag-routing.md::adr-001-why-a-dag-for-documentation-routing",
+      "type": "doc",
+      "summary": "ADR-001: Why a DAG for Documentation Routing",
+      "content_ref": "docs/adr/ADR-001-dag-routing.md",
+      "byte_range": [
+        0,
+        48
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-001-dag-routing.md::status",
+      "type": "doc",
+      "summary": "Status",
+      "content_ref": "docs/adr/ADR-001-dag-routing.md",
+      "byte_range": [
+        48,
+        69
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-001-dag-routing.md::context",
+      "type": "doc",
+      "summary": "Context",
+      "content_ref": "docs/adr/ADR-001-dag-routing.md",
+      "byte_range": [
+        69,
+        664
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-001-dag-routing.md::decision",
+      "type": "doc",
+      "summary": "Decision",
+      "content_ref": "docs/adr/ADR-001-dag-routing.md",
+      "byte_range": [
+        664,
+        1136
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-001-dag-routing.md::consequences",
+      "type": "doc",
+      "summary": "Consequences",
+      "content_ref": "docs/adr/ADR-001-dag-routing.md",
+      "byte_range": [
+        1136,
+        1709
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-001-dag-routing.md::links",
+      "type": "doc",
+      "summary": "Links",
+      "content_ref": "docs/adr/ADR-001-dag-routing.md",
+      "byte_range": [
+        1709,
+        1814
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-002-byte-ranges.md::adr-002-why-byte-ranges-for-section-level-access",
+      "type": "doc",
+      "summary": "ADR-002: Why Byte Ranges for Section-Level Access",
+      "content_ref": "docs/adr/ADR-002-byte-ranges.md",
+      "byte_range": [
+        0,
+        53
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-002-byte-ranges.md::status",
+      "type": "doc",
+      "summary": "Status",
+      "content_ref": "docs/adr/ADR-002-byte-ranges.md",
+      "byte_range": [
+        53,
+        74
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-002-byte-ranges.md::context",
+      "type": "doc",
+      "summary": "Context",
+      "content_ref": "docs/adr/ADR-002-byte-ranges.md",
+      "byte_range": [
+        74,
+        662
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-002-byte-ranges.md::decision",
+      "type": "doc",
+      "summary": "Decision",
+      "content_ref": "docs/adr/ADR-002-byte-ranges.md",
+      "byte_range": [
+        662,
+        1081
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-002-byte-ranges.md::consequences",
+      "type": "doc",
+      "summary": "Consequences",
+      "content_ref": "docs/adr/ADR-002-byte-ranges.md",
+      "byte_range": [
+        1081,
+        1649
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-002-byte-ranges.md::links",
+      "type": "doc",
+      "summary": "Links",
+      "content_ref": "docs/adr/ADR-002-byte-ranges.md",
+      "byte_range": [
+        1649,
+        1775
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-003-stdlib-only.md::adr-003-why-python-standard-library-only",
+      "type": "doc",
+      "summary": "ADR-003: Why Python Standard Library Only",
+      "content_ref": "docs/adr/ADR-003-stdlib-only.md",
+      "byte_range": [
+        0,
+        45
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-003-stdlib-only.md::status",
+      "type": "doc",
+      "summary": "Status",
+      "content_ref": "docs/adr/ADR-003-stdlib-only.md",
+      "byte_range": [
+        45,
+        66
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-003-stdlib-only.md::context",
+      "type": "doc",
+      "summary": "Context",
+      "content_ref": "docs/adr/ADR-003-stdlib-only.md",
+      "byte_range": [
+        66,
+        681
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-003-stdlib-only.md::decision",
+      "type": "doc",
+      "summary": "Decision",
+      "content_ref": "docs/adr/ADR-003-stdlib-only.md",
+      "byte_range": [
+        681,
+        924
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-003-stdlib-only.md::consequences",
+      "type": "doc",
+      "summary": "Consequences",
+      "content_ref": "docs/adr/ADR-003-stdlib-only.md",
+      "byte_range": [
+        924,
+        1406
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-003-stdlib-only.md::links",
+      "type": "doc",
+      "summary": "Links",
+      "content_ref": "docs/adr/ADR-003-stdlib-only.md",
+      "byte_range": [
+        1406,
+        1569
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-004-agent-tracked.md::adr-004-why-agent-is-tracked-in-git-model-a",
+      "type": "doc",
+      "summary": "ADR-004: Why .agent/ Is Tracked in Git (Model A)",
+      "content_ref": "docs/adr/ADR-004-agent-tracked.md",
+      "byte_range": [
+        0,
+        52
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-004-agent-tracked.md::status",
+      "type": "doc",
+      "summary": "Status",
+      "content_ref": "docs/adr/ADR-004-agent-tracked.md",
+      "byte_range": [
+        52,
+        73
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-004-agent-tracked.md::context",
+      "type": "doc",
+      "summary": "Context",
+      "content_ref": "docs/adr/ADR-004-agent-tracked.md",
+      "byte_range": [
+        73,
+        561
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-004-agent-tracked.md::decision",
+      "type": "doc",
+      "summary": "Decision",
+      "content_ref": "docs/adr/ADR-004-agent-tracked.md",
+      "byte_range": [
+        561,
+        1188
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-004-agent-tracked.md::consequences",
+      "type": "doc",
+      "summary": "Consequences",
+      "content_ref": "docs/adr/ADR-004-agent-tracked.md",
+      "byte_range": [
+        1188,
+        1563
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-004-agent-tracked.md::links",
+      "type": "doc",
+      "summary": "Links",
+      "content_ref": "docs/adr/ADR-004-agent-tracked.md",
+      "byte_range": [
+        1563,
+        1772
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/architecture.md::workspacealpha-architecture",
+      "type": "doc",
+      "summary": "WorkspaceAlpha Architecture",
+      "content_ref": "docs/architecture.md",
+      "byte_range": [
+        0,
+        5987
+      ],
+      "tags": []
+    },
+    {
       "id": "docs/contracts/decisions/Q1-rpo-rto.md::decision-q1-rpo-rto-targets-for-audit-persistence",
       "type": "doc",
       "summary": "Decision: Q1 — RPO/RTO Targets for Audit Persistence",
@@ -849,6 +1124,171 @@
       "tags": []
     },
     {
+      "id": "docs/integration/harness-contract.md::harness-adapter-contract",
+      "type": "doc",
+      "summary": "Harness-Adapter Contract",
+      "content_ref": "docs/integration/harness-contract.md",
+      "byte_range": [
+        0,
+        275
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/integration/harness-contract.md::read-order",
+      "type": "doc",
+      "summary": "Read Order",
+      "content_ref": "docs/integration/harness-contract.md",
+      "byte_range": [
+        275,
+        864
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/integration/harness-contract.md::invariants",
+      "type": "doc",
+      "summary": "Invariants",
+      "content_ref": "docs/integration/harness-contract.md",
+      "byte_range": [
+        864,
+        1566
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/integration/harness-contract.md::what-a-harness-may-assume",
+      "type": "doc",
+      "summary": "What a Harness May Assume",
+      "content_ref": "docs/integration/harness-contract.md",
+      "byte_range": [
+        1566,
+        2055
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/integration/harness-contract.md::what-a-harness-must-not-assume",
+      "type": "doc",
+      "summary": "What a Harness Must NOT Assume",
+      "content_ref": "docs/integration/harness-contract.md",
+      "byte_range": [
+        2055,
+        2616
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/integration/harness-contract.md::contract-version",
+      "type": "doc",
+      "summary": "Contract Version",
+      "content_ref": "docs/integration/harness-contract.md",
+      "byte_range": [
+        2616,
+        2853
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/integration/harness-contract.md::golden-files",
+      "type": "doc",
+      "summary": "Golden Files",
+      "content_ref": "docs/integration/harness-contract.md",
+      "byte_range": [
+        2853,
+        3062
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/integration/harness-contract.md::reference-adapter",
+      "type": "doc",
+      "summary": "Reference Adapter",
+      "content_ref": "docs/integration/harness-contract.md",
+      "byte_range": [
+        3062,
+        3268
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/integration/harness-contract.md::links",
+      "type": "doc",
+      "summary": "Links",
+      "content_ref": "docs/integration/harness-contract.md",
+      "byte_range": [
+        3268,
+        3532
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/deprecation.md::deprecation-policy",
+      "type": "doc",
+      "summary": "Deprecation Policy",
+      "content_ref": "docs/operations/deprecation.md",
+      "byte_range": [
+        0,
+        87
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/deprecation.md::tier-progression-to-quarantine",
+      "type": "doc",
+      "summary": "Tier Progression to Quarantine",
+      "content_ref": "docs/operations/deprecation.md",
+      "byte_range": [
+        87,
+        428
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/deprecation.md::deprecation-process",
+      "type": "doc",
+      "summary": "Deprecation Process",
+      "content_ref": "docs/operations/deprecation.md",
+      "byte_range": [
+        428,
+        872
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/deprecation.md::profile-deprecation",
+      "type": "doc",
+      "summary": "Profile Deprecation",
+      "content_ref": "docs/operations/deprecation.md",
+      "byte_range": [
+        872,
+        1107
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/deprecation.md::what-breaks",
+      "type": "doc",
+      "summary": "What Breaks",
+      "content_ref": "docs/operations/deprecation.md",
+      "byte_range": [
+        1107,
+        1422
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/deprecation.md::links",
+      "type": "doc",
+      "summary": "Links",
+      "content_ref": "docs/operations/deprecation.md",
+      "byte_range": [
+        1422,
+        1859
+      ],
+      "tags": []
+    },
+    {
       "id": "docs/operations/quarantine.md::quarantine-ledger-broken-skills",
       "type": "doc",
       "summary": "Quarantine Ledger — Broken Skills",
@@ -1010,6 +1450,83 @@
       "byte_range": [
         1655,
         1907
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/skill-lifecycle.md::skill-lifecycle",
+      "type": "doc",
+      "summary": "Skill Lifecycle",
+      "content_ref": "docs/operations/skill-lifecycle.md",
+      "byte_range": [
+        0,
+        132
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/skill-lifecycle.md::tiers",
+      "type": "doc",
+      "summary": "Tiers",
+      "content_ref": "docs/operations/skill-lifecycle.md",
+      "byte_range": [
+        132,
+        495
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/skill-lifecycle.md::review-cadence",
+      "type": "doc",
+      "summary": "Review Cadence",
+      "content_ref": "docs/operations/skill-lifecycle.md",
+      "byte_range": [
+        495,
+        783
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/skill-lifecycle.md::promotion-demotion",
+      "type": "doc",
+      "summary": "Promotion / Demotion",
+      "content_ref": "docs/operations/skill-lifecycle.md",
+      "byte_range": [
+        783,
+        1308
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/skill-lifecycle.md::stale-skill-detection",
+      "type": "doc",
+      "summary": "Stale Skill Detection",
+      "content_ref": "docs/operations/skill-lifecycle.md",
+      "byte_range": [
+        1308,
+        1557
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/skill-lifecycle.md::tools",
+      "type": "doc",
+      "summary": "Tools",
+      "content_ref": "docs/operations/skill-lifecycle.md",
+      "byte_range": [
+        1557,
+        1948
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/skill-lifecycle.md::adding-a-new-skill",
+      "type": "doc",
+      "summary": "Adding a New Skill",
+      "content_ref": "docs/operations/skill-lifecycle.md",
+      "byte_range": [
+        1948,
+        2231
       ],
       "tags": []
     },

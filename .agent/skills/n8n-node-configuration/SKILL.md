@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a0f7f25c760a8d88d294568eacd50f885a018424a9b03c3853e5fd1abec832d3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: n8n-node-configuration
 description: Operation-aware node configuration guidance. Use when configuring nodes, understanding property dependencies, determining required fields, choosing between get_node detail levels, or learning common configuration patterns by node type.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-01-30"
 ---
+
 
 # n8n Node Configuration
 

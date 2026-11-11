@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "baee516cbad1bd440017214f32a17e7ae04615f4cddc7b32f0c3683db2d80b9d"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: state-machine
 description: Renders every state of a component you choose on a throwaway page, with mock data and a switcher, so you can work on each state.
+tier: "experimental"
 disable-model-invocation: true
 category: design
 risk: critical
@@ -13,6 +24,7 @@ author: jakubkrehel
 upstream_commit: 60bf140e43c98b248e6594487384ec967e89d98a
 date_added: "2026-11-06"
 ---
+
 ## When to Use
 
 Use for the state machine task described below, within the user-authorized interface or drawing scope. Related skills in this collection own the domains named in the workflow; existing general frontend-design and accessibility audits remain suitable for broader work.

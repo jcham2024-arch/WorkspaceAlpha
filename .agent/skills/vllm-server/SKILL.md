@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "feeb97010cc1f4e822f41cdc7e313a2c5554590bfdc20ef3a842bc28923736d1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: vllm-server
 description: Deploy and manage vLLM for high-throughput LLM inference. Configure continuous
+tier: "experimental"
   batching, tensor parallelism, quantization, and OpenAI-compatible API endpoints
   for production LLM serving.
 category: devops
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # vLLM Server Management
 

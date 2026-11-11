@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e7622dde72fdccf4b6bc40bd85be2a176ea914e59978b5aff2bfcaebdcbf28b0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: design-token-contrast
 description: "Checks WCAG 2.2 contrast between the color tokens of a project (light and dark theme) and suggests the closest passing color that keeps the hue."
+tier: "experimental"
 category: frontend
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/Clagoss/claude-code-para-disenadores/blob/main/LICENSE"
 ---
+
 
 # Design Token Contrast
 

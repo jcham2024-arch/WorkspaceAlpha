@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bd455079dd3f429e903bad8e42fbfbd7c55ba98e01ad00733d49c8aae5a27cd6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: before-you-build
 description: "Review product risk before coding by checking demand, alternatives, channels, switching costs, and failure signals."
+tier: "experimental"
 category: product
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, codex, gemini, antigravity]
 license: "MIT"
 license_source: "https://github.com/bin1874/before-you-build-skill/blob/main/LICENSE"
 ---
+
 
 # Before You Build
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "29295463e8dcfc3f03b735e98aebc48f88ef0376c20ca79cf38701605b2605c9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: design-md
 description: "Analyze Stitch projects and synthesize a semantic design system into DESIGN.md files"
+tier: "experimental"
 risk: safe
 source: "https://github.com/google-labs-code/stitch-skills/tree/main/skills/design-md"
 date_added: "2026-02-27"
 ---
+
 
 # Stitch DESIGN.md Skill
 

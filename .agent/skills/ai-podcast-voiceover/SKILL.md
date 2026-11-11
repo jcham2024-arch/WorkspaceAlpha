@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "96834690b5c2861f7239d9cb8643cc573bfcbae55d912f4eb439101cd8f1495c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-podcast-voiceover
 description: "Install and use the official AI Podcast Voiceover package, pinned by digest, for paid hosted work on the Beatra service."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/beatra-ai/ai-podcast-voiceover-skill/blob/0fe5c523fc42754ba8d328e2db4df895a6276ee3/LICENSE"
 ---
+
 
 # AI Podcast Voiceover Skill
 

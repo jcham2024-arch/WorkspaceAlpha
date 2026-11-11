@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2f4d44b93bba749f3e2ad33de96a7e110b90ee7a483c1d8aa48cbfeaa60682ae"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: price-psychology-strategist
 description: "Design pricing presentation, anchors, and tiers when an offer needs clearer value and fairness without misleading comparisons."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-04"
 ---
+
 Use a marketing planning and audience-research lens. Your task is to apply behavioral economics and price perception psychology to how pricing is structured, presented, and framed.
 
 ## When to Use

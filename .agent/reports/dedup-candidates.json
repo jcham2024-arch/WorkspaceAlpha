@@ -1,0 +1,1985 @@
+{
+  "threshold": 0.7,
+  "total_skills": 3518,
+  "comparisons": 202,
+  "candidate_pairs": 148,
+  "clusters": [
+    {
+      "cluster_id": "ponytail-audit",
+      "skills": [
+        "ponytail-audit",
+        "ponytail-review",
+        "ponytail__ponytail-audit",
+        "ponytail__ponytail-review"
+      ],
+      "size": 4
+    },
+    {
+      "cluster_id": "agentic-awesome-skills__dispatching-parallel-agents",
+      "skills": [
+        "agentic-awesome-skills__dispatching-parallel-agents",
+        "dispatching-parallel-agents",
+        "superpowers__dispatching-parallel-agents"
+      ],
+      "size": 3
+    },
+    {
+      "cluster_id": "python-development",
+      "skills": [
+        "debugging-toolkit",
+        "python-development",
+        "tdd-workflows"
+      ],
+      "size": 3
+    },
+    {
+      "cluster_id": "fal-audio",
+      "skills": [
+        "fal-audio",
+        "fal-generate",
+        "fal-image-edit"
+      ],
+      "size": 3
+    },
+    {
+      "cluster_id": "apify-audience-analysis",
+      "skills": [
+        "apify-audience-analysis",
+        "apify-content-analytics",
+        "apify-trend-analysis"
+      ],
+      "size": 3
+    },
+    {
+      "cluster_id": "agent-skills__code-simplification",
+      "skills": [
+        "agent-skills__code-simplification",
+        "code-simplification"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agent-skills__constraint-driven-development",
+      "skills": [
+        "agent-skills__constraint-driven-development",
+        "constraint-driven-development"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agent-skills__context-engineering",
+      "skills": [
+        "agent-skills__context-engineering",
+        "context-engineering"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agent-skills__observability-and-instrumentation",
+      "skills": [
+        "agent-skills__observability-and-instrumentation",
+        "observability-and-instrumentation"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agent-skills__performance-optimization",
+      "skills": [
+        "agent-skills__performance-optimization",
+        "performance-optimization"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agent-skills__source-driven-development",
+      "skills": [
+        "agent-skills__source-driven-development",
+        "source-driven-development"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agentic-awesome-skills__andrej-karpathy",
+      "skills": [
+        "agentic-awesome-skills__andrej-karpathy",
+        "andrej-karpathy"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agentic-awesome-skills__baseline-ui",
+      "skills": [
+        "agentic-awesome-skills__baseline-ui",
+        "baseline-ui"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agentic-awesome-skills__clean-code",
+      "skills": [
+        "agentic-awesome-skills__clean-code",
+        "clean-code"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agentic-awesome-skills__clean-code-guard",
+      "skills": [
+        "agentic-awesome-skills__clean-code-guard",
+        "clean-code-guard"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agentic-awesome-skills__code-polish",
+      "skills": [
+        "agentic-awesome-skills__code-polish",
+        "code-polish"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agentic-awesome-skills__code-simplifier",
+      "skills": [
+        "agentic-awesome-skills__code-simplifier",
+        "code-simplifier"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agentic-awesome-skills__codebase-audit-pre-push",
+      "skills": [
+        "agentic-awesome-skills__codebase-audit-pre-push",
+        "codebase-audit-pre-push"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agentic-awesome-skills__codebase-cleanup-refactor-clean",
+      "skills": [
+        "agentic-awesome-skills__codebase-cleanup-refactor-clean",
+        "codebase-cleanup-refactor-clean"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agentic-awesome-skills__filesystem-context",
+      "skills": [
+        "agentic-awesome-skills__filesystem-context",
+        "filesystem-context"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agentic-awesome-skills__lovable-cleanup",
+      "skills": [
+        "agentic-awesome-skills__lovable-cleanup",
+        "lovable-cleanup"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agentic-awesome-skills__modern-javascript-patterns",
+      "skills": [
+        "agentic-awesome-skills__modern-javascript-patterns",
+        "modern-javascript-patterns"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agentic-awesome-skills__repo-maintainer",
+      "skills": [
+        "agentic-awesome-skills__repo-maintainer",
+        "repo-maintainer"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "requesting-code-review",
+      "skills": [
+        "requesting-code-review",
+        "superpowers__requesting-code-review"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "browser-use",
+      "skills": [
+        "browser-use",
+        "browser-use__browser-use"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "browser-use__cloud",
+      "skills": [
+        "browser-use__cloud",
+        "cloud"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "browser-use__open-source",
+      "skills": [
+        "browser-use__open-source",
+        "open-source"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "browser-use__qa",
+      "skills": [
+        "browser-use__qa",
+        "qa"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "browser-use__remote-browser",
+      "skills": [
+        "browser-use__remote-browser",
+        "remote-browser"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "browser-use__x402",
+      "skills": [
+        "browser-use__x402",
+        "x402"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "change-impact",
+      "skills": [
+        "change-impact",
+        "ecc-skills__change-impact"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "context-and-decisions",
+      "skills": [
+        "context-and-decisions",
+        "ecc-skills__context-and-decisions"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "diagnosing-superpowers",
+      "skills": [
+        "diagnosing-superpowers",
+        "superpowers__diagnosing-superpowers"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "docs-governance",
+      "skills": [
+        "docs-governance",
+        "ecc-skills__docs-governance"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "ecc-skills__module-governance",
+      "skills": [
+        "ecc-skills__module-governance",
+        "module-governance"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "ecc-skills__module-regression",
+      "skills": [
+        "ecc-skills__module-regression",
+        "module-regression"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "ecc-skills__test-collaboration",
+      "skills": [
+        "ecc-skills__test-collaboration",
+        "test-collaboration"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "engineering-skills__minimalist",
+      "skills": [
+        "engineering-skills__minimalist",
+        "minimalist"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "engineering-skills__red-green-proof",
+      "skills": [
+        "engineering-skills__red-green-proof",
+        "red-green-proof"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "engineering-skills__strict-api",
+      "skills": [
+        "engineering-skills__strict-api",
+        "strict-api"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "engineering-skills__tech-stack-evaluator",
+      "skills": [
+        "engineering-skills__tech-stack-evaluator",
+        "tech-stack-evaluator"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "executing-plans",
+      "skills": [
+        "executing-plans",
+        "superpowers__executing-plans"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "finishing-a-development-branch",
+      "skills": [
+        "finishing-a-development-branch",
+        "superpowers__finishing-a-development-branch"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "ponytail",
+      "skills": [
+        "ponytail",
+        "ponytail__ponytail"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "ponytail-debt",
+      "skills": [
+        "ponytail-debt",
+        "ponytail__ponytail-debt"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "ponytail-gain",
+      "skills": [
+        "ponytail-gain",
+        "ponytail__ponytail-gain"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "ponytail-help",
+      "skills": [
+        "ponytail-help",
+        "ponytail__ponytail-help"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "receiving-code-review",
+      "skills": [
+        "receiving-code-review",
+        "superpowers__receiving-code-review"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "subagent-driven-development",
+      "skills": [
+        "subagent-driven-development",
+        "superpowers__subagent-driven-development"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "superpowers__systematic-debugging",
+      "skills": [
+        "superpowers__systematic-debugging",
+        "systematic-debugging"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "superpowers__test-driven-development",
+      "skills": [
+        "superpowers__test-driven-development",
+        "test-driven-development"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "superpowers__using-git-worktrees",
+      "skills": [
+        "superpowers__using-git-worktrees",
+        "using-git-worktrees"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "superpowers__using-superpowers",
+      "skills": [
+        "superpowers__using-superpowers",
+        "using-superpowers"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "superpowers__verification-before-completion",
+      "skills": [
+        "superpowers__verification-before-completion",
+        "verification-before-completion"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "superpowers__writing-skills",
+      "skills": [
+        "superpowers__writing-skills",
+        "writing-skills"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "thinking-bounded-rationality",
+      "skills": [
+        "thinking-bounded-rationality",
+        "thinking-skills__thinking-bounded-rationality"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "thinking-opportunity-cost",
+      "skills": [
+        "thinking-opportunity-cost",
+        "thinking-skills__thinking-opportunity-cost"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "thinking-skills__thinking-theory-of-constraints",
+      "skills": [
+        "thinking-skills__thinking-theory-of-constraints",
+        "thinking-theory-of-constraints"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "brainstorming",
+      "skills": [
+        "brainstorming",
+        "superpowers__brainstorming"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "competitive-platform-analysis",
+      "skills": [
+        "competitive-platform-analysis",
+        "ecc-skills__competitive-platform-analysis"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "debugging-toolkit-smart-debug",
+      "skills": [
+        "debugging-toolkit-smart-debug",
+        "error-diagnostics-smart-debug"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "superpowers__writing-plans",
+      "skills": [
+        "superpowers__writing-plans",
+        "writing-plans"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "thinking-margin-of-safety",
+      "skills": [
+        "thinking-margin-of-safety",
+        "thinking-skills__thinking-margin-of-safety"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "internal-comms-anthropic",
+      "skills": [
+        "internal-comms-anthropic",
+        "internal-comms-community"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "ecc-skills__mcp-dependency-review",
+      "skills": [
+        "ecc-skills__mcp-dependency-review",
+        "mcp-dependency-review"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "ecc-skills__mle-workflow",
+      "skills": [
+        "ecc-skills__mle-workflow",
+        "mle-workflow"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "ecc-skills__unified-memory",
+      "skills": [
+        "ecc-skills__unified-memory",
+        "unified-memory"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "thinking-first-principles",
+      "skills": [
+        "thinking-first-principles",
+        "thinking-skills__thinking-first-principles"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agent-introspection-debugging",
+      "skills": [
+        "agent-introspection-debugging",
+        "ecc-skills__agent-introspection-debugging"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agent-sort",
+      "skills": [
+        "agent-sort",
+        "ecc-skills__agent-sort"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "bun-runtime",
+      "skills": [
+        "bun-runtime",
+        "ecc-skills__bun-runtime"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "competitive-report-structure",
+      "skills": [
+        "competitive-report-structure",
+        "ecc-skills__competitive-report-structure"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "content-engine",
+      "skills": [
+        "content-engine",
+        "ecc-skills__content-engine"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "ecc-skills__product-capability",
+      "skills": [
+        "ecc-skills__product-capability",
+        "product-capability"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "api-design",
+      "skills": [
+        "api-design",
+        "ecc-skills__api-design"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "ecc-skills__skill-host-compat",
+      "skills": [
+        "ecc-skills__skill-host-compat",
+        "skill-host-compat"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "brand-voice",
+      "skills": [
+        "brand-voice",
+        "ecc-skills__brand-voice"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "coding-standards",
+      "skills": [
+        "coding-standards",
+        "ecc-skills__coding-standards"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "ecc-skills__plan-canvas",
+      "skills": [
+        "ecc-skills__plan-canvas",
+        "plan-canvas"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "code-refactoring-tech-debt",
+      "skills": [
+        "code-refactoring-tech-debt",
+        "codebase-cleanup-tech-debt"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "ecc-agents-skills__e2e-testing",
+      "skills": [
+        "ecc-agents-skills__e2e-testing",
+        "ecc-skills__e2e-testing"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "ecc-agents-skills__frontend-slides",
+      "skills": [
+        "ecc-agents-skills__frontend-slides",
+        "ecc-skills__frontend-slides"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "article-writing",
+      "skills": [
+        "article-writing",
+        "ecc-skills__article-writing"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "benchmark-methodology",
+      "skills": [
+        "benchmark-methodology",
+        "ecc-skills__benchmark-methodology"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "documentation-lookup",
+      "skills": [
+        "documentation-lookup",
+        "ecc-skills__documentation-lookup"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "ecc-skills__investor-materials",
+      "skills": [
+        "ecc-skills__investor-materials",
+        "investor-materials"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "ecc-skills__investor-outreach",
+      "skills": [
+        "ecc-skills__investor-outreach",
+        "investor-outreach"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "azure-keyvault-keys-ts",
+      "skills": [
+        "azure-keyvault-keys-ts",
+        "azure-keyvault-secrets-ts"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "brand-discovery",
+      "skills": [
+        "brand-discovery",
+        "ecc-skills__brand-discovery"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "brand-guidelines-anthropic",
+      "skills": [
+        "brand-guidelines-anthropic",
+        "brand-guidelines-community"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "code-documentation-doc-generate",
+      "skills": [
+        "code-documentation-doc-generate",
+        "documentation-generation-doc-generate"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "error-debugging-error-analysis",
+      "skills": [
+        "error-debugging-error-analysis",
+        "error-diagnostics-error-analysis"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agents-v2-py",
+      "skills": [
+        "agents-v2-py",
+        "hosted-agents-v2-py"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "code-refactoring-context-restore",
+      "skills": [
+        "code-refactoring-context-restore",
+        "context-management-context-restore"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "code-review-ai-ai-review",
+      "skills": [
+        "code-review-ai-ai-review",
+        "performance-testing-review-ai-review"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "error-debugging-multi-agent-review",
+      "skills": [
+        "error-debugging-multi-agent-review",
+        "performance-testing-review-multi-agent-review"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "ecc-skills__mcp-server-patterns",
+      "skills": [
+        "ecc-skills__mcp-server-patterns",
+        "mcp-server-patterns"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "codebase-cleanup-deps-audit",
+      "skills": [
+        "codebase-cleanup-deps-audit",
+        "dependency-management-deps-audit"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "domain-authority-simulator",
+      "skills": [
+        "domain-authority-simulator",
+        "outreach-email-template-generator"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "backlink-tracking-template-generator",
+      "skills": [
+        "backlink-tracking-template-generator",
+        "competitor-backlink-idea-generator"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agentic-awesome-skills__debugging-and-error-recovery",
+      "skills": [
+        "agentic-awesome-skills__debugging-and-error-recovery",
+        "debugging-and-error-recovery"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "fp-errors",
+      "skills": [
+        "fp-errors",
+        "fp-ts-errors"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "headline-analyzer",
+      "skills": [
+        "headline-analyzer",
+        "ranking-opportunity-finder"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "backlink-idea-generator",
+      "skills": [
+        "backlink-idea-generator",
+        "local-citation-finder"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "blog-title-generator",
+      "skills": [
+        "blog-title-generator",
+        "meta-description-writer"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "link-relevance-evaluator",
+      "skills": [
+        "link-relevance-evaluator",
+        "local-seo-audit-checklist"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "trending-keyword-visualizer",
+      "skills": [
+        "trending-keyword-visualizer",
+        "xml-sitemap-visualizer"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "keyword-gap-finder",
+      "skills": [
+        "keyword-gap-finder",
+        "visibility-index-calculator"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agentic-awesome-skills__ci-cd-and-automation",
+      "skills": [
+        "agentic-awesome-skills__ci-cd-and-automation",
+        "ci-cd-and-automation"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "ai-content-detector",
+      "skills": [
+        "ai-content-detector",
+        "duplicate-content-checker"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agentic-awesome-skills__doubt-driven-development",
+      "skills": [
+        "agentic-awesome-skills__doubt-driven-development",
+        "doubt-driven-development"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "ecc-skills__fal-ai-media",
+      "skills": [
+        "ecc-skills__fal-ai-media",
+        "fal-ai-media"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "review-and-simplify-changes",
+      "skills": [
+        "review-and-simplify-changes",
+        "simplify-code"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "code-showcase-react-ui-patterns",
+      "skills": [
+        "code-showcase-react-ui-patterns",
+        "react-ui-patterns"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "code-showcase-testing-patterns",
+      "skills": [
+        "code-showcase-testing-patterns",
+        "testing-patterns"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "product-marketing",
+      "skills": [
+        "product-marketing",
+        "product-marketing-context"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "hugging-face-community-evals",
+      "skills": [
+        "hugging-face-community-evals",
+        "huggingface-community-evals"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "fp-react",
+      "skills": [
+        "fp-react",
+        "fp-ts-react"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "fp-pragmatic",
+      "skills": [
+        "fp-pragmatic",
+        "fp-ts-pragmatic"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agentic-awesome-skills__idea-refine",
+      "skills": [
+        "agentic-awesome-skills__idea-refine",
+        "idea-refine"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agentic-awesome-skills__using-agent-skills",
+      "skills": [
+        "agentic-awesome-skills__using-agent-skills",
+        "using-agent-skills"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agentic-awesome-skills__incremental-implementation",
+      "skills": [
+        "agentic-awesome-skills__incremental-implementation",
+        "incremental-implementation"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "google-docs-automation",
+      "skills": [
+        "google-docs-automation",
+        "google-slides-automation"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "knowledge-base",
+      "skills": [
+        "knowledge-base",
+        "onboarding-playbook"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "learning-career-development",
+      "skills": [
+        "learning-career-development",
+        "skill-gap-analysis"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "accint-frames",
+      "skills": [
+        "accint-frames",
+        "accint-solve"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agentic-awesome-skills__frontend-ui-engineering",
+      "skills": [
+        "agentic-awesome-skills__frontend-ui-engineering",
+        "frontend-ui-engineering"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "hugging-face-dataset-viewer",
+      "skills": [
+        "hugging-face-dataset-viewer",
+        "huggingface-datasets"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "ecc-agents-skills__deep-research",
+      "skills": [
+        "ecc-agents-skills__deep-research",
+        "ecc-skills__deep-research"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agentic-awesome-skills__shipping-and-launch",
+      "skills": [
+        "agentic-awesome-skills__shipping-and-launch",
+        "shipping-and-launch"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "backend-patterns",
+      "skills": [
+        "backend-patterns",
+        "ecc-skills__backend-patterns"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "agentic-awesome-skills__git-workflow-and-versioning",
+      "skills": [
+        "agentic-awesome-skills__git-workflow-and-versioning",
+        "git-workflow-and-versioning"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "ecc-skills__market-research",
+      "skills": [
+        "ecc-skills__market-research",
+        "market-research"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "admin-access-register",
+      "skills": [
+        "admin-access-register",
+        "advanced-analytics-dashboard"
+      ],
+      "size": 2
+    },
+    {
+      "cluster_id": "code-showcase-core-components",
+      "skills": [
+        "code-showcase-core-components",
+        "core-components"
+      ],
+      "size": 2
+    }
+  ],
+  "pairs": [
+    {
+      "skill_a": "agent-skills__code-simplification",
+      "skill_b": "code-simplification",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agent-skills__constraint-driven-development",
+      "skill_b": "constraint-driven-development",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agent-skills__context-engineering",
+      "skill_b": "context-engineering",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agent-skills__observability-and-instrumentation",
+      "skill_b": "observability-and-instrumentation",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agent-skills__performance-optimization",
+      "skill_b": "performance-optimization",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agent-skills__source-driven-development",
+      "skill_b": "source-driven-development",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agentic-awesome-skills__andrej-karpathy",
+      "skill_b": "andrej-karpathy",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agentic-awesome-skills__baseline-ui",
+      "skill_b": "baseline-ui",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agentic-awesome-skills__clean-code",
+      "skill_b": "clean-code",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agentic-awesome-skills__clean-code-guard",
+      "skill_b": "clean-code-guard",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agentic-awesome-skills__code-polish",
+      "skill_b": "code-polish",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agentic-awesome-skills__code-simplifier",
+      "skill_b": "code-simplifier",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agentic-awesome-skills__codebase-audit-pre-push",
+      "skill_b": "codebase-audit-pre-push",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agentic-awesome-skills__codebase-cleanup-refactor-clean",
+      "skill_b": "codebase-cleanup-refactor-clean",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "dispatching-parallel-agents",
+      "skill_b": "superpowers__dispatching-parallel-agents",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agentic-awesome-skills__filesystem-context",
+      "skill_b": "filesystem-context",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agentic-awesome-skills__lovable-cleanup",
+      "skill_b": "lovable-cleanup",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agentic-awesome-skills__modern-javascript-patterns",
+      "skill_b": "modern-javascript-patterns",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agentic-awesome-skills__repo-maintainer",
+      "skill_b": "repo-maintainer",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "requesting-code-review",
+      "skill_b": "superpowers__requesting-code-review",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "browser-use",
+      "skill_b": "browser-use__browser-use",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "browser-use__cloud",
+      "skill_b": "cloud",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "browser-use__open-source",
+      "skill_b": "open-source",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "browser-use__qa",
+      "skill_b": "qa",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "browser-use__remote-browser",
+      "skill_b": "remote-browser",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "browser-use__x402",
+      "skill_b": "x402",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "change-impact",
+      "skill_b": "ecc-skills__change-impact",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "context-and-decisions",
+      "skill_b": "ecc-skills__context-and-decisions",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "diagnosing-superpowers",
+      "skill_b": "superpowers__diagnosing-superpowers",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "docs-governance",
+      "skill_b": "ecc-skills__docs-governance",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ecc-skills__module-governance",
+      "skill_b": "module-governance",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ecc-skills__module-regression",
+      "skill_b": "module-regression",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ecc-skills__test-collaboration",
+      "skill_b": "test-collaboration",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "engineering-skills__minimalist",
+      "skill_b": "minimalist",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "engineering-skills__red-green-proof",
+      "skill_b": "red-green-proof",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "engineering-skills__strict-api",
+      "skill_b": "strict-api",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "engineering-skills__tech-stack-evaluator",
+      "skill_b": "tech-stack-evaluator",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "executing-plans",
+      "skill_b": "superpowers__executing-plans",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "finishing-a-development-branch",
+      "skill_b": "superpowers__finishing-a-development-branch",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ponytail",
+      "skill_b": "ponytail__ponytail",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ponytail-audit",
+      "skill_b": "ponytail__ponytail-audit",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ponytail-review",
+      "skill_b": "ponytail__ponytail-review",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ponytail-debt",
+      "skill_b": "ponytail__ponytail-debt",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ponytail-gain",
+      "skill_b": "ponytail__ponytail-gain",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ponytail-help",
+      "skill_b": "ponytail__ponytail-help",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "receiving-code-review",
+      "skill_b": "superpowers__receiving-code-review",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "subagent-driven-development",
+      "skill_b": "superpowers__subagent-driven-development",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "superpowers__systematic-debugging",
+      "skill_b": "systematic-debugging",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "superpowers__test-driven-development",
+      "skill_b": "test-driven-development",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "superpowers__using-git-worktrees",
+      "skill_b": "using-git-worktrees",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "superpowers__using-superpowers",
+      "skill_b": "using-superpowers",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "superpowers__verification-before-completion",
+      "skill_b": "verification-before-completion",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "superpowers__writing-skills",
+      "skill_b": "writing-skills",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "thinking-bounded-rationality",
+      "skill_b": "thinking-skills__thinking-bounded-rationality",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "thinking-opportunity-cost",
+      "skill_b": "thinking-skills__thinking-opportunity-cost",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "thinking-skills__thinking-theory-of-constraints",
+      "skill_b": "thinking-theory-of-constraints",
+      "similarity": 1.0,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "brainstorming",
+      "skill_b": "superpowers__brainstorming",
+      "similarity": 0.997,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "competitive-platform-analysis",
+      "skill_b": "ecc-skills__competitive-platform-analysis",
+      "similarity": 0.996,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "debugging-toolkit-smart-debug",
+      "skill_b": "error-diagnostics-smart-debug",
+      "similarity": 0.996,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "superpowers__writing-plans",
+      "skill_b": "writing-plans",
+      "similarity": 0.996,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "thinking-margin-of-safety",
+      "skill_b": "thinking-skills__thinking-margin-of-safety",
+      "similarity": 0.996,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "internal-comms-anthropic",
+      "skill_b": "internal-comms-community",
+      "similarity": 0.995,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ecc-skills__mcp-dependency-review",
+      "skill_b": "mcp-dependency-review",
+      "similarity": 0.991,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ecc-skills__mle-workflow",
+      "skill_b": "mle-workflow",
+      "similarity": 0.991,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ecc-skills__unified-memory",
+      "skill_b": "unified-memory",
+      "similarity": 0.991,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "thinking-first-principles",
+      "skill_b": "thinking-skills__thinking-first-principles",
+      "similarity": 0.991,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agent-introspection-debugging",
+      "skill_b": "ecc-skills__agent-introspection-debugging",
+      "similarity": 0.989,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agent-sort",
+      "skill_b": "ecc-skills__agent-sort",
+      "similarity": 0.988,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "bun-runtime",
+      "skill_b": "ecc-skills__bun-runtime",
+      "similarity": 0.988,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "competitive-report-structure",
+      "skill_b": "ecc-skills__competitive-report-structure",
+      "similarity": 0.987,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "content-engine",
+      "skill_b": "ecc-skills__content-engine",
+      "similarity": 0.987,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ecc-skills__product-capability",
+      "skill_b": "product-capability",
+      "similarity": 0.986,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "api-design",
+      "skill_b": "ecc-skills__api-design",
+      "similarity": 0.986,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ecc-skills__skill-host-compat",
+      "skill_b": "skill-host-compat",
+      "similarity": 0.986,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "brand-voice",
+      "skill_b": "ecc-skills__brand-voice",
+      "similarity": 0.985,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "coding-standards",
+      "skill_b": "ecc-skills__coding-standards",
+      "similarity": 0.985,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ecc-skills__plan-canvas",
+      "skill_b": "plan-canvas",
+      "similarity": 0.985,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "code-refactoring-tech-debt",
+      "skill_b": "codebase-cleanup-tech-debt",
+      "similarity": 0.984,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ecc-agents-skills__e2e-testing",
+      "skill_b": "ecc-skills__e2e-testing",
+      "similarity": 0.984,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ecc-agents-skills__frontend-slides",
+      "skill_b": "ecc-skills__frontend-slides",
+      "similarity": 0.981,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "article-writing",
+      "skill_b": "ecc-skills__article-writing",
+      "similarity": 0.98,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "benchmark-methodology",
+      "skill_b": "ecc-skills__benchmark-methodology",
+      "similarity": 0.98,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "documentation-lookup",
+      "skill_b": "ecc-skills__documentation-lookup",
+      "similarity": 0.978,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ecc-skills__investor-materials",
+      "skill_b": "investor-materials",
+      "similarity": 0.977,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ecc-skills__investor-outreach",
+      "skill_b": "investor-outreach",
+      "similarity": 0.977,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "azure-keyvault-keys-ts",
+      "skill_b": "azure-keyvault-secrets-ts",
+      "similarity": 0.974,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "brand-discovery",
+      "skill_b": "ecc-skills__brand-discovery",
+      "similarity": 0.973,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "brand-guidelines-anthropic",
+      "skill_b": "brand-guidelines-community",
+      "similarity": 0.967,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "code-documentation-doc-generate",
+      "skill_b": "documentation-generation-doc-generate",
+      "similarity": 0.965,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "error-debugging-error-analysis",
+      "skill_b": "error-diagnostics-error-analysis",
+      "similarity": 0.964,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agents-v2-py",
+      "skill_b": "hosted-agents-v2-py",
+      "similarity": 0.963,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "code-refactoring-context-restore",
+      "skill_b": "context-management-context-restore",
+      "similarity": 0.959,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "code-review-ai-ai-review",
+      "skill_b": "performance-testing-review-ai-review",
+      "similarity": 0.959,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "error-debugging-multi-agent-review",
+      "skill_b": "performance-testing-review-multi-agent-review",
+      "similarity": 0.947,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ecc-skills__mcp-server-patterns",
+      "skill_b": "mcp-server-patterns",
+      "similarity": 0.935,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "codebase-cleanup-deps-audit",
+      "skill_b": "dependency-management-deps-audit",
+      "similarity": 0.933,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "domain-authority-simulator",
+      "skill_b": "outreach-email-template-generator",
+      "similarity": 0.902,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "backlink-tracking-template-generator",
+      "skill_b": "competitor-backlink-idea-generator",
+      "similarity": 0.901,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agentic-awesome-skills__debugging-and-error-recovery",
+      "skill_b": "debugging-and-error-recovery",
+      "similarity": 0.89,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "fp-errors",
+      "skill_b": "fp-ts-errors",
+      "similarity": 0.888,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "headline-analyzer",
+      "skill_b": "ranking-opportunity-finder",
+      "similarity": 0.885,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "backlink-idea-generator",
+      "skill_b": "local-citation-finder",
+      "similarity": 0.881,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "blog-title-generator",
+      "skill_b": "meta-description-writer",
+      "similarity": 0.879,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "link-relevance-evaluator",
+      "skill_b": "local-seo-audit-checklist",
+      "similarity": 0.879,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "trending-keyword-visualizer",
+      "skill_b": "xml-sitemap-visualizer",
+      "similarity": 0.875,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "keyword-gap-finder",
+      "skill_b": "visibility-index-calculator",
+      "similarity": 0.872,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agentic-awesome-skills__ci-cd-and-automation",
+      "skill_b": "ci-cd-and-automation",
+      "similarity": 0.866,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ai-content-detector",
+      "skill_b": "duplicate-content-checker",
+      "similarity": 0.863,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agentic-awesome-skills__doubt-driven-development",
+      "skill_b": "doubt-driven-development",
+      "similarity": 0.862,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ecc-skills__fal-ai-media",
+      "skill_b": "fal-ai-media",
+      "similarity": 0.854,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "review-and-simplify-changes",
+      "skill_b": "simplify-code",
+      "similarity": 0.844,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "code-showcase-react-ui-patterns",
+      "skill_b": "react-ui-patterns",
+      "similarity": 0.832,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "code-showcase-testing-patterns",
+      "skill_b": "testing-patterns",
+      "similarity": 0.831,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "product-marketing",
+      "skill_b": "product-marketing-context",
+      "similarity": 0.828,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "hugging-face-community-evals",
+      "skill_b": "huggingface-community-evals",
+      "similarity": 0.824,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "debugging-toolkit",
+      "skill_b": "tdd-workflows",
+      "similarity": 0.817,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "fp-react",
+      "skill_b": "fp-ts-react",
+      "similarity": 0.813,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "fp-pragmatic",
+      "skill_b": "fp-ts-pragmatic",
+      "similarity": 0.811,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agentic-awesome-skills__idea-refine",
+      "skill_b": "idea-refine",
+      "similarity": 0.81,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agentic-awesome-skills__using-agent-skills",
+      "skill_b": "using-agent-skills",
+      "similarity": 0.81,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agentic-awesome-skills__incremental-implementation",
+      "skill_b": "incremental-implementation",
+      "similarity": 0.802,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "google-docs-automation",
+      "skill_b": "google-slides-automation",
+      "similarity": 0.799,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "python-development",
+      "skill_b": "tdd-workflows",
+      "similarity": 0.793,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "knowledge-base",
+      "skill_b": "onboarding-playbook",
+      "similarity": 0.793,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "fal-audio",
+      "skill_b": "fal-generate",
+      "similarity": 0.781,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "learning-career-development",
+      "skill_b": "skill-gap-analysis",
+      "similarity": 0.78,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "fal-generate",
+      "skill_b": "fal-image-edit",
+      "similarity": 0.775,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "fal-audio",
+      "skill_b": "fal-image-edit",
+      "similarity": 0.77,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "accint-frames",
+      "skill_b": "accint-solve",
+      "similarity": 0.769,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agentic-awesome-skills__frontend-ui-engineering",
+      "skill_b": "frontend-ui-engineering",
+      "similarity": 0.756,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "hugging-face-dataset-viewer",
+      "skill_b": "huggingface-datasets",
+      "similarity": 0.754,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "apify-audience-analysis",
+      "skill_b": "apify-trend-analysis",
+      "similarity": 0.752,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ecc-agents-skills__deep-research",
+      "skill_b": "ecc-skills__deep-research",
+      "similarity": 0.747,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agentic-awesome-skills__shipping-and-launch",
+      "skill_b": "shipping-and-launch",
+      "similarity": 0.745,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "apify-audience-analysis",
+      "skill_b": "apify-content-analytics",
+      "similarity": 0.743,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ponytail-audit",
+      "skill_b": "ponytail-review",
+      "similarity": 0.742,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ponytail-audit",
+      "skill_b": "ponytail__ponytail-review",
+      "similarity": 0.742,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ponytail-review",
+      "skill_b": "ponytail__ponytail-audit",
+      "similarity": 0.742,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ponytail__ponytail-audit",
+      "skill_b": "ponytail__ponytail-review",
+      "similarity": 0.742,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agentic-awesome-skills__dispatching-parallel-agents",
+      "skill_b": "dispatching-parallel-agents",
+      "similarity": 0.741,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agentic-awesome-skills__dispatching-parallel-agents",
+      "skill_b": "superpowers__dispatching-parallel-agents",
+      "similarity": 0.741,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "apify-content-analytics",
+      "skill_b": "apify-trend-analysis",
+      "similarity": 0.735,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "backend-patterns",
+      "skill_b": "ecc-skills__backend-patterns",
+      "similarity": 0.725,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "debugging-toolkit",
+      "skill_b": "python-development",
+      "similarity": 0.718,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "agentic-awesome-skills__git-workflow-and-versioning",
+      "skill_b": "git-workflow-and-versioning",
+      "similarity": 0.715,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "ecc-skills__market-research",
+      "skill_b": "market-research",
+      "similarity": 0.709,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "admin-access-register",
+      "skill_b": "advanced-analytics-dashboard",
+      "similarity": 0.707,
+      "recommendation": "review"
+    },
+    {
+      "skill_a": "code-showcase-core-components",
+      "skill_b": "core-components",
+      "similarity": 0.704,
+      "recommendation": "review"
+    }
+  ],
+  "generated_at": "2026-11-10"
+}

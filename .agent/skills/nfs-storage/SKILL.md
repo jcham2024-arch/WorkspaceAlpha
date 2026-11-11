@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "87ee85a33be461399ebbee6ca264c937ffc34f6be6a5dcc37c1514d51712a863"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: nfs-storage
 description: Configure NFS servers and clients. Implement network file sharing for
+tier: "experimental"
   Linux systems. Use when setting up shared storage.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # NFS Storage
 

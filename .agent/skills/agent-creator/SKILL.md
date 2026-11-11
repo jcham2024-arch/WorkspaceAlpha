@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c67c2752ec1cc92bb24b062a416502ec085d20a4e655de07c96d4e80b3cfae93"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agent-creator
 description: "Create custom AI subagents with proper plugin structure, persona generation, and companion routing skills."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-06-20"
@@ -9,6 +20,7 @@ plugin:
     codex: blocked
     claude: blocked
 ---
+
 
 # Agent Creator
 

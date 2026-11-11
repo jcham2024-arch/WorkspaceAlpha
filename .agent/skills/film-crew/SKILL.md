@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "43b45b74cdea7ee64bf9ac662bde739a1f07ba5722782b5891dd1da2931cd865"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: film-crew
 description: "Turn a one-line AI video idea into a shot list and per-shot, model-ready prompts via a film crew (director, DP, gaffer, editor, script supervisor). Also fixes failing video prompts and diagnoses bad clips before a reroll. Works with Wan, LTX, Kling, Veo, Seedance, Hailuo, Runway."
+tier: "experimental"
 category: media
 risk: safe
 source: "https://github.com/HEOJUNFO/ai-film-crew/tree/533f61be2741c10932c6c86e47777cac9ffe3fe4/skills/film-crew"
@@ -13,6 +24,7 @@ license_source: "https://github.com/HEOJUNFO/ai-film-crew/blob/533f61be2741c1093
 tags: [video, text-to-video, shot-list, prompting, film]
 tools: [claude, codex, cursor, gemini]
 ---
+
 
 # Film Crew
 

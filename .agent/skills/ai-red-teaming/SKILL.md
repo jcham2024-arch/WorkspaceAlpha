@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "80cfabfe21103c0d39ef91bd8cc34fd62375e041118810330688c39f0c352d09"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-red-teaming
 description: Run structured AI red team exercises for jailbreak resistance, data exfiltration
+tier: "experimental"
   risk, harmful output controls, and agent tool abuse resilience.
 category: security
 risk: offensive
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.

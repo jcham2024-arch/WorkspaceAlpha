@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d49e3ce7c8b569ea30d3add71500e29829c003c032c9241026b7b5fd9931a9b0"
+fetched_at: "2026-11-10"
+upstream_license: "Apache-2.0"
+owner: "taskmaster"
+---
 name: train-sentence-transformers
 description: "Train or fine-tune SentenceTransformer, CrossEncoder, and SparseEncoder models for retrieval, similarity, clustering, classification, reranking, and related embedding tasks."
+tier: "experimental"
 risk: critical
 source: https://github.com/huggingface/skills/tree/main/skills/train-sentence-transformers
 source_repo: huggingface/skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: Apache-2.0
 license_source: https://github.com/huggingface/skills/blob/main/LICENSE
 ---
+
 
 # Train a sentence-transformers Model
 ## When to Use

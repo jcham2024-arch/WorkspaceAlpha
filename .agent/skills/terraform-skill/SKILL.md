@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "56850384b0c6fe8c5a51b746f35e55ef8ad33bfa416e0ede1da7ec9b9c1035e3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: terraform-skill
 description: "Terraform infrastructure as code best practices"
+tier: "experimental"
 risk: safe
 source: "https://github.com/antonbabenko/terraform-skill"
 date_added: "2026-02-27"
 ---
+
 # Terraform Skill for Claude
 
 Comprehensive Terraform and OpenTofu guidance covering testing, modules, CI/CD, and production patterns. Based on terraform-best-practices.com and enterprise experience.

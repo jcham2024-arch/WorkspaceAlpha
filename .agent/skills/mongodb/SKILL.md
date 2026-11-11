@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "daae78edb4231a2826585fb7a7415febb3e4e7f6724d6bb83f8484a06865c176"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mongodb
 description: Administer MongoDB databases. Configure replica sets, sharding, and backups.
+tier: "experimental"
   Use when managing MongoDB deployments.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # MongoDB
 

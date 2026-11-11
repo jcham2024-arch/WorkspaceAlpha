@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f65ffa99f909b093f0bd721713674fdb27737abeeae6ca38195134ce3adc6419"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: automation-audit-ops
 description: Evidence-first automation inventory and overlap audit workflow for ECC. Use when the user wants to know which jobs, hooks, connectors, MCP servers, or wrappers are live, broken, redundant, or missing before fixing anything.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Automation Audit Ops
 

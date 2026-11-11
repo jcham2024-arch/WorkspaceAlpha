@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d772409984f67294eeda15b4b2f251799b0b9d8fb52e2423cc7fea6380c6b7ac"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cloud-devops
 description: "Cloud infrastructure and DevOps workflow covering AWS, Azure, GCP, Kubernetes, Terraform, CI/CD, monitoring, and cloud-native development."
+tier: "experimental"
 category: workflow-bundle
 risk: critical
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 # Cloud/DevOps Workflow Bundle
 

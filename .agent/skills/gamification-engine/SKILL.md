@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "000eb532d61e3e5f3f3c49e0aaa6f1c3d36f2dd14faa6bf3b5e3a71d9d64bd1c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gamification-engine
 description: 'Gamification points register: player and department, points balance and points earned this month, level, badges, source module and last-updated date. Use for points and badge tracking.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, develop]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Gamification Engine
 

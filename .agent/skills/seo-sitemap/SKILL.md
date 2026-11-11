@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ae9ba36646916ebf1a986840bd81572543409bf00d135bfe37c340790d649680"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-sitemap
 description: >
+tier: "experimental"
   Analyze existing XML sitemaps or generate new ones with industry templates.
   Validates format, URLs, and structure. Use when user says "sitemap",
   "generate sitemap", "sitemap issues", or "XML sitemap".
@@ -17,6 +28,7 @@ allowed-tools:
   - WebFetch
   - Write
 ---
+
 
 # Sitemap Analysis & Generation
 

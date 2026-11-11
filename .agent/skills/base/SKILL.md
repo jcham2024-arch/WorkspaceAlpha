@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b2bbcf4378e83aa48585e05f38dad659ff2ec9b0711ddac2c5913d171d61ac8f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: base
 description: "Database management, forms, reports, and data operations with LibreOffice Base."
+tier: "experimental"
 category: database-processing
 risk: safe
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 # LibreOffice Base
 

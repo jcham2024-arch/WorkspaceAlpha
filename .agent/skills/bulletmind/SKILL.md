@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c48d6a145e4277fac60f4a86de1e48a5d9c59cc38d5f5d065fdf13942885f87c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: bulletmind
 description: "Convert input into clean, structured, hierarchical bullet points for summarization, note-taking, and structured thinking."
+tier: "experimental"
 category: writing
 risk: safe
 source: community
@@ -18,6 +29,7 @@ tools:
   - gemini
   - codex
 ---
+
 
 # Bulletmind
 

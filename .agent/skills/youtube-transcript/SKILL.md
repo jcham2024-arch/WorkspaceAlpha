@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "028af3fd8a1f41937ccaf42b2f18d0d2d4e6035679c59e39a686c04ca558aa7d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: youtube-transcript
 description: "Fetch YouTube transcripts through DeepAPI or local fallback tooling and save clean text output."
+tier: "experimental"
 category: research
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex]
 license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 ---
+
 
 # YouTube Transcript (via DeepAPI, yt-dlp fallback)
 

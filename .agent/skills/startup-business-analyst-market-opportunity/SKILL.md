@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cea4ae6d21f78f537b9eec3cacc55f08060357a47c5ba9e474c60268e850ce7d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: startup-business-analyst-market-opportunity
 description: 'Generate comprehensive market opportunity analysis with TAM/SAM/SOM
+tier: "experimental"
 
   calculations
 
@@ -9,6 +20,7 @@ risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Market Opportunity Analysis
 

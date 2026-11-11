@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9db2f459f245b91b5103bf30c3e3371feeadd5a3e5b95b734eff778e68f0166b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: minimalist-ui
 description: "Use when creating clean editorial interfaces with warm monochrome palettes, crisp borders, restrained motion, and flat bento layouts."
+tier: "experimental"
 category: frontend
 risk: safe
 source: community
@@ -11,6 +22,7 @@ author: Leonxlnx
 tags: [frontend, design, minimalism, ui]
 tools: [claude, cursor, codex, antigravity]
 ---
+
 # Protocol: Premium Utilitarian Minimalism UI Architect
 
 ## When to Use

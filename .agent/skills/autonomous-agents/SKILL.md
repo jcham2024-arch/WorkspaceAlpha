@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9e5dc5f9822e22377cf085efa6782dfeb9c21774b5441b5cf1c8ef45072e8093"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: autonomous-agents
 description: Autonomous agents are AI systems that can independently decompose
+tier: "experimental"
   goals, plan actions, execute tools, and self-correct without constant human
   guidance. The challenge isn't making them capable - it's making them reliable.
   Every extra decision multiplies failure probability.
@@ -8,6 +19,7 @@ risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Autonomous Agents
 

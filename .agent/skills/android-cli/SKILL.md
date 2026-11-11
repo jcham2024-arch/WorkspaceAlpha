@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "03a3eb6ec60d30aa128551061f6c50055b74bdb943497246bae9a354f07add06"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: android-cli
 description: Orchestrates Android development tasks including project creation, deployment, SDK management, and environment diagnostics using the `android` command-line tool.
+tier: "experimental"
 category: tools
 risk: critical
 source: self
@@ -18,6 +29,7 @@ plugin:
     summary: "Installer guidance executes remote Android CLI setup scripts; keep out of plugin-safe bundles."
     docs: SKILL.md
 ---
+
 
 # Android CLI Specialist
 

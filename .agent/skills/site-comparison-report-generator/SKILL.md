@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e4268e8791f312acd42c93317ac40c4648811ca10adbc452e535de33ce482e95"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: site-comparison-report-generator
 description: "Site Comparison Report Generator. Use when working with two or more sites and the user's comparison goal."
+tier: "experimental"
 category: SEO Performance
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Site Comparison Report Generator
 
 ## Overview

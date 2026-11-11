@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "62f0365cba08175297ea1630168feffc1181b6065ca9e23d84551ec59c38c6c1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: swift-concurrency-expert
 description: Review and fix Swift concurrency issues such as actor isolation and Sendable violations.
+tier: "experimental"
 risk: safe
 source: "Dimillian/Skills (MIT)"
 date_added: "2026-03-25"
 ---
+
 
 # Swift Concurrency Expert
 

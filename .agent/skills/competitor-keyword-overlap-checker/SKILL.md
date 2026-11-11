@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9b30700c1e4c1b58b54714cd13a47db4b783f3558e0ad18526cf6c932097d64f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: competitor-keyword-overlap-checker
 description: "Competitor Keyword Overlap Checker. Use when working with two labeled keyword sets."
+tier: "experimental"
 category: Competitor Analysis
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Competitor Keyword Overlap Checker
 
 ## Overview

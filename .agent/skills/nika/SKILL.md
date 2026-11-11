@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "785f47ab1c10120eb117ec91ddf50f1d65770875f7e20ce5cbc20bc71f3e8267"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: nika
 description: "Runs repeatable AI work as checked, budgeted workflow files."
+tier: "experimental"
 risk: critical
 source: https://github.com/supernovae-st/nika-agents/tree/main/skills/nika
 date_added: "2026-07-12"
@@ -21,6 +32,7 @@ metadata:
     homepage: https://nika.sh
     requires_toolsets: [terminal]
 ---
+
 
 # Nika Skill
 

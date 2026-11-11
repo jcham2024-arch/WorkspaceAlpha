@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d5d766030a2c548e4dd7acdfdc6bef162f5dad139c4f15aac42f769b63cf8a2e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hreflang-tag-generator
 description: "Hreflang Tag Generator. Use when working with equivalent page URLs mapped to language and optional region."
+tier: "experimental"
 category: Technical SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Hreflang Tag Generator
 
 ## Overview

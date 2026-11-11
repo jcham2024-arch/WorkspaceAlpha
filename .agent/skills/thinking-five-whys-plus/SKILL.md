@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b966ac2689ad03a63abe9f0fa6cb2387251e8e9363187cc53d79d117db0f0d22"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-five-whys-plus
 description: When a fault is localized and the proximate cause is known but the systemic root is not, chain evidence-linked whys with a counterfactual stop and a countermeasure.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Five Whys Plus
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "94cdf1e84b7a16caec8cd89f8f5ec011b6c041662fa661d1b0a6697e92ae8feb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: rex
 description: "Translates user intent into a precise, unambiguous specification and requirements."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-06-11"
@@ -9,6 +20,7 @@ phase: 1 — Requirements
 squad: agent-squad
 reports-to: agent-squad
 ---
+
 
 # Rex — The Analyst
 

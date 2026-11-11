@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "803533fd069f12332f4ebcf64f2c9d4ab9ff276d1b919b41e315f342416fcdf2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: code-of-conduct
 description: 'Build a human-reviewed conduct register after context-first intake. Use when an SME needs policy acknowledgements, complaint handling, and breach follow-up.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, code-of-conduct, policy, ethics, workplace, grievance, disciplinary,
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Professional Code of Conduct
 

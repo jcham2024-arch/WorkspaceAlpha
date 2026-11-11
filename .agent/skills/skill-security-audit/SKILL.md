@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "387e96c18977b71ddd0584bc684780bbb69a2927b715af79d615e356e7b7b28e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: skill-security-audit
 description: "Audit an Agent Skill, MCP server, connector, or desktop extension before installation by tracing code, dependencies, permissions, credentials, data flow, and irreversible actions."
+tier: "experimental"
 category: security
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini, workbuddy]
 license: "CC0-1.0"
 license_source: "https://github.com/sandbaseai/awesome-workbuddy/blob/main/LICENSE"
 ---
+
 
 # Skill Security Audit
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0505cd15ad33498b0294c65864fb7f82bc3d2b9af8d89806b56b2f721a728485"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-dataforseo
 description: "Use DataForSEO for live SERPs, keyword metrics, backlinks, competitor analysis, on-page checks, and AI visibility data. Trigger when the user needs real SEO data rather than static guidance."
+tier: "experimental"
 risk: critical
 source: "https://github.com/AgriciDaniel/claude-seo"
 date_added: "2026-03-21"
@@ -14,6 +25,7 @@ allowed-tools:
   - WebFetch
   - Write
 ---
+
 
 # DataForSEO: Live SEO Data (Extension)
 

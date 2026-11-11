@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b9c02b5ab608afeb81f413f238ffb6c79933e67a7e5c7f2c3e4312d15c7b5279"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: react-patterns
 description: "Modern React patterns and principles. Hooks, composition, performance, TypeScript best practices."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # React Patterns
 

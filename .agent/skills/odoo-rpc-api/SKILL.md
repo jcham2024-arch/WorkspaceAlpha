@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "79ba986518aafa231fb21d4aa2051cbe82c94184feab31c267e5e848b5090293"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: odoo-rpc-api
 description: "Expert on Odoo's external JSON-RPC and XML-RPC APIs. Covers authentication, model calls, record CRUD, and real-world integration examples in Python, JavaScript, and curl."
+tier: "experimental"
 risk: critical
 source: "self"
 date_added: "2026-03-04"
 ---
+
 
 # Odoo RPC API
 

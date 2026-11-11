@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2fd121ab1faa9c0286f56716cca91678d9585a8ea7b565a6ea02be5d5e8eb23e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agentic-engineering
 description: Operate as an agentic engineer using eval-first execution, decomposition, and cost-aware model routing. Use when planning or executing engineering work that agents will carry out end to end.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Agentic Engineering
 

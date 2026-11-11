@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "91adb261265991d0ebe0c3ed7bbe11fa5f1fa443090418e5a421b768f172a018"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: review-and-simplify-changes
 description: "Review a git diff or explicit file scope for reuse, code quality, efficiency, clarity, and standards issues, then optionally apply safe Codex-driven fixes."
+tier: "experimental"
 risk: critical
 source: https://github.com/Dimillian/Skills/tree/main/review-and-simplify-changes
 source_repo: Dimillian/Skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/Dimillian/Skills/blob/main/LICENSE
 ---
+
 
 # Review and Simplify Changes
 ## When to Use

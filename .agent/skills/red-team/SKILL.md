@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c1f611793762bcda3ca32706aebd282b849b0ddffaf57b464c82cfe796bbc206"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "red-team"
 description: "Use when planning or running an authorized red team engagement or attack path analysis. Plans the kill chain with engagement_planner.py: MITRE ATT&CK techniques, choke points, OPSEC risk and crown jewels."
+tier: "experimental"
 ---
+
 
 # Red Team
 

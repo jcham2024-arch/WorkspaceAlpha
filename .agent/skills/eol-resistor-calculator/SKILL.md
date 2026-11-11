@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2c6298485b6b75cb171d07167bb143de95de56d696a5d53c3790fc4e36e6009f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: eol-resistor-calculator
 description: "Calculates and validates end-of-line (EOL, SEOL, DEOL, TEOL) resistor loops for intrusion alarm panels (Honeywell, DSC, Paradox, Bosch) with wire gauge drop and state tables. Trigger phrases: eol resistor, deol wiring, alarm zone resistor, calculate end of line, double eol tamper."
+tier: "experimental"
 category: architecture
 risk: safe
 source: community
@@ -12,6 +23,7 @@ tags: [security-systems, hardware, electronics, alarm-panel, circuit-design, ele
 tools: [claude, cursor, gemini, windsurf]
 license: "MIT"
 ---
+
 
 # EOL Resistor Calculator: Precision Intrusion Loop Supervision & State Solver
 

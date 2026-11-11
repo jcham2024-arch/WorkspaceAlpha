@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cb10405dc51099dbae6ee768c117d5671aa4af713b1a668e62193bdc9766cfc5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: longbridge-market-data
 description: "Real-time quotes, K-line charts, order book, trade ticks, intraday capital flow, market sentiment temperature, trading session schedule, security lists, exchange rates, and IPO calendar for HK/US/A-share/SG via Longbridge. Also covers ADR premium and FX carry frameworks."
+tier: "experimental"
 risk: critical
 source: https://github.com/longbridge/skills/tree/main/skills/longbridge-market-data
 source_repo: longbridge/skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/longbridge/skills/blob/main/LICENSE
 ---
+
 ## Bundled upstream support
 
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.

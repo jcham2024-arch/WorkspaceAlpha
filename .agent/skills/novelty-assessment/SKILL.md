@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "36adea04978960126ddfc715fe30c5f758e747ea4e05414cc94de8475478fb7b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: novelty-assessment
 description: Assess research idea novelty through systematic literature search. Multi-round search-evaluate loops with harsh critic persona. Binary novel/not-novel decision with justification. Use before committing to a research direction.
+tier: "experimental"
 argument-hint: [idea]
 ---
+
 
 # Novelty Assessment
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b72aa21db51d7d3e2fb362844a7484bd4ec98a4393a08fe7ef77f2e54e3a3096"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: geo-crawlers
 description: AI crawler access analysis.
+tier: "experimental"
 category: seo
 risk: safe
 source: https://github.com/zubair-trabzada/geo-seo-claude
@@ -20,6 +31,7 @@ allowed-tools:
 - WebFetch
 - Write
 ---
+
 
 # AI Crawler Access Analysis Skill
 

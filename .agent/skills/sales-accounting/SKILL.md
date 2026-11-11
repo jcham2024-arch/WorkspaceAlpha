@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "99cb4ad027412e6e0053d086b4f0792c62456bb4a8f0d1b34805d4130626bfda"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sales-accounting
 description: 'Sales register: customer, invoice, gross amount, discount, VAT and TDS, net receivable, credit terms and balance. Use for sales accounting.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, accounting, audit, finance, database, csv, notion, sql, sales]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Sales Accounting
 

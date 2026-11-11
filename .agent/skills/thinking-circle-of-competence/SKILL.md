@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2984151682b9ee32731a954363d01992339d4dd578c5684cd9c61215c3f3b497"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-circle-of-competence
 description: Use when a specific claim may lack grounding. Check evidence boundary, size wrongness cost, then answer, fetch, or abstain — never confabulate.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Circle of Competence
 

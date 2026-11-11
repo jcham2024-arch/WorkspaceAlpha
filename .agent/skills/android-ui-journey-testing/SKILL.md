@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1d10b82fa5de9c936733befb9d04a5366a4d1fb1f4ead5c24560293cfa6ad9d3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: android-ui-journey-testing
 description: "XML-specified Android UI journey testing, interactive step execution, assertion verification, and JSON outcome reporting."
+tier: "experimental"
 category: testing
 risk: critical
 source: self
@@ -10,6 +21,7 @@ author: Owais
 tags: [android, journey-testing, ui-verification, testing, adb, automation]
 tools: [claude, cursor, gemini, antigravity]
 ---
+
 
 # Android UI Journey Testing
 

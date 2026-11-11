@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f19ba3278787301a008ebbdce163f6822c856564b64d4d0f6698dbddb5b554db"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: rayden-code
 description: Generate React code with Rayden UI components using correct props, tokens, and premium layout patterns
+tier: "experimental"
 category: development
 risk: safe
 source: https://github.com/playbookTV/rayden-ui-design-skill
@@ -10,6 +21,7 @@ author: Leslie Williams
 tags: react, tailwind, design-system, ui, components, vibe-coding, rayden, rayna-ui, code-generation
 tools: Read, Write, Edit, Bash, Glob, Grep
 ---
+
 
 # Rayden Code Skill
 

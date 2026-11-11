@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b4ecbad1d053ee6ccd760cb908c89757952dd7dbd67e6d257b718debc27f0cc8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: story-bible-continuity
 description: 'Deterministic continuity check for long manuscripts against a story bible: name drift, age arithmetic, era anachronisms, unpaid foreshadowing, POV leaks. Use for continuity checks on novels or serials.'
+tier: "experimental"
 category: content
 risk: safe
 source: self
@@ -17,6 +28,7 @@ tags:
 - story-bible
 license: Apache-2.0
 ---
+
 
 # Story Bible Continuity
 

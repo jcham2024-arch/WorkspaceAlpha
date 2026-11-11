@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "82ac26a20d150f950f74fed4bd26d4254c888ddbbf3cba3aae30b66d80cd6bbb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: keyword-extractor
 description: >
+tier: "experimental"
   Extracts up to 50 highly relevant SEO keywords from text. Use when user wants to generate or extract keywords for given text.
 risk: safe
 source: original
 date_added: "2026-03-11"
 ---
+
 
 # Keyword Extractor
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0fe3e2709ac8d195b21912cf0a6296a71b7743c86579dddc72935db40b07e2e6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: browser-testing-with-devtools
 description: "Test browser apps with Chrome DevTools MCP by inspecting live DOM, console logs, network traffic, screenshots, accessibility, and performance traces."
+tier: "experimental"
 category: testing
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [chrome-devtools-mcp, chrome, playwright]
 license: "MIT"
 license_source: "https://github.com/addyosmani/agent-skills/blob/main/LICENSE"
 ---
+
 
 # Browser Testing with DevTools
 

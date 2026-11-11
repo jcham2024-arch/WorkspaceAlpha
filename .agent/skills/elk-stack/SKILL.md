@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a55451dfdf711a343074b3022b9a333046147284ceb6c60a996693596900362c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: elk-stack
 description: Deploy and manage the ELK Stack (Elasticsearch, Logstash, Kibana) for
+tier: "experimental"
   log aggregation and analysis.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # ELK Stack
 

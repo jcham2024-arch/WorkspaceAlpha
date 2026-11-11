@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c3537600d410feef72bdad114174a6bfb330c1835ab4b9a35be1693dc6b738ca"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: kimi-delegate
 description: Delegate coding tasks to the Kimi Code CLI (`kimi`) only when the user
+tier: "experimental"
   explicitly requests it, while the orchestrator retains review and landing responsibility.
 risk: critical
 category: agent-orchestration
@@ -13,6 +24,7 @@ license_source: https://github.com/amElnagdy/delegate-skills/blob/master/LICENSE
 metadata:
   version: 0.5.0
 ---
+
 # Kimi Delegate
 
 ## Runtime availability gate

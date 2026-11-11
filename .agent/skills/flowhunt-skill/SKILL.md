@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "77cb5b7dc7088d1c39f1dd342f696eb7b5e286f61916e9c7a9e4c0b69628bbae"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: flowhunt-skill
 description: "Automation discovery audit skill. Walks through a 5-question workflow intake, then audits Gmail/Calendar/Slack/task trackers to identify automation opportunities. Use when a user wants to discover what processes in their business can be automated."
+tier: "experimental"
 category: automation
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, gemini, cursor]
 license: "MIT"
 license_source: "https://github.com/heyneuron/flowhunt-skill/blob/main/LICENSE"
 ---
+
 
 # FlowHunt Skill — Automation Discovery Audit
 

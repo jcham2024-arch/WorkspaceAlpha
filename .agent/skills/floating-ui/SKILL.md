@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "01f1f3436600c3f56d598008c73ce9871498337de33b3ab5eefacf3c2d19d046"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: floating-ui
 description: Web and App implementation guide for Floating UI. Trigger when user wants detached cards, elevated components, and a light, airy feel.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Floating UI
 

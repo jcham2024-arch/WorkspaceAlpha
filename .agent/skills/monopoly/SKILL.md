@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "efd75497a34adb20941f6fe0bd34e362507c6379614d33ae78276007610f58a4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: monopoly
 description: >
+tier: "experimental"
   MONOPOLY is a Senior System Design Engineer skill for architecting, reviewing, and scaling systems. Triggers on requests involving architecture, databases, scaling, microservices, or infrastructure design. Proactively engages to design resilient backend systems.
 risk: critical
 source: community
 date_added: "2026-06-14"
 ---
+
 ## Supporting material
 
 Bundled references are [patterns](patterns/SKILL.md), [technology matrix](tech-matrix/SKILL.md), [capacity planning](scale-benchmarks/SKILL.md) and [security checklist](security-checklist/SKILL.md). No cost-estimation reference is bundled; build a dated estimate from workload assumptions and current provider calculators instead of claiming that procedure exists.

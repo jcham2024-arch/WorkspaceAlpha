@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1dcd4fd3e36e8a5ea6e660851ee4c980967aa8047a1a1fd4247893c1508ecd4a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: spatial-computing-ui
 description: Web and App implementation guide for Spatial Computing UI. Trigger when user wants floating elements, environmental awareness, and Apple Vision Pro style.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Spatial Computing UI
 

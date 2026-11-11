@@ -1,7 +1,18 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "eab90187cfa01e51e12979351ef3065410e38631a4863e46f250469a98dc7cc4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agentphone
 version: 0.3.0
 description: Build AI phone agents with AgentPhone API. Use when the user wants to make phone calls, send/receive SMS, manage phone numbers, create voice agents, set up webhooks, or check usage — anything related to telephony, phone numbers, or voice AI.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-04-03"
@@ -9,6 +20,7 @@ homepage: https://agentphone.ai
 docs: https://docs.agentphone.ai
 metadata: {"api_base": "https://api.agentphone.ai/v1"}
 ---
+
 
 # AgentPhone
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2b5a42c5bdaa69eb6a8e64b8ff31d6a988fcc5b18977648d0dffe6823a666efd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aws-s3
 description: Configure S3 buckets, policies, and lifecycle rules. Implement versioning,
+tier: "experimental"
   replication, and security. Use when managing object storage on AWS.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # AWS S3
 

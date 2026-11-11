@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "15c26f829dda3aa274f4eacdaca731181b57935015a0c5096b785a6133a00b22"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aws-ec2
 description: Manage EC2 instances, AMIs, and auto-scaling groups. Configure security
+tier: "experimental"
   groups, key pairs, and instance types. Use when deploying compute resources on AWS.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # AWS EC2
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a6e0d645df66b558db028109ffce28d888c5d59574483d4f0049204cfec5d100"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: dependency-scanning
 description: Scan package dependencies for known vulnerabilities using Snyk, Dependabot,
+tier: "experimental"
   and OWASP Dependency-Check.
 category: security
 risk: safe
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Dependency Scanning
 

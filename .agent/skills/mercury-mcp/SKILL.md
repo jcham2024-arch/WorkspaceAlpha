@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cb5fa386ad1ad8188c436380fa693de49c3668497c86bae0bc3dda1c50a3ab9e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mercury-mcp
 description: "Cheatsheet for the Mercury (proton) MCP tools. Use when connected to the Mercury MCP server to look up which mercury_* tool to call for messaging teammates, threads, tasks, automations, or admin team-graph edits."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-05-19"
@@ -9,6 +20,7 @@ plugin:
     codex: blocked
     claude: blocked
 ---
+
 
 # Mercury MCP tool cheatsheet
 

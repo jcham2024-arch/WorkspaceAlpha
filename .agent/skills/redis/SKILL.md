@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "67a2397a09b99ab5d422b8d3c27b5efcbe4daba0e218497e0a05601a47cd0824"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: redis
 description: Configure Redis for caching and data storage. Set up clustering, persistence,
+tier: "experimental"
   and Sentinel. Use when implementing Redis caching or queues.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Redis
 

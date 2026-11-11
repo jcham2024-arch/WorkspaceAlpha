@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5c0ce84ef5d1a17a1d8f2f571bcbfd8fb81c838996c5c35a4df1d13d0e48b6d6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: budget-cash-flow
 description: 'Budget against actual by department, category and period, with budget and actual amounts, variance, percentage used and linked expenses. Use for budget tracking or cash-flow reviews.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, operate]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Budget & Cash Flow
 

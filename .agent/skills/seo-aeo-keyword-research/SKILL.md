@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7c5c5f89a3d1bdb8154f99a1b0764b3e29dc468439c3f44e7fdc952cda441981"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-aeo-keyword-research
 description: "Researches and prioritises keywords from the site context and live search intent, including problem queries, question queries, difficulty tiers, and a content map."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-01"
 ---
+
 
 # Keyword Research Skill
 

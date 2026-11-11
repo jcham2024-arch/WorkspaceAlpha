@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cac51204792538878c077feaa8e9f5af431108f7513f44a3924710d8530c163b"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: apple-design
 description: "Apply Apple-inspired interface and motion principles to gestures, typography, depth, feedback, and accessibility on the web."
+tier: "experimental"
 category: frontend
 risk: critical
 source: community
@@ -11,6 +22,7 @@ author: Emil Kowalski
 license: MIT
 license_source: https://github.com/emilkowalski/skills/blob/a81dbca07f2217b7103e510c0f13f8d5b017afc9/LICENSE
 ---
+
 
 # Apple Design
 

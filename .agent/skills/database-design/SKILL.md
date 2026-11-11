@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0dd8297d3b7a6d6ed1f9e485a4309af61fa8db36176d5633e30181d395620ccf"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: database-design
 description: "Database design principles and decision-making. Schema design, indexing strategy, ORM selection, serverless databases."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Database Design
 

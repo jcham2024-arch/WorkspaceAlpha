@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7a2ff04c53ddbfb37dea02b9eadb79291d28d752acc6d641a74f759dd8a21862"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: vscode-extension-guide-en
 description: "Guide for VS Code extension development from scaffolding to Marketplace publication"
+tier: "experimental"
 category: core-dev
 risk: safe
 source: community
@@ -11,6 +22,7 @@ author: lewiswigmore
 tags: [vscode, extension, ide, typescript, marketplace]
 tools: [claude, cursor, copilot, codex, gemini]
 ---
+
 
 # VS Code Extension Guide (English)
 

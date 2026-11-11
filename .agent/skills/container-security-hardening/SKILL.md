@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "94937f65660d59d459eaa2d89bb645a7e4d2c7bf99262bb3f03a49b0d9030e5d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: container-security-hardening
 description: >
+tier: "experimental"
   Harden Docker/container images and runtime deployments with secure base images,
   non-root users, CVE scanning, SBOM/signing, seccomp/AppArmor, and Kubernetes
   pod security controls. Use for Dockerfile security reviews, container CVEs,
@@ -10,6 +21,7 @@ risk: critical
 source: community
 date_added: "2026-05-30"
 ---
+
 
 # Container Security Hardening Skill
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "10debcc93438d8ca4a139137380e353d5d6202177eedd48334a8871e08a79a89"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: policy-as-code
 description: Implement policy as code with OPA, Sentinel, and Kyverno. Automate policy
+tier: "experimental"
   enforcement in CI/CD and infrastructure. Use when enforcing compliance through automation.
 category: security
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Policy as Code
 

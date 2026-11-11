@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8fb82a676852a6f5eb086b640dedbd58773a5d5126e01b1dbc248149d86b8a7c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: nextjs-app-router-patterns
 description: "Comprehensive patterns for Next.js 14+ App Router architecture, Server Components, and modern full-stack React development."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Next.js App Router Patterns
 

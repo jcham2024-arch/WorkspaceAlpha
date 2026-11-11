@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "072520895d366481dfaaac6615b58d154c4d43d76cb5a3d58f3ab86d4fc50680"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-ai-projects-ts
 description: "High-level SDK for Azure AI Foundry projects with agents, connections, deployments, and evaluations."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Azure AI Projects SDK for TypeScript
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "38d0601249373247668a5fbafddb2ed5d6a38c30db3517fa65ec96a13ff41833"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: skill-installer
 description: Validate and install explicitly selected local skill trees into a workspace, with full-tree Claude registration, backups and ZIP packaging.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-03-06'
@@ -17,6 +28,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 # Local Skill Installer
 
 ## When to Use

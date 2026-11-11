@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "17040f4bab70de9d6b8024c3eda707f7d32c89085691a66d4eceaf60164b4da0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: flat-design-2
 description: Web and App implementation guide for Flat Design 2.0 (Semi-Flat). Trigger when the user wants flat design with subtle shadows and improved usability.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Flat Design 2.0 (Semi-Flat)
 

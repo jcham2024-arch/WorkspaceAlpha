@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "32a17da48e141000f5c343d3ef887386453b4e5bf178cfdb78831b26496eb7ea"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: paper-writing-section
 description: Write a specific section of an academic paper (Abstract, Introduction, Background, Related Work, Methods, Experiments, Results, Discussion/Conclusion) with section-specific guidance and two-pass refinement. Use when the user wants to write, draft, or improve a paper section.
+tier: "experimental"
 argument-hint: [section-name]
 ---
+
 
 # Paper Section Writer
 

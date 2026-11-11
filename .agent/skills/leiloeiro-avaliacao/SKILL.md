@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2e10746e1dfb175acc2a9b204f6af16601d30824e4c299aeaf601231d0531cbf"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: leiloeiro-avaliacao
 description: Organize evidence and indicative valuation scenarios for auction properties, with explicit market, method and professional-review limits.
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-03-06'
@@ -17,6 +28,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # Avaliação indicativa de imóvel em leilão
 

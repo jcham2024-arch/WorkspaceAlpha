@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d47573b2b68200f5ef63bda3d10cc44138b00aecf88594d5d462d1f3c2d27ff4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: competitor-backlink-idea-generator
 description: "Competitor Backlink Idea Generator. Use when working with your niche and competitor backlink examples or export."
+tier: "experimental"
 category: Competitor Analysis
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Competitor Backlink Idea Generator
 
 ## Overview

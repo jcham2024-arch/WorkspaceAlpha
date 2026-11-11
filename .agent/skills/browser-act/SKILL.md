@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ae2a781b44ddbeed0c10a10486cbe97888335722085b18d3735b40f785b68b9b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: browser-act
 description: "Use BrowserAct for authenticated browser automation, JS-rendered extraction, screenshots, parallel sessions, verification handling, and human handoff."
+tier: "experimental"
 category: browser-automation
 risk: critical
 source: https://github.com/browser-act/skills/tree/main/browser-act
@@ -17,6 +28,7 @@ metadata:
   install: "uv tool install browser-act-cli==1.1.0 --python 3.12"
   homepage: "https://www.browseract.com"
 ---
+
 
 # BrowserAct Browser Automation
 

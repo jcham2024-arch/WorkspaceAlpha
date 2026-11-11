@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "804388e92380bb0f26697ef1fcd670490cd15204698d4b6504d0bb847daab45b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: lex
 description: "Structured research aid for cross-jurisdictional legal context (US, EU, CA) and contract scaffolding."
+tier: "experimental"
 category: business
 risk: critical
 source: community
@@ -9,6 +20,7 @@ author: Svobikl
 tags: [legal, context, cross-jurisdictional, compliance, scaffolding]
 tools: [claude, cursor, gemini]
 ---
+
 
 # LEX: Legal-Entity-X-ref
 

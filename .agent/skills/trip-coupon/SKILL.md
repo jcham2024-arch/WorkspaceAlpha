@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "358480a9269a1c9cd6a6f1ae19ddb9b87338cc36947c781aded6849ad877bf94"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: trip-coupon
 description: "Call trip/travel coupon API to fetch travel coupons including DiDi ride-hailing gift packages and hotel coupon bundles. Returns coupon links and QR code images for users to redeem via WeChat."
+tier: "experimental"
 category: shopping
 risk: critical
 source: community
@@ -11,6 +22,7 @@ author: moooai
 tags: [coupons, travel, didi, hotel, ride-hailing]
 tools: [claude, codex]
 ---
+
 
 # Travel Coupons (Ride-hailing / Hotels)
 

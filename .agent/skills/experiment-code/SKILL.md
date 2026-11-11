@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2ca29f5025fc0ae3847791b4b7a434983573e260af52bcf9758f9ddd5905a3c7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: experiment-code
 description: Write ML experiment code with iterative improvement. Generate training/evaluation pipelines, debug errors, and optimize results through code reflection. Use when implementing experiments for a research paper.
+tier: "experimental"
 argument-hint: [plan-or-idea]
 ---
+
 
 # Experiment Code
 

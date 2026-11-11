@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "40c878046b3f6ebb42420c73a335c7f791dfe766ac85f78aa10852ada96f6413"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: logo-to-stickers
 description: "Turn a brand mark or existing IP into consistent, playful paper stickers with small visual stories and separate transparent images. Use for brand characters and website sticker sets."
+tier: "experimental"
 category: design
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [codex]
 license: MIT
 license_source: "https://github.com/huyanxius/logo-to-stickers/blob/main/LICENSE"
 ---
+
 
 # Logo to Stickers
 

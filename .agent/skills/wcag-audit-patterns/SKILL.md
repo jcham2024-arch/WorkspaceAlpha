@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f9bdf8f50792e038ebd05f9ae317fffcde7b30675651b04f54482806b209bdda"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: wcag-audit-patterns
 description: "Comprehensive guide to auditing web content against WCAG 2.2 guidelines with actionable remediation strategies."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # WCAG Audit Patterns
 

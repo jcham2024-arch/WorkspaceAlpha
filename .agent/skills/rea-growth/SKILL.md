@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "86ebc9e20362e9de1b64be5a4614b1ce3aa486a41f257a9f63c3c741455942da"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: rea-growth
 description: "Analyze a company’s public growth and content through Treg, distinguish observations from hypotheses, and produce an evidence-linked playbook within an approved budget."
+tier: "experimental"
 category: marketing
 risk: critical
 source: https://github.com/superdesigndev/treg
@@ -12,6 +23,7 @@ author: superdesigndev
 upstream_commit: cf3955032ef8f15dfeff90a84ae24e31583e93e8
 date_added: "2026-11-06"
 ---
+
 
 # REA growth
 

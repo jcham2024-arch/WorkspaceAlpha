@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2bd9e56f6648b253063c88d716dabfc3ce645ee4f90ef3f917d0da86971a9d4a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: makepad-2-0-animation
 description: Makepad 2.0 guidance for animation; use when building or debugging Makepad UI code.
+tier: "experimental"
 source_repo: zhanghandong/makepad-skills
 source_type: community
 source: community
 date_added: '2026-09-21'
 risk: safe
 ---
+
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.

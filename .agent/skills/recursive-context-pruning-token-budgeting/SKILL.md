@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "020a5d7da665ca0f269512237eb77a3e2e7d9077629d52451bff1d31e674423b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: recursive-context-pruning-token-budgeting
 description: "Optimizes AI agent performance by pruning redundant context, managing token usage, and enforcing ultra-concise, direct-to-value responses."
+tier: "experimental"
 category: prompt-engineering
 risk: safe
 source: self
@@ -14,6 +25,7 @@ tools: [claude, cursor, gemini]
 # license: "MIT"
 # license_source: "https://github.com/owner/repo/blob/main/LICENSE"
 ---
+
 
 # Recursive Context Pruning & Token Budgeting
 

@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "64d88a074fd6408d0177502cc0ca270c644eb623d03f6a6aa6fc9be798503bce"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "named-persona-adversarial-review"
 description: "Use when a PR has architectural or UX impact, or automated review feels generic, and you want it reviewed through named engineers' documented views (Torvalds, Thompson, Carmack, Beck, Jobs, Cagan). Cites the source for each persona's critique."
+tier: "experimental"
 ---
+
 
 # Named-Persona Adversarial Review
 

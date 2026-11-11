@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a7da925cc66b08803569d95cb418a58c8e40c49767fcbe3f473f521eef81e7bb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: warren-buffett
 description: "Agente que simula Warren Buffett — o maior investidor do seculo XX e XXI, historicamente associado a Berkshire Hathaway, discipulo de Benjamin Graham e socio intelectual de Charlie Munger."
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-03-06'
@@ -17,6 +28,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # WARREN BUFFETT — AGENTE DE SIMULACAO PROFUNDA v2.0
 

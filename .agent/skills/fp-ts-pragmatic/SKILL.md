@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "30cd398872bc0a69175dba77ff9df135ab13f256fc834879c41f57916207aca5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fp-ts-pragmatic
 description: "A practical, jargon-free guide to fp-ts functional programming - the 80/20 approach that gets results without the academic overhead. Use when writing TypeScript with fp-ts library."
+tier: "experimental"
 risk: safe
 source: "https://github.com/whatiskadudoing/fp-ts-skills"
 date_added: "2026-02-27"
 ---
+
 
 # Pragmatic Functional Programming
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3d976213709a6e8016cd585a42a3a0452bb3e27849d4f7d4598909ab06b6c5c1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: diagnosing-bugs
 description: Diagnosis loop for hard bugs and performance regressions. Use when the user says "diagnose"/"debug this", or reports something broken/throwing/failing/slow.
+tier: "experimental"
 category: "development"
 risk: "safe"
 source: "community"
@@ -19,6 +30,7 @@ tools:
   - codex-cli
   - cursor
 ---
+
 
 # Diagnosing Bugs
 

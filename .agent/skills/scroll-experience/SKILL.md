@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "893d302e1037d59bd057e8fac1705d9d881d2f3542647c6a064d917d299952e6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: scroll-experience
 description: Expert in building immersive scroll-driven experiences - parallax
+tier: "experimental"
   storytelling, scroll animations, interactive narratives, and cinematic web
   experiences. Like NY Times interactives, Apple product pages, and
   award-winning web experiences.
@@ -8,6 +19,7 @@ risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Scroll Experience
 

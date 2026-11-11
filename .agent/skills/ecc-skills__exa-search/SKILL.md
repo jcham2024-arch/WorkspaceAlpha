@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6aebca08413a58fc897ff1a3743099406915e01fc3d82f9c0e575dec6829b7e9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: exa-search
 description: Neural search via Exa MCP for web, code, and company research. Use when the user needs web search, code examples, company intel, people lookup, or AI-powered deep research with Exa's neural search engine.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Exa Search
 

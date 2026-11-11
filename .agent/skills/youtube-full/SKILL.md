@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f7e7ce37c69b9cf3d906fa6934718f47cf8b07276c006ff7c94f6eac604698e1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: youtube-full
 description: "Fetch YouTube transcripts, search videos, browse channels, and extract playlists via TranscriptAPI — no yt-dlp, no Google API key, works from any cloud server."
+tier: "experimental"
 category: api-integration
 risk: safe
 source: community
@@ -19,6 +30,7 @@ plugin:
     summary: "TranscriptAPI OAuth provisions the API key on first skill invocation. No manual credential setup. 100 free credits included."
     docs: "https://transcriptapi.com/docs"
 ---
+
 
 # youtube-full — YouTube transcript, search, channels & playlists via TranscriptAPI
 

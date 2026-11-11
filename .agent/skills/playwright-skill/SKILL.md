@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0374f118fddce58e3ed9774b306ecac8e195b87cda47811b23ec3542b59addd9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: playwright-skill
 description: "Write and run scoped Playwright browser automation, responsive checks, screenshots and login-flow tests with a local Node executor."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
@@ -10,6 +21,7 @@ plugin:
     summary: "Run `npm run setup` in the skill directory before first use to install Playwright and Chromium."
     docs: "SKILL.md"
 ---
+
 
 **IMPORTANT - Path Resolution:**
 This skill can be installed in different locations (plugin system, manual installation, global, or project-specific). Before executing any commands, determine the skill directory based on where you loaded this SKILL.md file, and use that path in all commands below. Replace `$SKILL_DIR` with the actual discovered path.

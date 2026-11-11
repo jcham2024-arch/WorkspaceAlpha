@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f91577376087a4772e75610a28ecd36a73dc0f4a9294b09659b89601768c8822"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: deep-research
 description: "Run autonomous research tasks that plan, search, read, and synthesize information into comprehensive reports."
+tier: "experimental"
 risk: critical
 source: "https://github.com/sanjay3290/ai-skills/tree/main/skills/deep-research"
 license: Apache-2.0
 license_source: https://github.com/sanjay3290/ai-skills/blob/281d88df199357e3091a3be5c743a0fca9a9ae1b/LICENSE
 date_added: "2026-02-27"
 ---
+
 
 # Gemini Deep Research Skill
 

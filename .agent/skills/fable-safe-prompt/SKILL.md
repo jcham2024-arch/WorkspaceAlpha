@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "299987ea1e73c97736b6620632be1c0227ebcd797b6892bd868252d8cf726369"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fable-safe-prompt
 description: "Rewrite allowed prompts to reduce false-positive safety triggers without bypassing policy or changing intent."
+tier: "experimental"
 category: agent-behavior
 risk: safe
 source: community
@@ -14,6 +25,7 @@ license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 disable-model-invocation: true
 ---
+
 
 # Fable-Safe Prompt
 

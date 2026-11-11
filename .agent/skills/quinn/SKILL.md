@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c666b5cc1e82e7555157565c3f21f67652faf7319f5a4b6a10ac3af485b966d8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: quinn
 description: "Verifies specified behavior through appropriate tests and truthful coverage reports."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-06-11"
@@ -10,6 +21,7 @@ squad: agent-squad
 reports-to: agent-squad
 depends-on: rex, alex, mason, luna
 ---
+
 
 # Quinn — The QA Tester
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6a478b6ac5662b040ee61c165c80c31a3c4be5aa1b6a27b8e8d6f454e9995c5b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-mgmt-arizeaiobservabilityeval-dotnet
 description: Azure Resource Manager SDK for Arize AI Observability and Evaluation (.NET).
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Azure.ResourceManager.ArizeAIObservabilityEval
 

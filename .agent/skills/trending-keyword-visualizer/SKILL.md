@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "61ec26b0d4eecc51011424ad3563b6f6a97565f4d9e13ebd8bb03130134253aa"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: trending-keyword-visualizer
 description: "Trending Keyword Visualizer. Use when working with dated keyword interest or volume series with source."
+tier: "experimental"
 category: Keyword Research
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Trending Keyword Visualizer
 
 ## Overview

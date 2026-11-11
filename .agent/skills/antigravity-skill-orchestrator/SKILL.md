@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "91332936ad4df123284c4cdc86c9291cf3b8e974178a22d136c3eb20d0b0dcb4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: antigravity-skill-orchestrator
 description: "A meta-skill that understands task requirements, dynamically selects appropriate skills, tracks successful skill combinations using agent-memory-mcp, and prevents skill overuse for simple tasks."
+tier: "experimental"
 category: meta
 risk: safe
 source: community
 tags: "[orchestration, meta-skill, agent-memory, task-evaluation]"
 date_added: "2026-03-13"
 ---
+
 
 # antigravity-skill-orchestrator
 

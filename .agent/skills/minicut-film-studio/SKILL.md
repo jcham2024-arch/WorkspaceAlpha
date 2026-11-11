@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0b068ac0530d847722e35bcfcebfbe4854b633d54f4c96e9c443d261c828f3f3"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: minicut-film-studio
 description: "Install and use the official MiniCut film studio skill, pinned by commit, to make multi-shot AI short films with the paid MiniCut CLI."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/lliu56/minicut-skills/blob/6cb1a054b2cc5a8b66c47c02b802be9b6e4b5bbc/LICENSE"
 ---
+
 
 # MiniCut Film Studio
 

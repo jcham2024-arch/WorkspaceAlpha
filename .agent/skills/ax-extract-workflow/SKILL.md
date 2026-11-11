@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "71935567dfe8149665023457639d2abf0988c18db14e95140ed229120711c674"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ax-extract-workflow
 description: "Reconstruct workflow behind a past coding-agent artifact using local ax sessions/commits/skills/tool traces. Use when asked how X was built."
+tier: "experimental"
 category: development
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex-cli]
 license: "AGPL-3.0-only"
 license_source: "https://github.com/Necmttn/ax/blob/main/LICENSE"
 ---
+
 
 # ax Extract Workflow
 

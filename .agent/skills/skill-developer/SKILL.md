@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fbe9de965532c807cb2382a3b9f00529771effab0d6bdb4d971a3a8d7f6ca88c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: skill-developer
 description: "Comprehensive guide for creating and managing skills in Claude Code with auto-activation system, using an illustrative custom hook architecture and concise progressive disclosure and progressive disclosure pattern."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Skill Developer Guide
 

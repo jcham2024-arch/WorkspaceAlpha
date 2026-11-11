@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2af9bc601f2ca835219efe1880851fc28e16ff2dc4067bbe7e70044e0c36a811"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: google-docs-automation
 description: "Read and edit Google Docs through an available authenticated connector or reviewed API integration, with scoped changes and read-back verification."
+tier: "experimental"
 license: Apache-2.0
 risk: critical
 source: community
@@ -9,6 +20,7 @@ metadata:
   author: sanjay3290
   version: "1.0"
 ---
+
 
 # Google Docs Automation
 

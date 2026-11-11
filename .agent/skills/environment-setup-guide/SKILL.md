@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bc7817633669e31c168eff384575416dcc846114a5e7572a1cc2bae25365d432"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: environment-setup-guide
 description: "Guide developers through setting up development environments with proper tools, dependencies, and configurations"
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Environment Setup Guide
 

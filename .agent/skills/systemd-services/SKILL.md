@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f7e5e350e9edbdbd10635984887ea3d2fd4b235b4118d03043ada760dcac996f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: systemd-services
 description: Create and manage systemd services and timers. Configure service dependencies
+tier: "experimental"
   and resource limits. Use when managing system services.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Systemd Services
 

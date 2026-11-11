@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9a484a1054c6241827f2e4fabb65c6c7cfe4c881f39587f9eb86312d015fa7f5"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: keepmacawake
 description: "Keep a MacBook with Apple silicon awake with the lid closed during a long agent task, with the keepmacawake command of the Keep Mac Awake app."
+tier: "experimental"
 category: productivity
 risk: critical
 source: https://github.com/bartdudzic/keepmacawake/tree/f64ce3db2669311aeca40b21c1bdba9db4f1e56d/plugins/keep-mac-awake/skills/keepmacawake
@@ -18,6 +29,7 @@ metadata:
   docs: https://keepmacawake.com/agents.md
   repository: https://github.com/bartdudzic/keepmacawake
 ---
+
 
 # Keep Mac Awake
 

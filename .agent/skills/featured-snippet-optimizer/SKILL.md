@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "81e8cd8678b2a38298a0fcd5cc9c48d99286392dbfa84263e5192b3512341380"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: featured-snippet-optimizer
 description: "Featured Snippet Optimizer. Use when working with target question and existing passage."
+tier: "experimental"
 category: Content SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Featured Snippet Optimizer
 
 ## Overview

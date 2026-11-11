@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "eed415227dfe956c5cb7b8fc7a8e58ed582c88d3338651337994531f79c0aa58"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: platform-engineering
 description: Build internal developer platforms (IDPs) with self-service infrastructure,
+tier: "experimental"
   golden paths, and developer portals using Backstage, Crossplane, and score.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Platform Engineering
 

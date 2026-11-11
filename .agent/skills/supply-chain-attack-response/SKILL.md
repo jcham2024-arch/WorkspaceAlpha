@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "46f0634a788fb0c290ab5c878e711439db769a639d2c0f3dbc4a27cd812ccd4d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: supply-chain-attack-response
 description: Detect, respond to, and prevent software supply chain attacks on package
+tier: "experimental"
   registries, container images, and CI/CD pipelines with lockfile auditing, provenance
   verification
 category: security
@@ -18,6 +29,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.

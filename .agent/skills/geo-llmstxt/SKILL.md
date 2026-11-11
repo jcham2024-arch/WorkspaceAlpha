@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f025113f9195784d399b294e3b7471acb4d0fde98a1e10d859bbf6472513d87d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: geo-llmstxt
 description: Analyzes and generates llms.txt files -- a proposed convention for helping
+tier: "experimental"
   AI systems understand website structure and content.
 category: seo
 risk: safe
@@ -21,6 +32,7 @@ allowed-tools:
 - WebFetch
 - Write
 ---
+
 
 # llms.txt Standard Analysis and Generation Skill
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5a84516cb2507291229d047a78b66509d3484f4ca8a204033fbac165d6abb4bc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: axonx
 description: "Develop AxonX research plugins and operate quantitative research tasks through CLI or MCP, inspecting execution status, logs, artifacts, and lineage."
+tier: "experimental"
 category: finance
 risk: critical
 source: "https://github.com/FlowLLM-AI/AxonX/tree/862b90da9c49c3bdee4c2ab9ef896c415aee9f45/skills/axonx"
@@ -11,6 +22,7 @@ license_source: "https://github.com/FlowLLM-AI/AxonX/blob/862b90da9c49c3bdee4c2a
 date_added: "2026-10-04"
 tags: [quantitative-research, mcp, backtesting, python]
 ---
+
 
 # AxonX Development and Operations Guide
 

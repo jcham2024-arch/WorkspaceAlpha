@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b28d1b9dd02a49f39b2c54752ccc52c4c92af27234cea7b99f8cf8af86cd1a33"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: recsys-pipeline-architect
 description: "Designs composable recommendation, ranking, and feed pipelines using the six-stage Source→Hydrator→Filter→Scorer→Selector→SideEffect framework"
+tier: "experimental"
 category: data-ai
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini, opencode, cline, continue, windsurf]
 license: "MIT"
 license_source: "https://github.com/mturac/recsys-pipeline-architect/blob/main/LICENSE"
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5514274d99404fb9cb9d40d6d3258e43e684827a04376380fc04953010341e0d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fp-backend
 description: Functional programming patterns for Node.js/Deno backend development using fp-ts, ReaderTaskEither, and functional dependency injection
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
@@ -16,6 +27,7 @@ tags:
   - dependency-injection
   - reader-task-either
 ---
+
 
 # fp-ts Backend Patterns
 

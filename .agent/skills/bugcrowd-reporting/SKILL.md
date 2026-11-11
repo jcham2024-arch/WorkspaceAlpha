@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4f24d8c3f497a36c1ce0e06c26dd2540220d8d1b6723e3a340a6bb0b4c6136df"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: bugcrowd-reporting
 description: Bugcrowd-specific reporting tactics complementing report-writing
+tier: "experimental"
 category: security
 risk: safe
 source: https://github.com/elementalsouls/Claude-BugHunter
@@ -13,6 +24,7 @@ compatibility: Process guidance; no tooling required. Docs-only; upstream templa
   not bundled.
 sources: bugcrowd, community
 ---
+
 
 # BUGCROWD REPORTING — Program-Specific Tactics
 

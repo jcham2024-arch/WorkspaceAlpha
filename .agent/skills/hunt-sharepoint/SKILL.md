@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0b746f5c0579c8a2c4d0eb35e8ecdbb0e8e9663231938865e98ac51dfc16fa5c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hunt-sharepoint
 description: Hunt Microsoft SharePoint Server (2013/2016/2019/Subscription Edition)
+tier: "experimental"
   on-prem farms
 category: security
 risk: offensive
@@ -16,6 +27,7 @@ compatibility: Requires explicit written authorization for a target scope plus t
 sources: github, authorized-engagement
 report_count: 1  # imported provenance metadata, not independently verified
 ---
+
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.

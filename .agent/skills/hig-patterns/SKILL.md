@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "91faca8a0844abf82e4d17ba1ac4329fab2fb1d8f0dd75d5337fc349906f7ebc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hig-patterns
 description: Apple Human Interface Guidelines interaction and UX patterns.
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Apple HIG: Interaction Patterns
 

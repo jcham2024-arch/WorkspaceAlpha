@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bf565627a23e1c8239ad2c077ea0dfa8e7d508c4a2bf317b589330451bf8c588"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: vizcom
 description: AI-powered product design tool for transforming sketches into full-fidelity 3D renders.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-07"
 ---
+
 
 # Vizcom Skill
 

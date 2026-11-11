@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fe435590db4131fceefe88d72058f94c156308f428c9bab17bfd96080e24e756"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: api-documentation-generator
 description: "Generate comprehensive, developer-friendly API documentation from code, including endpoints, parameters, examples, and best practices"
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # API Documentation Generator
 

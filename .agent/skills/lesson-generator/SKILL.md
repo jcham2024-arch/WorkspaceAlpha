@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8195cb7b037f0397354caf152f9ac0c63a09807cc19a35b20057c8376cfd4513"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: lesson-generator
 description: Build compact, standalone multi-lesson course artifacts with lesson navigation, objectives, flashcards, quizzes, and source links.
+tier: "experimental"
 category: "education"
 risk: "safe"
 source: "official"
@@ -19,6 +30,7 @@ tools:
   - codex-cli
   - cursor
 ---
+
 
 ## When to Use
 

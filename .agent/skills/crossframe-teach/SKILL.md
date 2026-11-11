@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "73c89a18100e6c6409c33dc36b62e2d0bad0b0798c2aea93fc6ee2f3a91d8a45"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: crossframe-teach
 description: "Use when CrossFrame Suite routes explicit Chinese teaching of CrossFrame concepts, misreading boundaries, plain-language examples, signals, or exercises."
+tier: "experimental"
 category: content
 risk: safe
 source: community
@@ -21,6 +32,7 @@ tags:
   - concepts
   - plain-language
 ---
+
 # CrossFrame Teach
 
 

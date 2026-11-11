@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "043d8b5ac1422a69683699c7769f1f743fee0b6947678d5115c2804e67b186d8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: monte-carlo-monitor-creation
 description: "Guides creation of Monte Carlo monitors via MCP tools, producing monitors-as-code YAML for CI/CD deployment."
+tier: "experimental"
 category: data
 risk: safe
 source: community
@@ -11,6 +22,7 @@ author: monte-carlo-data
 tags: [data-observability, monitoring, monte-carlo, monitors-as-code]
 tools: [claude, cursor, codex]
 ---
+
 
 # Monte Carlo Monitor Creation Skill
 

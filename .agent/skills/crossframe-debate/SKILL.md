@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "13a8f86f4c39c880e5b2df817edffd863534bd72cb6a1988f4fdf937c04e2fd9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: crossframe-debate
 description: "Use when CrossFrame Suite routes explicit Chinese proposition testing, debate analysis, hidden-premise review, rebuttal design, or withdrawal condition checks."
+tier: "experimental"
 category: content
 risk: safe
 source: community
@@ -21,6 +32,7 @@ tags:
   - argument
   - proposition
 ---
+
 # CrossFrame Debate
 
 

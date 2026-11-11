@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c1c23f8118a7e88dedad9d58e02794a4f5798f020cbdd14e411988ea4eb4471d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: uiverify-triage-visual-changes
 description: "Triage a UI Verify visual regression build from your coding agent over MCP: sort changed screenshots into regressions, intended changes and noise, then accept baselines."
+tier: "experimental"
 category: testing
 risk: critical
 source: "https://github.com/uiverify/uiverify/tree/main/packages/skills/skills/triage-visual-changes"
@@ -13,6 +24,7 @@ tools: [claude-code, codex, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/uiverify/uiverify/blob/main/LICENSE"
 ---
+
 
 # Triage a UI Verify build from your agent
 

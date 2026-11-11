@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "284fe5fa9ec07265e9adaf0dea65856ae6efbae6512ddcce67e3311f9785a062"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: stellar-escrow-timelock
 description: 'Decentralized conditional escrow and timelock contract register: multi-signature release conditions, clawback expiry, and settlement triggers.'
+tier: "experimental"
 category: engineering
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [stellar, escrow, timelock, soroban, multisig, settlement]
 tools: []
 source_repo: Ranjeet2063/agentic-awesome-skills
 ---
+
 
 # Stellar Escrow and Timelock Architecture
 

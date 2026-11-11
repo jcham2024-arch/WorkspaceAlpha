@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ac87f9f986abb82e0aa347c379f9c3466169e90f3c03c18c931c050b4c762585"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: family-health-analyzer
 description: 整理家族病史和已知健康记录，识别需要医生或遗传咨询师评估的线索，不计算未经验证的个体发病概率
+tier: "experimental"
 allowed-tools: Read, Write, Grep, Glob
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # 家庭健康分析技能
 

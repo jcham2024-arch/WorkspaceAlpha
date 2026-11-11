@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1a7a845d05d32f70aef8a29e59df9722926383963ac9ea8bc4b5854d1c54f7a9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: crossframe-notebook
 description: "Use when CrossFrame Suite routes explicit Chinese notes for books, theories, articles, excerpts, bidirectional reading, absorption, or conflict mapping."
+tier: "experimental"
 category: content
 risk: safe
 source: community
@@ -21,6 +32,7 @@ tags:
   - research
   - reading
 ---
+
 # CrossFrame Notebook
 
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "07f221c74d1435a631523e0b3030470ac22323f38fdb4f4e490469d8d318e305"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: linear-claude-skill
 description: "Manage Linear issues, projects, and teams"
+tier: "experimental"
 risk: safe
 source: "https://github.com/wrsmith108/linear-claude-skill"
 date_added: "2026-02-27"
 ---
+
 
 ## Detailed Guide
 

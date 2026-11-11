@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "07c3a0fa66aa546b5d4c575b35985084593ae508c58ffc8ec13d9211219f43af"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: xvary-stock-research
 description: "Thesis-driven equity analysis from public SEC EDGAR and market data; /analyze, /score, /compare workflows with bundled Python tools (Claude Code, Cursor, Codex)."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-23"
 ---
+
 
 # XVARY Stock Research Skill
 

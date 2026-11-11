@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5cceab2cd41aacb2d845430ee499c32bd2d2f0c9e6328419d6c8eb4c5e7d0285"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: machine-learning-ops-ml-pipeline
 description: "Design and implement a complete ML pipeline for: $ARGUMENTS"
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Machine Learning Pipeline - Multi-Agent MLOps Orchestration
 

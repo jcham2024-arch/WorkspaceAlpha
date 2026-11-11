@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "115f3c1c76f79f56712a9ca3f8ce1c6d6b6637ce03950eaf4a8417bc8ca608af"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 id: 10-andruia-skill-smith
 name: 10-andruia-skill-smith
 description: "Usar para crear o mejorar una skill de Andru.ia: define entradas y resultados, redacta SKILL.md con ejemplos y límites, valida la estructura y prepara una PR."
+tier: "experimental"
 category: andruia
 risk: safe
 source: personal
 date_added: "2026-02-25"
 ---
+
 
 # 🔨 Andru.ia Skill-Smith (The Forge)
 

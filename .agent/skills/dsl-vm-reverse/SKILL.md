@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "96cb136dd9cce2955c638cbde184f67083bd5769a26d889666c7e1acc7f6a2ac"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: dsl-vm-reverse
 description: "Reverse JavaScript-based custom DSL/VM interpreters and risk-control engines: identify IIFE/switch-based opcode dispatch, extract opcode tables, and capture runtime semantics."
+tier: "experimental"
 risk: critical
 source: "https://github.com/zhaoxuya520/reverse-skill"
 source_repo: "zhaoxuya520/reverse-skill"
@@ -9,6 +20,7 @@ date_added: "2026-08-25"
 license: "MIT"
 license_source: "https://github.com/zhaoxuya520/reverse-skill/blob/main/LICENSE"
 ---
+
 # 🔄 DSL 自定义虚拟机逆向（DSL VM Reverse Engineering）
 ## When to Use
 

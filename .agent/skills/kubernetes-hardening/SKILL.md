@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "60c5026d8905d79f75aba25e488c69863c7028420023cc7e67017db3ef6c72b3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: kubernetes-hardening
 description: Implement Kubernetes security contexts, Pod Security Standards, and network
+tier: "experimental"
   policies.
 category: security
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Kubernetes Hardening
 

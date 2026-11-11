@@ -1,7 +1,18 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9481b9295293ddf3b1687fcf2cd827af8df1c1ff4814887cde3040389a953256"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: skill-suggester
 version: 1.0.0
 description: "Scan prompt history for recurring patterns and unmet needs, then propose new skills or command templates"
+tier: "experimental"
 risk: safe
 source: community
 source_type: community
@@ -10,6 +21,7 @@ license: MIT
 license_source: "https://github.com/mskadu/opencode-agent-skills/blob/main/LICENSE"
 date_added: "2026-06-05"
 ---
+
 
 ## What I do
 

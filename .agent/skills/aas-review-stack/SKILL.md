@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fc7082d9501217d3953bcd6ab6dc44d96a5857ac7c20d40f0276136d59af989f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aas-review-stack
 description: "Review AAS stack manifests, preview plans and selection evidence in Workbench without applying changes."
+tier: "experimental"
 category: agent-tooling
 risk: safe
 source: self
@@ -9,6 +20,7 @@ author: Agentic Awesome Skills (AAS)
 date_added: "2026-10-02"
 tags: [aas, skills, mcp, stack-review]
 ---
+
 
 # Aas Review Stack
 

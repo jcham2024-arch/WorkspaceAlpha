@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b93116c5c4b649a5a01ce8c792ef6e6b81a68323f967c35071be60acccf9ce17"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-photo-restyler
 description: "Install and use the official Photo to Anime package, pinned by digest, for paid hosted work on the Beatra service."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/beatra-ai/photo-to-anime-skill/blob/c2d3fbfffd9c0a04de5672ff8764f88fb13904ea/LICENSE"
 ---
+
 
 # Photo to Anime Skill
 

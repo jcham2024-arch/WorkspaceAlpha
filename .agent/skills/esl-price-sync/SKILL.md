@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bd89f5551094f11b6820b6b61dfeb85a280c27457a327c7fdab62cca42745ced"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: esl-price-sync
 description: "Synchronizes retail prices between ERP/POS systems and Electronic Shelf Labels (SES-imagotag, ZKONG, Pricer, Hanshow, SOLUM) with delta watermarking, idempotency, and battery modeling. Trigger phrases: esl price sync, electronic shelf labels, zkong sync, ses imagotag price, ghost pricing audit."
+tier: "experimental"
 category: architecture
 risk: critical
 source: community
@@ -12,6 +23,7 @@ tags: [retail-tech, esl, iot, supply-chain, systems-integration, enterprise-soft
 tools: [claude, cursor, gemini, windsurf]
 license: "MIT"
 ---
+
 
 # ESL Price Sync: Deterministic Retail Shelf-Edge Pricing Architecture
 

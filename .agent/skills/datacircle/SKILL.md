@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1ce4dd93cc013873e5db2f92994e1e7616e01ae56f8b973063e215f85d49e9c3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: datacircle
 description: "Every plan of every GTM API on datacircle.dev, as one file you download and query. Use the file to compare or price a GTM API."
+tier: "experimental"
 category: data
 risk: critical
 source: self
@@ -10,6 +21,7 @@ author: datacircle
 tags: [b2b-data, linkedin, enrichment, gtm, api-pricing]
 tools: [claude, cursor, gemini]
 ---
+
 
 # Datacircle
 

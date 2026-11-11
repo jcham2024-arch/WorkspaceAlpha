@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "758fbfcb15b901c01b76cb95655d89f6857faf097c6be40d9794157a311efc36"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: logic-lens
 description: "AI-powered Claude Code skill that performs deep code review using formal logic and reasoning frameworks to detect bugs, anti-patterns, and security risks beyond what linters catch."
+tier: "experimental"
 category: development
 risk: safe
 source: community
@@ -13,6 +24,7 @@ author: hyhmrright
 tags: [code-review, logic-analysis, debugging, security-review, claude-code]
 tools: [claude, codex, cursor, gemini]
 ---
+
 
 # Logic Lens
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a2c08a0ff6e6b3f53fb3f4807e2e511ec29a2a51b0fb821a16a3828ae836b8bf"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "woo-guard"
 description: "Review generated or changed WooCommerce extensions, payment and shipping integrations, checkout customizations, and order or product logic."
+tier: "experimental"
 risk: "critical"
 source: "community"
 source_repo: "amElnagdy/guard-skills"
@@ -10,6 +21,7 @@ author: "community"
 tags: []
 tools: []
 ---
+
 
 
 # Woo Guard

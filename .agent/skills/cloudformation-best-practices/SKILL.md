@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "660749a29b26f055569217a94614d63d025c61fd38d9e60ecbf58ab9cfe25739"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cloudformation-best-practices
 description: "CloudFormation template optimization, nested stacks, drift detection, and production-ready patterns. Use when writing or reviewing CF templates."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 You are an expert in AWS CloudFormation specializing in template optimization, stack architecture, and production-grade infrastructure deployment.
 
 ## Use this skill when

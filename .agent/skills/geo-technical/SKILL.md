@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b0034e845ef2fc4f93fcd9b5c50b951035e4eae1247916a849d0b8a9e29dbdb5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: geo-technical
 description: Technical SEO audit with GEO-specific checks — crawlability, indexability,
+tier: "experimental"
   security, performance, SSR, and AI crawler access
 category: seo
 risk: safe
@@ -25,6 +36,7 @@ tags:
 - performance
 allowed-tools: Read, Grep, Glob, Bash, WebFetch, Write
 ---
+
 
 # GEO Technical SEO Audit
 

@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5b64059294b32cb9c50083fade8a1eb1305ff60bc5bb87a28024d4455d2f06a9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-pre-mortem
 description: Before committing to a plan or launch, assume it already failed and reason backward through concrete causes — convert failure paths into mitigations, gates, and stop checks.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Pre-Mortem Analysis
 

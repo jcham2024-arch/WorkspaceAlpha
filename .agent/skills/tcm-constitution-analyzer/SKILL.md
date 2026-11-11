@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5d97e475e46e9bd730a3b118b0eebf762828ac885f1d7ebf0111ceaafee21240"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: tcm-constitution-analyzer
 description: 分析中医体质数据、识别体质类型、评估体质特征,并提供个性化养生建议。支持与营养、运动、睡眠等健康数据的关联分析。
+tier: "experimental"
 allowed-tools: Read, Grep, Glob, Write
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # 中医体质辨识分析器技能
 

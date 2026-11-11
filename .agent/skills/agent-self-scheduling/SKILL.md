@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2ec5a369aeb50b46ef5326f6ad1ff6ea595879ffe766efb798a80e6bbee320ae"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agent-self-scheduling
 description: "Schedule AI agent runs with cron, loops, or external clocks while avoiding unsafe tight autonomous timers."
+tier: "experimental"
 category: agent-orchestration
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex]
 license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 ---
+
 
 # Agent Self-Scheduling
 

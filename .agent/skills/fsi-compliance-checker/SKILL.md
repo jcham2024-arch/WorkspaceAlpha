@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f23e48930d88d89ef2f8c9d06ffabb240be5917081cee828f96b0ddf214f2b54"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fsi-compliance-checker
 description: "Maps code, architecture, and infrastructure changes to specific control IDs in PCI-DSS v4.0.1 and MAS TRM (Singapore financial regulator), producing an audit-traceable findings report with per-control remediation."
+tier: "experimental"
 category: security
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex, antigravity]
 license: "MIT"
 license_source: "https://github.com/timwukp/agent-skills-best-practice/blob/main/LICENSE"
 ---
+
 
 # FSI Compliance Checker
 

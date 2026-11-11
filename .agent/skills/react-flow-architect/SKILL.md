@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a4b1ccaa462f486f976305c67ee41ec58f46df41c1efb490013f96e7009c6e47"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: react-flow-architect
 description: "Build production-ready ReactFlow applications with hierarchical navigation, performance optimization, and advanced state management."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # ReactFlow Architect
 

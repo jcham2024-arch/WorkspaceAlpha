@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1172b5b6033faad4555250b1c039fcd7e2607cce4ccfcb8eeeda3ebf05a2f9a3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fedramp-compliance
 description: Implement FedRAMP requirements for federal cloud services. Configure
+tier: "experimental"
   NIST 800-53 controls and continuous monitoring. Use when providing cloud services
   to US federal agencies.
 category: security
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # FedRAMP Compliance
 

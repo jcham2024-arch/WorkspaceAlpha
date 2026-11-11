@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b5d2d7d9b9b13342c9e8b5db5d55bc1dae81a3e8df9544bafce5be15521d9a54"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: scientific-writing
 description: "Draft and revise scientific manuscripts with evidence-based structure, citation verification, reporting guidelines and venue-specific formatting."
+tier: "experimental"
 license: MIT license
 metadata:
     skill-author: K-Dense Inc.
@@ -8,6 +19,7 @@ risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # Scientific Writing
 

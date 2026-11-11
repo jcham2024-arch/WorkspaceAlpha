@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "615be2cb9b2050c24b7d78a5e054230286713bc458656bcb105e2f1b22e6c9ae"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: flutter-dart-code-review
 description: Library-agnostic Flutter/Dart code review checklist covering widget best practices, state management patterns (BLoC, Riverpod, Provider, GetX, MobX, Signals), Dart idioms, performance, accessibility, security, and clean architecture. Use when reviewing Flutter or Dart code, whatever state management library the project uses.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Flutter/Dart Code Review Best Practices
 

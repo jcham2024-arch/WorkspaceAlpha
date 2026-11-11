@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3b6bbfb96726235b53263bd7d56f3059b5e1562ea8eab3ff7aa3db174d7e7cb6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: nanobanana-ppt-skills
 description: "AI-powered PPT generation with document analysis and styled images"
+tier: "experimental"
 risk: critical
 source: "https://github.com/op7418/NanoBanana-PPT-Skills"
 date_added: "2026-02-27"
 ---
+
 
 # Nanobanana Ppt Skills
 

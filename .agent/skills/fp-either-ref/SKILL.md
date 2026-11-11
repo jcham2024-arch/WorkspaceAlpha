@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c050da632a8abd0325af2c0a2265842f670483b6fe11fa8178ec18145292fad5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fp-either-ref
 description: Quick reference for Either type. Use when user needs error handling, validation, or operations that can fail with typed errors.
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-03-06"
 version: 1.0.0
 tags: [fp-ts, either, error-handling, validation, quick-reference]
 ---
+
 
 # Either Quick Reference
 

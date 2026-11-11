@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9959a82c46cd9aaf0c04fb695f074d6561b20af66219c34a5c3018bbd496d2ca"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: restosignals
 description: "Find US restaurants and bars before they open, as scored leads fused from liquor-license, food-permit and business-filing records, via the RestoSignals MCP server or REST API."
+tier: "experimental"
 category: mcp
 risk: safe
 source: "https://restosignals.com"
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/paperandbeyond23-gif/restosignals-mcp/blob/main/LICENSE"
 ---
+
 
 # RestoSignals
 

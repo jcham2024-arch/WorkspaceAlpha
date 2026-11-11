@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5e630452be98ef0a551371a692c8a55a67e4dbfe6edfec029d052ff7af6846f1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: file-uploads
 description: Expert at handling file uploads and cloud storage. Covers S3,
+tier: "experimental"
   Cloudflare R2, presigned URLs, multipart uploads, and image optimization.
   Knows how to handle large files without blocking.
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # File Uploads & Storage
 

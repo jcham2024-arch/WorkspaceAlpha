@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "33c97b441d618a0542da12274d3b7f7d3ff6f5dde3c863a01adf1d10ca220aed"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mailtrap-testing-with-sandbox
 description: Capture outbound email in Mailtrap Email Sandbox for development, staging, CI, HTML inspection, spam checks, and fake inbox tests.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-06-19"
 ---
+
 
 # Testing with Mailtrap Email Sandbox
 

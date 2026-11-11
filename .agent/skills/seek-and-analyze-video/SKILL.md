@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "20f2b7d124af47e730b0b1333dfb53dda62270ff460b09f3b9b9246a98ef3a71"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seek-and-analyze-video
 description: "Seek and analyze video content using Memories.ai Large Visual Memory Model for persistent video intelligence"
+tier: "experimental"
 category: data-ai
 risk: critical
 source: "https://github.com/kennyzheng-builds/seek-and-analyze-video"
@@ -9,6 +20,7 @@ author: kennyzheng-builds
 tags: [video, ai, memories, social-media, youtube, tiktok, analysis]
 tools: [claude, cursor, gemini]
 ---
+
 
 ## When to Use
 Use this skill when the user wants to search for, import, or analyze video content from TikTok, YouTube, or Instagram, summarize meetings or lectures from recordings, build a searchable knowledge base from video content, or research social media trends and creators.

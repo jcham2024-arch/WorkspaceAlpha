@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "080aa62e95e5e923b5a50566711eb7bec6dc438280d6234964a8339513539a7b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: geo-proposal
 description: Auto-generate a professional, client-ready GEO service proposal from
+tier: "experimental"
   audit data.
 category: seo
 risk: safe
@@ -23,6 +34,7 @@ tags:
 - client
 allowed-tools: Read, Write, Bash, Glob, WebFetch
 ---
+
 
 # GEO Proposal Generator
 

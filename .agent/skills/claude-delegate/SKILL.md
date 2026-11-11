@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a0de3513d9615ee3430e5688d01fbf0cb9dc26b62f30ebe5ac07fccc36b52fec"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: claude-delegate
 description: Delegate coding tasks to a separate Claude Code CLI process or Claude
+tier: "experimental"
   session only when the user explicitly requests it, while the orchestrator retains
   review and landing responsibility.
 risk: critical
@@ -18,6 +29,7 @@ compatibility: Requires the `claude` CLI (Claude Code) installed and authenticat
 metadata:
   version: 0.5.0
 ---
+
 # Claude Delegate
 
 ## When to Use

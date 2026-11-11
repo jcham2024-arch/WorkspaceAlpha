@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a5f59ebb3cc00eed6b2c14368542cb442b90249ad603c5535f229a3b77ef4b8a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-first-principles
 description: When a constraint is treated as fixed, separate physics from convention, keep only independently supported primitives, and rebuild the simplest solution that satisfies real constraints.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # First Principles
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "83ba262283eddc86f1f7aa603d875292de4bfd3d61e96f09d5172c6e11db9763"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: monte-carlo-validation-notebook
 description: "Generates SQL validation notebooks for dbt PR changes with before/after comparison queries."
+tier: "experimental"
 category: data
 risk: critical
 source: community
@@ -11,6 +22,7 @@ author: monte-carlo-data
 tags: [data-observability, validation, dbt, monte-carlo, sql-notebook]
 tools: [claude, cursor, codex]
 ---
+
 
 > **Tip:** This skill works well with Sonnet. Run `/model sonnet` before invoking for faster generation.
 

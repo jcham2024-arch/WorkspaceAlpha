@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "571b8108c7148482873133d603f8a521cd284540ad6895942100b2201615896d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: warehouse
 description: "Plan and review read-only data warehouse analysis with explicit scope, privacy, provenance, and validation checks."
+tier: "experimental"
 category: data
 risk: critical
 source: self
@@ -10,6 +21,7 @@ author: Rudra-G-23
 tags: [analytics, data-warehouse, sql, data-quality]
 tools: [claude, cursor, gemini]
 ---
+
 
 # Warehouse Analysis
 

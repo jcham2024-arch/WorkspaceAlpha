@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4c13bc98051b6b3e92d95affe1ca50d7da3680f9b254b9ec3826b7b6795241a4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hig-components-dialogs
 description: Apple HIG guidance for presentation components including alerts, action sheets, popovers, sheets, and digit entry views.
+tier: "experimental"
 risk: none
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Apple HIG: Presentation Components
 

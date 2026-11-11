@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f61c98b92b7b83550958f215a94a35b56e5b5dc11dddadf32285f6546220169d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: screenstudio-alt
 description: "Open-source headless Screen Studio alternative: auto speed-up of idle, auto-zoom on click clusters, keystroke overlay chips, smoothed synthetic cursor, and 9:16 vertical export that follows the action — post-production for screen recordings from the CLI."
+tier: "experimental"
 risk: critical
 source: community
 source_type: community
@@ -30,6 +41,7 @@ plugin:
     summary: "Screen/input capture requires sensitive local permissions; keep out of plugin-safe bundles."
     docs: SKILL.md
 ---
+
 ## When to Use
 
 Use when polishing a screen recording / demo video for sharing, when the user mentions Screen Studio, auto-zoom, idle speed-up, or vertical/social video from a screen capture, and for any social-facing demo (vertical output is the default for those).

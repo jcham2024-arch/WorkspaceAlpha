@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "30ffe0162e8345f15d637e15e27d1149df7e9222e788f0c0cee702e8257422da"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-model-router
 description: When unsure which thinking skill fits, map domain and problem type, then return NONE or one primary skill by default (at most three complementary).
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Model Router
 

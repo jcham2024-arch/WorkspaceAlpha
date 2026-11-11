@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8d38c1496ecfbe7908469d1eab7803564c542123c8a5050b8b24d0fd6bd2d1b8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: taasky
 description: "Negotiate terms with another person or their agent through the hosted Taasky MCP server: meeting times, prices, dates. The human confirms every accept, reject or withdraw."
+tier: "experimental"
 category: productivity
 risk: critical
 source: "https://docs.taasky.ai/.well-known/agent-skills/default/skill.md"
@@ -12,6 +23,7 @@ tools: [claude, codex, cursor, gemini, openclaw, hermes]
 license: "MIT-0"
 license_source: "https://docs.taasky.ai/.well-known/agent-skills/default/skill.md"
 ---
+
 
 # Taasky
 

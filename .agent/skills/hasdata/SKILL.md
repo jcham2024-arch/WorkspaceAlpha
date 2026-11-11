@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ab4309ecbce1a5cc882e0fbc764d019c2d0a7e5aaf1f6ccb741bcf3fc42afbf5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hasdata
 description: Use HasData APIs for web scraping and structured web data extraction.
+tier: "experimental"
 risk: critical
 source: official
 source_type: official
@@ -9,6 +20,7 @@ license: MIT
 license_source: "https://github.com/HasData/hasdata-cli/blob/main/LICENSE"
 date_added: "2026-06-04"
 ---
+
 
 # HasData
 

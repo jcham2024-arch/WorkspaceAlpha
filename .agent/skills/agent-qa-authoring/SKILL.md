@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "92477fcfa45ce76dae76a24ad0c96b5a437e6499f10117d3b0d7eaf948f4a2da"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agent-qa-authoring
 description: "Create, edit, validate, and run Agent QA tests, suites, and hooks through MCP or CLI while preserving canonical IDs and schema contracts."
+tier: "experimental"
 category: testing
 risk: critical
 source: https://github.com/vostride/agent-qa/tree/main/skills/agent-qa-authoring
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: FSL-1.1-ALv2
 license_source: https://github.com/vostride/agent-qa/blob/main/LICENSE.md
 ---
+
 
 # Agent QA Authoring
 

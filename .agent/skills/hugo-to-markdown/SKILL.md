@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4c786e78c440c61f0060ed3fee4eb476e16614464c201346865813b48dcfa85f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hugo-to-markdown
 description: "Convert Hugo documentation sites and Hugo-managed content into standard Markdown."
+tier: "experimental"
 risk: critical
 source: https://github.com/chaunsin/agent-skills/tree/master/skills/hugo-to-markdown
 source_repo: chaunsin/agent-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: Apache-2.0
 license_source: https://github.com/chaunsin/agent-skills/blob/master/LICENSE
 ---
+
 
 # Hugo To Markdown
 ## When to Use

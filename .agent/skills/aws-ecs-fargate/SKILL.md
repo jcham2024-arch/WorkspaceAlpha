@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "60e1f21b4f0091e1bac8dc21a3442758fe7aee54db414f34c6e2a79c9f62181a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aws-ecs-fargate
 description: Deploy containers on ECS and Fargate. Configure task definitions, services,
+tier: "experimental"
   and load balancing. Use when running containerized workloads on AWS.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # AWS ECS & Fargate
 

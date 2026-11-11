@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "929dbeda7c81383d07200a5215516306d3a11c5492d30256b4c9ff1bb3f28a6e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: redis-patterns
 description: Redis data structure patterns, caching strategies, distributed locks, rate limiting, pub/sub, and connection management for production applications. Use when adding caching, a distributed lock, rate limiting, or pub/sub with Redis, or when key design needs review.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Redis Patterns
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7580fed62f4fd5d950bd6ed8e93dd36c1ffb86edba5a16c41d46e60ee860b889"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: makepad-animation
 description: |
+tier: "experimental"
   CRITICAL: Use for Makepad animation system. Triggers on:
   makepad animation, makepad animator, makepad hover, makepad state,
   makepad transition, "from: { all: Forward", makepad pressed,
@@ -9,6 +20,7 @@ risk: safe
 source: community
 date_added: "2026-03-06"
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1bf016735d43526329193015293b0430356392631923a4adfd495ce7d7b524a1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: high-end-visual-design
 description: "Use when designing expensive agency-grade interfaces with premium fonts, spatial rhythm, soft depth, and fluid microinteractions."
+tier: "experimental"
 category: frontend
 risk: safe
 source: community
@@ -11,6 +22,7 @@ author: Leonxlnx
 tags: [frontend, visual-design, motion, ui]
 tools: [claude, cursor, codex, antigravity]
 ---
+
 # Agent Skill: Principal UI/UX Architect & Motion Choreographer (Awwwards-Tier)
 
 ## When to Use

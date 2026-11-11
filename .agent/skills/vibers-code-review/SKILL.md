@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d0cd6df2eacbe7a835784a171d71ba892af696938510d44aa9549fba560ad925"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: vibers-code-review
 description: Human review workflow for AI-generated GitHub projects with spec-based feedback, security review, and follow-up PRs from the Vibers service.
+tier: "experimental"
 risk: critical
 source: https://github.com/marsiandeployer/vibers-action
 date_added: "2026-03-17"
 ---
+
 
 # Vibers — Human Code Review for AI-Generated Projects
 

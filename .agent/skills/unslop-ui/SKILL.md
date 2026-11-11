@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0cdb94e8fe8a551c1ab9d83e2800a4b29d6cc8385a04c7072811ea69e531a5c7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: unslop-ui
 description: "Audit and redesign AI-generated interfaces with product-specific visual direction, structured design passes, and optional snapshots or story video."
+tier: "experimental"
 risk: critical
 source: community
 source_repo: heydamir/unslop
@@ -14,6 +25,7 @@ metadata:
   x: https://x.com/heydamir
   site: https://heydamir.design/unslop
 ---
+
 
 # Unslop UI
 

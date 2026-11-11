@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4471ee6f288419b1929f2bc577d36e26bc44710ebc4a4fe5f18ab5a2ee6012ab"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: bash-scripting
 description: "Bash scripting workflow for creating production-ready shell scripts with defensive patterns, error handling, and testing."
+tier: "experimental"
 category: granular-workflow-bundle
 risk: safe
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 # Bash Scripting Workflow
 

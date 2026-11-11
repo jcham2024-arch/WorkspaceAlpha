@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "860818660176d959dfcf18b8ff4f58b96d945da79fa4799511f570352615ff64"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: zeroize-audit
 description: "Detects missing zeroization of sensitive data in source code and identifies zeroization removed by compiler optimizations, with assembly-level analysis, and control-flow verification. Use for auditing C/C++/Rust code handling secrets, keys, passwords, or other sensitive data."
+tier: "experimental"
 allowed-tools:
   - Read
   - Grep
@@ -17,6 +28,7 @@ risk: offensive
 source: community
 date_added: "2026-03-06"
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the referenced supporting paths, including `tools/`, `schemas/`, `configs/`, `prompts/`, `workflows/` and `references/detection-strategy.md`. They are external prerequisites, not bundled files:

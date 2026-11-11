@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d3a6e67a012835cc25f4a8fffc1573e48feeab0f7e0e1bd94dc56d1932e0e193"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-eventhub-rust
 description: Azure Event Hubs SDK for Rust. Use for sending and receiving events, streaming data ingestion.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Azure Event Hubs SDK for Rust
 

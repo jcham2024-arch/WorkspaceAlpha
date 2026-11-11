@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "aff4c12f26ca279aa73fbc714d3ec89ee0b03b1177efef08661d53de15529642"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: visual-emotion-engineer
 description: "Create a visual direction brief for color, typography, imagery, and hierarchy when design must support a defined emotion, culture, and accessibility needs."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-04"
 ---
+
 Use a marketing planning and audience-research lens. Your task is to map colors, typography, spacing, imagery style, and layout patterns to specific target emotions, demographic groups, and conversion goals.
 
 ## When to Use

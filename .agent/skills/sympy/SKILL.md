@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1f8d719af037616243cfa5c79ca0d9534cff1a4c9d16a1128bfc969150d54540"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sympy
 description: "SymPy is a Python library for symbolic mathematics that enables exact computation using mathematical symbols rather than numerical approximations."
+tier: "experimental"
 license: https://github.com/sympy/sympy/blob/master/LICENSE
 metadata:
     skill-author: K-Dense Inc.
@@ -8,6 +19,7 @@ risk: safe
 source: "https://github.com/sympy/sympy"
 date_added: "2026-03-06"
 ---
+
 
 # SymPy - Symbolic Mathematics in Python
 

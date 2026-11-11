@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d811c00b04cd0c952238a43f88744232574cd48c1f50fd4c064fad6ea711723b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cdn-setup
 description: Configure CDNs for content delivery. Set up CloudFront, Cloudflare, and
+tier: "experimental"
   Fastly. Use when optimizing global content delivery.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # CDN Setup
 

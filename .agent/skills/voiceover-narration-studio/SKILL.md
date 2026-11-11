@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0db3d45ffdebbffb067212f18afd9f1eee83adb6215a2bc7c251454d061d9803"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: voiceover-narration-studio
 description: "Install and use the official AI Voiceover Generator package, pinned by digest, for paid hosted work on the Beatra service."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/beatra-ai/ai-voiceover-generator-skill/blob/2db317f5ed2fefae69f4a2cbc4b9bcf54c974d62/LICENSE"
 ---
+
 
 # AI Voiceover Generator Skill
 

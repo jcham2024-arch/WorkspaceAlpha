@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "696b9173cb9bfeaf348e8eae9f2818938ca1fde10ced6ace9dd2e9d28f1c3d7e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: java-coding-standards
 description: "Java coding standards for Spring Boot and Quarkus services: naming, immutability, Optional usage, streams, exceptions, generics, CDI, reactive patterns, and project layout. Automatically applies framework-specific conventions. Use when writing or reviewing Java in a Spring Boot or Quarkus service."
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Java Coding Standards
 

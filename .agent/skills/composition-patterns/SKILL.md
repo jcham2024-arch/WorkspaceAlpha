@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "46ae8420f93759d1cbf9064d680d898ec45f65070343742e634a437303e19cd8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: composition-patterns
 description: "Use when working with composition-patterns tasks or workflows"
+tier: "experimental"
 risk: safe
 source: "https://github.com/vercel-labs/agent-skills"
 date_added: "2026-06-02"
 ---
+
 
 # React Composition Patterns
 

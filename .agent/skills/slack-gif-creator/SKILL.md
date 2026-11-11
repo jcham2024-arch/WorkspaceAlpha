@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9182785aead0bf85f9ff806204cf45e1067c42eaa15750edf5fc16da44c35a35"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: slack-gif-creator
 description: "A toolkit providing utilities and knowledge for creating animated GIFs optimized for Slack."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Slack GIF Creator
 

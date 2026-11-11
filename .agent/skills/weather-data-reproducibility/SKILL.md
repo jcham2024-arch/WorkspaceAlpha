@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8bb67c48cc9e3743f417ada1f932892a62bdb3dcb797f1d33f5834b609d85863"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: weather-data-reproducibility
 description: "Record and verify provenance manifests for weather-data inputs and derived artifacts, including object identity, selections, software versions, transformations, and hashes."
+tier: "experimental"
 category: data
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: ShianMike
 tags: [weather, reproducibility, provenance, checksums, grib2, netcdf]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Weather Data Reproducibility
 

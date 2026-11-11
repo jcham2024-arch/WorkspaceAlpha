@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2d69e043a6b125682efd95a5ac0093d9fa0b222557f6c0c7d97085490e70daa0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-page
 description: >
+tier: "experimental"
   Deep single-page SEO analysis covering on-page elements, content quality,
   technical meta tags, schema, images, and performance. Use when user says
   "analyze this page", "check page SEO", or provides a single URL for review.
@@ -16,6 +27,7 @@ allowed-tools:
   - Bash
   - WebFetch
 ---
+
 
 # Single Page Analysis
 

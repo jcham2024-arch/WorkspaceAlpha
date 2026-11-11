@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6d962a255f872f4f891171043e4d147918270359961873699915d2d5426a45a3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: puzzle-activity-planner
 description: "Plan puzzle-based activities for classrooms, parties, and events with pre-configured generator links"
+tier: "experimental"
 category: education
 risk: safe
 source: community
@@ -11,6 +22,7 @@ author: fruitwyatt
 tags: [education, puzzle, classroom, activity-planning, event]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Puzzle Activity Planner
 

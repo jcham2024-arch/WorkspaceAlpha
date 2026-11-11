@@ -1,4 +1,14 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e390af3878015e4a5cd7f8121aa2c595898afce58fdd550d478dfa34a55c034d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 # agentskills.io compliant frontmatter
 name: clarity-gate
 risk: critical
@@ -6,6 +16,7 @@ source: community
 date_added: "2026-01-30"
 version: 2.1.3
 description: >
+tier: "experimental"
   Pre-ingestion verification for epistemic quality in RAG systems.
   Ensures documents are properly qualified before entering knowledge bases.
   Produces CGD (Clarity-Gated Documents) and validates SOT (Source of Truth) files.
@@ -33,6 +44,7 @@ outputs:
     spec: docs/CLARITY_GATE_FORMAT_SPEC.md
 spec_version: "2.1"
 ---
+
 
 # Clarity Gate v2.1
 

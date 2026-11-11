@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6d3927e46c938a928ccd788d10a4883101910e62e6a0fded9ac869ea5dee3ab7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-communication-chat-java
 description: "Build real-time chat applications with thread management, messaging, participants, and read receipts."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Azure Communication Chat (Java)
 

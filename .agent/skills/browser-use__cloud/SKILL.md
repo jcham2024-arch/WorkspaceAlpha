@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c68d37fca194a7d068c4d84fb9b4f7208d5d444ea1af8b1e2ce8a96fd0c36a6d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cloud
 description: >
+tier: "experimental"
   Documentation reference for using Browser Use Cloud — the hosted API
   and SDK for browser automation. Use this skill whenever the user needs
   help with the Cloud REST API (v2, v3, or v4), browser-use-sdk (Python or
@@ -15,6 +26,7 @@ description: >
   (Agent, Browser, Tools config) — use the open-source skill instead.
 allowed-tools: Read
 ---
+
 
 # Browser Use Cloud Reference
 

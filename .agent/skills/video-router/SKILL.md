@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "972a391b73fe241772059b3eeb3b4cdac123d89fe7ccb87c64509d2615758d46"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: video-router
 description: "Route a video-production brief to generation, deterministic composition, supplied-footage editing, or an automatic cross-modal plan before production begins."
+tier: "experimental"
 category: media
 risk: none
 source: "https://github.com/Orkas-AI/Orkas-VideoStudio/tree/dd4a0f40b2bc6c6b0fe6f2e732c9540ffffefe08/packages/skills/video-router"
@@ -13,6 +24,7 @@ license_source: "https://github.com/Orkas-AI/Orkas-VideoStudio/blob/dd4a0f40b2bc
 tags: [video, routing, editing, composition, generation]
 tools: [claude, codex, cursor, gemini]
 ---
+
 
 # Video Router
 

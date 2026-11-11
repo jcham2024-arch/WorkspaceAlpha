@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "43e0ba0efa7067ac6f1a6030e3621221f717973f704944a9dc18dd7edd2d4809"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: continuous-learning-v2
 description: Instinct-based learning system that observes sessions via hooks, creates atomic instincts with confidence scoring, and evolves them into skills/commands/agents. v2.1 adds project-scoped instincts to prevent cross-project contamination. Use when capturing lessons from a session, managing instincts, or promoting them into skills, commands, or agents.
+tier: "experimental"
 metadata:
   version: 2.1.0
   origin: ECC
 ---
+
 
 # Continuous Learning v2.1 - Instinct
 -Based Architecture

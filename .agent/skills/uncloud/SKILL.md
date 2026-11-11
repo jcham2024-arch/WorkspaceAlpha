@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "453a5fc3f033f0263cce28ed51d4f8341648debd5abd56cd559cd39ef8ce5dd3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: uncloud
 description: Use when managing an Uncloud cluster — deploying services, configuring Caddy ingress, adding static proxy routes for non-cluster devices, publishing ports, scaling, inspecting logs, or managing machines and volumes with the `uc` CLI.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Uncloud Cluster Management
 

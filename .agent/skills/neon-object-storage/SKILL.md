@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e1a703d32d4d559fd86b25945429d108cf05827b6dcd02691621176b9ecb134f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: neon-object-storage
 description: "S3-compatible object storage that branches with your Neon project, so files and the database stay in sync across every branch."
+tier: "experimental"
 risk: critical
 source: https://github.com/neondatabase/agent-skills/tree/main/skills/neon-object-storage
 source_repo: neondatabase/agent-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: Apache-2.0
 license_source: https://github.com/neondatabase/agent-skills/blob/main/LICENSE
 ---
+
 
 # Neon Object Storage
 

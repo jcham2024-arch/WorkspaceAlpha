@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6d0a0e14d154d9b79a6525357db248ee9066203df5392914136afc7693aff192"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: prediction-market-risk-review
 description: Review prediction-market, basket, oracle, and trading-agent workflows for compliance, safety, data-quality, privacy, and execution risk. Use before any workflow handles venue auth, user portfolio data, API keys, or trade planning.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Prediction Market Risk Review
 

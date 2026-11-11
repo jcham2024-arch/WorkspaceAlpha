@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2064e4e53789e2bf688a047f9df32f99b7545c74b38c102f5affa7c658c152fb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: postel-writing
 description: "Find posts going viral in the user's niche, write their own version in their voice for X (Twitter), LinkedIn, Bluesky or Mastodon, and schedule or publish it through the user's Postel account."
+tier: "experimental"
 category: marketing
 risk: critical
 source: "https://github.com/robinfaraj/postel-mcp/tree/fe2c6756d1989490f6c2b168c5ef27ea0a052571/skills/postel-writing"
@@ -13,6 +24,7 @@ author: robinfaraj
 tags: [linkedin, twitter, bluesky, mastodon, viral-posts, writing, scheduling, social-media, mcp]
 tools: [claude, cursor, gemini]
 ---
+
 
 # Postel: turn viral posts into your own, then schedule them
 

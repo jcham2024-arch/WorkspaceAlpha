@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a9436ae05fb13d4dbe122c6410d69483a168c516aa547218c05229ba73d71d3a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: footval-follow-matches-and-tables
 description: "Football scores, fixtures, match centres and league tables through FootVal: live and past results, a team's next or last matches, events, statistics, line-ups and standings."
+tier: "experimental"
 category: data
 risk: safe
 source: "https://github.com/target1m/footval-mcp/tree/e852de8dd9b714a8b159e8d349d8f397f8f35870/skills/follow-matches-and-tables"
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: MIT
 license_source: "https://github.com/target1m/footval-mcp/blob/e852de8dd9b714a8b159e8d349d8f397f8f35870/LICENSE"
 ---
+
 
 # Scores, matches and tables
 

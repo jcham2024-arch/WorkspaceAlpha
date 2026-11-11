@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f4d4a2f3c09c8e8d186b416accbc763abb9f02400617a06ca1cdd19a8e5cacf5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: varlock-claude-skill
 description: "Secure environment variable management with explicit checks to reduce secret exposure in Claude sessions, terminals, logs, or git commits"
+tier: "experimental"
 risk: safe
 source: "https://github.com/wrsmith108/varlock-claude-skill"
 date_added: "2026-02-27"
 ---
+
 
 # Varlock Claude Skill
 

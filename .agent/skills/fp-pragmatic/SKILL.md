@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4798a8de3c453a5dd25b89d1f1516a15d89ed7d243e49f06d106ea0d58ad4a22"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fp-pragmatic
 description: A practical, jargon-free guide to functional programming - the 80/20 approach that gets results without the academic overhead
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-01-30"
@@ -14,6 +25,7 @@ tags:
   - beginner-friendly
   - best-practices
 ---
+
 
 # Pragmatic Functional Programming
 

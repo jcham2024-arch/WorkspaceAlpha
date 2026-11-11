@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f9103f09f80283cfa7c74632b185391dd3401db2471e428d532f648c19d218af"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: wordpress-centric-high-seo-optimized-blogwriting-skill
 description: "Generate clean, human-sounding, SEO-optimized WordPress blog posts with optional Yoast metadata, JSON-LD schema markup, and image SEO planning. Supports modular batch output."
+tier: "experimental"
 category: content
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [writing, blog, seo, content, wordpress]
 tools: [claude, cursor, gemini]
 version: 1.1.0
 ---
+
 
 # WordPress SEO Blog Writing Skill
 

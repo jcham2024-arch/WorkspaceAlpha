@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5d43120817061523eafb2e60bb7ad3b5944392bd995dcf36279ca1fa20ef4e4d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: linkedin-content-generator
 description: "AI-powered LinkedIn content suite: generate posts, carousels, newsletters, and 30-day calendars with niche-specific SEO rules and a feedback-based personal memory system."
+tier: "experimental"
 category: marketing
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude]
 license: "MIT"
 license_source: "https://github.com/sarveshtalele/linkedin-content-skill/blob/main/LICENSE"
 ---
+
 
 # LinkedIn Content Generator
 

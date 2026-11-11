@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f802a5cfa0d1e6348c13ffad9719ad156e8e4cc0061bcfeb2edb8ce57e138b6f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ecommerce-listing-image-set
 description: "Install and use the official Ecommerce Product Images package, pinned by digest, for paid hosted work on the Beatra service."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/beatra-ai/ecommerce-product-images-skill/blob/c70a939466ce192fa15eb60a46e83980def6c938/LICENSE"
 ---
+
 
 # Ecommerce Product Images Skill
 

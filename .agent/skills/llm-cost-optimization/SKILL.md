@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "becc636e5c701045ce00ef622847ab9ec8ac34c8ad8d3812dbd9a5d53eddb1b4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: llm-cost-optimization
 description: Reduce LLM API and infrastructure costs through model selection, prompt
+tier: "experimental"
   caching, batching, caching, quantization, and self-hosting strategies.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # LLM Cost Optimization
 

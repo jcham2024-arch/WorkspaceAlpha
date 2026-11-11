@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f52aa6a43801a0706ecc048598ff9c2d94478e991eac19f14d8a42450e0f8aac"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: kotlin-ktor-patterns
 description: Ktor server patterns including routing DSL, plugins, authentication, Koin DI, kotlinx.serialization, WebSockets, and testApplication testing. Use when building a Ktor server — routing, plugins, auth, DI, serialization, or tests.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Ktor Server Patterns
 

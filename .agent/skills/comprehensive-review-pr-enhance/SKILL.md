@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "949b328c9dc3f7827ec8f29913e744a701cd3de1d03c75d95bc5fb03d98283a5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: comprehensive-review-pr-enhance
 description: >
+tier: "experimental"
   Generate structured PR descriptions from diffs, add review checklists,
   risk assessments, and test coverage summaries. Use when the user says
   "write a PR description", "improve this PR", "summarize my changes",
@@ -9,6 +20,7 @@ risk: critical
 source: community
 date_added: "2026-01-28"
 ---
+
 
 # Pull Request Enhancement
 

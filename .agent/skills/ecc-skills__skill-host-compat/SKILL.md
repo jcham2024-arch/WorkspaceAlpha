@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "dbe0b88bd5efd0dfdf0ec30155f5f02d54580a9adc07601613ec964e570167c7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: skill-host-compat
 description: Lint ECC skills for Codex/Cursor-safe frontmatter and Claude-only substitutions before a skill PR.
+tier: "experimental"
 origin: ECC
 ---
+
 
 # Skill Host Compatibility
 

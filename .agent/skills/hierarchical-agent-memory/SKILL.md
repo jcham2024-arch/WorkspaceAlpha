@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fa3ff3d956ad2786289d58800d8c33aebe424085aea95966ddd8f27bf3a27fa7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hierarchical-agent-memory
 description: "Scoped CLAUDE.md memory system that reduces context token spend. Creates directory-level context files, tracks savings via dashboard, and routes agents to the right sub-context."
+tier: "experimental"
 risk: safe
 source: "https://github.com/kromahlusenii-ops/ham"
 date_added: "2026-02-27"
 ---
+
 
 # Hierarchical Agent Memory (HAM)
 

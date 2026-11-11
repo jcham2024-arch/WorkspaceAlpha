@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "da2e638244fe9b52702fdb0f227ea6169eb0ed28267f0d4f2ab1a3f51fbeb510"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: local-seo-audit-checklist
 description: "Local SEO Audit Checklist. Use when working with business type, location and profile or site details."
+tier: "experimental"
 category: Local SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Local SEO Audit Checklist
 
 ## Overview

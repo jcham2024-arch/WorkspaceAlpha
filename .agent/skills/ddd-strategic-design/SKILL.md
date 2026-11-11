@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5fd9f7f722eb0d5e77e121af800b380fd5bb140bafbe2e6578f9ad93c5231780"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ddd-strategic-design
 description: "Design DDD strategic artifacts including subdomains, bounded contexts, and ubiquitous language for complex business domains."
+tier: "experimental"
 risk: safe
 source: self
 tags: "[ddd, strategic-design, bounded-context, ubiquitous-language]"
 date_added: "2026-02-27"
 ---
+
 
 # DDD Strategic Design
 

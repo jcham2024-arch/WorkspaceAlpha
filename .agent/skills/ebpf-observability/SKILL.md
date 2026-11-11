@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b104c7ac3bf778c96f6bc32e245fc306d2af3465ce3857895077c1de3b3b71cd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ebpf-observability
 description: Use eBPF for deep kernel-level observability — trace syscalls, network
+tier: "experimental"
   flows, and application behavior without code changes using Cilium, Tetragon, and
   bpftrace.
 category: devops
@@ -18,6 +29,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # eBPF Observability
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f851919f60410ec574024a977f4eb6d6e6a7fb81114a72c464856e914de4ccb2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-code-generation-guardrails
 description: 'Use when reviewing AI-generated code before merge or execution: plan AST/security checks, isolated behavior tests and evidence, with language-specific coverage limits.'
+tier: "experimental"
 category: engineering
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [ai, security, guardrails, ast, code-quality, devsecops]
 tools: []
 source_repo: Ranjeet2063/agentic-awesome-skills
 ---
+
 
 # AI Code Generation Guardrails
 

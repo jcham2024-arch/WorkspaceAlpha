@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "60091c54d426eb95b1df343db68695f95185e3736be538e0b72cc7770e609a85"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-ooda
 description: Use under time pressure when the situation is still changing and you must act before certainty — cycle Observe→Orient→Decide→Act on ~70% confidence, then re-observe.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # OODA Loop
 

@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c1cbf565caae5ec548f51ad190672d558e2d5c0f38b36e68a4896afc245ce62d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: deep-research
 description: Conduct systematic academic literature reviews in 6 phases, producing structured notes, a curated paper database, and a synthesized final report. Output is organized by phase for clarity.
+tier: "experimental"
 argument-hint: [topic]
 ---
+
 
 # Deep Research Skill
 

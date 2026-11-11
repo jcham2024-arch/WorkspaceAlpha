@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d7ed4566efec16d3cbf7c803e17f5ca1725f45c734cd3f1c811c23db13b99ca5"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: second-deposit-igaming
 description: "Explore local casino deposit exports with heuristic signals and descriptive comparisons. Sensitive player data; contact lists and country-rule use require separate operator verification."
+tier: "experimental"
 category: business
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude]
 license: "MIT"
 license_source: "https://github.com/igamingsychov/second-deposit-igaming/blob/main/LICENSE"
 ---
+
 
 # second-deposit-igaming: why first-time depositors skip the second deposit
 

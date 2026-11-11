@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "36f97b68b5a83b851b156071a3dc2adc482dc81242d80b1a062f7b64531b4cd5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: apify-facebook-ads-library-scraper
 description: "Research Meta Ad Library ads by advertiser or keyword with creative links, dates and disclosed reach or spend through the harshmaur/facebook-ads-library-scraper Apify Actor."
+tier: "experimental"
 category: data
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: "MIT"
 license_source: "https://github.com/harshmaur/apify-facebook-ads-library-scraper/blob/main/LICENSE.txt"
 ---
+
 
 # Facebook Ads Library Scraper
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d81eceef1500fb48ec272eb3b6efb198ee3d7908d74b7169c7eb8528cae76541"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: logic-explain
 description: "Explain what a specific piece of code actually does for a given input by producing a step-by-step execution trace (interprocedural, with name resolution and type transitions)."
+tier: "experimental"
 risk: safe
 source: https://github.com/hyhmrright/logic-lens/tree/main/skills/logic-explain
 source_repo: hyhmrright/logic-lens
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/hyhmrright/logic-lens/blob/main/LICENSE
 ---
+
 
 # Logic-Lens — Execution Explain
 ## When to Use

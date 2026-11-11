@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a9c8bd6d631658801b7607f6c9bcf9bd1484e7c078b3f72501208ea73bff338e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: md2video-audio
 description: "Convert Markdown documents into narrated MP4 videos with synchronized visuals and voice narration."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "Apache-2.0"
 license_source: "https://github.com/70v-Yoyo/md2video-audio-skill/blob/main/LICENSE"
 ---
+
 
 # Md2video-audio
 

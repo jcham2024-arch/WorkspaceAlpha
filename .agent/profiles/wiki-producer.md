@@ -15,6 +15,7 @@ reads:
   - .context/manifest.json
   - .wiki/agent.md
 verify: "Rebuilt .wiki/index.html contains the new sections; validation PASS; every claim anchors to a node id."
+owner: "wiki-producer"
 ---
 
 # Wiki Producer

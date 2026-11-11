@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d80af6b74c733f7e2f667c32c57a5bb752db67204b0363b85acad2984afcf0f5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: unsplash-integration
 description: Integration skill for searching and fetching high-quality, free-to-use professional photography from Unsplash.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-07"
 ---
+
 
 # Unsplash Integration Skill
 

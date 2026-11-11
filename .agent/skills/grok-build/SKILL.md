@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "10553abb8e913d94823b695c293371167d54dce18a23bd396957150e9d4cf8c4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: grok-build
 description: "Delegate well-specified implementation tasks to xAI's Grok Build CLI running headlessly while the orchestrating agent plans, writes task specs, reviews every diff, and owns the result."
+tier: "experimental"
 category: agent-orchestration
 risk: critical
 source: https://github.com/sanjay3290/ai-skills/tree/main/skills/grok-build
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "Apache-2.0"
 license_source: "https://github.com/sanjay3290/ai-skills/blob/main/LICENSE"
 ---
+
 
 # Grok Build Orchestration
 

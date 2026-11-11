@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a8df80b152c425fb750aacb04f6476dd0540af8fafe7e912e0a7eaba8d6f2d3a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hipaa-compliance
 description: Implement HIPAA security and privacy rules. Configure PHI protections
+tier: "experimental"
   and BAA requirements. Use when handling healthcare data.
 category: security
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # HIPAA Compliance
 

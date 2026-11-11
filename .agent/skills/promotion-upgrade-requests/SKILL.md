@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cfac620c2fcb8966bde57efd52402e2dc65497af6a81f745f755552caf535cc9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: promotion-upgrade-requests
 description: 'Promotion register: current and requested role and grade, justification, OKR and behaviour scores, time in role, salary proposal and decision. Use for upgrade requests.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, develop]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Promotion & Upgrade Requests
 

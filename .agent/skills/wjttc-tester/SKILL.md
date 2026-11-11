@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9f93fe1b2055fab5e42a4f75fcb1afcd797c94d895ee7088cf40178c48f7f404"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: wjttc-tester
 description: "F1-inspired test EXECUTOR + reporter. Runs a test plan, finds and reproduces bugs, audits suite signal integrity, then files a WJTTC report (Brake/Engine/Aero/Tyre/Pit) with a tier verdict."
+tier: "experimental"
 risk: critical
 source: https://github.com/Wolfe-Jam/faf-skills/tree/main/skills/wjttc-tester
 source_repo: Wolfe-Jam/faf-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/Wolfe-Jam/faf-skills/blob/main/LICENSE
 ---
+
 
 # WJTTC Championship Tester
 

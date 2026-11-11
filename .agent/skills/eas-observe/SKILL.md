@@ -1,5 +1,16 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3c47d24e17bf545eec66a14f192a259ac37e2ab30911ebad4e471fccc51670de"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 description: Curated upstream guidance for Eas Observe; use when the workflow matches the user goal.
+tier: "experimental"
 name: eas-observe
 version: 1.1.0
 license: MIT
@@ -9,6 +20,7 @@ source: expo
 date_added: '2026-09-21'
 risk: critical
 ---
+
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.

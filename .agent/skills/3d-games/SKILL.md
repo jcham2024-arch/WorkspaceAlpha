@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a4b48192bf34d9512b18cdb695c3b8f014ab70377df04fac15c25e4468868149"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: 3d-games
 description: "3D game development principles. Rendering, shaders, physics, cameras."
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # 3D Game Development
 

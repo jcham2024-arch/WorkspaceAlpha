@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6aaba79174a7322da1effee4e71396b6461ccb5d5f6d942a7f3493365c8421b1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: review-multi-agent-orchestration
 description: "Use when a supervisor, swarm, graph, planner-worker system, or parallel agent workflow needs review for task boundaries, shared state, branch joins, retries, cancellation, context handoffs, budgets, deadlocks, or human escalation before implementation or production rollout."
+tier: "experimental"
 risk: safe
 source: self
 date_added: "2026-08-19"
 ---
+
 
 # Review Multi-Agent Orchestration
 

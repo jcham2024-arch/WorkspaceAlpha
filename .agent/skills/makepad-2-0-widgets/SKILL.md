@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "286dfd384f48e5fff49d6967bc58d74a1692cffe85e361d8d40bab675e5cc3a1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: makepad-2-0-widgets
 description: Makepad 2.0 guidance for widgets; use when building or debugging Makepad UI code.
+tier: "experimental"
 source_repo: zhanghandong/makepad-skills
 source_type: community
 source: community
 date_added: '2026-09-21'
 risk: unknown
 ---
+
 ## When to Use
 - Choose Makepad widgets or diagnose widget properties, list virtualization, dialogs or custom drawing in an existing Makepad project.
 - Establish the exact dependency revision and DSL first; these imported dev-branch notes are not a stable 2.0 API contract or a compiled example suite. Check the matching [official Makepad source](https://github.com/makepad/makepad) before changing a working project.

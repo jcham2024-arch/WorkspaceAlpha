@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a5206b492f059038b48fb011672ec065bbab7736a2074623a2ccefb33b919896"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: brooks-harness
 description: "Maintenance orchestrator for the brooks-lint plugin itself."
+tier: "experimental"
 risk: critical
 source: https://github.com/hyhmrright/brooks-lint/tree/main/.claude/skills/brooks-harness
 source_repo: hyhmrright/brooks-lint
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/hyhmrright/brooks-lint/blob/main/LICENSE
 ---
+
 
 # brooks-lint — Maintenance Harness (Orchestrator)
 ## When to Use

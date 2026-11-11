@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "07cbcd7e3ee19c690dc54f114689ea1da905e2193e13fe79234c6380ec89b874"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: oral-health-analyzer
 description: 分析口腔健康数据、识别口腔问题模式、评估口腔健康状况、提供个性化口腔健康建议。支持与营养、慢性病、用药等其他健康数据的关联分析。
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 # 口腔健康分析技能
 
 ## Detailed Guide

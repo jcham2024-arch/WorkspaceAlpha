@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "169a1b97ce78ffbaf1e66342c6dff2a3f8bf822a351cfbcd7bc423f97b2229b1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mirrord
 description: "Run a local process inside a live Kubernetes cluster's network, env and traffic with mirrord, so changes are tested against real services without deploying."
+tier: "experimental"
 category: devops
 risk: critical
 source: "https://github.com/metalbear-co/skills"
@@ -13,6 +24,7 @@ author: metalbear-co
 tags: [kubernetes, k8s, testing, local-development, microservices]
 tools: [claude, cursor, codex, gemini]
 ---
+
 
 # mirrord
 

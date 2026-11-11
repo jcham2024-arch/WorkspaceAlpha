@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c9511a800a6fe6dd3bba08fd4e61d364c961648ef6ad89e0f02e7b1a252b7656"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "ms365-tenant-manager"
 description: "Use for Microsoft 365 tenant administration (Entra ID users, Exchange Online, Teams, licenses, Conditional Access, compliance reports). Plans setup with tenant_setup.py, bulk-manages users with user_management.py and generates PowerShell with powershell_generator.py."
+tier: "experimental"
 ---
+
 
 # Microsoft 365 Tenant Manager
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "18b39f8e8a0a224c2828aea26c06ed02a203c5ed63f6a2b249a9a95b9ea1d9ba"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: formik-patterns
 description: Formik form handling with validation patterns. Use when building forms, implementing validation, or handling form submission.
+tier: "experimental"
 risk: critical
 source: https://github.com/ChrisWiles/claude-code-showcase/tree/main/.claude/skills/formik-patterns
 source_repo: ChrisWiles/claude-code-showcase
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/ChrisWiles/claude-code-showcase/blob/main/LICENSE
 ---
+
 
 # Formik Patterns
 ## When to Use

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d91fd52800fd01174196569ca99aca9aa915bc504f81ab68e0d4c36d5e00146a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: weaviate
 description: "Search, query, inspect, create, and import data into Weaviate vector database collections using bundled adapted scripts and references."
+tier: "experimental"
 category: databases
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [python, weaviate]
 license: "BSD-3-Clause"
 license_source: "https://github.com/weaviate/agent-skills/blob/main/LICENSE"
 ---
+
 
 # Weaviate Database Operations
 

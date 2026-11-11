@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ce273f52d67e63f55d6dc0e379ed936f02ab6e5cc53bace6247954c85f40cb31"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sre-dashboards
 description: Design and operationalize SRE dashboards that surface reliability, latency,
+tier: "experimental"
   error, saturation, and capacity signals across services.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # SRE Dashboards
 

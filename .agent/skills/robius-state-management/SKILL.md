@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "afbdcff8aaa154f668edb4d265dec279025eb6a8159be44000b9199f45abda0f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: robius-state-management
 description: |
+tier: "experimental"
   CRITICAL: Use for Robius state management patterns. Triggers on:
   AppState, persistence, theme switch, 状态管理,
   Scope::with_data, save state, load state, serde,
@@ -9,6 +20,7 @@ risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

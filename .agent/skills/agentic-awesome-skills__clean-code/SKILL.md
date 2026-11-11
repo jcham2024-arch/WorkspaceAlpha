@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7eea90bcd916b4a137c86f6b23aa78d79fa02a54eae9df52bbaca5685116eebb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: clean-code
 description: "This skill embodies the principles of \"Clean Code\" by Robert C. Martin (Uncle Bob). Use it to transform \"code that works\" into \"code that is clean.\""
+tier: "experimental"
 risk: safe
 source: "ClawForge (https://github.com/jackjin1997/ClawForge)"
 date_added: "2026-02-27"
 ---
+
 
 # Clean Code Skill
 

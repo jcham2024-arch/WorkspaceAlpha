@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d663c3237f786cda961de7910b7c2aad6e5de8b20b82b49b7d45bb89cc856279"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: wp-site-health-auditor
 description: "Turns a WordPress Site Health report into a risk-tiered, backup-first fix plan with exact WP-CLI/PHP snippets. Use for site health, recommended improvements, or critical issue reports."
+tier: "experimental"
 category: development
 risk: critical
 source: self
@@ -10,6 +21,7 @@ author: whoisabhishekadhikari
 tags: [wordpress, site-health, wp-cli, seo, performance, security, hardening]
 tools: [claude, cursor, codex, gemini]
 ---
+
 
 # WP Site Health Auditor
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "201539697ceefabba2bb9ba11ae03531e71a6c827e9a0bba48a26e712fa5a345"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: long-tail-keyword-generator
 description: "Long-Tail Keyword Generator. Use when working with seed topic and optional audience or use case."
+tier: "experimental"
 category: Keyword Research
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Long-Tail Keyword Generator
 
 ## Overview

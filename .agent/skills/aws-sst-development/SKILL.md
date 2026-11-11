@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1c58f4ce045e29015be52acc4f9fba1b8add4b6cf6ca4302a06a88bfef518f45"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aws-sst-development
 description: "SST v4 (Ion) expert for managing AWS resources as code with the Pulumi-backed framework."
+tier: "experimental"
 risk: critical
 source: https://github.com/zxkane/aws-skills/tree/main/plugins/aws-iac/skills/aws-sst-development
 source_repo: zxkane/aws-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/zxkane/aws-skills/blob/main/LICENSE
 ---
+
 ## Bundled upstream support
 
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.

@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "18d49996659589fca2529b62230b7d01b4e7f07f8b05a029129392b6da673b55"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: sankhya-dashboard-html-jsp-custom-best-pratices
 description: "This skill should be used when the user asks for patterns, best practices, creation, or fixing of Sankhya dashboards using HTML, JSP, Java, and SQL."
+tier: "experimental"
 category: code
 risk: safe
 source: community
 tags: [sankhya, dashboard, jsp, html, sql, best-practices]
 date_added: "2026-03-10"
 ---
+
 
 # sankhya-dashboard-html-jsp-custom-best-pratices
 

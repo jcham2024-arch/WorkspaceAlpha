@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7bab897b011eb4f2c43c7df84604d918ce96d09378b529996ef60d30af352a9c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: news-sentiment-engine
 description: Multi-source RSS news aggregation with Claude-powered sentiment analysis and structured briefing output
+tier: "experimental"
 category: research
 risk: critical
 source: community
@@ -15,6 +26,7 @@ plugin:
     codex: blocked
     claude: blocked
 ---
+
 # News Sentiment Engine
 
 Collect and analyze AI/tech news from multiple sources with Claude-powered sentiment analysis. Open source lite version.

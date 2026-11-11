@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bd8481ec45094df5bb70cca14c1f0b82d4ce109ee27ca5ea1c6099da728861af"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: evolution
 description: "This skill provides a reviewable workflow for maintaining makepad-skills during development. It does not install automatic evolution by itself."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # Makepad Skills Evolution
 

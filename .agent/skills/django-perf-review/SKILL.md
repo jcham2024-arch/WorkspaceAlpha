@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f48f6c12ac67d6f0e4dcb37fbe5ef0b2e623e87b7d5305d548f87805a484d720"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: django-perf-review
 license: Apache-2.0
 description: Django performance code review. Use when asked to "review Django performance", "find N+1 queries", "optimize Django", "check queryset performance", "database performance", "Django ORM issues", or audit Django code for performance problems.
+tier: "experimental"
 allowed-tools: Read, Grep, Glob, Bash, Task
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # Django Performance Review
 

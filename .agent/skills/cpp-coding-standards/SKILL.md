@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7dc79da653805dd43c9907112f26378bb038f0300d0b162c716db0480eca5f9d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cpp-coding-standards
 description: C++ coding standards based on the C++ Core Guidelines (isocpp.github.io). Use when writing, reviewing, or refactoring C++ code to enforce modern, safe, and idiomatic practices.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # C++ Coding Standards (C++ Core Guidelines)
 

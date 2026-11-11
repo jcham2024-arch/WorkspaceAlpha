@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4459d01ab1798ec1b0e08c422bc7b2697d10f931a4950d54dc2970a1415ae827"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: continuous-agent-loop
 description: Patterns for continuous autonomous agent loops with quality gates, evals, and recovery controls. Use when running an agent loop that must self-check, gate on evals, and recover from failures.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Continuous Agent Loop
 

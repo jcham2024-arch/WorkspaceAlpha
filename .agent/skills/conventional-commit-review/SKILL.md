@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ca772a4f8c7856cc3cba0e1a8531f880a0b7ce73d5cbd66c7309b216f72e1b5a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: conventional-commit-review
 description: Reviews staged changes and drafts a Conventional Commits-compliant commit message with the right type, scope, and length. Use before committing, or when the user asks to write, fix, or review a commit message.
+tier: "experimental"
 metadata:
   origin: personal
 ---
+
 
 # Conventional Commit Review
 

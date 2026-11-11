@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fbe7ad02d6236f1c45c9ff4794db29304f61804352465407a562c8200c619a1d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: voice-ai-development
 description: Expert in building voice AI applications - from real-time voice
+tier: "experimental"
   agents to voice-enabled apps. Covers OpenAI Realtime API, Vapi for voice
   agents, Deepgram for transcription, ElevenLabs for synthesis, LiveKit for
   real-time infrastructure, and WebRTC fundamentals.
@@ -8,6 +19,7 @@ risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Voice AI Development
 

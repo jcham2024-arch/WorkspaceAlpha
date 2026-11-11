@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c98ba16cdec6b7231c9a117f9ff16d64f11460bebec88beef87892d478353254"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: antigravity-agent-manager
 description: "Configure and orchestrate parallel agents using the standalone Antigravity 2.0 Agent Manager and Antigravity IDE."
+tier: "experimental"
 category: general
 risk: critical
 source: self
@@ -10,6 +21,7 @@ author: community
 tags: [agent-manager, orchestration, multi-agent, setup]
 tools: [antigravity, gemini]
 ---
+
 
 # Antigravity Agent Manager
 

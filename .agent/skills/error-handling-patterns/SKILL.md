@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b1bf9c6fb8c5ff414eceefe55c96dbde4b8fde601dd6988c93b701f15918ce90"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: error-handling-patterns
 description: "Build resilient applications with robust error handling strategies that gracefully handle failures and provide excellent debugging experiences."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Error Handling Patterns
 

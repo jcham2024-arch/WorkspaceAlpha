@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ac86208106f0fc9921d3c141be603d5c5ff01f285ee057f6254d42a943dd79c9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: maxia
 description: Connect to MAXIA AI-to-AI marketplace on Solana. Discover, buy, sell AI services. Earn USDC. 13 MCP tools, A2A protocol, DeFi yields, sentiment analysis, rug detection.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-19"
@@ -9,6 +20,7 @@ author: MAXIA
 version: 1.0.0
 homepage: https://maxiaworld.app
 ---
+
 
 # MAXIA — AI-to-AI Marketplace on Solana
 

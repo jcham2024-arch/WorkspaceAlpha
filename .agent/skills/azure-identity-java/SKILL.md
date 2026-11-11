@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9364035429ada809deef447937948aaff2472968615545802b3e0d2e166c9072"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-identity-java
 description: "Authenticate Java applications with Azure services using Microsoft Entra ID (Azure AD)."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Azure Identity (Java)
 

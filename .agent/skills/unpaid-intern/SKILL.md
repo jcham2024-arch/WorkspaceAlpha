@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "26cacb232c1a36fbef5b0620694c776d21ea5d5b72765c4a9fd468ea1896237d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: unpaid-intern
 description: "A free second brain for work in plain markdown files the user owns. Turns transcripts, docs, and tickets into briefings, meeting prep, debriefs, follow-ups, and status tables."
+tier: "experimental"
 category: productivity
 risk: critical
 source: "https://github.com/kevinmmiddleton/unpaid-intern/tree/main/skills/unpaid-intern"
@@ -13,6 +24,7 @@ tools: [claude, codex]
 license: "MIT"
 license_source: "https://github.com/kevinmmiddleton/unpaid-intern/blob/main/LICENSE"
 ---
+
 
 # Unpaid Intern
 

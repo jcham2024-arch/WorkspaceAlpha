@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "186a0538ac022c2adab2d89188ab8aaf036e89dc73e969899ff21cd97ef31ea2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agent-memory-systems
 description: "Design tenant-scoped memory, retrieval and retention for agents. Use when planning RAG, conversation history, vector stores or remembering across sessions."
+tier: "experimental"
 risk: safe
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Agent Memory Systems
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4884957a406b7db37acc5b3ec50f8b1ae2e1ebde7949a2702381e86909de10c9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-appconfiguration-java
 description: Azure App Configuration SDK for Java. Centralized application configuration management with key-value settings, feature flags, and snapshots.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Azure App Configuration SDK for Java
 

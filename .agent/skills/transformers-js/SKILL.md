@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a6e554ab8573f752e14384066004df699176457e931f80231d3aa52d0537ad00"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: transformers-js
 description: "Use Transformers.js to run state-of-the-art machine learning models directly in JavaScript/TypeScript."
+tier: "experimental"
 risk: critical
 source: https://github.com/huggingface/skills/tree/main/skills/transformers-js
 source_repo: huggingface/skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: Apache-2.0
 license_source: https://github.com/huggingface/skills/blob/main/LICENSE
 ---
+
 
 # Transformers.js - Machine Learning for JavaScript
 

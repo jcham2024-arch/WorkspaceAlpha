@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4cce02282393f0c9a2403bea93c666fea6d2a564e9cc8b0308d2e0a04fa8d79b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: circleci
 description: Configure CircleCI workflows and orbs for continuous integration and
+tier: "experimental"
   deployment.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # CircleCI
 

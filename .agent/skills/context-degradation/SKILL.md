@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "916bb8d857d0c0bb208b18abd494a8d1ac8da632767c9b2b177bab436b648d34"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: context-degradation
 description: "Language models exhibit predictable degradation patterns as context length increases. Understanding these patterns is essential for diagnosing failures and designing resilient systems."
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-01-30"
 ---
+
 
 # Context Degradation Patterns
 

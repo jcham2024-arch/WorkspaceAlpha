@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2475da3f0fd158af3d7f33654995d81fb567738cd335c5f1c4ac47318eed256a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "embedded-iot-mentor"
 description: "Use for any embedded or IoT hardware project (ESP32, STM32, Arduino, Pico, firmware, PCB, MQTT, Home Assistant, sensor dashboards), before buying parts. Picks the MCU, board and toolchain, decides where readings go and gives a phased build plan with time and cost."
+tier: "experimental"
 ---
+
 
 # Embedded / IoT Mentor
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7db39f98a30ceabf4f06c4c3cbd5f1dcde2f40c0d4b358e8bb55f5a43ee3defe"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: paragraph-keyword-optimizer
 description: "Paragraph Keyword Optimizer. Use when working with paragraph and target keyword."
+tier: "experimental"
 category: Content SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Paragraph Keyword Optimizer
 
 ## Overview

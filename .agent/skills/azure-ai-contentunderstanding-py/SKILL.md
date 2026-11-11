@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d2964b894593b48464f32948acb9ce71e0b464a6f7138745ca086b24674ec35b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-ai-contentunderstanding-py
 description: Azure AI Content Understanding SDK for Python. Use for multimodal content extraction from documents, images, audio, and video.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Azure AI Content Understanding SDK for Python
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ad65ca3c2a07194724d0ab35d899172115f2010898166f7b8d310144f83e34ff"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: weightloss-analyzer
 description: 分析减肥数据、计算代谢率、追踪能量缺口、管理减肥阶段
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # 减肥分析技能
 

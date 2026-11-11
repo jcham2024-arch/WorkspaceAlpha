@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3d01d13c8f0ec490d3db8723b68e533c43abbcd79f850170680f526e3332fb1c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: treg
 description: "Use the Treg CLI or MCP catalog to discover, price and call authorized external tools with team-scoped credentials and a user-approved budget."
+tier: "experimental"
 category: development
 risk: critical
 source: https://github.com/superdesigndev/treg
@@ -13,6 +24,7 @@ upstream_commit: cf3955032ef8f15dfeff90a84ae24e31583e93e8
 date_added: "2026-11-06"
 version: 0.30.0
 ---
+
 
 # treg: the tool catalog for your agent
 

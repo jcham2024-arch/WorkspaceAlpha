@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5a189c9215fd58895101029517c2170913348a4c123052c0fe5f7139994eb6b7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-sre-incident-response
 description: Build AI-focused SRE incident response practices for LLM outages, degraded
+tier: "experimental"
   quality, runaway cost events, and safety regressions.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # AI SRE Incident Response
 

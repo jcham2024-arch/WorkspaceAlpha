@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "eab8edf9ed15afc3314a8186d36823f1a7c8e38abff66c6962939365e065b2ff"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: bb-methodology
 description: Use at the START of any bug bounty hunting session, when switching targets,
+tier: "experimental"
   or when feeling lost about what to do next.
 category: security
 risk: offensive
@@ -15,6 +26,7 @@ compatibility: Requires explicit written authorization for a target scope plus t
   not bundled.
 sources: community, public_research
 ---
+
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.

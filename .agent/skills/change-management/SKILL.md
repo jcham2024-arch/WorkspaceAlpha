@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f6e51ebd4dea7fa73662980876f011131f11ab17c82773d63def06d595f236d3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: change-management
 description: Implement change management processes. Configure CAB reviews, change
+tier: "experimental"
   windows, and rollback procedures. Use when managing production changes.
 category: security
 risk: safe
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Change Management
 

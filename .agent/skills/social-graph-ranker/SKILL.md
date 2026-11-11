@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b9b954fd14e26a86381c01e97008f5c7752047a96a9d51c4d6a21ae5135edd44"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: social-graph-ranker
 description: Weighted social-graph ranking for warm intro discovery, bridge scoring, and network gap analysis across X and LinkedIn. Use when the user wants the reusable graph-ranking engine itself, not the broader outreach or network-maintenance workflow layered on top of it.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Social Graph Ranker
 

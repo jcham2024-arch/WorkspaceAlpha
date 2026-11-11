@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9648090bb1f8e268865383f6049e4c062bb7ec86e92cc942c1e99644f3e16eeb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-opportunity-cost
 description: Before committing scarce time, people, or money, name the best forgone use of those resources and the value delta of the chosen path versus that alternative.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Opportunity Cost
 

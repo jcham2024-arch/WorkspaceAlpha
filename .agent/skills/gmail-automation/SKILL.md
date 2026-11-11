@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "679a6d566f8c1880e5ccecb1610f97ce717f91a0d1b081673d56e0a5e8485611"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gmail-automation
 description: "Lightweight Gmail integration with standalone OAuth authentication. No MCP server required."
+tier: "experimental"
 license: Apache-2.0
 risk: critical
 source: community
@@ -9,6 +20,7 @@ metadata:
   author: sanjay3290
   version: "1.0"
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

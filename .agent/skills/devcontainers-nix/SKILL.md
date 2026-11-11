@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d50d2b1aec9b4ed1bf81ea162cda55d677cda130d7ae7f60a947698fe10594ee"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: devcontainers-nix
 description: Create reproducible development environments with Dev Containers, Nix
+tier: "experimental"
   flakes, and Devbox for consistent toolchains across teams.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Dev Containers & Nix Environments
 

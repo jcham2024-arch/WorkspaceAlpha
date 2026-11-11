@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "99657fdde8c93b0648cf6faf6795847e306ec983753c8738a981cb0f6808e07e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: open-dynamic-workflows
 description: "Plan, orchestrate, and adversarially verify parallel AI coding agents with a dynamic multi-agent workflow engine."
+tier: "experimental"
 category: ai-agents
 risk: critical
 source: community
@@ -14,6 +25,7 @@ tools: [claude, cursor, codex, gemini, antigravity]
 license: "MIT"
 license_source: "https://github.com/Suraj1235/open-dynamic-workflows/blob/main/LICENSE"
 ---
+
 
 # Open Dynamic Workflows
 

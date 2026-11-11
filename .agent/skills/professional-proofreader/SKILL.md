@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "aff762205e69bacc2c7b551cf09f7b16fb457cfcc2413948a2dc23227b0846cf"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: professional-proofreader
 description: >
+tier: "experimental"
     Use when a user asks to "proofread", "review and correct", "fix grammar", "improve readability while keeping my voice", and to proofread a document file and save an updated version.
 risk: safe
 source: original
 date_added: "2026-03-04"
 ---
+
 
 # Professional Proofreader
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "652f6aaaf30c0727f509155b4cf7e513ae2f56ca655be3799f600795c5ba0dbc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: debugging-toolkit
 description: "Use when working with debugging toolkit smart debug (Alias for debugging-toolkit-smart-debug)"
+tier: "experimental"
 risk: critical
 source: "alias"
 date_added: "2026-06-02"
 ---
+
 
 # Debugging Toolkit
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3b7edfdb074a8533fff9011b455aeab60d07d7894abce035dfe21f2fa0bb1b79"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: shopify-firebase-app
 description: "Scaffold, extend and deploy Shopify embedded apps on Firebase with Nitrogen. Use for a Shopify app on Cloud Functions, Firestore and Hosting, or inside a Nitrogen project."
+tier: "experimental"
 category: development
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, codex, copilot, gemini]
 license: "MIT"
 license_source: "https://github.com/mksd0398/nitrogen/blob/master/LICENSE"
 ---
+
 
 # Shopify Apps on Firebase, with Nitrogen
 

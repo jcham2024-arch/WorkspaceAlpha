@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0115be55ca5ea1520be8e627c2275e5793589e3ce53cd2db01580ecd7c27edfd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: rag-infrastructure
 description: Build and operate Retrieval-Augmented Generation (RAG) infrastructure
+tier: "experimental"
   with vector stores, embedding pipelines, and hybrid search.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # RAG Infrastructure
 

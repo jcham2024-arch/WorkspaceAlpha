@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "648f73c02d46eae5d05bcd8264570049b540424bd05d3766703090c118a374ea"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: ios-review
 description: "Review an iPhone app screen or flow and list what to fix, most important first: navigation, layout, touch targets, accessibility, states and App Store issues."
+tier: "experimental"
 category: frontend
 risk: safe
 source: https://github.com/uxkin/agent/tree/0c44dd6e44f565643fcf45339fce19d0696f9b8c/plugins/mobile-app-design/skills/ios-review
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, copilot, gemini]
 license: MIT
 license_source: https://github.com/uxkin/agent/blob/0c44dd6e44f565643fcf45339fce19d0696f9b8c/plugins/mobile-app-design/skills/ios-review/LICENSE
 ---
+
 
 # iOS review · derived from UXKIN
 

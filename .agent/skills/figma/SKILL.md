@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "23280403d5f69b3e70c77bb023ec05e4d81392cc0fa22134ca65d6df2fe1d348"
+fetched_at: "2026-11-10"
+upstream_license: "Apache-2.0"
+owner: "taskmaster"
+---
 name: figma
 description: "Import Figma assets, tokens, components and motion into editable HyperFrames videos with source and fidelity checks."
+tier: "experimental"
 category: content
 risk: critical
 source: community
@@ -11,6 +22,7 @@ license: Apache-2.0
 license_source: https://github.com/heygen-com/hyperframes/blob/33c17df5aeb7bc45f717e7091e81ea0e0ebe6e23/LICENSE
 date_added: "2026-11-01"
 ---
+
 
 Modified by AAS on 2026-11-05 from [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes/tree/33c17df5aeb7bc45f717e7091e81ea0e0ebe6e23/skills/figma) at `33c17df5aeb7bc45f717e7091e81ea0e0ebe6e23`. Apache-2.0 license retained in LICENSE; operational boundaries and examples are AAS adaptations.
 

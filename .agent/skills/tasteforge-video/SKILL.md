@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "33b8c323dcece1e2cc2cb68444da15232bad35f3aefe567b91b5ba7075b0f9ec"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: tasteforge-video
 description: Use for file-driven multimodal image, video, and 3D-asset discovery; taste interviews; distill or apply workflows; style-pack validation; editable EDL/FCPXML export; provenance audits; and offline planning that must fail closed before provider generation.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # TasteForge Video
 

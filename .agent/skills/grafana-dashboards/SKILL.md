@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "49b0e3e1251e676e859dc1e92e1dafe46964a8293238384624aaa1c1ebf344e9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: grafana-dashboards
 description: "Create and manage production-ready Grafana dashboards for comprehensive system observability."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Grafana Dashboards
 

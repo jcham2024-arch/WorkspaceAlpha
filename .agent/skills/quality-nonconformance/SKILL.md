@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1a6eac205914e6d3a9c2b45fca424246822bb4d887cec4d354ad8154c9e9d7e8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: quality-nonconformance
 description: Operational guidance for quality control, non-conformance investigation, root cause analysis, corrective action, and supplier quality management in regulated manufacturing.
+tier: "experimental"
 risk: critical
 source: https://github.com/ai-evos/agent-skills
 date_added: '2026-02-27'
 ---
+
 
 # Quality and Non-Conformance Management
 

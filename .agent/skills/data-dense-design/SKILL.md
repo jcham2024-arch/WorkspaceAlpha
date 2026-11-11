@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "be8ec88aba1cc36febcadaca5eab7cb32000003f3268e99dd45868effdeb2ae4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: data-dense-design
 description: Web and App implementation guide for Data-Dense Design. Trigger when user wants professional tools, maximum information density, and expert interfaces (like Bloomberg terminals or IDEs).
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Data-Dense Design
 

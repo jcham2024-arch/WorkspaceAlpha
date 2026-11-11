@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0d2ce1793bef6cb1e3fd19def49381b1f4f73cba094e2eb6f19fbb37ec817447"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: filesystem-context
 description: Use for file-based context management, dynamic context discovery, and reducing context window bloat. Offload context to files for just-in-time loading.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # Filesystem-Based Context Engineering
 

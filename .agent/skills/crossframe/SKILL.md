@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a878777412cc6e1847edccb133c813ba95bc33e57ca48663ffbd3e3dd02b6106"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: crossframe
 description: "Use when the user explicitly invokes CrossFrame or 跨尺度结构诊断 for Chinese-canonical structural diagnosis of complex relationships, organizations, institutions, public disputes, or long-term evolution."
+tier: "experimental"
 category: workflow
 risk: safe
 source: community
@@ -21,6 +32,7 @@ tags:
   - reasoning
   - governance
 ---
+
 # CrossFrame
 
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f2e1a72b200bd214defa9252d155f84c3843ff173576edc451558eaccc103e18"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: course-upskilling-requests
 description: 'Training request register: course, provider, cost, duration, budget line, the three approval steps, service bond and completion evidence. Use for upskilling approvals.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, develop]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Course & Upskilling Requests
 

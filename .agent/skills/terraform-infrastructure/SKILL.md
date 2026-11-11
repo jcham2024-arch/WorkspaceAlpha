@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f8a80ba797e4943195ea133bb15e51212340d7941d214614270604021d231130"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: terraform-infrastructure
 description: "Terraform infrastructure as code workflow for provisioning cloud resources, creating reusable modules, and managing infrastructure at scale."
+tier: "experimental"
 category: granular-workflow-bundle
 risk: critical
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 # Terraform Infrastructure Workflow
 

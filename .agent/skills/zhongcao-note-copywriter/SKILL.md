@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "378944757ffe4ab15b15f7e7517297b1e823ffd899aaa9b7a207c095f94f55bc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: zhongcao-note-copywriter
 description: "Install and use the official Xiaohongshu Copywriter package, pinned by digest, for paid hosted work on the Beatra service."
+tier: "experimental"
 category: marketing
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/beatra-ai/xiaohongshu-copywriter-skill/blob/313358800e2c5abc992fffb27b6ba66192a771eb/LICENSE"
 ---
+
 
 # Xiaohongshu Copywriter Skill
 

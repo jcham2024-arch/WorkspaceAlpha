@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "465c9e85000d06c619a004aa5ef303b6b03068354ca8bdd1e7d5f62f63e898d2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: suno-lyrics-to-song
 description: "Install and use the official Lyrics to Song package, pinned by digest, for paid hosted work on the Beatra service."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/beatra-ai/lyrics-to-song-skill/blob/36aeadd001574361b4375b0c977639c0d3a57ec8/LICENSE"
 ---
+
 
 # Lyrics to Song Skill
 

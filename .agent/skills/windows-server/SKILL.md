@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cc539fc6e999390f35f804af8835a7dd6f3d48dbdc581f75473fae51464d45a3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: windows-server
 description: Administer Windows Server systems. Manage IIS, Active Directory, and
+tier: "experimental"
   PowerShell automation. Use when administering Windows infrastructure.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Windows Server Administration
 

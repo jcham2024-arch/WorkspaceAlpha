@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4fab7926d0c8dac9810f42ced6f73797159ee43f7855ec0a40eb59f588cfe485"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: competitor-analysis
 description: "Research competitors with Browserbase discovery, enrichment lanes, screenshots, matrices, and HTML reports."
+tier: "experimental"
 license: MIT
 compatibility: Requires Node.js, the separately approved upstream browse CLI, and a Browserbase account for remote research
 allowed-tools: Bash Agent AskUserQuestion
@@ -25,6 +36,7 @@ tools:
   - codex-cli
   - cursor
 ---
+
 
 # Competitor Analysis
 

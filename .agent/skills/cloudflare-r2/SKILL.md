@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f9f117c9d1456ffe93d0a10da0eefe1f2074f7fb5438f70f2db447fabb0a7481"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cloudflare-r2
 description: Manage Cloudflare R2 buckets, lifecycle, and signed URLs. Use for low-egress
+tier: "experimental"
   object storage and media delivery.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Cloudflare R2
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "780658e2579a4413825058d5b2f9d28bc4307953c876c6efe31ab6352ae22fc8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: performance-profiling
 description: "Performance profiling principles. Measurement, analysis, and optimization techniques."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Performance Profiling
 

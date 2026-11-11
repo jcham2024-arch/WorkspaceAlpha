@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bc43f727e83f07b4a57f23de32c37f25f3734b7a6dd4b07bc442f8945db8418b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: unified-notifications-ops
 description: Operate notifications as one ECC-native workflow across GitHub, Linear, desktop alerts, hooks, and connected communication surfaces. Use when the real problem is alert routing, deduplication, escalation, or inbox collapse.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Unified Notifications Ops
 

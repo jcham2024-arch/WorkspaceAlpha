@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f4d143803ed7ef40fa0bcc36f488575d8a5f50e3d48c0030c7be9d6d82aad428"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: delivery-gate
 description: Stop hook that blocks Claude from finishing until quality checks pass. Detects rationalization patterns (surface text heuristics), stale learning logs (filesystem mtime), and low disk space. Complements self-audit by mechanically enforcing learning capture habits. Use when Claude should be mechanically blocked from declaring work finished before quality checks and learning capture actually pass.
+tier: "experimental"
 metadata:
   version: 1.1.1
   origin: ECC
 ---
+
 
 # Delivery Gate — Mechanical Quality Gate for Claude Code
 

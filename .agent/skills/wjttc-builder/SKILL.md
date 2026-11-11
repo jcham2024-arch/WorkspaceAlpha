@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b1b93a8c3beb61033ad1fbbfc1aec56c2edbb1b75d92fe34bf5aa465ca4476f0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: wjttc-builder
 description: "PLAN and GENERATE WJTTC (Championship-Grade) test suites for any project. Analyzes the codebase, classifies components across the WJTTC five tiers (Brake · Engine · Aero · Tyre · Pit), writes a tiered test plan, and scaffolds executable test files."
+tier: "experimental"
 risk: critical
 source: https://github.com/Wolfe-Jam/faf-skills/tree/main/skills/wjttc-builder
 source_repo: Wolfe-Jam/faf-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/Wolfe-Jam/faf-skills/blob/main/LICENSE
 ---
+
 
 # WJTTC Builder - Championship Test Suite Generator
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "96e91b689503631f01c19edd8167e5f94cad031f22d3a87db1d6c1618addec30"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: open-source
 description: >
+tier: "experimental"
   Documentation reference for writing Python code using the browser-use
   open-source library. Use this skill whenever the user needs help with
   Agent, Browser, or Tools configuration, is writing code that imports
@@ -13,6 +24,7 @@ description: >
   automating a browser via CLI commands — use the browser-use skill instead.
 allowed-tools: Read
 ---
+
 
 # Browser Use Open-Source Library Reference
 

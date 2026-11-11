@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3aab995a5ed3eef6a21b1cfeaf14e80d70a4754cf187c73f2ff3b5fa2dbdd7d2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cpp-testing
 description: Use only when writing/updating/fixing C++ tests, configuring GoogleTest/CTest, diagnosing failing or flaky tests, or adding coverage/sanitizers.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # C++ Testing (Agent Skill)
 

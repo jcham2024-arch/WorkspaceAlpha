@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5e0a99835da33bdcba848b79010d69d06399991a423137d2947ac3f6712fa8f3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: nexrad-radar-visualization
 description: "Plot NEXRAD Level II/III site scans and decoded radar mosaics with correct radar geometry, map grids, units, quality masks, timestamps, and provenance."
+tier: "experimental"
 category: analysis
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: ShianMike
 tags: [weather, nexrad, radar-plotting, ppi, velocity, dual-pol, cross-section, visualization]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # NEXRAD Radar Visualization
 

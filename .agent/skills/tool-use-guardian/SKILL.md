@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "777d3a0960b7caa18b770471825837cc79a9d28c6afd9d8652883760e656fb9a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: tool-use-guardian
 description: "Triage tool failures, validate responses and resume bounded workflows using replay-safe retries and explicit handling of unknown write outcomes."
+tier: "experimental"
 category: reliability
 risk: critical
 source: community
@@ -9,6 +20,7 @@ author: christopherlhammer11-ai
 tags: [reliability, tool-use, error-handling, retries, recovery, agent-infrastructure]
 tools: [claude, cursor, codex, gemini, copilot, windsurf, antigravity]
 ---
+
 
 # Tool Use Guardian
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2bcc8ab38eb65e047427290e1c6780a44b6645383a7e8d3e8ccfcd0f20fd2ecf"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: avoid-ai-writing
 description: "Audit and rewrite prose for repetitive, vague, or formulaic wording while preserving meaning, evidence, and the writer's voice."
+tier: "experimental"
 risk: none
 source: https://github.com/conorbronsdon/avoid-ai-writing
 date_added: "2026-03-06"
 ---
+
 
 # Avoid AI Writing — Audit & Rewrite
 

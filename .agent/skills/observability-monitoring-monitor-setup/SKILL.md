@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "76c9de7ea5ff68239eb1641944a3c5a69e4fd5187665736611bbdb8ab432c43d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: observability-monitoring-monitor-setup
 description: "Set up metrics, distributed tracing, log aggregation, and dashboards for application and infrastructure monitoring."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Monitoring and Observability Setup
 

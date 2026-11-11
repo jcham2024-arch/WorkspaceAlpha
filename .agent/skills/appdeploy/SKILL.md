@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3eaded56cd087260ce5a3190899cf7b37095ba86cbc86118dce77ee58a043df6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: appdeploy
 description: "Deploy web apps with backend APIs, database, and file storage. Use when the user asks to deploy or publish a website or web app and wants a public URL. Uses HTTP API via curl."
+tier: "experimental"
 risk: critical
 source: "AppDeploy (MIT)"
 date_added: "2026-02-27"
 ---
+
 
 # AppDeploy Skill
 

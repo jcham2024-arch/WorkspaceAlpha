@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "78a985d56a0ac0171a7fe284292f4bcb5b70b5d7ac319cc9dcaaa968cdf8c12a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cc-skill-frontend-patterns
 description: "Frontend development patterns for React, Next.js, state management, performance optimization, and UI best practices."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Frontend Development Patterns
 

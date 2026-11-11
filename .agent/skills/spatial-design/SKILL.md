@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "466854537cbcf2b777c533eb8f0b44fd8b143ce82a7fb149f914c45e96c7257d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: spatial-design
 description: Web and App implementation guide for Spatial Design. Trigger when user wants environment-aware layouts, Apple Vision Pro inspiration, and mixed reality aesthetics.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Spatial Design
 

@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1ee3a5d545a215fa7f76273663eefae49a9e1d688cf882d37545d5cea607ee0c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: bengali-nlp
 description: Bengali (Bangla) text processing patterns including Unicode normalization, script detection, tokenization, conjunct handling, and Bangla-specific NLP best practices for AI applications.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Bengali (Bangla) NLP Patterns
 

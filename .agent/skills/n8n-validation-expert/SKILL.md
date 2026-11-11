@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "198c4f5923005408e00e74af6ea189080cb07066cc45340b4b92cc49dc0901e0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: n8n-validation-expert
 description: "Expert guide for interpreting and fixing n8n validation errors."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # n8n Validation Expert
 

@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "45e6fd86d68bfbe826c2854b4a690c0464267655448f68f6ad204338d704c3c6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aws-serverless
 description: Specialized skill for building production-ready serverless
+tier: "experimental"
   applications on AWS. Covers Lambda functions, API Gateway, DynamoDB, SQS/SNS
   event-driven patterns, SAM/CDK deployment, and cold start optimization.
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # AWS Serverless
 

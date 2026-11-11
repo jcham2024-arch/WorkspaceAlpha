@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a84c774d9bdb52de7dd8677c1ac8aa4f4ab6fb546f053d654965c87b5019fd60"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: code-review-ai-ai-review
 description: "Review pull requests with source inspection, available static analysis and evidence-backed AI assistance; report actionable bugs, security risks and unverified coverage."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 ## Supporting material availability
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:

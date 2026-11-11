@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d2191da2bc592d4fe72130e04c3dff1d54a9684575e05f618dd6b3febed30f50"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: zambo
 description: "Connect an agent to Zambo: 153 tools behind one remote MCP endpoint, cross-AI handover, memory, and a verifiable AER-1 receipt for every call. Use when a task needs real work done."
+tier: "experimental"
 category: development
 risk: critical
 source: self
@@ -10,6 +21,7 @@ author: zambodotdev
 tags: [mcp, tools, handover, receipts, memory, continuity]
 tools: [claude, cursor, codex, gemini]
 ---
+
 
 # Zambo
 

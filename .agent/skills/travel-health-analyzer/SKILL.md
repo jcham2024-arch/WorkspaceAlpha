@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8b4f9534db0a0ac715bd58f2055b0b7b45cf3bcc0a75a9801bf337edc2ba888b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: travel-health-analyzer
 description: 分析旅行健康数据、评估目的地健康风险、提供疫苗接种建议、生成多语言紧急医疗信息卡片。支持WHO/CDC数据集成的专业级旅行健康风险评估。
+tier: "experimental"
 allowed-tools: Read, Write, Grep, Glob
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # 旅行健康分析技能
 

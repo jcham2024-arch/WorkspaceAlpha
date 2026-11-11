@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "95d720f95c1a67cc1039219415500653a1f444b4a885f0ee4c296e2ac920ebc1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-images
 description: >
+tier: "experimental"
   Image optimization analysis for SEO and performance. Checks alt text, file
   sizes, formats, responsive images, lazy loading, and CLS prevention. Use when
   user says "image optimization", "alt text", "image SEO", "image size",
@@ -17,6 +28,7 @@ allowed-tools:
   - Bash
   - WebFetch
 ---
+
 
 # Image Optimization Analysis
 

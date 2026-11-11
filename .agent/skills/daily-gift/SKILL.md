@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "617d48cb7748b5be3ee65bad1319a821c73e04f53ad7fe44bc96e875c2591048"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: daily-gift
 description: "Relationship-aware daily gift engine with five-stage creative pipeline — editorial judgment, synthesis, concept generation, visual strategy, and rendering in H5, image, or video"
+tier: "experimental"
 category: productivity
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [openclaw]
 license: "MIT-0"
 license_source: "https://clawhub.ai/jiawei248/daily-gift"
 ---
+
 
 # Daily Gift
 

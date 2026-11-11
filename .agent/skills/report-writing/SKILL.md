@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1021484e8b1d987753e18261cb22c0ee9702143295e9c51770ebe4a5e2909930"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: report-writing
 description: Bug bounty report writing for H1/Bugcrowd/Intigriti/Immunefi
+tier: "experimental"
 category: security
 risk: safe
 source: https://github.com/elementalsouls/Claude-BugHunter
@@ -13,6 +24,7 @@ compatibility: Process guidance; no tooling required. Docs-only; upstream templa
   not bundled.
 sources: community, operator_experience
 ---
+
 
 # REPORT WRITING
 

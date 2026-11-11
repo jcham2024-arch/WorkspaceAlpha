@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c97ef885204631bdec70847c1c475c2838580f0d7731a635d07e59cb6a2a8373"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: geo-report-pdf
 description: Generate a professional PDF report from a GEO audit using pandoc + Chrome
+tier: "experimental"
   headless.
 category: seo
 risk: critical
@@ -23,6 +34,7 @@ tags:
 - professional
 allowed-tools: Read, Grep, Glob, Bash, Write
 ---
+
 
 # GEO PDF Report Generator (pandoc pipeline)
 

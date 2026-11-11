@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "be9a6a69bbc00a579c47e25911d82b073c2753decab6b1e4f5ecb69a4473df10"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-monitor-opentelemetry-ts
 description: "Auto-instrument Node.js applications with distributed tracing, metrics, and logs."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Azure Monitor OpenTelemetry SDK for TypeScript
 

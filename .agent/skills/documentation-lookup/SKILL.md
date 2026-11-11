@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ed13f3f2317732a7a78754cff901a745f11200e3d7b28efe984b333cc1598278"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: documentation-lookup
 description: Use up-to-date library and framework docs via Context7 MCP instead of training data. Activates for setup questions, API references, code examples, or when the user names a framework (e.g. React, Next.js, Prisma).
+tier: "experimental"
 license: MIT
 ---
+
 
 # Documentation Lookup (Context7)
 

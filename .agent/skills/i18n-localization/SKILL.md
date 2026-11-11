@@ -1,10 +1,22 @@
 ---
+tier: "quarantine"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cdf06277ffcfb3e577f93a17bc8ab89b9455d68cf003e6d276406573ea7093e4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: i18n-localization
 description: "Internationalization and localization patterns. Detecting hardcoded strings, managing translations, locale files, RTL support."
+tier: "quarantine"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # i18n & Localization
 

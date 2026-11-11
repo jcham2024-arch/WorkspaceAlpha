@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "06a16715153dc22ee8fe6010e9641f503d8b6ab47505e7a255fe3c797efa49c6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "clean-code-guard"
 description: "Review generated or changed production code with Clean Code, SOLID, DRY, KISS, YAGNI, and LLM-specific failure-mode checks."
+tier: "experimental"
 risk: "critical"
 source: "community"
 source_repo: "amElnagdy/guard-skills"
@@ -10,6 +21,7 @@ author: "community"
 tags: []
 tools: []
 ---
+
 
 
 # clean-code-guard

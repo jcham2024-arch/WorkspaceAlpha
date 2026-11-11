@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2afc25be117202a98a0b660cf3346f1ebe3d2cfee40af64fda4e2ca9713ec185"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: dbos-typescript
 description: "Guide for building reliable, fault-tolerant TypeScript applications with DBOS durable workflows. Use when adding DBOS to existing TypeScript code, creating workflows and steps, or using queues for concurrency control."
+tier: "experimental"
 risk: critical
 source: "https://docs.dbos.dev/"
 date_added: "2026-02-27"
 ---
+
 
 # DBOS TypeScript Best Practices
 

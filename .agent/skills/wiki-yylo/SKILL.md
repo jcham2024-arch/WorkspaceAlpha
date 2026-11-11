@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f651597734d09a3a648cc0b498a6b8730558dd176eddaf1e4eb68f628a67e871"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: wiki-yylo
 description: Use YYLO Ledger wiki Records as durable project knowledge. Search before
+tier: "experimental"
   creating, classify information correctly, and make revision-safe Markdown updates
   without editing Ledger storage directly.
 category: project-management
@@ -16,6 +27,7 @@ compatibility: Requires the `yy` CLI with the `wiki` record group installed (con
 argument-hint: '[wiki question or knowledge to find/create/update]'
 enable-shell-directives: true
 ---
+
 
 # Use YYLO wiki Records
 

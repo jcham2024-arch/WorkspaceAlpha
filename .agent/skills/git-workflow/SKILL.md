@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9a0747c13afa65ee28b7ba87c9555f5645984a1327fe421b4d3baf57ec3bd70d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: git-workflow
 description: Implement Git branching strategies, PR workflows, and release management
+tier: "experimental"
   patterns.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Git Workflow
 

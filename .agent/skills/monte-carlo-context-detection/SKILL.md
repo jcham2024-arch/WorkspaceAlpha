@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7faa217dc302196cc0bcce1913a7a7cb2138b173090e211775452b172cb2e59d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: monte-carlo-context-detection
 description: Route data-related requests to the right Monte Carlo skill or workflow.
+tier: "experimental"
   USE WHEN alerts, incidents, data broken, stale, coverage gaps, data quality, or
   any ambiguous data observability request.
 when_to_use: 'Invoke for ambiguous or incomplete data-observability requests that
@@ -30,6 +41,7 @@ source: community
 date_added: '2026-09-21'
 risk: critical
 ---
+
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.

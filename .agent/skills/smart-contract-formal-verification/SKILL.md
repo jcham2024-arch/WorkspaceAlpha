@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f8e3798abbae2e121553f91b255a22b0ecddb8544ba73bf57f77fe99e3c888dd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: smart-contract-formal-verification
 description: 'Foundry and Soroban formal invariant verification register: state transition rules, boundary invariant properties, and symbolic execution checks.'
+tier: "experimental"
 category: engineering
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [formal-verification, invariants, foundry, soroban, security, math]
 tools: []
 source_repo: Ranjeet2063/agentic-awesome-skills
 ---
+
 
 # Smart Contract Formal Verification
 

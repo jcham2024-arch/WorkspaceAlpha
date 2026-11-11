@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "53f898575f17933b5fda98ed57799d5c8739f2f02f682fe1517fb1bab15a0c33"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: bun-runtime
 description: Bun as runtime, package manager, bundler, and test runner. When to choose Bun vs Node, migration notes, and Vercel support.
+tier: "experimental"
 license: MIT
 ---
+
 
 # Bun Runtime
 

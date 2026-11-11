@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1bcb5561cd790bc835320d4faa90c6f7aabda27133b1610ef4a4fcbbbe4b0405"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: schema-markup
 description: Design, validate, and optimize schema.org structured data for eligibility, correctness, and measurable SEO impact.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Schema Markup & Structured Data
 

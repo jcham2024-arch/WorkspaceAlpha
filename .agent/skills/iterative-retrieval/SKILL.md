@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3f4b1628ccac834e828f1fb89c5acfecf235f7147a2b2d28e9e658416c2d4c55"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: iterative-retrieval
 description: Pattern for progressively refining context retrieval to solve the subagent context problem. Use when a subagent lacks the context it needs and retrieval must be refined across passes.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Iterative Retrieval Pattern
 

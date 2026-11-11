@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7fef1d83bb0e326c739d78cfbea3f441b20e66b5f013c619fb020c5cbc1ab914"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: faf-wizard
 description: "Done-for-you .faf generator. One-click AI context for any project - new, legacy, or famous. Auto-detects stack, scores readiness, works everywhere."
+tier: "experimental"
 category: productivity
 risk: safe
 source: community
@@ -11,6 +22,7 @@ author: wolfejam
 tags: [faf, automation, project-setup, ai-context, productivity]
 tools: [claude, cursor, gemini, windsurf, any-ai]
 ---
+
 
 # FAF Wizard - One-Click AI Intelligence
 

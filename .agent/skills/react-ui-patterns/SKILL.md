@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e6123b9b4c20647a1155433bc2e3684aef4519ebadded0372cf7cf0c4b959f2f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: react-ui-patterns
 description: "Modern React UI patterns for loading states, error handling, and data fetching. Use when building UI components, handling async data, or managing UI states."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # React UI Patterns
 

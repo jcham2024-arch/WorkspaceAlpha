@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a1432bd592ca533ce950062e43a60ac2200ff0cde0a2b5d2c861977bc7964d9c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gpu-kubernetes-operations
 description: Operate GPU-backed Kubernetes clusters for AI inference and training
+tier: "experimental"
   with scheduling, autoscaling, node health, MIG partitioning, and cost controls.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # GPU Kubernetes Operations
 

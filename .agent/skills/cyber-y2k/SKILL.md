@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cf39b77f074830dbe5a977e3b16947e282732c22203c8c3efa9c18c554edf547"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cyber-y2k
 description: Web and App implementation guide for Cyber Y2K. Trigger when user wants modern Y2K, holographic visuals, and glitch aesthetics.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Cyber Y2K
 

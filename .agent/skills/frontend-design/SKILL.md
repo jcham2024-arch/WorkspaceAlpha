@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "264d01d9c0e5e5c0a6d13dc525b234be5f428347ef969f025f52b421abc910d3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: frontend-design
 description: "Design and implement a distinctive frontend within the product’s existing brand, accessibility, performance and framework constraints."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Frontend Design
 

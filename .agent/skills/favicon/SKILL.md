@@ -1,7 +1,18 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6f9084ccd88130695a5acc1649573c2392f0e10a498632d1104b058e58fd4959"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: favicon
 argument-hint: [path to source image]
 description: Generate favicons from a source image
+tier: "experimental"
 allowed-tools: Bash(magick *), Bash(which *), Bash(cp *), Bash(mkdir *)
 context: fork
 risk: critical
@@ -11,6 +22,7 @@ metadata:
   author: Shpigford
   version: "1.0"
 ---
+
 
 Generate a complete set of favicons from the source image at `$1` and update the project's HTML with the appropriate link tags.
 

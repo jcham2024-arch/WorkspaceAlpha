@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c8f69300252d6fda3257a0e8f4f478ed81dc7b12c254c81104cf234765f65af8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: compile-knowledge
 description: "Compile durable, non-obvious findings into an interlinked markdown knowledge store — atomic files, [[wiki-links]], a maintained index — so an agent gets smarter across sessions instead of relearning the same facts."
+tier: "experimental"
 category: productivity
 risk: safe
 source: https://github.com/5dive-ai/skills/tree/main/compile-knowledge
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/5dive-ai/skills/blob/main/LICENSE"
 ---
+
 
 # Compile Knowledge
 

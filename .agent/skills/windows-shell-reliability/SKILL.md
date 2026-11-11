@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "73b80e6fe7d38bbcad0412e1c1122222a6ee07f767824dac0d8d60bf41f5f971"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: windows-shell-reliability
 description: "Reliable command execution on Windows: paths, encoding, and common binary pitfalls."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-19"
 ---
+
 
 # Windows Shell Reliability Patterns
 

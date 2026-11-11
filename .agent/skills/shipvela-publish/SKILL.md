@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b56064d9680867646c6962b8205d3b40c8b24bf1f8c4c033d0feecc09b2f7a43"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: shipvela-publish
 description: "Publish an explicitly selected website through the user's connected Shipvela MCP account, track the exact deployment, and return its live HTTPS URL after success."
+tier: "experimental"
 category: development
 risk: critical
 source: https://github.com/stefanautomateed/shipvela-codex/tree/main/skills/shipvela-publish
@@ -13,6 +24,7 @@ tools: [codex]
 license: MIT
 license_source: https://github.com/stefanautomateed/shipvela-codex/blob/main/LICENSE
 ---
+
 
 # Publish with Shipvela
 

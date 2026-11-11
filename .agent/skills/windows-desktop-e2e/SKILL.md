@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0722e8ad2e9ccaa73ea2f34310f5c2d69b7eaf43af8469cfda2275807dd57459"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: windows-desktop-e2e
 description: E2E testing for Windows native desktop apps (WPF, WinForms, Win32/MFC, Qt) using pywinauto and Windows UI Automation. Use when writing E2E tests for a Windows native desktop app with pywinauto or UI Automation.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Windows Desktop E2E Testing
 

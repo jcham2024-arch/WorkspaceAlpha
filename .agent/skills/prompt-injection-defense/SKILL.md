@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "38045e4d24317f69188beb771caea20d82f1c131c781df8e47dc0e6e5ffa11a3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: prompt-injection-defense
 description: Defend AI systems against prompt injection and indirect prompt attacks
+tier: "experimental"
   using input controls, tool permissions, output validation, and isolation boundaries.
 category: security
 risk: safe
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Prompt Injection Defense
 

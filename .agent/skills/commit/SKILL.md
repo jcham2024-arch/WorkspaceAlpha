@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ea13e809b931695b8a00dc3a3982e47f889515a281bd6121820a1936d9cc3be0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: commit
 description: "Prepare or create commits using Sentry-style message conventions when the repository requests them; inspect staged scope and honor its protected branch workflow."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-01-30"
 ---
+
 
 # Sentry Commit Messages
 

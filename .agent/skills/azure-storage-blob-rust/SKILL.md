@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fe7e07166d8b8657822ab39c0499054eca1efc6696132a9a888b417e3fde6502"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-storage-blob-rust
 description: Azure Blob Storage SDK for Rust. Use for uploading, downloading, and managing blobs and containers.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Azure Blob Storage SDK for Rust
 

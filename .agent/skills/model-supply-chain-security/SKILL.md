@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "367f21b8914668812e5081911861f8022701a514a5264bfee0330027654fe05d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: model-supply-chain-security
 description: Secure the AI model supply chain with artifact signing, provenance attestation,
+tier: "experimental"
   SBOM workflows, dependency controls, and trusted model promotion.
 category: security
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Model Supply Chain Security
 

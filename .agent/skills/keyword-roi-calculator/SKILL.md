@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2418d2b6c41fc75eb6e6abef263723cfba56e835b69896635bdbfbffca0108e7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: keyword-roi-calculator
 description: "Keyword ROI Calculator. Use when working with traffic estimate, conversion rate, value per conversion, margin and SEO cost for one period."
+tier: "experimental"
 category: SEO Performance
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Keyword ROI Calculator
 
 ## Overview

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "91447e908d6392780b04018136f6d38ed0f8ef99433eec5c8af41dc8997ba276"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gemini-api-integration
 description: "Use when integrating Google Gemini API into projects. Covers model selection, multimodal inputs, streaming, function calling, and production best practices."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-04"
 ---
+
 
 # Gemini API Integration
 

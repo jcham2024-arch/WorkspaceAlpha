@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4239439e1648e3af8ea6b57244a3c0558fbb674a2c7ccc9e4519abf630f8f3ad"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: read-all-adrs
 description: "Read every ADR in a project before summarizing architectural context or decisions."
+tier: "experimental"
 category: productivity
 risk: safe
 source: community
@@ -14,6 +25,7 @@ license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 disable-model-invocation: true
 ---
+
 
 
 

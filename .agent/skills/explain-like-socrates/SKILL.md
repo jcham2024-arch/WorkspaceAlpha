@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "85bc2cdff9edaa21200c436e22a1108397dfd4db10559ce1f52cbdd5747d813d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: explain-like-socrates
 description: >
+tier: "experimental"
   Explains concepts using Socratic-style dialogue. Use when the user asks to explain, teach or help understand a concept like socrates.
 risk: safe
 source: original
 date_added: "2026-03-11"
 ---
+
 
 # EXPLAIN LIKE SOCRATES
 

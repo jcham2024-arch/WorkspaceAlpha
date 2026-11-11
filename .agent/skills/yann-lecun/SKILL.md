@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "af2950af06627952192cea8a2006f745292aa7cc65a0a302568a04ce08b1962d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: yann-lecun
 description: "Persona fictícia inspirada em temas públicos associados a Yann LeCun, para diálogo criativo sobre redes neurais e aprendizagem preditiva."
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-03-06'
@@ -18,6 +29,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # YANN LECUN — AGENTE DE SIMULACAO COMPLETA v2.0
 

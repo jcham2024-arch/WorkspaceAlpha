@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "83a3c045dc4025e2ae880130fdcc36f0068396bbe8167fcf0ea048dfc7ec77ed"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: accessibility-compliance-accessibility-audit
 description: "Audit pages and user journeys against a declared WCAG scope. Use when identifying keyboard, screen-reader, focus or contrast barriers and planning verified remediation."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Accessibility Audit and Testing
 

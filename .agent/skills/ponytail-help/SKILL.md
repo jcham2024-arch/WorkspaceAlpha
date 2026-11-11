@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6a4b56ec06237c644c3c40c77bd903f5119507c3bc91a2a552a0815a8d878caa"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ponytail-help
 description: >
+tier: "experimental"
   Quick reference for ponytail levels, skills and commands. One-shot display.
   Use for /ponytail-help, "ponytail help", "how do I use ponytail".
 ---
+
 
 # Ponytail Help
 

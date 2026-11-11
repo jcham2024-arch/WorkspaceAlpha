@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ce9869f8af39d178aa52be7e7167e2b4bc8e6a3955f4049836f113e47e800ddc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: logo-image-design
 description: 'Brand asset register: asset type, format, dimensions and aspect ratio, colour mode, background variant, clear space, approved and prohibited uses, rights owner and licence. Use for brand control.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, brand, logo, mark, imagery, photography, stock, icon, trademark, lic
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Logo & Image Design
 

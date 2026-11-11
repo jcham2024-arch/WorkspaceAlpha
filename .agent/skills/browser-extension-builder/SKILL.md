@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5185de68bfd503c1f96c3230b321bbb9b18194d2573060de9a48eab9a41abf52"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: browser-extension-builder
 description: Expert in building browser extensions that solve real problems -
+tier: "experimental"
   Chrome, Firefox, and cross-browser extensions. Covers extension architecture,
   manifest v3, content scripts, popup UIs, monetization strategies, and Chrome
   Web Store publishing.
@@ -8,6 +19,7 @@ risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Browser Extension Builder
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "31a47016d693f741f9c63c9aed06e2d0ddda62203bbaadd7f69d61b74a33c5da"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-appconfiguration-py
 description: Azure App Configuration SDK for Python. Use for centralized configuration management, feature flags, and dynamic settings.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Azure App Configuration SDK for Python
 

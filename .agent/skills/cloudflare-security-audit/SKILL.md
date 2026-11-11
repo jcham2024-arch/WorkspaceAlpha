@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c56dec4d83455528df1b9ca7d3ec8f99c0d69a4aa4ef5fb3a1df3d186a91b3f2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "cloudflare-security-audit"
 description: "Audit authorized codebases for exploitable vulnerabilities using scoped reconnaissance, adversarial review, validation, and structured reporting."
+tier: "experimental"
 risk: "offensive"
 source: "community"
 source_repo: "cloudflare/security-audit-skill"
@@ -10,6 +21,7 @@ author: "community"
 tags: []
 tools: []
 ---
+
 
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.

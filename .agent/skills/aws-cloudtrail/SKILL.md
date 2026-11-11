@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a5db48a693c61f17114dee48f30ab42b2ae03ac290e83893f9105ef196b9221b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aws-cloudtrail
 description: Configure AWS CloudTrail for audit logging. Set up organization trails
+tier: "experimental"
   and event analysis. Use when auditing AWS activity.
 category: security
 risk: safe
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # AWS CloudTrail
 

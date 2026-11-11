@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8b5e8ce16d3009dd84d7398eb102f2eb7405b68c2ace12b9f397cb60368fbc01"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: us-watchlist-alerts
 description: "Free US stock watchlists, price alerts and daily briefs; no API key, NYSE-holiday aware. Informational only, never places trades."
+tier: "experimental"
 category: data
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: "MIT"
 license_source: "https://github.com/eli-alvarado/us-watchlist-alerts/blob/main/LICENSE"
 ---
+
 
 # US Watchlist Alerts
 

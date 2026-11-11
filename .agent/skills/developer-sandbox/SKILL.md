@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a38f41ac49920e78228be22dc649a26dacc35ed5418bfe41aade2ae5808066f6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: developer-sandbox
 description: "Design and build interactive playgrounds that let developers experience your product without commitment. This skill covers playground architecture, pre-populated examples, embedding strategies, gating decisions, and converting playground users to signups."
+tier: "experimental"
 risk: critical
 source: https://github.com/jonathimer/devmarketing-skills/tree/main/skills/developer-sandbox
 source_repo: jonathimer/devmarketing-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/jonathimer/devmarketing-skills/blob/main/LICENSE
 ---
+
 
 # Interactive Playgrounds and Demo Environments
 

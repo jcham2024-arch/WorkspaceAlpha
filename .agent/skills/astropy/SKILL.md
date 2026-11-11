@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "910f3c0b733c06085c0da1a4bcb3c3e13f61e65f5760348f7d97f402ec826029"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: astropy
 description: "Astropy is the core Python package for astronomy, providing essential functionality for astronomical research and data analysis."
+tier: "experimental"
 license: BSD-3-Clause license
 metadata:
     skill-author: K-Dense Inc.
@@ -8,6 +19,7 @@ risk: critical
 source: "https://github.com/astropy/astropy"
 date_added: "2026-03-06"
 ---
+
 
 # Astropy
 

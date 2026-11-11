@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cff9f4ab64e58b5a64e14d19313497da375bbbbe1cdfc8cbe6542f01bf8c30e4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: dali-short-address-commissioner
 description: "Commissions DALI and DALI-2 (IEC 62386) lighting buses: short-address assignment (0-63), 24-bit binary search collision resolution, groups, and DT8 color control. Trigger phrases: commission dali, dali short address, dali collision resolution, dali bus addressing, dali-2 setup."
+tier: "experimental"
 category: architecture
 risk: critical
 source: community
@@ -12,6 +23,7 @@ tags: [dali, dali-2, lighting-control, iec-62386, building-automation, iot]
 tools: [claude, cursor, gemini, windsurf]
 license: "MIT"
 ---
+
 
 # DALI Short-Address Commissioner: Deterministic IEC 62386 Bus Provisioning
 

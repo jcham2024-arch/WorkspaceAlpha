@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "31cbe5abed588730b035f5a5d653a6bace614cd52c4672c951d1f8be251c7052"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: youtube-notetaker
 description: "Turn YouTube talks into local study notes with slides, transcripts, editable annotations, and a markdown-backed viewer."
+tier: "experimental"
 category: "video"
 risk: "critical"
 source: "official"
@@ -19,6 +30,7 @@ tools:
   - codex-cli
   - cursor
 ---
+
 
 # YouTube Notetaker
 

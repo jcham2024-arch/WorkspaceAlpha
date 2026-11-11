@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "eaf87b086a379f9993b7b2abcecbf2bd2d83cd3416bf393e187dd9f295efbd89"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: pre-ship-gate
 description: "A ship gate that runs before any production deploy: checks the silent failure modes that make a deploy 'succeed' while prod stays broken, then verifies the live revision instead of trusting deploy output."
+tier: "experimental"
 category: quality
 risk: safe
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: MIT
 license_source: "https://github.com/Sharrmavishal/operating-kit/blob/main/LICENSE"
 ---
+
 
 # Pre-Ship Gate
 

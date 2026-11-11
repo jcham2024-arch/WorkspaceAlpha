@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0185cbf162e75e574cab82bb1a8e757d43e04bdba06b9d62888a46fa7dc136d3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: faf-go
 description: Guided interview to Gold Code (100% AI-Readiness). Use when helping users improve their .faf file through questions. Leverages Claude Code's AskUserQuestion for seamless integration. Just type /faf-go and answer questions till done.
+tier: "experimental"
 risk: critical
 source: https://github.com/Wolfe-Jam/faf-skills/tree/main/skills/faf-go
 source_repo: Wolfe-Jam/faf-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/Wolfe-Jam/faf-skills/blob/main/LICENSE
 ---
+
 
 # FAF Go — Guided Path to 100% ✪
 

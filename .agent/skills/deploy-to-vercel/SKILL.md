@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c8a1e49d59c229777ff8604d3d089ad4ddf555bc4260fd35606dd4731c151778"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: deploy-to-vercel
 description: "Deploy applications and websites to Vercel. Use when the user requests deployment actions like \"deploy my app\", \"deploy and give me the link\", \"push this live\", or \"create a preview deployment\"."
+tier: "experimental"
 risk: critical
 source: "https://github.com/vercel-labs/agent-skills"
 date_added: "2026-06-02"
 ---
+
 
 # Deploy to Vercel
 

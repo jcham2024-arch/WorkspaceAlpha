@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3019dd4517db4a9ab49512e7c14f86a76e1aaea2ffa4e69beca5ccfc830b1e50"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: loop-library
 description: "Find, compare, adapt, and design bounded AI-agent feedback loops with explicit checks, stop rules, guardrails, and handoffs."
+tier: "experimental"
 category: ai-agents
 risk: safe
 source: official
@@ -23,6 +34,7 @@ tools:
   - gemini-cli
   - codex-cli
 ---
+
 
 # Loop Library
 

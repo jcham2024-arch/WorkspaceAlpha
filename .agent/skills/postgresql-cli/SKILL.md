@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "359917689b731fdd33ea10af256e2581b8afa5f7b5e092ea6ac1b3a815dd5f69"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: postgresql-cli
 description: "PostgreSQL interactive terminal (psql) reference and usage guide."
+tier: "experimental"
 risk: critical
 source: https://github.com/chaunsin/agent-skills/tree/master/skills/postgresql-cli
 source_repo: chaunsin/agent-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: Apache-2.0
 license_source: https://github.com/chaunsin/agent-skills/blob/master/LICENSE
 ---
+
 
 # psql — PostgreSQL Interactive Terminal
 

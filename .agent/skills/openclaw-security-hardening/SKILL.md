@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9cca56d74d8cfbbc4ec423d6683773c6874560d96e6a73eebb2ed74038b3c178"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: openclaw-security-hardening
 description: Harden OpenClaw self-hosted environments with baseline host controls,
+tier: "experimental"
   auth tightening, secret handling, network segmentation, and safe update/rollback
   workflows.
 category: devops
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 ## When to Use
 

@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "673516121881c1368c7c41005ea2d633cc4104c01ad8955cee904a3bb40ce931"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: security-checklist
 description: Review a scoped architecture against evidence-based network, identity, data, secrets, dependency and incident-response controls.
+tier: "experimental"
 source: community
 date_added: "2026-06-14"
 risk: safe
 reports-to: monopoly
 ---
+
 
 # MONOPOLY — Security Hardening Checklist
 

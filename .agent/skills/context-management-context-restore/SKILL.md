@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0550c06643309b34cf5838688bc59ab372f5a31f42043da2a2bff0fd49fec4c7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: context-management-context-restore
 description: "Resume interrupted project work from a handoff and current checkout evidence; reconcile completed work, pending changes and existing user constraints."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 ## Compatibility and maintenance
 

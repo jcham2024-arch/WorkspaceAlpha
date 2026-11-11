@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "08ba8ca7c9906b66bab0852ab3261f5cce36c10ab8ea64670778f52e87458ccb"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: jobgpt
 description: "Job search automation, auto apply, resume generation, application tracking, salary intelligence, and recruiter outreach using the JobGPT MCP server."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-23"
 ---
+
 
 # JobGPT - Job Search Automation
 

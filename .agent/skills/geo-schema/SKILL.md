@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9bd65f6eae7bfe2a14c8062355f592c6e700ed97763f2eefaa3719b19d52bb6c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: geo-schema
 description: Schema.org structured data audit and generation optimized for AI discoverability
+tier: "experimental"
   — detect, validate, and generate JSON-LD markup
 category: seo
 risk: safe
@@ -24,6 +35,7 @@ tags:
 - ai-discoverability
 allowed-tools: Read, Grep, Glob, Bash, WebFetch, Write
 ---
+
 
 # GEO Schema & Structured Data
 

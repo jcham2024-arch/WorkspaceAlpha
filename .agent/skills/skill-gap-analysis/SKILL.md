@@ -1,6 +1,17 @@
 ---
+tier: "core"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "31029d0d94a2fc26c9c53813e399e2329432eeb67e30be0b27e4de40765703f1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: skill-gap-analysis
 description: 'Skill gap register: employee, skill area, current against required level, gap severity and recommended training. Use for capability planning.'
+tier: "core"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, develop]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Skill Gap Analysis
 

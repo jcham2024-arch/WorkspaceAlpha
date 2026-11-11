@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "463723238ebe27ef0db53f86bdd3b02d0403927e4623ff655f7cd1a503f57f03"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: competitor-gap-analyzer
 description: "Competitor Gap Analyzer. Use when working with your offering and at least one competitor profile."
+tier: "experimental"
 category: Competitor Analysis
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Competitor Gap Analyzer
 
 ## Overview

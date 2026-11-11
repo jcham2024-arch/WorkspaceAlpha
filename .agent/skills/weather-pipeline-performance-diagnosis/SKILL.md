@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "01915fc69a9d1a123a477645d14aefea290d7af9e202fa9919dd5e9eb7d991e7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: weather-pipeline-performance-diagnosis
 description: "Diagnose slow weather-data workflows by measuring discovery, transfer, parsing, scientific processing, and rendering separately before changing code."
+tier: "experimental"
 category: data
 risk: safe
 source: self
@@ -10,6 +21,7 @@ author: ShianMike
 tags: [weather, performance, profiling, diagnostics, pipelines]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Weather Pipeline Performance Diagnosis
 

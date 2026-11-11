@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1c4a9198813b9b971b56e25bcea78a41ceb44f95c3dee64d16da374acd1808dd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: executing-plans
 description: "Use when you have a written implementation plan to execute in a separate session with review checkpoints"
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Executing Plans
 

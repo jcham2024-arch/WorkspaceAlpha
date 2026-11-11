@@ -1,5 +1,16 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ebd7b4cbb42c234c46f6991c9d2b27e130d6f8e470b28a77cff627c3fb18ee44"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 description: Curated upstream guidance for Eas App Stores; use when the workflow matches the user goal.
+tier: "experimental"
 name: eas-app-stores
 version: 1.1.0
 license: MIT
@@ -9,6 +20,7 @@ source: expo
 date_added: '2026-09-21'
 risk: critical
 ---
+
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.

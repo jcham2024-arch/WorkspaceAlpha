@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "40713548dcdf5d6062eb9299cf5067c0f63d542fd7a7bf0b1d16c7c71d8d8e0b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: bounce-rate-estimator
 description: "Bounce Rate Estimator. Use when working with sessions and bounced sessions, or sessions and engaged sessions with metric definition."
+tier: "experimental"
 category: SEO Performance
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Bounce Rate Estimator
 
 ## Overview

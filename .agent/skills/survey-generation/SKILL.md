@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ea9c4ee7ddc433b4b6226db31903622a3f2f1c7ae7a2134485ff1e83afeed912"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: survey-generation
 description: Generate complete academic survey papers using multi-LLM parallel outline generation, RAG-based subsection writing, citation validation, and local coherence enhancement. Based on AutoSurvey pipeline. Use for writing comprehensive literature surveys.
+tier: "experimental"
 argument-hint: [topic]
 ---
+
 
 # Survey Generation
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a62f711eec8f2afa292baf8d8d603fe4266031767ccd5a7dd4624d82d9699da0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: dbt-transformation-patterns
 description: "Production-ready patterns for dbt (data build tool) including model organization, testing strategies, documentation, and incremental processing."
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # dbt Transformation Patterns
 

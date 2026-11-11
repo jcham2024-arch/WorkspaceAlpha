@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a31721ebeb1a9d249b390a45198770703c514cafc3a4e88dc683e8e45d32bb55"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mobile-friendly-test
 description: "Mobile-Friendly Test. Use when working with accessible page or supplied screenshots and HTML."
+tier: "experimental"
 category: Technical SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Mobile-Friendly Test
 
 ## Overview

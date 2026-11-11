@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bbd3f7c1409c76b18b9f851c3c5e7a66e5ecf1d02c892a95a154d16e0293adc3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: pricing
 description: "When the user wants help with pricing decisions, packaging, or monetization strategy."
+tier: "experimental"
 risk: safe
 source: https://github.com/coreyhaines31/marketingskills/tree/main/skills/pricing
 source_repo: coreyhaines31/marketingskills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/coreyhaines31/marketingskills/blob/main/LICENSE
 ---
+
 
 # Pricing Strategy
 ## When to Use

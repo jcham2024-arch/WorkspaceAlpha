@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4f0749c5231eca5280db66beb9a42206b7c94c8cb555256d4981cfc623abf3d5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fp-ts-react
 description: "Practical patterns for using fp-ts with React - hooks, state, forms, data fetching. Use when building React apps with functional programming patterns. Includes version-specific React patterns requiring project verification."
+tier: "experimental"
 risk: safe
 source: "https://github.com/whatiskadudoing/fp-ts-skills"
 date_added: "2026-02-27"
 ---
+
 
 # Functional Programming in React
 

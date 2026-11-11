@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7b236dd56e1c46ba45916067e173a16f041742093c4986776e0f559a143cca63"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-lindy-effect
 description: Use when longevity of a non-perishable option matters. Treat survival duration as a remaining-life prior, then check domain drift before favoring the proven.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Lindy Effect
 

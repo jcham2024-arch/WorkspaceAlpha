@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ab982c9201f82e4930fe977f9e844646809e6374d6a721cff0d29425c97757ef"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: atlas-ledger
 description: "Companion to atlas-contract. Auto-invoked by its Final Audit on caught drift; also use after Post Reviews or user requests to record a mistake. Distills drift into WHEN/DON'T/INSTEAD clauses, writes to Atlas.md after confirmation."
+tier: "experimental"
 risk: critical
 source: community
 source_repo: wede-wx/atlas
@@ -21,6 +32,7 @@ plugin:
     summary: "Writes durable Atlas.md project memory after confirmation; keep out of plugin-safe bundles."
     docs: SKILL.md
 ---
+
 
 # Atlas Ledger v2.2
 

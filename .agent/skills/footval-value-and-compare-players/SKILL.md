@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1f14a45508aad107c915d402f40c28f0cb9ce61b99dfb3ee65ed8adfa8dc1f60"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: footval-value-and-compare-players
 description: "Explain what a footballer is worth with FootVal: its own transfer value next to the market value, the factors behind the gap, and comparisons of two to four players."
+tier: "experimental"
 category: data
 risk: safe
 source: "https://github.com/target1m/footval-mcp/tree/e852de8dd9b714a8b159e8d349d8f397f8f35870/skills/value-and-compare-players"
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: MIT
 license_source: "https://github.com/target1m/footval-mcp/blob/e852de8dd9b714a8b159e8d349d8f397f8f35870/LICENSE"
 ---
+
 
 # Value a player, then explain the number
 

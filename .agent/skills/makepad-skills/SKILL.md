@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d0a47fc6b098d1f9d9ac0cc0c49893ce096bfcbe26c2d2de4f90b70a5e124aea"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: makepad-skills
 description: "Makepad UI development skills for Rust apps: setup, patterns, shaders, packaging, and troubleshooting."
+tier: "experimental"
 risk: safe
 source: "https://github.com/ZhangHanDong/makepad-skills"
 date_added: "2026-02-27"
 ---
+
 
 # Makepad Skills
 

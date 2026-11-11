@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e7b026b7735bc39341081ca3a84fb89dd5e6be013f921b6bc3487762f01c7e2f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fal-workflow
 description: "Generate workflow JSON files for chaining AI models"
+tier: "experimental"
 risk: critical
 source: "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-workflow/SKILL.md"
 date_added: "2026-02-27"
 ---
+
 
 # Fal Workflow
 

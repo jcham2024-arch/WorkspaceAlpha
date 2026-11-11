@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "22225af2e282eaf1c0ef6d9dead9a23db4e12dd7966234f0d55dfb25fd857be6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "yes-md"
 description: "6-layer AI governance: safety gates, evidence-based debugging, anti-slack detection, and machine-enforced hooks. Makes AI safe, thorough, and honest."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-11"
 ---
+
 
 # YES.md — AI Governance Engine
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6dc0dfcbee31d6f5e903efb21076b968154bf8005db341423918b590dac3cbe2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: entropy-box
 description: "Entropy Box knowledge-compiler for embodied-AI: turns bounded requirements into grounded workflows via Solution Consult, Search, Lookup, and Evidence. Do not use it to control physical robots."
+tier: "experimental"
 license: CC-BY-4.0
 license_source: https://github.com/sickn33/agentic-awesome-skills/blob/main/LICENSE-CONTENT
 compatibility: Public pages and REST API require network access to Entropy Box. No credentials are required. Direct API use needs an HTTP client; allow at least 180 seconds for /api/consult.
@@ -29,6 +40,7 @@ metadata:
   upstream-api-version: "2.0.0"
   last-reviewed: "2026-09-04"
 ---
+
 # Entropy Box
 
 Entropy Box is an agent-native knowledge compiler and capability substrate for

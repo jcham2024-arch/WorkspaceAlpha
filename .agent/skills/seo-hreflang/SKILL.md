@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fb16be953e0ec502d08848b33d3a6accdf19754cb4f754412511f3ecf1fc463a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-hreflang
 description: >
+tier: "experimental"
   Hreflang and international SEO audit, validation, and generation. Detects
   common mistakes, validates language/region codes, and generates correct
   hreflang implementations. Use when user says "hreflang", "i18n SEO",
@@ -17,6 +28,7 @@ allowed-tools:
   - Bash
   - WebFetch
 ---
+
 
 # Hreflang & International SEO
 

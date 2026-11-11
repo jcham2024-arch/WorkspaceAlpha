@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6c5f52e68b333625965c72282cd5419c3c361a93b7742197a24257bc529cb00c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: vibe-code-cleanup
 description: "Safe production cleanup and hardening for vibe-coded fullstack apps (Next.js, React, Node.js, etc.). Removes dead imports, unused files, and broken references without breaking routes or APIs."
+tier: "experimental"
 category: fullstack
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [cleanup, refactor, nextjs, production, vibe-code, fullstack, nodejs]
 tools: [claude, cursor, gemini, claude-code]
 version: 1.0.0
 ---
+
 
 # Vibe-Code Cleanup — Production Refactor Skill
 

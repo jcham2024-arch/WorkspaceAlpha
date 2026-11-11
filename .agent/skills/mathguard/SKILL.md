@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0120e2afb173005e518b968eb97f9e348f1802138f69a4e708a73dbe5395d6a4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mathguard
 description: "Math-heavy escalation for n >= 10^6 — Bloom, HyperLogLog, Count-Min, MinHash/LSH, FFT, JL projection, sweep line. Use when classical O(n log n) is the floor and approximate or math wins."
+tier: "experimental"
 risk: safe
 source: community
 source_repo: morsechimwai/lemmaly
@@ -12,6 +23,7 @@ tools: [claude-code, antigravity, cursor, gemini-cli, codex-cli]
 license: "Apache-2.0"
 license_source: "https://github.com/morsechimwai/lemmaly/blob/main/LICENSE"
 ---
+
 
 # mathguard — Math-Heavy Optimization for AI Code
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ac1b8b4f91fd6cfed80c6523ea6733bdf864b9cfdf5bddeb6b14173eb0a4a344"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: remote-gpu-trainer
 description: "Deploy, monitor, and debug long GPU jobs on RENTED/remote instances (AutoDL, RunPod, vast.ai, Lambda, Slurm, K8s): teardown/billing safety, spot resilience, resumable checkpointing, OOM/NaN triage."
+tier: "experimental"
 risk: critical
 source: community
 source_type: community
@@ -16,6 +27,7 @@ compatibility: |
   agent's equivalents (references/monitoring_patterns.md §7). Companion skills (verifying-dl-experiments,
   superpowers:*, huggingface-skills:*) are optional separate installs.
 ---
+
 
 # remote-gpu-trainer — Remote GPU Job Orchestration
 

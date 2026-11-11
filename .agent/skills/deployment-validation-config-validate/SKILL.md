@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "09d7a364ff0d5f0a1f3c3b114c5ab2f3713721f70a0ca5bcdd9604d27c47835d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: deployment-validation-config-validate
 description: "Validate application configurations with schemas, configuration tests, and checks for security and environment consistency."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Configuration Validation
 

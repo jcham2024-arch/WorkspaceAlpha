@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e6d7abcf4a61dba77930549ab2a30be5ff40bce84c44c0bb5237da9e6c812246"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: e2e-testing
 description: "End-to-end testing workflow with Playwright for browser automation, visual regression, cross-browser testing, and CI/CD integration."
+tier: "experimental"
 category: granular-workflow-bundle
 risk: safe
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 # E2E Testing Workflow
 

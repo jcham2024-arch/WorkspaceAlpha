@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "981ee3e4647d3736a7a4a828c4450b27a59912a2ee0ce2fb1ede3fdad5bde267"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: imagen
 description: "AI image generation skill powered by Google Gemini, enabling seamless visual content creation for UI placeholders, documentation, and design assets."
+tier: "experimental"
 risk: critical
 source: "https://github.com/sanjay3290/ai-skills/tree/main/skills/imagen"
 date_added: "2026-02-27"
 license: Apache-2.0
 license_source: "https://github.com/sanjay3290/ai-skills/blob/281d88df199357e3091a3be5c743a0fca9a9ae1b/LICENSE"
 ---
+
 
 # Imagen - AI Image Generation Skill
 

@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9e213fc4c26171be9cc9230000bb2aa8a399d505834c35814a7397e4ee098051"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: rust-patterns
 description: Idiomatic Rust patterns, ownership, error handling, traits, concurrency, and best practices for building safe, performant applications. Use when writing or reviewing Rust code and ownership, error handling, traits, or concurrency is in question.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Rust Development Patterns
 

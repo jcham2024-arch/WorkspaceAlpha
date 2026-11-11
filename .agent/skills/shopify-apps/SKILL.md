@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a002dbf0d79fa006c83d397ac875df04142aab88684d3eec9ea28fc9ba559a3d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: shopify-apps
 description: Expert patterns for Shopify app development including Remix/React
+tier: "experimental"
   Router apps, embedded apps with App Bridge, webhook handling, GraphQL Admin
   API, Polaris components, billing, and app extensions.
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Shopify Apps
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "37ba015bbf3cfd0f119877f397c0491fd5225a5aa6665b7fa78df66849a84204"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: github-actions-templates
 description: "Production-ready GitHub Actions workflow patterns for testing, building, and deploying applications."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # GitHub Actions Workflow Patterns
 

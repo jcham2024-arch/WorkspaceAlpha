@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f4d08bbe983004bb40cb390077d8946dfb8d6a64b35bee41994323a781af081d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: disaster-recovery
 description: Implement disaster recovery strategies and runbooks. Configure RPO/RTO
+tier: "experimental"
   targets and failover procedures. Use when planning for business continuity.
 category: security
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Disaster Recovery
 

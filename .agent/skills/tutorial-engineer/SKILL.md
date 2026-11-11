@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e47552109e3b1005f1dde6eaac6e61b03e8f449f84fd4b29fb92fc643c785504"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: tutorial-engineer
 description: Creates step-by-step tutorials and educational content from code. Transforms complex concepts into progressive learning experiences with hands-on examples.
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-03-02'
 metadata:
   version: '2.0.0'
 ---
+
 
 # Tutorial Engineer
 

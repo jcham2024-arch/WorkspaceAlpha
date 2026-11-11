@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b251dd1b78b4cd4341759f8c64e2d576789cf2bff38eed62c7eab750ea5c8538"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: go-in-depth
 description: Go in depth harness — fan-out web searches, fetch sources, adversarially verify claims, synthesize a cited report.
+tier: "experimental"
 risk: safe
 source: self
 source_type: self
 date_added: "2026-07-07"
 ---
+
 
 # Go In Depth
 

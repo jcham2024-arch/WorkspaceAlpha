@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ea338f13f4575a56ff92ec5e41d13d3043dc07cdec701db519d488b227b2b581"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: lanshu-create-ai-presenter-video
 description: "Turn a topic or script into a publish-ready explainer video, led by an AI presenter or performed in one of twelve styled explainer looks."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: "MIT"
 license_source: "https://github.com/cclank/lanshu-create-ai-presenter-video/blob/main/LICENSE"
 ---
+
 
 # Lanshu Create AI Presenter Video
 

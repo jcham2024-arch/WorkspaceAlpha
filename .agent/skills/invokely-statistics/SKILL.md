@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8c86840fc4803d19060bbdb74c461729f56cd0c67755bcc58d0a47a2ec1c9d2a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: invokely-statistics
 description: "Use Invokely MCP to find official statistics, retrieve values and series, compare or rank places, and report each figure with its period, unit, and source citation."
+tier: "experimental"
 category: data
 risk: safe
 source: https://github.com/estevecastells/awesome-copilot/blob/9d96d33228f753cf26d7da5115598da2c19ad900/skills/invokely-statistics/SKILL.md
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: MIT
 license_source: https://github.com/estevecastells/awesome-copilot/blob/9d96d33228f753cf26d7da5115598da2c19ad900/LICENSE
 ---
+
 
 # Invokely Statistics
 

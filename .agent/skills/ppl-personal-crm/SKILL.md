@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f25f64d39cc118b52b059f8acd0a547b41143ddffb969a629e36f0dafcaa3f3d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ppl-personal-crm
 description: "Uses the ppl personal CRM over MCP to prepare for conversations, recall facts about people, log interactions and manage relationship follow-ups."
+tier: "experimental"
 category: productivity
 risk: critical
 source: self
@@ -10,6 +21,7 @@ author: ppl-crm
 tags: [crm, contacts, relationship-memory, mcp]
 tools: [claude, cursor, codex, gemini]
 ---
+
 
 # ppl Personal CRM
 

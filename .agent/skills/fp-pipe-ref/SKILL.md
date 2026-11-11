@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "45a08309ac5dc113c1ddd2863c3efa6e15095ac251b559f35ed582725663755a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fp-pipe-ref
 description: Quick reference for pipe and flow. Use when user needs to chain functions, compose operations, or build data pipelines in fp-ts.
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-03-06"
 version: 1.0.0
 tags: [fp-ts, pipe, flow, composition, quick-reference]
 ---
+
 
 # pipe & flow Quick Reference
 

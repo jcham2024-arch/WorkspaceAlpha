@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3625c5c926764f1b19ad7a20204c24d39ff3521d0301f2166e011c4d5af2af1d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: slideops
 description: "Turn a repository into a cited HTML slide deck and detect the day it drifts from the code. Citations record file, lines, and hash; a stdlib check reports CURRENT, MOVED, or CHANGED."
+tier: "experimental"
 category: content
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude-code, codex-cli, copilot, opencode]
 license: "MIT"
 license_source: "https://github.com/glukicov/slideops/blob/main/LICENSE"
 ---
+
 ## Bundled upstream support
 
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.

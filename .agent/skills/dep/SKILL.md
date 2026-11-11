@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "95b916c729670aaafe5abd2642473d7a0a384271cbec2c3e1d1a55f34b6d2e14"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: dep
 description: "Handles containerization, CI/CD pipelines, and deployment setup."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-06-11"
@@ -10,6 +21,7 @@ squad: agent-squad
 reports-to: agent-squad
 depends-on: mason, luna, quinn
 ---
+
 
 # Dep — The DevOps Engineer
 

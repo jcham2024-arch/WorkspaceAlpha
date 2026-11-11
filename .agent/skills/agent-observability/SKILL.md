@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a3c5cf7162dae9286a88d644049cd9ba9775ae69821ef14614b5ea6c1a9e8dd9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agent-observability
 description: Instrument AI agents with tracing, token metrics, latency, and cost visibility.
+tier: "experimental"
   Use for reliability and debugging.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '2.0'
 ---
+
 
 # Agent Observability
 

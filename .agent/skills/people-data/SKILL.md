@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f1b50591fa02448af9cf6f4613e44d6b581e9afeff64eb45cedbdc5eaed2d38d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: people-data
 description: "Research LinkedIn professional profiles and public business-contact data, including email/phone lookup, people search, and YouTube channel business-email discovery."
+tier: "experimental"
 category: research
 risk: safe
 source: https://github.com/agentbody/skills/blob/main/skills/people-data/SKILL.md
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/agentbody/skills/blob/main/LICENSE"
 ---
+
 
 # People Data
 

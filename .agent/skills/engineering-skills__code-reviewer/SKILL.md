@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4a89d5869a9ffa9a72425d829b02e7663b0c135ff0db66d5c042807bb59f8f91"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "code-reviewer"
 description: Use for any code review: a pull request, a diff, a commit, or a pasted function, handler or file in TypeScript, JavaScript, Python, Go, Swift, Kotlin, C#/.NET, Java, C, C++, Rust, Ruby, PHP or Dart/Flutter. Applies per-language rule packs (security such as SQL injection and missing auth, async and resource handling, error handling, performance) and scripts that score a PR's
+tier: "experimental"
 ---
+
 
 # Code Reviewer
 

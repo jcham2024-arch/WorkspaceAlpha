@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "97280e06516d2b0fb2689a96858dd6ef271c9f5704f40ebbee5117ffb15dbc68"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: the-honoured-one
 description: "Forces the AI to fully load context and read relevant files before performing complex, multi-file tasks, architectural changes, or debugging. Prevents acting on assumptions."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-06-25"
 ---
+
 
 # the-honoured-one — Full Context Load Protocol
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b3e4bbb0e86b52719e04ba404dbffba1edf736afff24f673e966a9dcb9020012"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "landing-page-generator"
 description: "Generates high-converting Next.js/React landing pages with Tailwind CSS. Uses PAS, AIDA, and BAB frameworks for optimized copy/components (Heroes, Features, Pricing). Focuses on Core Web Vitals/SEO."
+tier: "experimental"
 category: "front-end"
 risk: "critical"
 source: "community"
@@ -9,6 +20,7 @@ author: "alirezarezvani"
 tags: ["nextjs", "react", "tailwind", "landing-page", "marketing", "seo", "cro"]
 tools: ["claude", "cursor", "gemini"]
 ---
+
 
 # Landing Page Generator
 

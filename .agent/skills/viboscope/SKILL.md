@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a31a748f4e22de4934faaa8e48bb1d9b9d7ee215c2c7598a3c606cb727d8e3e0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: viboscope
 description: "Psychological compatibility matching — find cofounders, collaborators, and friends with explicit consent and unverified provider scoring"
+tier: "experimental"
 category: collaboration
 risk: safe
 source: community
@@ -9,6 +20,7 @@ author: ivanschmidt
 tags: [matching, psychology, compatibility, networking, collaboration]
 tools: [claude, cursor, codex, gemini, windsurf]
 ---
+
 
 # Viboscope
 

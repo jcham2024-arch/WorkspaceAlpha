@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "77e2403cabce42e29f775483f9b70fe0b88ab652567e0295b6ee2179cb212189"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: canary-watch
 description: Use this skill to monitor and verify a deployed URL after releases — checks HTTP endpoints, SSE streams, static assets, console errors, and performance regressions after deploys, merges, or dependency upgrades. Smoke / canary / post-deploy verification.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Canary Watch — Post-Deploy Monitoring
 

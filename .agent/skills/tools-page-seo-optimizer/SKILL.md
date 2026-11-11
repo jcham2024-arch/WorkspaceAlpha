@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4e77f87c0c96d0cea15c6403fac98644c524afd9216ee6d751ad4b918a15bda8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: tools-page-seo-optimizer
 description: "Framework-agnostic SEO workflow for any site with multiple tool, product, or feature pages. Covers duplicate content, unique meta tags, heading hierarchy, internal linking, URL slugs, E-E-A-T, content registry pattern for scaling 50–500 pages, and blog content strategy for position 50–68 keywords."
+tier: "experimental"
 category: seo
 risk: safe
 source: community
@@ -11,6 +22,7 @@ tags: [seo, tools-pages, product-pages, duplicate-content, content-registry, met
 tools: [claude-code, cursor, codex-cli, gemini-cli, opencode]
 version: 1.0.0
 ---
+
 
 # Tools Page SEO Optimizer
 

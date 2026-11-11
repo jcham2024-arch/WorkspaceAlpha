@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "eb0e3c9c0888080425620bef4ebfc571c6154dce0e095977e4d5c67ad6c67c38"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mcp-tool-developer
 description: "Build Model Context Protocol (MCP) servers and tools from scratch. Full-stack MCP development with TypeScript/Python, testing, deployment, and registry publishing."
+tier: "experimental"
 category: developer-tools
 risk: safe
 source: community
@@ -11,6 +22,7 @@ author: yundu-ai
 tags: [mcp, ai-agent, tool-development, typescript, python, llm, model-context-protocol]
 tools: [claude, cursor, gemini]
 ---
+
 
 # MCP Tool Developer
 

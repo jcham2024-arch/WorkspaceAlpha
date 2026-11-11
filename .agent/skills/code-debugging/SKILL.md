@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c022080ac05a543fa07277113f5a130767f1b33eb236383e515230af498231f7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: code-debugging
 description: Debug experiment code with structured error analysis. Categorize errors, apply targeted fixes with retry logic, and use reflection to prevent recurring issues. Use when experiment code fails or produces incorrect results.
+tier: "experimental"
 argument-hint: [error-or-code]
 ---
+
 
 # Code Debugging
 

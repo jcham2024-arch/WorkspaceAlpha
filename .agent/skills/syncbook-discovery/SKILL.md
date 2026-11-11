@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c33ff7fb2d9a3fa7947723024693ba81dcf583b338c4d1edb0490ae2ab91eee4"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: syncbook-discovery
 description: "Find reciprocal collaborators on Syncbook or prepare a private profile draft for human review using only explicitly supplied task facts."
+tier: "experimental"
 category: productivity
 risk: critical
 source: https://github.com/theguysaccount/syncbook-chatgpt
@@ -13,6 +24,7 @@ license_source: https://github.com/theguysaccount/syncbook-chatgpt/blob/main/LIC
 tags: [collaboration, networking, mcp, profiles]
 tools: [claude, cursor, codex, gemini]
 ---
+
 
 # Syncbook Discovery
 

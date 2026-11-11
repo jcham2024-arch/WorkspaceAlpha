@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "012ebac4ce0156a5b7e06add6a4f68a17c4c09bd3a32acc9bbc0544f35b2d3ff"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: stitch-loop
 description: Teaches agents to iteratively build websites using Stitch with an autonomous baton-passing loop pattern
+tier: "experimental"
 allowed-tools:
   - "stitch*:*"
   - "chrome*:*"
@@ -11,6 +22,7 @@ risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # Stitch Build Loop
 

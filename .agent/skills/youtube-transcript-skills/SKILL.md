@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "784ffce5c0118694ccc00357588132476d7308db08b43155874a9d055969527e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: youtube-transcript-skills
 description: "Fetch YouTube video transcripts, search videos/channels, browse channels, and extract playlists via the getyoutubetranscript.com API; verify current account terms."
+tier: "experimental"
 category: api-integration
 risk: safe
 source: community
@@ -14,6 +25,7 @@ license: "MIT"
 license_source: "https://github.com/tubeagentkit/youtube-transcript-skills/blob/main/LICENSE"
 upstream: "https://github.com/tubeagentkit/youtube-transcript-skills"
 ---
+
 
 # YouTube Transcript
 

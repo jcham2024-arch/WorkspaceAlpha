@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9bf4acbba129fe96a073283eb4509d393798092cdfc1b6c9abb7ef6a004d9f2f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: http-status-code-tester
 description: "HTTP Status Code Tester. Use when working with one or more HTTP(S) URLs."
+tier: "experimental"
 category: Technical SEO
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # HTTP Status Code Tester
 
 ## Overview

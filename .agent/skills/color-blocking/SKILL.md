@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4e68f105206c86d8047c95bfa773338233fe9596cdd3a30344feed1b06221b70"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: color-blocking
 description: Web and App implementation guide for Color Blocking. Trigger when user wants large color sections, striking layout divisions, and Mondrian-style grids.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Color Blocking
 

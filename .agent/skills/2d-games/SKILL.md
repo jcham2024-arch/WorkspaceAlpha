@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8b089db5fb35df52cdde792dd1301789e7d64efa48d0e784e8359e58bde403c7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: 2d-games
 description: >-
+tier: "experimental"
   2D game development principles. Sprites, atlases, tilemaps, physics, cameras,
   and genre patterns (platformer, top-down). Use for canvas/Phaser/Kaplay/Pixi
   2D games or guest viewports inside hybrid web apps.
@@ -8,6 +19,7 @@ risk: none
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # 2D Game Development
 

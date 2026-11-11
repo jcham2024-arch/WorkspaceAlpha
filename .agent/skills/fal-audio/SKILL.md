@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f4ec7c934efe93a7639731b24851de1a56b12490de21db15b92fca1cd3d13c14"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fal-audio
 description: "Text-to-speech and speech-to-text using fal.ai audio models"
+tier: "experimental"
 risk: critical
 source: "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-audio/SKILL.md"
 date_added: "2026-02-27"
 ---
+
 
 # Fal Audio
 

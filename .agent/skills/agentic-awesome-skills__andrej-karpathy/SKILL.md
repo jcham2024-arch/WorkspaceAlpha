@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3af96edc70a839b6ca8c0f56b2f1f159f107d1ed84c529a97d5786c2f147c31b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: andrej-karpathy
 description: Behavioral guidelines to reduce common LLM coding mistakes. Use when writing, reviewing, or refactoring code to avoid overcomplication, make surgical changes, surface assumptions, and define verifiable success criteria.
+tier: "experimental"
 risk: safe
 source: community
 source_repo: multica-ai/andrej-karpathy-skills
@@ -21,6 +32,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # Karpathy Guidelines
 

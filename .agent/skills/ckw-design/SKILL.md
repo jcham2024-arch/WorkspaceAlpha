@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "53217f036e916cc6189a9674f636ad578dd16a23d6a0da92e30615282cc9e4cc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ckw-design
 description: "Frontend design entry point: direction, design system, visual philosophy. Use whenever building or touching the look of any web UI (components, pages, dashboards, React/Vue/HTML-CSS) or when the user says \"make this look better\", \"fix the spacing/layout\", or mentions styling, color, type, or polish."
+tier: "experimental"
 risk: safe
 source: community
 source_type: community
@@ -22,6 +33,7 @@ tools:
   - gemini-cli
   - codex-cli
 ---
+
 ## When to Use
 
 Use whenever building or styling web UIs — components, pages, dashboards, landing pages, React/Vue/HTML-CSS layouts — or whenever the user asks to make something "look better/nicer", fix spacing/layout, or mentions styling, color, typography, fonts, responsive design, polish, or aesthetics, even without the word "design".

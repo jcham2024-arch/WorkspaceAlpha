@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "47f9571410e9cd31e3e4a31fe9bd2d39c9e98c15ee56acdd2572567d65037a8e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gdpr-compliance
 description: Implement GDPR data protection requirements. Configure consent management,
+tier: "experimental"
   data subject rights, and privacy by design. Use when processing EU personal data.
 category: security
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # GDPR Compliance
 

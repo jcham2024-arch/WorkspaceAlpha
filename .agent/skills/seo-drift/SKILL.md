@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a6e7a34a2df16bb34819135bd06ae54a0a31559743b2b221152d3438a5482c5d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-drift
 description: "Snapshot a site's SEO state and detect ranking, indexation, metadata, canonical, robots, schema, and on-page regressions over time."
+tier: "experimental"
 category: marketing
 risk: safe
 source: https://github.com/nowork-studio/NotFair/tree/main/seo/seo-drift
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: MIT
 license_source: https://github.com/nowork-studio/NotFair/blob/main/LICENSE
 ---
+
 
 # SEO Drift Monitoring
 

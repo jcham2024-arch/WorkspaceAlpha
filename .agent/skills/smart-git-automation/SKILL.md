@@ -1,7 +1,18 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "26377fabef109e1c27b1f4b6de01cda365581a8c296899fb5fe852b1ffc9978d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: smart-git-automation
 version: 1.0.0
 description: "Smart change detection, auto branch naming, and streamlined commit/PR workflow"
+tier: "experimental"
 risk: critical
 source: community
 source_type: community
@@ -10,6 +21,7 @@ license: MIT
 license_source: "https://github.com/mskadu/opencode-agent-skills/blob/main/LICENSE"
 date_added: "2026-06-05"
 ---
+
 
 ## What I do
 - Intelligently detect and group related changes

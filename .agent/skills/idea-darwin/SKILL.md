@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "568c67c006260a4b46ddb57c1d45e44c701113e0e17bd28e731cdefe3db3558c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: idea-darwin
 description: "Darwinian idea evolution engine — toss rough ideas onto an evolution island, let them compete, crossbreed, and mutate through structured rounds to surface your strongest concepts."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-07"
 ---
+
 
 # Idea Darwin Engine
 

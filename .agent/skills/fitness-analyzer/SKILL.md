@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "91317361c80b467d266a00880c401c8f4d50b6939cb6187303b3fbb686e310bc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fitness-analyzer
 description: 分析运动数据、识别运动模式、评估健身进展，并提供个性化训练建议。支持与慢性病数据的关联分析。
+tier: "experimental"
 allowed-tools: Read, Grep, Glob, Write
 risk: critical
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # 运动分析器技能
 

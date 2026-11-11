@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "68ed8fa00af56ae758a9206d01f950116b8aa285591bd92df94cd9cf167368bc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: scale-benchmarks
 description: Reference document for monopoly scale-benchmarks.
+tier: "experimental"
 source: community
 date_added: "2026-06-14"
 risk: safe
 reports-to: monopoly
 ---
+
 
 # MONOPOLY — Scale Benchmarks & Estimation Formulas
 

@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d444361d03e62697a25db356ba7eba3a8cf91413ac6eceda9f359ffb506c0205"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "ai-security"
 description: "Use when assessing an AI/ML system or LLM agent for prompt injection, jailbreaks, model inversion, data poisoning or tool abuse. Maps findings to MITRE ATLAS and scores robustness with ai_threat_scanner.py."
+tier: "experimental"
 ---
+
 
 # AI Security
 

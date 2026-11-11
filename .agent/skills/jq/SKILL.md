@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2857f08990580779db0e843a78387c64c49cf998f19bbd3673f376c1dc702958"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: jq
 description: "Expert jq usage for JSON querying, filtering, transformation, and pipeline integration. Practical patterns for real shell workflows."
+tier: "experimental"
 category: development
 risk: safe
 source: community
@@ -9,6 +20,7 @@ author: kostakost2
 tags: [jq, json, shell, cli, data-transformation, bash]
 tools: [claude, cursor, gemini]
 ---
+
 
 # jq — JSON Querying and Transformation
 

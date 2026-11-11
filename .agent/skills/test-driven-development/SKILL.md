@@ -1,7 +1,19 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f760ce5bc62ca8529106a05fadf6ea93f84462c2075f2db0cbe356e120f183ae"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: test-driven-development
 description: Use when implementing any feature or bugfix, before writing implementation code
+tier: "experimental"
 ---
+
 
 # Test-Driven Development (TDD)
 

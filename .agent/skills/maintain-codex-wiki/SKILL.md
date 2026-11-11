@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a61215087db5a32d33938109838b7faa4d964c144219afeec86e0d1bb008016f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: maintain-codex-wiki
 description: "Maintain a review-first engineering wiki with provenance, citation-aware queries, explicit capture and promotion, and deterministic checks."
+tier: "experimental"
 category: knowledge-management
 risk: critical
 source: https://github.com/Phelan164/codex-howto/tree/47f36fd8aacfe6f222935e5c2e1d972ef06dcb99/skills/maintain-codex-wiki
@@ -13,6 +24,7 @@ tools: [codex]
 license: MIT
 license_source: https://github.com/Phelan164/codex-howto/blob/47f36fd8aacfe6f222935e5c2e1d972ef06dcb99/LICENSE
 ---
+
 
 # Maintain Codex Wiki
 

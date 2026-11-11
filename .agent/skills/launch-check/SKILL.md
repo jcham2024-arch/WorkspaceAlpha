@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a88e8703738f94a6a8a43cf239cfd6f0b7c1acb87563a0534f33e4115c48cf8d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: launch-check
 description: "Bounded pre-launch audit of a live URL for AI-built apps: exposed secret keys, open Supabase/Firebase tables, security headers, phone layout, search and speed."
+tier: "experimental"
 category: security
 risk: critical
 source: "https://github.com/Ces107/agent-forge/tree/main/skills/launch-check"
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/Ces107/agent-forge/blob/main/LICENSE"
 ---
+
 
 # Launch Check
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "19f1c206bf637622bbb046743e83b02dd62b7e8b4155b49a994bc82b509bcbb5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: zk-proof-verification-pipeline
 description: 'Zero-knowledge cryptographic verification pipeline register: proving system, circuit verification keys, public inputs, and gas costs.'
+tier: "experimental"
 category: engineering
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [zk, zero-knowledge, snark, cryptography, privacy, soroban, web3]
 tools: []
 source_repo: Ranjeet2063/agentic-awesome-skills
 ---
+
 
 # Zero-Knowledge Proof Verification Pipeline
 

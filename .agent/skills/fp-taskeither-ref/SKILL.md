@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ee6eb22cebbfe00573116e0c8625454ce65ee65f338ea725ab3a0de4d2207111"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fp-taskeither-ref
 description: Quick reference for TaskEither. Use when user needs async error handling, API calls, or Promise-based operations that can fail.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
 version: 1.0.0
 tags: [fp-ts, taskeither, async, promise, error-handling, quick-reference]
 ---
+
 
 # TaskEither Quick Reference
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c3422730c7986466dabe5e02698ec8c460d2084d304e5466abffde93f251b31e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: neverapply
 description: "Find matching jobs, tailor resumes, prepare for interviews and apply to jobs with the user's approval through NeverApply's hosted MCP server (OAuth sign-in)."
+tier: "experimental"
 category: career-jobs
 risk: critical
 source: "https://github.com/kasovy/neverapply-mcp"
@@ -13,6 +24,7 @@ license_source: "https://github.com/kasovy/neverapply-mcp/blob/main/LICENSE"
 tags: [neverapply, jobs, job-search, resume, interview, applications, mcp]
 tools: [claude, cursor, codex, gemini]
 ---
+
 
 # NeverApply Job Search
 

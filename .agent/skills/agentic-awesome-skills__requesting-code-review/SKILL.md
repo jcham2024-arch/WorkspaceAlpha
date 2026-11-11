@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "28e4d1b550606259834d32a756346787151885dde7b5f5fc04874040f49c9299"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: requesting-code-review
 description: "Use when completing tasks, implementing major features, or before merging to verify work meets requirements"
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Requesting Code Review
 

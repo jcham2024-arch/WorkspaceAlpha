@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e2044da22d52f9c2bbcaf6281ecb1c06b2fa972f2dd6fe8b2de944b13be885a3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: atlas-cloud-media
 description: "Generate Atlas Cloud images and videos through its asynchronous media API with schema-first model selection and credential-safe polling."
+tier: "experimental"
 category: media
 risk: critical
 source: self
@@ -10,6 +21,7 @@ author: binyangzhu000-sudo
 tags: [atlas-cloud, image-generation, video-generation, media-api]
 tools: [claude, codex, cursor, gemini]
 ---
+
 
 # Atlas Cloud Media
 

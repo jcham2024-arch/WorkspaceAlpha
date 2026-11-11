@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1b25d490253b34745d91c21740675a0fa268940d006635ef8a6856695c746b0c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ddd-context-mapping
 description: "Map relationships between bounded contexts and define integration contracts using DDD context mapping patterns."
+tier: "experimental"
 risk: safe
 source: self
 tags: "[ddd, context-map, anti-corruption-layer, integration]"
 date_added: "2026-02-27"
 ---
+
 
 # DDD Context Mapping
 

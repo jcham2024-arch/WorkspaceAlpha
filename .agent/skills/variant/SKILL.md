@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3f4305c0fc24ba929b7cc8809847444db751dd92d2cd64b7d5f6c42b2a686353"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: variant
 description: Builds multiple variants of a component you're working on and helps you iterate and pick one.
+tier: "experimental"
 disable-model-invocation: true
 category: design
 risk: critical
@@ -13,6 +24,7 @@ author: jakubkrehel
 upstream_commit: 60bf140e43c98b248e6594487384ec967e89d98a
 date_added: "2026-11-06"
 ---
+
 ## When to Use
 
 Use for the variant task described below, within the user-authorized interface or drawing scope. Related skills in this collection own the domains named in the workflow; existing general frontend-design and accessibility audits remain suitable for broader work.

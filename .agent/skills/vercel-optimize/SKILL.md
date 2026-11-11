@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "392cbfda44f88fee0cc0197442bef8ea814ae34c802a04700c8f289bbf761549"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: vercel-optimize
 description: "Audit deployed Vercel apps for cost and performance issues using metrics, project config, code scans, and version-aware recommendations."
+tier: "experimental"
 risk: critical
 source: "https://github.com/vercel-labs/agent-skills"
 date_added: "2026-06-02"
 ---
+
 
 # Vercel Optimize
 

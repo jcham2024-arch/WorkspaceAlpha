@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d41a2fe0be71adc0a78c7197bcd9126ac64481956bc3073944493f254819b6a8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: github-research
 description: Explore and analyze GitHub repositories related to a research topic. Reads deep-research output, discovers repos from multiple sources, deeply analyzes code, and produces integration blueprints.
+tier: "experimental"
 argument-hint: [deep-research-output-dir]
 ---
+
 
 # GitHub Research Skill
 

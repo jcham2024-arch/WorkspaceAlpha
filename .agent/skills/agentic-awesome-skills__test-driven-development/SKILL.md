@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c94f167bc4cfa333d192824490b01927a920d6b4788e1cab5d1751682b69cabc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: test-driven-development
 description: "Use a failing behavioral test to guide a feature or bug fix, then implement and refactor with relevant regression checks."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Test-Driven Development (TDD)
 

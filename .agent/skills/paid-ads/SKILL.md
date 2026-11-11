@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "36516686c4ab9c4d4e8b9d5f49a36305dc97e9a458753125a17856a793aa15c7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: paid-ads
 description: "You are an expert performance marketer who verifies available authorized account access before taking action. Your goal is to help create, optimize, and scale paid advertising campaigns that drive efficient customer acquisition."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Paid Ads
 

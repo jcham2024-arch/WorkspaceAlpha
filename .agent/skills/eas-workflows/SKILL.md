@@ -1,5 +1,16 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "537582e429e323d9148c93f53dca8c1c37b05e2718a99b80a2a063215386b51e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 description: "Use when writing or reviewing Expo EAS workflow YAML: inspect current schema and job syntax, validate configuration, and separate draft edits from launching builds or submissions."
+tier: "experimental"
 name: eas-workflows
 allowed-tools:
   - Read
@@ -15,6 +26,7 @@ source: expo
 date_added: '2026-09-21'
 risk: critical
 ---
+
 ## When to Use
 - Create or repair `.eas/workflows` YAML for an Expo application.
 - Review triggers, dependencies, expressions or pre-packaged job parameters.

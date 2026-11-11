@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e0d08f9a685f6e4cbef9274ac4f958f498d128e07341b9bfcb1397ec1058a7c8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: code-showcase-systematic-debugging
 description: Four-phase debugging methodology with root cause analysis. Use when investigating bugs, fixing test failures, or troubleshooting unexpected behavior. Emphasizes NO FIXES WITHOUT ROOT CAUSE FIRST.
+tier: "experimental"
 risk: critical
 source: https://github.com/ChrisWiles/claude-code-showcase/tree/main/.claude/skills/systematic-debugging
 source_repo: ChrisWiles/claude-code-showcase
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/ChrisWiles/claude-code-showcase/blob/main/LICENSE
 ---
+
 
 # Systematic Debugging
 ## When to Use

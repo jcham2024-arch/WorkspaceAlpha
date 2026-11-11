@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1c07463b0b72f7e6a45d23e8bdbf6bf2def1320d3291bbde4aaba1a443f5b6fd"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: tech-writing-proofread
 description: "Proofreads English technical writing for typos, grammar, punctuation, terminology consistency, jargon, and structure; returns an itemized Original → Suggestion → Reason list without rewriting the document. Use when asked to proofread or polish a technical doc, README, or blog draft."
+tier: "experimental"
 category: writing
 risk: safe
 source: https://github.com/alapha888/agent-skills-en
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: MIT
 license_source: https://github.com/alapha888/agent-skills-en/blob/main/LICENSE
 ---
+
 
 # Technical Writing Proofreading
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1bb97a9973f6cf77da74e56ef2590cf57ffe59477343561e475c4ece2cb4645d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: mcd-secret-menu-lab
 description: "Plan McDonald's China recipe combinations using an authorized MCP connection for current store menus, prices and nutrition. Use for recreating food hacks or exploring combinations within a budget."
+tier: "experimental"
 category: productivity
 risk: safe
 source: community
@@ -18,6 +29,7 @@ plugin:
 license: "MIT"
 license_source: "https://github.com/Reak-Z/mcd-secret-menu-lab/blob/main/LICENSE"
 ---
+
 
 # 麦门隐藏菜单实验室 (McDonald's Secret Menu Lab)
 

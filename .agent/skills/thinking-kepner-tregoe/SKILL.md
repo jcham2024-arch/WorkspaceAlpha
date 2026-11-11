@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7707947c4e15a9196ba8aea43d1e06e3d2d80044c10d3cd6dd76b4aa92756391"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-kepner-tregoe
 description: Use when a selective defect needs IS/IS-NOT difference analysis or a consequential option choice needs must/want weighting and adverse-consequence comparison.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Kepner-Tregoe Analysis
 

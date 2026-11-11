@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fad59d0a4a15756f5be7e2c1040f6f4fa8783b1c12c57366a357f114f88f77ae"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gitlab-ci-patterns
 description: "Comprehensive GitLab CI/CD pipeline patterns for automated testing, building, and deployment."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # GitLab CI Patterns
 

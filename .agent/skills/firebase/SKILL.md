@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ee30de84ebb4881d414a2dc6901048dd05828ea08ef8632c4f98122b0ae67322"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: firebase
 description: Firebase gives you a complete backend in minutes - auth, database,
+tier: "experimental"
   storage, functions, hosting. But the ease of setup hides real complexity.
   Security rules are your last line of defense, and they're often wrong.
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Firebase
 

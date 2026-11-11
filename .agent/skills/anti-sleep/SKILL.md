@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ceb31fda2cf846f4fd07c138ef88efdeb98bbc4cc28093693122f75ccbe4f5ba"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: anti-sleep
 description: "Keep a Mac awake with caffeinate during long builds, downloads, or supervised automation runs."
+tier: "experimental"
 category: operations
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex]
 license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 ---
+
 
 # Anti-Sleep (macOS caffeinate)
 

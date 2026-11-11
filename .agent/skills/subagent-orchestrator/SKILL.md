@@ -1,13 +1,25 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ae7c97e51fdc2c31f8aa82256f402874b701beff8e201285afa8504f262672fe"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: subagent-orchestrator
 risk: critical
 source: community
 date_added: "2026-05-21"
 description: Coordinate quota-aware parallel subagents for large, multi-file Antigravity tasks.
+tier: "experimental"
 version: 1.0.0
 author: community
 tags: [subagents, orchestration, quota, parallel, multi-agent]
 ---
+
 
 # Subagent Orchestrator
 

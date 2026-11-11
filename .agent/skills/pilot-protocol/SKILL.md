@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "414cf9a4e7a222435db1b73a4188ba2019cc4d7be023a45a9f33455ed821ba1d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: pilot-protocol
 description: "Give an AI agent a permanent network address, encrypted P2P messaging, and an installable app store via Pilot Protocol"
+tier: "experimental"
 category: ai-agents
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: "AGPL-3.0"
 license_source: "https://github.com/pilot-protocol/pilotprotocol/blob/main/LICENSE"
 ---
+
 
 # Pilot Protocol
 

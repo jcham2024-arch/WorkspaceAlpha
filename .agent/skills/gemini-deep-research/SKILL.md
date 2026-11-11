@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bd47b5dbbebbd8d46cf7ed85e1a91dd0072c86c06a3207c3d01e2e49b15b1d30"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gemini-deep-research
 description: "Run autonomous multi-step research with Google's Gemini Deep Research Agent: kick off a query, poll progress, and collect a cited report for market analysis or literature reviews."
+tier: "experimental"
 category: research
 risk: critical
 source: https://github.com/sanjay3290/ai-skills/tree/main/skills/deep-research
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "Apache-2.0"
 license_source: "https://github.com/sanjay3290/ai-skills/blob/main/LICENSE"
 ---
+
 
 # Gemini Deep Research Skill
 

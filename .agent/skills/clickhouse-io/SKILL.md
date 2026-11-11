@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8438b5150f6121c204428d148f4fe409fad0ee6b49693e0c0237c9d58d7bd3a6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: clickhouse-io
 description: ClickHouse database patterns, query optimization, analytics, and data engineering best practices for high-performance analytical workloads. Use when writing ClickHouse schemas or queries, or when an analytical query is too slow.
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # ClickHouse Analytics Patterns
 

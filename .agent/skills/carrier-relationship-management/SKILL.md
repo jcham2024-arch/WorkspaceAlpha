@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "affe52ecb963a3ad9f1210cb3d14ae670515b16f7c1909fa5df2debbfdb98bc1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: carrier-relationship-management
 description: Codified expertise for managing carrier portfolios, negotiating freight rates, tracking carrier performance, allocating freight, and maintaining strategic carrier relationships.
+tier: "experimental"
 risk: safe
 source: https://github.com/ai-evos/agent-skills
 date_added: '2026-02-27'
 ---
+
 
 ## When to Use
 Use this skill when building and managing a carrier network, conducting freight RFPs, negotiating linehaul and accessorial rates, tracking carrier KPIs via scorecards, or ensuring regulatory compliance of transportation partners.

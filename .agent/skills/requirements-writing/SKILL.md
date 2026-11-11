@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1528794be46fa19aaae3723a1b5b007532bf6c86e6571c2edd9be219f377f53e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: requirements-writing
 description: "Write and review verifiable requirements using EARS patterns, quality checks, defect review, and traceability."
+tier: "experimental"
 risk: none
 source: community
 source_type: community
@@ -11,6 +22,7 @@ date_added: "2026-10-29"
 author: jgsystemsconsulting
 tags: [requirements, ears, specification, quality, verification]
 ---
+
 
 <!-- argument-hint: [topic, EARS pattern, or chapter number] -->
 

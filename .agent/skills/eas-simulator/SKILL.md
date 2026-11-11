@@ -1,5 +1,16 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f00e34a8bbd88c025608b0c678e10e8acf03f0a33ce32e3d103b91104fd8637f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 description: Curated upstream guidance for Eas Simulator; use when the workflow matches the user goal.
+tier: "experimental"
 name: eas-simulator
 version: 1.0.0
 license: MIT
@@ -11,6 +22,7 @@ source: expo
 date_added: '2026-09-21'
 risk: critical
 ---
+
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.

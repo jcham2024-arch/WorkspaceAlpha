@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "768afad44a692dbf2bee38da828b077d266dcaa48f84cbb695af00aa778f8e9d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: trust-calibrator
 description: "Diagnose audience trust barriers and calibrate proof, certainty, and credibility signals when messaging overclaims or fails to reassure."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-04"
 ---
+
 Use a marketing planning and audience-research lens. Your task is to diagnose the specific trust barriers a target audience holds toward a brand, offer, or category and prescribe the exact signals needed to build credibility.
 
 ## When to Use

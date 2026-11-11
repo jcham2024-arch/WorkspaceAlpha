@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "47309af4d4c0bc8644966d66d6a0ce20c213c7c7c5a9023355a3d90c43fba792"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: project-memory-log
 description: "Maintain one operation log and one deduplicated document catalog for long-running projects. Use when resuming project work or tracing durable document changes across sessions."
+tier: "experimental"
 license: MIT
 category: productivity
 risk: critical
@@ -11,6 +22,7 @@ author: JaclynFitzpatrick
 tags: [project-memory, document-catalog, traceability, local-workflow]
 tools: [codex]
 ---
+
 
 # Project Memory Log
 

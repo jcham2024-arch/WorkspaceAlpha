@@ -1,5 +1,16 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b41a286056808386e7427ba62647e6582f3ad41dd580abae29ad28f1c605022c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 description: Curated upstream guidance for Longbridge Quant; use when the workflow matches the user goal.
+tier: "experimental"
 name: longbridge-quant
 license: MIT
 metadata:
@@ -16,6 +27,7 @@ source: longbridge
 date_added: '2026-09-21'
 risk: critical
 ---
+
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.

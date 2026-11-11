@@ -1,4 +1,6 @@
-# Communication Protocol — Human-Facing ↔ Subagent-Facing
+---
+owner: "taskmaster"
+---# Communication Protocol — Human-Facing ↔ Subagent-Facing
 
 Two orchestration roles, two channels, zero cross-talk:
 

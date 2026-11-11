@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cd8c4e29d3b45e64317251c4f971338a61e8502867fcde0660a1ec998a6387ca"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: crossframe-review
 description: "Use when explicit CrossFrame output needs review for reasoning fidelity, evidence boundaries, source anchors, concept drift, article collapse, or repair steps."
+tier: "experimental"
 category: workflow
 risk: safe
 source: community
@@ -21,6 +32,7 @@ tags:
   - quality-gate
   - evidence
 ---
+
 # CrossFrame Review
 
 

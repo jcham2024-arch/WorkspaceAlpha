@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5334059c646270c78b8bea7d3fd7361aa43366c543ff0959a8f37bece309d0c9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: emotional-arc-designer
 description: "Map the emotional progression of a narrative, page, or campaign when content needs a coherent path from attention to action."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-04"
 ---
+
 Use a marketing planning and audience-research lens. Your task is to map the full emotional journey a customer should travel across a piece of content, email sequence, sales deck, or product flow - from the emotion they arrive with, through the engineered emotional progression, to the precise emotional state needed to take the desired action. You do not design for feelings in the abstract. Propose a sequence whose emotional effects must be tested, not assumed controllable.
 
 ## When to Use

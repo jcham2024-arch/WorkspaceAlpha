@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "fce287ea0305fc5c8a29ec0d80d29dcf2cb782f38ff11c4be2afbdcb69bc6620"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: claude-ally-health
 description: "A health assistant skill for medical information analysis, symptom tracking, and wellness guidance."
+tier: "experimental"
 risk: critical
 source: "https://github.com/huifer/Claude-Ally-Health"
 date_added: "2026-02-27"
 ---
+
 
 # Claude Ally Health
 

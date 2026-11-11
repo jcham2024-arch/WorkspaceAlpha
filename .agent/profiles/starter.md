@@ -23,6 +23,7 @@ reads:
   - .context/manifest.json
   - skills/index.json
 verify: "Starter provisions cleanly; all 12 skills active in .harness/skills/; risk-flagged skills excluded."
+owner: "taskmaster"
 ---
 
 # Starter — Curated Skill Set (12 skills)

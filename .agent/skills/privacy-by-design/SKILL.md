@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "98d527ecd6ca7ef433afede178dd5e73be4f25d559044c39b06b8f35de6a6f4f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: privacy-by-design
 description: "Use when building apps that collect user data. Ensures privacy protections are built in from the start—data minimization, consent, encryption."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-23"
 ---
+
 
 # Privacy by Design
 

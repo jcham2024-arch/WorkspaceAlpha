@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "22c10b21a9757b9d2d802d97e02cf719b6fea7dd017152d425cf000224c7cb73"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: microservices-patterns
 description: "Master microservices architecture patterns including service boundaries, inter-service communication, data management, and resilience patterns for building distributed systems."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Microservices Patterns
 

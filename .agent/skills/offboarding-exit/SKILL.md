@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "31d346874524c55f66709523517860ea48afd598a74e6d4249429deb8143ef35"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: offboarding-exit
 description: 'Offboarding register: exit type, employee and manager, notice and final day, reason, handover owner, and done flags for knowledge transfer, assets, access and settlement. Use for exit tracking.'
+tier: "experimental"
 category: business
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [sme, business, operations, database, csv, notion, sql, exit]
 tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
+
 
 # Offboarding & Exit
 

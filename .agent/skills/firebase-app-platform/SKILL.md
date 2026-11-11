@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ff6fa710a7be119171e6753aaf5d250c62fbaaad3aafbb05d60ff167875290e8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: firebase-app-platform
 description: Build and operate apps on Firebase using Auth, Firestore, Cloud Functions,
+tier: "experimental"
   and Hosting. Use when building mobile/web backends with managed services, real-time
   data sync, or serverless APIs.
 category: devops
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Firebase App Platform
 

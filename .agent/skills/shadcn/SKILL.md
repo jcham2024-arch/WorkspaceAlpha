@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "82860aed29f21e2a325358732edc11ca7f2cdcd425d2b07c56ba6ddc820d4244"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: shadcn
 description: Manages shadcn/ui components and projects, providing context, documentation, and usage patterns for building modern design systems.
+tier: "experimental"
 user-invocable: false
 risk: safe
 source: https://github.com/shadcn-ui/ui/tree/main/skills/shadcn
 date_added: "2026-03-07"
 ---
+
 
 # shadcn/ui
 

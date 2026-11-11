@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "74162b52c3e9f154f4fd91ebcb89a4ec01a5738897ca804365dcc9234f827ff7"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: apify-youtube-transcript-scraper
 description: "Get YouTube captions, timestamped quotations, SRT/VTT and translated transcripts for videos, channels and playlists through the harshmaur/youtube-transcript-scraper Apify Actor."
+tier: "experimental"
 category: data
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: "MIT"
 license_source: "https://github.com/harshmaur/apify-youtube-transcript-scraper/blob/main/LICENSE.txt"
 ---
+
 
 # YouTube Transcript Scraper
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8327a63594bc502ca649af3d1dc1a191c6efdabb301f52c8697e19907c393b5d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: statsmodels
 description: "Statsmodels is Python's premier library for statistical modeling, providing tools for estimation, inference, and diagnostics across a wide range of statistical methods."
+tier: "experimental"
 license: BSD-3-Clause license
 metadata:
     skill-author: K-Dense Inc.
@@ -8,6 +19,7 @@ risk: safe
 source: community
 date_added: "2026-03-06"
 ---
+
 
 # Statsmodels: Statistical Modeling and Econometrics
 

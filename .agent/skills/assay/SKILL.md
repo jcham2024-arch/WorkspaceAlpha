@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "06545eb4637c3b624c26f6cfe5599f7549b821521603f620ffe0719bd812a32e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: assay
 description: "Run assay on a web page you just wrote or changed. It opens the page in a real browser, drives every control, and reports where the page contradicts itself. Local browser checks without an LLM API key."
+tier: "experimental"
 category: testing
 risk: safe
 source: "https://github.com/awss1i/assay"
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: MIT
 license_source: "https://github.com/awss1i/assay/blob/main/LICENSE"
 ---
+
 
 # Assay
 

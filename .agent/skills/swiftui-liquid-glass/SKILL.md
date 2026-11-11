@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e46612e41d47170ee6bb303d7e1723fdf1cac5947764591b98af2fe8ba83cfb4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: swiftui-liquid-glass
 description: Implement or review SwiftUI Liquid Glass APIs with correct fallbacks and modifier order.
+tier: "experimental"
 risk: safe
 source: "Dimillian/Skills (MIT)"
 date_added: "2026-03-25"
 ---
+
 
 # SwiftUI Liquid Glass
 

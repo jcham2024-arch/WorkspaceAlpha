@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6f656ba5f7c3fc52f883a899f7f9502ee01b25580e573c54c1387b4badb6213b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: scientific-db-uspto-database
 description: USPTO patent and trademark data workflow for official record lookup, PatentSearch queries, TSDR checks, assignment data, and reproducible IP research logs. Use when a task needs official United States patent or trademark records from USPTO systems.
+tier: "experimental"
 metadata:
   origin: community
 ---
+
 
 # USPTO Database
 

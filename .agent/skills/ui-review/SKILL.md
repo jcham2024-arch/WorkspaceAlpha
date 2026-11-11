@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "27048c96d90708fea479498a8f8a00c1c3a622c9948c2562f75b72b569546bb0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ui-review
 description: Review UI code for design system compliance, accessibility, and best practices
+tier: "experimental"
 risk: safe
 source: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-review
 source_repo: bitjaru/styleseed
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE
 ---
+
 
 # UI Design Review
 ## When to Use

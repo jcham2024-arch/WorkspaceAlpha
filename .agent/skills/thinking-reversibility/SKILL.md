@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8b09a745e9f7c45fe9f08b62628944f5770f70b4d9cd9c838cc13a16b45b300f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-reversibility
 description: Before heavy deliberation, classify the decision as cheap or costly to undo; decide two-way doors fast and stage one-way doors to preserve options.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Reversibility
 

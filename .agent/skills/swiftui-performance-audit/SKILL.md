@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b02b05b3263dc0c2faf15d93cc14e039777ab6f0a579fb0f8fe21622c8e0b078"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: swiftui-performance-audit
 description: Audit SwiftUI performance issues from code review and profiling evidence.
+tier: "experimental"
 risk: safe
 source: "Dimillian/Skills (MIT)"
 date_added: "2026-03-25"
 ---
+
 
 # SwiftUI Performance Audit
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e5d105e98cba6e9e09a41be6de8c124f60ac613770d32991a47ae9deb0817c4b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-prompt-regression-testing
 description: 'Use when comparing prompt changes against a fixed evaluation set: record actual model settings, required checks, missing results, judge limitations and case-level regression evidence.'
+tier: "experimental"
 category: engineering
 risk: safe
 source: self
@@ -11,6 +22,7 @@ tags: [ai, prompt-engineering, testing, evaluation, llm, benchmarking]
 tools: []
 source_repo: Ranjeet2063/agentic-awesome-skills
 ---
+
 
 # AI Prompt Regression Testing
 

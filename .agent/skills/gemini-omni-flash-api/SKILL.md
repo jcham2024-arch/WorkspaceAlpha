@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "636def751ffe293b958fe3bc605de01c1305be47875f11fb73ad568ee766a50f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: gemini-omni-flash-api
 description: "Use this skill for generative video editing, text-to-video, image-referenced video generation, and first-frame-to-video transition animations using the official google-genai SDK."
+tier: "experimental"
 risk: critical
 source: https://github.com/google-gemini/gemini-skills/tree/main/skills/gemini-omni-flash-api
 source_repo: google-gemini/gemini-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: Apache-2.0
 license_source: https://github.com/google-gemini/gemini-skills/blob/main/LICENSE
 ---
+
 
 # Gemini Omni Flash Skill
 ## When to Use

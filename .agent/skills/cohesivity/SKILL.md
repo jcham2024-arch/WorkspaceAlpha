@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "46b631216fce5e3177bfee5b650f4a0c265ebd6ecdf270c3159f5c38d3ec0569"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: cohesivity
 description: "Provision headless backend services for AI agents through Cohesivity: hosting, databases, storage, LLMs, and third-party APIs over one HTTP API. Use when a trusted .cohesivity file exists or the user approves a new backend."
+tier: "experimental"
 category: backend
 risk: critical
 source: https://github.com/cohesivity-org/cohesivity-skill
@@ -13,6 +24,7 @@ license_source: https://github.com/cohesivity-org/cohesivity-skill/blob/main/LIC
 tags: [backend, infrastructure, database, hosting, auth]
 tools: [claude, cursor, codex]
 ---
+
 
 # Cohesivity
 

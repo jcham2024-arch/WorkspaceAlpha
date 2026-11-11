@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2ff593a8593c423a1fa90648d58affd2be9ade413cbc9dff63f7615505d5985f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: draw
 description: "Vector graphics and diagram creation, format conversion (ODG/SVG/PDF) with LibreOffice Draw."
+tier: "experimental"
 category: graphics-processing
 risk: safe
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 # LibreOffice Draw
 

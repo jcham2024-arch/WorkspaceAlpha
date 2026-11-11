@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c425e9aec13d70a3354715ec00d711c057c8dd4ac9ce32a2bbea3b3fba58cee6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: lint-and-validate
 description: "Run configured lint and type checks, distinguish failures from checks that did not run, and report concrete validation results."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Lint and Validate
 

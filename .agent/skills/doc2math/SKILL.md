@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "61455d0fb3d8952902dd4ef99a43a66886c78e562bacdc8fc574d45abb83baa5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: doc2math
 description: Convert narrative technical documents into grounded Mathematical Problem Specifications with variables, constraints, objectives, and uncertainty.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-05-31"
 ---
+
 
 # DOC2MATH — Document-to-Mathematics Problem Specification
 

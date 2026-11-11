@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a5b3590a4eb00edb6cc03c936c6e89784f86379f109d7961361094b12cdfa178"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: verify-document
 description: Check whether a document (PDF or image) shows signs of tampering or forgery before you rely on it. Use when the user asks to verify a payslip, invoice, bank statement, ID document, contract, or any document where authenticity matters.
+tier: "experimental"
 category: document-verification
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: "Apache-2.0"
 license_source: "https://github.com/Sketchjar/stipple-agent-skills/blob/main/LICENSE"
 ---
+
 
 # Document Verification
 

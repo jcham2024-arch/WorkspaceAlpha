@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "7794d8cb01c5a37561acc9ba7e5a53945041351246629f85f82ff5a93abaf5c4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: artifact-yylo
 description: Capture and retrieve durable YYLO Ledger artifact Records with intentional
+tier: "experimental"
   profiles, payload modes, provenance, retention, and secret-safe immutable evidence.
 category: project-management
 risk: safe
@@ -16,6 +27,7 @@ compatibility: Requires the `yy` CLI with the `artifact` record group installed.
 argument-hint: '[artifact or evidence to capture/find/inspect]'
 enable-shell-directives: true
 ---
+
 
 # Use YYLO artifact Records
 

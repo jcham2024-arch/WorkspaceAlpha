@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "84ea1d60c5dee328b20b490ecf3b1b9da12f6887b022daee5d7b3dd510666f5e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-aeo-internal-linking
 description: "Maps internal link opportunities between pages with relevant anchor text, placement instructions, orphan-page detection, and cannibalisation checks."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-01"
 ---
+
 
 # Internal Linking Skill
 

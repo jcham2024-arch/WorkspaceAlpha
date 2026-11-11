@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c80cf2b2006267e6d14e5e6031391ce52b926bed7333cea5abdcc89eb11ab01e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-jobs-to-be-done
 description: Deciding what to build or why adoption fails. Recover the progress users hire a solution for under a circumstance, then rank by outcome and competing workarounds.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Jobs to Be Done
 

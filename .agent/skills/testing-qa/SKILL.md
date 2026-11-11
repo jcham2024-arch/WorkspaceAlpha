@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9293f57040f2223a25ee8c408a4e1b347fa8050c81f4fab7503335d970cb820a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: testing-qa
 description: "Comprehensive testing and QA workflow covering unit testing, integration testing, E2E testing, browser automation, and quality assurance."
+tier: "experimental"
 category: workflow-bundle
 risk: safe
 source: personal
 date_added: "2026-02-27"
 ---
+
 
 # Testing/QA Workflow Bundle
 

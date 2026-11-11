@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d978ab30729fc521748e7bf7ca6e23f5a17f1d4497aaa0d2ef154baa695e5ea6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-mgmt-apicenter-py
 description: Azure API Center Management SDK for Python. Use for managing API inventory, metadata, and governance across your organization.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Azure API Center Management SDK for Python
 

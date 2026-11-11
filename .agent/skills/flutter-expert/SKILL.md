@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3baefbab646fb0df50fe3d263fd366a7b4d0e316513f87231247889245471593"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: flutter-expert
 description: Master Flutter development with Dart 3, advanced widgets, and multi-platform deployment.
+tier: "experimental"
 category: mobile
 risk: safe
 source: community
@@ -10,6 +21,7 @@ author: Franklyn-R-Silva
 tags: [flutter, dart, mobile, cross-platform, riverpod]
 tools: [claude, cursor, gemini]
 ---
+
 
 ## Use this skill when
 

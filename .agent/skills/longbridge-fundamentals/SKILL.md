@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b75f79c6b3e99886f1b1d1ff30a55f75ab3e69819530115878e97e1e46b4b86d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: longbridge-fundamentals
 description: "Financial statements, business segments, dividends, valuation multiples (PE/PB/PS), industry comparison, operating data, corporate actions, company and executive profiles, cross-stock comparison, and valuation ranking via Longbridge."
+tier: "experimental"
 risk: critical
 source: https://github.com/longbridge/skills/tree/main/skills/longbridge-fundamentals
 source_repo: longbridge/skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/longbridge/skills/blob/main/LICENSE
 ---
+
 ## Bundled upstream support
 
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.

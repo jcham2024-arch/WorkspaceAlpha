@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d71c2ef381b40cdab6b9b768d152ebe9439134fa69b7dca736f21bfb12088c79"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: doom-pay
 description: "Add self-custodial DOOM and wDOOM checkout links with DoomPay, then verify payment receipts on Doomsday Network Layer-1 or Base Mainnet."
+tier: "experimental"
 category: payments
 risk: critical
 source: "https://github.com/doomsday-network/doom-pay/tree/0317517d75856c34e9c799e6e167239ae69e29e0"
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: MIT
 license_source: "https://github.com/doomsday-network/doom-pay/blob/0317517d75856c34e9c799e6e167239ae69e29e0/LICENSE"
 ---
+
 
 # DoomPay Checkout and Payment Verification
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c4ce6a23e70a9e8b8050efc2f9d93c10d763cb34c1ca27c88ed864098ac3e16e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: developer-listening
 description: "Monitor what developers say about your brand, competitors, and the problems they're solving. Track mentions and conversations across GitHub, Hacker News, Reddit, Stack Overflow, Twitter, and Discord."
+tier: "experimental"
 risk: critical
 source: https://github.com/jonathimer/devmarketing-skills/tree/main/skills/developer-listening
 source_repo: jonathimer/devmarketing-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/jonathimer/devmarketing-skills/blob/main/LICENSE
 ---
+
 
 # Developer Listening
 ## When to Use

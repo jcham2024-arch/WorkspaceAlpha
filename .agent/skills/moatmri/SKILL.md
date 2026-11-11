@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "088a4eb7426c063fa1884bb9bbb45bff65b537b27741fa49197e91729c6dfcbc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: moatmri
 description: Analyze AI disruption pressure across a business, map competitive exposure, and produce a 90-day defensive action plan.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-05-31"
 ---
+
 
 # MoatMRI — AI Disruption Pressure Analysis
 

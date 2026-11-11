@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a41610e00b44a422d5acfffdbcde74dec52ef49a989acf6e92dd665c2b96c203"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: codebase-onboarding
 description: Onboard a developer to a repository using Ontoly graph summaries. Use
+tier: "experimental"
   when asked to explain a new codebase, identify entrypoints, map packages, or suggest
   first files to inspect.
 license: AGPL-3.0-only
@@ -20,6 +31,7 @@ source: community
 date_added: '2026-09-21'
 risk: unknown
 ---
+
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.

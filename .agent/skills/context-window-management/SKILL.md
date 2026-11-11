@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2869099d88fd1c5b53dc7d0fd5e63062dc1033fb3ff971d7daf2e6ded27b6dca"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: context-window-management
 description: Strategies for managing LLM context windows including
+tier: "experimental"
   summarization, trimming, routing, and avoiding context rot
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Context Window Management
 

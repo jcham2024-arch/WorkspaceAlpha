@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "051b20411044d4be872ac332eeb3ea4138f579c6590759777dbc448be2b88643"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aws-security-audit
 description: "Comprehensive AWS security posture assessment using AWS CLI and security best practices"
+tier: "experimental"
 category: security
 risk: critical
 source: community
 tags: "[aws, security, audit, compliance, kiro-cli, security-assessment]"
 date_added: "2026-02-27"
 ---
+
 
 # AWS Security Audit
 

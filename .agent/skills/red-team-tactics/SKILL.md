@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1b50613d0cdb0f2210bc9dfb8abc7bde2f59de6e8a69422e8c64028aa3bc5195"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: red-team-tactics
 description: "Red team tactics principles based on MITRE ATT&CK. Attack phases, detection evasion, reporting."
+tier: "experimental"
 risk: offensive
 source: community
 date_added: "2026-02-27"
 ---
+
 
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.

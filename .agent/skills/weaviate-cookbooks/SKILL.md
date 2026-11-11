@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a07230137ab16209f8e3af4fdfca6c49c232888cebea8713bf119b1fef704c7a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: weaviate-cookbooks
 description: "Build Weaviate AI apps from official cookbook blueprints for RAG, agentic RAG, data exploration, multimodal PDF search, async clients, and frontends."
+tier: "experimental"
 category: ai
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [python, weaviate, nextjs]
 license: "BSD-3-Clause"
 license_source: "https://github.com/weaviate/agent-skills/blob/main/LICENSE"
 ---
+
 
 # Weaviate Cookbooks
 

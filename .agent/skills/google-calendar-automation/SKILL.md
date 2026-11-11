@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c1b86c69287afbd2a56c3c96d5674413bd7185dbc7d1eefd5d3df2cf7c56e9e3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: google-calendar-automation
 description: "Plan and perform authorized Google Calendar workflows through an existing authenticated integration; inspect events, draft changes and verify results."
+tier: "experimental"
 license: Apache-2.0
 risk: critical
 source: community
@@ -9,6 +20,7 @@ metadata:
   author: sanjay3290
   version: "1.0"
 ---
+
 
 # Google Calendar Automation
 

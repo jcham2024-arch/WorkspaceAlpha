@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a1e557c2a7a6fd02eb90faaaffe07f34120f678907fdcefb964c925aa01a50a3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: competitor-ad-intelligence
 description: "Research public competitor ads, analyze creative patterns and landing pages, and produce an evidence-labeled strategic teardown."
+tier: "experimental"
 category: marketing
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: "MIT"
 license_source: "https://github.com/gooseworks-ai/goose-skills/blob/main/LICENSE"
 ---
+
 
 # Competitor Ad Intelligence
 

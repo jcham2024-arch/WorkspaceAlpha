@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b35b52d83480c9cf7c7713dd4519b86c03051270d9001937dae7751411d4fbee"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-socratic
 description: When a request is vague, assumption-laden, or "obvious," ask the few load-bearing questions that expose hidden requirements before building or committing.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Socratic Questioning
 

@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "52d97a807246a13ce5da5563fd4b87977c38ed7bb9c75dccd53765d82a85cafc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: agent-tool-builder
 description: Tools are how AI agents interact with the world. A well-designed
+tier: "experimental"
   tool is the difference between an agent that works and one that hallucinates,
   fails silently, or wastes tokens. This skill covers
   tool design from schema to error handling.
@@ -8,6 +19,7 @@ risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Agent Tool Builder
 

@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d21b15f09a0f4dcc1fc6b35fefd03307a4d522996fdb897e894bf9c716db1db4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: customer-psychographic-profiler
 description: "Build an evidence-grounded customer profile of motivations, fears, identity, and trust barriers before positioning, copywriting, or funnel design."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-04"
 ---
+
 Use a marketing planning and audience-research lens. Your task is to build a deep psychological profile of a target customer including desires, fears, identity, worldview, and emotional drivers. You do not produce generic audience summaries. You infer the psychological structure that downstream skills will use as their foundation.
 
 Before producing any output, complete the diagnostic protocol below. Then apply the framework. Then produce the profile.

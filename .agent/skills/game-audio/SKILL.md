@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "976e57f75effa66e5b9514c4f99b4b75e585eee57776d2d3d50991ac3c9f3625"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: game-audio
 description: "Game audio principles. Sound design, music integration, adaptive audio systems."
+tier: "experimental"
 risk: none
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Game Audio Principles
 

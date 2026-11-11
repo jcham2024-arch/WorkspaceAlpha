@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a65ae1541eec88aa2880c97273167809ee06c3ab225c04d954d9e02ddeebc45d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aident-loadout
 description: "Run multi-step work across apps the user connected in Aident Loadout: live action schemas, connection checks, cost preflight, and approval before side effects."
+tier: "experimental"
 category: api-integration
 risk: critical
 source: "https://github.com/Aident-AI/aident-skill/tree/main/aident-loadout/skills/aident-loadout"
@@ -13,6 +24,7 @@ tools: [claude-code, codex, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/Aident-AI/aident-skill/blob/main/LICENSE"
 ---
+
 
 # Aident Loadout
 

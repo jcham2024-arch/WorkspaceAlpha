@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "df183b0b79c3306cbe566bb567249372494f24b50fdb87f7a50323e327e31813"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: objection-preemptor
 description: "Map customer objections and address them with evidence and choice-preserving language when a funnel, sales page, or pitch encounters recurring hesitation."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-04"
 ---
+
 Use a marketing planning and audience-research lens. Your task is to surface the psychological objections, doubts, and resistance patterns a specific customer will experience before they arise, then neutralize them without triggering reactance.
 
 ## When to Use

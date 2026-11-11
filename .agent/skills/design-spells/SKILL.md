@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "88920959fd8a5b3cd184ab03cb6b90976db813b7b77002e452accd239cdf8e78"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: design-spells
 description: Curated micro-interactions and design details that add "magic" and personality to websites and apps.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-07"
 ---
+
 
 # Design Spells Skill
 

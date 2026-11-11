@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5bbd685e4da0c9ac11177ceb0317469206696c3e78b3ca459845b1e9edaa48c4"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: python-development
 description: "You are a Python project architecture expert specializing in scaffolding production-ready Python applications. Generate complete project structures with modern tooling (uv, FastAPI, Django), type hint (Alias for python-development-python-scaffold)"
+tier: "experimental"
 risk: critical
 source: "alias"
 date_added: "2026-06-02"
 ---
+
 
 # Python Development
 

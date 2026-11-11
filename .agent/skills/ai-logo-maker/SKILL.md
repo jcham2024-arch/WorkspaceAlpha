@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5b4cc7c29648642f4c17e4ee382879df0dd68ead5979c0aa77600293d63d45cf"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ai-logo-maker
 description: "Install and use the official AI Logo Maker package, pinned by digest, for paid hosted work on the Beatra service."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/beatra-ai/ai-logo-maker-skill/blob/50d2353e6d878980f06a4d89bbd0996f8ac3776c/LICENSE"
 ---
+
 
 # AI Logo Maker Skill
 

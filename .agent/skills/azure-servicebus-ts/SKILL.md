@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ddec8b08a9f0d4741492f0b3a7433874a65d58ccbb062874dbeba7d853d8a992"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-servicebus-ts
 description: "Enterprise messaging with queues, topics, and subscriptions."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Azure Service Bus SDK for TypeScript
 

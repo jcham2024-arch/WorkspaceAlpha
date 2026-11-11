@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1021dfae47d2b58a609ff2efa0323e3dccfa32ce4203cd2263603255f2f4923a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: bill-gates
 description: "Simulacao educativa de analise estrategica inspirada em temas publicos de Bill Gates; nao representa a pessoa real ou suas opinioes atuais."
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-03-06'
@@ -17,6 +28,7 @@ tools:
 - gemini-cli
 - codex-cli
 ---
+
 
 # BILL GATES — AGENTE DE SIMULACAO PROFUNDA v2.0
 

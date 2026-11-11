@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b5508e8684bbfcca3477615ca542bf69152676e78800c27eb135c36b756ba626"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-microsoft-playwright-testing-ts
 description: "Run Playwright tests at scale with cloud-hosted browsers and integrated Azure portal reporting."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Azure Playwright Workspaces SDK for TypeScript
 

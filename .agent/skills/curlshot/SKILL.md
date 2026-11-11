@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4ec9b39ef141f9d302692f397f61ae57a66707cbe0f2cac33c0ec599c88dddc5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: curlshot
 description: "Capture web page screenshots, PDFs and scrolling videos, or render HTML/Markdown to images, with the hosted CurlShot API."
+tier: "experimental"
 category: api-integration
 risk: safe
 source: "https://github.com/SergiuPogor/curlshot-mcp/tree/main/skills/curlshot"
@@ -13,6 +24,7 @@ tools: [claude-code, codex, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/SergiuPogor/curlshot-mcp/blob/main/LICENSE"
 ---
+
 
 # CurlShot screenshots
 

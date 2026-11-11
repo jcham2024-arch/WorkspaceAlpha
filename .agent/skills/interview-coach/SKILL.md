@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b2a9a0deba85ab06d91a6c234094a9933e69f5f410d933b78318aae4d32d80dc"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: interview-coach
 description: "Full job search coaching system — JD decoding, resume, storybank, mock interviews, transcript analysis, comp negotiation. Coaching guide with an optional separately installed command package and scoped state."
+tier: "experimental"
 category: productivity
 risk: safe
 source: community
@@ -9,6 +20,7 @@ author: dbhat93
 tags: [interview, job-search, coaching, career, storybank, negotiation]
 tools: [claude]
 ---
+
 
 # Interview Coach
 

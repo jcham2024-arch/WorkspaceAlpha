@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a57fed02f54f71cc7d01661673c8725552108829ece8b358556f39583f3c9eb3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: neon-ai-gateway
 description: "One API and one credential for frontier and open-source LLMs, built into your Neon branch and powered by Databricks."
+tier: "experimental"
 risk: critical
 source: https://github.com/neondatabase/agent-skills/tree/main/skills/neon-ai-gateway
 source_repo: neondatabase/agent-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: Apache-2.0
 license_source: https://github.com/neondatabase/agent-skills/blob/main/LICENSE
 ---
+
 
 # Neon AI Gateway
 

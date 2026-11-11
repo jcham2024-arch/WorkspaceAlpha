@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5ad72261f972565db39a471fb2187dc25ee3e5c07250c8c6ab2a940c5f28f77e"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: dbos-golang
 description: "Guide for building reliable, fault-tolerant Go applications with DBOS durable workflows. Use when adding DBOS to existing Go code, creating workflows and steps, or using queues for concurrency control."
+tier: "experimental"
 risk: critical
 source: "https://docs.dbos.dev/"
 date_added: "2026-02-27"
 ---
+
 
 # DBOS Go Best Practices
 

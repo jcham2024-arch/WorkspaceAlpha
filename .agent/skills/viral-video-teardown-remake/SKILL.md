@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "57cd93bc8ef752fde36931be9eaa80b4b167c2f6bc8d85bf26428a19a861179c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: viral-video-teardown-remake
 description: "Install and use the official Viral Video Remake package, pinned by digest, for paid hosted work on the Beatra service."
+tier: "experimental"
 category: media
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: "MIT-0"
 license_source: "https://github.com/beatra-ai/viral-video-remake-skill/blob/6a1491a1f0739fe0dc0ebdf717602b52cbd99c3f/LICENSE"
 ---
+
 
 # Viral Video Remake Skill
 

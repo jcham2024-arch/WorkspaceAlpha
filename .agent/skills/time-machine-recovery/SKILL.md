@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5630d4d6da673c664120937d4260d058af76326ddf7b1415a03504d64bac0d9b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: time-machine-recovery
 description: "Diagnose failed or stalled macOS Time Machine backups and recover space on local APFS destinations that remain full after backup deletion."
+tier: "experimental"
 category: development
 risk: critical
 source: self
@@ -8,6 +19,7 @@ source_type: self
 date_added: "2026-11-04"
 tags: [macos, backup, apfs, troubleshooting]
 ---
+
 
 # Time Machine Recovery
 

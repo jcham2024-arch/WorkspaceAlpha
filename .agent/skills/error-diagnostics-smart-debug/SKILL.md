@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cad90712b9d8423a2b59a4a0103d330308d9bd119d76855ec1d7b789f38c80b0"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: error-diagnostics-smart-debug
 description: "Diagnose failures from reproduction steps, traces, logs and code; test hypotheses and verify a scoped fix without inventing production evidence."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 ## Use this skill when
 

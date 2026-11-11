@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "23168aeb66189de28cd4c090152443eee349ec96b00287d1caba77f71b91d787"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: usage-based-pricing
 description: "Design pricing models that developers understand, accept, and can predict. Trigger phrases: usage-based pricing, API pricing, metered billing, developer pricing, pricing page, cost calculator, pay as you go, pricing transparency, competitive pricing, developer billing"
+tier: "experimental"
 risk: critical
 source: https://github.com/jonathimer/devmarketing-skills/tree/main/skills/usage-based-pricing
 source_repo: jonathimer/devmarketing-skills
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/jonathimer/devmarketing-skills/blob/main/LICENSE
 ---
+
 
 # Usage-Based Pricing
 

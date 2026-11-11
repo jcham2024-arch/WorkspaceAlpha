@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1a799fc79260a63c404c3843e9fca35b410a2c52591d522e41bc81e0179e0c43"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: pro-motion
 description: "Make a motion-graphics launch, brand or promo film audio first: plan the music, then render the film in code (canvas to MP4) cut to the track. Use for 发布视频, 宣传片, TVC, BGM, Suno prompts."
+tier: "experimental"
 category: media
 risk: safe
 source: self
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor]
 license: "MIT"
 license_source: "https://github.com/jack-reson8/pro-motion/blob/main/LICENSE"
 ---
+
 
 # Pro Motion — MG film, audio first (launch · brand · TVC · promo)
 

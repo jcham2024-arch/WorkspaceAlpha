@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e1523841aad4adc95ecf3965531bd1b1f5a016c25466c532fcf70bcdc880828f"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: spec-driven-loop
 description: Freeze PRD, technical design, and acceptance criteria before medium-to-large Codex work; coordinate agents with explicit ownership, then judge delivery from diffs, tests, and evidence.
+tier: "experimental"
 category: development
 risk: safe
 source: self
@@ -19,6 +30,7 @@ tags:
 tools:
   - codex
 ---
+
 
 # Spec-Driven Loop
 

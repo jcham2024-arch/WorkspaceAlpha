@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5ff817db890b160d7672049d195b95663cc25fc8cd8f82018d2aeb843d420b15"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: itil-expert
 description: Expert advisor for ITIL 4 and ITIL 5 (2026 digital product paradigm), specialized in AI-native governance, sustainability, and value co-creation.
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-04-18"
@@ -12,6 +23,7 @@ triggers:
   - "ai governance guidance"
   - "digital product management itil"
 ---
+
 
 # ITIL Expert (ITIL 4 & 5)
 

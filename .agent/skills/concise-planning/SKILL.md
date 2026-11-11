@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "488f5a04e532a7d3c05ffd39c609bed7df328a03ad4117c0bb11cb8a78059814"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: concise-planning
 description: "Use when a user asks for a plan for a coding task, to generate a clear, actionable, and atomic checklist."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Concise Planning
 

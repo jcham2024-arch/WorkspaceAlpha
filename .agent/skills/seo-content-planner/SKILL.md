@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "30aa06af948575c6d57612405544f4e6afe388ba15197c67682f5265dd48c956"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: seo-content-planner
 description: 'Creates comprehensive content outlines and topic clusters for SEO.
+tier: "experimental"
 
   Plans content calendars and identifies topic gaps. Use PROACTIVELY for content
 
@@ -11,6 +22,7 @@ risk: none
 source: community
 date_added: '2026-02-27'
 ---
+
 
 ## Use this skill when
 

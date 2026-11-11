@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3198738be67a8faa6b5b0c7546c2f5b57a8305e5dbecca1cc737e483c6d8bb0c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: linux-administration
 description: System administration for Linux servers. Manage packages, services, and
+tier: "experimental"
   system configuration. Use when administering Linux systems.
 category: devops
 risk: critical
@@ -16,6 +27,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Linux Administration
 

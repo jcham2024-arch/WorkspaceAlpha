@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "20b61ba70b81f20412fa393eacfc8e2543f168e356fb1e8d67b1a96cdb82f5d2"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hig-components-status
 description: Apple HIG guidance for status and progress UI components including progress indicators, status bars, and activity rings.
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Apple HIG: Status Components
 

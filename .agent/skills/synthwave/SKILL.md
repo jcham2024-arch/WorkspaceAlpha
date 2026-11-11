@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e183d1cd4a2a75b631a1180106328401c20bd47dd87399bd566ab57fa5941b78"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: synthwave
 description: Web and App implementation guide for Synthwave. Trigger when user wants 80s-inspired neon, dark backgrounds, outrun grids, and Miami Vice aesthetics.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Synthwave (Outrun)
 

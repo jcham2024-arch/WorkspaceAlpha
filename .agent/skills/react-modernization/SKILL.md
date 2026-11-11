@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9aaa9206dc6a6e969c27358f9d00ab1cb79c948543642ea7d3f9b3179496caac"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: react-modernization
 description: "Master React version upgrades, class to hooks migration, concurrent features adoption, and codemods for automated transformation."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # React Modernization
 

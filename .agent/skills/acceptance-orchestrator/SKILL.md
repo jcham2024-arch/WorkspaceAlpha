@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "3bcad32b8e31f0b3d99f69e2a4046b1091c18db2c30ab91577b8b3d3751fd1e9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: acceptance-orchestrator
 description: Use when a coding task should be driven end-to-end from issue intake through implementation, review, deployment, and acceptance verification with minimal human re-intervention.
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-12"
 ---
+
 
 # Acceptance Orchestrator
 

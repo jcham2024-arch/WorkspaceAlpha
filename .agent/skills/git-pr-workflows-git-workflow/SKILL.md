@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "618cf0e06de8d5002962a7e4184d97ffb13fe6befd9f6d516893277007c50816"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: git-pr-workflows-git-workflow
 description: "Orchestrate review, tests, commits, branch pushes, and pull-request creation with parallel agents. Use when completed changes must move through validation into a PR or guarded merge."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Guarded Git Pull Request Workflow
 

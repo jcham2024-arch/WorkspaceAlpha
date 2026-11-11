@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1d2ff4a6806270b83fe6d5e5b8fd3d6e6d0bc318e8065c9efcba3b4aa3a83e07"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: thinking-second-order
 description: When a change has effects past the immediate fix—incentives, scale, feedback—trace consequence chains with timing and probability before committing.
+tier: "experimental"
 disable-model-invocation: true
 ---
+
 
 # Second-Order Consequence Chains
 

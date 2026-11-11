@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "93d08ba9d9cdf40d777a334be5d1ce9613f42b798551b81512fc2c8d89db3895"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: varlock
 description: "Secure-by-default environment variable management for Claude Code sessions."
+tier: "experimental"
 risk: critical
 source: "https://github.com/dmno-dev/varlock"
 date_added: "2026-03-06"
 version: 1.0.0
 ---
+
 
 # Varlock Security Skill
 

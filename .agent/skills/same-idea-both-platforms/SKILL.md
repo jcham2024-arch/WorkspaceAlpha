@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "8407ca54195a104aed4be35750098774c83f2fa8f1ca2e4c7b92d10cf7ad5420"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: same-idea-both-platforms
 description: "Write one idea as a Twitter/X post and a LinkedIn post that read as written separately, not pasted twice. Use when someone wants to cross-post or adapt a post for the other platform."
+tier: "experimental"
 category: marketing
 risk: critical
 source: "https://github.com/prateeks367/voicemoat-skills/tree/7623a3effbee426554e8c5df55e77f3479fd0ec0/skills/same-idea-both-platforms"
@@ -13,6 +24,7 @@ author: prateeks367
 tags: [linkedin, twitter, cross-posting, writing, social-media]
 tools: [claude, cursor, gemini, codex]
 ---
+
 
 # Same idea, both platforms
 

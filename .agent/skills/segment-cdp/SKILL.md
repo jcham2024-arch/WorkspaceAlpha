@@ -1,12 +1,24 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "99266daf84688e859ba8c0da6bfe3ff478f8392731e12881d5d564e6ce632ab3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: segment-cdp
 description: Expert patterns for Segment Customer Data Platform including
+tier: "experimental"
   Analytics.js, server-side tracking, tracking plans with Protocols, identity
   resolution, destinations configuration, and data governance best practices.
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Segment CDP
 

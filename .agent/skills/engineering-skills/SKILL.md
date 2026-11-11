@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "66e8d15afe1c4dd444f21d4f6cd7b89ce08af74b11aef74242ca79b4670d373d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: "engineering-skills"
 description: "Find which engineering skill fits a task: architecture, frontend, backend, QA, DevOps, security, AI/ML, data, cloud. Use whenever the user is unsure which skill to use; load only that one."
+tier: "experimental"
 license: MIT
 metadata:
   version: 2.9.0
@@ -18,6 +29,7 @@ metadata:
     - codex-cli
     - openclaw
 ---
+
 
 # Engineering Team Skills
 

@@ -1,8 +1,20 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ffd7b0fb6f858884358677dad78562cb1caa7533f18f0bbebc0d4d452955eaf8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: tdd-workflow
 description: Use this skill when writing new features, fixing bugs, or refactoring code. Enforces test-driven development with 80%+ coverage including unit, integration, and E2E tests.
+tier: "experimental"
 license: MIT
 ---
+
 
 # Test-Driven Development Workflow
 

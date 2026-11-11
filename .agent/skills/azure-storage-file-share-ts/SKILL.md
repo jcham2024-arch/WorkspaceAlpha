@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9ede9afa62489af7e22601983dc1b26cee91e665bff67c71eeced49a1304cb3d"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-storage-file-share-ts
 description: Azure File Share JavaScript/TypeScript SDK (@azure/storage-file-share) for SMB file share operations.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # @azure/storage-file-share (TypeScript/JavaScript)
 

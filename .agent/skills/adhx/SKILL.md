@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "57c29ddd59ef82920a0e323c0746f42f1ab33a064f0160edd9e4939e479a6d0c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: adhx
 description: "Fetch any X/Twitter post as clean LLM-friendly JSON. Converts x.com, twitter.com, or adhx.com links into structured data with full article content, author info, and engagement metrics. No scraping or browser required."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-03-25"
 ---
+
 
 # ADHX - X/Twitter Post Reader
 

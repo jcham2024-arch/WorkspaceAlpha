@@ -1,11 +1,23 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "cbebf49672f1c8ed86291473e114d4ed97bc36ce60050a9246ce95d927477f25"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: typography-first
 description: Web and App implementation guide for Typography First Design. Trigger when user wants text as the absolute main visual element, with minimal UI chroming.
+tier: "experimental"
 date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
+
 
 # Typography First Design
 

@@ -1,6 +1,17 @@
 ---
+tier: "core"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9efe184b04d45506c5dbbc56c927f0c2e68a977818e37e93ee99b591a5c2d335"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: skill-check
 description: "Validate Claude Code skills against the agentskills specification. Catches structural, semantic, and naming issues before users do."
+tier: "core"
 category: development
 risk: safe
 source: https://github.com/olgasafonova/SkillCheck-Free
@@ -12,6 +23,7 @@ license: MIT
 allowed-tools: Read Glob
 compatibility: claude-code
 ---
+
 
 # SkillCheck
 

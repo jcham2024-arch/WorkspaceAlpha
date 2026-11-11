@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "1216a58e1a8be3819a5c372bb3d06b64dfd034c3f49f83594fd70106baa20f63"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: brooks-test
 description: "Review test-suite quality using established testing literature; identify brittleness, mock abuse, unclear fixtures, weak assertions, slow feedback, and maintenance risks."
+tier: "experimental"
 risk: safe
 source: https://github.com/hyhmrright/brooks-lint/tree/main/skills/brooks-test
 source_repo: hyhmrright/brooks-lint
@@ -9,6 +20,7 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/hyhmrright/brooks-lint/blob/main/LICENSE
 ---
+
 
 # Brooks-Lint — Test Quality Review
 ## When to Use

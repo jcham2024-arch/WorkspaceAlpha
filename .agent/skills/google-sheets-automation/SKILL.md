@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4ac5738dcba6141e6a9dd3ab0294dff68054398f24be6b1eb6d135e9944365a1"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: google-sheets-automation
 description: "Read and edit Google Sheets through an available authenticated connector or reviewed API integration, with scoped changes and read-back verification."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-03-06"
@@ -9,6 +20,7 @@ metadata:
   author: sanjay3290
   version: "1.0"
 ---
+
 
 # Google Sheets Automation
 

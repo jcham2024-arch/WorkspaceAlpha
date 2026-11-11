@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "503276acbe60722fb079fdcc441d6005f26bf81ff35d619a3b2236e1e205ff4b"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: repo-foundation
 description: "Implement features, fixes, modules, contract migrations, and resumed work while preserving user edits and authorized public contracts."
+tier: "experimental"
 category: development
 risk: critical
 source: https://github.com/Natchannnn/repository-engineering-skills
@@ -16,6 +27,7 @@ metadata:
   version: "0.3.0"
   license: "MIT"
 ---
+
 
 # Repo foundation
 

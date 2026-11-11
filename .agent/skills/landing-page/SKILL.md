@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c19f15a84a90024f5542786ea9c68948454284576f5010dd24a7acb96cc63579"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: landing-page
 description: "Build landing, home and pricing pages that look like a real product instead of AI output: honest copy, one design system, checked on phone and desktop."
+tier: "experimental"
 category: frontend
 risk: safe
 source: https://github.com/uxkin/agent/tree/ee24e34dd0d2361417a48b96e4a0ad4e27d251ca/.agents/skills/design-md
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, copilot, gemini]
 license: MIT
 license_source: https://github.com/uxkin/agent/blob/ee24e34dd0d2361417a48b96e4a0ad4e27d251ca/LICENSE
 ---
+
 
 # Landing page · derived from UXKIN
 

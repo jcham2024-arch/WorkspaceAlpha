@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ece1496b3911cc8ef43d1ba7654546f1f3a55e51dc4e5001f2461e357e83fe48"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: apify-linkedin-jobs-scraper
 description: "Search and export LinkedIn job postings with salary, seniority, recruiter and company fields using the harshmaur/linkedin-jobs-scraper Apify Actor. No LinkedIn login."
+tier: "experimental"
 category: data
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex]
 license: "MIT"
 license_source: "https://github.com/harshmaur/apify-linkedin-jobs-scraper/blob/main/LICENSE.txt"
 ---
+
 
 # LinkedIn Jobs Scraper
 

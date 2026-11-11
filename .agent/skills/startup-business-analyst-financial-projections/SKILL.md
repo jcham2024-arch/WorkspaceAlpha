@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "07a2b4f96cbf632a7081f3c64264b481422ac7e27241b89208efef6008a709c6"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: startup-business-analyst-financial-projections
 description: 'Create detailed 3-5 year financial model with revenue, costs, cash
+tier: "experimental"
 
   flow, and scenarios
 
@@ -9,6 +20,7 @@ risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Financial Projections
 

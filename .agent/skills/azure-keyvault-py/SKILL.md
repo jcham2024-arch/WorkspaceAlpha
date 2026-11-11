@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "dacc43d59f69512e97cbd7dcda3e3b6ddbc026fa7144bba2be916bc51c86c411"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: azure-keyvault-py
 description: Azure Key Vault SDK for Python. Use for secrets, keys, and certificates management with secure storage.
+tier: "experimental"
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Azure Key Vault SDK for Python
 

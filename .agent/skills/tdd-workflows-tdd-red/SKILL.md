@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9ad35d98635353d360dfca9c47d6e294dba290733c5ea486664455f4ec931a51"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: tdd-workflows-tdd-red
 description: "Generate failing tests for the TDD red phase to define expected behavior and edge cases."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 Write comprehensive failing tests following TDD red phase principles.
 

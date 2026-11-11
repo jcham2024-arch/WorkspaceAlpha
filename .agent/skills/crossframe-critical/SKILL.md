@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "6da977f46eeb5e1ba2cca01f0a8413b98c5dca8b94ccb76ba20cb57b53b72353"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: crossframe-critical
 description: "Use only when the user explicitly names crossframe-critical for a Chinese structural critique dossier, article plan, or long-form critical essay."
+tier: "experimental"
 category: content
 risk: safe
 source: community
@@ -21,6 +32,7 @@ tags:
   - essay
   - structural-analysis
 ---
+
 # CrossFrame Critical
 
 

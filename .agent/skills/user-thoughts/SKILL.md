@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "ae92864a57c8e63c38bc090ca0a974a31da4bc0b450a6da145e2e5c37a23b48a"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: user-thoughts
 description: >-
+tier: "experimental"
   Persist user decisions and project constraints to mdbase across sessions.
   Use on explicit /user-thoughts or /ustht requests, or within previously authorized
   project-memory capture scope.
@@ -19,6 +30,7 @@ metadata:
   category: productivity
   supported_agents: "[claude, cursor, gemini]"
 ---
+
 
 # user-thoughts.SKILL
 

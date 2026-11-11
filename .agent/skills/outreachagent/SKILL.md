@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9d257ebe10c310662a71d1c736cd2ce6f8b7fcdea81ddf4cc14a0945c709e4e9"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: outreachagent
 description: "Operate reply-aware cold outbound email workflows for AI agents with inboxes, contacts, templates, pacing, approvals, webhooks, and delivery metrics."
+tier: "experimental"
 category: marketing
 risk: critical
 source: self
@@ -10,6 +21,7 @@ author: pagefarms
 tags: [email, cold-outreach, sales, ai-agents, workflows, deliverability, webhooks, rest-api]
 tools: [claude, cursor, codex, gemini]
 ---
+
 
 # OutreachAgent
 

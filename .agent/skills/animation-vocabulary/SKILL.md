@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "9c5cc84a5126033a2c5d6ad9e906c599fa5166f581763b3df15c6a553cff3f51"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: animation-vocabulary
 description: "Name a described animation effect using a reverse-lookup motion glossary."
+tier: "experimental"
 category: frontend
 risk: none
 source: community
@@ -11,6 +22,7 @@ author: Emil Kowalski
 license: MIT
 license_source: https://github.com/emilkowalski/skills/blob/a81dbca07f2217b7103e510c0f13f8d5b017afc9/LICENSE
 ---
+
 
 # Animation Vocabulary
 

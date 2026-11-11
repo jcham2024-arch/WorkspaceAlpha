@@ -1,13 +1,25 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "51592876ccd5fd29a7f53a6385dc06e018fb5042382b3fef74fdef3ba6f548ce"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 id: zipai-optimizer
 name: zipai-optimizer
 version: "14.0"
 description: "Ultra-dense token optimizer skill for prompt caching, log pruning, AST-based inspection, and minified JSON payloads."
+tier: "experimental"
 category: agent-behavior
 risk: safe
 source: community
 date_added: "2026-04-13"
 ---
+
 
 # ZipAI: Context & Token Optimizer
 

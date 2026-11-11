@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bb5b5609aef555e5b2991badbb3dc1f1c4d8236487b8e882ed0708f8f47f08e5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: module-governance
 description: >-
+tier: "experimental"
   Establish or maintain a business module's local agent instructions, domain-context links, and interface ownership when implementing a new module or changing its responsibilities. Reuse project-level rules and existing ECC workflows; ordinary bug fixes, styling, and read-only design discussions do not start module documentation setup.
 metadata:
   origin: ECC
 ---
+
 
 # Module Governance
 

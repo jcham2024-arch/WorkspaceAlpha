@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a009b5a6bf322196f7d5727613350f9f8352087113572d18372fd4dcd6a9bbb5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: hig-technologies
 description: "Review Apple-platform technology UX against HIG patterns for payments, health data, identity, Siri, AR, cloud sync, and shared experiences. Use for integration flow design, permission planning, and accessibility checks."
+tier: "experimental"
 risk: safe
 source: community
 date_added: '2026-02-27'
 ---
+
 
 # Apple HIG: Technologies
 

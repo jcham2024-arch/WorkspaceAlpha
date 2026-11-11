@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "e6a5354fe684f23b78347d10ade3460e00077139f8b5a6d6eab67b47b6be1cd5"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: twilio-communications
 description: "Build communication features with Twilio: SMS messaging, voice
+tier: "experimental"
   calls, WhatsApp Business API, and user verification (2FA). Covers the full
   spectrum from simple notifications to complex IVR systems and multi-channel
   authentication."
@@ -8,6 +19,7 @@ risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27
 ---
+
 
 # Twilio Communications
 

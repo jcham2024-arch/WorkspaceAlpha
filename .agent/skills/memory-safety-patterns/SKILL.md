@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2844f13690d3fb673e7d4615a271bb46c1b7c6c1a4cc4a6aae39ff82c84d1e31"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: memory-safety-patterns
 description: "Cross-language patterns for memory-safe programming including RAII, ownership, smart pointers, and resource management."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # Memory Safety Patterns
 

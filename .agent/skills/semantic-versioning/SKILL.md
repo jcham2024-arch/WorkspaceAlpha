@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "932e2c7a907aedbff4155973b7b8270821c90220c412e373833c59666a403817"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: semantic-versioning
 description: Automate versioning and changelog generation using semantic versioning
+tier: "experimental"
   principles.
 category: devops
 risk: critical
@@ -17,6 +28,7 @@ metadata:
   author: devops-skills
   version: '1.0'
 ---
+
 
 # Semantic Versioning
 

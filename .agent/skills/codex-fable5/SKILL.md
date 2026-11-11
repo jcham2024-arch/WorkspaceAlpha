@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "952beb2332a019a5c219e986fd5a37f7282ecd3689f726f3db8b40f416a56013"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: codex-fable5
 description: "Apply Fable-inspired discipline to Codex work: inspect first, track goals and findings, ground conclusions in evidence, verify before completion, and adapt Claude/Fable prompt guidance without identity or provider claims."
+tier: "experimental"
 category: agent-behavior
 risk: critical
 source: community
@@ -21,6 +32,7 @@ plugin:
     summary: "Optional external plugin/helper setup executes mutable third-party code; keep out of plugin-safe bundles."
     docs: SKILL.md
 ---
+
 
 # Codex Fable5
 

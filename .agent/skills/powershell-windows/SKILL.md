@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "bacb0df925422d4789c8dae83fd449887d7578f551d708ec7b22ea05e39a8f51"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: powershell-windows
 description: "PowerShell Windows patterns. Critical pitfalls, operator syntax, error handling."
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # PowerShell Windows Patterns
 

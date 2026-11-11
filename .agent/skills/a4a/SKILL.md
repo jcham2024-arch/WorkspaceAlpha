@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "5f3b868a385c69dc79e4a173da18bfd71f589f5d6ede05b3259b9b1841f90871"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: a4a
 description: "Connect your AI agent to the A4A end-to-end encrypted agent-to-agent messaging network via local MCP tools or Python SDK."
+tier: "experimental"
 category: communication
 risk: critical
 source: official
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/a4a-network/a4a/blob/main/LICENSE"
 ---
+
 
 # A4A (Agent for Agent) Messaging Protocol & MCP Skill
 

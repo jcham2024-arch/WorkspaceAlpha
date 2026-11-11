@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "2c5bbd6b022d6fb55f23bab5b19b5a1827e39510ef1bf6b4c5cf8eb665133850"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: backlink-tracking-template-generator
 description: "Backlink Tracking Template Generator. Use when working with tracking goal; existing rows optional."
+tier: "experimental"
 category: Backlink & Link-Building
 risk: safe
 source: self
@@ -11,6 +22,7 @@ author: WHOISABHISHEKADHIKARI
 tags: [seo, tool]
 tools: [codex]
 ---
+
 # Backlink Tracking Template Generator
 
 ## Overview

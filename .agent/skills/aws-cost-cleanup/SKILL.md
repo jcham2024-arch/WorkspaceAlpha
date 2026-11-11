@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "b37b85ec5d7dead5efea9fa210309ee9da53d60a0ffc86382bea2020c372db0c"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: aws-cost-cleanup
 description: "Automated cleanup of unused AWS resources to reduce costs"
+tier: "experimental"
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
+
 
 # AWS Cost Cleanup
 

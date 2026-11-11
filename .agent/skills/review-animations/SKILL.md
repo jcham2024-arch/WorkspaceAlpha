@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "0a60ba9d53e64ee73aaab9fe84bbf1ef35a902c624922b0fbe255e084537b323"
+fetched_at: "2026-11-10"
+upstream_license: "MIT"
+owner: "taskmaster"
+---
 name: review-animations
 description: "Review motion code against a craft, performance, accessibility, and interaction-quality standard with evidence."
+tier: "experimental"
 category: frontend
 risk: safe
 source: community
@@ -12,6 +23,7 @@ license: MIT
 license_source: https://github.com/emilkowalski/skills/blob/a81dbca07f2217b7103e510c0f13f8d5b017afc9/LICENSE
 disable-model-invocation: true
 ---
+
 
 # Reviewing Animations
 

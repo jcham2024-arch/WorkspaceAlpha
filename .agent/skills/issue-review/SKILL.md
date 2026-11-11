@@ -1,9 +1,21 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "d39926c32b13dc8bc04f6470d93351d8b144c6e797b31989af46c7cffee70c56"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: issue-review
 description: Review a GitHub issue the way /code-review reviews a PR. Fetches the issue with the gh CLI, checks the report against the current codebase, searches for duplicates and prior fixes, scores completeness, assigns severity, and writes a triage report plus a draft reply. Posting comments or labels is opt-in only. Use when the user asks to check, triage, validate, or
+tier: "experimental"
 metadata:
   origin: ECC
 ---
+
 
 # Issue Review
 

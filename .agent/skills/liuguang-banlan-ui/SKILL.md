@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "c74c091fa059675eb0d2f3c5cea5f035cebdffd955320cf11dacf9420380df48"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: liuguang-banlan-ui
 description: Builds two parameterized UI modes—流光溢彩白 (iridescent white) and 五彩斑斓黑 (colorful black)—with OKLCH, WebGL/CSS fallback, vision gating, screenshot QA, and total/per-color intensity reports. Use when a UI request names either mode or needs measured color parameters.
+tier: "experimental"
 category: creative
 risk: critical
 source: self
@@ -10,6 +21,7 @@ author: 3516027002att-ui
 tags: [ui, frontend, oklch, webgl, accessibility]
 tools: [codex, claude, cursor, gemini]
 ---
+
 
 # 流光斑斓 UI 工坊
 

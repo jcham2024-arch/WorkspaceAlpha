@@ -1,10 +1,22 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "a3660d82fd9dc09a783f4075fd73f1b6ad13d10c4ed6fa66001a12f75d4efdd8"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: json-canvas
 description: Create and edit JSON Canvas files (.canvas) with nodes, edges, groups, and connections. Use when working with .canvas files, creating visual canvases, mind maps, flowcharts, or when the user mentions Canvas files in Obsidian.
+tier: "experimental"
 risk: critical
 source: "https://github.com/kepano/obsidian-skills"
 date_added: "2026-03-21"
 ---
+
 
 # JSON Canvas Skill
 

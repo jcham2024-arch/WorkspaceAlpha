@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "952926e1285f2b9e3bdae818a329445bba9b6bd59b471921f8154c6af1392773"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: ontoly-software-graph
 description: "Use Ontoly's deterministic Software Graph, MCP server, and agent skills for architecture review, request tracing, impact analysis, and dependency analysis."
+tier: "experimental"
 category: development
 risk: critical
 source: community
@@ -13,6 +24,7 @@ tools: [claude, cursor, gemini, codex, antigravity]
 license: MIT
 license_source: "https://github.com/0xsarwagya/ontoly/blob/main/LICENSE"
 ---
+
 
 # Ontoly Software Graph
 

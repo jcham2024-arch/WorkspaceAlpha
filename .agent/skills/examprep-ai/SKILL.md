@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "f6e62c8947c4cecbf6db7f35d7647d84f256c085a3be0ef8a9b88a83046e9ff3"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: examprep-ai
 description: "Exam preparation assistant that converts syllabi, past papers, or notes into a ranked High Score Roadmap. Covers theory, numericals, MCQs, coding, and lab prep, ordered Easy → Medium → Hard. Use for last-minute revision, important topics, and question prediction."
+tier: "experimental"
 risk: safe
 source: community
 date_added: "2026-06-05"
@@ -16,6 +27,7 @@ tags:
   - revision
   - students
 ---
+
 
 # ExamPrep AI
 

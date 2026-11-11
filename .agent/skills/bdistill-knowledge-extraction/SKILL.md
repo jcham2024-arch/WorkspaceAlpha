@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "4c40c868d3872dfb968711932b1b8011b11deaf40996f664932ccc969e3811ed"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: bdistill-knowledge-extraction
 description: "Extract structured domain knowledge from AI models in-session or from local open-source models via Ollama. No API key needed."
+tier: "experimental"
 category: ai-research
 risk: safe
 source: community
@@ -9,6 +20,7 @@ author: FrancyJGLisboa
 tags: [ai, knowledge-extraction, domain-specific, data-moat, mcp, reference-data]
 tools: [claude, cursor, codex, copilot]
 ---
+
 
 # Knowledge Extraction
 

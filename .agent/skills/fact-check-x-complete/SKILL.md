@@ -1,6 +1,17 @@
 ---
+tier: "experimental"
+last_reviewed: 2026-11-10
+source_url: ""
+source_ref: ""
+source_commit: ""
+content_hash: "90a3b9f0571be6f19cb9e278cbf88d2b10a4c21409ddf492d17400815809e449"
+fetched_at: "2026-11-10"
+upstream_license: "unknown"
+owner: "taskmaster"
+---
 name: fact-check-x-complete
 description: "Compare claims from one or more AI answers, verify their citations against public primary sources, and produce an evidence-linked fact-check report without installing a bundled browser runtime."
+tier: "experimental"
 category: research
 risk: critical
 source: https://github.com/ASI2030/Fact-Check-X/tree/4dd7eef0452a4c31e4b3b3b0d643c9daeea7fdbe
@@ -13,6 +24,7 @@ tools: [claude, codex, cursor, gemini]
 license: Apache-2.0
 license_source: https://github.com/ASI2030/Fact-Check-X/blob/4dd7eef0452a4c31e4b3b3b0d643c9daeea7fdbe/LICENSE
 ---
+
 
 # Fact-Check-X Complete
 
