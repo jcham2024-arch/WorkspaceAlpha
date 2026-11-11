@@ -52,9 +52,44 @@
 ├── .context/              ← graph.json (source), manifest.json,
 │                             index.md (plain fallback)
 ├── docs/                  ← only tree seed indexes (provenance)
+├── docs/specs/            # Technical specifications
+├── docs/contracts/        # Decision records, interfaces
+├── docs/operations/       # Operational docs (secrets, quarantine, deprecation, etc.)
+├── docs/adr/              # Architecture Decision Records
+├── docs/skills/           # Skill documentation index & duplicate report
 ├── .wiki/                 ← render pipeline (seed/build/index.html)
 │                             + agent.md (wiki production guide)
+├── wiki/                  # Generated prompt wiki views (Unified Prompt Stack)
+│   ├── conversation.md    # Delegation chain transcript
+│   ├── prompt-chunk.md    # Per-turn prompt composition
+│   ├── conceptual-expansion.md — Node selection rationale & assumptions
+│   ├── index.md           # View index
+│   └── views/generator.py # Wiki view generator
 ├── skills/index.json      ← slim skills router
+├── adapters/              # Model adapters (Unified Prompt Stack)
+│   ├── deepseek_v32.py    # DeepSeek V3.2 (thinking mode, token floors)
+│   ├── nemotron_35.py     # Nemotron 3.5 (reasoning_effort mapping)
+│   └── dispatch.py        # Adapter selection by target_tier
+├── assembly/              # DAG compiler (Unified Prompt Stack)
+│   ├── manifest_reader.py # Manifest loading & scope resolution
+│   ├── slicer.py          # Byte-range extraction with sha256 verification
+│   ├── budgeter.py        # Per-tier token ceiling enforcement
+│   └── assembler.py       # Plan→Bind→Optimize→Execute→Feedback pipeline
+├── assembly/prefix/       # Frozen prompt prefixes (byte-identical, cache-keyed)
+│   ├── orchestrator.md    # Conceptualizer prefix
+│   ├── manager.md         # Taskmaster prefix
+│   └── production.md      # Production worker prefix
+├── envelope/              # Delegation envelopes (Unified Prompt Stack)
+│   ├── handoff-envelope.schema.json   # JSON Schema for delegation envelope
+│   ├── return-envelope.schema.json    # JSON Schema for return envelope
+│   ├── mission-envelope.yaml          # MISSION delegation template
+│   └── execution-envelope.yaml        # EXECUTION delegation template
+├── schemas/               # JSON Schemas (Unified Prompt Stack)
+│   ├── prompt-graph.schema.json   # Prompt DAG node/edge schema
+│   └── provenance-record.schema.json  # Per-turn provenance record schema
+├── provenance/            # Per-turn provenance records (Unified Prompt Stack)
+│   ├── recorder.py        # Record & summarize turns
+│   └── turns.jsonl        # JSONL log of all turns
 ├── .harness/skills/       ← currently-used skills (untracked)
 ├── .agent/                ← ALL agent resources (tracked; only .env, .harness/ gitignored)
 │   ├── agent.md           ← runtime root guide
@@ -87,6 +122,15 @@ Then regenerate small artifacts:
 ```
 python3 .harness/gen_skills_index.py    # skills/index.json
 python3 .harness/sync_active.py --profile conceptualizer
+```
+
+Then build the Unified Prompt Stack (WA-UNIFIED-002):
+```
+# Decision notes are hand-written ADRs; they do not compile through seed/build.
+# The prompt graph is assembled from hand-written nodes + manifest refs.
+python3 assembly/assembler.py    # two-zone prompt assembly (if run standalone)
+python3 provenance/recorder.py   # per-turn provenance recording (called per turn)
+python3 wiki/views/generator.py  # wiki views (called per delegation session)
 ```
 
 Graphs stay section-addressed (`byte_range`), hashed (`sha256`),
@@ -133,6 +177,8 @@ frontmatter note + OS section, or `platforms/<os>.md` companions
 | Manager | large context, low thinking | research-manager, coding-manager, review-manager — break into steps, review, package |
 | Specialist | mid | coder, researcher, reviewer |
 | Implementer | low context, no thinking | per-step agents dispatched by managers |
+
+Each profile's frontmatter now includes a `tier:` field (`core`/`curated`/`experimental`/`quarantine`) matching the skill tier system in `.agent/skills/TIERS.md`.
 
 Build order within a run: scope (01) → plan DAG (02) → dispatch
 packages via managers (03) → verify incl. final branch review (04).
@@ -223,5 +269,12 @@ Model B (untracked, bootstrap-provisioned) would be better for massive libraries
    keys in `.agent/.env` from `.env.example`.
 6. **Wiki**: `.wiki/agent.md` + `wiki-producer.md`,
    `.wiki/seed.py && .wiki/build.py`, validate, commit.
-7. **Memory/learning**: `memory/learnings.md` seeded; stage
+7. **Prompt stack**: Create `envelope/` (schemas + templates),
+   `assembly/` (manifest_reader, slicer, budgeter, assembler,
+   prefix/), `adapters/` (deepseek_v32, nemotron_35, dispatch),
+   `schemas/` (prompt-graph, provenance-record), `provenance/`
+   (recorder.py), `wiki/views/` (generator.py).
+   Write `.context/prompt-graph.json` manually (hand-authored
+   nodes + edges referencing manifest IDs). Run `validate.py`.
+8. **Memory/learning**: `memory/learnings.md` seeded; stage
    folders (01–04) + `llms.txt` (root) wired into AGENTS.md.

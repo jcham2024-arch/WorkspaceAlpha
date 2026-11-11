@@ -34,273 +34,35 @@
     {
       "byte_range": [
         634,
-        2712
+        7630
       ],
-      "bytes": 2078,
+      "bytes": 6996,
       "content_ref": "docs/README.md",
-      "est_tokens": 520,
+      "est_tokens": 1749,
       "id": "docs/README.md::architecture",
-      "sha256": "5598e9e9233521e76d86a0e8445816e4a2897a8b1cb79a7ee373d69654b78628",
+      "sha256": "ca2d89bae7e6a27b071964ecc13e1417a6b8e36a2afa64ac0e7ca9876cfbf60b",
       "summary": "Architecture",
       "tags": [],
       "type": "doc"
     },
     {
       "byte_range": [
-        2712,
-        2728
+        7630,
+        8271
       ],
-      "bytes": 16,
+      "bytes": 641,
       "content_ref": "docs/README.md",
-      "est_tokens": 4,
+      "est_tokens": 161,
       "id": "docs/README.md::conventions",
-      "sha256": "09ab97e61fa4ae867fad69ee3bf29b038c8adb6d70850155dddf09ea72fcbcf2",
+      "sha256": "309f3918846fa058af8400116480a29d0dea826fff91700a478e74c8a79091a3",
       "summary": "Conventions",
       "tags": [],
       "type": "doc"
     },
     {
       "byte_range": [
-        2728,
-        3049
-      ],
-      "bytes": 321,
-      "content_ref": "docs/README.md",
-      "est_tokens": 81,
-      "id": "docs/README.md::documentation",
-      "sha256": "fb16948e9464091cf9b39c2cb1b1d7cdc8f1e47eaa6f6c08d5b65342006007f0",
-      "summary": "Documentation",
-      "tags": [],
-      "type": "doc"
-    },
-    {
-      "byte_range": [
-        3049,
-        3348
-      ],
-      "bytes": 299,
-      "content_ref": "docs/README.md",
-      "est_tokens": 75,
-      "id": "docs/README.md::skills",
-      "sha256": "d80db16f76e81192879c07632481c8cd9df4b9244242beb0967d2b97aaa9d5d0",
-      "summary": "Skills",
-      "tags": [],
-      "type": "doc"
-    },
-    {
-      "byte_range": [
-        3348,
-        4125
-      ],
-      "bytes": 777,
-      "content_ref": "docs/README.md",
-      "est_tokens": 195,
-      "id": "docs/README.md::agent-profiles",
-      "sha256": "ea36149ac5a364db80e0864a33488e0d78132c4409e6ccb446f136353303352d",
-      "summary": "Agent Profiles",
-      "tags": [],
-      "type": "doc"
-    },
-    {
-      "byte_range": [
-        4125,
-        4389
-      ],
-      "bytes": 264,
-      "content_ref": "docs/README.md",
-      "est_tokens": 66,
-      "id": "docs/README.md::communication-protocol",
-      "sha256": "98de2fc4d59ded6a4d35cca5b39162954f1f2e523956a5ab1bf82e6e19928153",
-      "summary": "Communication Protocol",
-      "tags": [],
-      "type": "doc"
-    },
-    {
-      "byte_range": [
-        4389,
-        4409
-      ],
-      "bytes": 20,
-      "content_ref": "docs/README.md",
-      "est_tokens": 5,
-      "id": "docs/README.md::getting-started",
-      "sha256": "cb65447f5e27edf51318adf1b81924260fbbf4845fa51d55b56a396f0573b9d7",
-      "summary": "Getting Started",
-      "tags": [],
-      "type": "doc"
-    },
-    {
-      "byte_range": [
-        4409,
-        4555
-      ],
-      "bytes": 146,
-      "content_ref": "docs/README.md",
-      "est_tokens": 37,
-      "id": "docs/README.md::prerequisites",
-      "sha256": "6c996758f33cfb7e2602436df8af725fe2ee69b9a0b665f8cc5a19ce32132933",
-      "summary": "Prerequisites",
-      "tags": [],
-      "type": "doc"
-    },
-    {
-      "byte_range": [
-        4555,
-        4582
-      ],
-      "bytes": 27,
-      "content_ref": "docs/README.md",
-      "est_tokens": 7,
-      "id": "docs/README.md::initial-build",
-      "sha256": "920a474997887566cedb2ed3f51624c2ad0f2291bbdc07064a8c6d6c8fb3013b",
-      "summary": "Initial Build",
-      "tags": [],
-      "type": "doc"
-    },
-    {
-      "byte_range": [
-        4582,
-        4872
-      ],
-      "bytes": 290,
-      "content_ref": "docs/README.md",
-      "est_tokens": 73,
-      "id": "docs/README.md::full-pipeline",
-      "sha256": "9bf0bda12a6f7d01f48b6d34d5294be67a5fdf753eaef3cdf974471fe56f09db",
-      "summary": "Full pipeline",
-      "tags": [],
-      "type": "doc"
-    },
-    {
-      "byte_range": [
-        4872,
-        5095
-      ],
-      "bytes": 223,
-      "content_ref": "docs/README.md",
-      "est_tokens": 56,
-      "id": "docs/README.md::development-workflow",
-      "sha256": "ea7825d2abad9f0200bb72a4b30a3e02e0f46e0bbc382499fbf4de238b23cb07",
-      "summary": "Development Workflow",
-      "tags": [],
-      "type": "doc"
-    },
-    {
-      "byte_range": [
-        5095,
-        5123
-      ],
-      "bytes": 28,
-      "content_ref": "docs/README.md",
-      "est_tokens": 7,
-      "id": "docs/README.md::adding-a-skill",
-      "sha256": "999f18a05ac145f8a911beb6eed0e25b344d03a8e9060e8564cfa95688597db4",
-      "summary": "Adding a Skill",
-      "tags": [],
-      "type": "doc"
-    },
-    {
-      "byte_range": [
-        5123,
-        5191
-      ],
-      "bytes": 68,
-      "content_ref": "docs/README.md",
-      "est_tokens": 17,
-      "id": "docs/README.md::1-create-skill-in-master-library",
-      "sha256": "894d8d8bac60a03130b023c00faf7a781b11ebf8c8284d9e76cdde71b2d7e5a6",
-      "summary": "1. Create skill in master library",
-      "tags": [],
-      "type": "doc"
-    },
-    {
-      "byte_range": [
-        5191,
-        5249
-      ],
-      "bytes": 58,
-      "content_ref": "docs/README.md",
-      "est_tokens": 15,
-      "id": "docs/README.md::write-agent-skills-my-skill-skill-md-with-frontmatter",
-      "sha256": "af8d3881a9b6a78a8eaa8564ee56f1951487dfae7ed69953e511570845768676",
-      "summary": "Write .agent/skills/my-skill/SKILL.md with frontmatter",
-      "tags": [],
-      "type": "doc"
-    },
-    {
-      "byte_range": [
-        5249,
-        5294
-      ],
-      "bytes": 45,
-      "content_ref": "docs/README.md",
-      "est_tokens": 12,
-      "id": "docs/README.md::2-categorize-task-type-subtype-level-os",
-      "sha256": "2fb0b422202b66852c43156eff0d847523193a6ca02e4c1e79006c5e9739aa1a",
-      "summary": "2. Categorize (task type/subtype/level/OS)",
-      "tags": [],
-      "type": "doc"
-    },
-    {
-      "byte_range": [
-        5294,
-        5335
-      ],
-      "bytes": 41,
-      "content_ref": "docs/README.md",
-      "est_tokens": 11,
-      "id": "docs/README.md::edit-agent-skills-categorization-csv",
-      "sha256": "5ca0c7d13b43e62998607e3b35f4a651fbe7406799da6d153911a3dfe268482d",
-      "summary": "Edit .agent/skills/CATEGORIZATION.csv",
-      "tags": [],
-      "type": "doc"
-    },
-    {
-      "byte_range": [
-        5335,
-        5368
-      ],
-      "bytes": 33,
-      "content_ref": "docs/README.md",
-      "est_tokens": 9,
-      "id": "docs/README.md::3-provision-to-active-profile",
-      "sha256": "6b90af7203edf20304eb8cdc87efcdeefd6d79a2d3928093f9ea811cb1b8f2b4",
-      "summary": "3. Provision to active profile",
-      "tags": [],
-      "type": "doc"
-    },
-    {
-      "byte_range": [
-        5368,
-        5469
-      ],
-      "bytes": 101,
-      "content_ref": "docs/README.md",
-      "est_tokens": 26,
-      "id": "docs/README.md::edit-agent-profiles-profile-md-skills-list",
-      "sha256": "1ad791b23f66adab90e6f203e2e0f170e7dc0713634137eecf4fab157196f709",
-      "summary": "Edit .agent/profiles/<profile>.md skills list",
-      "tags": [],
-      "type": "doc"
-    },
-    {
-      "byte_range": [
-        5469,
-        5538
-      ],
-      "bytes": 69,
-      "content_ref": "docs/README.md",
-      "est_tokens": 18,
-      "id": "docs/README.md::4-regenerate-router",
-      "sha256": "af66e78d399121625032359cdaf147a64e7b360163f21f3e4ca258084afa5432",
-      "summary": "4. Regenerate router",
-      "tags": [],
-      "type": "doc"
-    },
-    {
-      "byte_range": [
-        5538,
-        6416
+        8271,
+        9149
       ],
       "bytes": 878,
       "content_ref": "docs/README.md",
@@ -313,8 +75,8 @@
     },
     {
       "byte_range": [
-        6416,
-        6908
+        9149,
+        9641
       ],
       "bytes": 492,
       "content_ref": "docs/README.md",
@@ -327,8 +89,8 @@
     },
     {
       "byte_range": [
-        6908,
-        7440
+        9641,
+        10173
       ],
       "bytes": 532,
       "content_ref": "docs/README.md",
@@ -341,8 +103,8 @@
     },
     {
       "byte_range": [
-        7440,
-        7605
+        10173,
+        10338
       ],
       "bytes": 165,
       "content_ref": "docs/README.md",
@@ -726,7 +488,7 @@
       "content_ref": "docs/adr/ADR-005-audit-findings.md",
       "est_tokens": 66,
       "id": "docs/adr/ADR-005-audit-findings.md::context",
-      "sha256": "50b92d70861408ef2d0f7203cba0d34ac5efc17eca098005d98ee1a37cf1e837",
+      "sha256": "eee5ca7382bf373a96ed0764eb4243c856a7d06551fcf178eb68e518995492f6",
       "summary": "Context",
       "tags": [],
       "type": "doc"
@@ -748,55 +510,55 @@
     {
       "byte_range": [
         1275,
-        2525
+        2532
       ],
-      "bytes": 1250,
+      "bytes": 1257,
       "content_ref": "docs/adr/ADR-005-audit-findings.md",
-      "est_tokens": 313,
-      "id": "docs/adr/ADR-005-audit-findings.md::phase-1-changes-implemented",
-      "sha256": "08089fa2a9fd7bad76be9aae0c0610aefb0941d555c7f42f91103f4a79d4887c",
-      "summary": "Phase 1 Changes Implemented",
+      "est_tokens": 315,
+      "id": "docs/adr/ADR-005-audit-findings.md::phase-1-changes-implemented-complete",
+      "sha256": "6ea26acac1fa7aae6c21bb1b1a9ee1fc8ad2e7892d0ae951878204b25c6c4e57",
+      "summary": "Phase 1 Changes Implemented (COMPLETE)",
       "tags": [],
       "type": "doc"
     },
     {
       "byte_range": [
-        2525,
-        3796
+        2532,
+        3737
       ],
-      "bytes": 1271,
+      "bytes": 1205,
       "content_ref": "docs/adr/ADR-005-audit-findings.md",
-      "est_tokens": 318,
+      "est_tokens": 302,
+      "id": "docs/adr/ADR-005-audit-findings.md::phase-2-unified-prompt-stack-complete",
+      "sha256": "27e39ba59f5f37b2e966b1bc61dcc38b5424f3990f7f177c374036718d84e904",
+      "summary": "Phase 2 — Unified Prompt Stack (COMPLETE)",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        3737,
+        5281
+      ],
+      "bytes": 1544,
+      "content_ref": "docs/adr/ADR-005-audit-findings.md",
+      "est_tokens": 386,
       "id": "docs/adr/ADR-005-audit-findings.md::release-gates-per-attached-document",
-      "sha256": "1dd050acc1e963d168b2b6b038baee7b056ba2199334a20f2baad8b918d27217",
+      "sha256": "0f6e8db7225a378eb4c99707376a6e7707e82bfce226d4edc6e20cd62e11bf6b",
       "summary": "Release Gates (per attached document)",
       "tags": [],
       "type": "doc"
     },
     {
       "byte_range": [
-        3796,
-        4202
+        5281,
+        5722
       ],
-      "bytes": 406,
+      "bytes": 441,
       "content_ref": "docs/adr/ADR-005-audit-findings.md",
-      "est_tokens": 102,
-      "id": "docs/adr/ADR-005-audit-findings.md::next-steps-phase-2",
-      "sha256": "94c6923a8f9ce0f81a7addf26ab839ba2b700a626bb8deb386efeba1f99b6cb2",
-      "summary": "Next Steps (Phase 2+)",
-      "tags": [],
-      "type": "doc"
-    },
-    {
-      "byte_range": [
-        4202,
-        4451
-      ],
-      "bytes": 249,
-      "content_ref": "docs/adr/ADR-005-audit-findings.md",
-      "est_tokens": 63,
+      "est_tokens": 111,
       "id": "docs/adr/ADR-005-audit-findings.md::links",
-      "sha256": "aa92e4e7dff128fcdf04ad62368ea213a080ae1f3e97ddb12796227ff9d87c2a",
+      "sha256": "4f6f5e37832d3829bd273b700e12459c7c593e5280b2765356109283cc2fe6cf",
       "summary": "Links",
       "tags": [],
       "type": "doc"
@@ -804,14 +566,112 @@
     {
       "byte_range": [
         0,
-        5987
+        5891
       ],
-      "bytes": 5987,
+      "bytes": 5891,
       "content_ref": "docs/architecture.md",
-      "est_tokens": 1497,
+      "est_tokens": 1473,
       "id": "docs/architecture.md::workspacealpha-architecture",
-      "sha256": "d55fe80aa52ce01f733ebe780eb5cb7f39acb4b04dbafcaf26bf7b8e43c282c9",
+      "sha256": "02821f7ec942ebbb189fe23fa027635ce2447fb8a940d3615a6626f03dc5b4ff",
       "summary": "WorkspaceAlpha Architecture",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        5891,
+        9891
+      ],
+      "bytes": 4000,
+      "content_ref": "docs/architecture.md",
+      "est_tokens": 1000,
+      "id": "docs/architecture.md::unified-prompt-stack-wa-unified-002",
+      "sha256": "79b40d195dc2f5f30dec22b6ecc5dd2265f7b5d29d9b0c9a786dd53f284af646",
+      "summary": "Unified Prompt Stack (WA-UNIFIED-002)",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        9891,
+        10517
+      ],
+      "bytes": 626,
+      "content_ref": "docs/architecture.md",
+      "est_tokens": 157,
+      "id": "docs/architecture.md::prompt-dag-node-types",
+      "sha256": "df3cf19cf1b0ee6f055471cbbad2d21bca3c65aa426bc5d6c4d49fe5b3f6e5ad",
+      "summary": "Prompt DAG Node Types",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        10517,
+        11223
+      ],
+      "bytes": 706,
+      "content_ref": "docs/architecture.md",
+      "est_tokens": 177,
+      "id": "docs/architecture.md::edge-types",
+      "sha256": "c1437a3568eb07358706e35e0882271da043d302c58581cc226c2ba364e445b7",
+      "summary": "Edge Types",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        11223,
+        12041
+      ],
+      "bytes": 818,
+      "content_ref": "docs/architecture.md",
+      "est_tokens": 205,
+      "id": "docs/architecture.md::dag-compiler-stages",
+      "sha256": "5aa2c335217253416e3e2076d708a07b46b418c1dba8a610c256ef0c5997b9aa",
+      "summary": "DAG Compiler Stages",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        12041,
+        12259
+      ],
+      "bytes": 218,
+      "content_ref": "docs/architecture.md",
+      "est_tokens": 55,
+      "id": "docs/architecture.md::per-tier-token-ceilings",
+      "sha256": "8c6d3b35c28b92dc46e9a636f1939294e4a32c121ac591f10b7154bbe173b09d",
+      "summary": "Per-Tier Token Ceilings",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        12259,
+        12628
+      ],
+      "bytes": 369,
+      "content_ref": "docs/architecture.md",
+      "est_tokens": 93,
+      "id": "docs/architecture.md::model-adapters",
+      "sha256": "05ab26eeb3fc54fc90183028a6ae8752be0848ad3ce5eda148f8b06530099237",
+      "summary": "Model Adapters",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        12628,
+        13286
+      ],
+      "bytes": 658,
+      "content_ref": "docs/architecture.md",
+      "est_tokens": 165,
+      "id": "docs/architecture.md::wiki-views",
+      "sha256": "b1848f1493400e76549646849437b01085530ae6f3ce7c410a55d2cbb3ba9494",
+      "summary": "Wiki Views",
       "tags": [],
       "type": "doc"
     },
@@ -51022,21 +50882,21 @@
     {
       "byte_range": [
         230,
-        955
+        1080
       ],
-      "bytes": 725,
+      "bytes": 850,
       "content_ref": "docs/specs/README.md",
-      "est_tokens": 182,
+      "est_tokens": 213,
       "id": "docs/specs/README.md::readiness-status",
-      "sha256": "21ed301ef6228344c18406a19ec7a2365c446fa7a10998dae7e7cdd56497c8f2",
+      "sha256": "4ff138f30ab616e698e45f2c4ab7bd5379534fec02424c07d21b1c27e3602fac",
       "summary": "Readiness Status",
       "tags": [],
       "type": "doc"
     },
     {
       "byte_range": [
-        955,
-        1290
+        1080,
+        1415
       ],
       "bytes": 335,
       "content_ref": "docs/specs/README.md",
@@ -51049,8 +50909,8 @@
     },
     {
       "byte_range": [
-        1290,
-        1598
+        1415,
+        1723
       ],
       "bytes": 308,
       "content_ref": "docs/specs/README.md",
@@ -51063,8 +50923,8 @@
     },
     {
       "byte_range": [
-        1598,
-        1890
+        1723,
+        2015
       ],
       "bytes": 292,
       "content_ref": "docs/specs/README.md",

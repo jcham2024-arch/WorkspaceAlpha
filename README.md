@@ -11,7 +11,7 @@ absorbed into the master and cleared.
 ## Layout
 
 | Path | Purpose |
-|---|---|
+|------|---------|
 | `AGENTS.md` | Agent router (read first) |
 | `BOOTSTRAPPER.md` | Whole-system build spec (current system, structure, conventions) |
 | `llms.txt` | Machine-readable map of the tree |
@@ -20,6 +20,10 @@ absorbed into the master and cleared.
 | `.context/` | graph.json (source of truth), manifest.json, index.md |
 | `docs/` | Baselayer-indexed docs (only tree seed scans) |
 | `docs/architecture.md` | Architecture diagram (ASCII) |
+| `docs/specs/` | Technical specifications (audit persistence, etc.) |
+| `docs/contracts/` | Decision records, interfaces, harness contract |
+| `docs/operations/` | Operational docs (secrets, quarantine, deprecation, etc.) |
+| `docs/adr/` | Architecture Decision Records |
 | `wiki/` | Generated human wiki (never hand-edit) |
 | `.harness/skills/` | Currently-used set — provisioned per active profile |
 | `skills/index.json` | Slim skills router (name + description + path) |
@@ -30,6 +34,21 @@ absorbed into the master and cleared.
 | `validate.py` · `.githooks/` | Step-6 check + pre-commit hook |
 | `memory/learnings.md` | Persistent learnings (append post-session) |
 
+## Unified Prompt Stack
+
+The Unified Prompt Stack (WA-UNIFIED-002) adds a six-node DAG compiler on top of the baselayer, enabling structured per-turn prompt assembly with tiered model adapters, provenance tracking, and generated wiki views.
+
+| Component | Path | Purpose |
+|-----------|------|---------|
+| **Prompt DAG** | `.context/prompt-graph.json` | Six node types (SystemPrompt, Skill, Envelope, ContextSlice, Adapter, OutputContract) with five edge types (requires, triggers, routes_to, adapts, provenance_of) |
+| **Envelope schemas** | `envelope/handoff-envelope.schema.json`, `envelope/return-envelope.schema.json` | Delegation envelope and return envelope JSON Schemas |
+| **Envelope templates** | `envelope/mission-envelope.yaml`, `envelope/execution-envelope.yaml` | MISSION (orchestrator→manager) and EXECUTION (manager→production) delegation templates |
+| **DAG Compiler** | `assembly/manifest_reader.py`, `assembly/slicer.py`, `assembly/budgeter.py`, `assembly/assembler.py` | Plan→Bind→Optimize→Execute→Feedback pipeline with budget-aware pruning |
+| **Prompt Prefixes** | `assembly/prefix/orchestrator.md`, `assembly/prefix/manager.md`, `assembly/prefix/production.md` | Frozen prefixes per agent role (byte-identical, cache-keyed) |
+| **Model Adapters** | `adapters/deepseek_v32.py`, `adapters/nemotron_35.py`, `adapters/dispatch.py` | Model-specific dispatch configs (thinking mode, token floors, format selection) |
+| **Provenance Recorder** | `provenance/recorder.py` | Per-turn provenance records (JSONL + human-readable) |
+| **Wiki Views** | `wiki/views/generator.py` — `conversation.md`, `prompt-chunk.md`, `conceptual-expansion.md` | Three human-readable views generated from provenance + DAG |
+
 ## Build
 
 ```bash
@@ -38,35 +57,8 @@ python3 .wiki/build.py  # graph.json → manifest.json + .wiki/index.html
 python3 .agent/tools/gen_skills_index.py   # after skill changes
 ```
 
-## 5-Minute Quickstart
-
-1. **Clone** the repo and `cd` into it.
-2. **Bootstrap** the baselayer:
-
-   ```bash
-   python3 .wiki/seed.py && python3 .wiki/build.py
-   ```
-
-3. **Validate**:
-
-   ```bash
-   python3 validate.py
-   ```
-
-4. **Provision** the starter skill set:
-
-   ```bash
-   python3 .harness/sync_active.py --profile starter
-   python3 .harness/gen_skills_index.py
-   ```
-
-5. **Run the reference adapter** to verify end-to-end consumption:
-
-   ```bash
-   python3 tools/reference_adapter.py
-   ```
-
-You should see `PASS: all invariants pass` and active skills listed. Total time: under 5 minutes.
+Validated by the §3 Step-6 script in `Baselayer.md`. Python 3.14
+verified; zero external dependencies at build time.
 
 ## Quickstart (Starter Set → Core Tier)
 

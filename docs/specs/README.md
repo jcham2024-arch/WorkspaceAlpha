@@ -7,6 +7,7 @@ This directory contains technical specifications for the Baselayer workspace. Ea
 | Spec | Status | Last Updated | Linked Decisions | Implementation |
 |------|--------|--------------|------------------|----------------|
 | `audit-persistence-spec.md` | **Draft** | 2026-11-09 | [Q2-sqlite-sync.md](../contracts/decisions/Q2-sqlite-sync.md) | `knowledge.py` (partial) |
+| `prompt-stack-spec.md` | **Draft** | 2026-11-11 | — | `envelope/`, `assembly/`, `adapters/`, `provenance/`, `schemas/` |
 | `skill-lifecycle-spec.md` | Planned | — | [Q1-rpo-rto.md](../contracts/decisions/Q1-rpo-rto.md) | — |
 | `mcp-protocol-spec.md` | Planned | — | [Q3-key-rotation.md](../contracts/decisions/Q3-key-rotation.md) | `.agent/tools/mcp/server.py` |
 | `wiki-render-spec.md` | Planned | — | — | `.wiki/seed.py`, `.wiki/build.py` |

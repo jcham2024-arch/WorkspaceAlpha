@@ -13,124 +13,130 @@ This directory holds the project's specifications, standards, and instructional 
 
 ## Architecture
 
+The workspace consists of the baselayer (docs → graph → manifest + wiki) plus the Unified Prompt Stack (prompt DAG, compiler, adapters, provenance, wiki views) layered on top.
+
 ```
 <root>/
 ├── AGENTS.md              # Agent entry point (read first)
 ├── BOOTSTRAPPER.md        # Whole-system build spec
 ├── Baselayer.md           # Bootstrap spec (input only)
 ├── llms.txt               # Machine-readable tree map
+├── README.md              # Project documentation (this file)
+├── LICENSE                # MIT License
+├── THIRD_PARTY_NOTICES.md # Third-party skill licenses
+├── open-questions.md      # Architectural question tracker
 ├── .context/
 │   ├── graph.json         # Canonical DAG (source of truth)
 │   ├── manifest.json      # Generated router (agent)
 │   ├── index.md           # Plain-file fallback index
+│   ├── prompt-graph.json  # Prompt DAG (Unified Prompt Stack)
 │   └── knowledge.db       # SQLite FTS for memory
 ├── docs/                  # Source documentation (indexed)
 │   ├── specs/             # Technical specifications
 │   ├── contracts/         # Decision records, interfaces
-│   └── resources/         # Reference materials
+│   ├── operations/        | Operational docs (secrets, quarantine, deprecation, etc.)
+│   ├── adr/               # Architecture Decision Records
+│   ├── skills/            # Skill documentation index & duplicate report
+│   └── architecture.md    # Architecture diagram (ASCII)
 ├── .wiki/                 # Render pipeline (generated)
 │   ├── seed.py            # docs → graph.json
 │   ├── build.py           # graph → manifest + wiki
 │   └── index.html         # Human wiki (never hand-edit)
+├── wiki/                  # Generated prompt wiki views (Unified Prompt Stack)
+│   ├── conversation.md    # Delegation chain transcript
+│   ├── prompt-chunk.md    # Per-turn prompt composition
+│   ├── conceptual-expansion.md — Node selection rationale & assumptions
+│   ├── index.md           # View index
+│   └── views/generator.py # Wiki view generator
 ├── .agent/                # Agent runtime (master)
 │   ├── skills/            # 3,520 skills (master library)
-│   ├── profiles/          # 9 specialized agent profiles
+│   ├── profiles/          # 9 specialized agent profiles (with tier field)
 │   ├── tools/             # Pipeline, audit, knowledge, MCP
-│   └── .env               # Secrets (gitignored)
-├── .harness/              # Active skill set (provisioned)
-│   └── skills/            # Current profile's skills
-├── skills/index.json      # Slim skill router
-├── memory/                # Persistent learnings
-│   ├── learnings.md       # Session bullets
-│   ├── JOURNAL.md         # Work summaries
-│   ├── DECISIONS.md       # ADR-lite decisions
-│   ├── ERRORS.md          # Diagnosed failures
-│   └── LESSONS.md         # Emergent principles
-├── 01-navigate/ … 04-verify/  # ICM stage folders
-├── validate.py            # Step-6 validator (pre-commit)
-└── .archive/              # Cleared after import (gitignored)
+│   └── .env               # Keys (gitignored)
+├── .harness/skills/       # Currently-used set — provisioned per active profile
+├── adapters/              # Model adapters (Unified Prompt Stack)
+│   ├── deepseek_v32.py    # DeepSeek V3.2 (thinking mode, token floors)
+│   ├── nemotron_35.py     # Nemotron 3.5 (reasoning_effort mapping)
+│   └── dispatch.py        # Adapter selection by target_tier
+├── assembly/              # DAG compiler (Unified Prompt Stack)
+│   ├── manifest_reader.py # Manifest loading & scope resolution
+│   ├── slicer.py          # Byte-range extraction with sha256 verification
+│   ├── budgeter.py        # Per-tier token ceiling enforcement
+│   └── assembler.py       # Plan→Bind→Optimize→Execute→Feedback pipeline
+├── assembly/prefix/       # Frozen prompt prefixes (byte-identical, cache-keyed)
+│   ├── orchestrator.md    # Conceptualizer prefix
+│   ├── manager.md         # Taskmaster prefix
+│   └── production.md      # Production worker prefix
+├── envelope/              # Delegation envelopes (Unified Prompt Stack)
+│   ├── handoff-envelope.schema.json   # JSON Schema for delegation envelope
+│   ├── return-envelope.schema.json    # JSON Schema for return envelope
+│   ├── mission-envelope.yaml          # MISSION delegation template
+│   └── execution-envelope.yaml        # EXECUTION delegation template
+├── schemas/               # JSON Schemas (Unified Prompt Stack)
+│   ├── prompt-graph.schema.json   # Prompt DAG node/edge schema
+│   └── provenance-record.schema.json  # Per-turn provenance record schema
+├── provenance/            # Per-turn provenance records (Unified Prompt Stack)
+│   ├── recorder.py        # Record & summarize turns
+│   └── turns.jsonl        # JSONL log of all turns
+├── skills/                # Skill documentation index
+│   ├── SKILL_INDEX.md     # Searchable reference index (3,518 skills)
+│   └── DUPLICATE_REPORT.md # 237 potential duplicate skill groups
+├── tests/                 # Test suite (59 tests)
+│   ├── test_build.py
+│   ├── test_seed.py
+│   ├── test_provision.py
+│   ├── test_golden.py
+│   ├── test_mcp.py
+│   ├── test_envelope.py
+│   ├── test_assembler.py
+│   ├── test_adapter.py
+│   └── test_cache.py
+├── tools/                 # Development tools
+│   ├── normalize_skills.py    # Promote body fields to frontmatter
+│   ├── cleanup_skills.py      # Fix double separators, orphaned lists
+│   ├── fix_double_separator.py
+│   ├── fix_yaml_lists.py
+│   ├── remove_empty_fields.py
+│   ├── fix_quoting.py
+│   ├── generate_skill_index.py # Generate SKILL_INDEX.md
+│   ├── find_duplicate_skills.py # Find duplicate/overlapping skills
+│   ├── backfill_tiers.py      # Backfill tier field
+│   ├── backfill_last_reviewed.py # Backfill last_reviewed field
+│   ├── dedup.py               # Find duplicate skills
+│   ├── stale.py               # List unreviewed skills
+│   ├── context_budget.py      # Context budget tracking
+│   ├── scan_secrets.py        # Secret scanning
+│   ├── context_budget.py      # Context budget
+│   ├── lint_dag.py            # DAG linting
+│   └── ...                    # Other utility scripts
+├── .agent/                # Agent runtime (master)
+│   ├── skills/            # 3,520 skills (master library)
+│   ├── profiles/          # 9 specialized agent profiles (with tier field)
+│   ├── tools/             # Pipeline, audit, knowledge, MCP
+│   └── .env               # Keys (gitignored)
+├── .harness/skills/       # Currently-used set — provisioned per active profile
+├── .wiki/                 # Render pipeline (generated)
+│   ├── seed.py            # docs → graph.json
+│   ├── build.py           # graph → manifest + wiki
+│   └── index.html         # Human wiki (never hand-edit)
+├── .archive/              # Cleared after full import (gitignored)
+├── 01-navigate/ … 04-verify/ | ICM stage folders (+ output contracts)
+├── validate.py · .githooks/ | Step-6 check + pre-commit hook
+└── memory/learnings.md    | Persistent learnings (append post-session)
 ```
 
 ## Conventions
 
-### Documentation
-
-- **Source of truth**: `docs/` (Markdown) + `.context/graph.json` (DAG)
-- **Never edit generated**: `.context/manifest.json`, `.wiki/index.html`, `skills/index.json`
-- **Build pipeline**: `python3 .wiki/seed.py && python3 .wiki/build.py`
-- **Validation**: `python3 validate.py` (also pre-commit hook)
-
-### Skills
-
-- **Master library**: `.agent/skills/` (3,520 skills, categorized)
-- **Active set**: `.harness/skills/` (provisioned per profile)
-- **Router**: `skills/index.json` (name + description + path only)
-- **New skills**: Create in `.agent/skills/<name>/SKILL.md` → categorize → provision
-
-### Agent Profiles
-
-| Profile | Role | Skills |
-|---------|------|--------|
-| `conceptualizer` | Human-facing orchestrator | brainstorming, writing-plans, thinking-first-principles, thinking-margin-of-safety |
-| `taskmaster` | Subagent-facing orchestrator | dispatching-parallel-agents, subagent-driven-development, executing-plans, ... |
-| `coder` | Implementation | (provisioned per task) |
-| `researcher` | Investigation | (provisioned per task) |
-| `reviewer` | Code review | (provisioned per task) |
-| `coding-manager` | Task breakdown | (provisioned per task) |
-| `research-manager` | Research coordination | (provisioned per task) |
-| `review-manager` | Review coordination | (provisioned per task) |
-| `wiki-producer` | HTML wiki generation | (provisioned per task) |
-
-### Communication Protocol
-
-Two orchestration roles, zero cross-talk:
-
-- **Conceptualizer** ↔ Human (all human messages)
-- **Taskmaster** ↔ Subagents (all subagent messages)
-- **Bridge**: 6 message types via file artifacts (see `.agent/profiles/protocol.md`)
-
-## Getting Started
-
-### Prerequisites
-
-- Python 3.14+ (verified at build time)
-- Zero external dependencies at build time
-- AndroidHarness app (runtime environment)
-
-### Initial Build
-
-```bash
-# Full pipeline
-python3 .wiki/seed.py        # docs/ → .context/graph.json
-python3 .wiki/build.py       # graph.json → manifest.json + .wiki/index.html
-python3 .agent/tools/gen_skills_index.py  # master skills → skills/index.json
-python3 validate.py          # Step-6 validation
-```
-
-### Development Workflow
-
-1. **Edit** `docs/` or `.context/graph.json`
-2. **Rebuild** `python3 .wiki/seed.py && python3 .wiki/build.py`
-3. **Validate** `python3 validate.py`
-4. **Commit** (pre-commit hook runs validation)
-
-### Adding a Skill
-
-```bash
-# 1. Create skill in master library
-mkdir -p .agent/skills/my-skill
-# Write .agent/skills/my-skill/SKILL.md with frontmatter
-
-# 2. Categorize (task type/subtype/level/OS)
-# Edit .agent/skills/CATEGORIZATION.csv
-
-# 3. Provision to active profile
-# Edit .agent/profiles/<profile>.md skills list
-python3 .harness/sync_active.py --profile <profile>
-
-# 4. Regenerate router
-python3 .agent/tools/gen_skills_index.py
-```
+- `docs/` is read-only to the build; `graph.json` is the only writable
+  knowledge file — edit docs or graph, then rebuild.
+- Skills are one folder per name, `SKILL.md` frontmatter authoritative;
+  descriptions are load-bearing (progressive disclosure Layer 1).
+- Secrets live only in `.agent/.env` (gitignored); `.env.example` is the
+  committed template.
+- The master library (3,520 skills) is categorized in
+  `.agent/skills/CATEGORIZATION.md`; the 47 broken sources are
+  quarantined in IMPORT_REPORT.md; bulk-installing is prohibited.
+- Secrets: `docs/operations/secrets.md` — key storage, rotation, leak response.
 
 ## Key Files Reference
 

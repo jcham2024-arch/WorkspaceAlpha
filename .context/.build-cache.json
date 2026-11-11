@@ -1,11 +1,11 @@
 {
-  "docs/README.md": "07ab9fae16ad55aeeaa4584ee6721a624574d875d9ed3e86cf67176f08fa0906",
+  "docs/README.md": "44818e132d174fa3f97e24bd342f245c51cfd91b4569750ac3db0b41738b88cc",
   "docs/adr/ADR-001-dag-routing.md": "1f97405c87c084eb5020aecb734dfccde4ed5428275c53d61b82e35416e45df8",
   "docs/adr/ADR-002-byte-ranges.md": "795958f3f36437f9b2b752be11c3cbd9524bc5a9e08a5e6eeb4514c413069bf5",
   "docs/adr/ADR-003-stdlib-only.md": "548e249000dd6620809a1cfe71530344ab63ccbd94a0778896fffe6dd9c0e1a2",
   "docs/adr/ADR-004-agent-tracked.md": "9eab8231c87d7ca793de3231fd80d4a8d89fed5039d4f8567616ec9f46aec7b0",
-  "docs/adr/ADR-005-audit-findings.md": "797833d791022d238cf3f64f4649b61bec1d9bfcb96306d1fcf1fa22303c692c",
-  "docs/architecture.md": "d55fe80aa52ce01f733ebe780eb5cb7f39acb4b04dbafcaf26bf7b8e43c282c9",
+  "docs/adr/ADR-005-audit-findings.md": "f28070b7630e3186aa1f4fc577947d778de69f25a11910af2e403417e572bc9d",
+  "docs/architecture.md": "68fa5eada865aa817077efdf2009dbdb92c15b3f932a9ede2796c02457d7a95d",
   "docs/contracts/decisions/Q1-rpo-rto.md": "a847518727d8b9c95c0ce032e0cef8255658af78d8e8045a85a53ea8131acae6",
   "docs/contracts/decisions/Q2-sqlite-sync.md": "1a4443ef736245f156411e455d4937869ed91ee97689cfc397fc341f2214a5cb",
   "docs/contracts/decisions/Q3-key-rotation.md": "d1176a82e9a06e33650d9faad70393275175f3de920871d3d3345874675e90ab",
@@ -22,6 +22,6 @@
   "docs/resources/project-management.md": "61c1d3a2b40f229552fb974730b51de9807d1b10f2aec44d69fc2d43d1cb2cfb",
   "docs/skills/DUPLICATE_REPORT.md": "9bbb44e3861157f6e99af74827fca1925fd19d6da52cecdbeca4387271f7f03c",
   "docs/skills/SKILL_INDEX.md": "18958eaf38014a2277511d3e35cbbf5aeaaf74bad3eedd6dbd02bb07fda43647",
-  "docs/specs/README.md": "8fbbb6a448fe0de7557ee5a46d2c23ba16e597f6d12daaf8adae587e16deafd6",
+  "docs/specs/README.md": "c110dcd4d0339958c83afa3284aab1be3d8765dcb52a05d4500bc77693fab3b5",
   "docs/specs/audit-persistence-spec.md": "55ff1d0150e40a8d1baea76a992759a6fe360f5c44a2f85a43ec9bbd019552b0"
 }

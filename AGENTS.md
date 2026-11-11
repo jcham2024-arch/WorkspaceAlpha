@@ -1,150 +1,107 @@
 # AGENTS.md — Context Navigation Entry Point
 
-This repository uses a DAG-routed documentation system. You are not expected
-to grep, search, or read documentation files wholesale. Follow this protocol.
+This repository uses a DAG-routed documentation system. Follow this protocol.
 
-## 1. Orientation (read once per task)
+## 1. Orientation
 
-1. Identify the **target files** or **task archetype** for the current task.
-2. Read `.context/manifest.json` — it is small, and it is the routing table.
-3. Select the nodes whose `summary` matches the task. Follow `requires`
-   edges transitively. Stop when no further `requires` edges are relevant.
-4. Do not browse `docs/` directly. Do not `grep` for content. Do not read
-   whole files to find one section.
+1. Identify target files or task archetype.
+2. Read `.context/manifest.json` — the routing table.
+3. Select nodes whose `summary` matches; follow `requires` edges transitively.
+4. Do not browse `docs/` directly; hydrate by byte range only.
 
-## 2. Chunk access (section-level, never file-level)
+## 2. Chunk access
 
-Every node in the manifest carries:
-- `id` — stable identifier, also an anchor in `.wiki/index.html`
-- `sha256` — content hash for provenance
-- `byte_range` — exact slice of the source file
-- `bytes` — size of the section
-- `summary` — one-line orientation
-
-Use `summary` first. Hydrate the section only when the summary is
-insufficient. To hydrate, read exactly `byte_range[0]` through
-`byte_range[1]` from `content_ref`. Never read the whole file.
+Every node carries: `id`, `sha256`, `byte_range`, `bytes`, `summary`, `content_ref`, `tags`. Read `summary` first; hydrate by reading `byte_range[0]` to `byte_range[1]`.
 
 ## 3. Missing context
 
-If no node matches a rule you need:
-- Do NOT invent a rule. Do NOT search the web to fill the gap.
-- Record the gap explicitly in your final report under `doc_gap_detected`.
-- The human operator will convert the gap into a new node in
-  `.context/graph.json` on the next build.
+If no node matches: record the gap under `doc_gap_detected` in your report. Do not invent rules.
 
 ## 4. Human audit surface
 
-Every node you receive has an anchor in the offline wiki at:
-`.wiki/index.html#<node_id>`
-
-Cite that anchor when reporting conclusions. The wiki is the human audit
-surface; it is generated from the same graph, not maintained separately.
-Do NOT edit `.wiki/index.html` or `.context/manifest.json` — they are
-build artifacts. To change knowledge, edit `docs/` and `.context/graph.json`,
-then run `python3 .wiki/seed.py && python3 .wiki/build.py`.
+Every node has an anchor at `.wiki/index.html#<node_id>`. Do not edit `.wiki/index.html` or `.context/manifest.json` — regenerate via `python3 .wiki/seed.py && python3 .wiki/build.py`.
 
 ## 5. Token budget
 
-- Instructions and routing: 15% of window
-- Task execution: 70%
-- Verification reserve: 15%
-- If a node's `bytes` exceeds 20% of your remaining budget, read its
-  `summary` first and ask for authorization before hydrating.
+Instructions ~15%, task execution ~70%, verification reserve ~15%.
 
-## 6. Build commands (do not run unless asked)
+## 6. Build
 
-```
-python3 .wiki/seed.py   # docs/ → graph.json (idempotent, preserves valid edges)
-python3 .wiki/build.py  # graph.json → manifest.json + .wiki/index.html
-python3 validate.py # §3 Step-6 check (also pre-commit hook)
-python3 .agent/tools/gen_skills_index.py   # after skill changes
-python3 .agent/tools/audit.py         # skill schema compliance (exit 1 on failure)
-python3 .agent/tools/run.py build      # all of the above in one command
-```
+`python3 .wiki/seed.py && python3 .wiki/build.py && python3 validate.py`
 
 ## 7. What lives where
 
 | Path | Purpose |
-|---|---|
+|------|---------|
 | `.context/graph.json` | Canonical DAG — source of truth |
-| `.context/manifest.json` | Generated routing table (read this) |
+| `.context/manifest.json` | Generated routing table |
+| `.context/prompt-graph.json` | Prompt DAG (Unified Prompt Stack) |
 | `.context/index.md` | Plain-file fallback index |
-| `docs/` | Existing documentation — read via byte ranges only |
+| `docs/` | Baselayer-indexed docs (read via byte ranges) |
+| `docs/specs/` | Technical specifications |
+| `docs/contracts/` | Decision records, interfaces |
+| `docs/operations/` | Operational docs |
+| `docs/adr/` | Architecture Decision Records |
+| `docs/skills/` | Skill documentation index |
 | `.wiki/index.html` | Generated human wiki — do not edit |
-| `validate.py` | Step-6 validator (also wired as pre-commit hook) |
-| `.harness/skills/` | Currently-used set — provisioned per active profile |
-| `.agent/` | Agent runtime: master skills, 8 profiles, tools, MCP (gitignored) |
-| `.archive/` | Cleared after full import (gitignored) |
-| `01-navigate/` … `04-verify/` | ICM stage folders (+ output contracts) |
-| `memory/learnings.md` | Persistent learnings (append post-session) |
-| `AGENTS.md` | This file — entry router |
+| `wiki/` | Generated prompt wiki views |
+| `.agent/skills/` | Master skill library (3,520 skills) |
+| `.agent/profiles/` | 9 agent profiles (with tier field) |
+| `.agent/tools/` | Pipeline, audit, knowledge, MCP |
+| `.harness/skills/` | Currently-used set — provisioned per profile |
+| `skills/index.json` | Slim skills router |
+| `adapters/` | Model adapters (Unified Prompt Stack) |
+| `assembly/` | DAG compiler (Unified Prompt Stack) |
+| `envelope/` | Delegation envelopes (Unified Prompt Stack) |
+| `schemas/` | JSON Schemas (Unified Prompt Stack) |
+| `provenance/` | Per-turn provenance records (Unified Prompt Stack) |
+| `validate.py` | Step-6 validator (pre-commit hook) |
+| `memory/learnings.md` | Persistent learnings |
 
-## 8. Non-negotiables
+## 8. Agent layer (.agent/)
 
-- Never modify files under `docs/` unless the task explicitly says to.
-- Never modify `.context/graph.json` unless the task is "add a node/edge".
-- Never modify `.context/manifest.json` or `.wiki/index.html` — regenerate them.
-- Cite `.wiki/index.html#<node_id>` for every claim you derive from a node.
-
-## 9. Skills
-
-`.harness/skills/` is the currently-used set, provisioned per active
-profile (default: conceptualizer, 4 skills). Master library lives at
-`.agent/skills/` (3,520 skills: 57 curated + 3,463 imported;
-categorized by task type/subtype/level/os in CATEGORIZATION.csv;
-platform variants in PLATFORMS.md + platforms/). Invoke
-one with skill_view(name="...").
-The slim router is `skills/index.json` (name + description + path
-only — never add descriptions to the docs manifest). Archive
-provenance/trust rules are in `docs/resources/README.md` (archive
-absorbed and cleared after full import; bulk-install is prohibited).
-
-| `.agent/skills/<name>/SKILL.md` | Master library (3,520 skills) |
-| `.harness/skills/<name>/SKILL.md` | Currently-used set (provisioned) |
-| `skills/index.json` | Slim router (regen: `gen_skills_index.py`) |
-
-Provisioning: `python3 .harness/sync_active.py --profile <name>`
-syncs `.harness/skills/` to the profile's declared skills.
-
-Read `memory/learnings.md` at session start (knowledge detail in §10).
-
-## 10. Knowledge system (memory/)
-
-Persistent knowledge (human Markdown is the truth; index is generated):
-
-| File | Kind | Write when |
-|---|---|---|
-| `memory/JOURNAL.md` | work | task finishes (stage 04) |
-| `memory/ERRORS.md` | error | failure diagnosed |
-| `memory/LESSONS.md` | lesson | principle emerges |
-| `memory/DECISIONS.md` | decision | trade-off settled |
-| `memory/learnings.md` | session bullets | session ends |
-
-Procedure (stage 04): `python3 .agent/tools/knowledge.py add --kind
-{work,error,lesson,decision} --title "..." [--tags ...] [--body "..."]`
-(appends AND syncs `.context/knowledge.db` + `memory/index.json`).
-Query: `knowledge.py search <words>` / `last --kind work -n 5`.
-Search this memory before planning; cite file + date.
-
-## 11. Agent layer (.agent/)
-
-`.agent/` holds ALL agent resources: the master skill library,
-tools, MCP, and the specialized agent profiles. A profile's
-frontmatter `skills:` list decides what gets provisioned.
+`.agent/` holds ALL agent resources. Profiles now include a `tier:` field.
 
 | Path | Purpose |
-|---|---|
-| `.agent/skills/<name>/SKILL.md` | Master skill library (3,520: 57 curated + 3,463 imported) |
-| `.agent/tools/run.py` | Pipeline runner (`build`, `validate`, `categorize`, `provision`, `audit`) |
-| `.agent/tools/mcp/server.py` | MCP server (stdlib JSON-RPC stdio; `context.py` core) |
-| `.agent/profiles/*.md` | Specialized agents — human-facing conceptualizer ↔ protocol ↔ subagent-facing taskmaster (incl. planning + supervision), then coder, researcher, reviewer, plus research-manager, coding-manager, review-manager, and wiki-producer (human HTML production, matched from `.wiki/agent.md`) |
-| `.agent/agents.json` + `models.json` | Machine registry (generated) + model-tier gateway + AgentCard exports + releases (`.agent/tools/release.py`) |
-| `.agent/.env` | Keys (gitignored; template `.env.example`) |
-| `BOOTSTRAPPER.md` | Whole-system build spec (system, structure, conventions, skill lifecycle) |
+|------|---------|
+| `.agent/skills/<name>/SKILL.md` | Master skill library |
+| `.agent/tools/run.py` | Pipeline runner |
+| `.agent/tools/mcp/server.py` | MCP server (stdio JSON-RPC) |
+| `.agent/profiles/*.md` | Agent roles — conceptualizer, taskmaster, coder, researcher, reviewer, managers |
+| `.agent/tools/release.py` | Releases |
+| `.agent/.env` | Keys (gitignored) |
 
-Match each task to a profile in `.agent/profiles/README.md` and
-state the match in the reply. Workflow stages are numbered folders:
-`01-navigate/` → `02-plan/` → `03-execute/` → `04-verify/`, each
-with a `PROMPT.md` plus an output contract (`targets.md`, `plan.md`,
-`changes.md`, `verification.md`). Follow them in order.
+Match each task to a profile in `.agent/profiles/README.md`.
+
+## 9. Unified Prompt Stack (WA-UNIFIED-002)
+
+Six-node DAG compiler on the baselayer: **Prompt DAG** → **Envelope schemas** → **Model Adapters** → **Provenance Recorder** → **Wiki Views**.
+
+| Component | Path |
+|-----------|------|
+| Prompt DAG | `.context/prompt-graph.json` |
+| Envelope schemas | `envelope/handoff-envelope.schema.json`, `envelope/return-envelope.schema.json` |
+| DAG Compiler | `assembly/` (manifest_reader, slicer, budgeter, assembler) |
+| Prompt Prefixes | `assembly/prefix/` (orchestrator, manager, production) |
+| Model Adapters | `adapters/` (deepseek_v32, nemotron_35, dispatch) |
+| Provenance Recorder | `provenance/recorder.py` |
+| Wiki Views | `wiki/views/generator.py` |
+
+## 10. New Tools
+
+| Tool | Path |
+|------|------|
+| normalize_skills.py | `tools/normalize_skills.py` |
+| cleanup_skills.py | `tools/cleanup_skills.py` |
+| fix_double_separator.py | `tools/fix_double_separator.py` |
+| fix_yaml_lists.py | `tools/fix_yaml_lists.py` |
+| remove_empty_fields.py | `tools/remove_empty_fields.py` |
+| fix_quoting.py | `tools/fix_quoting.py` |
+| generate_skill_index.py | `tools/generate_skill_index.py` |
+| find_duplicate_skills.py | `tools/find_duplicate_skills.py` |
+| backfill_tiers.py | `tools/backfill_tiers.py` |
+| backfill_last_reviewed.py | `tools/backfill_last_reviewed.py` |
+| dedup.py | `tools/dedup.py` |
+| stale.py | `tools/stale.py` |
+
+Match each task to a profile in `.agent/profiles/README.md` and state the match in the reply.

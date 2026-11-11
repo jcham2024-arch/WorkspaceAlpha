@@ -31,7 +31,7 @@
       "content_ref": "docs/README.md",
       "byte_range": [
         634,
-        2712
+        7630
       ],
       "tags": []
     },
@@ -41,195 +41,8 @@
       "summary": "Conventions",
       "content_ref": "docs/README.md",
       "byte_range": [
-        2712,
-        2728
-      ],
-      "tags": []
-    },
-    {
-      "id": "docs/README.md::documentation",
-      "type": "doc",
-      "summary": "Documentation",
-      "content_ref": "docs/README.md",
-      "byte_range": [
-        2728,
-        3049
-      ],
-      "tags": []
-    },
-    {
-      "id": "docs/README.md::skills",
-      "type": "doc",
-      "summary": "Skills",
-      "content_ref": "docs/README.md",
-      "byte_range": [
-        3049,
-        3348
-      ],
-      "tags": []
-    },
-    {
-      "id": "docs/README.md::agent-profiles",
-      "type": "doc",
-      "summary": "Agent Profiles",
-      "content_ref": "docs/README.md",
-      "byte_range": [
-        3348,
-        4125
-      ],
-      "tags": []
-    },
-    {
-      "id": "docs/README.md::communication-protocol",
-      "type": "doc",
-      "summary": "Communication Protocol",
-      "content_ref": "docs/README.md",
-      "byte_range": [
-        4125,
-        4389
-      ],
-      "tags": []
-    },
-    {
-      "id": "docs/README.md::getting-started",
-      "type": "doc",
-      "summary": "Getting Started",
-      "content_ref": "docs/README.md",
-      "byte_range": [
-        4389,
-        4409
-      ],
-      "tags": []
-    },
-    {
-      "id": "docs/README.md::prerequisites",
-      "type": "doc",
-      "summary": "Prerequisites",
-      "content_ref": "docs/README.md",
-      "byte_range": [
-        4409,
-        4555
-      ],
-      "tags": []
-    },
-    {
-      "id": "docs/README.md::initial-build",
-      "type": "doc",
-      "summary": "Initial Build",
-      "content_ref": "docs/README.md",
-      "byte_range": [
-        4555,
-        4582
-      ],
-      "tags": []
-    },
-    {
-      "id": "docs/README.md::full-pipeline",
-      "type": "doc",
-      "summary": "Full pipeline",
-      "content_ref": "docs/README.md",
-      "byte_range": [
-        4582,
-        4872
-      ],
-      "tags": []
-    },
-    {
-      "id": "docs/README.md::development-workflow",
-      "type": "doc",
-      "summary": "Development Workflow",
-      "content_ref": "docs/README.md",
-      "byte_range": [
-        4872,
-        5095
-      ],
-      "tags": []
-    },
-    {
-      "id": "docs/README.md::adding-a-skill",
-      "type": "doc",
-      "summary": "Adding a Skill",
-      "content_ref": "docs/README.md",
-      "byte_range": [
-        5095,
-        5123
-      ],
-      "tags": []
-    },
-    {
-      "id": "docs/README.md::1-create-skill-in-master-library",
-      "type": "doc",
-      "summary": "1. Create skill in master library",
-      "content_ref": "docs/README.md",
-      "byte_range": [
-        5123,
-        5191
-      ],
-      "tags": []
-    },
-    {
-      "id": "docs/README.md::write-agent-skills-my-skill-skill-md-with-frontmatter",
-      "type": "doc",
-      "summary": "Write .agent/skills/my-skill/SKILL.md with frontmatter",
-      "content_ref": "docs/README.md",
-      "byte_range": [
-        5191,
-        5249
-      ],
-      "tags": []
-    },
-    {
-      "id": "docs/README.md::2-categorize-task-type-subtype-level-os",
-      "type": "doc",
-      "summary": "2. Categorize (task type/subtype/level/OS)",
-      "content_ref": "docs/README.md",
-      "byte_range": [
-        5249,
-        5294
-      ],
-      "tags": []
-    },
-    {
-      "id": "docs/README.md::edit-agent-skills-categorization-csv",
-      "type": "doc",
-      "summary": "Edit .agent/skills/CATEGORIZATION.csv",
-      "content_ref": "docs/README.md",
-      "byte_range": [
-        5294,
-        5335
-      ],
-      "tags": []
-    },
-    {
-      "id": "docs/README.md::3-provision-to-active-profile",
-      "type": "doc",
-      "summary": "3. Provision to active profile",
-      "content_ref": "docs/README.md",
-      "byte_range": [
-        5335,
-        5368
-      ],
-      "tags": []
-    },
-    {
-      "id": "docs/README.md::edit-agent-profiles-profile-md-skills-list",
-      "type": "doc",
-      "summary": "Edit .agent/profiles/<profile>.md skills list",
-      "content_ref": "docs/README.md",
-      "byte_range": [
-        5368,
-        5469
-      ],
-      "tags": []
-    },
-    {
-      "id": "docs/README.md::4-regenerate-router",
-      "type": "doc",
-      "summary": "4. Regenerate router",
-      "content_ref": "docs/README.md",
-      "byte_range": [
-        5469,
-        5538
+        7630,
+        8271
       ],
       "tags": []
     },
@@ -239,8 +52,8 @@
       "summary": "Key Files Reference",
       "content_ref": "docs/README.md",
       "byte_range": [
-        5538,
-        6416
+        8271,
+        9149
       ],
       "tags": []
     },
@@ -250,8 +63,8 @@
       "summary": "Validation Rules (validate.py)",
       "content_ref": "docs/README.md",
       "byte_range": [
-        6416,
-        6908
+        9149,
+        9641
       ],
       "tags": []
     },
@@ -261,8 +74,8 @@
       "summary": "Memory System",
       "content_ref": "docs/README.md",
       "byte_range": [
-        6908,
-        7440
+        9641,
+        10173
       ],
       "tags": []
     },
@@ -272,8 +85,8 @@
       "summary": "License",
       "content_ref": "docs/README.md",
       "byte_range": [
-        7440,
-        7605
+        10173,
+        10338
       ],
       "tags": []
     },
@@ -586,13 +399,24 @@
       "tags": []
     },
     {
-      "id": "docs/adr/ADR-005-audit-findings.md::phase-1-changes-implemented",
+      "id": "docs/adr/ADR-005-audit-findings.md::phase-1-changes-implemented-complete",
       "type": "doc",
-      "summary": "Phase 1 Changes Implemented",
+      "summary": "Phase 1 Changes Implemented (COMPLETE)",
       "content_ref": "docs/adr/ADR-005-audit-findings.md",
       "byte_range": [
         1275,
-        2525
+        2532
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-005-audit-findings.md::phase-2-unified-prompt-stack-complete",
+      "type": "doc",
+      "summary": "Phase 2 — Unified Prompt Stack (COMPLETE)",
+      "content_ref": "docs/adr/ADR-005-audit-findings.md",
+      "byte_range": [
+        2532,
+        3737
       ],
       "tags": []
     },
@@ -602,19 +426,8 @@
       "summary": "Release Gates (per attached document)",
       "content_ref": "docs/adr/ADR-005-audit-findings.md",
       "byte_range": [
-        2525,
-        3796
-      ],
-      "tags": []
-    },
-    {
-      "id": "docs/adr/ADR-005-audit-findings.md::next-steps-phase-2",
-      "type": "doc",
-      "summary": "Next Steps (Phase 2+)",
-      "content_ref": "docs/adr/ADR-005-audit-findings.md",
-      "byte_range": [
-        3796,
-        4202
+        3737,
+        5281
       ],
       "tags": []
     },
@@ -624,8 +437,8 @@
       "summary": "Links",
       "content_ref": "docs/adr/ADR-005-audit-findings.md",
       "byte_range": [
-        4202,
-        4451
+        5281,
+        5722
       ],
       "tags": []
     },
@@ -636,7 +449,84 @@
       "content_ref": "docs/architecture.md",
       "byte_range": [
         0,
-        5987
+        5891
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/architecture.md::unified-prompt-stack-wa-unified-002",
+      "type": "doc",
+      "summary": "Unified Prompt Stack (WA-UNIFIED-002)",
+      "content_ref": "docs/architecture.md",
+      "byte_range": [
+        5891,
+        9891
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/architecture.md::prompt-dag-node-types",
+      "type": "doc",
+      "summary": "Prompt DAG Node Types",
+      "content_ref": "docs/architecture.md",
+      "byte_range": [
+        9891,
+        10517
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/architecture.md::edge-types",
+      "type": "doc",
+      "summary": "Edge Types",
+      "content_ref": "docs/architecture.md",
+      "byte_range": [
+        10517,
+        11223
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/architecture.md::dag-compiler-stages",
+      "type": "doc",
+      "summary": "DAG Compiler Stages",
+      "content_ref": "docs/architecture.md",
+      "byte_range": [
+        11223,
+        12041
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/architecture.md::per-tier-token-ceilings",
+      "type": "doc",
+      "summary": "Per-Tier Token Ceilings",
+      "content_ref": "docs/architecture.md",
+      "byte_range": [
+        12041,
+        12259
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/architecture.md::model-adapters",
+      "type": "doc",
+      "summary": "Model Adapters",
+      "content_ref": "docs/architecture.md",
+      "byte_range": [
+        12259,
+        12628
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/architecture.md::wiki-views",
+      "type": "doc",
+      "summary": "Wiki Views",
+      "content_ref": "docs/architecture.md",
+      "byte_range": [
+        12628,
+        13286
       ],
       "tags": []
     },
@@ -40093,7 +39983,7 @@
       "content_ref": "docs/specs/README.md",
       "byte_range": [
         230,
-        955
+        1080
       ],
       "tags": []
     },
@@ -40103,8 +39993,8 @@
       "summary": "Status Definitions",
       "content_ref": "docs/specs/README.md",
       "byte_range": [
-        955,
-        1290
+        1080,
+        1415
       ],
       "tags": []
     },
@@ -40114,8 +40004,8 @@
       "summary": "Governance",
       "content_ref": "docs/specs/README.md",
       "byte_range": [
-        1290,
-        1598
+        1415,
+        1723
       ],
       "tags": []
     },
@@ -40125,8 +40015,8 @@
       "summary": "Cross-References",
       "content_ref": "docs/specs/README.md",
       "byte_range": [
-        1598,
-        1890
+        1723,
+        2015
       ],
       "tags": []
     },

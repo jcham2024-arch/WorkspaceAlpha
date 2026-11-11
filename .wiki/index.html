@@ -37,31 +37,14 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
 <nav>
   <input id="search" placeholder="Search nodes…" oninput="filterNodes()">
   <div class="group-label">docs</div>
-<a class="nav-item" href="#docs/README.md::1-create-skill-in-master-library">1. Create skill in master library</a>
-<a class="nav-item" href="#docs/README.md::2-categorize-task-type-subtype-level-os">2. Categorize (task type/subtype/level/OS)</a>
-<a class="nav-item" href="#docs/README.md::3-provision-to-active-profile">3. Provision to active profile</a>
-<a class="nav-item" href="#docs/README.md::4-regenerate-router">4. Regenerate router</a>
-<a class="nav-item" href="#docs/README.md::adding-a-skill">Adding a Skill</a>
-<a class="nav-item" href="#docs/README.md::agent-profiles">Agent Profiles</a>
 <a class="nav-item" href="#docs/README.md::architecture">Architecture</a>
 <a class="nav-item" href="#docs/README.md::baselayer-workspace-project-documentation">Baselayer Workspace — Project Documentation</a>
-<a class="nav-item" href="#docs/README.md::communication-protocol">Communication Protocol</a>
 <a class="nav-item" href="#docs/README.md::conventions">Conventions</a>
-<a class="nav-item" href="#docs/README.md::development-workflow">Development Workflow</a>
-<a class="nav-item" href="#docs/README.md::documentation">Documentation</a>
-<a class="nav-item" href="#docs/README.md::edit-agent-profiles-profile-md-skills-list">Edit .agent/profiles/&lt;profile&gt;.md skills list</a>
-<a class="nav-item" href="#docs/README.md::edit-agent-skills-categorization-csv">Edit .agent/skills/CATEGORIZATION.csv</a>
-<a class="nav-item" href="#docs/README.md::full-pipeline">Full pipeline</a>
-<a class="nav-item" href="#docs/README.md::getting-started">Getting Started</a>
-<a class="nav-item" href="#docs/README.md::initial-build">Initial Build</a>
 <a class="nav-item" href="#docs/README.md::key-files-reference">Key Files Reference</a>
 <a class="nav-item" href="#docs/README.md::license">License</a>
 <a class="nav-item" href="#docs/README.md::memory-system">Memory System</a>
-<a class="nav-item" href="#docs/README.md::prerequisites">Prerequisites</a>
 <a class="nav-item" href="#docs/README.md::project-overview">Project Overview</a>
-<a class="nav-item" href="#docs/README.md::skills">Skills</a>
 <a class="nav-item" href="#docs/README.md::validation-rules-validate-py">Validation Rules (validate.py)</a>
-<a class="nav-item" href="#docs/README.md::write-agent-skills-my-skill-skill-md-with-frontmatter">Write .agent/skills/my-skill/SKILL.md with frontmatter</a>
 <a class="nav-item" href="#docs/adr/ADR-001-dag-routing.md::adr-001-why-a-dag-for-documentation-routing">ADR-001: Why a DAG for Documentation Routing</a>
 <a class="nav-item" href="#docs/adr/ADR-001-dag-routing.md::consequences">Consequences</a>
 <a class="nav-item" href="#docs/adr/ADR-001-dag-routing.md::context">Context</a>
@@ -89,11 +72,18 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
 <a class="nav-item" href="#docs/adr/ADR-005-audit-findings.md::adr-005-phase-0-audit-findings-and-phase-1-release-gates">ADR-005: Phase 0 Audit Findings and Phase 1 Release Gates</a>
 <a class="nav-item" href="#docs/adr/ADR-005-audit-findings.md::context">Context</a>
 <a class="nav-item" href="#docs/adr/ADR-005-audit-findings.md::links">Links</a>
-<a class="nav-item" href="#docs/adr/ADR-005-audit-findings.md::next-steps-phase-2">Next Steps (Phase 2+)</a>
 <a class="nav-item" href="#docs/adr/ADR-005-audit-findings.md::phase-0-audit-findings">Phase 0 Audit Findings</a>
-<a class="nav-item" href="#docs/adr/ADR-005-audit-findings.md::phase-1-changes-implemented">Phase 1 Changes Implemented</a>
+<a class="nav-item" href="#docs/adr/ADR-005-audit-findings.md::phase-1-changes-implemented-complete">Phase 1 Changes Implemented (COMPLETE)</a>
+<a class="nav-item" href="#docs/adr/ADR-005-audit-findings.md::phase-2-unified-prompt-stack-complete">Phase 2 — Unified Prompt Stack (COMPLETE)</a>
 <a class="nav-item" href="#docs/adr/ADR-005-audit-findings.md::release-gates-per-attached-document">Release Gates (per attached document)</a>
 <a class="nav-item" href="#docs/adr/ADR-005-audit-findings.md::status">Status</a>
+<a class="nav-item" href="#docs/architecture.md::dag-compiler-stages">DAG Compiler Stages</a>
+<a class="nav-item" href="#docs/architecture.md::edge-types">Edge Types</a>
+<a class="nav-item" href="#docs/architecture.md::model-adapters">Model Adapters</a>
+<a class="nav-item" href="#docs/architecture.md::per-tier-token-ceilings">Per-Tier Token Ceilings</a>
+<a class="nav-item" href="#docs/architecture.md::prompt-dag-node-types">Prompt DAG Node Types</a>
+<a class="nav-item" href="#docs/architecture.md::unified-prompt-stack-wa-unified-002">Unified Prompt Stack (WA-UNIFIED-002)</a>
+<a class="nav-item" href="#docs/architecture.md::wiki-views">Wiki Views</a>
 <a class="nav-item" href="#docs/architecture.md::workspacealpha-architecture">WorkspaceAlpha Architecture</a>
 <a class="nav-item" href="#docs/contracts/decisions/Q1-rpo-rto.md::configuration">Configuration</a>
 <a class="nav-item" href="#docs/contracts/decisions/Q1-rpo-rto.md::context">Context</a>
@@ -3739,7 +3729,7 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
   </div>
 </section>
 
-<section id="docs/README.md::architecture" data-sha256="5598e9e9233521e76d86a0e8445816e4a2897a8b1cb79a7ee373d69654b78628">
+<section id="docs/README.md::architecture" data-sha256="ca2d89bae7e6a27b071964ecc13e1417a6b8e36a2afa64ac0e7ca9876cfbf60b">
   <div class="node-meta">
     <span class="badge">doc</span>
     <span class="ref">docs/README.md</span>
@@ -3747,306 +3737,129 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
   <h2>docs/README.md::architecture</h2>
   <p class="summary">Architecture</p>
   <div class="content"><h2>Architecture</h2>
+<p>The workspace consists of the baselayer (docs → graph → manifest + wiki) plus the Unified Prompt Stack (prompt DAG, compiler, adapters, provenance, wiki views) layered on top.</p>
 <pre><code>&lt;root&gt;/
 ├── AGENTS.md              # Agent entry point (read first)
 ├── BOOTSTRAPPER.md        # Whole-system build spec
 ├── Baselayer.md           # Bootstrap spec (input only)
 ├── llms.txt               # Machine-readable tree map
+├── README.md              # Project documentation (this file)
+├── LICENSE                # MIT License
+├── THIRD_PARTY_NOTICES.md # Third-party skill licenses
+├── open-questions.md      # Architectural question tracker
 ├── .context/
 │   ├── graph.json         # Canonical DAG (source of truth)
 │   ├── manifest.json      # Generated router (agent)
 │   ├── index.md           # Plain-file fallback index
+│   ├── prompt-graph.json  # Prompt DAG (Unified Prompt Stack)
 │   └── knowledge.db       # SQLite FTS for memory
 ├── docs/                  # Source documentation (indexed)
 │   ├── specs/             # Technical specifications
 │   ├── contracts/         # Decision records, interfaces
-│   └── resources/         # Reference materials
+│   ├── operations/        | Operational docs (secrets, quarantine, deprecation, etc.)
+│   ├── adr/               # Architecture Decision Records
+│   ├── skills/            # Skill documentation index &amp; duplicate report
+│   └── architecture.md    # Architecture diagram (ASCII)
 ├── .wiki/                 # Render pipeline (generated)
 │   ├── seed.py            # docs → graph.json
 │   ├── build.py           # graph → manifest + wiki
 │   └── index.html         # Human wiki (never hand-edit)
+├── wiki/                  # Generated prompt wiki views (Unified Prompt Stack)
+│   ├── conversation.md    # Delegation chain transcript
+│   ├── prompt-chunk.md    # Per-turn prompt composition
+│   ├── conceptual-expansion.md — Node selection rationale &amp; assumptions
+│   ├── index.md           # View index
+│   └── views/generator.py # Wiki view generator
 ├── .agent/                # Agent runtime (master)
 │   ├── skills/            # 3,520 skills (master library)
-│   ├── profiles/          # 9 specialized agent profiles
+│   ├── profiles/          # 9 specialized agent profiles (with tier field)
 │   ├── tools/             # Pipeline, audit, knowledge, MCP
-│   └── .env               # Secrets (gitignored)
-├── .harness/              # Active skill set (provisioned)
-│   └── skills/            # Current profile&#x27;s skills
-├── skills/index.json      # Slim skill router
-├── memory/                # Persistent learnings
-│   ├── learnings.md       # Session bullets
-│   ├── JOURNAL.md         # Work summaries
-│   ├── DECISIONS.md       # ADR-lite decisions
-│   ├── ERRORS.md          # Diagnosed failures
-│   └── LESSONS.md         # Emergent principles
-├── 01-navigate/ … 04-verify/  # ICM stage folders
-├── validate.py            # Step-6 validator (pre-commit)
-└── .archive/              # Cleared after import (gitignored)</code></pre></div>
+│   └── .env               # Keys (gitignored)
+├── .harness/skills/       # Currently-used set — provisioned per active profile
+├── adapters/              # Model adapters (Unified Prompt Stack)
+│   ├── deepseek_v32.py    # DeepSeek V3.2 (thinking mode, token floors)
+│   ├── nemotron_35.py     # Nemotron 3.5 (reasoning_effort mapping)
+│   └── dispatch.py        # Adapter selection by target_tier
+├── assembly/              # DAG compiler (Unified Prompt Stack)
+│   ├── manifest_reader.py # Manifest loading &amp; scope resolution
+│   ├── slicer.py          # Byte-range extraction with sha256 verification
+│   ├── budgeter.py        # Per-tier token ceiling enforcement
+│   └── assembler.py       # Plan→Bind→Optimize→Execute→Feedback pipeline
+├── assembly/prefix/       # Frozen prompt prefixes (byte-identical, cache-keyed)
+│   ├── orchestrator.md    # Conceptualizer prefix
+│   ├── manager.md         # Taskmaster prefix
+│   └── production.md      # Production worker prefix
+├── envelope/              # Delegation envelopes (Unified Prompt Stack)
+│   ├── handoff-envelope.schema.json   # JSON Schema for delegation envelope
+│   ├── return-envelope.schema.json    # JSON Schema for return envelope
+│   ├── mission-envelope.yaml          # MISSION delegation template
+│   └── execution-envelope.yaml        # EXECUTION delegation template
+├── schemas/               # JSON Schemas (Unified Prompt Stack)
+│   ├── prompt-graph.schema.json   # Prompt DAG node/edge schema
+│   └── provenance-record.schema.json  # Per-turn provenance record schema
+├── provenance/            # Per-turn provenance records (Unified Prompt Stack)
+│   ├── recorder.py        # Record &amp; summarize turns
+│   └── turns.jsonl        # JSONL log of all turns
+├── skills/                # Skill documentation index
+│   ├── SKILL_INDEX.md     # Searchable reference index (3,518 skills)
+│   └── DUPLICATE_REPORT.md # 237 potential duplicate skill groups
+├── tests/                 # Test suite (59 tests)
+│   ├── test_build.py
+│   ├── test_seed.py
+│   ├── test_provision.py
+│   ├── test_golden.py
+│   ├── test_mcp.py
+│   ├── test_envelope.py
+│   ├── test_assembler.py
+│   ├── test_adapter.py
+│   └── test_cache.py
+├── tools/                 # Development tools
+│   ├── normalize_skills.py    # Promote body fields to frontmatter
+│   ├── cleanup_skills.py      # Fix double separators, orphaned lists
+│   ├── fix_double_separator.py
+│   ├── fix_yaml_lists.py
+│   ├── remove_empty_fields.py
+│   ├── fix_quoting.py
+│   ├── generate_skill_index.py # Generate SKILL_INDEX.md
+│   ├── find_duplicate_skills.py # Find duplicate/overlapping skills
+│   ├── backfill_tiers.py      # Backfill tier field
+│   ├── backfill_last_reviewed.py # Backfill last_reviewed field
+│   ├── dedup.py               # Find duplicate skills
+│   ├── stale.py               # List unreviewed skills
+│   ├── context_budget.py      # Context budget tracking
+│   ├── scan_secrets.py        # Secret scanning
+│   ├── context_budget.py      # Context budget
+│   ├── lint_dag.py            # DAG linting
+│   └── ...                    # Other utility scripts
+├── .agent/                # Agent runtime (master)
+│   ├── skills/            # 3,520 skills (master library)
+│   ├── profiles/          # 9 specialized agent profiles (with tier field)
+│   ├── tools/             # Pipeline, audit, knowledge, MCP
+│   └── .env               # Keys (gitignored)
+├── .harness/skills/       # Currently-used set — provisioned per active profile
+├── .wiki/                 # Render pipeline (generated)
+│   ├── seed.py            # docs → graph.json
+│   ├── build.py           # graph → manifest + wiki
+│   └── index.html         # Human wiki (never hand-edit)
+├── .archive/              # Cleared after full import (gitignored)
+├── 01-navigate/ … 04-verify/ | ICM stage folders (+ output contracts)
+├── validate.py · .githooks/ | Step-6 check + pre-commit hook
+└── memory/learnings.md    | Persistent learnings (append post-session)</code></pre></div>
   <div class="edges">
     <div><strong>requires</strong><br><em>none</em></div>
     <div><strong>required by</strong><br><em>none</em></div>
   </div>
 </section>
 
-<section id="docs/README.md::conventions" data-sha256="09ab97e61fa4ae867fad69ee3bf29b038c8adb6d70850155dddf09ea72fcbcf2">
+<section id="docs/README.md::conventions" data-sha256="309f3918846fa058af8400116480a29d0dea826fff91700a478e74c8a79091a3">
   <div class="node-meta">
     <span class="badge">doc</span>
     <span class="ref">docs/README.md</span>
   </div>
   <h2>docs/README.md::conventions</h2>
   <p class="summary">Conventions</p>
-  <div class="content"><h2>Conventions</h2></div>
-  <div class="edges">
-    <div><strong>requires</strong><br><em>none</em></div>
-    <div><strong>required by</strong><br><em>none</em></div>
-  </div>
-</section>
-
-<section id="docs/README.md::documentation" data-sha256="fb16948e9464091cf9b39c2cb1b1d7cdc8f1e47eaa6f6c08d5b65342006007f0">
-  <div class="node-meta">
-    <span class="badge">doc</span>
-    <span class="ref">docs/README.md</span>
-  </div>
-  <h2>docs/README.md::documentation</h2>
-  <p class="summary">Documentation</p>
-  <div class="content"><h3>Documentation</h3>
-<p>- <strong>Source of truth</strong>: <code>docs/</code> (Markdown) + <code>.context/graph.json</code> (DAG) - <strong>Never edit generated</strong>: <code>.context/manifest.json</code>, <code>.wiki/index.html</code>, <code>skills/index.json</code> - <strong>Build pipeline</strong>: <code>python3 .wiki/seed.py &amp;&amp; python3 .wiki/build.py</code> - <strong>Validation</strong>: <code>python3 validate.py</code> (also pre-commit hook)</p></div>
-  <div class="edges">
-    <div><strong>requires</strong><br><em>none</em></div>
-    <div><strong>required by</strong><br><em>none</em></div>
-  </div>
-</section>
-
-<section id="docs/README.md::skills" data-sha256="d80db16f76e81192879c07632481c8cd9df4b9244242beb0967d2b97aaa9d5d0">
-  <div class="node-meta">
-    <span class="badge">doc</span>
-    <span class="ref">docs/README.md</span>
-  </div>
-  <h2>docs/README.md::skills</h2>
-  <p class="summary">Skills</p>
-  <div class="content"><h3>Skills</h3>
-<p>- <strong>Master library</strong>: <code>.agent/skills/</code> (3,520 skills, categorized) - <strong>Active set</strong>: <code>.harness/skills/</code> (provisioned per profile) - <strong>Router</strong>: <code>skills/index.json</code> (name + description + path only) - <strong>New skills</strong>: Create in <code>.agent/skills/&lt;name&gt;/SKILL.md</code> → categorize → provision</p></div>
-  <div class="edges">
-    <div><strong>requires</strong><br><em>none</em></div>
-    <div><strong>required by</strong><br><em>none</em></div>
-  </div>
-</section>
-
-<section id="docs/README.md::agent-profiles" data-sha256="ea36149ac5a364db80e0864a33488e0d78132c4409e6ccb446f136353303352d">
-  <div class="node-meta">
-    <span class="badge">doc</span>
-    <span class="ref">docs/README.md</span>
-  </div>
-  <h2>docs/README.md::agent-profiles</h2>
-  <p class="summary">Agent Profiles</p>
-  <div class="content"><h3>Agent Profiles</h3>
-<p>| Profile | Role | Skills | |---------|------|--------| | <code>conceptualizer</code> | Human-facing orchestrator | brainstorming, writing-plans, thinking-first-principles, thinking-margin-of-safety | | <code>taskmaster</code> | Subagent-facing orchestrator | dispatching-parallel-agents, subagent-driven-development, executing-plans, ... | | <code>coder</code> | Implementation | (provisioned per task) | | <code>researcher</code> | Investigation | (provisioned per task) | | <code>reviewer</code> | Code review | (provisioned per task) | | <code>coding-manager</code> | Task breakdown | (provisioned per task) | | <code>research-manager</code> | Research coordination | (provisioned per task) | | <code>review-manager</code> | Review coordination | (provisioned per task) | | <code>wiki-producer</code> | HTML wiki generation | (provisioned per task) |</p></div>
-  <div class="edges">
-    <div><strong>requires</strong><br><em>none</em></div>
-    <div><strong>required by</strong><br><em>none</em></div>
-  </div>
-</section>
-
-<section id="docs/README.md::communication-protocol" data-sha256="98de2fc4d59ded6a4d35cca5b39162954f1f2e523956a5ab1bf82e6e19928153">
-  <div class="node-meta">
-    <span class="badge">doc</span>
-    <span class="ref">docs/README.md</span>
-  </div>
-  <h2>docs/README.md::communication-protocol</h2>
-  <p class="summary">Communication Protocol</p>
-  <div class="content"><h3>Communication Protocol</h3>
-<p>Two orchestration roles, zero cross-talk:</p>
-<p>- <strong>Conceptualizer</strong> ↔ Human (all human messages) - <strong>Taskmaster</strong> ↔ Subagents (all subagent messages) - <strong>Bridge</strong>: 6 message types via file artifacts (see <code>.agent/profiles/protocol.md</code>)</p></div>
-  <div class="edges">
-    <div><strong>requires</strong><br><em>none</em></div>
-    <div><strong>required by</strong><br><em>none</em></div>
-  </div>
-</section>
-
-<section id="docs/README.md::getting-started" data-sha256="cb65447f5e27edf51318adf1b81924260fbbf4845fa51d55b56a396f0573b9d7">
-  <div class="node-meta">
-    <span class="badge">doc</span>
-    <span class="ref">docs/README.md</span>
-  </div>
-  <h2>docs/README.md::getting-started</h2>
-  <p class="summary">Getting Started</p>
-  <div class="content"><h2>Getting Started</h2></div>
-  <div class="edges">
-    <div><strong>requires</strong><br><em>none</em></div>
-    <div><strong>required by</strong><br><em>none</em></div>
-  </div>
-</section>
-
-<section id="docs/README.md::prerequisites" data-sha256="6c996758f33cfb7e2602436df8af725fe2ee69b9a0b665f8cc5a19ce32132933">
-  <div class="node-meta">
-    <span class="badge">doc</span>
-    <span class="ref">docs/README.md</span>
-  </div>
-  <h2>docs/README.md::prerequisites</h2>
-  <p class="summary">Prerequisites</p>
-  <div class="content"><h3>Prerequisites</h3>
-<p>- Python 3.14+ (verified at build time) - Zero external dependencies at build time - AndroidHarness app (runtime environment)</p></div>
-  <div class="edges">
-    <div><strong>requires</strong><br><em>none</em></div>
-    <div><strong>required by</strong><br><em>none</em></div>
-  </div>
-</section>
-
-<section id="docs/README.md::initial-build" data-sha256="920a474997887566cedb2ed3f51624c2ad0f2291bbdc07064a8c6d6c8fb3013b">
-  <div class="node-meta">
-    <span class="badge">doc</span>
-    <span class="ref">docs/README.md</span>
-  </div>
-  <h2>docs/README.md::initial-build</h2>
-  <p class="summary">Initial Build</p>
-  <div class="content"><h3>Initial Build</h3></div>
-  <div class="edges">
-    <div><strong>requires</strong><br><em>none</em></div>
-    <div><strong>required by</strong><br><em>none</em></div>
-  </div>
-</section>
-
-<section id="docs/README.md::full-pipeline" data-sha256="9bf0bda12a6f7d01f48b6d34d5294be67a5fdf753eaef3cdf974471fe56f09db">
-  <div class="node-meta">
-    <span class="badge">doc</span>
-    <span class="ref">docs/README.md</span>
-  </div>
-  <h2>docs/README.md::full-pipeline</h2>
-  <p class="summary">Full pipeline</p>
-  <div class="content"><h1>Full pipeline</h1>
-<p>python3 .wiki/seed.py        # docs/ → .context/graph.json python3 .wiki/build.py       # graph.json → manifest.json + .wiki/index.html python3 .agent/tools/gen_skills_index.py  # master skills → skills/index.json python3 validate.py          # Step-6 validation</p>
-<pre><code></code></pre></div>
-  <div class="edges">
-    <div><strong>requires</strong><br><em>none</em></div>
-    <div><strong>required by</strong><br><em>none</em></div>
-  </div>
-</section>
-
-<section id="docs/README.md::development-workflow" data-sha256="ea7825d2abad9f0200bb72a4b30a3e02e0f46e0bbc382499fbf4de238b23cb07">
-  <div class="node-meta">
-    <span class="badge">doc</span>
-    <span class="ref">docs/README.md</span>
-  </div>
-  <h2>docs/README.md::development-workflow</h2>
-  <p class="summary">Development Workflow</p>
-  <div class="content"><h3>Development Workflow</h3>
-<p>1. <strong>Edit</strong> <code>docs/</code> or <code>.context/graph.json</code> 2. <strong>Rebuild</strong> <code>python3 .wiki/seed.py &amp;&amp; python3 .wiki/build.py</code> 3. <strong>Validate</strong> <code>python3 validate.py</code> 4. <strong>Commit</strong> (pre-commit hook runs validation)</p></div>
-  <div class="edges">
-    <div><strong>requires</strong><br><em>none</em></div>
-    <div><strong>required by</strong><br><em>none</em></div>
-  </div>
-</section>
-
-<section id="docs/README.md::adding-a-skill" data-sha256="999f18a05ac145f8a911beb6eed0e25b344d03a8e9060e8564cfa95688597db4">
-  <div class="node-meta">
-    <span class="badge">doc</span>
-    <span class="ref">docs/README.md</span>
-  </div>
-  <h2>docs/README.md::adding-a-skill</h2>
-  <p class="summary">Adding a Skill</p>
-  <div class="content"><h3>Adding a Skill</h3></div>
-  <div class="edges">
-    <div><strong>requires</strong><br><em>none</em></div>
-    <div><strong>required by</strong><br><em>none</em></div>
-  </div>
-</section>
-
-<section id="docs/README.md::1-create-skill-in-master-library" data-sha256="894d8d8bac60a03130b023c00faf7a781b11ebf8c8284d9e76cdde71b2d7e5a6">
-  <div class="node-meta">
-    <span class="badge">doc</span>
-    <span class="ref">docs/README.md</span>
-  </div>
-  <h2>docs/README.md::1-create-skill-in-master-library</h2>
-  <p class="summary">1. Create skill in master library</p>
-  <div class="content"><h1>1. Create skill in master library</h1>
-<p>mkdir -p .agent/skills/my-skill</p></div>
-  <div class="edges">
-    <div><strong>requires</strong><br><em>none</em></div>
-    <div><strong>required by</strong><br><em>none</em></div>
-  </div>
-</section>
-
-<section id="docs/README.md::write-agent-skills-my-skill-skill-md-with-frontmatter" data-sha256="af8d3881a9b6a78a8eaa8564ee56f1951487dfae7ed69953e511570845768676">
-  <div class="node-meta">
-    <span class="badge">doc</span>
-    <span class="ref">docs/README.md</span>
-  </div>
-  <h2>docs/README.md::write-agent-skills-my-skill-skill-md-with-frontmatter</h2>
-  <p class="summary">Write .agent/skills/my-skill/SKILL.md with frontmatter</p>
-  <div class="content"><h1>Write .agent/skills/my-skill/SKILL.md with frontmatter</h1></div>
-  <div class="edges">
-    <div><strong>requires</strong><br><em>none</em></div>
-    <div><strong>required by</strong><br><em>none</em></div>
-  </div>
-</section>
-
-<section id="docs/README.md::2-categorize-task-type-subtype-level-os" data-sha256="2fb0b422202b66852c43156eff0d847523193a6ca02e4c1e79006c5e9739aa1a">
-  <div class="node-meta">
-    <span class="badge">doc</span>
-    <span class="ref">docs/README.md</span>
-  </div>
-  <h2>docs/README.md::2-categorize-task-type-subtype-level-os</h2>
-  <p class="summary">2. Categorize (task type/subtype/level/OS)</p>
-  <div class="content"><h1>2. Categorize (task type/subtype/level/OS)</h1></div>
-  <div class="edges">
-    <div><strong>requires</strong><br><em>none</em></div>
-    <div><strong>required by</strong><br><em>none</em></div>
-  </div>
-</section>
-
-<section id="docs/README.md::edit-agent-skills-categorization-csv" data-sha256="5ca0c7d13b43e62998607e3b35f4a651fbe7406799da6d153911a3dfe268482d">
-  <div class="node-meta">
-    <span class="badge">doc</span>
-    <span class="ref">docs/README.md</span>
-  </div>
-  <h2>docs/README.md::edit-agent-skills-categorization-csv</h2>
-  <p class="summary">Edit .agent/skills/CATEGORIZATION.csv</p>
-  <div class="content"><h1>Edit .agent/skills/CATEGORIZATION.csv</h1></div>
-  <div class="edges">
-    <div><strong>requires</strong><br><em>none</em></div>
-    <div><strong>required by</strong><br><em>none</em></div>
-  </div>
-</section>
-
-<section id="docs/README.md::3-provision-to-active-profile" data-sha256="6b90af7203edf20304eb8cdc87efcdeefd6d79a2d3928093f9ea811cb1b8f2b4">
-  <div class="node-meta">
-    <span class="badge">doc</span>
-    <span class="ref">docs/README.md</span>
-  </div>
-  <h2>docs/README.md::3-provision-to-active-profile</h2>
-  <p class="summary">3. Provision to active profile</p>
-  <div class="content"><h1>3. Provision to active profile</h1></div>
-  <div class="edges">
-    <div><strong>requires</strong><br><em>none</em></div>
-    <div><strong>required by</strong><br><em>none</em></div>
-  </div>
-</section>
-
-<section id="docs/README.md::edit-agent-profiles-profile-md-skills-list" data-sha256="1ad791b23f66adab90e6f203e2e0f170e7dc0713634137eecf4fab157196f709">
-  <div class="node-meta">
-    <span class="badge">doc</span>
-    <span class="ref">docs/README.md</span>
-  </div>
-  <h2>docs/README.md::edit-agent-profiles-profile-md-skills-list</h2>
-  <p class="summary">Edit .agent/profiles/&lt;profile&gt;.md skills list</p>
-  <div class="content"><h1>Edit .agent/profiles/&lt;profile&gt;.md skills list</h1>
-<p>python3 .harness/sync_active.py --profile &lt;profile&gt;</p></div>
-  <div class="edges">
-    <div><strong>requires</strong><br><em>none</em></div>
-    <div><strong>required by</strong><br><em>none</em></div>
-  </div>
-</section>
-
-<section id="docs/README.md::4-regenerate-router" data-sha256="af66e78d399121625032359cdaf147a64e7b360163f21f3e4ca258084afa5432">
-  <div class="node-meta">
-    <span class="badge">doc</span>
-    <span class="ref">docs/README.md</span>
-  </div>
-  <h2>docs/README.md::4-regenerate-router</h2>
-  <p class="summary">4. Regenerate router</p>
-  <div class="content"><h1>4. Regenerate router</h1>
-<p>python3 .agent/tools/gen_skills_index.py</p>
-<pre><code></code></pre></div>
+  <div class="content"><h2>Conventions</h2>
+<p>- <code>docs/</code> is read-only to the build; <code>graph.json</code> is the only writable knowledge file — edit docs or graph, then rebuild. - Skills are one folder per name, <code>SKILL.md</code> frontmatter authoritative; descriptions are load-bearing (progressive disclosure Layer 1). - Secrets live only in <code>.agent/.env</code> (gitignored); <code>.env.example</code> is the committed template. - The master library (3,520 skills) is categorized in <code>.agent/skills/CATEGORIZATION.md</code>; the 47 broken sources are quarantined in IMPORT_REPORT.md; bulk-installing is prohibited. - Secrets: <code>docs/operations/secrets.md</code> — key storage, rotation, leak response.</p></div>
   <div class="edges">
     <div><strong>requires</strong><br><em>none</em></div>
     <div><strong>required by</strong><br><em>none</em></div>
@@ -4517,7 +4330,7 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
   </div>
 </section>
 
-<section id="docs/adr/ADR-005-audit-findings.md::context" data-sha256="50b92d70861408ef2d0f7203cba0d34ac5efc17eca098005d98ee1a37cf1e837">
+<section id="docs/adr/ADR-005-audit-findings.md::context" data-sha256="eee5ca7382bf373a96ed0764eb4243c856a7d06551fcf178eb68e518995492f6">
   <div class="node-meta">
     <span class="badge">doc</span>
     <span class="ref">docs/adr/ADR-005-audit-findings.md</span>
@@ -4547,22 +4360,37 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
   </div>
 </section>
 
-<section id="docs/adr/ADR-005-audit-findings.md::phase-1-changes-implemented" data-sha256="08089fa2a9fd7bad76be9aae0c0610aefb0941d555c7f42f91103f4a79d4887c">
+<section id="docs/adr/ADR-005-audit-findings.md::phase-1-changes-implemented-complete" data-sha256="6ea26acac1fa7aae6c21bb1b1a9ee1fc8ad2e7892d0ae951878204b25c6c4e57">
   <div class="node-meta">
     <span class="badge">doc</span>
     <span class="ref">docs/adr/ADR-005-audit-findings.md</span>
   </div>
-  <h2>docs/adr/ADR-005-audit-findings.md::phase-1-changes-implemented</h2>
-  <p class="summary">Phase 1 Changes Implemented</p>
-  <div class="content"><h2>Phase 1 Changes Implemented</h2>
-<p>1. <strong>Graph schema versioning</strong> — Added <code>schema_version: &quot;1.0.0&quot;</code> to <code>graph.json</code> (seed.py) and propagated to <code>manifest.json</code> (build.py). 2. <strong>Byte range validation</strong> — <code>build.py</code> and <code>validate.py</code> now check: start &gt;= 0, end &gt; start, end &lt;= file size. 3. <strong>Structured logging</strong> — <code>seed.py</code>, <code>build.py</code>, <code>validate.py</code>, MCP <code>server.py</code> use <code>logging</code> module with INFO/WARNING/ERROR severity to stderr. 4. <strong>Graceful malformed input</strong> — <code>seed.py</code> skips symlinks, files &gt; 10MB, and binary files (null byte check) with WARNING logs. 5. <strong>MCP server hardening</strong> — Added structured logging, request metrics (count, latency, token bytes, verification failures, errors), per-call SHA-256 verification on <code>read_section</code>, graceful shutdown on SIGTERM/SIGINT, health check (<code>ping</code> returns structured status). 6. <strong>MCP integration tests</strong> — <code>tests/test_mcp.py</code> with 9 tests covering ping, tools/list, read_section (verified + unknown node), compile_context, search_nodes, list_nodes, unknown tool, invalid JSON. 7. <strong>CI workflow</strong> — <code>.github/workflows/ci.yml</code> runs unit tests, build pipeline, skill audit, build determinism check, .env-not-committed check, pre-commit hook executable check, and Python syntax linting.</p></div>
+  <h2>docs/adr/ADR-005-audit-findings.md::phase-1-changes-implemented-complete</h2>
+  <p class="summary">Phase 1 Changes Implemented (COMPLETE)</p>
+  <div class="content"><h2>Phase 1 Changes Implemented (COMPLETE)</h2>
+<p>1. <strong>Graph schema versioning</strong> — Added <code>schema_version: &quot;1.0.0&quot;</code> to <code>graph.json</code> (seed.py) and propagated to <code>manifest.json</code> (build.py). 2. <strong>Byte range validation</strong> — <code>build.py</code> and <code>validate.py</code> now check: start &gt;= 0, end &gt; start, end &lt;= file size. 3. <strong>Structured logging</strong> — <code>seed.py</code>, <code>build.py</code>, <code>validate.py</code>, MCP <code>server.py</code> use <code>logging</code> module with INFO/WARNING/ERROR severity to stderr. 4. <strong>Graceful malformed input</strong> — <code>seed.py</code> skips symlinks, files &gt; 10MB, and binary files (null byte check) with WARNING logs. 5. <strong>MCP server hardening</strong> — Added structured logging, request metrics (count, latency, token bytes, verification failures, errors), per-call SHA-256 verification on <code>read_section</code>, graceful shutdown on SIGTERM/SIGINT, health check (<code>ping</code> returns structured status). 6. <strong>MCP integration tests</strong> — <code>tests/test_mcp.py</code> with 9 tests covering ping, tools/list, read_section (verified + unknown node), compile_context, search_nodes, list_nodes, unknown tool, invalid JSON. 7. <strong>CI workflow</strong> — <code>.github/workflows/ci.yml</code> runs unit tests, build pipeline, skill audit, build determinism check, .env-not-committed check, pre-commit hook executable check, Python syntax linting.</p></div>
   <div class="edges">
     <div><strong>requires</strong><br><em>none</em></div>
     <div><strong>required by</strong><br><em>none</em></div>
   </div>
 </section>
 
-<section id="docs/adr/ADR-005-audit-findings.md::release-gates-per-attached-document" data-sha256="1dd050acc1e963d168b2b6b038baee7b056ba2199334a20f2baad8b918d27217">
+<section id="docs/adr/ADR-005-audit-findings.md::phase-2-unified-prompt-stack-complete" data-sha256="27e39ba59f5f37b2e966b1bc61dcc38b5424f3990f7f177c374036718d84e904">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-005-audit-findings.md</span>
+  </div>
+  <h2>docs/adr/ADR-005-audit-findings.md::phase-2-unified-prompt-stack-complete</h2>
+  <p class="summary">Phase 2 — Unified Prompt Stack (COMPLETE)</p>
+  <div class="content"><h2>Phase 2 — Unified Prompt Stack (COMPLETE)</h2>
+<p>1. <strong>Envelope schemas</strong> — <code>envelope/handoff-envelope.schema.json</code>, <code>envelope/return-envelope.schema.json</code> (JSON Schema draft-07). 2. <strong>Envelope templates</strong> — <code>envelope/mission-envelope.yaml</code>, <code>envelope/execution-envelope.yaml</code> (MISSION/EXECUTION delegation templates). 3. <strong>Prompt DAG</strong> — <code>.context/prompt-graph.json</code> (16 nodes: 3 SystemPrompt, 4 Skill, 2 Envelope, 2 Adapter, 1 OutputContract, 4 ContextSlice; 16 edges across 5 types). 4. <strong>DAG Compiler</strong> — <code>assembly/manifest_reader.py</code>, <code>assembly/slicer.py</code>, <code>assembly/budgeter.py</code>, <code>assembly/assembler.py</code> (Plan→Bind→Optimize→Execute→Feedback with budget-aware pruning). 5. <strong>Model Adapters</strong> — <code>adapters/deepseek_v32.py</code>, <code>adapters/nemotron_35.py</code>, <code>adapters/dispatch.py</code> (thinking mode, token floors, format selection). 6. <strong>Provenance Recorder</strong> — <code>provenance/recorder.py</code> (per-turn JSONL + human-readable summaries). 7. <strong>Wiki Views</strong> — <code>wiki/views/generator.py</code> (conversation, prompt-chunk, conceptual-expansion views). 8. <strong>Prompt Prefixes</strong> — <code>assembly/prefix/orchestrator.md</code>, <code>assembly/prefix/manager.md</code>, <code>assembly/prefix/production.md</code> (byte-identical, cache-keyed).</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-005-audit-findings.md::release-gates-per-attached-document" data-sha256="0f6e8db7225a378eb4c99707376a6e7707e82bfce226d4edc6e20cd62e11bf6b">
   <div class="node-meta">
     <span class="badge">doc</span>
     <span class="ref">docs/adr/ADR-005-audit-findings.md</span>
@@ -4570,30 +4398,14 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
   <h2>docs/adr/ADR-005-audit-findings.md::release-gates-per-attached-document</h2>
   <p class="summary">Release Gates (per attached document)</p>
   <div class="content"><h2>Release Gates (per attached document)</h2>
-<p>The project is NOT yet production-ready. The following gates must be met:</p>
-<p>| Gate | Criteria | Status | |------|----------|--------| | Deterministic builds | <code>manifest.json</code> byte-identical across consecutive <code>build.py</code> runs | ✅ CI verifies | | Validated graphs | <code>validate.py</code> passes (hashes, DAG, byte ranges) | ✅ CI verifies | | Async MCP runtime | Async request handling, bounded concurrency, timeouts, cancellation | ⏳ Phase 1 added metrics/shutdown; async not yet implemented | | Health checks + metrics | MCP <code>ping</code> returns healthy; request metrics logged | ✅ Implemented | | Reproducible benchmarks | Benchmark harness with measurable value | ❌ Not yet started | | Two ecosystem integrations | LangChain + TypeScript client examples | ❌ Not yet started | | Automated license enforcement | CI blocks unlicensed/restricted skills from trusted tiers | ❌ Not yet started | | No plaintext <code>.env</code> in production | <code>.agent/.env</code> gitignored; CI verifies not tracked | ✅ CI verifies | | Offline-first privacy | All tooling stdlib-only; no network by default | ✅ Maintained | | Protocol specification | Versioned graph schema + routing protocol spec | ⚠️ Partial (schema_version added, protocol doc pending) |</p></div>
+<p>| Gate | Criteria | Status | |------|----------|--------| | Deterministic builds | <code>manifest.json</code> byte-identical across consecutive <code>build.py</code> runs | ✅ CI verifies | | Validated graphs | <code>validate.py</code> passes (hashes, DAG, byte ranges) | ✅ CI verifies | | Async MCP runtime | Async request handling, bounded concurrency, timeouts, cancellation | ⏳ Phase 1 added metrics/shutdown; async not yet implemented | | Health checks + metrics | MCP <code>ping</code> returns healthy; request metrics logged | ✅ Implemented | | Reproducible benchmarks | Benchmark harness with measurable value | ❌ Not yet started | | Two ecosystem integrations | LangChain + TypeScript client examples | ❌ Not yet started | | Automated license enforcement | CI blocks unlicensed/restricted skills from trusted tiers | ❌ Not yet started | | No plaintext <code>.env</code> in production | <code>.agent/.env</code> gitignored; CI verifies not tracked | ✅ CI verifies | | Offline-first privacy | All tooling stdlib-only; no network by default | ✅ Maintained | | Prompt DAG schema | Versioned graph schema + routing protocol spec | ✅ Complete (prompt-graph.schema.json) | | DAG compiler | Plan→Bind→Optimize→Execute→Feedback with budget enforcement | ✅ Implemented | | Model adapters | DeepSeek V3.2 + Nemotron 3.5 with tiered dispatch | ✅ Implemented | | Provenance recording | Per-turn JSONL records + human-readable summaries | ✅ Implemented | | Wiki views | Conversation, Prompt Chunk, Conceptual Expansion | ✅ Implemented |</p></div>
   <div class="edges">
     <div><strong>requires</strong><br><em>none</em></div>
     <div><strong>required by</strong><br><em>none</em></div>
   </div>
 </section>
 
-<section id="docs/adr/ADR-005-audit-findings.md::next-steps-phase-2" data-sha256="94c6923a8f9ce0f81a7addf26ab839ba2b700a626bb8deb386efeba1f99b6cb2">
-  <div class="node-meta">
-    <span class="badge">doc</span>
-    <span class="ref">docs/adr/ADR-005-audit-findings.md</span>
-  </div>
-  <h2>docs/adr/ADR-005-audit-findings.md::next-steps-phase-2</h2>
-  <p class="summary">Next Steps (Phase 2+)</p>
-  <div class="content"><h2>Next Steps (Phase 2+)</h2>
-<p>- Phase 2: Benchmark harness + proof-of-value results - Phase 3: Framework adapters (LangChain, TypeScript client), packaging - Phase 4: License compliance automation, secrets handling (no <code>.env</code>), trust-tier enforcement - Phase 5: Optional team/hosted features, community documentation - Phase 6: Protocol specification + TypeScript reference implementation + conformance tests</p></div>
-  <div class="edges">
-    <div><strong>requires</strong><br><em>none</em></div>
-    <div><strong>required by</strong><br><em>none</em></div>
-  </div>
-</section>
-
-<section id="docs/adr/ADR-005-audit-findings.md::links" data-sha256="aa92e4e7dff128fcdf04ad62368ea213a080ae1f3e97ddb12796227ff9d87c2a">
+<section id="docs/adr/ADR-005-audit-findings.md::links" data-sha256="4f6f5e37832d3829bd273b700e12459c7c593e5280b2765356109283cc2fe6cf">
   <div class="node-meta">
     <span class="badge">doc</span>
     <span class="ref">docs/adr/ADR-005-audit-findings.md</span>
@@ -4601,14 +4413,14 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
   <h2>docs/adr/ADR-005-audit-findings.md::links</h2>
   <p class="summary">Links</p>
   <div class="content"><h2>Links</h2>
-<p>- Build pipeline: <code>.wiki/seed.py</code>, <code>.wiki/build.py</code> - Validator: <code>validate.py</code> - MCP server: <code>.agent/tools/mcp/server.py</code> - CI: <code>.github/workflows/ci.yml</code> - Skill audit: <code>.agent/tools/audit.py</code> - Tier definitions: <code>.agent/skills/TIERS.md</code></p></div>
+<p>- Build pipeline: <code>.wiki/seed.py</code>, <code>.wiki/build.py</code> - Validator: <code>validate.py</code> - MCP server: <code>.agent/tools/mcp/server.py</code> - CI: <code>.github/workflows/ci.yml</code> - Skill audit: <code>.agent/tools/audit.py</code> - Tier definitions: <code>.agent/skills/TIERS.md</code> - Prompt DAG: <code>.context/prompt-graph.json</code> - DAG Compiler: <code>assembly/assembler.py</code> - Model Adapters: <code>adapters/</code> - Provenance: <code>provenance/recorder.py</code> - Wiki Views: <code>wiki/views/generator.py</code></p></div>
   <div class="edges">
     <div><strong>requires</strong><br><em>none</em></div>
     <div><strong>required by</strong><br><em>none</em></div>
   </div>
 </section>
 
-<section id="docs/architecture.md::workspacealpha-architecture" data-sha256="d55fe80aa52ce01f733ebe780eb5cb7f39acb4b04dbafcaf26bf7b8e43c282c9">
+<section id="docs/architecture.md::workspacealpha-architecture" data-sha256="02821f7ec942ebbb189fe23fa027635ce2447fb8a940d3615a6626f03dc5b4ff">
   <div class="node-meta">
     <span class="badge">doc</span>
     <span class="ref">docs/architecture.md</span>
@@ -4646,7 +4458,7 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
                     seed.py             build.py
                     (docs/ →            (graph →
                      graph.json)        manifest +
-                                         wiki)
+                                       wiki)
                            │                   │
                            ▼                   ▼
 ┌──────────────────────────────────────────────────────────────────────┐
@@ -4677,7 +4489,150 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
 Data flow:
   docs/ ──seed.py──&gt; graph.json ──build.py──&gt; manifest.json + wiki
   .agent/ ──sync──&gt; .harness/skills/ ──agent uses──&gt; tasks
-  AGENTS.md ──────────────────────────────────────&gt; routes to skills</code></pre>
+  AGENTS.md ──────────────────────────────────────&gt; routes to skills</code></pre></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/architecture.md::unified-prompt-stack-wa-unified-002" data-sha256="79b40d195dc2f5f30dec22b6ecc5dd2265f7b5d29d9b0c9a786dd53f284af646">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/architecture.md</span>
+  </div>
+  <h2>docs/architecture.md::unified-prompt-stack-wa-unified-002</h2>
+  <p class="summary">Unified Prompt Stack (WA-UNIFIED-002)</p>
+  <div class="content"><h2>Unified Prompt Stack (WA-UNIFIED-002)</h2>
+<pre><code>┌─────────────────────────────────────────────────────────────────────────┐
+│                      UNIFIED PROMPT STACK                                │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────┐      ┌──────────────┐      ┌──────────────┐
+│  DELEGATION  │      │   DAG        │      │   MODEL      │
+│  ENVELOPE    │      │  COMPILER    │      │  ADAPTER     │
+│  (mission)   │      │  (Plan→Bind  │      │  (DeepSeek   │
+│  → manager   │      │   →Optimize  │      │   3.2 /      │
+│  → production│      │   →Execute   │      │   Nemotron   │
+└──────┬───────┘      │   →Feedback  │      │   3.5)       │
+       │               └──────┬───────┘      └──────┬───────┘
+       │                     │                     │
+       ▼                     ▼                     ▼
+┌──────────────┐      ┌──────────────┐      ┌──────────────┐
+│   FROZEN     │      │   VARIABLE   │      │   PROVENANCE │
+│   PREFIX     │      │   SUFFIX     │      │   RECORDER   │
+│  (SystemPrompt│      │  (task envelope│      │  (turn records│
+│   node)      │      │   + context   │      │   + summaries)│
+│  byte-identical│      │   slices)    │      │              │
+│  cache-keyed   │      │              │      │              │
+└──────┬───────┘      └──────┬───────┘      └──────┬───────┘
+       │                     │                     │
+       ▼                     ▼                     ▼
+┌──────────────────────────────────────────────────────────────────────┐
+│                    .context/prompt-graph.json                          │
+│              Six node types, five edge types                           │
+│  SystemPrompt → Skill → Envelope → ContextSlice → Adapter →           │
+│  OutputContract                                                    │
+│  requires → triggers → routes_to → adapts → provenance_of            │
+└──────────────────────────────────────────────────────────────────────┘
+                           │
+                           ▼
+┌──────────────────────────────────────────────────────────────────────┐
+│                          WIKI VIEWS                                     │
+│  conversation.md  → Delegation chain transcript with evidence links   │
+│  prompt-chunk.md   → Per-turn prompt composition (prefix/suffix)     │
+│  conceptual-expansion.md → Why each node was selected &amp; assumptions  │
+└──────────────────────────────────────────────────────────────────────┘</code></pre></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/architecture.md::prompt-dag-node-types" data-sha256="df3cf19cf1b0ee6f055471cbbad2d21bca3c65aa426bc5d6c4d49fe5b3f6e5ad">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/architecture.md</span>
+  </div>
+  <h2>docs/architecture.md::prompt-dag-node-types</h2>
+  <p class="summary">Prompt DAG Node Types</p>
+  <div class="content"><h3>Prompt DAG Node Types</h3>
+<p>| Node Type | Represents | Content Ref | |-----------|-----------|-------------| | <code>SystemPrompt</code> | Frozen prefix for an agent role | <code>assembly/prefix/<em>.md</code> | | <code>Skill</code> | A skill <code>.md</code> file with frontmatter triggers | <code>.agent/skills/&lt;name&gt;/SKILL.md</code> | | <code>Envelope</code> | Delegation contract (frontmatter + body template) | <code>envelope/</em>-envelope.yaml</code> | | <code>ContextSlice</code> | A byte-range reference into the manifest | <code>.context/manifest.json</code> nodes | | <code>Adapter</code> | Model-specific dispatch config | <code>adapters/<em>.py</code> | | <code>OutputContract</code> | JSON Schema or diff contract for return | <code>envelope/</em>-schema.json</code> |</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/architecture.md::edge-types" data-sha256="c1437a3568eb07358706e35e0882271da043d302c58581cc226c2ba364e445b7">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/architecture.md</span>
+  </div>
+  <h2>docs/architecture.md::edge-types</h2>
+  <p class="summary">Edge Types</p>
+  <div class="content"><h3>Edge Types</h3>
+<p>| Edge Type | Semantics | Example | |-----------|-----------|---------| | <code>requires</code> | Hard dependency; target must be assembled before source | Envelope requires OutputContract | | <code>triggers</code> | Conditional inclusion; target included only when frontmatter condition matches | Skill triggered by <code>task_type=debugging</code> | | <code>routes_to</code> | Routing edge; source delegation type selects target node | <code>MISSION</code> routes to manager envelope | | <code>adapts</code> | Model binding; target adapter configures source for a specific model | Envelope adapts to DeepSeek 3.2 | | <code>provenance_of</code> | Traceability; target is the evidence source for source&#x27;s output | Return envelope&#x27;s results point to context slices |</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/architecture.md::dag-compiler-stages" data-sha256="5aa2c335217253416e3e2076d708a07b46b418c1dba8a610c256ef0c5997b9aa">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/architecture.md</span>
+  </div>
+  <h2>docs/architecture.md::dag-compiler-stages</h2>
+  <p class="summary">DAG Compiler Stages</p>
+  <div class="content"><h3>DAG Compiler Stages</h3>
+<p>1. <strong>Scope resolution</strong> — Incoming delegation envelope carries <code>task_type</code>, <code>domain</code>, <code>allowed_targets</code>, <code>target_tier</code>. These are root selectors. 2. <strong>Graph traversal</strong> — Starting from the selected <code>Envelope</code> node, walk <code>requires</code>, <code>triggers</code>, and <code>routes_to</code> edges. Select only nodes whose conditions match scope. 3. <strong>Budget-aware ordering</strong> — Topologically sort selected nodes, then assign token budgets per layer. If total exceeds per-tier ceiling, prune nodes by edge distance from root (farthest <code>triggers</code> nodes dropped first). Never silently truncate; return <code>BLOCKED</code> with excluded node IDs. 4. <strong>Cache-keyed rendering</strong> — Render frozen prefix from <code>SystemPrompt</code> node + <code>Adapter</code>. Render variable suffix from remaining nodes in dependency order. Append suffix after prefix.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/architecture.md::per-tier-token-ceilings" data-sha256="8c6d3b35c28b92dc46e9a636f1939294e4a32c121ac591f10b7154bbe173b09d">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/architecture.md</span>
+  </div>
+  <h2>docs/architecture.md::per-tier-token-ceilings</h2>
+  <p class="summary">Per-Tier Token Ceilings</p>
+  <div class="content"><h3>Per-Tier Token Ceilings</h3>
+<p>| Tier | Suffix Ceiling | Max Tokens Floor | |------|---------------|-----------------| | thinking (manager) | 1,800 | 8,192 | | low_thinking / non_thinking (production) | 1,500 | 1,024 |</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/architecture.md::model-adapters" data-sha256="05ab26eeb3fc54fc90183028a6ae8752be0848ad3ce5eda148f8b06530099237">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/architecture.md</span>
+  </div>
+  <h2>docs/architecture.md::model-adapters</h2>
+  <p class="summary">Model Adapters</p>
+  <div class="content"><h3>Model Adapters</h3>
+<p>| Adapter | Model | Thinking Mode | Max Tokens Floor | |---------|-------|---------------|-----------------| | DeepSeek V3.2 | <code>deepseek-v3.2-thinking</code> | <code>enabled</code> (manager) / <code>disabled</code> (production) | 8,192 / 1,024 | | Nemotron 3.5 | <code>nvidia/nemotron-3.5-super-vl-120b-a12b</code> | <code>enable_thinking: true</code> (+ <code>medium_effort</code> for production) | 16,384 |</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/architecture.md::wiki-views" data-sha256="b1848f1493400e76549646849437b01085530ae6f3ce7c410a55d2cbb3ba9494">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/architecture.md</span>
+  </div>
+  <h2>docs/architecture.md::wiki-views</h2>
+  <p class="summary">Wiki Views</p>
+  <div class="content"><h3>Wiki Views</h3>
+<p>| View | Path | Purpose | Data Source | |------|------|---------|-------------| | Conversation | <code>wiki/conversation.md</code> | Delegation chain transcript with evidence links | Provenance log + return envelopes | | Prompt Chunk | <code>wiki/prompt-chunk.md</code> | Per-turn prompt composition (frozen prefix, skills, context slices, output contract) | DAG compiler assembly record | | Conceptual Expansion | <code>wiki/conceptual-expansion.md</code> | Why each node was selected, what was excluded, assumptions | Compiler selection log + adapter params + return envelope |</p>
 <p>See <a href="docs/integration/harness-contract.md">harness-contract.md</a> for the integration contract.</p></div>
   <div class="edges">
     <div><strong>requires</strong><br><em>none</em></div>
@@ -58465,7 +58420,7 @@ python3 .harness/gen_skills_index.py</code></pre></div>
   </div>
 </section>
 
-<section id="docs/specs/README.md::readiness-status" data-sha256="21ed301ef6228344c18406a19ec7a2365c446fa7a10998dae7e7cdd56497c8f2">
+<section id="docs/specs/README.md::readiness-status" data-sha256="4ff138f30ab616e698e45f2c4ab7bd5379534fec02424c07d21b1c27e3602fac">
   <div class="node-meta">
     <span class="badge">doc</span>
     <span class="ref">docs/specs/README.md</span>
@@ -58473,7 +58428,7 @@ python3 .harness/gen_skills_index.py</code></pre></div>
   <h2>docs/specs/README.md::readiness-status</h2>
   <p class="summary">Readiness Status</p>
   <div class="content"><h2>Readiness Status</h2>
-<p>| Spec | Status | Last Updated | Linked Decisions | Implementation | |------|--------|--------------|------------------|----------------| | <code>audit-persistence-spec.md</code> | <strong>Draft</strong> | 2026-11-09 | <a href="../contracts/decisions/Q2-sqlite-sync.md">Q2-sqlite-sync.md</a> | <code>knowledge.py</code> (partial) | | <code>skill-lifecycle-spec.md</code> | Planned | — | <a href="../contracts/decisions/Q1-rpo-rto.md">Q1-rpo-rto.md</a> | — | | <code>mcp-protocol-spec.md</code> | Planned | — | <a href="../contracts/decisions/Q3-key-rotation.md">Q3-key-rotation.md</a> | <code>.agent/tools/mcp/server.py</code> | | <code>wiki-render-spec.md</code> | Planned | — | — | <code>.wiki/seed.py</code>, <code>.wiki/build.py</code> | | <code>profile-provisioning-spec.md</code> | Planned | — | — | <code>.harness/sync_active.py</code> |</p></div>
+<p>| Spec | Status | Last Updated | Linked Decisions | Implementation | |------|--------|--------------|------------------|----------------| | <code>audit-persistence-spec.md</code> | <strong>Draft</strong> | 2026-11-09 | <a href="../contracts/decisions/Q2-sqlite-sync.md">Q2-sqlite-sync.md</a> | <code>knowledge.py</code> (partial) | | <code>prompt-stack-spec.md</code> | <strong>Draft</strong> | 2026-11-11 | — | <code>envelope/</code>, <code>assembly/</code>, <code>adapters/</code>, <code>provenance/</code>, <code>schemas/</code> | | <code>skill-lifecycle-spec.md</code> | Planned | — | <a href="../contracts/decisions/Q1-rpo-rto.md">Q1-rpo-rto.md</a> | — | | <code>mcp-protocol-spec.md</code> | Planned | — | <a href="../contracts/decisions/Q3-key-rotation.md">Q3-key-rotation.md</a> | <code>.agent/tools/mcp/server.py</code> | | <code>wiki-render-spec.md</code> | Planned | — | — | <code>.wiki/seed.py</code>, <code>.wiki/build.py</code> | | <code>profile-provisioning-spec.md</code> | Planned | — | — | <code>.harness/sync_active.py</code> |</p></div>
   <div class="edges">
     <div><strong>requires</strong><br><em>none</em></div>
     <div><strong>required by</strong><br><em>none</em></div>
