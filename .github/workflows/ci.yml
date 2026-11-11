@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Run unit tests
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Run build pipeline (seed + build + validate)
+        run: python3 .agent/tools/run.py build
+
+      - name: Run skill audit
+        run: python3 .agent/tools/run.py audit
+
+      - name: Verify build determinism
+        run: |
+          python3 .wiki/build.py
+          cp .context/manifest.json /tmp/manifest1.json
+          python3 .wiki/build.py
+          cp .context/manifest.json /tmp/manifest2.json
+          diff /tmp/manifest1.json /tmp/manifest2.json && echo "DETERMINISTIC: manifest.json is byte-identical across runs"
+
+      - name: Verify .env is not committed
+        run: |
+          if git ls-files --error-unmatch .agent/.env >/dev/null 2>&1; then
+            echo "ERROR: .agent/.env is tracked in git — remove it before merging"
+            exit 1
+          fi
+          echo "OK: .agent/.env is not tracked"
+
+      - name: Verify pre-commit hook is executable
+        run: |
+          test -x .githooks/pre-commit && echo "OK: pre-commit hook is executable" || { echo "ERROR: pre-commit hook not executable"; exit 1; }
+
+  lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Check Python syntax on all tool scripts
+        run: |
+          for f in .wiki/seed.py .wiki/build.py validate.py tools/*.py .agent/tools/*.py .agent/tools/mcp/*.py; do
+            python3 -m py_compile "$f" || { echo "SYNTAX ERROR: $f"; exit 1; }
+          done
+          echo "OK: all Python files compile"

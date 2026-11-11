@@ -1,5 +1,6 @@
 {
   "version": 1,
+  "schema_version": "1.0.0",
   "nodes": [
     {
       "id": "docs/README.md::baselayer-workspace-project-documentation",
@@ -537,6 +538,94 @@
       "byte_range": [
         1563,
         1772
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-005-audit-findings.md::adr-005-phase-0-audit-findings-and-phase-1-release-gates",
+      "type": "doc",
+      "summary": "ADR-005: Phase 0 Audit Findings and Phase 1 Release Gates",
+      "content_ref": "docs/adr/ADR-005-audit-findings.md",
+      "byte_range": [
+        0,
+        61
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-005-audit-findings.md::status",
+      "type": "doc",
+      "summary": "Status",
+      "content_ref": "docs/adr/ADR-005-audit-findings.md",
+      "byte_range": [
+        61,
+        82
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-005-audit-findings.md::context",
+      "type": "doc",
+      "summary": "Context",
+      "content_ref": "docs/adr/ADR-005-audit-findings.md",
+      "byte_range": [
+        82,
+        343
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-005-audit-findings.md::phase-0-audit-findings",
+      "type": "doc",
+      "summary": "Phase 0 Audit Findings",
+      "content_ref": "docs/adr/ADR-005-audit-findings.md",
+      "byte_range": [
+        343,
+        1275
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-005-audit-findings.md::phase-1-changes-implemented",
+      "type": "doc",
+      "summary": "Phase 1 Changes Implemented",
+      "content_ref": "docs/adr/ADR-005-audit-findings.md",
+      "byte_range": [
+        1275,
+        2525
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-005-audit-findings.md::release-gates-per-attached-document",
+      "type": "doc",
+      "summary": "Release Gates (per attached document)",
+      "content_ref": "docs/adr/ADR-005-audit-findings.md",
+      "byte_range": [
+        2525,
+        3796
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-005-audit-findings.md::next-steps-phase-2",
+      "type": "doc",
+      "summary": "Next Steps (Phase 2+)",
+      "content_ref": "docs/adr/ADR-005-audit-findings.md",
+      "byte_range": [
+        3796,
+        4202
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/adr/ADR-005-audit-findings.md::links",
+      "type": "doc",
+      "summary": "Links",
+      "content_ref": "docs/adr/ADR-005-audit-findings.md",
+      "byte_range": [
+        4202,
+        4451
       ],
       "tags": []
     },
@@ -2004,12 +2093,5 @@
       "tags": []
     }
   ],
-  "edges": [
-    {
-      "from": "docs/resources/README.md::resources-skills-archive-provenance",
-      "to": "docs/resources/project-management.md::project-management-skills-shortlist",
-      "type": "requires",
-      "note": "resources route to formatted catalogs"
-    }
-  ]
+  "edges": []
 }

@@ -1,13 +1,6 @@
 {
   "contract_version": "1.0.0",
-  "edges": [
-    {
-      "from": "docs/resources/README.md::resources-skills-archive-provenance",
-      "note": "resources route to formatted catalogs",
-      "to": "docs/resources/project-management.md::project-management-skills-shortlist",
-      "type": "requires"
-    }
-  ],
+  "edges": [],
   "generated_from": "graph.json",
   "nodes": [
     {
@@ -692,6 +685,118 @@
       "est_tokens": 53,
       "id": "docs/adr/ADR-004-agent-tracked.md::links",
       "sha256": "9c288b5d0c659785bc7083a23b38f121dbe6c464553f61f35a88803fdea74886",
+      "summary": "Links",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        0,
+        61
+      ],
+      "bytes": 61,
+      "content_ref": "docs/adr/ADR-005-audit-findings.md",
+      "est_tokens": 16,
+      "id": "docs/adr/ADR-005-audit-findings.md::adr-005-phase-0-audit-findings-and-phase-1-release-gates",
+      "sha256": "5050ef422f7b497f865c5ae66916c51009ff87fcb8cfd476779e48cdd691c95a",
+      "summary": "ADR-005: Phase 0 Audit Findings and Phase 1 Release Gates",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        61,
+        82
+      ],
+      "bytes": 21,
+      "content_ref": "docs/adr/ADR-005-audit-findings.md",
+      "est_tokens": 6,
+      "id": "docs/adr/ADR-005-audit-findings.md::status",
+      "sha256": "d4af963b9106f65d12599f5167065fd1fa718606fd92aff26f1090ee67138e89",
+      "summary": "Status",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        82,
+        343
+      ],
+      "bytes": 261,
+      "content_ref": "docs/adr/ADR-005-audit-findings.md",
+      "est_tokens": 66,
+      "id": "docs/adr/ADR-005-audit-findings.md::context",
+      "sha256": "50b92d70861408ef2d0f7203cba0d34ac5efc17eca098005d98ee1a37cf1e837",
+      "summary": "Context",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        343,
+        1275
+      ],
+      "bytes": 932,
+      "content_ref": "docs/adr/ADR-005-audit-findings.md",
+      "est_tokens": 233,
+      "id": "docs/adr/ADR-005-audit-findings.md::phase-0-audit-findings",
+      "sha256": "1a2e91cf5e7cff169685c9b47de21b2f9ac5059852b04a6519da3817355aa57b",
+      "summary": "Phase 0 Audit Findings",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        1275,
+        2525
+      ],
+      "bytes": 1250,
+      "content_ref": "docs/adr/ADR-005-audit-findings.md",
+      "est_tokens": 313,
+      "id": "docs/adr/ADR-005-audit-findings.md::phase-1-changes-implemented",
+      "sha256": "08089fa2a9fd7bad76be9aae0c0610aefb0941d555c7f42f91103f4a79d4887c",
+      "summary": "Phase 1 Changes Implemented",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        2525,
+        3796
+      ],
+      "bytes": 1271,
+      "content_ref": "docs/adr/ADR-005-audit-findings.md",
+      "est_tokens": 318,
+      "id": "docs/adr/ADR-005-audit-findings.md::release-gates-per-attached-document",
+      "sha256": "1dd050acc1e963d168b2b6b038baee7b056ba2199334a20f2baad8b918d27217",
+      "summary": "Release Gates (per attached document)",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        3796,
+        4202
+      ],
+      "bytes": 406,
+      "content_ref": "docs/adr/ADR-005-audit-findings.md",
+      "est_tokens": 102,
+      "id": "docs/adr/ADR-005-audit-findings.md::next-steps-phase-2",
+      "sha256": "94c6923a8f9ce0f81a7addf26ab839ba2b700a626bb8deb386efeba1f99b6cb2",
+      "summary": "Next Steps (Phase 2+)",
+      "tags": [],
+      "type": "doc"
+    },
+    {
+      "byte_range": [
+        4202,
+        4451
+      ],
+      "bytes": 249,
+      "content_ref": "docs/adr/ADR-005-audit-findings.md",
+      "est_tokens": 63,
+      "id": "docs/adr/ADR-005-audit-findings.md::links",
+      "sha256": "aa92e4e7dff128fcdf04ad62368ea213a080ae1f3e97ddb12796227ff9d87c2a",
       "summary": "Links",
       "tags": [],
       "type": "doc"
@@ -2559,5 +2664,6 @@
       "type": "doc"
     }
   ],
+  "schema_version": "1.0.0",
   "version": 1
 }

@@ -5,8 +5,15 @@ Zero external dependencies. Validates the DAG (acyclicity, referential
 integrity, uniqueness) and fails hard on violation.
 """
 from __future__ import annotations
-import hashlib, html, json, re, sys
+import hashlib, html, json, logging, re, sys
 from pathlib import Path
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(name)s: %(message)s",
+    stream=sys.stderr,
+)
+log = logging.getLogger("build")
 
 ROOT = Path(__file__).resolve().parent.parent
 GRAPH_PATH = ROOT / ".context" / "graph.json"
@@ -15,6 +22,7 @@ WIKI_PATH = ROOT / ".wiki" / "index.html"
 
 def load_graph() -> dict:
     if not GRAPH_PATH.exists():
+        log.error("missing %s — run seed.py first", GRAPH_PATH.relative_to(ROOT))
         sys.exit(f"missing {GRAPH_PATH.relative_to(ROOT)} — run seed.py first")
     with GRAPH_PATH.open("r", encoding="utf-8") as f:
         return json.load(f)
@@ -22,15 +30,21 @@ def load_graph() -> dict:
 def validate(graph: dict) -> None:
     ids = [n["id"] for n in graph["nodes"]]
     if len(ids) != len(set(ids)):
-        sys.exit("duplicate node id")
+        msg = "duplicate node id"
+        log.error(msg)
+        sys.exit(msg)
     id_set = set(ids)
     adj = {i: [] for i in ids}
     for e in graph.get("edges", []):
         f, t = e.get("from"), e.get("to")
         if f not in id_set or t not in id_set:
-            sys.exit(f"edge references unknown node: {e}")
+            msg = f"edge references unknown node: {e}"
+            log.error(msg)
+            sys.exit(msg)
         if f == t:
-            sys.exit(f"self-loop: {e}")
+            msg = f"self-loop: {e}"
+            log.error(msg)
+            sys.exit(msg)
         adj[f].append(t)
     WHITE, GRAY, BLACK = 0, 1, 2
     color = {i: WHITE for i in ids}
@@ -38,7 +52,9 @@ def validate(graph: dict) -> None:
         color[u] = GRAY
         for v in adj[u]:
             if color[v] == GRAY:
-                sys.exit(f"cycle detected through {u} -> {v}")
+                msg = f"cycle detected through {u} -> {v}"
+                log.error(msg)
+                sys.exit(msg)
             if color[v] == WHITE:
                 dfs(v)
         color[u] = BLACK
@@ -50,11 +66,24 @@ def read_node_bytes(node: dict) -> bytes:
     ref = node["content_ref"].split("#")[0]
     path = ROOT / ref
     if not path.exists():
+        log.error("node %s: content file missing: %s", node["id"], ref)
         sys.exit(f"node {node['id']}: content file missing: {ref}")
     data = path.read_bytes()
     br = node.get("byte_range")
     if br:
         start, end = br
+        if start < 0:
+            msg = f"node {node['id']}: invalid byte_range start {start} (negative)"
+            log.error(msg)
+            sys.exit(msg)
+        if end <= start:
+            msg = f"node {node['id']}: invalid byte_range end {end} <= start {start}"
+            log.error(msg)
+            sys.exit(msg)
+        if end > len(data):
+            msg = f"node {node['id']}: byte_range end {end} exceeds file size {len(data)}"
+            log.error(msg)
+            sys.exit(msg)
         data = data[start:end]
     return data
 
@@ -75,6 +104,7 @@ def build_manifest(graph: dict) -> dict:
         })
     return {
         "version": graph.get("version", 1),
+        "schema_version": graph.get("schema_version", "1.0.0"),
         "generated_from": "graph.json",
         "contract_version": "1.0.0",
         "nodes": nodes,
@@ -234,8 +264,8 @@ def main():
     MANIFEST_PATH.write_text(json.dumps(manifest, indent=2, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
     WIKI_PATH.parent.mkdir(parents=True, exist_ok=True)
     WIKI_PATH.write_text(build_wiki(graph), encoding="utf-8")
-    print(f"wrote {MANIFEST_PATH.relative_to(ROOT)} ({len(manifest['nodes'])} nodes)")
-    print(f"wrote {WIKI_PATH.relative_to(ROOT)}")
+    log.info("wrote %s (%d nodes)", MANIFEST_PATH.relative_to(ROOT), len(manifest["nodes"]))
+    log.info("wrote %s", WIKI_PATH.relative_to(ROOT))
 
 if __name__ == "__main__":
     main()

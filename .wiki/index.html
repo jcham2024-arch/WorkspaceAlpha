@@ -86,6 +86,14 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
 <a class="nav-item" href="#docs/adr/ADR-004-agent-tracked.md::decision">Decision</a>
 <a class="nav-item" href="#docs/adr/ADR-004-agent-tracked.md::links">Links</a>
 <a class="nav-item" href="#docs/adr/ADR-004-agent-tracked.md::status">Status</a>
+<a class="nav-item" href="#docs/adr/ADR-005-audit-findings.md::adr-005-phase-0-audit-findings-and-phase-1-release-gates">ADR-005: Phase 0 Audit Findings and Phase 1 Release Gates</a>
+<a class="nav-item" href="#docs/adr/ADR-005-audit-findings.md::context">Context</a>
+<a class="nav-item" href="#docs/adr/ADR-005-audit-findings.md::links">Links</a>
+<a class="nav-item" href="#docs/adr/ADR-005-audit-findings.md::next-steps-phase-2">Next Steps (Phase 2+)</a>
+<a class="nav-item" href="#docs/adr/ADR-005-audit-findings.md::phase-0-audit-findings">Phase 0 Audit Findings</a>
+<a class="nav-item" href="#docs/adr/ADR-005-audit-findings.md::phase-1-changes-implemented">Phase 1 Changes Implemented</a>
+<a class="nav-item" href="#docs/adr/ADR-005-audit-findings.md::release-gates-per-attached-document">Release Gates (per attached document)</a>
+<a class="nav-item" href="#docs/adr/ADR-005-audit-findings.md::status">Status</a>
 <a class="nav-item" href="#docs/architecture.md::workspacealpha-architecture">WorkspaceAlpha Architecture</a>
 <a class="nav-item" href="#docs/contracts/decisions/Q1-rpo-rto.md::configuration">Configuration</a>
 <a class="nav-item" href="#docs/contracts/decisions/Q1-rpo-rto.md::context">Context</a>
@@ -1000,6 +1008,126 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
   <p class="summary">Links</p>
   <div class="content"><h2>Links</h2>
 <p>- .gitignore: root <code>.gitignore</code> - BOOTSTRAPPER.md: §2 Directory contract, §7 Build-from-scratch checklist - Agent runtime: <code>.agent/agent.md</code> - Skill lifecycle: <code>docs/operations/skill-lifecycle.md</code></p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-005-audit-findings.md::adr-005-phase-0-audit-findings-and-phase-1-release-gates" data-sha256="5050ef422f7b497f865c5ae66916c51009ff87fcb8cfd476779e48cdd691c95a">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-005-audit-findings.md</span>
+  </div>
+  <h2>docs/adr/ADR-005-audit-findings.md::adr-005-phase-0-audit-findings-and-phase-1-release-gates</h2>
+  <p class="summary">ADR-005: Phase 0 Audit Findings and Phase 1 Release Gates</p>
+  <div class="content"><h1>ADR-005: Phase 0 Audit Findings and Phase 1 Release Gates</h1></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-005-audit-findings.md::status" data-sha256="d4af963b9106f65d12599f5167065fd1fa718606fd92aff26f1090ee67138e89">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-005-audit-findings.md</span>
+  </div>
+  <h2>docs/adr/ADR-005-audit-findings.md::status</h2>
+  <p class="summary">Status</p>
+  <div class="content"><h2>Status</h2>
+<p>Accepted</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-005-audit-findings.md::context" data-sha256="50b92d70861408ef2d0f7203cba0d34ac5efc17eca098005d98ee1a37cf1e837">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-005-audit-findings.md</span>
+  </div>
+  <h2>docs/adr/ADR-005-audit-findings.md::context</h2>
+  <p class="summary">Context</p>
+  <div class="content"><h2>Context</h2>
+<p>The attached &quot;WorkspaceAlpha Next-Step Implementation Instructions&quot; defines seven workstreams for converting the baselayer from a prototype into a production-grade context engine. Phase 0 (audit) and Phase 1 (hardening) are the immediate priority.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-005-audit-findings.md::phase-0-audit-findings" data-sha256="1a2e91cf5e7cff169685c9b47de21b2f9ac5059852b04a6519da3817355aa57b">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-005-audit-findings.md</span>
+  </div>
+  <h2>docs/adr/ADR-005-audit-findings.md::phase-0-audit-findings</h2>
+  <p class="summary">Phase 0 Audit Findings</p>
+  <div class="content"><h2>Phase 0 Audit Findings</h2>
+<p>| Area | Finding | Severity | |------|---------|----------| | Graph schema | <code>graph.json</code> has <code>version: 1</code> but no <code>schema_version</code> field | Medium | | Manifest | Already has <code>contract_version: &quot;1.0.0&quot;</code> | OK | | Byte range validation | <code>validate.py</code> checked SHA-256 but not range bounds (start&lt;end, within file) | Medium | | Structured logging | <code>print()</code> statements only, no severity levels | Low | | Malformed input | <code>seed.py</code> crashes on symlinks, binary files, oversized files | Medium | | MCP server | Synchronous, no timeouts, no metrics, no graceful shutdown, no per-call hash verification | High | | Test coverage | No tests for MCP server, audit, lint_dag, dedup, stale, context_budget, check_links, scan_secrets, validate, reference_adapter | High | | CI | No CI workflow | High | | Skill licensing | All 3,518 skills have <code>upstream_license</code> field; 104 have known licenses, rest &quot;unknown&quot; | OK |</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-005-audit-findings.md::phase-1-changes-implemented" data-sha256="08089fa2a9fd7bad76be9aae0c0610aefb0941d555c7f42f91103f4a79d4887c">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-005-audit-findings.md</span>
+  </div>
+  <h2>docs/adr/ADR-005-audit-findings.md::phase-1-changes-implemented</h2>
+  <p class="summary">Phase 1 Changes Implemented</p>
+  <div class="content"><h2>Phase 1 Changes Implemented</h2>
+<p>1. <strong>Graph schema versioning</strong> — Added <code>schema_version: &quot;1.0.0&quot;</code> to <code>graph.json</code> (seed.py) and propagated to <code>manifest.json</code> (build.py). 2. <strong>Byte range validation</strong> — <code>build.py</code> and <code>validate.py</code> now check: start &gt;= 0, end &gt; start, end &lt;= file size. 3. <strong>Structured logging</strong> — <code>seed.py</code>, <code>build.py</code>, <code>validate.py</code>, MCP <code>server.py</code> use <code>logging</code> module with INFO/WARNING/ERROR severity to stderr. 4. <strong>Graceful malformed input</strong> — <code>seed.py</code> skips symlinks, files &gt; 10MB, and binary files (null byte check) with WARNING logs. 5. <strong>MCP server hardening</strong> — Added structured logging, request metrics (count, latency, token bytes, verification failures, errors), per-call SHA-256 verification on <code>read_section</code>, graceful shutdown on SIGTERM/SIGINT, health check (<code>ping</code> returns structured status). 6. <strong>MCP integration tests</strong> — <code>tests/test_mcp.py</code> with 9 tests covering ping, tools/list, read_section (verified + unknown node), compile_context, search_nodes, list_nodes, unknown tool, invalid JSON. 7. <strong>CI workflow</strong> — <code>.github/workflows/ci.yml</code> runs unit tests, build pipeline, skill audit, build determinism check, .env-not-committed check, pre-commit hook executable check, and Python syntax linting.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-005-audit-findings.md::release-gates-per-attached-document" data-sha256="1dd050acc1e963d168b2b6b038baee7b056ba2199334a20f2baad8b918d27217">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-005-audit-findings.md</span>
+  </div>
+  <h2>docs/adr/ADR-005-audit-findings.md::release-gates-per-attached-document</h2>
+  <p class="summary">Release Gates (per attached document)</p>
+  <div class="content"><h2>Release Gates (per attached document)</h2>
+<p>The project is NOT yet production-ready. The following gates must be met:</p>
+<p>| Gate | Criteria | Status | |------|----------|--------| | Deterministic builds | <code>manifest.json</code> byte-identical across consecutive <code>build.py</code> runs | ✅ CI verifies | | Validated graphs | <code>validate.py</code> passes (hashes, DAG, byte ranges) | ✅ CI verifies | | Async MCP runtime | Async request handling, bounded concurrency, timeouts, cancellation | ⏳ Phase 1 added metrics/shutdown; async not yet implemented | | Health checks + metrics | MCP <code>ping</code> returns healthy; request metrics logged | ✅ Implemented | | Reproducible benchmarks | Benchmark harness with measurable value | ❌ Not yet started | | Two ecosystem integrations | LangChain + TypeScript client examples | ❌ Not yet started | | Automated license enforcement | CI blocks unlicensed/restricted skills from trusted tiers | ❌ Not yet started | | No plaintext <code>.env</code> in production | <code>.agent/.env</code> gitignored; CI verifies not tracked | ✅ CI verifies | | Offline-first privacy | All tooling stdlib-only; no network by default | ✅ Maintained | | Protocol specification | Versioned graph schema + routing protocol spec | ⚠️ Partial (schema_version added, protocol doc pending) |</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-005-audit-findings.md::next-steps-phase-2" data-sha256="94c6923a8f9ce0f81a7addf26ab839ba2b700a626bb8deb386efeba1f99b6cb2">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-005-audit-findings.md</span>
+  </div>
+  <h2>docs/adr/ADR-005-audit-findings.md::next-steps-phase-2</h2>
+  <p class="summary">Next Steps (Phase 2+)</p>
+  <div class="content"><h2>Next Steps (Phase 2+)</h2>
+<p>- Phase 2: Benchmark harness + proof-of-value results - Phase 3: Framework adapters (LangChain, TypeScript client), packaging - Phase 4: License compliance automation, secrets handling (no <code>.env</code>), trust-tier enforcement - Phase 5: Optional team/hosted features, community documentation - Phase 6: Protocol specification + TypeScript reference implementation + conformance tests</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/adr/ADR-005-audit-findings.md::links" data-sha256="aa92e4e7dff128fcdf04ad62368ea213a080ae1f3e97ddb12796227ff9d87c2a">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/adr/ADR-005-audit-findings.md</span>
+  </div>
+  <h2>docs/adr/ADR-005-audit-findings.md::links</h2>
+  <p class="summary">Links</p>
+  <div class="content"><h2>Links</h2>
+<p>- Build pipeline: <code>.wiki/seed.py</code>, <code>.wiki/build.py</code> - Validator: <code>validate.py</code> - MCP server: <code>.agent/tools/mcp/server.py</code> - CI: <code>.github/workflows/ci.yml</code> - Skill audit: <code>.agent/tools/audit.py</code> - Tier definitions: <code>.agent/skills/TIERS.md</code></p></div>
   <div class="edges">
     <div><strong>requires</strong><br><em>none</em></div>
     <div><strong>required by</strong><br><em>none</em></div>
@@ -2687,7 +2815,7 @@ python3 .harness/gen_skills_index.py</code></pre></div>
   <div class="content"><h1>Resources — Skills Archive Provenance</h1>
 <p>Archive status: the raw dump (.archive/Agentsandskills/, 686M, 3,510 sources) was imported into .agent/skills/ — 3,463 copied as valid folders, 47 &quot;404: Not Found&quot; sources quarantined (see .agent/skills/IMPORT_REPORT.md), indexed in .agent/skills/INDEX.md + INDEX.csv (3,520 folders). The archive was cleared after verification; workspace shrank 689M → 157M. The dump itself was never baselayer-indexed.</p></div>
   <div class="edges">
-    <div><strong>requires</strong><br><a href="#docs/resources/project-management.md::project-management-skills-shortlist">docs/resources/project-management.md::project-management-skills-shortlist</a> <span class="edge-type">(requires)</span><br></div>
+    <div><strong>requires</strong><br><em>none</em></div>
     <div><strong>required by</strong><br><em>none</em></div>
   </div>
 </section>
@@ -2767,7 +2895,7 @@ python3 .harness/gen_skills_index.py</code></pre></div>
 <p>Skills relevant to project management specialization, from the curated .harness/skills/ set and catalog/project-management.md (dump is larger but unrated; install candidates one at a time).</p></div>
   <div class="edges">
     <div><strong>requires</strong><br><em>none</em></div>
-    <div><strong>required by</strong><br><a href="#docs/resources/README.md::resources-skills-archive-provenance">docs/resources/README.md::resources-skills-archive-provenance</a> <span class="edge-type">(requires)</span><br></div>
+    <div><strong>required by</strong><br><em>none</em></div>
   </div>
 </section>
 

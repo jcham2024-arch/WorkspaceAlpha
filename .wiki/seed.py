@@ -9,8 +9,15 @@ Incremental: caches {path: sha256} in .context/.build-cache.json. If all input
 files are unchanged, skips regeneration entirely.
 """
 from __future__ import annotations
-import hashlib, json, re, sys
+import hashlib, json, logging, re, sys
 from pathlib import Path
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(name)s: %(message)s",
+    stream=sys.stderr,
+)
+log = logging.getLogger("seed")
 
 ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
@@ -78,7 +85,7 @@ def main():
     # Check cache
     cached = load_cache()
     if cached == current_hashes and GRAPH.exists():
-        print(f"skip {GRAPH.relative_to(ROOT)}: all {len(current_hashes)} docs unchanged")
+        log.info("skip %s: all %d docs unchanged", GRAPH.relative_to(ROOT), len(current_hashes))
         return
 
     # Regenerate
@@ -86,6 +93,29 @@ def main():
     if DOCS.exists():
         for path in sorted(DOCS.rglob("*.md")):
             rel = str(path.relative_to(ROOT))
+            # Skip symlinks
+            if path.is_symlink():
+                log.warning("skip symlink: %s", rel)
+                continue
+            # Skip files over 10MB
+            try:
+                size = path.stat().st_size
+            except OSError:
+                log.warning("skip unreadable: %s", rel)
+                continue
+            if size > 10 * 1024 * 1024:
+                log.warning("skip oversized file (>10MB): %s", rel)
+                continue
+            # Skip binary files (null byte check)
+            try:
+                with open(path, "rb") as f:
+                    chunk = f.read(8192)
+                if b"\x00" in chunk:
+                    log.warning("skip binary file: %s", rel)
+                    continue
+            except OSError:
+                log.warning("skip unreadable: %s", rel)
+                continue
             data = path.read_bytes()
             if not data:
                 continue
@@ -105,10 +135,10 @@ def main():
     edges = [e for e in load_existing_edges()
              if e.get("from") in seen and e.get("to") in seen]
     GRAPH.parent.mkdir(parents=True, exist_ok=True)
-    GRAPH.write_text(json.dumps({"version": 1, "nodes": nodes, "edges": edges},
+    GRAPH.write_text(json.dumps({"version": 1, "schema_version": "1.0.0", "nodes": nodes, "edges": edges},
                                 indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     save_cache(current_hashes)
-    print(f"wrote {GRAPH.relative_to(ROOT)} ({len(nodes)} nodes, {len(edges)} edges)")
+    log.info("wrote %s (%d nodes, %d edges)", GRAPH.relative_to(ROOT), len(nodes), len(edges))
 
 
 if __name__ == "__main__":

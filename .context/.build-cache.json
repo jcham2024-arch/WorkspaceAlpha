@@ -4,6 +4,7 @@
   "docs/adr/ADR-002-byte-ranges.md": "795958f3f36437f9b2b752be11c3cbd9524bc5a9e08a5e6eeb4514c413069bf5",
   "docs/adr/ADR-003-stdlib-only.md": "548e249000dd6620809a1cfe71530344ab63ccbd94a0778896fffe6dd9c0e1a2",
   "docs/adr/ADR-004-agent-tracked.md": "9eab8231c87d7ca793de3231fd80d4a8d89fed5039d4f8567616ec9f46aec7b0",
+  "docs/adr/ADR-005-audit-findings.md": "797833d791022d238cf3f64f4649b61bec1d9bfcb96306d1fcf1fa22303c692c",
   "docs/architecture.md": "d55fe80aa52ce01f733ebe780eb5cb7f39acb4b04dbafcaf26bf7b8e43c282c9",
   "docs/contracts/decisions/Q1-rpo-rto.md": "a847518727d8b9c95c0ce032e0cef8255658af78d8e8045a85a53ea8131acae6",
   "docs/contracts/decisions/Q2-sqlite-sync.md": "1a4443ef736245f156411e455d4937869ed91ee97689cfc397fc341f2214a5cb",

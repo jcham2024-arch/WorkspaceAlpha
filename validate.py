@@ -4,11 +4,19 @@
 Run after any docs/, graph, or build change. Also run as the
 git pre-commit hook (see .githooks/pre-commit).
 """
-import hashlib, json, pathlib, sys
+import hashlib, json, logging, pathlib, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent
 
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(name)s: %(message)s",
+    stream=sys.stderr,
+)
+log = logging.getLogger("validate")
+
 def fail(m):
+    log.error(m)
     print(f"FAIL: {m}")
     sys.exit(1)
 
@@ -25,6 +33,12 @@ if not isinstance(m.get("nodes"), list): fail("manifest nodes not a list")
 for n in m["nodes"]:
     src = (ROOT / n["content_ref"]).read_bytes()
     s, e = n["byte_range"]
+    if s < 0:
+        fail(f"byte range start {s} negative on {n['id']}")
+    if e <= s:
+        fail(f"byte range end {e} <= start {s} on {n['id']}")
+    if e > len(src):
+        fail(f"byte range end {e} exceeds file size {len(src)} on {n['id']}")
     if hashlib.sha256(src[s:e]).hexdigest() != n["sha256"]:
         fail(f"hash mismatch on {n['id']}")
 
@@ -107,7 +121,9 @@ if SKILLS_DIR.exists():
             fail(f"skill {skill_dir.name}: invalid tier '{tier}' (must be one of {sorted(VALID_TIERS)})")
 
 print("PASS")
+budget = sum(n.get("est_tokens", 0) for n in m["nodes"])
+log.info("validation passed: nodes=%d, edges=%d, wiki_bytes=%d, agents_lines=%d, router_tokens=%d",
+         len(m['nodes']), len(m.get('edges', [])), len(wiki), len(lines), budget)
 print(f"  nodes: {len(m['nodes'])}, edges: {len(m.get('edges', []))}")
 print(f"  wiki bytes: {len(wiki)}, AGENTS.md lines: {len(lines)}")
-budget = sum(n.get("est_tokens", 0) for n in m["nodes"])
 print(f"  est. router tokens: {budget}")
