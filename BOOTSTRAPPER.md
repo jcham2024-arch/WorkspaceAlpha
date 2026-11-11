@@ -47,7 +47,7 @@
 ├── llms.txt               ← machine-readable tree map
 ├── README.md              ← human docs
 ├── validate.py            ← Step-6 validator + token report
-├── .gitignore             ← __pycache__, .archive/, .agent/
+├── .gitignore             ← __pycache__, .archive/, .agent/.env, .agent/.harness/
 ├── .githooks/pre-commit   ← runs validate.py (chmod +x)
 ├── .context/              ← graph.json (source), manifest.json,
 │                             index.md (plain fallback)
@@ -56,7 +56,7 @@
 │                             + agent.md (wiki production guide)
 ├── skills/index.json      ← slim skills router
 ├── .harness/skills/       ← currently-used skills (untracked)
-├── .agent/                ← ALL agent resources (gitignored)
+├── .agent/                ← ALL agent resources (tracked; only .env, .harness/ gitignored)
 │   ├── agent.md           ← runtime root guide
 │   ├── skills/            ← master library (3,518 skills)
 │   ├── profiles/          ← roles, protocol, template, evals
@@ -195,12 +195,21 @@ profile edit in `.agent/profiles/` — never in `.agent/harness/` directly
 (it is the provisioned snapshot, regenerated). Re-run `validate.py`
 after any material change.
 
+## Why Model A (tracked .agent/)
+
+**Model A** tracks the full master skill library (3,520 skills) in git. Only `.agent/.env` (secrets) and `.agent/.harness/` (provisioned snapshot) are gitignored. This was chosen because:
+- The master library is the source of truth; tracking it enables history, review, and reproducible provisioning
+- 12K files already committed; switching to Model B would lose history and require bootstrap on every clone
+- Skill curation (add/edit/quarantine) is auditable via git log
+
+Model B (untracked, bootstrap-provisioned) would be better for massive libraries (>50K skills) or when skills are fetched from external registries.
+
 ---
 
 ## 7. Build-from-scratch checklist
 
 1. **Dirs**: create the §2 tree; `git init`; write `.gitignore`
-   (`__pycache__/`, `.archive/`, `.agent/`); `git config
+   (`__pycache__/`, `.archive/`, `.agent/.env`, `.agent/.harness/`); `git config
    core.hooksPath .githooks` and make `pre-commit` executable.
 2. **Baselayer**: copy `seed.py`/`build.py` (exact spec copies)
    into `.wiki/` with `ROOT` = parent. Re-run §3.

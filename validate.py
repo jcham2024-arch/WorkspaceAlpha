@@ -55,6 +55,33 @@ for i in adj:
 lines = (ROOT / "AGENTS.md").read_text(encoding="utf-8").splitlines()
 if len(lines) > 150: fail(f"AGENTS.md has {len(lines)} lines (> 150)")
 
+# Quarantine check: no quarantined skill may appear in any active profile
+QUARANTINE_REG = ROOT / ".agent" / "quarantine" / "registry.json"
+PROFILES_DIR = ROOT / ".agent" / "profiles"
+if QUARANTINE_REG.exists():
+    import json as _json
+    qdata = _json.loads(QUARANTINE_REG.read_text(encoding="utf-8"))
+    quarantined_ids = {e["id"] for e in qdata.get("quarantined", [])}
+    for pf in sorted(PROFILES_DIR.glob("*.md")):
+        text = pf.read_text(encoding="utf-8")
+        if not text.startswith("---\n"):
+            continue
+        fm = text.split("\n---", 1)[0]
+        in_skills = False
+        for line in fm.splitlines():
+            if line.startswith("skills:"):
+                in_skills = True
+                continue
+            if in_skills:
+                if line.startswith("  - "):
+                    skill_name = line.strip("- ").strip()
+                    if skill_name in quarantined_ids:
+                        fail(f"quarantined skill '{skill_name}' in profile {pf.name}")
+                elif line.strip() == "":
+                    continue
+                else:
+                    break
+
 print("PASS")
 print(f"  nodes: {len(m['nodes'])}, edges: {len(m.get('edges', []))}")
 print(f"  wiki bytes: {len(wiki)}, AGENTS.md lines: {len(lines)}")

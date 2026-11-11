@@ -20,6 +20,29 @@
       ]
     },
     {
+      "date": "2026-11-10",
+      "kind": "work",
+      "title": "Close Q4-Q6 with decision notes",
+      "tags": [
+        "decision",
+        "spec",
+        "bootstrap"
+      ]
+    },
+    {
+      "date": "2026-11-10",
+      "kind": "work",
+      "title": "Complete remediation plan (6 tasks)",
+      "tags": [
+        "remediation",
+        "license",
+        "tests",
+        "starter",
+        "secrets",
+        "quarantine"
+      ]
+    },
+    {
       "date": "2026-11-07",
       "kind": "error",
       "title": ".agent/skills holds broken \"404: Not Found\" copies",
@@ -47,5 +70,5 @@
       ]
     }
   ],
-  "count": 5
+  "count": 7
 }

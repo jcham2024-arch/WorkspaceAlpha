@@ -114,6 +114,34 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
 <a class="nav-item" href="#docs/contracts/decisions/Q6-profile-provisioning.md::links">Links</a>
 <a class="nav-item" href="#docs/contracts/decisions/Q6-profile-provisioning.md::question">Question</a>
 <a class="nav-item" href="#docs/contracts/decisions/Q6-profile-provisioning.md::rationale">Rationale</a>
+<a class="nav-item" href="#docs/operations/quarantine.md::intake-process">Intake Process</a>
+<a class="nav-item" href="#docs/operations/quarantine.md::links">Links</a>
+<a class="nav-item" href="#docs/operations/quarantine.md::quarantine-ledger-broken-skills">Quarantine Ledger — Broken Skills</a>
+<a class="nav-item" href="#docs/operations/quarantine.md::quarantine-registry">Quarantine Registry</a>
+<a class="nav-item" href="#docs/operations/quarantine.md::review-process">Review Process</a>
+<a class="nav-item" href="#docs/operations/quarantine.md::un-quarantine-process">Un-Quarantine Process</a>
+<a class="nav-item" href="#docs/operations/quarantine.md::validator-check">Validator Check</a>
+<a class="nav-item" href="#docs/operations/secrets.md::agent-env-local-only-never-commit">.agent/.env — local only, never commit</a>
+<a class="nav-item" href="#docs/operations/secrets.md::example-env-do-not-commit">Example `.env` (do not commit)</a>
+<a class="nav-item" href="#docs/operations/secrets.md::key-leak-response">Key Leak Response</a>
+<a class="nav-item" href="#docs/operations/secrets.md::keys">Keys</a>
+<a class="nav-item" href="#docs/operations/secrets.md::links">Links</a>
+<a class="nav-item" href="#docs/operations/secrets.md::rotation-procedure">Rotation Procedure</a>
+<a class="nav-item" href="#docs/operations/secrets.md::secret-handling-and-key-rotation">Secret Handling and Key Rotation</a>
+<a class="nav-item" href="#docs/operations/secrets.md::storage">Storage</a>
+<a class="nav-item" href="#docs/operations/starter-set.md::add-a-single-skill-to-an-existing-profile">Add a single skill to an existing profile</a>
+<a class="nav-item" href="#docs/operations/starter-set.md::edit-agent-profiles-conceptualizer-md-frontmatter-add-skill-name">Edit .agent/profiles/conceptualizer.md frontmatter, add skil</a>
+<a class="nav-item" href="#docs/operations/starter-set.md::expansion-path-starter-full-library">Expansion Path: Starter → Full Library</a>
+<a class="nav-item" href="#docs/operations/starter-set.md::provision-one-skill-example">&quot;Provision One Skill&quot; Example</a>
+<a class="nav-item" href="#docs/operations/starter-set.md::starter-profile">Starter Profile</a>
+<a class="nav-item" href="#docs/operations/starter-set.md::starter-skill-set-expansion-guide">Starter Skill Set — Expansion Guide</a>
+<a class="nav-item" href="#docs/operations/starter-set.md::step-1-review-available-skills">Step 1 — Review Available Skills</a>
+<a class="nav-item" href="#docs/operations/starter-set.md::step-2-select-additional-skills">Step 2 — Select Additional Skills</a>
+<a class="nav-item" href="#docs/operations/starter-set.md::step-3-edit-a-profile">Step 3 — Edit a Profile</a>
+<a class="nav-item" href="#docs/operations/starter-set.md::step-4-provision">Step 4 — Provision</a>
+<a class="nav-item" href="#docs/operations/starter-set.md::step-5-verify">Step 5 — Verify</a>
+<a class="nav-item" href="#docs/operations/starter-set.md::what-changes">What Changes</a>
+<a class="nav-item" href="#docs/operations/starter-set.md::what-stays">What Stays</a>
 <a class="nav-item" href="#docs/resources/README.md::agent-layer">Agent layer</a>
 <a class="nav-item" href="#docs/resources/README.md::buckets-rough-size">Buckets (rough size)</a>
 <a class="nav-item" href="#docs/resources/README.md::how-to-use-the-master-library">How to use the master library</a>
@@ -1362,6 +1390,453 @@ h2 { margin: 4px 0 8px; font-family: ui-monospace, SFMono-Regular, monospace; fo
 <p>- Spec: <code>docs/specs/profile-provisioning-spec.md</code> (planned) - Tracking: <code>open-questions.md</code> (Q6) - Implementation: <code>.agent/profiles/*.md</code>, <code>.harness/sync_active.py</code>, <code>skills/index.json</code></p>
 <p>---</p>
 <p><em>Decision recorded 2026-11-10. Static frontmatter is source of truth; dynamic is dev-only exploration.</em></p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/quarantine.md::quarantine-ledger-broken-skills" data-sha256="f325a331fa8ecc70005393bd768e03d135dcd99a16cfb6ab297e0ce011931a8c">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/quarantine.md</span>
+  </div>
+  <h2>docs/operations/quarantine.md::quarantine-ledger-broken-skills</h2>
+  <p class="summary">Quarantine Ledger — Broken Skills</p>
+  <div class="content"><h1>Quarantine Ledger — Broken Skills</h1>
+<p>The master skill library (3,520 skills in <code>.agent/skills/</code>) imports from <code>.archive/</code> dump sources. Skills whose <code>SKILL.md</code> returns &quot;404: Not Found&quot; at the source are <strong>quarantined</strong> — they are not copied into <code>.agent/skills/</code> and must never appear in any active profile.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/quarantine.md::quarantine-registry" data-sha256="39efc9fde3517b27ac6143bb10152e6e3fefd9a8189bb730a4f9c49f9cb9f081">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/quarantine.md</span>
+  </div>
+  <h2>docs/operations/quarantine.md::quarantine-registry</h2>
+  <p class="summary">Quarantine Registry</p>
+  <div class="content"><h2>Quarantine Registry</h2>
+<p><strong>File:</strong> <code>.agent/quarantine/registry.json</code> <strong>Format:</strong> One entry per broken skill:</p>
+<pre><code>{
+  &quot;id&quot;: &quot;&lt;skill-name&gt;&quot;,
+  &quot;source&quot;: &quot;&lt;source-bucket&gt;&quot;,
+  &quot;reason&quot;: &quot;&lt;why quarantined&gt;&quot;,
+  &quot;date_quarantined&quot;: &quot;&lt;date&gt;&quot;,
+  &quot;owner&quot;: &quot;&lt;who decided&gt;&quot;
+}</code></pre>
+<p><strong>Current count:</strong> 47 quarantined skills (see <code>INDEX.md</code> for the full import report).</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/quarantine.md::intake-process" data-sha256="0cb4c14ba9582cfb75b8353422c80028b1b6fc212d40199c6860039b4172f9f9">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/quarantine.md</span>
+  </div>
+  <h2>docs/operations/quarantine.md::intake-process</h2>
+  <p class="summary">Intake Process</p>
+  <div class="content"><h2>Intake Process</h2>
+<p>1. <strong>Detect</strong>: <code>import_all_skills.py</code> flags any <code>SKILL.md</code> starting with &quot;404:&quot; as broken 2. <strong>Quarantine</strong>: Skill is not copied to <code>.agent/skills/</code>; entry added to <code>registry.json</code> 3. <strong>Report</strong>: <code>IMPORT_REPORT.md</code> updated with count and first 20 names 4. <strong>Review</strong>: Skill owner investigates whether source can be fixed</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/quarantine.md::review-process" data-sha256="751b7d19f7b64d432d9dd6ba321d42c0d078ca0962472e3917f3d5fa023128e8">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/quarantine.md</span>
+  </div>
+  <h2>docs/operations/quarantine.md::review-process</h2>
+  <p class="summary">Review Process</p>
+  <div class="content"><h2>Review Process</h2>
+<p>A quarantined skill can be reviewed at any time:</p>
+<p>1. Check if the source <code>SKILL.md</code> has been restored at the original bucket/path 2. If restored, re-run <code>python3 .agent/tools/import_all_skills.py</code> 3. If skill imports successfully, remove entry from <code>registry.json</code> 4. Re-run <code>validate.py</code> to confirm no active profile references it</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/quarantine.md::un-quarantine-process" data-sha256="70daeb1e38fa934811b475845103231fc7c24c7db031ab738cee50bc9048266c">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/quarantine.md</span>
+  </div>
+  <h2>docs/operations/quarantine.md::un-quarantine-process</h2>
+  <p class="summary">Un-Quarantine Process</p>
+  <div class="content"><h2>Un-Quarantine Process</h2>
+<p>1. Verify source <code>SKILL.md</code> is no longer &quot;404: Not Found&quot; 2. Remove entry from <code>.agent/quarantine/registry.json</code> 3. Re-run <code>import_all_skills.py</code> to import the skill into <code>.agent/skills/</code> 4. Re-run <code>validate.py</code> to confirm no issues 5. Optionally add to a profile&#x27;s <code>skills:</code> list for provisioning</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/quarantine.md::validator-check" data-sha256="7b24c48097fa2f359ac18515bdcf388e5005377d854118f5ff00c2176228c457">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/quarantine.md</span>
+  </div>
+  <h2>docs/operations/quarantine.md::validator-check</h2>
+  <p class="summary">Validator Check</p>
+  <div class="content"><h2>Validator Check</h2>
+<p><code>validate.py</code> includes a quarantine check: it fails if any quarantined skill ID appears in any active profile&#x27;s frontmatter <code>skills:</code> list. This prevents accidentally provisioning a broken skill.</p>
+<p>Run: <code>python3 validate.py</code></p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/quarantine.md::links" data-sha256="e8f2a9b4f462c4fd088a7b693ff1ed9683af7ae3363996fd51e67594b04b3c04">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/quarantine.md</span>
+  </div>
+  <h2>docs/operations/quarantine.md::links</h2>
+  <p class="summary">Links</p>
+  <div class="content"><h2>Links</h2>
+<p>- Registry: <code>.agent/quarantine/registry.json</code> - Import report: <code>.agent/skills/IMPORT_REPORT.md</code> - Quarantined skills: <code>.agent/skills/_quarantine/</code> (2 folders with 404 SKILL.md) - Import script: <code>.agent/tools/import_all_skills.py</code></p>
+<p>---</p>
+<p><em>Edit <code>registry.json</code> to add/remove quarantined skills. Re-run <code>validate.py</code> after changes.</em></p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/secrets.md::secret-handling-and-key-rotation" data-sha256="864a60ea95a3d142f28c9090dc102f0b7774d4193a3f9a04dea23e42344e2b2b">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/secrets.md</span>
+  </div>
+  <h2>docs/operations/secrets.md::secret-handling-and-key-rotation</h2>
+  <p class="summary">Secret Handling and Key Rotation</p>
+  <div class="content"><h1>Secret Handling and Key Rotation</h1>
+<p>This document covers how secrets are stored, rotated, and recovered in the WorkspaceAlpha workspace.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/secrets.md::keys" data-sha256="a6b687a5ff999d67f35ad3d125deb882fae076e71c8c0329e777f24c92b7b09f">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/secrets.md</span>
+  </div>
+  <h2>docs/operations/secrets.md::keys</h2>
+  <p class="summary">Keys</p>
+  <div class="content"><h2>Keys</h2>
+<p>| Key | Required | Where it lives | Purpose | |-----|----------|----------------|---------| | <code>EXA_API_KEY</code> | Yes | <code>.agent/.env</code> | Web search API key (exa-search skill) |</p>
+<p>No other keys are currently defined. <code>.agent/.env.example</code> lists every required key with an empty value — copy it to <code>.env</code> and fill in actual values.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/secrets.md::storage" data-sha256="c5bb81619c898f1034ac086a4324699021c871c8ac19566bd967507b4d3d172b">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/secrets.md</span>
+  </div>
+  <h2>docs/operations/secrets.md::storage</h2>
+  <p class="summary">Storage</p>
+  <div class="content"><h2>Storage</h2>
+<p>- <strong><code>.agent/.env</code></strong> — Committed to <code>.gitignore</code>, never tracked in git. Contains actual secret values. - <strong><code>.agent/.env.example</code></strong> — Committed template. Lists every required key with empty values. Safe to commit.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/secrets.md::rotation-procedure" data-sha256="0062a19b273506172cf96382e083a659c58f8498d8ea43741924793a5fc123fe">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/secrets.md</span>
+  </div>
+  <h2>docs/operations/secrets.md::rotation-procedure</h2>
+  <p class="summary">Rotation Procedure</p>
+  <div class="content"><h2>Rotation Procedure</h2>
+<p>When a key needs rotation (compromise, expiration, scheduled refresh):</p>
+<p>1. <strong>Revoke</strong> the old key with the provider (e.g., Exa dashboard for <code>EXA_API_KEY</code>) 2. <strong>Issue</strong> a new key from the provider 3. <strong>Update</strong> <code>.agent/.env</code> with the new value 4. <strong>Restart</strong> the harness / any long-running process using the key</p>
+<p>No restart of the build pipeline or wiki renderer is required — keys are read at runtime by individual skills.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/secrets.md::key-leak-response" data-sha256="8cde17ed1fd73cf0faaf0932bfddf50ff14197a60c3c077048ac1af423b20ae8">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/secrets.md</span>
+  </div>
+  <h2>docs/operations/secrets.md::key-leak-response</h2>
+  <p class="summary">Key Leak Response</p>
+  <div class="content"><h2>Key Leak Response</h2>
+<p>If a real credential is accidentally committed to git:</p>
+<p>1. <strong>Revoke immediately</strong> — assume the key is compromised 2. <strong>Rotate</strong> — issue a new key, update <code>.agent/.env</code> 3. <strong>Purge history</strong> — use <code>git filter-branch</code> or <code>bfg</code> to remove the key from all commits 4. <strong>Verify</strong> — <code>git log --all -p</code> should return no real credential values in tracked files</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/secrets.md::example-env-do-not-commit" data-sha256="18763a8af88675343cacd9d459c409afdf914ed30a9ad3dc8c25102d98e97424">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/secrets.md</span>
+  </div>
+  <h2>docs/operations/secrets.md::example-env-do-not-commit</h2>
+  <p class="summary">Example `.env` (do not commit)</p>
+  <div class="content"><h2>Example <code>.env</code> (do not commit)</h2></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/secrets.md::agent-env-local-only-never-commit" data-sha256="a7b93618a8932f2677bb5a2220dc492a45359097cd6a0f7ae036b454b16f37ce">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/secrets.md</span>
+  </div>
+  <h2>docs/operations/secrets.md::agent-env-local-only-never-commit</h2>
+  <p class="summary">.agent/.env — local only, never commit</p>
+  <div class="content"><h1>.agent/.env — local only, never commit</h1>
+<p>EXA_API_KEY=your-actual-key-here</p>
+<pre><code></code></pre></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/secrets.md::links" data-sha256="b6009b66bbe4875d436ed6fc04ddfcd0d5eab21931461bf7092ba4eb61bf4e53">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/secrets.md</span>
+  </div>
+  <h2>docs/operations/secrets.md::links</h2>
+  <p class="summary">Links</p>
+  <div class="content"><h2>Links</h2>
+<p>- Template: <code>.agent/.env.example</code> - MCP server: <code>.agent/tools/mcp/server.py</code> - Profile docs: <code>.agent/profiles/agent.md</code> - Root docs: <code>README.md</code></p>
+<p>---</p>
+<p><em>This document is linked from <code>agent.md</code> and <code>README.md</code>. Update when new keys are added.</em></p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/starter-set.md::starter-skill-set-expansion-guide" data-sha256="31d7066df96b9f000cd2d1ca418a67c069dd065984eb6e76fd1dadb55c60a924">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/starter-set.md</span>
+  </div>
+  <h2>docs/operations/starter-set.md::starter-skill-set-expansion-guide</h2>
+  <p class="summary">Starter Skill Set — Expansion Guide</p>
+  <div class="content"><h1>Starter Skill Set — Expansion Guide</h1>
+<p>The Baselayer workspace ships a <strong>curated starter skill set</strong> (12 skills) via the <code>starter</code> profile. The full master library (3,520 skills) remains available but is not the default.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/starter-set.md::starter-profile" data-sha256="deff21a8c546f1d957d8b9e8a318f5ceb80e6c118e4db80fb7702865d2b8bba9">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/starter-set.md</span>
+  </div>
+  <h2>docs/operations/starter-set.md::starter-profile</h2>
+  <p class="summary">Starter Profile</p>
+  <div class="content"><h2>Starter Profile</h2>
+<p><strong>File:</strong> <code>.agent/profiles/starter.md</code> <strong>Skills:</strong> 12 (all risk-safe) <strong>Provision:</strong> <code>python3 .harness/sync_active.py --profile starter</code></p>
+<p>| Skill | Purpose | |-------|---------| | <code>brainstorming</code> | Explore what the human actually wants before building | | <code>writing-plans</code> | Write implementation plans for unfamiliar engineers | | <code>thinking-first-principles</code> | Strip assumed constraints; rebuild from primitives | | <code>thinking-margin-of-safety</code> | Size buffers under uncertainty | | <code>skill-audit</code> | Pre-install security review of skills | | <code>skill-check</code> | Validate skill structure against agentskills spec | | <code>skill-gap-analysis</code> | Register capability gaps and plan remediation | | <code>skill-host-compat</code> | Lint skill frontmatter for host-safe substitutions | | <code>plan-canvas</code> | Present plans in a browser canvas for review | | <code>plan-orchestrate</code> | Decompose plans into executable commands | | <code>research-planning</code> | Generate structured research plans | | <code>skill-comply</code> | Measure whether agents follow skills/rules/definitions |</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/starter-set.md::expansion-path-starter-full-library" data-sha256="e965c00b75a0403b28b24465c8cce6ec824fc63919752209ecc4c5bea5f49b43">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/starter-set.md</span>
+  </div>
+  <h2>docs/operations/starter-set.md::expansion-path-starter-full-library</h2>
+  <p class="summary">Expansion Path: Starter → Full Library</p>
+  <div class="content"><h2>Expansion Path: Starter → Full Library</h2>
+<p>Expanding beyond the starter set requires explicit human approval. Follow this procedure:</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/starter-set.md::step-1-review-available-skills" data-sha256="2a534203bf5775f973704cb07dd2da4c6c97ff0cf52c97cae4bbf90a164683a8">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/starter-set.md</span>
+  </div>
+  <h2>docs/operations/starter-set.md::step-1-review-available-skills</h2>
+  <p class="summary">Step 1 — Review Available Skills</p>
+  <div class="content"><h3>Step 1 — Review Available Skills</h3>
+<p>Browse the master library:</p>
+<pre><code>ls .agent/skills/          # All 3,520 skill folders
+cat .agent/skills/CATEGORIZATION.md  # Categorization tally</code></pre></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/starter-set.md::step-2-select-additional-skills" data-sha256="70568366febf064a12e2bd9211d791f01e4b3ed6b77a8ed3b4c0331b554a17d8">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/starter-set.md</span>
+  </div>
+  <h2>docs/operations/starter-set.md::step-2-select-additional-skills</h2>
+  <p class="summary">Step 2 — Select Additional Skills</p>
+  <div class="content"><h3>Step 2 — Select Additional Skills</h3>
+<p>Choose skills by task type/subtype from <code>CATEGORIZATION.md</code>. Avoid risk-flagged (<code>critical</code>/<code>offensive</code>) skills unless explicitly approved.</p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/starter-set.md::step-3-edit-a-profile" data-sha256="0bba7c4da910980edcdfa54895a00bd234b43656a8bb0aebacab6009f54a0976">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/starter-set.md</span>
+  </div>
+  <h2>docs/operations/starter-set.md::step-3-edit-a-profile</h2>
+  <p class="summary">Step 3 — Edit a Profile</p>
+  <div class="content"><h3>Step 3 — Edit a Profile</h3>
+<p>Add skill names to a profile&#x27;s frontmatter <code>skills:</code> list:</p>
+<pre><code>skills:
+  - brainstorming
+  - writing-plans
+  - &lt;your-new-skill&gt;</code></pre></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/starter-set.md::step-4-provision" data-sha256="4fd32842c7a27aa2123a3aac6ef0ae76fd250ed9033714d8970b3e677ef87ad0">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/starter-set.md</span>
+  </div>
+  <h2>docs/operations/starter-set.md::step-4-provision</h2>
+  <p class="summary">Step 4 — Provision</p>
+  <div class="content"><h3>Step 4 — Provision</h3>
+<pre><code>python3 .harness/sync_active.py --profile &lt;your-profile&gt;
+python3 .harness/gen_skills_index.py</code></pre></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/starter-set.md::step-5-verify" data-sha256="8b4ea3225e92651301b49ff08dec226fedff6023a9f4a8370584e513b68f0dc6">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/starter-set.md</span>
+  </div>
+  <h2>docs/operations/starter-set.md::step-5-verify</h2>
+  <p class="summary">Step 5 — Verify</p>
+  <div class="content"><h3>Step 5 — Verify</h3>
+<pre><code>python3 validate.py</code></pre></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/starter-set.md::provision-one-skill-example" data-sha256="3964f6efe909c0d5d15dad97ca3c8b341c7428c9428423704d28085677e77726">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/starter-set.md</span>
+  </div>
+  <h2>docs/operations/starter-set.md::provision-one-skill-example</h2>
+  <p class="summary">&quot;Provision One Skill&quot; Example</p>
+  <div class="content"><h2>&quot;Provision One Skill&quot; Example</h2></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/starter-set.md::add-a-single-skill-to-an-existing-profile" data-sha256="5b1498b21d60ff9e29c20b478e4bf92028c5d8c2197da8b7968e2f341d2dbc31">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/starter-set.md</span>
+  </div>
+  <h2>docs/operations/starter-set.md::add-a-single-skill-to-an-existing-profile</h2>
+  <p class="summary">Add a single skill to an existing profile</p>
+  <div class="content"><h1>Add a single skill to an existing profile</h1></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/starter-set.md::edit-agent-profiles-conceptualizer-md-frontmatter-add-skill-name" data-sha256="97da5bc1ca039940a3c4a2ab39b3fafd864f3a854ae39956fb06a960265a1264">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/starter-set.md</span>
+  </div>
+  <h2>docs/operations/starter-set.md::edit-agent-profiles-conceptualizer-md-frontmatter-add-skill-name</h2>
+  <p class="summary">Edit .agent/profiles/conceptualizer.md frontmatter, add skill name</p>
+  <div class="content"><h1>Edit .agent/profiles/conceptualizer.md frontmatter, add skill name</h1>
+<p>python3 .harness/sync_active.py --profile conceptualizer python3 .harness/gen_skills_index.py</p>
+<pre><code></code></pre></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/starter-set.md::what-stays" data-sha256="9ac3bb0cf653de5fba120b2d519448499ee549ca497bd57e3336800794682bcd">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/starter-set.md</span>
+  </div>
+  <h2>docs/operations/starter-set.md::what-stays</h2>
+  <p class="summary">What Stays</p>
+  <div class="content"><h2>What Stays</h2>
+<p>- Full master library: <code>.agent/skills/</code> (all 3,520 skills, untouched) - Skill categorization: <code>.agent/skills/CATEGORIZATION.md</code> - Broken/quarantined skills: <code>.agent/quarantine/registry.json</code> - Provisioning bridge: <code>.harness/sync_active.py</code></p></div>
+  <div class="edges">
+    <div><strong>requires</strong><br><em>none</em></div>
+    <div><strong>required by</strong><br><em>none</em></div>
+  </div>
+</section>
+
+<section id="docs/operations/starter-set.md::what-changes" data-sha256="1d46289b2b6ebf223774364c55d79c7f866690494d4a1a3bcdd5e5036e45be00">
+  <div class="node-meta">
+    <span class="badge">doc</span>
+    <span class="ref">docs/operations/starter-set.md</span>
+  </div>
+  <h2>docs/operations/starter-set.md::what-changes</h2>
+  <p class="summary">What Changes</p>
+  <div class="content"><h2>What Changes</h2>
+<p>- Quickstart defaults to <code>starter</code> profile (not full library) - <code>skills/index.json</code> reflects starter&#x27;s 12 skills (not 3,520) - <code>.harness/skills/</code> contains only starter skills (not full library)</p>
+<p>---</p>
+<p><em>Edit <code>.agent/profiles/starter.md</code> to change the starter set. Re-run <code>sync_active.py --profile starter</code> after changes.</em></p></div>
   <div class="edges">
     <div><strong>requires</strong><br><em>none</em></div>
     <div><strong>required by</strong><br><em>none</em></div>

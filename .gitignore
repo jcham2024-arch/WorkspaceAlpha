@@ -1,5 +1,7 @@
 __pycache__/
 *.pyc
 .archive/
-.agent/
+.agent/.env
+.agent/.harness/
+.agent/__pycache__/
 .context/knowledge.db

@@ -22,6 +22,7 @@ MCP server, specialized profiles) in **three subfolders**:
 - Shell work is normal access only. No sudo/su, no Termux-app paths.
 - Python 3 stdlib only at runtime (no pip installs without approval).
 - Workspace root = this project's parent. All paths relative to it.
+- **Model A**: `.agent/` is tracked in git; only `.agent/.env` (secrets) and `.agent/.harness/` (provisioned snapshot) are gitignored.
 
 ## Roles (gitignored; the profiles define the work)
 
@@ -74,3 +75,4 @@ echo '{"jsonrpc":"2.0","id":1,"method":"tools/list"}' | python3 .agent/tools/mcp
   (OS variants options).
 - Profiles routing: `.agent/profiles/README.md`.
 - Baselayer: root `AGENTS.md` (§1–§10) + `docs/resources/README.md`.
+- Secrets: `docs/operations/secrets.md` — key storage, rotation, leak response.

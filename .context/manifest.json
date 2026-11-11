@@ -1081,6 +1081,398 @@
       "est_tokens": 77
     },
     {
+      "id": "docs/operations/quarantine.md::quarantine-ledger-broken-skills",
+      "type": "doc",
+      "summary": "Quarantine Ledger — Broken Skills",
+      "tags": [],
+      "content_ref": "docs/operations/quarantine.md",
+      "byte_range": [
+        0,
+        313
+      ],
+      "sha256": "f325a331fa8ecc70005393bd768e03d135dcd99a16cfb6ab297e0ce011931a8c",
+      "bytes": 313,
+      "est_tokens": 79
+    },
+    {
+      "id": "docs/operations/quarantine.md::quarantine-registry",
+      "type": "doc",
+      "summary": "Quarantine Registry",
+      "tags": [],
+      "content_ref": "docs/operations/quarantine.md",
+      "byte_range": [
+        313,
+        674
+      ],
+      "sha256": "39efc9fde3517b27ac6143bb10152e6e3fefd9a8189bb730a4f9c49f9cb9f081",
+      "bytes": 361,
+      "est_tokens": 91
+    },
+    {
+      "id": "docs/operations/quarantine.md::intake-process",
+      "type": "doc",
+      "summary": "Intake Process",
+      "tags": [],
+      "content_ref": "docs/operations/quarantine.md",
+      "byte_range": [
+        674,
+        1015
+      ],
+      "sha256": "0cb4c14ba9582cfb75b8353422c80028b1b6fc212d40199c6860039b4172f9f9",
+      "bytes": 341,
+      "est_tokens": 86
+    },
+    {
+      "id": "docs/operations/quarantine.md::review-process",
+      "type": "doc",
+      "summary": "Review Process",
+      "tags": [],
+      "content_ref": "docs/operations/quarantine.md",
+      "byte_range": [
+        1015,
+        1367
+      ],
+      "sha256": "751b7d19f7b64d432d9dd6ba321d42c0d078ca0962472e3917f3d5fa023128e8",
+      "bytes": 352,
+      "est_tokens": 88
+    },
+    {
+      "id": "docs/operations/quarantine.md::un-quarantine-process",
+      "type": "doc",
+      "summary": "Un-Quarantine Process",
+      "tags": [],
+      "content_ref": "docs/operations/quarantine.md",
+      "byte_range": [
+        1367,
+        1692
+      ],
+      "sha256": "70daeb1e38fa934811b475845103231fc7c24c7db031ab738cee50bc9048266c",
+      "bytes": 325,
+      "est_tokens": 82
+    },
+    {
+      "id": "docs/operations/quarantine.md::validator-check",
+      "type": "doc",
+      "summary": "Validator Check",
+      "tags": [],
+      "content_ref": "docs/operations/quarantine.md",
+      "byte_range": [
+        1692,
+        1937
+      ],
+      "sha256": "7b24c48097fa2f359ac18515bdcf388e5005377d854118f5ff00c2176228c457",
+      "bytes": 245,
+      "est_tokens": 62
+    },
+    {
+      "id": "docs/operations/quarantine.md::links",
+      "type": "doc",
+      "summary": "Links",
+      "tags": [],
+      "content_ref": "docs/operations/quarantine.md",
+      "byte_range": [
+        1937,
+        2276
+      ],
+      "sha256": "e8f2a9b4f462c4fd088a7b693ff1ed9683af7ae3363996fd51e67594b04b3c04",
+      "bytes": 339,
+      "est_tokens": 85
+    },
+    {
+      "id": "docs/operations/secrets.md::secret-handling-and-key-rotation",
+      "type": "doc",
+      "summary": "Secret Handling and Key Rotation",
+      "tags": [],
+      "content_ref": "docs/operations/secrets.md",
+      "byte_range": [
+        0,
+        138
+      ],
+      "sha256": "864a60ea95a3d142f28c9090dc102f0b7774d4193a3f9a04dea23e42344e2b2b",
+      "bytes": 138,
+      "est_tokens": 35
+    },
+    {
+      "id": "docs/operations/secrets.md::keys",
+      "type": "doc",
+      "summary": "Keys",
+      "tags": [],
+      "content_ref": "docs/operations/secrets.md",
+      "byte_range": [
+        138,
+        474
+      ],
+      "sha256": "a6b687a5ff999d67f35ad3d125deb882fae076e71c8c0329e777f24c92b7b09f",
+      "bytes": 336,
+      "est_tokens": 84
+    },
+    {
+      "id": "docs/operations/secrets.md::storage",
+      "type": "doc",
+      "summary": "Storage",
+      "tags": [],
+      "content_ref": "docs/operations/secrets.md",
+      "byte_range": [
+        474,
+        703
+      ],
+      "sha256": "c5bb81619c898f1034ac086a4324699021c871c8ac19566bd967507b4d3d172b",
+      "bytes": 229,
+      "est_tokens": 58
+    },
+    {
+      "id": "docs/operations/secrets.md::rotation-procedure",
+      "type": "doc",
+      "summary": "Rotation Procedure",
+      "tags": [],
+      "content_ref": "docs/operations/secrets.md",
+      "byte_range": [
+        703,
+        1153
+      ],
+      "sha256": "0062a19b273506172cf96382e083a659c58f8498d8ea43741924793a5fc123fe",
+      "bytes": 450,
+      "est_tokens": 113
+    },
+    {
+      "id": "docs/operations/secrets.md::key-leak-response",
+      "type": "doc",
+      "summary": "Key Leak Response",
+      "tags": [],
+      "content_ref": "docs/operations/secrets.md",
+      "byte_range": [
+        1153,
+        1535
+      ],
+      "sha256": "8cde17ed1fd73cf0faaf0932bfddf50ff14197a60c3c077048ac1af423b20ae8",
+      "bytes": 382,
+      "est_tokens": 96
+    },
+    {
+      "id": "docs/operations/secrets.md::example-env-do-not-commit",
+      "type": "doc",
+      "summary": "Example `.env` (do not commit)",
+      "tags": [],
+      "content_ref": "docs/operations/secrets.md",
+      "byte_range": [
+        1535,
+        1574
+      ],
+      "sha256": "18763a8af88675343cacd9d459c409afdf914ed30a9ad3dc8c25102d98e97424",
+      "bytes": 39,
+      "est_tokens": 10
+    },
+    {
+      "id": "docs/operations/secrets.md::agent-env-local-only-never-commit",
+      "type": "doc",
+      "summary": ".agent/.env — local only, never commit",
+      "tags": [],
+      "content_ref": "docs/operations/secrets.md",
+      "byte_range": [
+        1574,
+        1655
+      ],
+      "sha256": "a7b93618a8932f2677bb5a2220dc492a45359097cd6a0f7ae036b454b16f37ce",
+      "bytes": 81,
+      "est_tokens": 21
+    },
+    {
+      "id": "docs/operations/secrets.md::links",
+      "type": "doc",
+      "summary": "Links",
+      "tags": [],
+      "content_ref": "docs/operations/secrets.md",
+      "byte_range": [
+        1655,
+        1907
+      ],
+      "sha256": "b6009b66bbe4875d436ed6fc04ddfcd0d5eab21931461bf7092ba4eb61bf4e53",
+      "bytes": 252,
+      "est_tokens": 63
+    },
+    {
+      "id": "docs/operations/starter-set.md::starter-skill-set-expansion-guide",
+      "type": "doc",
+      "summary": "Starter Skill Set — Expansion Guide",
+      "tags": [],
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        0,
+        224
+      ],
+      "sha256": "31d7066df96b9f000cd2d1ca418a67c069dd065984eb6e76fd1dadb55c60a924",
+      "bytes": 224,
+      "est_tokens": 56
+    },
+    {
+      "id": "docs/operations/starter-set.md::starter-profile",
+      "type": "doc",
+      "summary": "Starter Profile",
+      "tags": [],
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        224,
+        1273
+      ],
+      "sha256": "deff21a8c546f1d957d8b9e8a318f5ceb80e6c118e4db80fb7702865d2b8bba9",
+      "bytes": 1049,
+      "est_tokens": 263
+    },
+    {
+      "id": "docs/operations/starter-set.md::expansion-path-starter-full-library",
+      "type": "doc",
+      "summary": "Expansion Path: Starter → Full Library",
+      "tags": [],
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        1273,
+        1409
+      ],
+      "sha256": "e965c00b75a0403b28b24465c8cce6ec824fc63919752209ecc4c5bea5f49b43",
+      "bytes": 136,
+      "est_tokens": 34
+    },
+    {
+      "id": "docs/operations/starter-set.md::step-1-review-available-skills",
+      "type": "doc",
+      "summary": "Step 1 — Review Available Skills",
+      "tags": [],
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        1409,
+        1603
+      ],
+      "sha256": "2a534203bf5775f973704cb07dd2da4c6c97ff0cf52c97cae4bbf90a164683a8",
+      "bytes": 194,
+      "est_tokens": 49
+    },
+    {
+      "id": "docs/operations/starter-set.md::step-2-select-additional-skills",
+      "type": "doc",
+      "summary": "Step 2 — Select Additional Skills",
+      "tags": [],
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        1603,
+        1785
+      ],
+      "sha256": "70568366febf064a12e2bd9211d791f01e4b3ed6b77a8ed3b4c0331b554a17d8",
+      "bytes": 182,
+      "est_tokens": 46
+    },
+    {
+      "id": "docs/operations/starter-set.md::step-3-edit-a-profile",
+      "type": "doc",
+      "summary": "Step 3 — Edit a Profile",
+      "tags": [],
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        1785,
+        1954
+      ],
+      "sha256": "0bba7c4da910980edcdfa54895a00bd234b43656a8bb0aebacab6009f54a0976",
+      "bytes": 169,
+      "est_tokens": 43
+    },
+    {
+      "id": "docs/operations/starter-set.md::step-4-provision",
+      "type": "doc",
+      "summary": "Step 4 — Provision",
+      "tags": [],
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        1954,
+        2087
+      ],
+      "sha256": "4fd32842c7a27aa2123a3aac6ef0ae76fd250ed9033714d8970b3e677ef87ad0",
+      "bytes": 133,
+      "est_tokens": 34
+    },
+    {
+      "id": "docs/operations/starter-set.md::step-5-verify",
+      "type": "doc",
+      "summary": "Step 5 — Verify",
+      "tags": [],
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        2087,
+        2143
+      ],
+      "sha256": "8b4ea3225e92651301b49ff08dec226fedff6023a9f4a8370584e513b68f0dc6",
+      "bytes": 56,
+      "est_tokens": 14
+    },
+    {
+      "id": "docs/operations/starter-set.md::provision-one-skill-example",
+      "type": "doc",
+      "summary": "\"Provision One Skill\" Example",
+      "tags": [],
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        2143,
+        2185
+      ],
+      "sha256": "3964f6efe909c0d5d15dad97ca3c8b341c7428c9428423704d28085677e77726",
+      "bytes": 42,
+      "est_tokens": 11
+    },
+    {
+      "id": "docs/operations/starter-set.md::add-a-single-skill-to-an-existing-profile",
+      "type": "doc",
+      "summary": "Add a single skill to an existing profile",
+      "tags": [],
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        2185,
+        2229
+      ],
+      "sha256": "5b1498b21d60ff9e29c20b478e4bf92028c5d8c2197da8b7968e2f341d2dbc31",
+      "bytes": 44,
+      "est_tokens": 11
+    },
+    {
+      "id": "docs/operations/starter-set.md::edit-agent-profiles-conceptualizer-md-frontmatter-add-skill-name",
+      "type": "doc",
+      "summary": "Edit .agent/profiles/conceptualizer.md frontmatter, add skill name",
+      "tags": [],
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        2229,
+        2397
+      ],
+      "sha256": "97da5bc1ca039940a3c4a2ab39b3fafd864f3a854ae39956fb06a960265a1264",
+      "bytes": 168,
+      "est_tokens": 42
+    },
+    {
+      "id": "docs/operations/starter-set.md::what-stays",
+      "type": "doc",
+      "summary": "What Stays",
+      "tags": [],
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        2397,
+        2653
+      ],
+      "sha256": "9ac3bb0cf653de5fba120b2d519448499ee549ca497bd57e3336800794682bcd",
+      "bytes": 256,
+      "est_tokens": 64
+    },
+    {
+      "id": "docs/operations/starter-set.md::what-changes",
+      "type": "doc",
+      "summary": "What Changes",
+      "tags": [],
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        2653,
+        2990
+      ],
+      "sha256": "1d46289b2b6ebf223774364c55d79c7f866690494d4a1a3bcdd5e5036e45be00",
+      "bytes": 337,
+      "est_tokens": 85
+    },
+    {
       "id": "docs/resources/README.md::resources-skills-archive-provenance",
       "type": "doc",
       "summary": "Resources — Skills Archive Provenance",

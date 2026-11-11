@@ -849,6 +849,314 @@
       "tags": []
     },
     {
+      "id": "docs/operations/quarantine.md::quarantine-ledger-broken-skills",
+      "type": "doc",
+      "summary": "Quarantine Ledger — Broken Skills",
+      "content_ref": "docs/operations/quarantine.md",
+      "byte_range": [
+        0,
+        313
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/quarantine.md::quarantine-registry",
+      "type": "doc",
+      "summary": "Quarantine Registry",
+      "content_ref": "docs/operations/quarantine.md",
+      "byte_range": [
+        313,
+        674
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/quarantine.md::intake-process",
+      "type": "doc",
+      "summary": "Intake Process",
+      "content_ref": "docs/operations/quarantine.md",
+      "byte_range": [
+        674,
+        1015
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/quarantine.md::review-process",
+      "type": "doc",
+      "summary": "Review Process",
+      "content_ref": "docs/operations/quarantine.md",
+      "byte_range": [
+        1015,
+        1367
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/quarantine.md::un-quarantine-process",
+      "type": "doc",
+      "summary": "Un-Quarantine Process",
+      "content_ref": "docs/operations/quarantine.md",
+      "byte_range": [
+        1367,
+        1692
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/quarantine.md::validator-check",
+      "type": "doc",
+      "summary": "Validator Check",
+      "content_ref": "docs/operations/quarantine.md",
+      "byte_range": [
+        1692,
+        1937
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/quarantine.md::links",
+      "type": "doc",
+      "summary": "Links",
+      "content_ref": "docs/operations/quarantine.md",
+      "byte_range": [
+        1937,
+        2276
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/secrets.md::secret-handling-and-key-rotation",
+      "type": "doc",
+      "summary": "Secret Handling and Key Rotation",
+      "content_ref": "docs/operations/secrets.md",
+      "byte_range": [
+        0,
+        138
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/secrets.md::keys",
+      "type": "doc",
+      "summary": "Keys",
+      "content_ref": "docs/operations/secrets.md",
+      "byte_range": [
+        138,
+        474
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/secrets.md::storage",
+      "type": "doc",
+      "summary": "Storage",
+      "content_ref": "docs/operations/secrets.md",
+      "byte_range": [
+        474,
+        703
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/secrets.md::rotation-procedure",
+      "type": "doc",
+      "summary": "Rotation Procedure",
+      "content_ref": "docs/operations/secrets.md",
+      "byte_range": [
+        703,
+        1153
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/secrets.md::key-leak-response",
+      "type": "doc",
+      "summary": "Key Leak Response",
+      "content_ref": "docs/operations/secrets.md",
+      "byte_range": [
+        1153,
+        1535
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/secrets.md::example-env-do-not-commit",
+      "type": "doc",
+      "summary": "Example `.env` (do not commit)",
+      "content_ref": "docs/operations/secrets.md",
+      "byte_range": [
+        1535,
+        1574
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/secrets.md::agent-env-local-only-never-commit",
+      "type": "doc",
+      "summary": ".agent/.env — local only, never commit",
+      "content_ref": "docs/operations/secrets.md",
+      "byte_range": [
+        1574,
+        1655
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/secrets.md::links",
+      "type": "doc",
+      "summary": "Links",
+      "content_ref": "docs/operations/secrets.md",
+      "byte_range": [
+        1655,
+        1907
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/starter-set.md::starter-skill-set-expansion-guide",
+      "type": "doc",
+      "summary": "Starter Skill Set — Expansion Guide",
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        0,
+        224
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/starter-set.md::starter-profile",
+      "type": "doc",
+      "summary": "Starter Profile",
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        224,
+        1273
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/starter-set.md::expansion-path-starter-full-library",
+      "type": "doc",
+      "summary": "Expansion Path: Starter → Full Library",
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        1273,
+        1409
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/starter-set.md::step-1-review-available-skills",
+      "type": "doc",
+      "summary": "Step 1 — Review Available Skills",
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        1409,
+        1603
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/starter-set.md::step-2-select-additional-skills",
+      "type": "doc",
+      "summary": "Step 2 — Select Additional Skills",
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        1603,
+        1785
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/starter-set.md::step-3-edit-a-profile",
+      "type": "doc",
+      "summary": "Step 3 — Edit a Profile",
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        1785,
+        1954
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/starter-set.md::step-4-provision",
+      "type": "doc",
+      "summary": "Step 4 — Provision",
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        1954,
+        2087
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/starter-set.md::step-5-verify",
+      "type": "doc",
+      "summary": "Step 5 — Verify",
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        2087,
+        2143
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/starter-set.md::provision-one-skill-example",
+      "type": "doc",
+      "summary": "\"Provision One Skill\" Example",
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        2143,
+        2185
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/starter-set.md::add-a-single-skill-to-an-existing-profile",
+      "type": "doc",
+      "summary": "Add a single skill to an existing profile",
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        2185,
+        2229
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/starter-set.md::edit-agent-profiles-conceptualizer-md-frontmatter-add-skill-name",
+      "type": "doc",
+      "summary": "Edit .agent/profiles/conceptualizer.md frontmatter, add skill name",
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        2229,
+        2397
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/starter-set.md::what-stays",
+      "type": "doc",
+      "summary": "What Stays",
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        2397,
+        2653
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/operations/starter-set.md::what-changes",
+      "type": "doc",
+      "summary": "What Changes",
+      "content_ref": "docs/operations/starter-set.md",
+      "byte_range": [
+        2653,
+        2990
+      ],
+      "tags": []
+    },
+    {
       "id": "docs/resources/README.md::resources-skills-archive-provenance",
       "type": "doc",
       "summary": "Resources — Skills Archive Provenance",

@@ -37,6 +37,23 @@ python3 .wiki/build.py  # graph.json → manifest.json + .wiki/index.html
 python3 .agent/tools/gen_skills_index.py   # after skill changes
 ```
 
+## Quickstart (Starter Set)
+
+By default, provision the **starter skill set** (12 vetted skills):
+
+```bash
+python3 .harness/sync_active.py --profile starter
+python3 .harness/gen_skills_index.py
+```
+
+To use the full master library (3,520 skills), edit a profile's `skills:` frontmatter list and re-run `sync_active.py`. Expansion beyond starter requires explicit human approval.
+
+## Test
+
+```bash
+python3 -m unittest discover -s tests -v
+```
+
 Validated by the §3 Step-6 script in `Baselayer.md`. Python 3.14
 verified; zero external dependencies at build time.
 
@@ -51,3 +68,10 @@ verified; zero external dependencies at build time.
 - The master library (3,520 skills) is categorized in
   `.agent/skills/CATEGORIZATION.md`; the 47 broken sources are
   quarantined in IMPORT_REPORT.md; bulk-installing is prohibited.
+- Secrets: `docs/operations/secrets.md` — key storage, rotation, leak response.
+
+## License
+
+This project is licensed under the **MIT License** — see [LICENSE](LICENSE) for details.
+
+Third-party skills in `.agent/skills/` have various licenses; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for details. Seven skills carry a "tools-registry License" (Apache 2.0 with hosted-service restriction) — review before commercial SaaS distribution.
