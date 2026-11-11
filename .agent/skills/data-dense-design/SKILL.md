@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "be8ec88aba1cc36febcadaca5eab7cb32000003f3268e99dd45868effdeb2ae4"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: data-dense-design
+content_hash: be8ec88aba1cc36febcadaca5eab7cb32000003f3268e99dd45868effdeb2ae4
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Data-Dense Design. Trigger when user wants professional tools, maximum information density, and expert interfaces (like Bloomberg terminals or IDEs).
-tier: "experimental"
-date_added: "2026-06-17"
+name: data-dense-design
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Data-Dense Design
-
 > "Density is a feature. For expert users, reducing clicks is more important than whitespace."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Compact Layouts**: Extremely tight margins and padding (often 2px to 4px).
 2. **Monospace & Tabular Data**: Numbers must align vertically perfectly. 
 3. **High Utility**: Every pixel serves a functional purpose. Minimal purely decorative elements.
-
 ## Visual DNA
 - **Colors**: **Industrial Chic** (high contrast) or **Minimalist Slate**. Avoid bright backgrounds. Offer theme choice; dark colors do not establish lower eye strain for every user.
 - **Typography**: Use readable, scalable text. Compact examples below are visual studies, not minimum-accessibility recommendations; tabular numerals can align data without forcing monospace throughout.
 - **Borders**: Thin `1px` borders (`#333` or `#e0e0e0`) are used extensively to separate tiny cells of data.
-
 ## Web Implementation
 - Tables, CSS Grid, and Flexbox with zero gap.
 - **CSS Example**:
@@ -48,14 +35,12 @@ body {
   font-size: 12px; /* Very small */
   margin: 0;
 }
-
 .dense-toolbar {
   display: flex;
   background-color: #2d2d2d;
   border-bottom: 1px solid #3c3c3c;
   padding: 2px 4px;
 }
-
 .dense-btn {
   background: transparent;
   color: #ccc;
@@ -68,26 +53,21 @@ body {
   background-color: #3c3c3c;
   border-color: #555;
 }
-
 /* Dense Data Table */
 .data-table {
   width: 100%;
   border-collapse: collapse;
   font-family: 'JetBrains Mono', monospace;
 }
-
 .data-table th, .data-table td {
   padding: 4px 8px;
   border: 1px solid #3c3c3c;
   text-align: right; /* Numbers align right */
 }
-
 .data-table tr:nth-child(even) { background-color: #252526; }
 .data-table tr:hover { background-color: #094771; color: #fff; } /* Selection highlight */
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct DataDenseView: View {
@@ -101,7 +81,6 @@ struct DataDenseView: View {
                     HeaderCell("ASK")
                     HeaderCell("CHG")
                 }
-                
                 // Data Rows
                 DataRow(sym: "AAPL", bid: "173.40", ask: "173.45", chg: "+0.12", isPos: true)
                 DataRow(sym: "MSFT", bid: "320.10", ask: "320.15", chg: "-0.45", isPos: false)
@@ -112,7 +91,6 @@ struct DataDenseView: View {
         .background(Color(white: 0.12)) // Dark IDE background
     }
 }
-
 struct HeaderCell: View {
     let text: String
     init(_ text: String) { self.text = text }
@@ -126,7 +104,6 @@ struct HeaderCell: View {
             .background(Color(white: 0.18))
     }
 }
-
 struct DataRow: View {
     let sym, bid, ask, chg: String
     let isPos: Bool
@@ -139,7 +116,6 @@ struct DataRow: View {
         }
     }
 }
-
 struct Cell: View {
     let text: String
     let color: Color
@@ -160,7 +136,6 @@ struct Cell: View {
 - Use `Grid` with `0` spacing.
 - Font must be `.system(..., design: .monospaced)`.
 - Use a `.border()` with `0.5` width on every single cell to recreate the dense spreadsheet look.
-
 ### Flutter
 ```dart
 class DataDenseScreen extends StatelessWidget {
@@ -199,7 +174,6 @@ class DataDenseScreen extends StatelessWidget {
       ),
     );
   }
-
   DataRow _buildRow(String sym, String bid, String ask) {
     const style = TextStyle(color: Colors.white, fontSize: 12, fontFamily: 'RobotoMono');
     return DataRow(
@@ -214,7 +188,6 @@ class DataDenseScreen extends StatelessWidget {
 ```
 - The compact row heights below suit a limited static demo; allow rows to grow for text scaling and preserve adequate interactive target sizes.
 - Nested scroll views permit two-axis panning but eagerly lay out this table; paginate or virtualize genuinely large data sets.
-
 ### React Native
 ```jsx
 const DataDenseScreen = () => {
@@ -229,7 +202,6 @@ const DataDenseScreen = () => {
             <HeaderCell text="ASK" width={80} align="right" />
             <HeaderCell text="CHG" width={60} align="right" />
           </View>
-          
           {/* Rows */}
           <DataRow sym="AAPL" bid="173.40" ask="173.45" chg="+0.12" isPos={true} />
           <DataRow sym="MSFT" bid="320.10" ask="320.15" chg="-0.45" isPos={false} />
@@ -238,7 +210,6 @@ const DataDenseScreen = () => {
     </ScrollView>
   );
 };
-
 const HeaderCell = ({ text, width, align = 'left' }) => (
   <View style={{ width, padding: 4, borderWidth: 0.5, borderColor: '#333' }}>
     <Text style={{ color: '#999', fontSize: 11, fontFamily: 'monospace', textAlign: align, fontWeight: 'bold' }}>
@@ -246,7 +217,6 @@ const HeaderCell = ({ text, width, align = 'left' }) => (
     </Text>
   </View>
 );
-
 const DataRow = ({ sym, bid, ask, chg, isPos }) => (
   <View style={{ flexDirection: 'row' }}>
     <Cell text={sym} width={60} />
@@ -255,7 +225,6 @@ const DataRow = ({ sym, bid, ask, chg, isPos }) => (
     <Cell text={chg} width={60} align="right" color={isPos ? '#4CAF50' : '#F44336'} />
   </View>
 );
-
 const Cell = ({ text, width, align = 'left', color = '#CCC' }) => (
   <View style={{ width, padding: 4, borderWidth: 0.5, borderColor: '#333' }}>
     <Text style={{ color, fontSize: 12, fontFamily: 'monospace', textAlign: align }}>
@@ -266,14 +235,12 @@ const Cell = ({ text, width, align = 'left', color = '#CCC' }) => (
 ```
 - React Native doesn't have a native Table component, so you must construct a grid using `flexDirection: 'row'` and strict `width` properties on cells.
 - Double scroll views (one vertical, one horizontal inside it) are standard for mobile data tables.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
 fun DataDenseScreen() {
     val scrollStateHorizontal = rememberScrollState()
     val scrollStateVertical = rememberScrollState()
-
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -289,14 +256,12 @@ fun DataDenseScreen() {
                 Cell("BID", 80.dp, Color.Gray, true, TextAlign.End)
                 Cell("ASK", 80.dp, Color.Gray, true, TextAlign.End)
             }
-            
             // Rows
             DataRow("AAPL", "173.40", "173.45")
             DataRow("MSFT", "320.10", "320.15")
         }
     }
 }
-
 @Composable
 fun DataRow(sym: String, bid: String, ask: String) {
     Row {
@@ -305,7 +270,6 @@ fun DataRow(sym: String, bid: String, ask: String) {
         Cell(ask, 80.dp, Color.White, false, TextAlign.End)
     }
 }
-
 @Composable
 fun Cell(text: String, width: Dp, color: Color, isHeader: Boolean, align: TextAlign = TextAlign.Start) {
     Text(
@@ -324,11 +288,9 @@ fun Cell(text: String, width: Dp, color: Color, isHeader: Boolean, align: TextAl
 ```
 - Chain `.verticalScroll()` and `.horizontalScroll()` on the root `Box`.
 - Compose allows `.border()` directly on `Text` modifiers, making spreadsheet grids very clean to implement without wrapping everything in `Box`es.
-
 ## Do's and Don'ts
 - **DO**: Use color coding (red/green) for data deltas, but keep the saturation muted to prevent eye fatigue.
 - **DON'T**: Use large padding or giant H1 headers. Expert users already know what screen they are on.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

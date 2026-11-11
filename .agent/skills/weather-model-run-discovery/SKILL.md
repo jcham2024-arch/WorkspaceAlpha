@@ -1,42 +1,30 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "fadf3a6253a2ec6c2930e420ac1dac327b5fcad7d86cdc9c05801c5cd1320805"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: weather-model-run-discovery
-description: "Resolve the newest complete numerical weather prediction cycle and forecast objects across provider mirrors without downloading full payloads."
-tier: "experimental"
+content_hash: fadf3a6253a2ec6c2930e420ac1dac327b5fcad7d86cdc9c05801c5cd1320805
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: ShianMike
 category: data
+date_added: 2026-09-24
+description: Resolve the newest complete numerical weather prediction cycle and forecast objects across provider mirrors without downloading full payloads.
+name: weather-model-run-discovery
 risk: safe
 source: self
 source_type: self
-date_added: "2026-09-24"
-author: ShianMike
-tags: [weather, nwp, model-cycle, aws-s3, nomads, herbie]
-tools: [claude, cursor, gemini, codex]
+tags: "[weather, nwp, model-cycle, aws-s3, nomads, herbie]"
+tools: "[claude, cursor, gemini, codex]"
 ---
-
-
 # Weather Model Run Discovery
-
 ## Overview
-
 Resolve a numerical weather prediction run before downloading model fields.
 Probe exact objects or narrow prefixes, verify a request-specific completion
 contract, and return the newest qualifying initialization with its source
 metadata.
-
 This skill decides *which run and objects exist*. Use
 `weather-model-data-fetching` afterward to transfer or subset the data.
-
 ## When to Use This Skill
-
 - An application needs the newest usable GFS, GEFS, HRRR, RAP, NAM, or similar
   model cycle.
 - The nominal latest cycle returns `404`, has only early forecast hours, or is
@@ -45,14 +33,10 @@ This skill decides *which run and objects exist*. Use
   without silently mixing runs.
 - A scheduled job needs a bounded fallback to an older complete cycle.
 - The resolved run and provider must be recorded for later reproduction.
-
 Do not activate this skill when the initialization is already fixed or when the
 task is to download, decode, or interpret model variables.
-
 ## Define Complete Before Probing
-
 Collect the following request contract:
-
 - model, domain, product, and ensemble member;
 - legal UTC cycle hours and cycle interval;
 - required forecast hours;
@@ -60,19 +44,14 @@ Collect the following request contract:
 - required inventory or index sidecars;
 - provider priority and whether cross-provider fallback is allowed;
 - maximum lookback, maximum probes, and freshness requirement.
-
 A run is complete only when every sentinel required by the consumer exists.
 Examples include:
-
 - one product at one forecast hour for a single-image job;
 - both pressure-level and surface files for a sounding;
 - the terminal forecast hour needed by a time series;
 - every required member for an ensemble statistic.
-
 The presence of forecast hour zero does not prove that a run is complete.
-
 ## Discovery Workflow
-
 1. Normalize the current time and all candidate initialization times to UTC.
 2. Enumerate only legal cycles, newest first, within the lookback bound.
 3. Build documented object keys for the exact model, product, member, and
@@ -87,20 +66,14 @@ The presence of forecast hour zero does not prove that a run is complete.
 7. Select the first complete candidate. A fallback provider must refer to the
    same initialization, product, member, and forecast hour.
 8. Emit a resolution record before starting the download.
-
 Use a provider's documented cycle status page as supporting evidence, not as a
 substitute for probing the exact objects the consumer requires.
-
 ## Minimal Resolver Example
-
 Keep provider-specific key construction separate from the selection rule. This
 example accepts a metadata-only `probe` callback so it can be used with S3,
 HTTP, or a test fixture.
-
 ```python
 from datetime import datetime, timedelta, timezone
-
-
 def candidate_cycles(now, cycle_hours, lookback):
     if now.tzinfo is None or now.utcoffset() is None:
         raise ValueError("now must be timezone-aware")
@@ -116,8 +89,6 @@ def candidate_cycles(now, cycle_hours, lookback):
             if cycle <= now and now - cycle <= timedelta(hours=lookback):
                 candidates.append(cycle)
     return sorted(set(candidates), reverse=True)
-
-
 def resolve_latest(now, cycle_hours, lookback, required_objects, probe):
     """Return one complete run; probe(uri) returns metadata or None."""
     attempts = []
@@ -139,36 +110,27 @@ def resolve_latest(now, cycle_hours, lookback, required_objects, probe):
             }
     raise LookupError(f"no complete run within {lookback} hours: {attempts}")
 ```
-
 The caller must make `required_objects` express the real completion contract;
 checking a single convenient file defeats the purpose of discovery.
-
 ## Public S3 Diagnostics
-
 For public NOAA Open Data buckets, inspect exact objects without loading AWS
 credentials:
-
 ```bash
 aws s3api head-object --no-sign-request \
   --bucket BUCKET \
   --key "EXACT/DOCUMENTED/OBJECT"
-
 aws s3api list-objects-v2 --no-sign-request \
   --bucket BUCKET \
   --prefix "MODEL.DATE/DOMAIN/PRECISE-RUN-PREFIX" \
   --max-items 100
 ```
-
 Paginate narrow listings. S3 returns at most one page at a time, and a
 successful listing still needs defensive response parsing. `403` and `404`
 from `HeadObject` can be intentionally nonspecific; distinguish a missing
 public object from a permission or endpoint error before falling back.
-
 ## Resolution Record
-
 Return enough information for the fetcher and provenance layer to use the exact
 same objects:
-
 ```json
 {
   "requested_at_utc": "2026-09-18T08:45:00Z",
@@ -189,12 +151,9 @@ same objects:
   "fallback_cycles_rejected": []
 }
 ```
-
 Keep ETags as opaque identity values. They are not guaranteed to be full-file
 MD5 checksums.
-
 ## Reliability and Caching
-
 - Cache positive results only briefly enough for the model cadence and
   publication latency. Cache negative probes for a shorter interval.
 - Retry timeouts, `408`, `429`, and transient `5xx` responses with bounded
@@ -205,9 +164,7 @@ MD5 checksums.
 - Do not mix objects from different providers unless their run identity and
   product semantics have been verified equivalent.
 - Record rejected cycles and missing sentinels so fallback is visible.
-
 ## Verification Checklist
-
 - Candidate cycles are legal for the requested model and expressed in UTC.
 - Every required product, member, forecast hour, and sidecar is present.
 - Object sizes are nonzero and stable when a stabilization check is required.
@@ -215,9 +172,7 @@ MD5 checksums.
 - The selected run satisfies the user's freshness and lookback bounds.
 - No model payload was downloaded merely to discover availability.
 - A failure reports which cycles were checked and which sentinels were absent.
-
 ## Security & Safety Notes
-
 - Probe only public datasets or resources the user is authorized to access.
 - Never embed cloud credentials, signed URLs, session tokens, or private
   endpoint details in a resolution record.
@@ -226,9 +181,7 @@ MD5 checksums.
 - Bound prefix width, pagination, retries, and request rate before probing.
 - Treat provider object names and metadata as untrusted input when writing logs
   or constructing local paths.
-
 ## Common Pitfalls
-
 - **Newest cycle has `f000`:** Later required forecast hours are still
   publishing. Test the actual terminal sentinels.
 - **A provider fallback changes the forecast:** The fallback changed a product,
@@ -239,18 +192,14 @@ MD5 checksums.
   unbounded. Construct exact keys wherever possible.
 - **Local time selected the wrong day:** Perform cycle arithmetic in UTC and
   convert only for display.
-
 ## Limitations
-
 - Publication schedules, provider retention, key layouts, and mirror status can
   change; verify them against current provider documentation.
 - Metadata stability reduces the chance of a partial publication but does not
   prove that the model contents are scientifically valid.
 - This skill does not fetch GRIB2 fields, decode model data, or assess forecast
   quality.
-
 ## Additional Resources
-
 - [NCEP NOMADS data availability](https://nomads.ncep.noaa.gov/)
 - [NCEP NOMADS status](https://nomads.ncep.noaa.gov/status.php)
 - [Herbie latest model run guidance](https://herbie.readthedocs.io/en/latest/user_guide/tutorial/latest.html)

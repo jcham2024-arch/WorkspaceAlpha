@@ -1,32 +1,21 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "616cb3873dd96fa79f8ebd993781f61c48b212bd0be10394a6e5698ce223a8cc"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: wordpress-theme-development
-description: "WordPress theme development workflow covering theme architecture, template hierarchy, custom post types, block editor support, responsive design, and WordPress 7.0 features: DataViews, Pattern Editing, Navigation Overlays, and admin refresh."
-tier: "experimental"
+content_hash: 616cb3873dd96fa79f8ebd993781f61c48b212bd0be10394a6e5698ce223a8cc
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 category: granular-workflow-bundle
+date_added: 2026-02-27
+description: ""WordPress theme development workflow covering theme architecture, template hierarchy, custom post types, block editor support, responsive design, and WordPress 7.0 features: DataViews, Pattern Editing, Navigation Overlays, and admin refresh.""
+name: wordpress-theme-development
 risk: safe
 source: personal
-date_added: "2026-02-27"
 ---
-
-
 # WordPress Theme Development Workflow
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use This Workflow
-
 Use this workflow when:
 - Creating custom WordPress themes
 - Converting designs to WordPress themes
@@ -34,7 +23,6 @@ Use this workflow when:
 - Implementing custom post types
 - Building child themes
 - Implementing WordPress 7.0 design features
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

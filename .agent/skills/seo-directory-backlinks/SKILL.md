@@ -1,66 +1,47 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "3bcca092eb21f67938e6d83871ed669e8f8087604f90ff167398791da35d5621"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: seo-directory-backlinks
-description: 'Directory and backlink register: platform, domain, target URL, follow attribute, authority and spam scores, approval and NAP-match status. Use for SEO citation tracking.'
-tier: "experimental"
+content_hash: 3bcca092eb21f67938e6d83871ed669e8f8087604f90ff167398791da35d5621
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: WHOISABHISHEKADHIKARI
 category: business
+date_added: 2026-09-27
+description: "'Directory and backlink register: platform, domain, target URL, follow attribute, authority and spam scores, approval and NAP-match status. Use for SEO citation tracking.'"
+name: seo-directory-backlinks
 risk: safe
 source: self
-source_type: self
-date_added: "2026-09-27"
-author: WHOISABHISHEKADHIKARI
-tags: [sme, seo, backlinks, citations, directories, local-seo, nap-consistency, link-building, spam, digital-pr, csv, sql, notion]
-tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
+source_type: self
+tags: "[sme, seo, backlinks, citations, directories, local-seo, nap-consistency, link-building, spam, digital-pr, csv, sql, notion]"
+tools: "[]"
 ---
-
 ## Supporting material availability
-
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
-
 - `../../references/backlink-directory-master-list.md`
-
 Obtain the required material from the [declared upstream source](https://github.com/WHOISABHISHEKADHIKARI/sme-ops-system-builder), or from a user-provided installation of that source. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
-
-
 # SEO Directories & Backlinks
-
 **What it is:** the off-site citation and link plan - which directory or platform the
 business belongs on, whether the listing is real and consistent, what the link is worth,
 and which submissions to refuse.
-
 ## Overview
-
 Works out the smallest useful citation plan for the business in front of it, then builds
 it only when asked. The default output is a short recommendation, not a submission list.
 The citation tracker - CSV, SQL DDL, JSON Schema, Notion mapping - is produced on request,
 from one field list so the four cannot drift apart.
-
 Layer: Layer 3: Acquire. Fits: Growth stage. Table code: n/a.
-
 **The rule this table exists to enforce:** a directory is a *citation*, and a citation is
 only correct if it matches. `NAP Match` is therefore a control field with three values,
 not a note, and a citation whose NAP does not match is a defect to fix rather than a
 backlink to keep. Alongside it, `Approval Days` and `Link Type` are recorded because a
 listing that was never approved and a nofollow link are two different facts, and a tracker
 that cannot distinguish them reports success it did not get.
-
 **The second rule:** the highest-value links are almost never directories. Chamber of
 commerce, council directory, trade association, an industry blog and one genuine local
 press mention beat two hundred generic submissions. `Tier` exists so the plan spends its
 effort at the top.
-
 ## When to Use This Skill
-
 - where to list my business, business directories, citations
 - backlinks, link building, off-page SEO
 - NAP consistency, citation building, local citations
@@ -68,36 +49,24 @@ effort at the top.
 - Industry and vertical directories for a specific sector
 - refusing or auditing a list of "free high DA" submissions
 - link profile, referring domains, anchor text, lost links
-
 Do not use it for: the website's own structure (`business-website-setup`), the map profile
 (`gbp-local-seo-intent`), paid advertising, or content marketing and guest posting, which
 are editorial decisions rather than directory submissions.
-
 ## How It Works
-
 Follow the shared execution contract. The module-specific rules below define only domain fields, decisions, calculations, and safety constraints.
-
 ### Step 1 - Identify intent
-
 Read the request and pick the intent before asking anything.
-
 - "where should we list" / "set up" / "build" -> artifacts wanted; go to Step 2.
 - "review this list someone sent us" -> an audit of a supplied list; go to Step 2 and then
   the vetting step.
 - "our rankings dropped" / "fix" -> something was done; capture what, then Step 2.
 - "audit" / "check" -> a check, not a build.
-
 Ask only if this is the highest-value missing fact; otherwise proceed without an opener:
-
 > **Q:** What is the business called, and what does one line of it actually do?
-
 ### Step 2 - Ask only what is missing
-
 Treat ambiguous replies as unanswered and ask which explicit option the user means. Record unknown values as `Unknown`; `Unknown` is not zero. A record must not be `Done` when a required check fails.
-
 Skip anything already answered. Ask the rest one at a time, and stop as soon as the
 remaining answers would not change the directory list.
-
 - **Business** - Industry and sector, in the words a customer would use? / One location or
   several? / Customers visit, or is it service-area?
 - **Current** - Is the business already listed anywhere? / How many listings roughly? / Who
@@ -108,13 +77,10 @@ remaining answers would not change the directory list.
   it, or is it the founder on a Sunday?
 - **Risk** - Has anyone offered paid placement, a "dofollow network" or a reciprocal-link
   deal? / Has the site ever received a manual action or an algorithmic drop?
-
 Never invent an answer. Domains, DR or DA scores, spam scores, approval times, listing
 URLs, referring domain counts and rankings the user has not supplied or measured are
 `Unknown`. A DA score is a third-party estimate, and it is never invented here.
-
 ### Step 3 - Hold the internal context
-
 ```yaml
 module: seo-directory-backlinks
 intent: null            # set up | fix | review | report | import
@@ -129,36 +95,28 @@ requested_outputs: []
 confirmed_facts: []
 open_questions: []
 ```
-
 ### Step 4 - Recommend the smallest workflow
-
 Build an already requested artifact without asking again. For advice-only requests, give a short recommendation and offer the relevant artifact.
-
 **Recommended approach:** Fifteen to twenty real listings, not two hundred. Tier 0 the two
 map platforms the business is eligible for, Tier 1 the high-authority review platforms and
 the professional profile that fit the sector, then the genuinely local sources - chamber of
 commerce, council directory, trade association, one industry blog, and one local press
 angle. Everything submitted in one sitting, from one canonical NAP block, and re-checked
 quarterly. Two or three vertical directories, no link networks.
-
 **Why this one:** Fifteen real listings are a citation set Google can read and customers can
 use. Two hundred junk listings are a footprint across domains Google has publicly actioned,
 and a small local business cannot afford that risk for a marginal gain. The genuinely local
 links are also the ones competitors skip, so the effort goes further there than on a
 national directory.
-
 **Workflow:** Canonical NAP block written once → Tier 0 platforms claimed → Tier 1 review
 and professional profiles completed → Local chamber, council and trade association joined
 → Two or three vertical directories chosen by relevance → Tracking row created for each
 with a review date → Quarterly re-check scheduled → Referring domains and anchor text
 reviewed once a quarter → Anything with a mismatched NAP corrected or removed
-
 ### Step 5 - Build only on request
-
 Once the user asks for it, derive the fields from the confirmed context and emit the
 requested artifacts. For machine-readable text, keep prose outside the data; for files,
 provide a usable link. Report material validation failures or limitations separately.
-
 **A selected Notion output is rendered by `notion-manual-import`, so route the
 Notion step there.** When the user selects Notion, hand that step to
 @notion-manual-import: it holds the CSV, the property
@@ -168,12 +126,10 @@ here and do not improvise the import steps. Manual CSV and mapping outputs need 
 connection. For requested workspace changes, follow the shared contract: verify actual
 tool access and the target before writing. A user saying "connected" is not tool evidence.
 Never ask for a Notion password or token.
-
 ```csv
 Citation ID,Platform Name,Domain,Tier,Category,Directory Type,Target URL,Link Type,Follow Attribute,Domain Authority,Domain Rating,Spam Score,Listing Status,Submitted Date,Approved Date,Approval Days,NAP Match,Referral Traffic,Review Date,Owner,Status,Notes
 ,Example Chamber of Commerce,examplechamber.org,Tier 1,Local chamber of commerce,Member directory,https://example.com/,Nofollow,Nofollow,Unknown,Unknown,Unknown,Approved,2026-09-27,2026-10-02,5,Match,Unknown,2026-12-27,Unknown,Planned,Example row - replace every value before use.
 ```
-
 ```sql
 -- Engine assumption: PostgreSQL. For another engine use the engine's auto-increment
 -- equivalent and keep the rest portable.
@@ -209,12 +165,10 @@ CREATE TABLE seo_citation (
   CONSTRAINT seo_citation_approval_days CHECK (approval_days IS NULL OR approval_days >= 0),
   CONSTRAINT seo_citation_approved_after_submitted CHECK (approved_date IS NULL OR submitted_date IS NULL OR approved_date >= submitted_date)
 );
-
 CREATE INDEX idx_seo_citation_status ON seo_citation (status);
 CREATE INDEX idx_seo_citation_tier ON seo_citation (tier);
 CREATE INDEX idx_seo_citation_nap ON seo_citation (nap_match);
 ```
-
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -258,7 +212,6 @@ CREATE INDEX idx_seo_citation_nap ON seo_citation (nap_match);
   ]
 }
 ```
-
 ```markdown
 | CSV column | Notion property | Set after import |
 |---|---|---|
@@ -285,14 +238,10 @@ CREATE INDEX idx_seo_citation_nap ON seo_citation (nap_match);
 | Status | Select (add options after import) | Convert to Select, add options: "Planned", "In progress", "Live", "Needs Review", "Retired" |
 | Notes | Text | Leave as Text. The vetting note - what the directory is, and why it is or is not worth it |
 ```
-
 The rows above are documentation examples only. Emit empty templates unless the user explicitly requests examples. Every third-party metric is `Unknown` because
 this skill cannot measure it and must never estimate it.
-
 Keep Target URL as the business-site destination and record the actual listing URL plus verification date in Notes; an Approved status is not evidence of a live/crawlable link. `updated_at DEFAULT NOW()` only initializes inserts and needs application/trigger maintenance for updates. Paid memberships or sponsorships are not automatically spam: assess relevance and qualify paid links as sponsored/nofollow. DA/DR, tier counts and instant approval do not certify link value or ranking effect.
-
 ## Field Reference
-
 | # | Field | Type | SQL | JSON Schema | Notion | CSV example |
 |---:|---|---|---|---|---|---|
 | 1 | Citation ID | `id` | `BIGINT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY` | `integer` | Text or Notion auto-ID | `(blank)` |
@@ -317,73 +266,52 @@ Keep Target URL as the business-site destination and record the actual listing U
 | 20 | Owner | `text` | `VARCHAR(255)` | `string` | Text | `Unknown` |
 | 21 | Status | `select` | `VARCHAR(50)` | `string` | Select | `Planned` |
 | 22 | Notes | `long_text` | `TEXT` | `string` | Text | *(blank)* |
-
 ## Select Options
-
 **Tier** - the value that decides where the effort goes. `Refused` is a first-class tier,
 because recording a platform the business deliberately rejected is how it stays rejected.
 Full tier contents: `../../references/backlink-directory-master-list.md`.
-
 ```
 Tier 0 | Tier 1 | Tier 2 | Tier 3 | Tier 4 | Tier 5 | Tier 6 | Tier 7 | Refused
 ```
-
 **Directory Type** - a starting set, and the column that catches a link network. Anything
 `Link network` is a `Refused` row.
-
 ```
 Map platform | Review platform | Professional profile | Company profile | Local body | Government register | Industry directory | Niche directory | Document sharing | Bookmarking | Q&A and forum | Classifieds | Link hub | News service | Guest post | Paid placement | Link network
 ```
-
 **Link Type** vs **Follow Attribute** - two columns, not one, because a redirect carries no
 rel attribute at all. Collapsing them loses the distinction between "no link" and "a
 qualified rel attribute (nofollow is not a noindex directive)".
-
 ```
 Link Type:      Dofollow | Nofollow | Redirect | JavaScript | No link | Unknown
 Follow Attribute: Follow | Nofollow | Sponsored | UGC | Unknown
 ```
-
 **Listing Status** - `Superseded` is for the case where a business moved location or
 renamed and the old listing still exists somewhere. It is a real and common state.
-
 ```
 Not started | Submitted | Pending review | Approved | Rejected | Removed | Superseded
 ```
-
 **NAP Match** - the control. `Mismatch` means fix or remove; it never means "leave it, the
 link is still a link".
-
 ```
 Match | Mismatch | Unknown | Not applicable
 ```
-
 **Status**
-
 ```
 Planned | In progress | Live | Needs Review | Retired
 ```
-
 ## Relations
-
 Two natural links, both worth confirming before making them live:
-
 - `Target URL` points at a page in `business-website-setup`. The URL text is the reliable
   key across packs; confirm whether the business wants a live join.
 - `Owner` points at the people register in the operational pack, which is not in this
   artifact set. It stays Text with a note naming the intended target.
-
 ## Examples
-
 **Prompt**
-
 ```
 Someone sent us a list of 165 free high-DA directories. Some of them want a keyword field
 and ask for a reciprocal link. Should we do them all?
 ```
-
 **Context first** - one question per message, nothing already answered:
-
 > **Q:** What is the business called, and what does one line of it actually do?
 > **A:** Example Retail, home and kitchen goods in Example City.
 >
@@ -398,9 +326,7 @@ and ask for a reciprocal link. Should we do them all?
 >
 > **Q:** Has anyone offered paid placement or a "dofollow network"?
 > **A:** Yes, an email about a monthly plan. It was not cheap.
-
 **Recommended next step** - offered, not built:
-
 > Not the 165. Skip anything asking for a reciprocal link, a keyword field or payment, and
 > record them as `Refused` so they stay refused. Do about fifteen real ones instead: Google
 > and Bing and Apple Maps, the two review platforms your sector actually uses, the chamber
@@ -415,9 +341,7 @@ and ask for a reciprocal link. Should we do them all?
 > date → Quarterly re-check scheduled
 >
 > Want the CSV, SQL DDL, JSON Schema and Notion mapping for this?
-
 ## Best Practices
-
 - Build when requested; recommend and offer a build for advice-only requests.
 - One question per message. A batched intake reads as a form and gets guessed at.
 - Relevance beats authority. A listing in the trade's own directory is worth more than a
@@ -452,9 +376,7 @@ and ask for a reciprocal link. Should we do them all?
   deleted silently.
 - Derive all four artifacts from the field list in this file, never by hand.
 - If the user requests an example row, keep it obviously fake so nobody imports it as a real citation.
-
 ## Limitations
-
 - This is a tracker. It does not submit anything, create any account, or build any link.
 - It does not measure authority. `Domain Authority`, `Domain Rating` and `Spam Score` are
   third-party estimates from named tools, they change over time, and DA and DR are not the
@@ -475,9 +397,7 @@ and ask for a reciprocal link. Should we do them all?
 - A link network's downside is a manual action or a demotion that may surface months later
   and cannot be predicted. This skill can identify the risk; only the business can accept
   it.
-
 ## Security & Safety Notes
-
 - Never invent a domain, a listing URL, a DR, a DA, a spam score, an approval time, a
   referral figure or a ranking position. `Unknown` and blank are correct.
 - Directory submissions place the business's NAP, phone and sometimes a logo into a
@@ -499,7 +419,4 @@ and ask for a reciprocal link. Should we do them all?
 - Local reads, generation commands, and validation are part of a requested artifact build.
   External writes, messages, provisioning, and publication require authorization for that
   action and target; existing explicit authorization does not need to be repeated.
-
-
 See the [Common Pitfalls](references/common-pitfalls.md) reference for the full guidance.
-

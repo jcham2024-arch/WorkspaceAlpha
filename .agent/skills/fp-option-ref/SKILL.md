@@ -1,68 +1,49 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "4cf608751108474d12f14124594c4ee71ee84c958cab7227625fb63a0c036723"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: fp-option-ref
+content_hash: 4cf608751108474d12f14124594c4ee71ee84c958cab7227625fb63a0c036723
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-03-06
 description: Quick reference for Option type. Use when user needs to handle nullable values, optional data, or wants to avoid null checks.
-tier: "experimental"
+name: fp-option-ref
 risk: none
 source: community
-date_added: "2026-03-06"
+tags: "[fp-ts, option, nullable, maybe, quick-reference]"
 version: 1.0.0
-tags: [fp-ts, option, nullable, maybe, quick-reference]
 ---
-
-
 # Option Quick Reference
-
 Option = value that might not exist. `Some(value)` or `None`.
-
 ## When to Use
 - You need a quick fp-ts reference for nullable or optional values.
 - The task involves eliminating null checks, safe property access, or optional chaining with `Option`.
 - You want a short reference card rather than a full migration guide.
-
 ## Create
-
 ```typescript
 import * as O from 'fp-ts/Option'
-
 O.some(5)              // Some(5)
 O.none                 // None
 O.fromNullable(x)      // null/undefined → None, else Some(x)
 O.fromPredicate((n: number) => n > 0)(x) // false → None, true → Some(x)
 ```
-
 ## Transform
-
 ```typescript
 O.map(fn)              // Transform inner value
 O.flatMap(fn)          // Chain Options (fn returns Option)
 O.filter(predicate)    // None if predicate false
 ```
-
 ## Extract
-
 ```typescript
 O.getOrElse(() => fallbackValue)  // Get value or default
 O.toNullable(opt)           // Back to T | null
 O.toUndefined(opt)          // Back to T | undefined
 O.match(onNone, onSome)     // Pattern match
 ```
-
 ## Common Patterns
-
 ```typescript
 import { pipe } from 'fp-ts/function'
 import * as O from 'fp-ts/Option'
-
 // Safe property access
 pipe(
   O.fromNullable(user),
@@ -70,7 +51,6 @@ pipe(
   O.flatMap(p => O.fromNullable(p.avatar)),
   O.getOrElse(() => '/default-avatar.png')
 )
-
 // Array first element
 import * as A from 'fp-ts/Array'
 pipe(
@@ -80,13 +60,10 @@ pipe(
   O.getOrElse(() => 'No users')
 )
 ```
-
 ## vs Nullable
-
 ```typescript
 // Nullable: concise and safe for a short access chain
 const name = user?.profile?.name ?? 'Guest'
-
 // Option: explicit and composable across multiple operations
 pipe(
   O.fromNullable(user),
@@ -95,16 +72,11 @@ pipe(
   O.getOrElse(() => 'Guest')
 )
 ```
-
 Use Option when you need to **chain** operations on optional values.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## Reference scope
-
 These are fp-ts 2.x fragments. Supply application variables, types, validators and imports, and check the installed version. `map` does not catch thrown exceptions. `Task` has no typed error channel; an improperly wrapped promise can still reject. Use `tryCatch` at fallible boundaries.
-
 Official API: [fp-ts modules](https://gcanti.github.io/fp-ts/modules/).

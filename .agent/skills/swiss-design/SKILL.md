@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "67f07e0b1d618d9c33734c4c5a38ff8ef30d24e72f1f0fd54e59901511322d43"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: swiss-design
+content_hash: 67f07e0b1d618d9c33734c4c5a38ff8ef30d24e72f1f0fd54e59901511322d43
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Swiss Design (International Typographic Style). Trigger when user wants strict grid systems, strong typography, and clean, asymmetrical alignment.
-tier: "experimental"
-date_added: "2026-06-17"
+name: swiss-design
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Swiss Design (International Typographic Style)
-
 > "Form follows function. The grid is absolute. Typography is the primary visual element."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Mathematical Grids**: Everything aligns to a strict underlying grid. Asymmetry is preferred over centered text.
 2. **Sans-Serif Typography**: Helvetica is the king, but any clean, neutral sans-serif works. Flush left, ragged right text alignment.
 3. **Objective Photography**: If images are used, they should be objective, documentary-style photos, not stylized illustrations.
-
 ## Visual DNA
 - **Colors**: Very limited. Usually just black, white, and ONE highly saturated accent color (often primary red, blue, or yellow). The **Industrial Chic** palette works perfectly.
 - **Typography**: `Helvetica Neue`, `Inter`, or `Roboto`. Huge contrast in font sizes (e.g., massive 6rem headers paired with 1rem body text).
 - **Layout**: Do NOT center text. Ever.
-
 ## Web Implementation
 - Use CSS Grid extensively. Let columns dictate the layout.
 - **CSS Example**:
@@ -47,14 +34,12 @@ body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1.4;
 }
-
 .swiss-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 20px;
   padding: 40px;
 }
-
 .swiss-header {
   grid-column: 1 / 11; /* spans across multiple columns, leaving right side empty */
   font-size: clamp(2rem, 6vw, 6rem);
@@ -64,20 +49,16 @@ body {
   line-height: 0.9;
   letter-spacing: -0.04em;
 }
-
 .swiss-content {
   grid-column: 4 / 9; /* Indented alignment */
   font-size: 1.25rem;
   text-align: left; /* Flush left, ragged right */
 }
-
 .swiss-accent {
   color: #E2001A; /* Classic Swiss Red */
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct SwissDesignView: View {
@@ -99,19 +80,15 @@ struct SwissDesignView: View {
                 .padding(.horizontal, 24)
                 .padding(.top, 60)
                 .padding(.bottom, 40)
-                
                 Divider().background(Color.black)
-                
                 // Asymmetrical Content Block
                 HStack(alignment: .top, spacing: 20) {
                     // Empty left column (negative space is structural)
                     Spacer().frame(width: 40)
-                    
                     VStack(alignment: .leading, spacing: 16) {
                         Text("Form follows function.")
                             .font(.custom("Helvetica Neue", size: 24))
                             .fontWeight(.bold)
-                        
                         Text("Typography is the primary visual element. Everything aligns to a strict underlying grid. Asymmetry is preferred over centered text.")
                             .font(.custom("Helvetica Neue", size: 16))
                             .lineSpacing(6)
@@ -119,7 +96,6 @@ struct SwissDesignView: View {
                     .padding(.vertical, 40)
                     .padding(.trailing, 24)
                 }
-                
                 Divider().background(Color.black)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -131,7 +107,6 @@ struct SwissDesignView: View {
 ```
 - Strict `alignment: .leading` everywhere. Never use `.center`.
 - Use `Spacer().frame(width: X)` in `HStack`s to intentionally push content off the left margin, creating the classic Swiss indented asymmetrical grid.
-
 ### Flutter
 ```dart
 class SwissDesignScreen extends StatelessWidget {
@@ -157,7 +132,6 @@ class SwissDesignScreen extends StatelessWidget {
             ),
             const SizedBox(height: 40),
             const Divider(color: Colors.black, thickness: 1, height: 1),
-            
             // Asymmetrical Content
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -190,13 +164,11 @@ class SwissDesignScreen extends StatelessWidget {
 ```
 - `CrossAxisAlignment.start` is mandatory on all Columns.
 - Use a `Row` with a fixed `SizedBox` width on the left and an `Expanded` widget on the right to enforce the asymmetrical grid column.
-
 ### React Native
 ```jsx
 const SwissDesignScreen = () => {
   return (
     <ScrollView style={{ flex: 1, backgroundColor: '#F4F4F4' }}>
-      
       {/* Header */}
       <View style={{ paddingHorizontal: 24, paddingTop: 80, paddingBottom: 40 }}>
         <Text style={{ fontFamily: 'HelveticaNeue-CondensedBlack', fontSize: 60, lineHeight: 60, letterSpacing: -2, color: '#111' }}>
@@ -206,14 +178,11 @@ const SwissDesignScreen = () => {
           is absolute.
         </Text>
       </View>
-
       <View style={{ height: 1, backgroundColor: '#111' }} />
-
       {/* Asymmetrical Layout */}
       <View style={{ flexDirection: 'row', paddingVertical: 40 }}>
         {/* Empty left column */}
         <View style={{ width: 64 }} />
-        
         {/* Content */}
         <View style={{ flex: 1, paddingRight: 24 }}>
           <Text style={{ fontFamily: 'HelveticaNeue-Bold', fontSize: 24, color: '#111', marginBottom: 16 }}>
@@ -224,16 +193,13 @@ const SwissDesignScreen = () => {
           </Text>
         </View>
       </View>
-
       <View style={{ height: 1, backgroundColor: '#111' }} />
-
     </ScrollView>
   );
 };
 ```
 - Use a licensed, registered Helvetica Neue font family or a system sans-serif fallback. The contrast between `HelveticaNeue-CondensedBlack` for headers and `HelveticaNeue-Regular` for body copy defines this style.
 - Use `flexDirection: 'row'` to build the strict column structure.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -242,7 +208,6 @@ fun SwissDesignScreen() {
         modifier = Modifier.fillMaxSize().background(Color(0xFFF4F4F4)).verticalScroll(rememberScrollState())
     ) {
         Spacer(Modifier.height(80.dp))
-        
         // Header
         Column(modifier = Modifier.padding(horizontal = 24.dp, vertical = 40.dp)) {
             Text(
@@ -264,14 +229,11 @@ fun SwissDesignScreen() {
                 color = Color(0xFFE2001A)
             )
         }
-        
         Divider(color = Color.Black, thickness = 1.dp)
-        
         // Asymmetrical Grid Row
         Row(modifier = Modifier.fillMaxWidth().padding(vertical = 40.dp)) {
             // Empty grid column
             Spacer(modifier = Modifier.width(64.dp))
-            
             // Content
             Column(modifier = Modifier.weight(1f).padding(right = 24.dp)) {
                 Text(
@@ -288,20 +250,16 @@ fun SwissDesignScreen() {
                 )
             }
         }
-        
         Divider(color = Color.Black, thickness = 1.dp)
     }
 }
 ```
 - Use `Divider(color = Color.Black, thickness = 1.dp)` to create the harsh horizontal structural rules.
 - Combine `Row`, a fixed `Spacer` width, and a `Column` with `Modifier.weight(1f)` to enforce the asymmetrical design.
-
 ## Do's and Don'ts
 - **DO**: Use negative space as a structural element. Empty columns are just as important as filled ones.
 - **DON'T**: Center align text. Do not use serif fonts. Do not use drop shadows.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.
-
 Collapse structural empty columns at narrow widths and large text sizes. The flush-left examples should use logical start/end alignment for localized right-to-left content.

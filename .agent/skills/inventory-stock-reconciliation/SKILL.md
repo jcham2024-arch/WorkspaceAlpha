@@ -1,62 +1,46 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "0af056e44b1121cfb5c681bcfca4490266519554e2e3003b1e91019f205e31cb"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: inventory-stock-reconciliation
-description: 'Stock reconciliation register: count date, item, warehouse, book vs physical quantity, variance quantity and value, variance reason, damage and expiry, adjustment and approval. Use for stock counts.'
-tier: "experimental"
+content_hash: 0af056e44b1121cfb5c681bcfca4490266519554e2e3003b1e91019f205e31cb
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: WHOISABHISHEKADHIKARI
 category: business
+date_added: 2026-09-26
+description: "'Stock reconciliation register: count date, item, warehouse, book vs physical quantity, variance quantity and value, variance reason, damage and expiry, adjustment and approval. Use for stock counts.'"
+name: inventory-stock-reconciliation
 risk: safe
 source: self
-source_type: self
-date_added: "2026-09-26"
-author: WHOISABHISHEKADHIKARI
-tags: [sme, accounting, audit, finance, database, csv, notion, sql, reconciliation]
-tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
+source_type: self
+tags: "[sme, accounting, audit, finance, database, csv, notion, sql, reconciliation]"
+tools: "[]"
 ---
-
-
 # Inventory / Stock Reconciliation
-
 **What it is:** Physical stock counts against book quantities, differences investigated, and authorised adjustments recorded.
-
 ## Overview
-
 Works out the smallest useful **Inventory / Stock Reconciliation** setup for the business in
 front of it, then builds it only when asked. The default output is a short recommendation,
 not a spreadsheet. Artifacts - CSV, SQL DDL, JSON Schema, Notion mapping - are produced on
 request, from one field list so they cannot drift apart.
-
 Three guardrails shape the whole table.
-
 **The artifact stage is template-only.** What the user receives is a structure: a CSV that is
 a header row and no data row, DDL with no `INSERT`s, a schema with no example values, and a
 property mapping table. Add one clearly labelled illustrative row only when the user
 explicitly asks for one. The failure this prevents is an unknown quietly turning into fake
 data inside a generated artifact.
-
 **Counting, verifying and approving are three separate roles.** `Counted By`, `Verified By`
 and `Approved By` answer three different questions and are never inferred from one another.
 The manager who approves an adjustment is not automatically the verifier, and the verifier
 is not automatically the counter. If the business genuinely runs two of these as one job,
 that has to be said, not assumed.
-
 **A variance without an investigated reason stays unresolved.** No adjustment is booked
 without a named approver, and a record does not reach `Done` while a difference has no
 recorded cause. A missing answer stays blank or `Unknown` - never a plausible-looking
 number, and never 0.
-
 Never manufacture a name, a date, a quantity, a price, a location, an approval, a variance
 reason or a transaction reference to fill a gap. `Unknown` and blank are correct answers.
-
 The count is periodic by design. Book quantity is a number the system believes; it is
 only ever as good as the last entry. Until someone walks the shelves and writes down what
 is actually there, the books are an opinion, and the frequency of the count is a business
@@ -66,59 +50,41 @@ booked - a correction passed without authorisation is just a quiet write-off. Se
 investigating a shrinkage is a human judgement, not a calculation: no formula tells you
 whether a missing stack of cartons was theft, a mis-pick, or two dispatches that never got
 a stock entry.
-
 Layer: Layer 7: Reconcile. Fits: Growth stage. Table code: n/a.
-
 ## When to Use This Skill
-
 - physical stock count
 - stock variance investigation
 - stock adjustment register
 - inventory shrinkage tracker
 - cycle count sheet
-
 Also use it when the user describes the same process happening in a spreadsheet, on paper,
 or in someone's inbox.
-
 Do not use it for: purchase or sales booking, inventory valuation method design, reorder-point
 design, or legal or tax advice. This skill produces empty templates only - it never holds or
 processes real employee, customer or stock-movement data.
-
 ## How It Works
-
 Follow the shared execution contract. The module-specific rules below define only domain fields, decisions, calculations, and safety constraints.
-
 ### Step 1 - Identify intent
-
 Read the request and pick the intent before asking anything.
-
 - "set up" or "build" or "create" -> a new structure; go to Step 2.
 - "our process is ..." or "it is in a sheet" -> capture the existing process first, then Step 2.
 - "is this right" or "review" or "audit" -> a check, not a build; answer from what they share
   and do not rebuild.
 - "how do I ..." -> advice; answer directly and offer a build only if it helps.
-
 ### Step 2 - Ask only what is missing
-
 Treat ambiguous replies as unanswered and ask which explicit option the user means. Record unknown values as `Unknown`; `Unknown` is not zero. A record must not be `Done` when a required check fails.
-
 One message, one question, no batching. Skip anything the user already answered, in any
 earlier message. Ask only questions whose answer would change the recommendation or the
 requested artifact. Stop as soon as the remaining unknowns would not change the output.
 Record `Unknown` and move on when the user does not know, and never ask the same unknown
 twice.
-
 The opening question targets the biggest missing fact that changes the output, not a generic
 opener. For a new setup the usual first question is:
-
 > **Q:** How many items do you hold, and when did you last count them physically?
-
 Treat the two halves independently. If the user answers only one, record only that one and
 ask the other separately if it would change the recommendation. `20 to 50` records the item
 count range and leaves the last physical count date `Unknown`.
-
 Then, only as needed:
-
 - **Stock** - How many items do you hold? / What do you hold? / How many locations or
   warehouses?
 - **Count** - When did you last count physically? / Full count or cycle count? / How often?
@@ -128,26 +94,19 @@ Then, only as needed:
 - **Current process** - Is the count currently recorded anywhere? / Spreadsheet, accounting
   package, or another system? / What is currently being missed?
 - **Outcome** - A reconciliation record, a count sheet, or both?
-
 **Ambiguous answers are not answers.** `yes`, `no`, `maybe`, `same`, `okay` and `fine` are
 not answers to a multiple-choice question - not even when the question was phrased as two
 options in a sentence. A bare `yes` to "Do you want a full count or a cycle count?" resolves
 nothing, because the question had no yes/no answer to give. Re-ask as an explicit choice and
 wait:
-
 > **Q:** Which do you mean: **full count of all items** or **cycle count of selected items**?
-
 **Partial answers keep only the answered part.** If a question carries two pieces of
 information and the user answers one, retain only that one and leave the rest `Unknown`.
 Never turn Unknown into 0 - a quantity nobody has counted is not a quantity of zero.
-
 Never invent an answer. If the user does not know, record it as `Unknown` and carry on.
-
 ### Step 3 - Hold the internal context
-
 Keep the answers in this shape. It stays internal - it is not shown to the user unless
 they ask, and it never carries a value the user did not give.
-
 ```yaml
 module: inventory-stock-reconciliation
 intent: null            # set in Step 1: set up | fix | review | report | import
@@ -169,25 +128,16 @@ confirmed_facts: []     # only what the user actually said
 unknowns: []            # asked and not answered
 open_questions: []      # the unanswered ones, in the order worth asking
 ```
-
 ### Step 4 - Recommend the smallest workflow
-
 Build an already requested artifact without asking again. For advice-only requests, give a short recommendation and offer the relevant artifact.
-
 **Recommended approach:** One reconciliation record per count session, item, location and relevant lot/serial/UOM (rather than overwriting an earlier count). Freeze or reconcile movements to one stated cutoff, separate owned/consigned goods and avoid double-counting damage/expiry. One record per item counted, carrying the book quantity, the physical quantity, the variance, the variance reason, the investigation notes and the authorised adjustment, with the count sheet filed against the same reconciliation.
-
 **Why this one:** The minimum defensible record connects the physical count to the book balance, documents why a difference exists, and records who authorised any adjustment. A count that is not reconciled back to the books proves nothing, and an adjustment passed without a named approver is a correction dressed up as control.
-
 **Workflow:** Count planned → Items counted → Compared with books → Variance investigated → Adjustment authorised → Adjustment booked → Reconciliation filed
-
 If no artifact was requested, offer the relevant format. Otherwise continue the build.
-
 ### Step 5 - Build only on request
-
 Once the user asks, derive the fields from the confirmed context and emit **only the
 artifacts that were requested**. No preamble, no summary, no recommendation repeated, no
 unrequested artifact.
-
 **A selected Notion output is rendered by `notion-manual-import`, so route the
 Notion step there.** When the user selects Notion, hand that step to
 @notion-manual-import: it holds the CSV, the property
@@ -197,19 +147,15 @@ here and do not improvise the import steps. Manual CSV and mapping outputs need 
 connection. For requested workspace changes, follow the shared contract: verify actual
 tool access and the target before writing. A user saying "connected" is not tool evidence.
 Never ask for a Notion password or token.
-
 **The output is an empty template.** The CSV is a header row with no example row unless the
 user explicitly asks for one; if they do ask, label the row clearly as illustrative and never
 make it look like a real count. The SQL is DDL with no sample records. The JSON Schema is a
 schema with no example values. Add no invented sample transactions, names, dates,
 quantities, prices, locations, approvals or variance reasons to any of them.
-
 The blocks below are the documented *shape*, so the Field Reference and the four artifacts
 can be read together. The row in the CSV block is an illustrative placeholder that shows how
 the columns line up; it is not a record, and it is not what ships. Delete it before use.
-
 `updated_at DEFAULT NOW()` only initializes the column; application logic or a trigger must update it. Source IDs must be preserved separately when importing into an auto-generated primary key.
-
 Money basis: `Unit Rate` is the rate as the business records it, and `Variance Value` is the
 variance valued at that rate on the same row. State the currency and the precision required for unit costs (two decimal places may lose costing precision); keep one currency per table or add an explicit currency field. State whether the figures are as recorded or
 rounded to a cost layer, and round once, at the end. The arithmetic ties out as
@@ -217,9 +163,7 @@ rounded to a cost layer, and round once, at the end. The arithmetic ties out as
 `Variance Value = Variance Quantity x Unit Rate`; a row that does not tie is left as it is
 and marked for review, never silently corrected to force a tie-out. This module never states
 a `Debit` or `Credit` side, because which side a movement lands on is software-dependent.
-
 **Control rules**
-
 1. Never book an adjustment without a named approver. An empty `Approved By` is a blocked
    record, not a formality.
 2. Never invent an approver, a counter or a verifier. Never infer the verifier from the
@@ -233,12 +177,10 @@ a `Debit` or `Credit` side, because which side a movement lands on is software-d
    one.
 7. All four artifacts are derived from the same canonical field list, with identical names
    and identical order.
-
 ```csv
 Reconciliation Number,Count Date,Item Code,Item Name,Category,UOM,Location/Warehouse,Book Quantity,Physical Quantity,Variance Quantity,Unit Rate,Variance Value,Variance Reason,Damaged Quantity,Expired Quantity,Slow Moving Flag,Unrecorded Purchases,Unrecorded Issues,Investigation Notes,Adjustment Entry,Adjustment Date,Approved By,Counted By,Verified By,Count Frequency,Status,Notes,Inventory Reconciliation ID
 REC-EXAMPLE-001,2026-01-15,ITEM-EXAMPLE-001,Example Item A,Raw Material,Nos,Example Store,10,8,-2,1.00,-2.00,Damage,1,1,No,1,1,Illustrative row only - placeholder quantities that show the shape of the record and are not a real count or a real finding.,ADJ-EXAMPLE-001,2026-01-16,Example Approver,Example Counter,Example Verifier,Monthly,Done,Illustrative row only - delete this row before use.,
 ```
-
 ```sql
 -- PostgreSQL example DDL; substitute an equivalent identity or
 -- auto-increment column on MySQL, SQL Server or SQLite.
@@ -276,15 +218,12 @@ CREATE TABLE inventory_stock_reconciliation (
   CONSTRAINT chk_variance_matches_count CHECK (variance_quantity IS NULL OR physical_quantity IS NULL OR book_quantity IS NULL OR variance_quantity = physical_quantity - book_quantity),
   CONSTRAINT chk_unit_rate_non_negative CHECK (unit_rate IS NULL OR unit_rate >= 0)
 );
-
 CREATE INDEX idx_inventory_stock_reconciliation_count_date ON inventory_stock_reconciliation (count_date);
 CREATE INDEX idx_inventory_stock_reconciliation_status ON inventory_stock_reconciliation (status);
 ```
-
 `created_at`, `updated_at` and the primary key are technical metadata, not business fields.
 No `FOREIGN KEY` is declared because no target table is part of this artifact set. There are
 no sample records and no invented default values in the DDL.
-
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -324,7 +263,6 @@ no sample records and no invented default values in the DDL.
   "required": ["Status"]
 }
 ```
-
 Drafts may omit unknown count date, unit and quantities; omit unknown numeric/date JSON properties and leave CSV cells blank, never write the string Unknown into them. Completion requires Count Date, item/location identity, UOM and both quantities plus applicable investigation/approval checks. The schema and DDL alone do not enforce these workflow conditions. For completed records, field requirements are justified as follows. `Count Date` is needed or the row is not a count.
 `UOM` is needed or the quantities on the row are unreadable. `Book Quantity` and
 `Physical Quantity` are the two halves of the comparison, so the record is meaningless
@@ -334,7 +272,6 @@ is never required while its source may legitimately be missing. `Variance Reason
 required because a row with no variance has no reason to give. `Count Frequency` is
 conditional: record it once the business has established one. `Adjustment Date` and
 `Adjustment Entry` are conditional on an adjustment actually being authorised.
-
 ```markdown
 | CSV column | Notion property | Set after import |
 |---|---|---|
@@ -367,9 +304,7 @@ conditional: record it once the business has established one. `Adjustment Date` 
 | Notes | Text | Leave as Text |
 | Inventory Reconciliation ID | Text (preserve source ID) | Keep imported IDs as Text; optionally add a separate Unique ID property |
 ```
-
 ## Field Reference
-
 | # | Field | Type | SQL | JSON Schema | Notion | CSV example |
 |---:|---|---|---|---|---|---|
 | 1 | Reconciliation Number | `text` | `VARCHAR(255)` | `string` | Title | `REC-EXAMPLE-001` |
@@ -400,27 +335,18 @@ conditional: record it once the business has established one. `Adjustment Date` 
 | 26 | Status | `select` | `VARCHAR(100)` | `string` | Select (add options after import) | `Done` |
 | 27 | Notes | `long_text` | `TEXT` | `string` | Text | `Illustrative row only - delete this row before use.` |
 | 28 | Inventory Reconciliation ID | `id` | `SERIAL PRIMARY KEY` | `integer` | Text (preserve source ID) | `(blank)` |
-
 Quantities are `number`, money is `currency` with no currency symbol in the cell, and dates
 are ISO `YYYY-MM-DD` in real date fields. Round once, at the end, and say so.
-
 `Status` carries the module's status set. A record must not be `Done` while a required check
 fails: a variance with no investigated reason, an adjustment with no named approver, or a
 missing unit all hold it at `In progress` or `Blocked`.
-
-
 See the [Select Options](references/select-options.md) reference for the full guidance.
-
 ## Examples
-
 **Prompt**
-
 ```
 Our godown stock and the books never match and nobody can say why.
 ```
-
 **Context first** - one question per message, nothing already answered:
-
 > **Q:** How many items do you hold, and when did you last count them physically?
 > **A:** 20 to 50.
 >
@@ -444,25 +370,18 @@ Our godown stock and the books never match and nobody can say why.
 >
 > **Q:** Who approves a stock adjustment after a variance is investigated?
 > **A:** Manager.
-
 Recorded: `counted_by` is Storekeeper, `verified_by` is Manager, `approved_by` is Manager -
 three separate answers to three separate questions, and the last one was not inferred from
 the second. The bare `Yes` was not a choice, so it was re-asked. The last physical count date
 is still `Unknown`, because nobody supplied it.
-
 **Recommended next step** - offered, not built:
-
 > One reconciliation record per item counted, carrying the book quantity, the physical quantity, the variance, the reason and the authorised adjustment, with the count sheet filed against the same record.
 >
 > Workflow: Count planned → Items counted → Compared with books → Variance investigated → Adjustment authorised → Adjustment booked → Reconciliation filed
 >
 > Want me to build the CSV, SQL DDL, JSON Schema and Notion mapping?
-
-
 See the [Best Practices](references/best-practices.md) reference for the full guidance.
-
 ## Limitations
-
 - Empty template only. It does not count stock, value inventory, change stock, or post
   journal entries.
 - The variance arithmetic can be done by hand or by the accounting package. What this
@@ -478,7 +397,4 @@ See the [Best Practices](references/best-practices.md) reference for the full gu
 - No automation, reminders or sync. Those need the integration layer.
 - Human review remains required for investigations, adjustments, legal, tax and disciplinary
   matters before this drives any real decision.
-
-
 See the [Security & Safety Notes](references/security-safety-notes.md) reference for the full guidance.
-

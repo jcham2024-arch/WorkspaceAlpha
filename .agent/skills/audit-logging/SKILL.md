@@ -1,48 +1,35 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "575bb2f3ed46e88138400a2faf32e6527c502d1c3cf6249095f4b0ae15211068"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: audit-logging
-description: Implement centralized audit logging and SIEM integration. Configure log
-tier: "experimental"
-  retention and security monitoring. Use when implementing audit trail requirements.
+content_hash: 575bb2f3ed46e88138400a2faf32e6527c502d1c3cf6249095f4b0ae15211068
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: security
+compatibility: Linux infrastructure examples require the matching logging services and
+date_added: 2026-09-20
+description: Implement centralized audit logging and SIEM integration. Configure log
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: audit-logging
 risk: safe
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Linux infrastructure examples require the matching logging services and
+version: 1.0
+---  retention and security monitoring. Use when implementing audit trail requirements.
   authorized administrator access. Application examples require a writable approved log destination.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # Audit Logging
-
 Implement comprehensive audit logging for compliance, security monitoring, and forensic analysis across infrastructure and applications.
-
 ## When to Use
-
 - Setting up centralized logging for compliance frameworks (SOC 2, HIPAA, PCI DSS)
 - Implementing security event monitoring and alerting
 - Building audit trails for regulatory requirements
 - Configuring log retention and integrity-protected storage
 - Integrating application logs with SIEM platforms
-
 ## Log Categories
-
 ```yaml
 audit_events:
   authentication:
@@ -51,28 +38,24 @@ audit_events:
     - Session creation, renewal, and termination
     - Password changes and resets
     - API key and token generation
-
   authorization:
     - Access grants and denials
     - Permission changes and role assignments
     - Privilege escalation events
     - Resource sharing modifications
     - Policy evaluation results
-
   data_access:
     - Read operations on sensitive data
     - Write and update operations
     - Delete and purge operations
     - Bulk export and download events
     - Data classification changes
-
   administrative:
     - Configuration changes
     - User and group management
     - System startup and shutdown
     - Backup and restore operations
     - Network and firewall rule changes
-
   system:
     - Service health state changes
     - Resource provisioning and deprovisioning
@@ -80,15 +63,11 @@ audit_events:
     - Scheduled job execution results
     - Integration and webhook events
 ```
-
 ## Rsyslog Configuration for Centralized Logging
-
 ```bash
 # /etc/rsyslog.d/50-audit.conf
-
 # Load imfile module to read application logs
 module(load="imfile")
-
 # Forward auth logs
 input(type="imfile"
   File="/var/log/auth.log"
@@ -96,7 +75,6 @@ input(type="imfile"
   Severity="info"
   Facility="auth"
 )
-
 # Forward application audit logs
 input(type="imfile"
   File="/var/log/app/audit.log"
@@ -104,7 +82,6 @@ input(type="imfile"
   Severity="info"
   Facility="local0"
 )
-
 # Structured JSON template
 template(name="json-audit" type="list") {
   constant(value="{")
@@ -116,7 +93,6 @@ template(name="json-audit" type="list") {
   constant(value="\",\"message\":\"")    property(name="msg" format="json")
   constant(value="\"}\n")
 }
-
 # Forward to central syslog server over TLS
 action(
   type="omfwd"
@@ -134,9 +110,7 @@ action(
   action.resumeRetryCount="-1"
 )
 ```
-
 ## Journald Configuration for Persistent Logging
-
 ```ini
 # /etc/systemd/journald.conf
 [Journal]
@@ -150,28 +124,22 @@ SystemMaxUse=10G
 SystemKeepFree=2G
 ForwardToSyslog=yes
 ```
-
 ```bash
 # Query journald for audit events
 journalctl _TRANSPORT=audit --since "24 hours ago" --output json-pretty
-
 # Filter by specific audit types
 journalctl _AUDIT_TYPE=1112 --since today  # user login events
 journalctl _AUDIT_TYPE=1100 --since today  # user auth events
-
 # Export for offline analysis
 journalctl --since "7 days ago" --output export > /backup/journal-export.bin
 ```
-
 ## Application Logging with Structured JSON
-
 ```python
 import logging
 import json
 import hashlib
 from datetime import datetime, timezone
 from functools import wraps
-
 class AuditLogger:
     def __init__(self, service_name, log_path, logger_name="audit"):
         self.service = service_name
@@ -181,7 +149,6 @@ class AuditLogger:
         self.logger.addHandler(handler)
         self.logger.setLevel(logging.INFO)
         self._prev_hash = None
-
     def log_event(self, event_type, user, resource, action, result,
                   metadata=None, source_ip=None):
         log_entry = {
@@ -203,7 +170,6 @@ class AuditLogger:
         ).hexdigest()
         self._prev_hash = log_entry["hash"]
         self.logger.info(json.dumps(log_entry))
-
     def log_auth(self, user, action, success, source_ip=None, mfa=False):
         self.log_event(
             event_type="authentication",
@@ -214,7 +180,6 @@ class AuditLogger:
             metadata={"mfa_used": mfa},
             source_ip=source_ip,
         )
-
     def log_data_access(self, user, resource, operation, record_count=0,
                         source_ip=None):
         self.log_event(
@@ -226,8 +191,6 @@ class AuditLogger:
             metadata={"record_count": record_count},
             source_ip=source_ip,
         )
-
-
 def audit_trail(audit_logger, resource_name):
     """Decorator to automatically audit function calls."""
     def decorator(func):
@@ -257,9 +220,7 @@ def audit_trail(audit_logger, resource_name):
         return wrapper
     return decorator
 ```
-
 ## Fluentd / Fluent Bit Log Aggregation
-
 ```yaml
 # fluent-bit.conf - lightweight agent on each node
 [SERVICE]
@@ -267,7 +228,6 @@ def audit_trail(audit_logger, resource_name):
     Daemon        Off
     Log_Level     info
     Parsers_File  parsers.conf
-
 [INPUT]
     Name          tail
     Path          /var/log/app/audit.log
@@ -275,18 +235,15 @@ def audit_trail(audit_logger, resource_name):
     Tag           audit.app
     Refresh_Interval 5
     Rotate_Wait   30
-
 [INPUT]
     Name          systemd
     Tag           audit.system
     Systemd_Filter _TRANSPORT=audit
-
 [FILTER]
     Name          modify
     Match         audit.*
     Add           cluster ${CLUSTER_NAME}
     Add           node ${NODE_NAME}
-
 [OUTPUT]
     Name          es
     Match         audit.*
@@ -297,7 +254,6 @@ def audit_trail(audit_logger, resource_name):
     tls           On
     tls.verify    On
     Retry_Limit   5
-
 [OUTPUT]
     Name          s3
     Match         audit.*
@@ -308,9 +264,7 @@ def audit_trail(audit_logger, resource_name):
     s3_key_format  /logs/%Y/%m/%d/$TAG/%H_%M_%S.gz
     compression    gzip
 ```
-
 ## Elasticsearch Index Lifecycle for Retention
-
 ```json
 {
   "policy": {
@@ -348,17 +302,11 @@ def audit_trail(audit_logger, resource_name):
   }
 }
 ```
-
 ## Retention and integrity requirements
-
 Define a retention register with framework/version, applicable control, data type, purpose, jurisdiction, legal hold, owner, approved period and authoritative evidence. Do not apply a single framework duration to every log type; documentation-retention obligations and operational-log retention differ. Obtain qualified review of legal and contractual requirements before applying deletion or export policies. The 365-day infrastructure examples are capacity-policy illustrations, not minimum compliance requirements.
-
 Checksums and the illustrative in-process hash chain detect some changes only when compared with a separately protected trusted checkpoint. They do not make storage immutable, survive restart without persistence, prevent a privileged actor rewriting both log and hashes, or establish regulatory compliance. Use independently protected append-only storage, authenticated checkpoints and restoration tests appropriate to the threat model.
-
 For local verification, use a project-reviewed manifest with a fixed approved directory, reject traversal/symlinks and missing files, and report failures locally. Do not automatically regenerate the trusted baseline after failure. Uploading audit logs, enabling forwarding and sending webhook alerts require explicit destination/data authorization; no notification is sent by this guide itself.
-
 ## SIEM Integration Checklist
-
 ```yaml
 siem_integration:
   log_sources:
@@ -370,13 +318,11 @@ siem_integration:
     - [ ] Container and orchestrator logs (Kubernetes audit)
     - [ ] WAF and CDN access logs
     - [ ] VPN and remote access logs
-
   normalization:
     - [ ] Common event format (CEF) or OCSF schema
     - [ ] Consistent timestamp format (ISO 8601 / UTC)
     - [ ] Unified user identity fields
     - [ ] Standardized severity levels
-
   alerting_rules:
     - [ ] Multiple failed login attempts (brute force)
     - [ ] Login from unusual location or device
@@ -385,7 +331,6 @@ siem_integration:
     - [ ] Administrative action outside change window
     - [ ] Service account anomalous activity
     - [ ] Log forwarding gap or interruption
-
   operational:
     - [ ] Log pipeline health monitoring
     - [ ] Storage capacity alerting
@@ -393,9 +338,7 @@ siem_integration:
     - [ ] Backup of log archives confirmed
     - [ ] Access to log systems restricted and audited
 ```
-
 ## Best Practices
-
 - Use structured logging (JSON) with consistent field names across all services
 - Ship logs to a centralized platform with write-once storage for tamper protection
 - Implement hash chaining or digital signatures for log integrity verification
@@ -406,16 +349,11 @@ siem_integration:
 - Monitor the logging pipeline itself to detect gaps in coverage
 - Regularly test log restoration from archives to verify recoverability
 - Rotate and compress logs to manage storage while meeting retention windows
-
 ## Limitations
-
 - Guidance and checklists only; not legal advice and not a substitute for a qualified auditor.
 - Docs-only import: upstream templates and scripts not bundled.
-
 ### Example
-
 ```markdown
 Map this skill's control checklist to our current evidence and list gaps.
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.

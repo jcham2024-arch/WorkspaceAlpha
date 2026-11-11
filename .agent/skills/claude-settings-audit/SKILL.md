@@ -1,45 +1,30 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "b99055f1cd4ceebccc200b74e2c1e8b033f7c34a582b83aca6e7b2d215d1c1d0"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: claude-settings-audit
+content_hash: b99055f1cd4ceebccc200b74e2c1e8b033f7c34a582b83aca6e7b2d215d1c1d0
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-03-06
 description: Analyze a repository to generate recommended Claude Code settings.json permissions. Use when setting up a new project, auditing existing settings, or determining which read-only bash commands to allow. Detects tech stack, build tools, and monorepo structure.
-tier: "experimental"
+name: claude-settings-audit
 risk: critical
 source: community
-date_added: "2026-03-06"
 ---
-
-
 # Claude Settings Audit
-
 Analyze this repository and generate recommended Claude Code `settings.json` permissions for read-only commands.
-
 ## When to Use
 - You are setting up or auditing Claude Code `settings.json` permissions for a repository.
 - You need to infer a safe read-only allow list from the repo's tech stack, tooling, and monorepo structure.
 - You want to review or replace an existing Claude permissions baseline with something evidence-based.
-
 The broad prefixes in legacy examples are not a read-only sandbox: find can execute/delete, gh api can POST/PATCH/DELETE, and git branch/remote/tag have mutating forms. Recommend narrow reviewed commands or purpose-built read tools; never auto-allow arbitrary arguments merely because a command is usually observational. Build tools (make -n, Gradle, Maven, package managers) may evaluate project code or download/write caches. Redact settings/MCP secret values before displaying them, preserve existing deny/ask rules, and produce a proposal rather than silently installing permissions or servers. Skill invocation permissions can authorize mutating workflows and are not read-only by name.
-
 ## Phase 1: Detect Tech Stack
-
 Run these commands to detect the repository structure:
-
 ```bash
 ls -la
 find . -maxdepth 2 \( -name "*.toml" -o -name "*.json" -o -name "*.lock" -o -name "*.yaml" -o -name "*.yml" -o -name "Makefile" -o -name "Dockerfile" -o -name "*.tf" \) 2>/dev/null | head -50
 ```
-
 Check for these indicator files:
-
 | Category     | Files to Check                                                                        |
 | ------------ | ------------------------------------------------------------------------------------- |
 | **Python**   | `pyproject.toml`, `setup.py`, `requirements.txt`, `Pipfile`, `poetry.lock`, `uv.lock` |
@@ -51,35 +36,24 @@ Check for these indicator files:
 | **Build**    | `Makefile`, `Dockerfile`, `docker-compose.yml`                                        |
 | **Infra**    | `*.tf` files, `kubernetes/`, `helm/`                                                  |
 | **Monorepo** | `lerna.json`, `nx.json`, `turbo.json`, `pnpm-workspace.yaml`                          |
-
 ## Phase 2: Detect Services
-
 Check for service integrations:
-
 | Service    | Detection                                                                       |
 | ---------- | ------------------------------------------------------------------------------- |
 | **Sentry** | `sentry-sdk` in deps, `@sentry/*` packages, `.sentryclirc`, `sentry.properties` |
 | **Linear** | Linear config files, `.linear/` directory                                       |
-
 Read dependency files to identify frameworks:
-
 - `package.json` → check `dependencies` and `devDependencies`
 - `pyproject.toml` → check `[project.dependencies]` or `[tool.poetry.dependencies]`
 - `Gemfile` → check gem names
 - `Cargo.toml` → check `[dependencies]`
-
 ## Phase 3: Check Existing Settings
-
 ```bash
 cat .claude/settings.json 2>/dev/null || echo "No existing settings"
 ```
-
 ## Phase 4: Generate Recommendations
-
 Build the allow list by combining:
-
 ### Candidate Baseline (Review Each Permission)
-
 ```json
 [
   "Bash(ls:*)",
@@ -113,13 +87,9 @@ Build the allow list by combining:
   "Bash(gh repo view --json nameWithOwner)"
 ]
 ```
-
 ### Stack-Specific Commands
-
 Only include commands for tools actually detected in the project.
-
 #### Python (if any Python files or config detected)
-
 | If Detected                        | Add These Commands                      |
 | ---------------------------------- | --------------------------------------- |
 | Any Python                         | `python --version`, `python3 --version` |
@@ -127,9 +97,7 @@ Only include commands for tools actually detected in the project.
 | `uv.lock`                          | `uv pip list`, `uv tree`                |
 | `Pipfile.lock`                     | `pipenv graph`                          |
 | `requirements.txt` (no other lock) | `pip list`, `pip show`, `pip freeze`    |
-
 #### Node.js (if package.json detected)
-
 | If Detected                  | Add These Commands                     |
 | ---------------------------- | -------------------------------------- |
 | Any Node.js                  | `node --version`                       |
@@ -137,9 +105,7 @@ Only include commands for tools actually detected in the project.
 | `yarn.lock`                  | `yarn list`, `yarn info`, `yarn why`   |
 | `package-lock.json`          | `npm list`, `npm view`, `npm outdated` |
 | TypeScript (`tsconfig.json`) | `tsc --version`                        |
-
 #### Other Languages
-
 | If Detected    | Add These Commands                                                   |
 | -------------- | -------------------------------------------------------------------- |
 | `go.mod`       | `go version`, `go list`, `go mod graph`, `go env`                    |
@@ -147,20 +113,15 @@ Only include commands for tools actually detected in the project.
 | `Gemfile`      | `ruby --version`, `bundle list`, `bundle show`                       |
 | `pom.xml`      | `java --version`, `mvn --version`, `mvn dependency:tree`             |
 | `build.gradle` | `java --version`, `gradle --version`, `gradle dependencies`          |
-
 #### Build Tools
-
 | If Detected          | Add These Commands                                                   |
 | -------------------- | -------------------------------------------------------------------- |
 | `Dockerfile`         | `docker --version`, `docker ps`, `docker images`                     |
 | `docker-compose.yml` | `docker-compose ps`, `docker-compose config`                         |
 | `*.tf` files         | `terraform --version`, `terraform providers`, `terraform state list` |
 | `Makefile`           | `make --version`, `make -n`                                          |
-
 ### Skills (for Sentry Projects)
-
 If this is a Sentry project (or sentry-skills plugin is installed), include:
-
 ```json
 [
   "Skill(sentry-skills:agents-md)",
@@ -188,11 +149,8 @@ If this is a Sentry project (or sentry-skills plugin is installed), include:
   "Skill(sentry-skills:sred-work-summary)"
 ]
 ```
-
 ### WebFetch Domains
-
 #### Always Include (Sentry Projects)
-
 ```json
 [
   "WebFetch(domain:docs.sentry.io)",
@@ -201,9 +159,7 @@ If this is a Sentry project (or sentry-skills plugin is installed), include:
   "WebFetch(domain:cli.github.com)"
 ]
 ```
-
 #### Framework-Specific
-
 | If Detected    | Add Domains                                     |
 | -------------- | ----------------------------------------------- |
 | **Django**     | `docs.djangoproject.com`                        |
@@ -219,19 +175,13 @@ If this is a Sentry project (or sentry-skills plugin is installed), include:
 | **Docker**     | `docs.docker.com`                               |
 | **Kubernetes** | `kubernetes.io`                                 |
 | **Terraform**  | `registry.terraform.io`                         |
-
 ### MCP Server Suggestions
-
 MCP servers are configured in `.mcp.json` (not `settings.json`). Check for existing config:
-
 ```bash
 cat .mcp.json 2>/dev/null || echo "No existing .mcp.json"
 ```
-
 #### Sentry MCP (if Sentry SDK detected)
-
 Add to `.mcp.json` (replace `{org-slug}` and `{project-slug}` with your Sentry organization and project slugs):
-
 ```json
 {
   "mcpServers": {
@@ -242,11 +192,8 @@ Add to `.mcp.json` (replace `{org-slug}` and `{project-slug}` with your Sentry o
   }
 }
 ```
-
 #### Linear MCP (if Linear usage detected)
-
 Add to `.mcp.json`:
-
 ```json
 {
   "mcpServers": {
@@ -260,23 +207,16 @@ Add to `.mcp.json`:
   }
 }
 ```
-
 **Note**: Use the client’s approved GitHub connector or narrowly scoped CLI commands according to user preference.
-
 ## Output Format
-
 Present your findings as:
-
 1. **Summary Table** - What was detected
 2. **Recommended settings.json** - Complete JSON ready to copy
 3. **MCP Suggestions** - If applicable
 4. **Merge Instructions** - If existing settings found
-
 Example output structure:
-
 ```markdown
 ## Detected Tech Stack
-
 | Category        | Found          |
 | --------------- | -------------- |
 | Languages       | Python 3.x     |
@@ -284,9 +224,7 @@ Example output structure:
 | Frameworks      | Django, Celery |
 | Services        | Sentry         |
 | Build Tools     | Docker, Make   |
-
 ## Recommended .claude/settings.json
-
 \`\`\`json
 {
 "permissions": {
@@ -297,32 +235,22 @@ Example output structure:
 }
 }
 \`\`\`
-
 ## Recommended .mcp.json (if applicable)
-
 If you use Sentry or Linear, add the MCP config to `.mcp.json`...
 ```
-
 ## Important Rules
-
 ### What to Include
-
 - Only READ-ONLY commands that cannot modify state
 - Only tools that are actually used by the project (detected via lock files)
 - Standard system commands (ls, cat, find, etc.)
 - The `:*` suffix is broad; verify current host matching semantics and all allowed argument effects
-
 ### What to NEVER Include
-
 - **Absolute paths** - Never include user-specific paths like `/home/user/scripts/foo` or `/Users/name/bin/bar`
 - **Custom scripts** - Never include project scripts that may have side effects (e.g., `./scripts/deploy.sh`)
 - **Alternative package managers** - If the project uses pnpm, do NOT include npm/yarn commands
 - **Commands that modify state** - No install, build, run, write, or delete commands
-
 ### Package Manager Rules
-
 Only include the package manager actually used by the project:
-
 | If Detected         | Include         | Do NOT Include                         |
 | ------------------- | --------------- | -------------------------------------- |
 | `pnpm-lock.yaml`    | pnpm commands   | npm, yarn                              |
@@ -331,16 +259,11 @@ Only include the package manager actually used by the project:
 | `poetry.lock`       | poetry commands | pip (unless also has requirements.txt) |
 | `uv.lock`           | uv commands     | pip, poetry                            |
 | `Pipfile.lock`      | pipenv commands | pip, poetry                            |
-
 If multiple lock files exist, include only the commands for each detected manager.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Linux](platforms/linux.md)

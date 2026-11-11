@@ -1,67 +1,49 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "251f5ad89a5495fc7d7f7c0b7cfc83af7be135f3e85f0aa3ee703f4627263e5f"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: gitlab-ci
-description: Configure GitLab CI/CD pipelines and runners for automated building,
-tier: "experimental"
-  testing, and deployment.
+content_hash: 251f5ad89a5495fc7d7f7c0b7cfc83af7be135f3e85f0aa3ee703f4627263e5f
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+date_added: 2026-09-20
+description: Configure GitLab CI/CD pipelines and runners for automated building,
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: staging
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+version: 1.0
+---  testing, and deployment.
   CI runners) and authorized access to the target environment. Docs-only; helper scripts
   and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # GitLab CI/CD
-
 Automate your software delivery pipeline with GitLab's integrated CI/CD system.
-
 ## When to Use This Skill
-
 Use this skill when:
 - Setting up CI/CD pipelines in GitLab
 - Configuring GitLab runners (shared or self-hosted)
 - Creating multi-stage deployment pipelines
 - Implementing GitLab Auto DevOps
 - Managing CI/CD variables and secrets
-
 ## Prerequisites
-
 - GitLab repository (gitlab.com or self-hosted)
 - Basic understanding of YAML
 - For self-hosted runners: Linux server or Kubernetes cluster
-
 ## Pipeline Configuration
-
 Create `.gitlab-ci.yml` in repository root:
-
 ```yaml
 stages:
   - build
   - test
   - deploy
-
 variables:
   NODE_VERSION: "20"
-
 build:
   stage: build
   image: node:${NODE_VERSION}
@@ -72,7 +54,6 @@ build:
     paths:
       - dist/
     expire_in: 1 hour
-
 test:
   stage: test
   image: node:${NODE_VERSION}
@@ -80,22 +61,17 @@ test:
     - npm ci
     - npm test
   coverage: '/Coverage: \d+\.\d+%/'
-
 deploy:
   stage: deploy
   script:
     - ./deploy.sh
   environment:
-    name: production
     url: https://example.com
   only:
     - main
 ```
-
 ## Job Configuration
-
 ### Rules-Based Execution
-
 ```yaml
 deploy:
   script: ./deploy.sh
@@ -106,9 +82,7 @@ deploy:
       when: never
     - when: never
 ```
-
 ### Parallel Jobs
-
 ```yaml
 test:
   stage: test
@@ -116,9 +90,7 @@ test:
   script:
     - npm test -- --shard=$CI_NODE_INDEX/$CI_NODE_TOTAL
 ```
-
 ### Matrix Builds
-
 ```yaml
 test:
   stage: test
@@ -130,9 +102,7 @@ test:
   script:
     - npm test
 ```
-
 ## Caching
-
 ```yaml
 cache:
   key:
@@ -141,7 +111,6 @@ cache:
   paths:
     - node_modules/
   policy: pull-push
-
 build:
   cache:
     key: build-cache
@@ -149,9 +118,7 @@ build:
       - .cache/
     policy: pull
 ```
-
 ## Artifacts
-
 ```yaml
 build:
   artifacts:
@@ -166,31 +133,24 @@ build:
     expire_in: 1 week
     when: always
 ```
-
 ## Environments and Deployments
-
 ```yaml
 deploy_staging:
   stage: deploy
   script:
     - deploy --env staging
   environment:
-    name: staging
     url: https://staging.example.com
     on_stop: stop_staging
-
 stop_staging:
   stage: deploy
   script:
     - undeploy --env staging
   environment:
-    name: staging
     action: stop
   when: manual
 ```
-
 ## Docker Builds
-
 ```yaml
 build_image:
   stage: build
@@ -204,17 +164,13 @@ build_image:
     - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA .
     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
 ```
-
 ## GitLab Runners
-
 ### Install Runner
-
 ```bash
 # Download and install
 # Prerequisite: GitLab Runner installed from an organization-approved signed package.
 # This guide does not fetch or execute a remote bootstrap script.
 gitlab-runner --version
-
 # Register runner
 sudo gitlab-runner register \
   --url https://gitlab.com/ \
@@ -222,11 +178,8 @@ sudo gitlab-runner register \
   --executor docker \
   --docker-image alpine:latest
 ```
-
 ### Runner Configuration
-
 Default to unprivileged isolated runners. Docker-in-Docker and host Docker socket mounts require a separately reviewed trusted-runner design; they can grant host-level control and must not be exposed to untrusted merge requests. Historical runtime/image versions and runner registration flags need current GitLab validation.
-
 ```toml
 # /etc/gitlab-runner/config.toml
 [[runners]]
@@ -239,28 +192,20 @@ Default to unprivileged isolated runners. Docker-in-Docker and host Docker socke
     privileged = false
     volumes = ["/cache"]
 ```
-
 ### Runner Tags
-
 ```yaml
 build:
-  tags:
     - docker
     - linux
   script:
     - make build
 ```
-
 ## CI/CD Variables
-
 ### Protected Variables
-
 Define in Settings > CI/CD > Variables:
 - `AWS_ACCESS_KEY_ID` (protected, masked)
 - `AWS_SECRET_ACCESS_KEY` (protected, masked)
-
 ### Using Variables
-
 ```yaml
 deploy:
   script:
@@ -268,11 +213,8 @@ deploy:
   variables:
     AWS_DEFAULT_REGION: us-east-1
 ```
-
 ## Include and Extend
-
 ### Include Templates
-
 ```yaml
 include:
   - template: Security/SAST.gitlab-ci.yml
@@ -280,76 +222,56 @@ include:
     file: '/templates/deploy.yml'
   - local: '/ci/jobs.yml'
 ```
-
 ### Extend Jobs
-
 ```yaml
 .base_job:
   image: node:20
   before_script:
     - npm ci
-
 build:
   extends: .base_job
   script:
     - npm run build
-
 test:
   extends: .base_job
   script:
     - npm test
 ```
-
 ## Multi-Project Pipelines
-
 ```yaml
 trigger_downstream:
   stage: deploy
-  trigger:
     project: group/downstream-project
     branch: main
     strategy: depend
 ```
-
 ## Common Issues
-
 ### Issue: Pipeline Stuck
 **Problem**: Jobs stay pending
 **Solution**: Check runner availability and tags matching
-
 ### Issue: Docker-in-Docker Fails
 **Problem**: Cannot connect to Docker daemon
 **Solution**: Use `docker:dind` service with proper TLS configuration
-
 ### Issue: Cache Not Working
 **Problem**: Cache misses between jobs
 **Solution**: Verify cache key and ensure runners share distributed cache
-
 ## Best Practices
-
 - Use `rules` instead of `only/except` for complex conditions
 - Leverage GitLab's built-in security scanning templates
 - Use job dependencies to optimize pipeline speed
 - Implement review apps for merge requests
 - Cache dependencies aggressively
 - Use artifacts for passing data between stages
-
 ## Related Skills
-
 - github-actions (`github-actions`) - GitHub CI/CD alternative
 - argocd-gitops (`argocd-gitops`) - GitOps deployments
 - container-registries (`container-registries`) - Registry management
-
 ## Limitations
-
 - Guidance executes against real environments: confirm target, blast radius, and rollback plan before applying anything.
 - Never deploy to production without explicit approval. Docs-only import: upstream scripts and templates not bundled.
-
 ### Example
-
 ```bash
 git status && git diff --stat
 kubectl diff -f manifest.yaml
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.

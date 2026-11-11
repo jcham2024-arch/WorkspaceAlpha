@@ -1,40 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "8de1566580314f83c28131d421c6c3ce9138ee49f765b9427e75c5c263ccfc22"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: cloudformation
-description: Deploy AWS resources with CloudFormation templates. Create stacks, use
-tier: "experimental"
-  nested stacks, and implement drift detection. Use when deploying AWS-native IaC.
+content_hash: 8de1566580314f83c28131d421c6c3ce9138ee49f765b9427e75c5c263ccfc22
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant OS/platform tooling and privileged access where
+date_added: 2026-09-20
+description: Deploy AWS resources with CloudFormation templates. Create stacks, use
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: cloudformation
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant OS/platform tooling and privileged access where
+version: 1.0
+---  nested stacks, and implement drift detection. Use when deploying AWS-native IaC.
   noted. Docs-only; helper scripts and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # CloudFormation
-
 Deploy AWS infrastructure with native CloudFormation templates, change sets, nested stacks, and drift detection.
-
 ## When to Use This Skill
-
 - Deploying AWS resources using AWS-native Infrastructure as Code
 - Creating repeatable, parameterized infrastructure templates
 - Managing multi-environment deployments (dev, staging, prod) with the same template
@@ -42,20 +31,15 @@ Deploy AWS infrastructure with native CloudFormation templates, change sets, nes
 - Detecting and remediating configuration drift
 - Organizing large infrastructure into nested stacks
 - Exporting/importing values between stacks
-
 ## Prerequisites
-
 - AWS CLI v2 installed and configured
 - Least-privilege CloudFormation actions and a reviewed execution role/resource permissions scoped to the intended stacks
 - (Optional) `cfn-lint` installed for template validation (`pip install cfn-lint`)
 - S3 bucket for storing templates larger than 51,200 bytes
-
 ## Template Structure
-
 ```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Production web application infrastructure
-
 Metadata:
   AWS::CloudFormation::Interface:
     ParameterGroups:
@@ -63,34 +47,27 @@ Metadata:
         Parameters: [Environment, InstanceType]
       - Label: { default: "Network" }
         Parameters: [VpcId, SubnetIds]
-
 Parameters:
   Environment:
     Type: String
     AllowedValues: [dev, staging, prod]
     Default: dev
-
   InstanceType:
     Type: String
     Default: t3.micro
     AllowedValues: [t3.micro, t3.small, t3.medium, t3.large]
-
   AmiId:
     Type: AWS::EC2::Image::Id
     Description: Verified region-specific image with the application/bootstrap prerequisites
-
   VpcId:
     Type: AWS::EC2::VPC::Id
     Description: VPC to deploy into
-
   SubnetIds:
     Type: List<AWS::EC2::Subnet::Id>
     Description: Subnets for the application
-
 Conditions:
   IsProd: !Equals [!Ref Environment, prod]
   CreateReadReplica: !Equals [!Ref Environment, prod]
-
 Resources:
   SecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -105,7 +82,6 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub '${Environment}-web-sg'
-
   LaunchTemplate:
     Type: AWS::EC2::LaunchTemplate
     Properties:
@@ -117,7 +93,6 @@ Resources:
           HttpTokens: required
         SecurityGroupIds:
           - !Ref SecurityGroup
-
   AutoScalingGroup:
     Type: AWS::AutoScaling::AutoScalingGroup
     Properties:
@@ -149,7 +124,6 @@ Resources:
           - AZRebalance
           - AlarmNotification
           - ScheduledActions
-
   TargetGroup:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties:
@@ -162,32 +136,25 @@ Resources:
       HealthCheckIntervalSeconds: 30
       HealthyThresholdCount: 2
       UnhealthyThresholdCount: 3
-
 Outputs:
   SecurityGroupId:
     Description: Web security group ID
     Value: !Ref SecurityGroup
     Export:
       Name: !Sub '${Environment}-WebSecurityGroup'
-
   AutoScalingGroupName:
     Description: ASG name
     Value: !Ref AutoScalingGroup
     Export:
       Name: !Sub '${Environment}-WebASG'
 ```
-
 The template is an infrastructure scaffold, not a deployable production application: supply a verified region-specific AmiId and bootstrap/listener, an actual load balancer/listener and an ingress rule from its security group to target port8080. No cfn-signal sender is bundled, so resource-signal waiting is disabled; implement/test signals before enabling it. The nested child templates below are also external prerequisites.
-
 ## Stack Operations
-
 ```bash
 # Validate a template
 aws cloudformation validate-template --template-body file://template.yaml
-
 # Lint with cfn-lint (catches more issues)
 cfn-lint template.yaml
-
 # Create a stack
 aws cloudformation create-stack \
   --stack-name production-web \
@@ -201,28 +168,22 @@ aws cloudformation create-stack \
   --tags Key=Environment,Value=production Key=Team,Value=platform \
   --enable-termination-protection \
   --on-failure ROLLBACK
-
 # Wait for stack creation
 aws cloudformation wait stack-create-complete --stack-name production-web
-
 # Describe stack status and outputs
 aws cloudformation describe-stacks \
   --stack-name production-web \
   --query "Stacks[0].{Status:StackStatus,Outputs:Outputs}" \
   --output table
-
 # List stack resources
 aws cloudformation list-stack-resources --stack-name production-web \
   --query "StackResourceSummaries[].{Logical:LogicalResourceId,Physical:PhysicalResourceId,Type:ResourceType,Status:ResourceStatus}" \
   --output table
-
 # Delete a stack
 aws cloudformation delete-stack --stack-name dev-web
 aws cloudformation wait stack-delete-complete --stack-name dev-web
 ```
-
 ## Change Sets (Safe Updates)
-
 ```bash
 # Create a change set to preview changes before applying
 aws cloudformation create-change-set \
@@ -236,66 +197,52 @@ aws cloudformation create-change-set \
     ParameterKey=SubnetIds,UsePreviousValue=true \
     ParameterKey=AmiId,UsePreviousValue=true \
   --capabilities CAPABILITY_IAM
-
 # Describe the change set to review planned changes
 aws cloudformation describe-change-set \
   --stack-name production-web \
   --change-set-name update-instance-type \
   --query "Changes[].{Action:ResourceChange.Action,Resource:ResourceChange.LogicalResourceId,Type:ResourceChange.ResourceType,Replacement:ResourceChange.Replacement}" \
   --output table
-
 # Execute the change set (apply changes)
 aws cloudformation execute-change-set \
   --stack-name production-web \
   --change-set-name update-instance-type
-
 # Wait for update
 aws cloudformation wait stack-update-complete --stack-name production-web
-
 # Delete a change set without applying
 aws cloudformation delete-change-set \
   --stack-name production-web \
   --change-set-name update-instance-type
 ```
-
 ## Drift Detection
-
 ```bash
 # Start drift detection
 DRIFT_ID=$(aws cloudformation detect-stack-drift \
   --stack-name production-web \
   --query 'StackDriftDetectionId' --output text)
-
 # Check drift detection status
 aws cloudformation describe-stack-drift-detection-status \
   --stack-drift-detection-id $DRIFT_ID
-
 # View drifted resources
 aws cloudformation describe-stack-resource-drifts \
   --stack-name production-web \
   --stack-resource-drift-status-filters MODIFIED DELETED \
   --query "StackResourceDrifts[].{Resource:LogicalResourceId,Status:StackResourceDriftStatus,Differences:PropertyDifferences}" \
   --output table
-
 # Detect drift on a specific resource
 aws cloudformation detect-stack-resource-drift \
   --stack-name production-web \
   --logical-resource-id SecurityGroup
 ```
-
 ## Nested Stacks
-
 Parent template:
-
 ```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Parent stack - full application
-
 Parameters:
   Environment:
     Type: String
     AllowedValues: [dev, staging, prod]
-
 Resources:
   NetworkStack:
     Type: AWS::CloudFormation::Stack
@@ -307,7 +254,6 @@ Resources:
       Tags:
         - Key: Environment
           Value: !Ref Environment
-
   DatabaseStack:
     Type: AWS::CloudFormation::Stack
     DependsOn: NetworkStack
@@ -317,7 +263,6 @@ Resources:
         Environment: !Ref Environment
         VpcId: !GetAtt NetworkStack.Outputs.VpcId
         SubnetIds: !GetAtt NetworkStack.Outputs.PrivateSubnetIds
-
   AppStack:
     Type: AWS::CloudFormation::Stack
     DependsOn: [NetworkStack, DatabaseStack]
@@ -328,21 +273,18 @@ Resources:
         VpcId: !GetAtt NetworkStack.Outputs.VpcId
         SubnetIds: !GetAtt NetworkStack.Outputs.PrivateSubnetIds
         DbEndpoint: !GetAtt DatabaseStack.Outputs.Endpoint
-
 Outputs:
   VpcId:
     Value: !GetAtt NetworkStack.Outputs.VpcId
   AppUrl:
     Value: !GetAtt AppStack.Outputs.LoadBalancerDNS
 ```
-
 ```bash
 # Package nested templates (uploads local references to S3)
 aws cloudformation package \
   --template-file parent.yaml \
   --s3-bucket my-cfn-templates \
   --output-template-file packaged.yaml
-
 # Deploy the packaged template
 aws cloudformation deploy \
   --template-file packaged.yaml \
@@ -351,47 +293,33 @@ aws cloudformation deploy \
   --capabilities CAPABILITY_IAM CAPABILITY_AUTO_EXPAND \
   --tags Environment=production
 ```
-
 ## Intrinsic Functions Reference
-
 ```yaml
 # Ref - reference a parameter or resource
 SecurityGroupId: !Ref SecurityGroup
-
 # GetAtt - get an attribute of a resource
 SecurityGroupId: !GetAtt SecurityGroup.GroupId
-
 # Sub - string substitution
 BucketName: !Sub '${Environment}-${AWS::AccountId}-data'
-
 # Join - concatenate strings
 PolicyArn: !Join ['', ['arn:aws:iam::', !Ref 'AWS::AccountId', ':policy/MyPolicy']]
-
 # Select - pick from a list
 FirstSubnet: !Select [0, !Ref SubnetIds]
-
 # Split - split a string
 FirstPart: !Select [0, !Split ['-', !Ref 'AWS::StackName']]
-
 # If - conditional value
 InstanceSize: !If [IsProd, t3.large, t3.micro]
-
 # Equals - condition definition
 Conditions:
   IsProd: !Equals [!Ref Environment, prod]
-
 # ImportValue - cross-stack reference
 VpcId: !ImportValue production-VpcId
-
 # Cidr - generate CIDR blocks
 Subnets: !Cidr [!GetAtt VPC.CidrBlock, 6, 8]
-
 # GetAZs - list availability zones
 AZ: !Select [0, !GetAZs '']
 ```
-
 ## Stack Policy (Prevent Accidental Replacements)
-
 ```bash
 # Apply a stack policy that prevents replacement of the database
 aws cloudformation set-stack-policy \
@@ -419,24 +347,19 @@ aws cloudformation set-stack-policy \
     ]
   }'
 ```
-
 ## Stack Events and Debugging
-
 ```bash
 # View stack events (most recent first)
 aws cloudformation describe-stack-events \
   --stack-name production-web \
   --query "StackEvents[?ResourceStatus=='CREATE_FAILED' || ResourceStatus=='UPDATE_FAILED'].{Time:Timestamp,Resource:LogicalResourceId,Status:ResourceStatus,Reason:ResourceStatusReason}" \
   --output table
-
 # Continue a rollback that is stuck
 aws cloudformation continue-update-rollback \
   --stack-name production-web \
   --resources-to-skip SecurityGroup
-
 # Cancel an in-progress update
 aws cloudformation cancel-update-stack --stack-name production-web
-
 # Get template from an existing stack
 aws cloudformation get-template \
   --stack-name production-web \
@@ -444,9 +367,7 @@ aws cloudformation get-template \
   --query TemplateBody \
   --output text > current-template.yaml
 ```
-
 ## Troubleshooting
-
 | Problem | Cause | Fix |
 |---|---|---|
 | CREATE_FAILED on IAM resource | Missing CAPABILITY_IAM | Add `--capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM` |
@@ -458,17 +379,12 @@ aws cloudformation get-template \
 | Template validation error | YAML syntax or invalid resource property | Run `cfn-lint`; check property names against docs |
 | Export name already exists | Another stack uses the same export name | Use unique export names with `!Sub '${AWS::StackName}-Name'` |
 | Delete fails - resource in use | Dependent resource outside the stack | Remove the dependency first; check for SG references |
-
 ## Related Skills
-
 - terraform-aws (`terraform-aws`) - Alternative IaC with Terraform
 - aws-iam (`aws-iam`) - IAM resources in templates
 - aws-vpc (`aws-vpc`) - Network infrastructure templates
 - aws-ec2 (`aws-ec2`) - Compute resources in templates
 - aws-s3 (`aws-s3`) - Storage resources in templates
-
 ## Limitations
-
 - Infrastructure commands can disrupt services: confirm target host/scope and have backups/snapshots before mutating state.
 - Docs-only import: upstream scripts and templates not bundled.
-

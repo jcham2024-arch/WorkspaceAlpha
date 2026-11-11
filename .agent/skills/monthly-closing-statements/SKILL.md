@@ -1,100 +1,68 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "8296f7e0d6c03630bee2f8a6c9fb0be702a68a0f50be0b8246cbf8eda3af8945"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: monthly-closing-statements
-description: 'Monthly closing register: period dates, cash/bank/party/inventory/TDS reconciliation flags, profit, receivables, payables, working capital, open adjustments and reviewer. Use for period close.'
-tier: "experimental"
+content_hash: 8296f7e0d6c03630bee2f8a6c9fb0be702a68a0f50be0b8246cbf8eda3af8945
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: WHOISABHISHEKADHIKARI
 category: business
+date_added: 2026-09-26
+description: "'Monthly closing register: period dates, cash/bank/party/inventory/TDS reconciliation flags, profit, receivables, payables, working capital, open adjustments and reviewer. Use for period close.'"
+name: monthly-closing-statements
 risk: safe
 source: self
-source_type: self
-date_added: "2026-09-26"
-author: WHOISABHISHEKADHIKARI
-tags: [sme, accounting, audit, finance, database, csv, notion, sql, closing]
-tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
+source_type: self
+tags: "[sme, accounting, audit, finance, database, csv, notion, sql, closing]"
+tools: "[]"
 ---
-
-
 # Monthly Closing & Statements
-
 **What it is:** The month-end checklist, the reconciliations it depends on, and the statements it produces.
-
 ## Overview
-
 Works out the smallest useful **Monthly Closing & Statements** setup for the business in front of it, then
 builds it only when asked. The default output is a short recommendation, not a
 spreadsheet. Artifacts - CSV, SQL DDL, JSON Schema, Notion mapping - are produced on
 request, from one field list so they cannot drift apart.
-
 Say this plainly at the start: the reconciliations are the hard part and reconciliations support reliable statements. A trial balance can be prepared during reconciliation and is not proof of completeness, valuation or recognition. Statement preparation also requires accounting judgments and review; unresolved material items must follow the entity's documented close/sign-off policy.
-
 This skill produces an empty template. It does not close your books, does not calculate
 your trial balance and does not draw a balance sheet. It records the checklist, the
 answers and the period figures so the close is repeatable and the next person can see
 what was still open.
-
 Layer: Layer 8: Close & Analyse. Fits: Growth stage. Table code: n/a.
-
 ## When to Use This Skill
-
 - monthly closing checklist
 - month-end reconciliation tracker
 - trial balance preparation record
 - monthly financial statements pack
 - month-end analysis record
-
 Also use it when the user says "the month-end checklist, the reconciliations it depends on, and the statements it produces", or describes the same process happening in a
 spreadsheet, a document or someone inboxes.
-
 Do not use it for: statutory filing, tax computation, or legal advice. This skill produces
 empty templates only - it never holds or processes real employee or customer data.
-
 ## How It Works
-
 Follow the shared execution contract. The module-specific rules below define only domain fields, decisions, calculations, and safety constraints.
-
 ### Step 1 - Identify intent
-
 Read the request and pick the intent before asking anything.
-
 - "set up" or "build" or "create" -> the user wants artifacts; go to Step 2.
 - "our process is ..." or "it is in a sheet" -> the user wants to move an existing process; capture it, then Step 2.
 - "is this right" or "review" or "audit" -> the user wants a check, not a build; answer from what they share.
 - "how do I ..." -> advice question; answer directly and offer the build only if it helps.
-
 Ask only if this is the highest-value missing fact; otherwise proceed without an opener:
-
 > **Q:** What does your month-end close involve today, and how long does it take?
-
 ### Step 2 - Ask only what is missing
-
 Treat ambiguous replies as unanswered and ask which explicit option the user means. Record unknown values as `Unknown`; `Unknown` is not zero. A record must not be `Done` when a required check fails.
-
 Skip anything the user already answered, in any earlier message. Ask the rest one at a
 time, and stop as soon as the remaining answers would not change the output.
-
 - **Close** - Who prepares and who reviews? / How long does it take? / Fixed target date?
 - **Reconciliations** - Cash, bank, parties, inventory, TDS, VAT? / Which is the hard part?
 - **Adjustments** - Depreciation? / Accruals and prepayments? / Provisions in use?
 - **Output** - Trial balance, profit and loss, balance sheet? / Management reporting? / Any filing?
 - **Outcome** - What do you need? / A closing checklist, a template or both?
-
 Never invent an answer. If the user does not know, record it as unknown and carry on.
-
 ### Step 3 - Hold the internal context
-
 Hold the answers in this shape. It stays internal - it is not shown to the user unless
 they ask, and it never carries a value the user did not give.
-
 ```yaml
 module: monthly-closing-statements
 intent: null            # setup | advice | review | fix | build | convert | export
@@ -109,23 +77,15 @@ requested_outputs: []   # csv | sql | json | notion | xlsx - requested formats o
 confirmed_facts: []     # only what the user actually said
 open_questions: []      # the unanswered ones, in the order worth asking
 ```
-
 ### Step 4 - Recommend the smallest workflow
-
 Build an already requested artifact without asking again. For advice-only requests, give a short recommendation and offer the relevant artifact.
-
 **Recommended approach:** One closing record per month that carries every reconciliation as an explicit answer before any statement is drawn, then the period figures and a short written read on the position, so the close is repeatable and the next person can see what was still open.
-
 **Why this one:** The statements are the easy part. They require accounting judgments as well as reconciled inputs, and a trial balance built on unreconciled balances is just arithmetic on top of errors. Putting the gates in the record is what stops a month being reported while cash, inventory or tax is still unagreed.
-
 **Workflow:** Sales and purchase entries completed → Receipts and payments completed → Cash and bank reconciled → Party ledgers reconciled → Inventory reconciled → Statutory liabilities reconciled → Receivables and payables reviewed → Depreciation and adjustments recorded → Trial balance prepared → Statements prepared → Period analysed
-
 ### Step 5 - Build only on request
-
 Once the user asks for it, derive the fields from the confirmed context and emit the
 requested artifacts. For machine-readable text, keep prose outside the data; for files,
 provide a usable link. Report material validation failures or limitations separately.
-
 **A selected Notion output is rendered by `notion-manual-import`, so route the
 Notion step there.** When the user selects Notion, hand that step to
 [notion-manual-import](https://github.com/sickn33/agentic-awesome-skills/blob/main/skills/notion-manual-import/SKILL.md): it holds the CSV, the property
@@ -135,12 +95,10 @@ here and do not improvise the import steps. Manual CSV and mapping outputs need 
 connection. For requested workspace changes, follow the shared contract: verify actual
 tool access and the target before writing. A user saying "connected" is not tool evidence.
 Never ask for a Notion password or token.
-
 ```csv
 Closing Number,Period Start,Period End,Entries Completed,Cash Reconciled,Bank Reconciled,Party Ledgers Reconciled,Inventory Reconciled,TDS Reconciled,Other Statutory Liabilities Reconciled,Receivables Reviewed,Payables Reviewed,Depreciation Recorded,Accruals & Prepayments Reviewed,VAT/Tax Account Reviewed,Trial Balance Prepared,Financial Statements Prepared,Revenue,Gross Profit,Net Profit/Loss,Receivables Outstanding,Payables Outstanding,Working Capital,Cash Flow Position,Financial Position,Open Adjustments,Closing Date,Prepared By,Reviewed By,Status,Notes,Closing ID
 CL-2026-08,2026-08-01,2026-08-31,Complete,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,48200.00,Yes,Yes,Yes,Yes,4820000.00,1542400.00,612000.00,486200.00,394800.00,,1284500.00,"Solvent, working capital thin against a 42 day collection cycle.",3,2026-09-05,Synthetic Preparer,Synthetic Reviewer,In progress,Three accruals still open; statements marked draft until cleared.,
 ```
-
 ```sql
 CREATE TABLE monthly_closing_statements (
   closing_number VARCHAR(255),
@@ -178,10 +136,8 @@ CREATE TABLE monthly_closing_statements (
   created_at TIMESTAMP DEFAULT NOW(),
   updated_at TIMESTAMP DEFAULT NOW()
 );
-
 CREATE INDEX idx_monthly_closing_statements_status ON monthly_closing_statements (status);
 ```
-
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -245,7 +201,6 @@ CREATE INDEX idx_monthly_closing_statements_status ON monthly_closing_statements
   ]
 }
 ```
-
 ```markdown
 | CSV column | Notion property | Set after import |
 |---|---|---|
@@ -282,12 +237,9 @@ CREATE INDEX idx_monthly_closing_statements_status ON monthly_closing_statements
 | Notes | Text | Leave as Text |
 | Closing ID | Text (preserve source ID) | Keep imported IDs as Text; optionally add a separate Unique ID property |
 ```
-
 The rows above are documentation examples only. Emit empty templates unless the user explicitly requests examples. Money stays `currency`, dates stay `date`,
 and anything pointing at another table stays `relation`.
-
 ## Field Reference
-
 | # | Field | Type | SQL | JSON Schema | Notion | CSV example |
 |---:|---|---|---|---|---|---|
 | 1 | Closing Number | `text` | `VARCHAR(255)` | `string` | Text | `CL-2026-08` |
@@ -322,94 +274,71 @@ and anything pointing at another table stays `relation`.
 | 30 | Status | `select` | `VARCHAR(100)` | `string` | Select (add options after import) | `In progress` |
 | 31 | Notes | `long_text` | `TEXT` | `string` | Text | `Three accruals still open; statements marked draft until cleared.` |
 | 32 | Closing ID | `id` | `BIGINT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY` | `integer` | Text (preserve source ID) | `(blank)` |
-
 ## Select Options
-
 **Entries Completed**
-
 ```
 Complete | Incomplete | Blocked
 ```
 **Cash Reconciled**
-
 ```
 Yes | No | Pending
 ```
 **Bank Reconciled**
-
 ```
 Yes | No | Pending
 ```
 **Party Ledgers Reconciled**
-
 ```
 Yes | No | Pending
 ```
 **Inventory Reconciled**
-
 ```
 Yes | No | Pending
 ```
 **TDS Reconciled**
-
 ```
 Yes | No | Pending
 ```
 **Other Statutory Liabilities Reconciled**
-
 ```
 Yes | No | Pending
 ```
 **Receivables Reviewed**
-
 ```
 Yes | No | Pending
 ```
 **Payables Reviewed**
-
 ```
 Yes | No | Pending
 ```
 **Accruals & Prepayments Reviewed**
-
 ```
 Yes | No | Pending
 ```
 **VAT/Tax Account Reviewed**
-
 ```
 Yes | No | Pending
 ```
 **Trial Balance Prepared**
-
 ```
 Yes | No | Pending
 ```
 **Financial Statements Prepared**
-
 ```
 Yes | No | Pending
 ```
 **Status**
-
 ```
 Not started | In progress | Blocked | Done | Cancelled
 ```
-
 ## Relations
-
 Link fields: none
-
 ## Examples
-
 **Prompt**
-
 ```
 Month-end takes us ten days and we still find mistakes in the numbers afterwards.
 ```
-
 **Context first** - one question per message, nothing already answered:
-
 > **Q:** What does the close involve today?
 > **A:** Sales and purchase entries, then a trial balance and a profit and loss statement.
 >
@@ -418,17 +347,13 @@ Month-end takes us ten days and we still find mistakes in the numbers afterwards
 >
 > **Q:** Who reviews the finished pack?
 > **A:** Nobody. It goes to the accountant and he sends it back a week later.
-
 **Recommended next step** - offered, not built:
-
 > One closing record per month that carries every reconciliation as an explicit answer before any statement is drawn, then the period figures and a short written read on the position, so the close is repeatable and the next person can see what was still open.
 >
 > Workflow: Sales and purchase entries completed → Receipts and payments completed → Cash and bank reconciled → Party ledgers reconciled → Inventory reconciled → Statutory liabilities reconciled → Receivables and payables reviewed → Depreciation and adjustments recorded → Trial balance prepared → Statements prepared → Period analysed
 >
 > Want the CSV, SQL, JSON Schema and Notion mapping for this?
-
 ## Best Practices
-
 - Build when requested; recommend and offer a build for advice-only requests.
 - One question per message. A batched intake reads as a form and gets guessed at.
 - Keep display names identical across CSV and JSON; document normalized SQL identifiers.
@@ -441,9 +366,7 @@ Month-end takes us ten days and we still find mistakes in the numbers afterwards
   trial balance; the value is in the one sentence on the position that follows from them.
 - Compare the month's figures with the previous one before signing off. A movement with
   no explanation is a question, not a result.
-
 ## Limitations
-
 - Empty template only. It does not post entries, reconcile accounts, or produce a trial
   balance, profit and loss account or balance sheet. The accounting package does that.
 - The reconciliations are the substance and they happen in the books, not in this record.
@@ -457,9 +380,7 @@ Month-end takes us ten days and we still find mistakes in the numbers afterwards
 - Select options are a starting set. Rename them to match how the business talks.
 - No automation, reminders or sync. Those need the integration layer.
 - Legal, tax and HR review is still required before this drives real decisions.
-
 ## Security & Safety Notes
-
 - Never fill in real names, salaries, medical or banking data. Placeholders only.
 - Label example rows as synthetic, and keep bank details masked.
 - Local reads, generation commands, and validation are part of a requested artifact build.
@@ -472,9 +393,7 @@ Month-end takes us ten days and we still find mistakes in the numbers afterwards
   is acted on.
 - A closing record carries the whole financial position of the business. Treat it as
   sensitive, keep it access-limited, and never paste live balances into a shared chat.
-
 ## Common Pitfalls
-
 - **Problem:** a static mapping is described as a completed workspace build.
   **Solution:** deliver manual mappings without a connection; claim a live change only
   after the authorized tool operation succeeds.
@@ -489,13 +408,7 @@ Month-end takes us ten days and we still find mistakes in the numbers afterwards
 - **Problem:** statements marked done while the bank is unreconciled.
   **Solution:** a period is not closed until every gate reads `Yes`. Draft the statements
   if you must, but keep the record open.
-
-
 See the [Related Skills](references/related-skills.md) reference for the full guidance.
-
-
 ### Measurement and contract limits
-
 Working capital means current assets less current liabilities, not receivables minus payables; those two balances alone are insufficient. Define reporting currency, entity, accounting basis, gross/net profit treatment and whether Cash Flow Position is a balance or period flow. Unknown numeric data must stay omitted/null under an explicitly nullable contract, never zero or the string Unknown. TDS/VAT are jurisdiction-specific; allow an explicitly approved N/A disposition where a gate does not apply.
-
 The templates are not equivalent enforced validators. Add confirmed select enums/checks, period_end >= period_start, nonnegative integer adjustment count and a reviewed Done-state rule; SQL updated_at needs an application update/trigger. Preserve signed balances where credit/debit conventions require them. A reconciliation checkbox is an assertion requiring supporting evidence and reviewer sign-off, not proof of accuracy. No books, accounting decision or close was performed.

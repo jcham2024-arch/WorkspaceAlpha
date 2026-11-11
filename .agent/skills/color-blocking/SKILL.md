@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "4e68f105206c86d8047c95bfa773338233fe9596cdd3a30344feed1b06221b70"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: color-blocking
+content_hash: 4e68f105206c86d8047c95bfa773338233fe9596cdd3a30344feed1b06221b70
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Color Blocking. Trigger when user wants large color sections, striking layout divisions, and Mondrian-style grids.
-tier: "experimental"
-date_added: "2026-06-17"
+name: color-blocking
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Color Blocking
-
 > "The grid made visible. Large, solid swaths of contrasting color defining the layout."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Geometric Division**: The viewport is divided into large rectangles or squares, each filled with a solid, distinct color.
 2. **No Margins Between Blocks**: Blocks touch each other directly, often separated only by a stark, 1px or 2px black line (or no line at all, letting the colors clash).
 3. **Typography as Texture**: Text is placed precisely within these blocks to balance the visual weight of the colors.
-
 ## Visual DNA
 - **Colors**: Highly contrasting, bold pairings. Use 3 to 4 strong colors from palettes like **Industrial Chic** (Red, Black, Grey, White) or custom bold pairings (Yellow, Navy, Pink).
 - **Typography**: Very clean, bold sans-serifs that can hold their own against massive blocks of color.
 - **Borders**: Often uses thick black borders (`2px solid #000`) between blocks to emphasize the grid, reminiscent of Mondrian paintings.
-
 ## Web Implementation
 - CSS Grid is one option; flex layouts and native stacks also support color blocking. Keep content scrollable and collapse columns on narrow screens.
 - **CSS Example**:
@@ -46,7 +33,6 @@ body {
   font-family: 'Space Grotesk', sans-serif;
   color: #000;
 }
-
 .color-block-grid {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -57,19 +43,16 @@ body {
   border: 4px solid #000;
   min-height: 100vh;
 }
-
 .block {
   padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-
 .block-yellow { background-color: #FACC15; }
 .block-white  { background-color: #FFFFFF; }
 .block-blue   { background-color: #2563EB; color: #FFF; }
 .block-red    { background-color: #EF4444; }
-
 .block-title {
   font-size: 3rem;
   font-weight: 900;
@@ -77,14 +60,11 @@ body {
   margin: 0;
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct ColorBlockingView: View {
     let gridSpacing: CGFloat = 4 // Thickness of the black lines
-    
     var body: some View {
         // Black background acts as the grid lines between blocks
         VStack(spacing: gridSpacing) {
@@ -94,7 +74,6 @@ struct ColorBlockingView: View {
                 ColorBlock(color: .blue, text: "VISION", textColor: .white)
             }
             .frame(height: 300)
-            
             // Bottom Row
             HStack(spacing: gridSpacing) {
                 ColorBlock(color: .red, text: "BOLD", textColor: .white)
@@ -107,7 +86,6 @@ struct ColorBlockingView: View {
         .ignoresSafeArea()
     }
 }
-
 struct ColorBlock: View {
     let color: Color
     let text: String
@@ -126,7 +104,6 @@ struct ColorBlock: View {
 ```
 - In SwiftUI, the easiest way to create Mondrian-style thick black grid lines is to set `.background(Color.black)` on the parent stack and use `spacing: 4`. The background peeks through the gaps.
 - `.ignoresSafeArea()` allows the blocks to bleed to the edge of the physical device.
-
 ### Flutter
 ```dart
 class ColorBlockingScreen extends StatelessWidget {
@@ -168,13 +145,11 @@ class ColorBlockingScreen extends StatelessWidget {
     );
   }
 }
-
 class ColorBlock extends StatelessWidget {
   final Color color;
   final String text;
   final Color textColor;
   const ColorBlock({required this.color, required this.text, required this.textColor});
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -188,7 +163,6 @@ class ColorBlock extends StatelessWidget {
 ```
 - Use `Expanded` with varying `flex` factors to divide the screen geometrically.
 - Insert `SizedBox(width: 4)` or `height: 4` between rows and columns to expose the black `Scaffold` background, creating the grid lines.
-
 ### React Native
 ```jsx
 const ColorBlockingScreen = () => {
@@ -203,7 +177,6 @@ const ColorBlockingScreen = () => {
           <Text style={[styles.text, { color: '#FFF' }]}>VISION</Text>
         </View>
       </View>
-      
       {/* Bottom Row */}
       <View style={{ flex: 2, flexDirection: 'row', gap: 4 }}>
         <View style={[styles.block, { flex: 1, backgroundColor: '#EF4444' }]}>
@@ -216,7 +189,6 @@ const ColorBlockingScreen = () => {
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   block: {
     justifyContent: 'flex-end',
@@ -231,13 +203,11 @@ const styles = StyleSheet.create({
 ```
 - The `gap` property in React Native flexbox makes this trivial. Set a black background on the parent, set `gap: 4`, and the children automatically space out, revealing the thick black lines.
 - Use `flex: 1`, `flex: 2` etc. to determine block proportions.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
 fun ColorBlockingScreen() {
     val gridSpacing = 4.dp
-    
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -251,9 +221,7 @@ fun ColorBlockingScreen() {
             ColorBlock(Color(0xFFFACC15), "CREATE", Color.Black, Modifier.weight(1f))
             ColorBlock(Color(0xFF2563EB), "VISION", Color.White, Modifier.weight(2f))
         }
-        
         Spacer(Modifier.height(gridSpacing))
-        
         // Bottom Row
         Row(
             modifier = Modifier.weight(2f),
@@ -264,7 +232,6 @@ fun ColorBlockingScreen() {
         }
     }
 }
-
 @Composable
 fun ColorBlock(color: Color, text: String, textColor: Color, modifier: Modifier = Modifier) {
     Box(
@@ -280,11 +247,9 @@ fun ColorBlock(color: Color, text: String, textColor: Color, modifier: Modifier 
 ```
 - Like other mobile frameworks, `Modifier.background(Color.Black)` combined with `Arrangement.spacedBy(4.dp)` perfectly creates the Mondrian grid.
 - Use `Modifier.weight(Xf)` to mathematically divide the screen real estate.
-
 ## Do's and Don'ts
 - **DO**: Ensure extreme contrast. Text on a yellow block should be black. Text on a dark blue block should be white.
 - **DON'T**: Use drop shadows, rounded corners, or gradients. Keep it completely flat and sharp.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

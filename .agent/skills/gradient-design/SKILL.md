@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "bc7f27cb41eb837277773d7eae5c2cc44040441bc9b39e7699019257ace31143"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: gradient-design
+content_hash: bc7f27cb41eb837277773d7eae5c2cc44040441bc9b39e7699019257ace31143
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Gradient Design. Trigger when user wants heavy gradient usage, vibrant transitions, and modern energetic feels.
-tier: "experimental"
-date_added: "2026-06-17"
+name: gradient-design
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Gradient Design
-
 > "Color in motion. Fluid transitions that add energy and depth to flat surfaces."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Gradients are the Primary Visual**: Backgrounds, buttons, text, and borders all use gradients instead of solid colors.
 2. **Analogous or Complementary Blends**: Gradients must be carefully chosen so the transition colors don't become muddy (e.g., blending red to green creates a muddy brown in the middle. Blend red to yellow to green instead).
 3. **Subtle Animation**: Background gradients should slowly shift and rotate.
-
 ## Visual DNA
 - **Colors**: **Warm Tech** (blues to oranges) or create custom vibrant pairs (e.g., Purple to Coral, Deep Blue to Cyan).
 - **Typography**: Clean, heavy sans-serifs that can be easily masked with a gradient fill.
 - **Layout**: Keep the UI structure minimal (glass panels or white/black cards) to let the gradients breathe.
-
 ## Web Implementation
 - **CSS Example**:
 ```css
@@ -47,13 +34,11 @@ body {
   animation: gradientBG 15s ease infinite;
   color: #fff;
 }
-
 @keyframes gradientBG {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-
 .gradient-text {
   background: linear-gradient(90deg, #F9D423 0%, #FF4E50 100%);
   -webkit-background-clip: text;
@@ -61,7 +46,6 @@ body {
   font-size: 4rem;
   font-weight: 900;
 }
-
 .gradient-border-card {
   background: #ffffff;
   color: #333;
@@ -79,14 +63,11 @@ body {
   border-radius: 15px;
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct GradientDesignView: View {
     @State private var animateGradient = false
-    
     var body: some View {
         ZStack {
             // Animated Background Gradient
@@ -101,7 +82,6 @@ struct GradientDesignView: View {
                     animateGradient.toggle()
                 }
             }
-            
             VStack(spacing: 40) {
                 // Gradient Text
                 Text("VIBRANT")
@@ -113,7 +93,6 @@ struct GradientDesignView: View {
                             endPoint: .trailing
                         )
                     )
-                
                 // Gradient Border Card
                 Text("Gradient Border")
                     .padding()
@@ -137,19 +116,16 @@ struct GradientDesignView: View {
 ```
 - `.foregroundStyle(LinearGradient(...))` makes gradient text incredibly easy in modern SwiftUI.
 - Use `.stroke(LinearGradient(...))` inside an `.overlay` to create gradient borders.
-
 ### Flutter
 ```dart
 class GradientDesignScreen extends StatefulWidget {
   @override
   State<GradientDesignScreen> createState() => _GradientDesignScreenState();
 }
-
 class _GradientDesignScreenState extends State<GradientDesignScreen> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Alignment> _topAlignment;
   late Animation<Alignment> _bottomAlignment;
-
   @override
   void initState() {
     super.initState();
@@ -161,13 +137,11 @@ class _GradientDesignScreenState extends State<GradientDesignScreen> with Single
       TweenSequenceItem(tween: Tween<Alignment>(begin: Alignment.bottomRight, end: Alignment.bottomLeft), weight: 1),
     ]).animate(_controller);
   }
-
   @override
   void dispose() {
     _controller.dispose();
     super.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -221,13 +195,11 @@ class _GradientDesignScreenState extends State<GradientDesignScreen> with Single
 ```
 - Flutter text gradients require `ShaderMask` with `BlendMode.srcIn`.
 - To animate a gradient background, animate the `Alignment` values of the `LinearGradient`.
-
 ### React Native
 ```jsx
 // REQUIRES: expo-linear-gradient OR react-native-linear-gradient
 import { LinearGradient } from 'expo-linear-gradient';
 import MaskedView from '@react-native-masked-view/masked-view';
-
 const GradientDesignScreen = () => {
   return (
     <LinearGradient
@@ -250,7 +222,6 @@ const GradientDesignScreen = () => {
           style={{ flex: 1 }}
         />
       </MaskedView>
-
       <View style={{ marginTop: 40 }}>
         {/* Gradient Border Card */}
         <LinearGradient
@@ -269,7 +240,6 @@ const GradientDesignScreen = () => {
 ```
 - Gradient text in React Native is notoriously annoying. You must use `@react-native-masked-view/masked-view` to mask a `LinearGradient` with a `<Text>` node.
 - Gradient borders are achieved by nesting a solid view inside a `LinearGradient` with a small padding (e.g., `padding: 3`).
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -280,12 +250,10 @@ fun GradientDesignScreen() {
         initialValue = 0f, targetValue = 1000f,
         animationSpec = infiniteRepeatable(tween(5000, easing = LinearEasing), RepeatMode.Reverse)
     )
-
     val bgBrush = Brush.linearGradient(
         colors = listOf(Color(0xFFee7752), Color(0xFFe73c7e), Color(0xFF23a6d5), Color(0xFF23d5ab)),
         start = Offset(offset, 0f), end = Offset(offset + 500f, 1000f)
     )
-
     Box(
         modifier = Modifier.fillMaxSize().background(bgBrush),
         contentAlignment = Alignment.Center
@@ -297,9 +265,7 @@ fun GradientDesignScreen() {
                 text = "VIBRANT",
                 style = TextStyle(brush = textBrush, fontSize = 60.sp, fontWeight = FontWeight.Black)
             )
-
             Spacer(Modifier.height(40.dp))
-
             // Gradient Border Card
             val borderBrush = Brush.horizontalGradient(listOf(Color(0xFF8A2387), Color(0xFFE94057), Color(0xFFF27121)))
             Box(
@@ -317,11 +283,9 @@ fun GradientDesignScreen() {
 ```
 - Compose handles gradients beautifully via `Brush`.
 - You can pass a `Brush` directly into a `TextStyle` for gradient text, or into a `Modifier.border()` for gradient borders.
-
 ## Do's and Don'ts
 - **DO**: Use multi-stop gradients (3 or 4 colors) rather than just simple A-to-B gradients for a more modern, rich look.
 - **DON'T**: Apply gradients to tiny text or thin icons, they will lose legibility immediately.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

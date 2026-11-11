@@ -1,43 +1,28 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "28cf2ebcb76025191da34702bd5a8a549aa94e262c210395ae4f37d2184f6585"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 28cf2ebcb76025191da34702bd5a8a549aa94e262c210395ae4f37d2184f6585
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Core component library and design system patterns. Use when building UI, using design tokens, or working with the component library.
 name: core-components
-description: "Core component library and design system patterns. Use when building UI, using design tokens, or working with the component library."
-tier: "experimental"
 risk: none
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # Core Components
-
 ## Design System Overview
-
 Inspect the actual project component exports, token definitions and framework first. The names, $ tokens and props below illustrate an assumed local library; none is bundled here. Use its real documented API, preserve accessibility/native behavior and do not invent components/core imports or variantStyles. Reuse project primitives when appropriate rather than replacing valid native components solely to match this example.
-
 ## Design Tokens
-
 **NEVER hard-code values. Always use design tokens.**
-
 ### Spacing Tokens
-
 ```tsx
 // CORRECT - Use tokens
 <Box padding="$4" marginBottom="$2" />
-
 // WRONG - Hard-coded values
 <Box padding={16} marginBottom={8} />
 ```
-
 | Token | Value |
 |-------|-------|
 | `$1` | 4px |
@@ -46,19 +31,15 @@ Inspect the actual project component exports, token definitions and framework fi
 | `$4` | 16px |
 | `$6` | 24px |
 | `$8` | 32px |
-
 ### Color Tokens
-
 ```tsx
 // CORRECT - Semantic tokens
 <Text color="$textPrimary" />
 <Box backgroundColor="$backgroundSecondary" />
-
 // WRONG - Hard-coded colors
 <Text color="#333333" />
 <Box backgroundColor="rgb(245, 245, 245)" />
 ```
-
 | Semantic Token | Use For |
 |----------------|---------|
 | `$textPrimary` | Main text |
@@ -67,13 +48,10 @@ Inspect the actual project component exports, token definitions and framework fi
 | `$primary500` | Brand/accent color |
 | `$statusError` | Error states |
 | `$statusSuccess` | Success states |
-
 ### Typography Tokens
-
 ```tsx
 <Text fontSize="$lg" fontWeight="$semibold" />
 ```
-
 | Token | Size |
 |-------|------|
 | `$xs` | 12px |
@@ -82,13 +60,9 @@ Inspect the actual project component exports, token definitions and framework fi
 | `$lg` | 18px |
 | `$xl` | 20px |
 | `$2xl` | 24px |
-
 ## Core Components
-
 ### Box
-
 Base layout component with token support:
-
 ```tsx
 <Box
   padding="$4"
@@ -98,27 +72,20 @@ Base layout component with token support:
   {children}
 </Box>
 ```
-
 ### HStack / VStack
-
 Horizontal and vertical flex layouts:
-
 ```tsx
 <HStack gap="$3" alignItems="center">
   <Icon name="user" />
   <Text>Username</Text>
 </HStack>
-
 <VStack gap="$4" padding="$4">
   <Heading>Title</Heading>
   <Text>Content</Text>
 </VStack>
 ```
-
 ### Text
-
 Typography with token support:
-
 ```tsx
 <Text
   fontSize="$lg"
@@ -128,11 +95,8 @@ Typography with token support:
   Hello World
 </Text>
 ```
-
 ### Button
-
 Interactive button with variants:
-
 ```tsx
 <Button
   onPress={handlePress}
@@ -144,18 +108,14 @@ Interactive button with variants:
   Click Me
 </Button>
 ```
-
 | Variant | Use For |
 |---------|---------|
 | `solid` | Primary actions |
 | `outline` | Secondary actions |
 | `ghost` | Tertiary/subtle actions |
 | `link` | Inline actions |
-
 ### Input
-
 Form input with validation:
-
 ```tsx
 <Input
   value={value}
@@ -165,11 +125,8 @@ Form input with validation:
   label="Field Name"
 />
 ```
-
 ### Card
-
 Content container:
-
 ```tsx
 <Card padding="$4" gap="$3">
   <CardHeader>
@@ -180,11 +137,8 @@ Content container:
   </CardBody>
 </Card>
 ```
-
 ## Layout Patterns
-
 ### Screen Layout
-
 ```tsx
 const MyScreen = () => (
   <Screen>
@@ -195,9 +149,7 @@ const MyScreen = () => (
   </Screen>
 );
 ```
-
 ### Form Layout
-
 ```tsx
 <VStack gap="$4" padding="$4">
   <Input label="Name" {...nameProps} />
@@ -205,9 +157,7 @@ const MyScreen = () => (
   <Button isLoading={loading}>Submit</Button>
 </VStack>
 ```
-
 ### List Item Layout
-
 ```tsx
 <HStack
   padding="$4"
@@ -224,42 +174,29 @@ const MyScreen = () => (
   <Icon name="chevron-right" color="$textTertiary" />
 </HStack>
 ```
-
 ## Anti-Patterns
-
 ```tsx
 // WRONG - Hard-coded values
 <View style={{ padding: 16, backgroundColor: '#fff' }}>
-
 // CORRECT - Design tokens
 <Box padding="$4" backgroundColor="$backgroundPrimary">
-
-
 // WRONG - Raw platform components
 import { View, Text } from 'react-native';
-
 // CORRECT - Core components
 import { Box, Text } from 'components/core';
-
-
 // WRONG - Inline styles
 <Text style={{ fontSize: 18, fontWeight: '600' }}>
-
 // CORRECT - Token props
 <Text fontSize="$lg" fontWeight="$semibold">
 ```
-
 ## Component Props Pattern
-
 When creating components, use token-based props:
-
 ```tsx
 interface CardProps {
   padding?: '$2' | '$4' | '$6';
   variant?: 'elevated' | 'outlined' | 'filled';
   children: React.ReactNode;
 }
-
 const Card = ({ padding = '$4', variant = 'elevated', children }: CardProps) => (
   <Box
     padding={padding}
@@ -271,16 +208,12 @@ const Card = ({ padding = '$4', variant = 'elevated', children }: CardProps) => 
   </Box>
 );
 ```
-
 ## Integration with Other Skills
-
 - **react-ui-patterns**: Use core components for UI states
 - **testing-patterns**: Mock core components in tests
 - **storybook**: Document component variants
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

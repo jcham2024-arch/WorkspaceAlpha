@@ -1,81 +1,57 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "ebcf77435384debbdc72f968203498c089b0001cb78124fc1de8be322b1d41ac"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: ebcf77435384debbdc72f968203498c089b0001cb78124fc1de8be322b1d41ac
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: morsechimwai
+date_added: 2026-05-28
+description: ""Cost-safety discipline for paid AI / inference APIs: treat $-cost as a third complexity dimension alongside time and space. Forces a written per-run $-cap, per-day $-cap, max-iterations bound, concurrency limit, and a matching provider-dashboard hard cap BEFORE any call site is written.""
+id: "'gen-campaign',"
+license: Apache-2.0
+license_source: ""https://github.com/morsechimwai/lemmaly/blob/main/LICENSE""
 name: runaway-guard
-description: "Cost-safety discipline for paid AI / inference APIs: treat $-cost as a third complexity dimension alongside time and space. Forces a written per-run $-cap, per-day $-cap, max-iterations bound, concurrency limit, and a matching provider-dashboard hard cap BEFORE any call site is written."
-tier: "experimental"
 risk: safe
 source: community
 source_repo: morsechimwai/lemmaly
 source_type: community
-date_added: "2026-05-28"
-author: morsechimwai
-tags: [cost-safety, finops, ai-apis, agents, retries, concurrency, wallet-invariant, gateway]
-tools: [claude-code, antigravity, cursor, gemini-cli, codex-cli]
-license: "Apache-2.0"
-license_source: "https://github.com/morsechimwai/lemmaly/blob/main/LICENSE"
+tags: "[cost-safety, finops, ai-apis, agents, retries, concurrency, wallet-invariant, gateway]"
+tools: "[claude-code, antigravity, cursor, gemini-cli, codex-cli]"
 ---
-
-
 # runaway-guard — $-Cost is the Third Complexity Dimension
-
 > Catalog review modification (2026-10-23): corrected cost arithmetic, retry/idempotency claims and unsupported provider-cap guarantees. Upstream authorship and Apache-2.0 attribution are retained.
-
 Every loop has time complexity and space complexity. A loop that calls a paid API has a third: **dollars per execution**. The model tracks the first two automatically. It does not track the third, so it ships code where a single bug — a retry without bound, a stream reconnect storm, an agent that re-queues itself, a webhook that fires the same job twice — silently spends real money.
-
 Illustrative, unverified incident narrative: developer writes a Fal.ai image-generation loop. Loop "obviously terminates" because it iterates over a fixed list. The list comes from a callback that fires on every Inngest retry. Each retry doubles the list. By morning, the bill is **$200**. Tests pass. Code review passed. The bug is not in the loop body. The bug is that **no one stated the wallet invariant**.
-
 runaway-guard helps identify this design risk. State the max calls. State the max dollars per run. State the max dollars per day. Set the same caps in the provider dashboard so a code bug cannot bypass them. Then write the code.
-
 **Violating the letter of these rules is violating the spirit of the skill.** "I'm only testing locally" is the exact rationalization that ships the $200 bill — local code hits the same paid API as production.
-
 ## When to Use This Skill
-
 Use **runaway-guard** when:
-
 - Writing or reviewing code that calls a paid AI / inference API in a loop, queue, retry path, agent step, webhook handler, or background job.
 - Importing or wrapping any paid-inference SDK: `@fal-ai/*`, `fal-client`, `@anthropic-ai/sdk`, `anthropic`, `openai`, `replicate`, `elevenlabs`, `together-ai`, `groq-sdk`, `cohere-ai`, `@mistralai/*`.
 - Designing an agent loop, fan-out pipeline, retry wrapper, polling job, stream reconnect, or self-rescheduling job that may call a billed endpoint.
 - Auditing a codebase / PR for unbounded fan-out, unbounded retries, missing idempotency keys, or missing provider-side spend caps.
 - Diagnosing an unexpected bill, runaway loop incident, or surprise overage.
-
 ## The Iron Law
-
 ```text
 NO CALL TO A PAID API WITHOUT A WRITTEN $-CAP AT BOTH THE CODE AND PROVIDER LEVEL
 ```
-
 A cap only in code can be bypassed by a bug in that code. A cap only at the provider can be hit during normal usage and degrade the product. You need both. If you cannot state both in one sentence each, you have not designed the call site — you have written a wish.
-
 ## Non-negotiable rules
-
 1. **Every call site gets a one-line cost contract.** Before writing any paid-API call, state in one sentence:
    - **Max calls per run:** the strict upper bound on invocations in a single execution of this code path.
    - **Max $ per run:** `max_calls × unit_cost` — compute it, don't estimate.
    - **Max $ per day:** the provider-side hard cap that backstops the code-side bound.
-
    Examples:
    - "Fal flux-pro at $0.05/image; max 20 images per job; max $1 per job; provider Spend Limit $50/day."
    - "Anthropic Sonnet at ~$0.015 per request (cached); max 50 requests per agent run; max $0.75 per run; Workspace Budget hard cap $30/day."
-
    If you cannot fill in all three numbers, you have not designed the call site.
-
 2. **Every loop calling a paid API gets an explicit iteration bound, not just a termination argument.** `invariant-guard` requires a termination measure. runaway-guard requires the bound to be a **concrete integer in code**, not just "eventually terminates":
-
    ```ts
    // ❌ Terminates in theory. Bills $200 in practice.
    while (job.status !== 'done') {
      await fal.run(...);
    }
-
    // ✅ Concrete bound — wallet invariant explicit.
    const MAX_CALLS = 20;
    for (let i = 0; i < MAX_CALLS && job.status !== 'done'; i++) {
@@ -83,23 +59,17 @@ A cap only in code can be bypassed by a bug in that code. A cap only at the prov
    }
    if (job.status !== 'done') throw new Error('exceeded MAX_CALLS budget');
    ```
-
 3. **Every retry path is bounded by attempts AND total elapsed cost, not by time alone.** Exponential backoff with no attempt cap is a wallet attack on yourself.
    - Max attempts: an explicit small integer chosen for the provider and error class.
    - Cap counts across the whole pipeline, not just one library — Inngest retries × SDK retries × your own retry wrapper multiply.
    - Do not retry permanent invalid requests. Some 4xx errors, including 429 and provider-defined transient statuses, can be retryable under a bounded policy; respect Retry-After and the shared spend reservation.
-
 4. **Every fan-out path declares a concurrency limit.** Parallel calls multiply cost per wall-clock second. State the limit in code, at the queue (Inngest `concurrency`), and at the provider where supported:
    - Inngest: `concurrency: { limit: N }` on the function.
    - BullMQ / Sidekiq / Cloud Tasks: queue-level concurrency.
    - In-process: `p-limit`, semaphore, or batched `Promise.all` chunks — never an unbounded `Promise.all(items.map(...))` on a paid API.
-
 5. **Every paid API has a matching provider-side hard cap, configured out of band.** Defense in depth: if the code is wrong, the provider stops the bleeding. Document the cap in the same file as the call site so future readers know it exists.
-
    Inspect the account's current provider documentation and dashboard. Record enforcement scope, period, delay, override behavior and which keys/workspaces it covers. An alert or prepaid balance is not proof of an instantaneous hard stop. If no enforceable cap exists, keep calls disabled until an approved fail-closed gateway/atomic reservation ledger and bounded in-flight exposure are in place. Historical provider menu names and prices below are illustrative, not verified settings.
-
 6. **Idempotency keys on every mutating or charging call.** A webhook that fires twice should bill once. Without an idempotency key, retry policies you cannot see (load balancer, framework, gateway) silently double-charge.
-
 7. **Make the "amplifier" patterns explicit and forbidden by default.** These are the shapes that turn small bugs into large bills:
    - **Self-rescheduling jobs.** A job that re-enqueues itself with no decrementing measure is an unbounded loop with extra steps.
    - **Webhook handlers that call the API that called the webhook.** Cycle detection or it will cycle.
@@ -107,11 +77,8 @@ A cap only in code can be bypassed by a bug in that code. A cap only at the prov
    - **Polling without a deadline.** `while (!done) await poll()` with no `maxWaitMs` is a wallet leak.
    - **Streaming reconnect storms.** A WebSocket / SSE reconnect with no backoff and no attempt cap can hammer a billed endpoint thousands of times per minute.
    - **Cache-miss stampede on a paid call.** N concurrent requests for the same uncached key → N billed calls. Use `singleflight` / request coalescing.
-
 ## The pre-write protocol
-
 Before producing code that calls a paid API, your message must contain — in this order:
-
 1. **Provider + unit cost.** "Fal flux-pro: $0.05/image, billed per success."
 2. **Max calls per run.** A literal integer that will appear as a constant in the code.
 3. **Max $ per run.** `max_calls × unit_cost`. Compute it.
@@ -121,15 +88,10 @@ Before producing code that calls a paid API, your message must contain — in th
 7. **Amplifier audit.** Walk the list in rule 7; declare "none apply" or address each that does.
 8. **The code** — with the cost contract in a comment above the call site.
 9. **Self-check.** One line: "in the worst case, this code bills $X and the provider cap stops it at $Y."
-
 If any of 1–7 is missing, do not emit code.
-
 ## Worked trap — the Inngest + Fal $200 night
-
 This is the canonical case. Observe how each rule would have caught it.
-
 **What shipped:**
-
 ```ts
 // inngest function: generate images for a campaign
 export const generateCampaign = inngest.createFunction(
@@ -142,11 +104,8 @@ export const generateCampaign = inngest.createFunction(
   }
 );
 ```
-
 **What went wrong.** `fetchPrompts` had a bug: on a transient DB error it returned the partial list *plus the previous run's list appended*. Inngest retried the function at its default retry count (multiple attempts in addition to the initial one). This account is inconsistent with the shown code: a successfully completed fetch step is memoized, so ordinary later-step retries do not re-run it. A growth bug would need an additional path not shown. `Promise.all` fanned all 320 out concurrently. At $0.05/image: the listed 40 + 80 + 160 + 320 requests would total $30, not $200; a $200 total would require additional documented invocations.
-
 **Why each rule would have caught it.**
-
 | Rule | Catch |
 |---|---|
 | 1. Cost contract | Forces writing "max calls per run". The number `prompts.length` is not a known integer → rule fails → write a cap. |
@@ -155,9 +114,7 @@ export const generateCampaign = inngest.createFunction(
 | 4. Concurrency limit | `Promise.all` is unbounded concurrency. Rule forces `p-limit(3)` and Inngest `concurrency: { limit: 3 }`. |
 | 5. Provider hard cap | Fal Spend Limit $50/day would have stopped the bleeding at $50 instead of $200. |
 | 7. Amplifier audit | "Self-rescheduling jobs" — Inngest's retry IS self-rescheduling. The audit forces you to consider it. |
-
 **Partial mitigation sketch (not a proven spend cap):**
-
 ```ts
 // cost contract:
 //   provider: Fal flux-pro @ $0.05/image
@@ -168,10 +125,8 @@ export const generateCampaign = inngest.createFunction(
 //   step ID only: NOT a provider-side idempotency key; no provider dedup window verified
 const MAX_IMAGES_PER_RUN = 50;
 const limit = pLimit(3);
-
 export const generateCampaign = inngest.createFunction(
   {
-    id: 'gen-campaign',
     concurrency: { limit: 3 },
     retries: 2,                                        // attempts = 1 + retries
   },
@@ -190,11 +145,8 @@ export const generateCampaign = inngest.createFunction(
   }
 );
 ```
-
 Note: the bug in `fetchPrompts` is still there. The protocol does not fix that bug — it bounds a single batch to 50 items, but retries, duplicate events and ambiguous failures can still recharge work. No $2.50 run cap is established without a shared spend reservation and verified provider deduplication. That is the entire point of defense in depth.
-
 ## Common runaway patterns and their wallet invariants
-
 | Pattern | Wallet invariant to write | Hard cap to set |
 |---|---|---|
 | Fan-out over a list of items | `total_cost ≤ list_len × unit_cost ≤ MAX_$_PER_RUN` | provider daily spend limit |
@@ -206,13 +158,9 @@ Note: the bug in `fetchPrompts` is still there. The protocol does not fix that b
 | Cache miss stampede | singleflight → `cost ≤ 1 × unit_cost` per key per window | n/a (deduped in code) |
 | Self-scheduling job | recursion depth bounded by ledger row, not by code | scheduler-level dedup + max runs/day |
 | Multi-provider fallback | sum across providers ≤ MAX_$_PER_RUN | hard cap on each provider separately |
-
 ## Provider verification checklist
-
 Before enabling billing, verify provider-specific caps from current official documentation and actual account settings; never claim a cap was configured merely because code comments say so. OpenAI prepaid credits can go negative during cutoff delay. Inngest currently documents four retries after the initial attempt, independently per step; completed named steps are memoized, but an external operation may have succeeded before its result was recorded. Queue concurrency counts function runs, while each run can fan out multiple calls; an in-process limiter is not a distributed limit. Record the aggregate maximum.
-
 ## Edge cases to enumerate before shipping
-
 | Scenario | Expected behavior |
 |---|---|
 | Empty input list | 0 calls, 0 cost, return early — do not even auth |
@@ -225,11 +173,8 @@ Before enabling billing, verify provider-specific caps from current official doc
 | Webhook retried by provider | idempotency at the handler boundary |
 | Local dev accidentally pointing at prod key | per-env keys + per-env caps make this cost $0.50, not $50 |
 | Cron fires while previous run still executing | concurrency limit = 1 OR explicit overlap-tolerant design |
-
 ## Output discipline
-
 Code you emit must:
-
 - Have a `// cost contract:` block above each call site with the four numbers (unit cost, max calls, max $/run, provider hard cap setting).
 - Use a named constant (`MAX_IMAGES_PER_RUN`, `MAX_AGENT_STEPS`) for the bound — never a magic number inline.
 - Wrap fan-out in `p-limit` or equivalent — never raw `Promise.all` over a paid API.
@@ -237,16 +182,12 @@ Code you emit must:
 - Set queue-level concurrency and retries in the same file or document it.
 - Reject permanent failures via `NonRetriableError` or equivalent; classify transient 4xx separately.
 - Reference the provider hard-cap setting by name ("Fal Spend Limit $50/day, set 2026-05-22") so a future reader knows it exists.
-
 ## Related Skills
-
 - **invariant-guard** — when the loop or recursion calling the paid API has no written termination measure. Termination is a precondition for a wallet cap; invariant-guard establishes it, runaway-guard bounds the cost.
 - **complexity-cuts** — when the runaway has already shipped and you are diagnosing an unexpected bill. Treat the unintended fan-out as a complexity bug, write a characterization test, then transform one step at a time.
 - **lemmaly** — when designing a new agent loop or batch pipeline that fans out paid calls. Pick the algorithm and data structure first; come back here for the wallet invariant per step.
 - **mathguard** — when the cost driver is compute on a sublinear-algorithm problem (vector search, sketching, FFT) rather than per-call billing; mathguard sets the algorithmic floor that determines per-call work.
-
 ## Rationalizations to watch for
-
 | Excuse | Reality |
 |---|---|
 | "I'm only testing locally." | Local hits the same paid endpoint. A retry bug in test code bills the same dollars. |
@@ -257,11 +198,8 @@ Code you emit must:
 | "Idempotency is overkill for this." | Webhooks retry. Load balancers retry. Browsers retry. Without an idempotency key, *something* will duplicate. |
 | "We have monitoring, we'll catch it." | Monitoring catches it after $200 is spent. Caps prevent the $200 from being spent. |
 | "It obviously terminates." | The $200/night incident also "obviously terminated". Write the integer bound. |
-
 If any of these sound familiar mid-thought: stop, write the cost contract, set the provider cap, then write the code.
-
 ## Red flags — STOP and write the cost contract first
-
 - About to write `await Promise.all(items.map(x => paidApi(x)))` with no `p-limit`.
 - About to write `while (!done) await paidApi(...)` with no integer bound.
 - About to write an agent loop with "the model decides when to stop".
@@ -270,13 +208,9 @@ If any of these sound familiar mid-thought: stop, write the cost contract, set t
 - About to commit a paid API key to a `.env` shared across environments.
 - About to handle a webhook that calls the API that produced the webhook.
 - "Just for tonight" — overnight is exactly when runaway loops bill the most.
-
 All of these mean: stop, write the cost contract, set the provider cap, then write the code.
-
 ## Verification checklist
-
 Before shipping any code that calls a paid API:
-
 - [ ] Cost contract comment exists above each call site with unit cost, max calls/run, max $/run, provider cap.
 - [ ] The iteration / fan-out bound is a named integer constant, not implicit in list length.
 - [ ] Concurrency limit is set in code (`p-limit`) AND at the queue (`Inngest concurrency`).
@@ -286,24 +220,16 @@ Before shipping any code that calls a paid API:
 - [ ] Amplifier audit (rule 7) has been performed and either "none apply" or each addressed.
 - [ ] A test exists for: empty input, oversized input rejected, 4xx not retried, idempotency key dedups duplicate invocation.
 - [ ] In the worst case the code bills ≤ MAX_$_PER_RUN, and even with a bug the provider cap stops loss at MAX_$_PER_DAY.
-
 Cannot check every box? The code is example-correct, not bill-correct. Either fill the gap or do not connect a billing-enabled key.
-
 ## Limitations
-
 - **Not a billing system.** runaway-guard enforces *intent* (caps, contracts, audits) at code-write time. It does not meter spend in production — pair it with the provider's hard cap and observability (LLM-cost dashboards, log alerts) for runtime enforcement.
 - **Provider enforcement varies.** Verify timing and scope; do not assume overshoot is modest. Reserve worst-case concurrent exposure and retain budget for uncertain outcomes.
 - **No automated cost estimation for novel models.** The cost-contract numbers (unit cost, $/run) are inputs the author must look up; the skill does not maintain a per-model price table.
 - **Streaming and per-token pricing.** For per-token APIs (Anthropic, OpenAI), `max calls` is a proxy — the real cap is `(max input tokens × input-token rate) + (max output tokens × output-token rate), summed across all attempts and including billable tools, cache tiers and other charges`. Adapt the protocol: replace `max calls per run` with `max tokens per run`.
 - **Compute-billed providers.** For long-running GPU jobs (training, video encoding) billed in seconds, replace "calls" with "GPU-seconds" in the contract; the discipline transfers but the units differ.
 - **Does not replace incident response.** When a bill has already arrived, escalate to `complexity-cuts` for the corrective rewrite — runaway-guard prevents the next one, not the current one.
-
 ## The thesis, in one line
-
 > **Time bounds prevent stalls. Space bounds prevent OOMs. Dollar bounds prevent $200 mornings. AI assistants enforce the first two by default and ignore the third. runaway-guard makes them reason about the wallet first.**
-
 ## Enforcement and idempotency limits
-
 A name passed to `step.run` is not a provider idempotency header. The example does not pass one to `fal.run`, implement a budget ledger, or establish the claimed 24-hour deduplication window. Use an actually supported provider key with its documented scope/retention; otherwise hold uncertain outcomes for reconciliation rather than blindly retrying a charging operation. Duplicate prompts and duplicate event IDs also need an explicit operation identity policy.
-
 Treat historical price/cap examples and the incident story as unverified illustrations. Compute variable-token bounds from additive input/output charges, not their product. Reserve budget atomically before dispatch across workers/retries/providers, bound outstanding calls, reconcile actual usage and fail closed when pricing or outcome is unknown. A time deadline does not cancel already-billed work. Assertions of zero duplicate cost or an exact dashboard cutoff in the tables are conditional on proven enforcement, not guarantees from this skill. No billing-enabled call was made or cap verified during this review.

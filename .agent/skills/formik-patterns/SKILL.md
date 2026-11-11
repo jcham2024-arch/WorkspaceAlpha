@@ -1,46 +1,33 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "18b39f8e8a0a224c2828aea26c06ed02a203c5ed63f6a2b249a9a95b9ea1d9ba"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: formik-patterns
-description: Formik form handling with validation patterns. Use when building forms, implementing validation, or handling form submission.
-tier: "experimental"
+content_hash: 18b39f8e8a0a224c2828aea26c06ed02a203c5ed63f6a2b249a9a95b9ea1d9ba
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-07-01
+description: item.description ?? '',
+license: MIT
+license_source: "https://github.com/ChrisWiles/claude-code-showcase/blob/main/LICENSE"
+name: "'',"
 risk: critical
-source: https://github.com/ChrisWiles/claude-code-showcase/tree/main/.claude/skills/formik-patterns
+source: "https://github.com/ChrisWiles/claude-code-showcase/tree/main/.claude/skills/formik-patterns"
 source_repo: ChrisWiles/claude-code-showcase
 source_type: community
-date_added: 2026-07-01
-license: MIT
-license_source: https://github.com/ChrisWiles/claude-code-showcase/blob/main/LICENSE
+tags: yup.array()
 ---
-
-
 # Formik Patterns
 ## When to Use
-
 Use this skill when you need formik form handling with validation patterns. Use when building forms, implementing validation, or handling form submission.
-
-
 ## Basic Form Setup
-
 These are React Native-style/custom UI fragments: VStack/Input/Button, generated GraphQL hooks, schemas and navigation are project dependencies, not Formik exports. Web forms require DOM event/submit adapters. Client validation is UX only; validate/authenticate/authorize again on the server, redact mutation errors and never log passwords. `enableReinitialize` resets dirty edits when initial values change; prompt or merge deliberately before refreshing an edited record.
-
 ```tsx
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-
 const validationSchema = yup.object({
   email: yup.string().email('Invalid email').required('Email is required'),
   password: yup.string().min(8, 'Min 8 characters').required('Password is required'),
 });
-
 const LoginForm = () => {
   const formik = useFormik({
     initialValues: {
@@ -52,7 +39,6 @@ const LoginForm = () => {
       await loginMutation({ variables: { input: values } });
     },
   });
-
   return (
     <VStack gap="$4">
       <Input
@@ -64,7 +50,6 @@ const LoginForm = () => {
         keyboardType="email-address"
         autoCapitalize="none"
       />
-
       <Input
         label="Password"
         value={formik.values.password}
@@ -73,7 +58,6 @@ const LoginForm = () => {
         error={formik.touched.password ? formik.errors.password : undefined}
         secureTextEntry
       />
-
       <Button
         onPress={formik.handleSubmit}
         isDisabled={!formik.isValid || formik.isSubmitting}
@@ -85,19 +69,14 @@ const LoginForm = () => {
   );
 };
 ```
-
 ## Validation Schemas
-
 ### Common Patterns
-
 ```typescript
 import * as yup from 'yup';
-
 // Email
 email: yup.string()
   .email('Invalid email address')
   .required('Email is required')
-
 // Password with requirements
 password: yup.string()
   .min(8, 'Must be at least 8 characters')
@@ -105,36 +84,28 @@ password: yup.string()
   .matches(/[A-Z]/, 'Must contain uppercase letter')
   .matches(/[0-9]/, 'Must contain number')
   .required('Password is required')
-
 // Confirm password
 confirmPassword: yup.string()
   .oneOf([yup.ref('password')], 'Passwords must match')
   .required('Please confirm password')
-
 // Phone number
 phone: yup.string()
   .matches(/^\+?[1-9]\d{1,14}$/, 'Invalid phone number')
   .required('Phone is required')
-
 // Optional field with validation when present
 website: yup.string()
   .url('Must be a valid URL')
   .nullable()
-
 // Number with range
 quantity: yup.number()
   .min(1, 'Minimum 1')
   .max(100, 'Maximum 100')
   .required('Quantity required')
-
 // Array with minimum items
-tags: yup.array()
   .of(yup.string())
   .min(1, 'Select at least one tag')
 ```
-
 ### Conditional Validation
-
 ```typescript
 const schema = yup.object({
   hasCompany: yup.boolean(),
@@ -145,11 +116,8 @@ const schema = yup.object({
   }),
 });
 ```
-
 ## Form Field Helpers
-
 ### Input Helper
-
 ```tsx
 const getFieldProps = (name: keyof typeof formik.values) => ({
   value: formik.values[name],
@@ -157,13 +125,10 @@ const getFieldProps = (name: keyof typeof formik.values) => ({
   onBlur: formik.handleBlur(name),
   error: formik.touched[name] ? formik.errors[name] : undefined,
 });
-
 // Usage
 <Input label="Email" {...getFieldProps('email')} />
 ```
-
 ### Select/Picker Helper
-
 ```tsx
 <Select
   label="Country"
@@ -173,9 +138,7 @@ const getFieldProps = (name: keyof typeof formik.values) => ({
   options={countryOptions}
 />
 ```
-
 ## Form Submission with GraphQL
-
 ```tsx
 const CreateItemForm = () => {
   const [createItem] = useCreateItemMutation({
@@ -188,7 +151,6 @@ const CreateItemForm = () => {
       toast.error({ title: 'Failed to create item' });
     },
   });
-
   const formik = useFormik({
     initialValues: { name: '', description: '' },
     validationSchema,
@@ -200,7 +162,6 @@ const CreateItemForm = () => {
       }
     },
   });
-
   return (
     <VStack gap="$4">
       {/* Form fields */}
@@ -215,9 +176,7 @@ const CreateItemForm = () => {
   );
 };
 ```
-
 ## Edit Form with Initial Values
-
 ```tsx
 const EditItemForm = ({ item }: { item: Item }) => {
   const [updateItem] = useUpdateItemMutation({
@@ -227,11 +186,8 @@ const EditItemForm = ({ item }: { item: Item }) => {
       toast.error({ title: 'Save failed' });
     },
   });
-
   const formik = useFormik({
     initialValues: {
-      name: item.name,
-      description: item.description ?? '',
     },
     enableReinitialize: true, // Update when item prop changes
     validationSchema,
@@ -241,10 +197,8 @@ const EditItemForm = ({ item }: { item: Item }) => {
       });
     },
   });
-
   // Track if form has changes
   const hasChanges = formik.dirty;
-
   return (
     <VStack gap="$4">
       {/* Form fields */}
@@ -259,9 +213,7 @@ const EditItemForm = ({ item }: { item: Item }) => {
   );
 };
 ```
-
 ## Form State Helpers
-
 ```tsx
 const {
   values,          // Current form values
@@ -279,17 +231,13 @@ const {
   setSubmitting,   // Control submitting state
 } = formik;
 ```
-
 ## Multi-Step Forms
-
 ```tsx
 const MultiStepForm = () => {
   const [step, setStep] = useState(0);
-
   const formik = useFormik({
     initialValues: {
       // Step 1
-      name: '',
       email: '',
       // Step 2
       address: '',
@@ -308,13 +256,11 @@ const MultiStepForm = () => {
       }
     },
   });
-
   return (
     <VStack>
       {step === 0 && <PersonalInfoStep formik={formik} />}
       {step === 1 && <AddressStep formik={formik} />}
       {step === 2 && <PaymentStep formik={formik} />}
-
       <HStack gap="$4">
         {step > 0 && (
           <Button variant="outline" onPress={() => setStep(step - 1)}>
@@ -333,16 +279,13 @@ const MultiStepForm = () => {
   );
 };
 ```
-
 ## Anti-Patterns
-
 ```tsx
 // WRONG - Not showing validation errors
 <Input
   value={formik.values.email}
   onChangeText={formik.handleChange('email')}
 />
-
 // CORRECT - Show errors when touched
 <Input
   value={formik.values.email}
@@ -350,11 +293,8 @@ const MultiStepForm = () => {
   onBlur={formik.handleBlur('email')}
   error={formik.touched.email ? formik.errors.email : undefined}
 />
-
-
 // WRONG - Submit button always enabled
 <Button onPress={formik.handleSubmit}>Submit</Button>
-
 // CORRECT - Disabled when invalid or submitting
 <Button
   onPress={formik.handleSubmit}
@@ -363,13 +303,10 @@ const MultiStepForm = () => {
 >
   Submit
 </Button>
-
-
 // WRONG - No error handling on mutation
 onSubmit: async (values) => {
   await createItem({ variables: { input: values } });
 }
-
 // CORRECT - Handle errors
 onSubmit: async (values, { setSubmitting }) => {
   try {
@@ -381,15 +318,11 @@ onSubmit: async (values, { setSubmitting }) => {
   }
 }
 ```
-
 ## Integration with Other Skills
-
 - **graphql-schema**: Mutation submission patterns
 - **react-ui-patterns**: Loading/error states
 - **testing-patterns**: Test form validation and submission
-
 ## Limitations
-
 - Use this skill only when the task clearly matches its upstream source and local project context.
 - Verify commands, generated code, dependencies, credentials, and external service behavior before applying changes.
 - Do not treat examples as a substitute for environment-specific tests, security review, or user approval for destructive or costly actions.

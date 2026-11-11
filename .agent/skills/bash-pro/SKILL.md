@@ -1,53 +1,36 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "26e82c2b96d17774c310f3d82e6145774214590e7fdbe0e860efce2912cf138e"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 26e82c2b96d17774c310f3d82e6145774214590e7fdbe0e860efce2912cf138e
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: "'Master of defensive Bash scripting for production automation, CI/CD"
 name: bash-pro
-description: 'Master of defensive Bash scripting for production automation, CI/CD
-tier: "experimental"
-
-  pipelines, and system utilities. Expert in safe, portable, and testable shell
-
-  scripts.
-
-  '
 risk: critical
 source: community
-date_added: '2026-02-27'
 ---
-
+  pipelines, and system utilities. Expert in safe, portable, and testable shell
+  scripts.
+  '
+---
 ## Use this skill when
-
 - Writing or reviewing Bash scripts for automation, CI/CD, or ops
 - Hardening shell scripts for safety and portability
-
 ## Do not use this skill when
-
 - You need POSIX-only shell without Bash features
 - The task requires a higher-level language for complex logic
 - You need Windows-native scripting (PowerShell)
-
 ## Instructions
-
 1. Define script inputs, outputs, and failure modes.
 2. Apply strict mode and safe argument parsing.
 3. Implement core logic with defensive patterns.
 4. Add tests and linting with Bats and ShellCheck.
-
 ## Safety
-
 - Treat input as untrusted; avoid eval and unsafe globbing.
 - Prefer dry-run modes before destructive actions.
-
 ## Focus Areas
-
 - Defensive programming with strict error handling
 - POSIX compliance and cross-platform portability
 - Safe argument parsing and input validation
@@ -58,9 +41,7 @@ date_added: '2026-02-27'
 - Static analysis with ShellCheck and formatting with shfmt
 - Modern Bash 5.x features and best practices
 - CI/CD integration and automation workflows
-
 ## Approach
-
 - Always use strict mode with `set -Eeuo pipefail` and proper error trapping
 - Quote all variable expansions to prevent word splitting and globbing issues
 - Prefer arrays and proper iteration over unsafe patterns like `for f in $(ls)`
@@ -80,9 +61,7 @@ date_added: '2026-02-27'
 - Employ `readarray`/`mapfile` for safe array population from command output
 - Implement robust script directory detection: `SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"`
 - Use NUL-safe patterns: `find -print0 | while IFS= read -r -d '' file; do ...; done`
-
 ## Compatibility & Portability
-
 - Use `#!/usr/bin/env bash` shebang for portability across systems
 - Check Bash version at script start: `(( BASH_VERSINFO[0] > 4 || (BASH_VERSINFO[0] == 4 && BASH_VERSINFO[1] >= 4) ))` for Bash 4.4+ features
 - Validate required external commands exist: `command -v jq &>/dev/null || exit 1`
@@ -93,9 +72,7 @@ date_added: '2026-02-27'
 - Provide fallback implementations for platform-specific features
 - Use built-in Bash features over external commands when possible for portability
 - Avoid bashisms when POSIX compliance is required, document when using Bash-specific features
-
 ## Readability & Maintainability
-
 - Use long-form options in scripts for clarity: `--verbose` instead of `-v`
 - Employ consistent naming: snake_case for functions/variables, UPPER_CASE for constants
 - Add section headers with comment blocks to organize related functions
@@ -108,9 +85,7 @@ date_added: '2026-02-27'
 - Use blank lines to separate logical blocks within functions
 - Document function parameters and return values in header comments
 - Extract magic numbers and strings to named constants at top of script
-
 ## Safety & Security Patterns
-
 - Declare constants with `readonly` to prevent accidental modification
 - Use `local` keyword for all function variables to avoid polluting global scope
 - Implement `timeout` for external commands: `curl --connect-timeout 5 --max-time 30 ...` bounds a network call; GNU timeout is not bundled on macOS
@@ -125,9 +100,7 @@ date_added: '2026-02-27'
 - Validate environment variables before using: `: "${REQUIRED_VAR:?not set}"`
 - Check exit codes of all security-critical operations explicitly
 - Use `trap` to ensure cleanup happens even on abnormal exit
-
 ## Performance Optimization
-
 - Avoid subshells in loops; use `while read` instead of `for i in $(cat file)`
 - Use Bash built-ins over external commands: `[[ ]]` instead of `test`, `${var//pattern/replacement}` instead of `sed`
 - Batch operations instead of repeated single operations (e.g., one `sed` with multiple expressions)
@@ -138,9 +111,7 @@ date_added: '2026-02-27'
 - Use associative arrays for lookups instead of repeated grepping
 - Process files line-by-line for large files instead of loading entire file into memory
 - Use `xargs -P` for parallel processing when operations are independent
-
 ## Documentation Standards
-
 - Implement `--help` and `-h` flags showing usage, options, and examples
 - Provide `--version` flag displaying script version and copyright information
 - Include usage examples in help output for common use cases
@@ -154,9 +125,7 @@ date_added: '2026-02-27'
 - Generate documentation with `shdoc` from special comment formats
 - Create man pages using `shellman` for system integration
 - Include architecture diagrams using Mermaid or GraphViz for complex scripts
-
 ## Modern Bash Features (5.x)
-
 - Verify each needed feature against the target Bash manual instead of assuming all
   Bash 5.x versions share transformations, shopt options and redirection behavior.
 - `EPOCHREALTIME` reports epoch seconds with microsecond granularity; it is a
@@ -168,9 +137,7 @@ date_added: '2026-02-27'
 - Use `${parameter@A}` for assignment format (Bash 4.4+)
 - Employ `wait -n` to wait for any background job (Bash 4.3+)
 - Use `mapfile -d delim` for custom delimiters (Bash 4.4+)
-
 ## CI/CD Integration
-
 - **GitHub Actions**: Use `shellcheck-problem-matchers` for inline annotations
 - **Pre-commit hooks**: Configure `.pre-commit-config.yaml` with `shellcheck`, `shfmt`, `checkbashisms`
 - **Matrix testing**: Test across Bash 4.4, 5.0, 5.1, 5.2 on Linux and macOS
@@ -180,9 +147,7 @@ date_added: '2026-02-27'
 - **Automated releases**: Tag versions and generate changelogs automatically
 - **Coverage reporting**: Track test coverage and fail on regressions
 - Example workflow: `shellcheck *.sh && shfmt -d *.sh && bats test/`
-
 ## Security Scanning & Hardening
-
 - **SAST**: Integrate Semgrep with custom rules for shell-specific vulnerabilities
 - **Secrets detection**: Use `gitleaks` or `trufflehog` to prevent credential leaks
 - **Supply chain**: Verify checksums of sourced external scripts
@@ -193,9 +158,7 @@ date_added: '2026-02-27'
 - **Input sanitization**: Validate all external inputs against allowlists
 - **Audit logging**: Log all security-relevant operations to syslog
 - **Container security**: Scan script execution environments for vulnerabilities
-
 ## Observability & Logging
-
 - **Structured logging**: Output JSON for log aggregation systems
 - **Log levels**: Implement DEBUG, INFO, WARN, ERROR with configurable verbosity
 - **Syslog integration**: Use `logger` command for system log integration
@@ -205,9 +168,7 @@ date_added: '2026-02-27'
 - **Log rotation**: Configure log file rotation for long-running scripts
 - **Performance metrics**: Track execution time, resource usage, external call latency
 - Example: `log_info() { logger -t "$SCRIPT_NAME" -p user.info "$*"; echo "[INFO] $*" >&2; }`
-
 ## Quality Checklist
-
 - Scripts pass ShellCheck static analysis with minimal suppressions
 - Code is formatted consistently with shfmt using standard options
 - Comprehensive test coverage with Bats including edge cases
@@ -218,9 +179,7 @@ date_added: '2026-02-27'
 - Input validation prevents injection attacks and handles edge cases
 - Scripts are portable across target platforms (Linux, macOS)
 - Performance is adequate for expected workloads and data sizes
-
 ## Output
-
 - Production-ready Bash scripts with defensive programming practices
 - Comprehensive test suites using bats-core or shellspec with TAP output
 - CI/CD pipeline configurations (GitHub Actions, GitLab CI) for automated testing
@@ -233,37 +192,30 @@ date_added: '2026-02-27'
 - Migration guides for Bash 3→5 upgrades and legacy modernization
 - Package distribution configurations (Homebrew formulas, deb/rpm specs)
 - Container images for reproducible execution environments
-
 ## Essential Tools
-
 ### Static Analysis & Formatting
 - **ShellCheck**: Static analyzer with `enable=all` and `external-sources=true` configuration
 - **shfmt**: Shell script formatter with standard config (`-i 2 -ci -bn -sr -kp`)
 - **checkbashisms**: Detect bash-specific constructs for portability analysis
 - **Semgrep**: SAST with custom rules for shell-specific security issues
 - **CodeQL**: Supported-language/Actions analysis; use ShellCheck for standalone Bash
-
 ### Testing Frameworks
 - **bats-core**: Maintained fork of Bats with modern features and active development
 - **shellspec**: BDD-style testing framework with rich assertions and mocking
 - **shunit2**: xUnit-style testing framework for shell scripts
 - **bashing**: Testing framework with mocking support and test isolation
-
 ### Modern Development Tools
 - **bashly**: CLI framework generator for building command-line applications
 - **basher**: Bash package manager for dependency management
 - **bpkg**: Alternative bash package manager with npm-like interface
 - **shdoc**: Generate markdown documentation from shell script comments
 - **shellman**: Generate man pages from shell scripts
-
 ### CI/CD & Automation
 - **pre-commit**: Multi-language pre-commit hook framework
 - **actionlint**: GitHub Actions workflow linter
 - **gitleaks**: Secrets scanning to prevent credential leaks
 - **Makefile**: Automation for lint, format, test, and release workflows
-
 ## Common Pitfalls to Avoid
-
 - `for f in $(ls ...)` causing word splitting/globbing bugs (use `find -print0 | while IFS= read -r -d '' f; do ...; done`)
 - Unquoted variable expansions leading to unexpected behavior
 - Relying on `set -e` without proper error trapping in complex flows
@@ -271,9 +223,7 @@ date_added: '2026-02-27'
 - Missing cleanup traps for temporary files and directories
 - Unsafe array population (use `readarray`/`mapfile` instead of command substitution)
 - Ignoring binary-safe file handling (always consider NUL separators for filenames)
-
 ## Dependency Management
-
 - **Package managers**: Use `basher` or `bpkg` for installing shell script dependencies
 - **Vendoring**: Copy dependencies into project for reproducible builds
 - **Lock files**: Document exact versions of dependencies used
@@ -283,9 +233,7 @@ date_added: '2026-02-27'
 - **Update automation**: Automate dependency updates with Dependabot or Renovate
 - **Security scanning**: Scan dependencies for known vulnerabilities
 - Example: `basher install username/repo@version` or `bpkg install username/repo -g`
-
 ## Advanced Techniques
-
 - **Error Context**: Use `trap 'echo "Error at line $LINENO: exit $?" >&2' ERR` for debugging
 - **Safe Temp Handling**: `tmpdir=$(mktemp -d) || exit 1; trap 'rm -rf -- "$tmpdir"' EXIT`
 - **Version Checking**: `(( BASH_VERSINFO[0] >= 5 ))` before using modern features
@@ -305,15 +253,12 @@ date_added: '2026-02-27'
 - **Parallel Execution**: `xargs -P $(nproc) -n 1 command` for parallel processing with CPU core count
 - **Structured Output**: `jq -n --arg key "$value" '{key: $key}'` for JSON generation
 - **Performance Profiling**: Use `time -v` for detailed resource usage or `TIMEFORMAT` for custom timing
-
 ## References & Further Reading
-
 ### Style Guides & Best Practices
 - [Google Shell Style Guide](https://google.github.io/styleguide/shellguide.html) - Comprehensive style guide covering quoting, arrays, and when to use shell
 - [Bash Pitfalls](https://mywiki.wooledge.org/BashPitfalls) - Catalog of common Bash mistakes and how to avoid them
 - [Bash Hackers Wiki](https://wiki.bash-hackers.org/) - Comprehensive Bash documentation and advanced techniques
 - [Defensive BASH Programming](https://www.kfirlavi.com/blog/2012/11/14/defensive-bash-programming/) - Modern defensive programming patterns
-
 ### Tools & Frameworks
 - [ShellCheck](https://github.com/koalaman/shellcheck) - Static analysis tool and extensive wiki documentation
 - [shfmt](https://github.com/mvdan/sh) - Shell script formatter with detailed flag documentation
@@ -321,14 +266,11 @@ date_added: '2026-02-27'
 - [shellspec](https://github.com/shellspec/shellspec) - BDD-style testing framework for shell scripts
 - [bashly](https://bashly.dannyb.co/) - Modern Bash CLI framework generator
 - [shdoc](https://github.com/reconquest/shdoc) - Documentation generator for shell scripts
-
 ### Security & Advanced Topics
 - [Bash Security Best Practices](https://github.com/carlospolop/PEASS-ng) - Security-focused shell script patterns
 - [Awesome Bash](https://github.com/awesome-lists/awesome-bash) - Curated list of Bash resources and tools
 - [Pure Bash Bible](https://github.com/dylanaraps/pure-bash-bible) - Collection of pure bash alternatives to external commands
-
 ## Example
-
 ```bash
 #!/usr/bin/env bash
 set -Eeuo pipefail
@@ -338,21 +280,14 @@ trap 'rm -rf -- "$task_tmpdir"' EXIT
 printf '%s\n' 'example' > "$task_tmpdir/input.txt"
 [[ -s "$task_tmpdir/input.txt" ]] || exit 1
 ```
-
 The directory is created before installing cleanup. Quote/validate approved paths
 before deletion: `--` stops option parsing but does not prevent deleting a wrong
 absolute path. Strict mode and an ERR trap do not catch every failure context.
-
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 Primary language support: [CodeQL supported languages](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/).
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Linux](platforms/linux.md)

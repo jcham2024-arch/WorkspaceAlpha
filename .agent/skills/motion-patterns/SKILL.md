@@ -1,59 +1,41 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "6c4949c818c50d63215af0c46383a493368c64504a8eb0dacfcca68d1cb25869"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: motion-patterns
-description: Production-ready animation patterns for React / Next.js — button, modal, toast, stagger, page transitions, exit animations, scroll, and layout — built on motion-foundations tokens and springs. Use when animating a specific UI element in React or Next.js — button, modal, toast, stagger, page transition, or scroll.
-tier: "experimental"
-tags: [motion, animation, ui-patterns]
-category: frontend
+content_hash: 6c4949c818c50d63215af0c46383a493368c64504a8eb0dacfcca68d1cb25869
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 author: jeff
-metadata:
-  version: 1.0.0
+category: frontend
+description: Production-ready animation patterns for React / Next.js — button, modal, toast, stagger, page transitions, exit animations, scroll, and layout — built on motion-foundations tokens and springs. Use when animating a specific UI element in React or Next.js — button, modal, toast, stagger, page transition, or scroll.
+name: motion-patterns
+tags: "[motion, animation, ui-patterns]"
+version: 1.0.0
 ---
-
-
 # Motion Patterns
-
 Copy-paste patterns for the most common UI animation needs.
 Every pattern here is built on `motion-foundations` tokens and springs.
 Do not define new duration or easing values here — import them.
-
 ## When to Activate
-
 - Animating a button, card, modal, or toast notification
 - Building list entrances with stagger
 - Setting up page transitions in Next.js App Router
 - Adding entrance or exit animations to conditional content
 - Implementing scroll-reveal, scroll-linked progress, or sticky story sections
 - Building expanding cards, accordions, or shared-element transitions
-
 ## Outputs
-
 This skill produces:
-
 - Accessible, SSR-safe animation for all standard UI components
 - `AnimatePresence`-wrapped conditional renders with correct exit behavior
 - Page transition wrapper component for Next.js App Router
 - Scroll-reveal and scroll-linked patterns using `useScroll` + `useTransform`
 - Layout animation patterns (`layout`, `layoutId`) for expanding and crossfading elements
-
 ## Principles
-
 - Every pattern imports from `motion-foundations`. No raw numbers.
 - Every conditional render is wrapped in `AnimatePresence` with a `key`.
 - Exit animations are always defined alongside enter animations — never as an afterthought.
 - `layout` is used only for small, isolated shifts. Large subtrees get explicit transforms.
-
 ## Rules
-
 1. **Always wrap conditional renders in `AnimatePresence` with a `key`** on the direct child. Without a key, exit animations never fire.
 2. **Always define `exit` when defining `initial` + `animate`.** An animation without an exit is incomplete.
 3. **Use `mode="wait"` on page transitions.** Enter must not start until exit completes.
@@ -62,11 +44,8 @@ This skill produces:
 6. **Modals must always include:** focus trap, Escape-key close, scroll lock, `role="dialog"`, `aria-modal="true"`.
 7. **Scroll reveals use `viewport={{ once: true }}`.** Repeating on scroll-out is distracting, not informative.
 8. **All token values are imported from `motion-foundations`.** No inline numbers.
-
 ## Decision Guidance
-
 ### Choosing the right pattern
-
 | Situation | Pattern |
 | ---------------------------------------- | ---------------------- |
 | Element appears / disappears             | `AnimatePresence`      |
@@ -76,57 +55,40 @@ This skill produces:
 | Same element moves across page contexts  | `layoutId`             |
 | Element enters when scrolled into view   | `whileInView`          |
 | Value tied to scroll position            | `useScroll` + `useTransform` |
-
 ### When to use `mode="wait"` vs `mode="sync"`
-
 | Mode | Use when |
 | ------- | --------------------------------------- |
 | `wait` | Page transitions, content swaps (one at a time) |
 | `sync` | Stacked notifications, list items (overlap is fine) |
 | `popLayout` | Items removed from a reflow list |
-
 ## Core Concepts
-
 ### AnimatePresence contract
-
 Three things must always be true:
-
 1. `AnimatePresence` wraps the conditional
 2. The direct child has a `key`
 3. The child has an `exit` prop
-
 Miss any one of these and the exit animation silently fails.
-
 ### layout vs layoutId
-
 - `layout` — animates the element's own size/position change in place
 - `layoutId` — links two separate elements, crossfading between them across renders
-
 Use `layout="position"` on text inside an expanding container to prevent text reflow from animating.
-
 ## Code Examples
-
 ### Button feedback
-
 ```tsx
 "use client"
 import { motion } from "motion/react"
 import { springs, motionTokens } from "@/lib/motion-tokens"
-
 <motion.button
   whileHover={{ scale: motionTokens.scale.pop }}
   whileTap={{ scale: motionTokens.scale.press }}
   transition={springs.snappy}
 />
 ```
-
 ### Stagger list
-
 ```tsx
 "use client"
 import { motion } from "motion/react"
 import { motionTokens, springs } from "@/lib/motion-tokens"
-
 const container = {
   hidden: {},
   visible: {
@@ -136,29 +98,23 @@ const container = {
     },
   },
 }
-
 const item = {
   hidden:  { opacity: 0, y: motionTokens.distance.md },
   visible: { opacity: 1, y: 0, transition: springs.gentle },
 }
-
 <motion.ul variants={container} initial="hidden" animate="visible">
   {items.map((i) => (
     <motion.li key={i.id} variants={item} />
   ))}
 </motion.ul>
 ```
-
 ### Modal
-
 ```tsx
 "use client"
 import { motion, AnimatePresence } from "motion/react"
 import { motionTokens, springs } from "@/lib/motion-tokens"
-
 // Wrap at the call site:
 // <AnimatePresence>{isOpen && <Modal key="modal" />}</AnimatePresence>
-
 export function Modal({ onClose }: { onClose: () => void }) {
   return (
     <>
@@ -170,7 +126,6 @@ export function Modal({ onClose }: { onClose: () => void }) {
         exit={{ opacity: 0 }}
         onClick={onClose}
       />
-
       {/* Panel — accessibility requirements: focus trap, Escape close,
           scroll lock, role="dialog", aria-modal="true" */}
       <motion.div
@@ -194,14 +149,11 @@ export function Modal({ onClose }: { onClose: () => void }) {
   )
 }
 ```
-
 ### Toast stack
-
 ```tsx
 "use client"
 import { motion, AnimatePresence } from "motion/react"
 import { motionTokens, springs } from "@/lib/motion-tokens"
-
 <AnimatePresence mode="sync">
   {toasts.map((t) => (
     <motion.div
@@ -223,22 +175,18 @@ import { motionTokens, springs } from "@/lib/motion-tokens"
   ))}
 </AnimatePresence>
 ```
-
 ### Page transition (Next.js App Router)
-
 ```tsx
 // components/page-transition.tsx
 "use client"
 import { motion, AnimatePresence } from "motion/react"
 import { usePathname } from "next/navigation"
 import { motionTokens } from "@/lib/motion-tokens"
-
 const variants = {
   initial: { opacity: 0, y: motionTokens.distance.sm },
   enter:   { opacity: 1, y: 0 },
   exit:    { opacity: 0, y: -motionTokens.distance.sm },
 }
-
 export function PageTransition({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   return (
@@ -260,14 +208,11 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
   )
 }
 ```
-
 ### Scroll reveal
-
 ```tsx
 "use client"
 import { motion } from "motion/react"
 import { motionTokens, springs } from "@/lib/motion-tokens"
-
 <motion.div
   initial={{ opacity: 0, y: motionTokens.distance.lg }}
   whileInView={{ opacity: 1, y: 0 }}
@@ -275,13 +220,10 @@ import { motionTokens, springs } from "@/lib/motion-tokens"
   transition={{ duration: motionTokens.duration.slow, ease: motionTokens.easing.smooth }}
 />
 ```
-
 ### Scroll progress bar
-
 ```tsx
 "use client"
 import { motion, useScroll } from "motion/react"
-
 export function ScrollProgress() {
   const { scrollYProgress } = useScroll()
   return (
@@ -292,25 +234,20 @@ export function ScrollProgress() {
   )
 }
 ```
-
 ### Expanding card
-
 ```tsx
 "use client"
 import { useState } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import { springs, motionTokens } from "@/lib/motion-tokens"
-
 export function ExpandingCard({ title, body }: { title: string; body: string }) {
   const [expanded, setExpanded] = useState(false)
-
   return (
     <motion.div layout onClick={() => setExpanded(!expanded)} className="cursor-pointer">
       {/* layout="position" prevents text reflow from animating */}
       <motion.h2 layout="position" className="font-semibold">
         {title}
       </motion.h2>
-
       <AnimatePresence>
         {expanded && (
           <motion.p
@@ -328,19 +265,14 @@ export function ExpandingCard({ title, body }: { title: string; body: string }) 
   )
 }
 ```
-
 ### Shared-element crossfade
-
 ```tsx
 // Source context
 <motion.img layoutId="hero-image" src={src} className="w-16 h-16 rounded" />
-
 // Destination context (same layoutId — motion handles the transition)
 <motion.img layoutId="hero-image" src={src} className="w-full rounded-xl" />
 ```
-
 ### Accordion
-
 ```tsx
 <motion.div
   initial={false}
@@ -353,27 +285,22 @@ export function ExpandingCard({ title, body }: { title: string; body: string }) 
 > {children}
 </motion.div>
 ```
-
 ## End-to-End Example
-
 A staggered list that enters on mount, handles conditional presence, and
 respects reduced motion — combining tokens, springs, AnimatePresence, and
 the accessibility hook from `motion-foundations`:
-
 ```tsx
 "use client"
 import { useState } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import { motionTokens, springs } from "@/lib/motion-tokens"
 import { useSafeMotion } from "@/hooks/use-reduced-motion"
-
 const containerVariants = {
   hidden: {},
   visible: {
     transition: { staggerChildren: 0.08, delayChildren: 0.1 },
   },
 }
-
 function ListItem({ label, onRemove }: { label: string; onRemove: () => void }) {
   const safe = useSafeMotion(motionTokens.distance.sm)
   return (
@@ -391,7 +318,6 @@ function ListItem({ label, onRemove }: { label: string; onRemove: () => void }) 
     </motion.li>
   )
 }
-
 export function AnimatedList({ items, onRemove }: {
   items: { id: string; label: string }[]
   onRemove: (id: string) => void
@@ -416,20 +342,15 @@ export function AnimatedList({ items, onRemove }: {
   )
 }
 ```
-
 ## Constraints / Non-Goals
-
 This skill does **not** cover:
-
 - Token and spring definitions → see `motion-foundations`
 - Drag interactions, swipe gestures, reorderable lists → see `motion-advanced`
 - Text animations (word/character reveal, counters) → see `motion-advanced`
 - SVG path drawing or morphing → see `motion-advanced`
 - Custom animation hooks → see `motion-advanced`
 - CSS-only transitions not using `motion/react`
-
 ## Anti-Patterns
-
 | Anti-pattern | Rule violated | Fix |
 | -------------------------------------------- | ------- | ------------------------------------------ |
 | `AnimatePresence` child missing `key` | Rule 1 | Add stable `key` to the direct child |
@@ -440,8 +361,6 @@ This skill does **not** cover:
 | Modal without focus trap | Rule 6 | Add `focus-trap-react` or Radix Dialog |
 | `whileInView` without `viewport={{ once: true }}` | Rule 7 | Repeating entrances distract, not inform |
 | `transition={{ duration: 0.3 }}` inline | Rule 8 | Use `motionTokens.duration.normal` |
-
 ## Related Skills
-
 - **`motion-foundations`** — defines all tokens, springs, the `useSafeMotion` hook, and SSR guards that every pattern here imports. Must be set up first.
 - **`motion-advanced`** — extends these patterns with drag, gestures, SVG, text, custom hooks, and imperative sequencing. Does not redefine any patterns from this skill.

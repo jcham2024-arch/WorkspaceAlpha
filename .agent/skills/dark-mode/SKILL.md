@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "2056eff28c4d3995377442697196755ea7f7ea78413f3f563adfe1b6b39477b7"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: dark-mode
+content_hash: 2056eff28c4d3995377442697196755ea7f7ea78413f3f563adfe1b6b39477b7
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Dark Mode Design. Trigger when user wants dark surfaces, reduced eye strain, and premium sleek aesthetics.
-tier: "experimental"
-date_added: "2026-06-17"
+name: dark-mode
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Dark Mode Design
-
 > "Not just inverted colors. A carefully constructed hierarchy of light on dark."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Choose Surface Colors**: Black and dark grey are both valid. OLED artifacts depend on the display; comfort depends on the user and lighting. Offer theme choice and test contrast.
 2. **Elevation via Lightness**: Lighter surfaces and borders can clarify layers when shadows are subtle. Shadows are not universally invisible in dark mode.
 3. **Test Accents**: Choose accent saturation for readable text and clear state indicators; avoid universal claims about discomfort.
-
 ## Visual DNA
 - **Colors**: **Midnight Luxury** or **Minimalist Slate** (inverted). Background `#121212`. Elevated cards `#1E1E1E`, `#252525`. Primary text `#E1E1E1` (not `#FFFFFF`).
 - **Typography**: Standard highly readable sans-serifs, but often dropped down one font weight compared to light mode, as light text on dark backgrounds appears optically thicker.
 - **Shadows**: Pure black shadows, but with much lower opacity, mostly to separate slightly different shades of grey.
-
 ## Web Implementation
 - **CSS Example**:
 ```css
@@ -46,31 +33,25 @@ Use this sub-style when the user's request matches the aesthetic described above
   --bg-elevated-2: #242424;
   --text-high-emphasis: rgba(255, 255, 255, 0.87);
   --text-medium-emphasis: rgba(255, 255, 255, 0.60);
-  
   /* Accent color: Desaturated purple instead of bright purple */
   --accent-color: #BB86FC; 
 }
-
 body {
   background-color: var(--bg-base);
   color: var(--text-high-emphasis);
   font-weight: 400; /* Preserve readable body weight; test with users. */
 }
-
 .dark-card {
   background-color: var(--bg-elevated-1);
   border-radius: 8px;
   padding: 24px;
-  
   /* Very subtle border can help separate dark surfaces */
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
-
 .dark-card:hover {
   /* On hover, the element moves closer to the user, so it gets lighter */
   background-color: var(--bg-elevated-2);
 }
-
 .dark-btn {
   background-color: var(--accent-color);
   color: #000; /* Dark text on light accent is highly readable */
@@ -80,15 +61,12 @@ body {
   border-radius: 4px;
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct DarkModeView: View {
     // Force Dark Mode on this specific view (or use system settings)
     @Environment(\.colorScheme) var colorScheme
-    
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
@@ -106,7 +84,6 @@ struct DarkModeView: View {
                 // Use native semantic colors. .secondarySystemBackground is lighter than .systemBackground
                 .background(Color(UIColor.secondarySystemBackground))
                 .cornerRadius(12)
-                
                 // Desaturated Accent Button
                 Button(action: {}) {
                     Text("Desaturated Accent")
@@ -128,11 +105,9 @@ struct DarkModeView: View {
 ```
 - **Rely on Semantics**: SwiftUI's `Color.primary`, `Color.secondary`, `Color(UIColor.systemBackground)` and `Color(UIColor.secondarySystemBackground)` adapt to platform appearance; verify custom combinations and increased-contrast settings.
 - Avoid forcing explicit hex codes for backgrounds unless you are building a custom-themed app.
-
 ### Flutter
 ```dart
 import 'package:flutter/material.dart';
-
 class DarkModeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -185,14 +160,11 @@ class DarkModeApp extends StatelessWidget {
 ```
 - When using `ThemeData.dark()`, actively override `scaffoldBackgroundColor` to `#121212` and `cardColor` to `#1E1E1E`.
 - Ensure your `colorScheme.onPrimary` is black so text is readable when placed on top of your desaturated primary accent button.
-
 ### React Native
 ```jsx
 import { useColorScheme } from 'react-native';
-
 const DarkModeScreen = () => {
   const isDark = useColorScheme() === 'dark';
-  
   // Custom dark theme dictionary
   const theme = {
     bgBase: isDark ? '#121212' : '#FFFFFF',
@@ -202,7 +174,6 @@ const DarkModeScreen = () => {
     accent: isDark ? '#BB86FC' : '#6200EE', // Desaturated for dark, vibrant for light
     onAccent: isDark ? '#000' : '#FFF',
   };
-
   return (
     <View style={{ flex: 1, backgroundColor: theme.bgBase, padding: 16 }}>
       <View style={{
@@ -220,7 +191,6 @@ const DarkModeScreen = () => {
           Elevated surfaces use lighter greys.
         </Text>
       </View>
-
       <TouchableOpacity style={{
         backgroundColor: theme.accent,
         padding: 16,
@@ -235,7 +205,6 @@ const DarkModeScreen = () => {
 ```
 - Rely on `useColorScheme()` hook from React Native.
 - Define a strict dictionary of your color tokens. Notice how `theme.accent` shifts from a vibrant purple (`#6200EE`) in light mode to a desaturated pastel purple (`#BB86FC`) in dark mode.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -249,7 +218,6 @@ fun DarkModeScreen() {
         onBackground = Color.White.copy(alpha = 0.87f),
         onSurface = Color.White.copy(alpha = 0.87f)
     )
-
     MaterialTheme(colorScheme = darkColors) {
         Column(
             modifier = Modifier
@@ -272,9 +240,7 @@ fun DarkModeScreen() {
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
                 }
             }
-            
             Spacer(Modifier.height(20.dp))
-            
             Button(
                 onClick = {},
                 colors = ButtonDefaults.buttonColors(
@@ -291,11 +257,9 @@ fun DarkModeScreen() {
 ```
 - Material 3 provides theme roles; custom palettes still need contrast testing. Define your `darkColorScheme`.
 - Use `Color(0xFF1E1E1E)` for `surface` and `Color(0xFF121212)` for `background`. Compose will automatically map these to `Card`s and Scaffolds.
-
 ## Do's and Don'ts
 - **DO**: Meet WCAG contrast standards. Just because it's dark doesn't mean the text should be illegibly dim.
 - **DON'T**: Use bright, highly saturated primary colors.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

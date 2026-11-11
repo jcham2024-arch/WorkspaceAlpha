@@ -1,48 +1,32 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "feba88d82f3b02ecffe489e1f4b1cf99c994315a43212ac21d8f7576ef668fe0"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-ai-openai-dotnet
+content_hash: feba88d82f3b02ecffe489e1f4b1cf99c994315a43212ac21d8f7576ef668fe0
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Azure OpenAI SDK for .NET. Client library for Azure OpenAI and OpenAI services. Use for chat completions, embeddings, image generation, audio transcription, and assistants.
-tier: "experimental"
+name: azure-ai-openai-dotnet
 risk: critical
 source: community
-date_added: '2026-02-27'
 ---
-
-
 # Azure.AI.OpenAI (.NET)
-
 Client library for Azure OpenAI Service providing access to OpenAI models including GPT-4, GPT-4o, embeddings, DALL-E, and Whisper.
-
 ## Installation
-
 ```bash
 dotnet add package Azure.AI.OpenAI
-
 # For OpenAI (non-Azure) compatibility
 dotnet add package OpenAI
 ```
-
 **Historical example baseline**: 2.1.0; verify and pin compatible Azure.AI.OpenAI/OpenAI versions. Newer v1 API examples below may require newer packages.
-
 ## Environment Variables
-
 ```bash
 AZURE_OPENAI_ENDPOINT=https://<resource-name>.openai.azure.com
 AZURE_OPENAI_API_KEY=<api-key>                    # For key-based auth
 AZURE_OPENAI_DEPLOYMENT_NAME=<deployment-name>    # Azure deployment, not necessarily the model ID
 ```
-
 ## Client Hierarchy
-
 ```
 AzureOpenAIClient (top-level)
 ├── GetChatClient(deploymentName)      → ChatClient
@@ -51,45 +35,33 @@ AzureOpenAIClient (top-level)
 ├── GetAudioClient(deploymentName)     → AudioClient
 └── GetAssistantClient()               → AssistantClient
 ```
-
 ## Authentication
-
 ### API Key Authentication
-
 ```csharp
 using Azure;
 using Azure.AI.OpenAI;
-
 AzureOpenAIClient client = new(
     new Uri(Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")!),
     new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_OPENAI_API_KEY")!));
 ```
-
 ### Microsoft Entra ID (Recommended for Production)
-
 ```csharp
 using Azure.Identity;
 using Azure.AI.OpenAI;
-
 AzureOpenAIClient client = new(
     new Uri(Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")!),
     new DefaultAzureCredential());
 ```
-
 ### Using OpenAI SDK Directly with Azure
-
 ```csharp
 using Azure.Identity;
 using OpenAI;
 using OpenAI.Chat;
 using System.ClientModel.Primitives;
-
 #pragma warning disable OPENAI001
-
 BearerTokenPolicy tokenPolicy = new(
     new DefaultAzureCredential(),
     "https://cognitiveservices.azure.com/.default");
-
 ChatClient client = new(
     model: "gpt-4o-mini",
     authenticationPolicy: tokenPolicy,
@@ -98,45 +70,33 @@ ChatClient client = new(
         Endpoint = new Uri("https://YOUR-RESOURCE.openai.azure.com/openai/v1")
     });
 ```
-
 ## Chat Completions
-
 ### Basic Chat
-
 ```csharp
 using Azure.AI.OpenAI;
 using OpenAI.Chat;
-
 AzureOpenAIClient azureClient = new(
     new Uri(endpoint),
     new DefaultAzureCredential());
-
 ChatClient chatClient = azureClient.GetChatClient("gpt-4o-mini");
-
 ChatCompletion completion = chatClient.CompleteChat(
 [
     new SystemChatMessage("You are a helpful assistant."),
     new UserChatMessage("What is Azure OpenAI?")
 ]);
-
 Console.WriteLine(completion.Content[0].Text);
 ```
-
 ### Async Chat
-
 ```csharp
 ChatCompletion completion = await chatClient.CompleteChatAsync(
 [
     new SystemChatMessage("You are a helpful assistant."),
     new UserChatMessage("Explain cloud computing in simple terms.")
 ]);
-
 Console.WriteLine($"Response: {completion.Content[0].Text}");
 Console.WriteLine($"Tokens used: {completion.Usage.TotalTokenCount}");
 ```
-
 ### Streaming Chat
-
 ```csharp
 await foreach (StreamingChatCompletionUpdate update 
     in chatClient.CompleteChatStreamingAsync(messages))
@@ -147,9 +107,7 @@ await foreach (StreamingChatCompletionUpdate update
     }
 }
 ```
-
 ### Chat with Options
-
 ```csharp
 ChatCompletionOptions options = new()
 {
@@ -159,12 +117,9 @@ ChatCompletionOptions options = new()
     FrequencyPenalty = 0,
     PresencePenalty = 0
 };
-
 ChatCompletion completion = await chatClient.CompleteChatAsync(messages, options);
 ```
-
 ### Multi-turn Conversation
-
 ```csharp
 List<ChatMessage> messages = new()
 {
@@ -173,16 +128,12 @@ List<ChatMessage> messages = new()
     new AssistantChatMessage("Of course! What do you need help with?"),
     new UserChatMessage("What's the capital of France?")
 };
-
 ChatCompletion completion = await chatClient.CompleteChatAsync(messages);
 messages.Add(new AssistantChatMessage(completion.Content[0].Text));
 ```
-
 ## Structured Outputs (JSON Schema)
-
 ```csharp
 using System.Text.Json;
-
 ChatCompletionOptions options = new()
 {
     ResponseFormat = ChatResponseFormat.CreateJsonSchemaFormat(
@@ -211,38 +162,29 @@ ChatCompletionOptions options = new()
             """u8.ToArray()),
         jsonSchemaIsStrict: true)
 };
-
 ChatCompletion completion = await chatClient.CompleteChatAsync(
     [new UserChatMessage("How can I solve 8x + 7 = -23?")],
     options);
-
 using JsonDocument json = JsonDocument.Parse(completion.Content[0].Text);
 Console.WriteLine($"Answer: {json.RootElement.GetProperty("final_answer")}");
 ```
-
 ## Reasoning Models (o1, o4-mini)
-
 ```csharp
 ChatCompletionOptions options = new()
 {
     ReasoningEffortLevel = ChatReasoningEffortLevel.Low,
     MaxOutputTokenCount = 100000
 };
-
 ChatCompletion completion = await chatClient.CompleteChatAsync(
 [
     new DeveloperChatMessage("You are a helpful assistant"),
     new UserChatMessage("Explain the theory of relativity")
 ], options);
 ```
-
 ## Azure AI Search Integration (RAG)
-
 ```csharp
 using Azure.AI.OpenAI.Chat;
-
 #pragma warning disable AOAI001
-
 ChatCompletionOptions options = new();
 options.AddDataSource(new AzureSearchChatDataSource()
 {
@@ -250,11 +192,9 @@ options.AddDataSource(new AzureSearchChatDataSource()
     IndexName = searchIndex,
     Authentication = DataSourceAuthentication.FromApiKey(searchKey)
 });
-
 ChatCompletion completion = await chatClient.CompleteChatAsync(
     [new UserChatMessage("What health plans are available?")],
     options);
-
 ChatMessageContext context = completion.GetMessageContext();
 if (context?.Intent is not null)
 {
@@ -265,22 +205,15 @@ foreach (ChatCitation citation in context?.Citations ?? [])
     Console.WriteLine($"Citation: {citation.Content}");
 }
 ```
-
 ## Embeddings
-
 ```csharp
 using OpenAI.Embeddings;
-
 EmbeddingClient embeddingClient = azureClient.GetEmbeddingClient("text-embedding-ada-002");
-
 OpenAIEmbedding embedding = await embeddingClient.GenerateEmbeddingAsync("Hello, world!");
 ReadOnlyMemory<float> vector = embedding.ToFloats();
-
 Console.WriteLine($"Embedding dimensions: {vector.Length}");
 ```
-
 ### Batch Embeddings
-
 ```csharp
 List<string> inputs = new()
 {
@@ -288,22 +221,16 @@ List<string> inputs = new()
     "Second document text",
     "Third document text"
 };
-
 OpenAIEmbeddingCollection embeddings = await embeddingClient.GenerateEmbeddingsAsync(inputs);
-
 foreach (OpenAIEmbedding emb in embeddings)
 {
     Console.WriteLine($"Index {emb.Index}: {emb.ToFloats().Length} dimensions");
 }
 ```
-
 ## Image Generation (DALL-E)
-
 ```csharp
 using OpenAI.Images;
-
 ImageClient imageClient = azureClient.GetImageClient("dall-e-3");
-
 GeneratedImage image = await imageClient.GenerateImageAsync(
     "A futuristic city skyline at sunset",
     new ImageGenerationOptions
@@ -312,19 +239,13 @@ GeneratedImage image = await imageClient.GenerateImageAsync(
         Quality = GeneratedImageQuality.High,
         Style = GeneratedImageStyle.Vivid
     });
-
 Console.WriteLine($"Image URL: {image.ImageUri}");
 ```
-
 ## Audio (Whisper)
-
 ### Transcription
-
 ```csharp
 using OpenAI.Audio;
-
 AudioClient audioClient = azureClient.GetAudioClient("whisper");
-
 AudioTranscription transcription = await audioClient.TranscribeAudioAsync(
     "audio.mp3",
     new AudioTranscriptionOptions
@@ -332,12 +253,9 @@ AudioTranscription transcription = await audioClient.TranscribeAudioAsync(
         ResponseFormat = AudioTranscriptionFormat.Verbose,
         Language = "en"
     });
-
 Console.WriteLine(transcription.Text);
 ```
-
 ### Text-to-Speech
-
 ```csharp
 BinaryData speech = await audioClient.GenerateSpeechAsync(
     "Hello, welcome to Azure OpenAI!",
@@ -347,12 +265,9 @@ BinaryData speech = await audioClient.GenerateSpeechAsync(
         SpeedRatio = 1.0f,
         ResponseFormat = GeneratedSpeechFormat.Mp3
     });
-
 await File.WriteAllBytesAsync("output.mp3", speech.ToArray());
 ```
-
 ## Function Calling (Tools)
-
 ```csharp
 ChatTool getCurrentWeatherTool = ChatTool.CreateFunctionTool(
     functionName: "get_current_weather",
@@ -373,16 +288,13 @@ ChatTool getCurrentWeatherTool = ChatTool.CreateFunctionTool(
             "required": ["location"]
         }
         """));
-
 ChatCompletionOptions options = new()
 {
     Tools = { getCurrentWeatherTool }
 };
-
 ChatCompletion completion = await chatClient.CompleteChatAsync(
     [new UserChatMessage("What's the weather in Seattle?")],
     options);
-
 if (completion.FinishReason == ChatFinishReason.ToolCalls)
 {
     foreach (ChatToolCall toolCall in completion.ToolCalls)
@@ -392,9 +304,7 @@ if (completion.FinishReason == ChatFinishReason.ToolCalls)
     }
 }
 ```
-
 ## Key Types Reference
-
 | Type | Purpose |
 |------|---------|
 | `AzureOpenAIClient` | Top-level client for Azure OpenAI |
@@ -412,9 +322,7 @@ if (completion.FinishReason == ChatFinishReason.ToolCalls)
 | `DeveloperChatMessage` | Developer message (reasoning models) |
 | `ChatTool` | Function/tool definition |
 | `ChatToolCall` | Tool invocation request |
-
 ## Best Practices
-
 1. **Use Entra ID in production** — Avoid API keys; use `DefaultAzureCredential`
 2. **Reuse client instances** — Create once, share across requests
 3. **Handle rate limits** — Implement exponential backoff for 429 errors
@@ -423,12 +331,9 @@ if (completion.FinishReason == ChatFinishReason.ToolCalls)
 6. **Use structured outputs** — JSON schema ensures consistent response format
 7. **Monitor token usage** — Track `completion.Usage` for cost management
 8. **Validate tool calls** — Always validate function arguments before execution
-
 ## Error Handling
-
 ```csharp
 using System.ClientModel;
-
 try
 {
     ChatCompletion completion = await chatClient.CompleteChatAsync(messages);
@@ -447,18 +352,14 @@ catch (System.ClientModel.ClientResultException ex)
     Console.WriteLine($"Azure OpenAI error: {ex.Status} - {ex.Message}");
 }
 ```
-
 ## Related SDKs
-
 | SDK | Purpose | Install |
 |-----|---------|---------|
 | `Azure.AI.OpenAI` | Azure OpenAI client (this SDK) | `dotnet add package Azure.AI.OpenAI` |
 | `OpenAI` | OpenAI compatibility | `dotnet add package OpenAI` |
 | `Azure.Identity` | Authentication | `dotnet add package Azure.Identity` |
 | `Azure.Search.Documents` | AI Search for RAG | `dotnet add package Azure.Search.Documents` |
-
 ## Reference Links
-
 | Resource | URL |
 |----------|-----|
 | NuGet Package | https://www.nuget.org/packages/Azure.AI.OpenAI |
@@ -466,19 +367,13 @@ catch (System.ClientModel.ClientResultException ex)
 | Migration Guide (1.0→2.0) | https://learn.microsoft.com/azure/ai-services/openai/how-to/dotnet-migration |
 | Quickstart | https://learn.microsoft.com/azure/ai-services/openai/quickstart |
 | GitHub Source | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/openai/Azure.AI.OpenAI |
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 Examples are separate fragments, not a compiled application; add required imports, variables and model-specific deployment names. Chat/audio/image features and options differ by deployment/API version: Whisper transcription and speech generation generally require different deployments. Check refusal, finish reason and content count before indexing; structured output does not guarantee successful non-refusal responses. Treat retrieved text/tool arguments as untrusted and authorize side effects independently. Bound retries and honor retry hints; sleeping once is not a retry loop. Do not log prompts, citations or raw service errors containing sensitive data. Model names, package versions and preview APIs here are historical illustrations, not current availability claims.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Windows](platforms/windows.md)

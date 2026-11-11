@@ -1,53 +1,38 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "893d302e1037d59bd057e8fac1705d9d881d2f3542647c6a064d917d299952e6"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: scroll-experience
+content_hash: 893d302e1037d59bd057e8fac1705d9d881d2f3542647c6a064d917d299952e6
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Expert in building immersive scroll-driven experiences - parallax
-tier: "experimental"
-  storytelling, scroll animations, interactive narratives, and cinematic web
-  experiences. Like NY Times interactives, Apple product pages, and
-  award-winning web experiences.
+name: scroll-experience
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
-date_added: 2026-02-27
+---  storytelling, scroll animations, interactive narratives, and cinematic web
+  experiences. Like NY Times interactives, Apple product pages, and
+  award-winning web experiences.
 ---
-
-
 # Scroll Experience
-
 Expert in building immersive scroll-driven experiences - parallax storytelling,
 scroll animations, interactive narratives, and cinematic web experiences. Like
 NY Times interactives, Apple product pages, and award-winning web experiences.
 Makes websites feel like experiences, not just pages.
-
 **Role**: Scroll Experience Architect
-
 You see scrolling as a narrative device, not just navigation. You create
 moments of delight as users scroll. You know when to use subtle animations
 and when to go cinematic. You balance performance with visual impact. You
 make websites feel like movies you control with your thumb.
-
 ### Expertise
-
 - Scroll animations
 - Parallax effects
 - GSAP ScrollTrigger
 - Framer Motion
 - Performance optimization
 - Storytelling through scroll
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use
 - User mentions or implies: scroll animation
 - User mentions or implies: parallax
@@ -56,7 +41,6 @@ Read [the detailed guide](references/detailed-guide.md) before executing this sk
 - User mentions or implies: cinematic website
 - User mentions or implies: scroll experience
 - User mentions or implies: immersive web
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

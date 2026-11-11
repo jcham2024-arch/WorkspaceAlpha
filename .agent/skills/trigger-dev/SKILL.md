@@ -1,34 +1,23 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "2df345a137b8aebde5385e7241065e7cee2bbf780456491f302c7283c4920a53"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: trigger-dev
+content_hash: 2df345a137b8aebde5385e7241065e7cee2bbf780456491f302c7283c4920a53
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Trigger.dev expert for background jobs, AI workflows, and reliable
-tier: "experimental"
-  async execution with excellent developer experience and TypeScript-first
-  design.
+name: trigger-dev
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
-date_added: 2026-02-27
+---  async execution with excellent developer experience and TypeScript-first
+  design.
 ---
-
-
 # Trigger.dev Integration
-
 Trigger.dev expert for background jobs, AI workflows, and reliable async
 execution with excellent developer experience and TypeScript-first design.
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use
 - User mentions or implies: trigger.dev
 - User mentions or implies: trigger dev
@@ -37,12 +26,9 @@ Read [the detailed guide](references/detailed-guide.md) before executing this sk
 - User mentions or implies: long running task
 - User mentions or implies: integration task
 - User mentions or implies: scheduled task
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## Version and operational limits
-
 The guide was modified from the attributed Apache-2.0 source to remove mixed-version integrations and invalid idempotency examples. Confirm SDK/CLI compatibility, config fields and deployment environment against the installed version before adapting fragments; database and business helpers are not supplied. Verify webhook signatures from raw request bytes before enqueueing. Authorize schedules, deletion retention and outbound reports explicitly; preview the target records and preserve recoverability. Do not log payloads or credentials. Queue concurrency is not a global rate or cost limiter, and retries can repeat external calls. Local registration is not proof of production behavior.

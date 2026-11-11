@@ -1,29 +1,20 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "0dd7ca48511ee290971c9a080eaf6a0fc24c4bbc9bd155ad47648b01ff9047e1"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 0dd7ca48511ee290971c9a080eaf6a0fc24c4bbc9bd155ad47648b01ff9047e1
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-16
+description: Language-specific super-code guidelines for swift.
 name: swift
-description: "Language-specific super-code guidelines for swift."
-tier: "experimental"
 risk: safe
 source: community
-date_added: "2026-06-16"
 ---
-
 # Swift: Idiomatic Efficiency Reference
-
 Apply only within the requested scope and current project conventions. Preserve behavior, ownership, error handling, accessibility and security; examples are independent fragments, not equivalent rewrites in every context. Verify language/library versions and run relevant checks. Required tests and user-facing progress/results take precedence over brevity rules. Do not install dependencies or delete files merely to follow these examples.
-
 ## When to Use
 - Use this skill when the task matches this description: Language-specific super-code guidelines for swift.
-
 ## Table of Contents
 1. [Optionals](#optionals)
 2. [Collections & Functional Transforms](#collections)
@@ -32,19 +23,14 @@ Apply only within the requested scope and current project conventions. Preserve 
 5. [Concurrency](#concurrency)
 6. [Protocol-Oriented Design](#protocols)
 7. [Anti-patterns specific to Swift](#antipatterns)
-
 ---
-
 ## 1. Optionals {#optionals}
-
 ```swift
 // ❌ Force unwrap
 let name = user.name!
-
 // ✅ — guard or if-let
 guard let name = user.name else { return }
 ```
-
 ```swift
 // ❌ Nested if-let pyramid
 if let user = fetchUser() {
@@ -54,7 +40,6 @@ if let user = fetchUser() {
         }
     }
 }
-
 // ✅ — chained optional binding
 if let city = fetchUser()?.address?.city {
     display(city)
@@ -63,76 +48,58 @@ if let city = fetchUser()?.address?.city {
 guard let city = fetchUser()?.address?.city else { return }
 display(city)
 ```
-
 ```swift
 // ❌ Ternary for default
 let name = user.name != nil ? user.name! : "Unknown"
-
 // ✅
 let name = user.name ?? "Unknown"
 ```
-
 ```swift
 // ❌ Optional map when if-let is clearer for side effects
 user.name.map { display($0) }
-
 // ✅ — map for transforms, if-let for side effects
 let upper = user.name.map { $0.uppercased() }
 if let name = user.name { display(name) }
 ```
-
 ---
-
 ## 2. Collections & Functional Transforms {#collections}
-
 ```swift
 // ❌ Imperative filter + map
 var result: [String] = []
 for item in items {
     if item.isActive { result.append(item.name.uppercased()) }
 }
-
 // ✅
 let result = items
     .filter(\.isActive)
     .map { $0.name.uppercased() }
 ```
-
 ```swift
 // ❌ Manual dictionary construction
 var dict: [String: User] = [:]
 for user in users { dict[user.id] = user }
-
 // ✅
 let dict = Dictionary(users.map { ($0.id, $0) }, uniquingKeysWith: { _, latest in latest }) // same last-write behavior
 // or with possible duplicates:
 let dict = Dictionary(grouping: users, by: \.department)
 ```
-
 ```swift
 // ❌ Checking isEmpty then accessing first
 if !items.isEmpty { process(items[0]) }
-
 // ✅
 if let first = items.first { process(first) }
 ```
-
 ```swift
 // ❌ Index-based loop
 for i in 0..<items.count { process(items[i]) }
-
 // ✅
 for item in items { process(item) }
 // with index:
 for (i, item) in items.enumerated() { process(i, item) }
 ```
-
 **Use key paths (`\.isActive`) as closure shorthand where supported.**
-
 ---
-
 ## 3. Value vs Reference Types {#value-types}
-
 ```swift
 // ❌ Class for plain data (reference semantics where value semantics suffice)
 class Point {
@@ -140,39 +107,29 @@ class Point {
     var y: Double
     init(x: Double, y: Double) { self.x = x; self.y = y }
 }
-
 // ✅
 struct Point { var x, y: Double }
 ```
-
 ```swift
 // ❌ Large struct copied repeatedly (performance hit)
 struct HugeData { var buffer: [UInt8] /* thousands of elements */ }
 func process(_ data: HugeData) { ... } // Array is copy-on-write; read-only passing need not copy the buffer
-
 // ✅ — use class or pass inout for mutation
 func process(_ data: inout HugeData) { ... }
 // or use copy-on-write wrapper for large value types
 ```
-
 **Default to `struct`. Use `class` when you need identity, inheritance, or reference semantics.**
-
 ---
-
 ## 4. Error Handling {#errors}
-
 ```swift
 // ❌ Using optionals to mask errors
 func parse(_ input: String) -> Data? { ... } // caller doesn't know why it failed
-
 // ✅
 func parse(_ input: String) throws -> Data { ... }
 ```
-
 ```swift
 // ❌ try! in production code
 let data = try! JSONDecoder().decode(User.self, from: jsonData)
-
 // ✅
 do {
     let data = try JSONDecoder().decode(User.self, from: jsonData)
@@ -181,11 +138,9 @@ do {
     throw AppError.decodingFailed(underlying: error)
 }
 ```
-
 ```swift
 // ❌ Generic Error type
 enum AppError: Error { case generic(String) }
-
 // ✅ — specific, actionable error cases
 enum AppError: Error {
     case networkUnreachable
@@ -193,11 +148,9 @@ enum AppError: Error {
     case unauthorized
 }
 ```
-
 ```swift
 // ❌ Catching all errors and ignoring
 do { try riskyOperation() } catch { }
-
 // ✅
 do {
     try riskyOperation()
@@ -207,11 +160,8 @@ do {
     throw error // rethrow unknown
 }
 ```
-
 ---
-
 ## 5. Concurrency {#concurrency}
-
 ```swift
 // ❌ Callback-based async (pyramid of doom)
 fetchUser { user in
@@ -221,7 +171,6 @@ fetchUser { user in
         }
     }
 }
-
 // ✅ (Swift 5.5+)
 let user = try await fetchUser()
 let posts = try await fetchPosts(for: user)
@@ -229,45 +178,35 @@ guard let firstPost = posts.first else { return }
 let comments = try await fetchComments(for: firstPost)
 display(comments)
 ```
-
 ```swift
 // ❌ Sequential awaits for independent work
 let a = try await fetchA()
 let b = try await fetchB()
-
 // ✅
 async let a = fetchA()
 async let b = fetchB()
 let (resultA, resultB) = try await (a, b)
 ```
-
 ```swift
 // ❌ DispatchQueue.main.async for UI updates in async context
 DispatchQueue.main.async { label.text = result }
-
 // ✅
 await MainActor.run { label.text = result }
 // or mark the function/class @MainActor
 ```
-
 **Use `actor` for mutable shared state instead of manual locks/queues.**
-
 ---
-
 ## 6. Protocol-Oriented Design {#protocols}
-
 ```swift
 // ❌ Deep class inheritance hierarchy
 class Animal { ... }
 class Dog: Animal { ... }
 class GuideDog: Dog { ... }
-
 // ✅ — protocols + composition
 protocol Animal { var name: String { get } }
 protocol Trainable { func train() }
 struct Dog: Animal, Trainable { ... }
 ```
-
 ```swift
 // ❌ Protocol with default implementations for everything
 protocol Renderable {
@@ -277,25 +216,19 @@ extension Renderable {
     func render() { /* default */ }
 }
 // Every conformer uses default — protocol serves no purpose
-
 // ✅ — only default implementations that provide genuine shared logic
 ```
-
 ```swift
 // ❌ Associated type when generic parameter suffices
 protocol Container {
     associatedtype Element
     func get() -> Element
 }
-
 // ✅ — use `some` or generic parameter for simple cases
 func process(_ item: some Equatable) { ... }
 ```
-
 ---
-
 ## 7. Anti-patterns specific to Swift {#antipatterns}
-
 | Anti-pattern | Preferred |
 |---|---|
 | Force unwrap `!` in production code | `guard let` / `if let` / `??` |
@@ -309,9 +242,6 @@ func process(_ item: some Equatable) { ... }
 | `Any` / `AnyObject` everywhere | generics with protocol constraints |
 | Massive `switch` over string values | enum with raw values |
 | Singleton pattern (global mutable state) | dependency injection |
-
-
-
 ## Limitations
 - These are language-specific guidelines and do not cover overall architectural decisions.
 - Over-compression might reduce readability; apply judgement.

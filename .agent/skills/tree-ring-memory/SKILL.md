@@ -1,47 +1,35 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "2bef387173051b6c5f318b3fac2dce53609b89dea02e9a80be661308a0f0ae3b"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: tree-ring-memory
-description: "Use Tree Ring Memory for local-first AI-agent memory lifecycle work: recall, evidence, audit, forgetting, and consolidation without transcript dumping."
-tier: "experimental"
+content_hash: 2bef387173051b6c5f318b3fac2dce53609b89dea02e9a80be661308a0f0ae3b
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: TerminallyLazy
 category: development
+date_added: 2026-07-08
+description: ""Use Tree Ring Memory for local-first AI-agent memory lifecycle work: recall, evidence, audit, forgetting, and consolidation without transcript dumping.""
+license: MIT
+license_source: ""https://github.com/TerminallyLazy/Tree-Ring-Memory/blob/main/LICENSE""
+name: tree-ring-memory
 risk: critical
 source: community
 source_repo: TerminallyLazy/Tree-Ring-Memory
 source_type: community
-date_added: "2026-07-08"
-author: TerminallyLazy
-tags: [agent-memory, local-first, recall, privacy, codex, sqlite, cli]
-tools: [claude, codex, cursor, gemini, antigravity, opencode]
-license: "MIT"
-license_source: "https://github.com/TerminallyLazy/Tree-Ring-Memory/blob/main/LICENSE"
+tags: "[agent-memory, local-first, recall, privacy, codex, sqlite, cli]"
+tools: "[claude, codex, cursor, gemini, antigravity, opencode]"
 ---
-
-
 # Tree Ring Memory
-
 ## Overview
-
 Tree Ring Memory is a framework-agnostic, local-first memory lifecycle layer for
 AI agents. Use this skill when an agent should recall, preserve, audit, or
 forget durable project memory without treating raw conversation transcripts as
 memory.
-
 The public runtime is a Rust CLI/TUI with local SQLite/FTS storage, scoped
 recall, evidence records, audit, deterministic consolidation, maintenance,
 DOX/Revolve source adapters, framework discovery, redaction, and explicit
 forgetting.
-
 ## When to Use This Skill
-
 - Use before resuming a project where prior decisions, warnings, preferences,
   or failed approaches may matter.
 - Use before changing architecture, storage, security, privacy, release, or
@@ -52,22 +40,16 @@ forgetting.
   future agents should preserve.
 - Use when a project contains `.tree-ring/SKILL.md`, `.tree-ring/CLI.md`, or
   other Tree Ring bridge files.
-
 ## How It Works
-
 ### Step 1: Discover Local Guidance
-
 Check whether the current project already has Tree Ring guidance:
-
 ```bash
 test -f .tree-ring/SKILL.md && sed -n '1,220p' .tree-ring/SKILL.md
 test -f .tree-ring/CLI.md && sed -n '1,220p' .tree-ring/CLI.md
 ```
-
 Treat project-local `.tree-ring` files as more authoritative than generic
 examples in this skill. If the CLI is installed, inspect the current command
 surface before assuming flags:
-
 ```bash
 tree-ring --help
 tree-ring recall --help
@@ -76,7 +58,6 @@ tree-ring evidence --help
 tree-ring audit --help
 tree-ring forget --help
 ```
-
 If Tree Ring is not installed, resolve the actual project root and explain the
 exact project-local download before obtaining explicit approval to fetch it.
 Download the official, version-pinned `v0.15.0/install.sh` to a temporary file,
@@ -84,47 +65,35 @@ verify its SHA-256 is
 `ef0d5eb8f09cbe2e4c3abe80ee9a98a56759c89ad4ddd103d6c68314cd653ade`,
 inspect it, then run it. The pinned source is
 `https://raw.githubusercontent.com/TerminallyLazy/Tree-Ring-Memory/v0.15.0/install.sh`.
-
 ```bash
 cd <project-root>
 sh <verified-installer-path> --project --init --release v0.15.0 --no-animation
 ```
-
 Do not pipe a network response directly to a shell. After verification and
 inspection, show the exact installer command and obtain explicit approval again
 before executing it. For an installed global CLI, initialize from the project root with
 `tree-ring --root .tree-ring init`; for a project-local CLI, use
 `.tree-ring/bin/tree-ring --root .tree-ring init`.
-
 Check for a newer release without changing files using
 `tree-ring update --check`. Run `tree-ring update` only with user authorization,
 then rerun `init` in each project root to refresh managed guidance while
 preserving custom content.
-
 ## Step 2: Recall Before Risky Work
-
 Use narrow, project-scoped recall first:
-
 ```bash
 tree-ring recall "release behavior" --project example-service
 tree-ring recall "sqlite migration" --project example-service
 tree-ring recall "user preference"
 ```
-
 Use recalled memory as context, not authority. Verify it against current source
 files, tests, docs, issues, pull requests, logs, and runtime state before making
 changes.
-
 ## Step 3: Write Only Durable Memory
-
 Write concise memory only when it is likely to help future agents:
-
 ```bash
 tree-ring remember "Run project-scoped recall before release changes." --event-type lesson --scope project
 ```
-
 Prefer specific event types when supported locally:
-
 - `decision`
 - `lesson`
 - `warning`
@@ -133,61 +102,44 @@ Prefer specific event types when supported locally:
 - `tool_result`
 - `summary`
 - `hypothesis`
-
 Store the durable lesson, decision, warning, or follow-up. Do not store the
 full conversation.
-
 ## Step 4: Record Evidence for Evaluated Outcomes
-
 Use evidence records for test runs, incidents, reviewed changes, or other
 evaluated outcomes:
-
 ```bash
 tree-ring evidence \
   "Installer smoke test passed in an isolated HOME." \
   --outcome observed \
   --evidence-ref "ci/install-smoke/2026-07-08"
 ```
-
 Outcome guidance:
-
 - `promoted`: durable truth backed by strong evidence
 - `rejected`: failed or rolled-back approach worth keeping visible
 - `deferred`: unresolved idea or future option
 - `observed`: normal evaluated result
-
 Do not promote weak, stale, or unreviewed claims to durable truth.
-
 ## Step 5: Use Source Adapters Carefully
-
 When a repo has structured source records, run dry runs first:
-
 ```bash
 tree-ring dox sync --source-root . --dry-run
 tree-ring revolve sync --source-root revolve --dry-run
 tree-ring integrations scan --source-root .
 ```
-
 Only write adapter summaries when they are concise, source-linked, useful, and
 privacy-safe. Imported memory does not replace the underlying `AGENTS.md`,
 Revolve record, test, pull request, issue, or documentation.
-
 ## Ring Selection
-
 Use the smallest durable ring that fits:
-
 - `cambium`: active or recent task context
 - `outer`: recent decisions and task lessons
 - `inner`: older compressed project knowledge
 - `heartwood`: durable high-confidence truths
 - `scar`: failures, regressions, rejected approaches, warnings
 - `seed`: unresolved ideas, hypotheses, follow-ups
-
 Prefer `outer` or `seed` unless the user confirms durability or the evidence is
 strong.
-
 ## Best Practices
-
 - Recall before risky or repeat work.
 - Keep project memory project-scoped unless it is a durable cross-project user
   preference.
@@ -198,9 +150,7 @@ strong.
 - Ask at closeout what future agents should remember, avoid, or revisit.
 - Use redaction, deletion, or supersession when memory is wrong, stale,
   sensitive, or replaced by a newer decision.
-
 ## Security & Safety Notes
-
 - Never use Tree Ring Memory as a hidden recorder.
 - Do not store secrets, credentials, tokens, private keys, recovery codes, raw
   chain-of-thought, or temporary scratchpad content.
@@ -211,9 +161,7 @@ strong.
   explicit user approval and a clear target environment.
 - Treat all examples as commands to adapt after checking local `--help`, not as
   guaranteed command surfaces.
-
 ## Limitations
-
 - Tree Ring Memory is not a replacement for source control, issue trackers,
   documentation, tests, logs, or live runtime verification.
 - Recalled memory can be stale or wrong. Always verify important claims against
@@ -224,27 +172,19 @@ strong.
   compliance retention, or unreviewed collection of sensitive personal data.
 - Cross-agent interoperability depends on each tool's ability to call the local
   CLI or read project-local guidance files.
-
 ## Common Pitfalls
-
 - **Problem:** Recalled memory conflicts with current source.
   **Solution:** Treat source files, tests, docs, and runtime evidence as
   authoritative; supersede or forget stale memory.
-
 - **Problem:** Memory starts becoming transcript storage.
   **Solution:** Store only durable decisions, warnings, preferences, outcomes,
   and follow-ups.
-
 - **Problem:** A lesson is useful but contains sensitive detail.
   **Solution:** Store a redacted summary or do not store it.
-
 ## Related Skills
-
 - `@agent-memory-systems` - Use for broad agent-memory architecture choices.
 - `@agent-memory` - Use for the listed hybrid memory MCP system.
 - `@planning-with-files` - Use when simple persistent files are enough.
-
 ## Additional Resources
-
 - Tree Ring Memory repository: <https://github.com/TerminallyLazy/Tree-Ring-Memory>
 - Codex plugin wrapper: <https://github.com/TerminallyLazy/tree-ring-memory-codex-plugin>

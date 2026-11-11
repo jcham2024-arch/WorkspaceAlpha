@@ -1,61 +1,41 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "a2cd9024c926587570386b54b2a189ae74c16e03fb0889bde7d47a309b4f2f6d"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: performance-optimization
+content_hash: a2cd9024c926587570386b54b2a189ae74c16e03fb0889bde7d47a309b4f2f6d
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-07-01
 description: Optimizes application performance. Use when performance requirements exist, when you suspect performance regressions, or when Core Web Vitals or load times need improvement. Use when profiling reveals bottlenecks that need fixing.
-tier: "experimental"
+license: MIT
+license_source: "https://github.com/addyosmani/agent-skills/blob/main/LICENSE"
+name: performance-optimization
 risk: critical
-source: https://github.com/addyosmani/agent-skills/tree/main/skills/performance-optimization
+source: "https://github.com/addyosmani/agent-skills/tree/main/skills/performance-optimization"
 source_repo: addyosmani/agent-skills
 source_type: community
-date_added: 2026-07-01
-license: MIT
-license_source: https://github.com/addyosmani/agent-skills/blob/main/LICENSE
 ---
-
 ## Supporting material availability
-
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
-
 - `<support-root>/references/performance-checklist.md`
-
 Obtain the required material from the [declared upstream source](https://github.com/addyosmani/agent-skills), or from a user-provided installation of that source. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
-
-
 # Performance Optimization
-
 ## Overview
-
 Measure before optimizing. Performance work without measurement is guessing — and guessing leads to premature optimization that adds complexity without improving what matters. Profile first, identify the actual bottleneck, fix it, measure again. Optimize only what measurements prove matters.
-
 ## When to Use
-
 - Performance requirements exist in the spec (load time budgets, response time SLAs)
 - Users or monitoring report slow behavior
 - Core Web Vitals scores are below thresholds
 - You suspect a change introduced a regression
 - Building features that handle large datasets or high traffic
-
 **When NOT to use:** Don't optimize before you have evidence of a problem. Premature optimization adds complexity that costs more than the performance it gains.
-
 ## Core Web Vitals Targets
-
 | Metric | Good | Needs Improvement | Poor |
 |--------|------|-------------------|------|
 | **LCP** (Largest Contentful Paint) | ≤ 2.5s | ≤ 4.0s | > 4.0s |
 | **INP** (Interaction to Next Paint) | ≤ 200ms | ≤ 500ms | > 500ms |
 | **CLS** (Cumulative Layout Shift) | ≤ 0.1 | ≤ 0.25 | > 0.25 |
-
 ## The Optimization Workflow
-
 ```
 1. MEASURE  → Establish baseline with real data
 2. IDENTIFY → Find the actual bottleneck (not assumed)
@@ -63,44 +43,33 @@ Measure before optimizing. Performance work without measurement is guessing — 
 4. VERIFY   → Measure again, confirm improvement
 5. GUARD    → Add monitoring or tests to prevent regression
 ```
-
 ### Step 1: Measure
-
 Two complementary approaches — use both:
-
 - **Synthetic (Lighthouse, DevTools Performance tab):** Controlled conditions, reproducible. Best for CI regression detection and isolating specific issues.
 - **RUM (web-vitals library, CrUX):** Real user data in real conditions. Required to validate that a fix actually improved user experience.
-
 **Frontend:**
 ```bash
 # Synthetic: Lighthouse in Chrome DevTools (or CI)
 # Chrome DevTools → Performance tab → Record
 # Chrome DevTools MCP → Performance trace
-
 # RUM: Web Vitals library in code
 import { onLCP, onINP, onCLS } from 'web-vitals';
-
 onLCP(console.log);
 onINP(console.log);
 onCLS(console.log);
 ```
-
 **Backend:**
 ```bash
 # Response time logging
 # Application Performance Monitoring (APM)
 # Database query logging with timing
-
 # Simple timing
 console.time('db-query');
 const result = await db.query(...);
 console.timeEnd('db-query');
 ```
-
 ### Where to Start Measuring
-
 Use the symptom to decide what to measure first:
-
 ```
 What is slow?
 ├── First page load
@@ -122,52 +91,39 @@ What is slow?
     ├── All endpoints slow? --> Check connection pool, memory, CPU
     └── Intermittent slowness? --> Check for lock contention, GC pauses, external deps
 ```
-
 ### Step 2: Identify the Bottleneck
-
 Common bottlenecks by category:
-
 **Frontend:**
-
 | Symptom | Likely Cause | Investigation |
 |---------|-------------|---------------|
 | Slow LCP | Large images, render-blocking resources, slow server | Check network waterfall, image sizes |
 | High CLS | Images without dimensions, late-loading content, font shifts | Check layout shift attribution |
 | Poor INP | Heavy JavaScript on main thread, large DOM updates | Check long tasks in Performance trace |
 | Slow initial load | Large bundle, many network requests | Check bundle size, code splitting |
-
 **Backend:**
-
 | Symptom | Likely Cause | Investigation |
 |---------|-------------|---------------|
 | Slow API responses | N+1 queries, missing indexes, unoptimized queries | Check database query log |
 | Memory growth | Leaked references, unbounded caches, large payloads | Heap snapshot analysis |
 | CPU spikes | Synchronous heavy computation, regex backtracking | CPU profiling |
 | High latency | Missing caching, redundant computation, network hops | Trace requests through the stack |
-
 ### Step 3: Fix Common Anti-Patterns
-
 #### N+1 Queries (Backend)
-
 ```typescript
 // BAD: N+1 — one query per task for the owner
 const tasks = await db.tasks.findMany();
 for (const task of tasks) {
   task.owner = await db.users.findUnique({ where: { id: task.ownerId } });
 }
-
 // GOOD: Eager relation loading; inspect generated queries (include is not always a SQL join)
 const tasks = await db.tasks.findMany({
   include: { owner: true },
 });
 ```
-
 #### Unbounded Data Fetching
-
 ```typescript
 // BAD: Fetching all records
 const allTasks = await db.tasks.findMany();
-
 // GOOD: Paginated with limits
 const tasks = await db.tasks.findMany({
   take: 20,
@@ -175,13 +131,10 @@ const tasks = await db.tasks.findMany({
   orderBy: { createdAt: 'desc' },
 });
 ```
-
 #### Missing Image Optimization (Frontend)
-
 ```html
 <!-- BAD: No dimensions, no format optimization -->
 <img src="/hero.jpg" />
-
 <!-- GOOD: Hero / LCP image — art direction + resolution switching, high priority -->
 <!--
   Two techniques combined:
@@ -229,7 +182,6 @@ const tasks = await db.tasks.findMany({
     alt="Hero image description"
   />
 </picture>
-
 <!-- GOOD: Below-the-fold image — lazy loaded + async decoding -->
 <img
   src="/content.webp"
@@ -240,46 +192,36 @@ const tasks = await db.tasks.findMany({
   alt="Content image description"
 />
 ```
-
 #### Unnecessary Re-renders (React)
-
 ```tsx
 // BAD: Creates new object on every render, causing children to re-render
 function TaskList() {
   return <TaskFilters options={{ sortBy: 'date', order: 'desc' }} />;
 }
-
 // GOOD: Stable reference
 const DEFAULT_OPTIONS = { sortBy: 'date', order: 'desc' } as const;
 function TaskList() {
   return <TaskFilters options={DEFAULT_OPTIONS} />;
 }
-
 // Use React.memo for expensive components
 const TaskItem = React.memo(function TaskItem({ task }: Props) {
   return <div>{/* expensive render */}</div>;
 });
-
 // Use useMemo for expensive computations
 function TaskStats({ tasks }: Props) {
   const stats = useMemo(() => calculateStats(tasks), [tasks]);
   return <div>{stats.completed} / {stats.total}</div>;
 }
 ```
-
 #### Large Bundle Size
-
 ```typescript
 // Modern bundlers (Vite, webpack 5+) handle named imports with tree-shaking automatically,
 // provided the dependency ships ESM and is marked `sideEffects: false` in package.json.
 // Profile before changing import styles — the real gains come from splitting and lazy loading.
-
 // GOOD: Dynamic import for heavy, rarely-used features
 const ChartLibrary = lazy(() => import('./ChartLibrary'));
-
 // GOOD: Route-level code splitting wrapped in Suspense
 const SettingsPage = lazy(() => import('./pages/Settings'));
-
 function App() {
   return (
     <Suspense fallback={<Spinner />}>
@@ -288,15 +230,12 @@ function App() {
   );
 }
 ```
-
 #### Missing Caching (Backend)
-
 ```typescript
 // Cache frequently-read, rarely-changed data
 const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
 let cachedConfig: AppConfig | null = null;
 let cacheExpiry = 0;
-
 async function getAppConfig(): Promise<AppConfig> {
   if (cachedConfig && Date.now() < cacheExpiry) {
     return cachedConfig;
@@ -307,22 +246,17 @@ async function getAppConfig(): Promise<AppConfig> {
   cacheExpiry = Date.now() + CACHE_TTL;
   return cachedConfig;
 }
-
 // HTTP caching headers for static assets
 app.use('/static', express.static('public', {
   maxAge: '1y',           // Cache for 1 year
   immutable: true,        // Never revalidate (use content hashing in filenames)
 }));
-
 // Cache-Control for API responses
 // Only for explicitly public, non-personalized data; private responses need a separate policy.
 res.set('Cache-Control', 'public, max-age=300'); // 5 minutes
 ```
-
 ## Performance Budget
-
 Set representative, product-specific budgets; these are illustrative starting points:
-
 ```
 JavaScript bundle: < 200KB gzipped (initial load)
 CSS: < 50KB gzipped
@@ -332,23 +266,16 @@ API response time: < 200ms (p95)
 Time to Interactive: < 3.5s on 4G
 Lighthouse Performance score: ≥ 90
 ```
-
 **Enforce in CI:**
 ```bash
 # Bundle size check
 npx bundlesize --config bundlesize.config.json
-
 # Lighthouse CI
 npx lhci autorun
 ```
-
 ## See Also
-
 For detailed performance checklists, optimization commands, and anti-pattern reference, see `references/performance-checklist.md`.
-
-
 ## Common Rationalizations
-
 | Rationalization | Reality |
 |---|---|
 | "We'll optimize later" | Performance debt compounds. Fix obvious anti-patterns now, defer micro-optimizations. |
@@ -356,9 +283,7 @@ For detailed performance checklists, optimization commands, and anti-pattern ref
 | "This optimization is obvious" | If you didn't measure, you don't know. Profile first. |
 | "Users won't notice 100ms" | Measure whether latency affects this product's users; no universal conversion multiplier applies. |
 | "The framework handles performance" | Frameworks prevent some issues but can't fix N+1 queries or oversized bundles. |
-
 ## Red Flags
-
 - Optimization without profiling data to justify it
 - N+1 query patterns in data fetching
 - List endpoints without pagination
@@ -366,11 +291,8 @@ For detailed performance checklists, optimization commands, and anti-pattern ref
 - Bundle size growing without review
 - No performance monitoring in production
 - `React.memo` and `useMemo` everywhere (overusing is as bad as underusing)
-
 ## Verification
-
 After any performance-related change:
-
 - [ ] Before and after measurements exist (specific numbers)
 - [ ] The specific bottleneck is identified and addressed
 - [ ] Core Web Vitals are within "Good" thresholds
@@ -378,11 +300,8 @@ After any performance-related change:
 - [ ] No N+1 queries in new data fetching code
 - [ ] Performance budget passes in CI (if configured)
 - [ ] Existing tests still pass (optimization didn't break behavior)
-
 ## Limitations
-
 - Use this skill only when the task clearly matches its upstream source and local project context.
 - Verify commands, generated code, dependencies, credentials, and external service behavior before applying changes.
 - Do not treat examples as a substitute for environment-specific tests, security review, or user approval for destructive or costly actions.
-
 Assess Core Web Vitals field distributions at the 75th percentile, segmented by device where appropriate. RUM collection requires privacy/data-retention scope. Shared caches must be keyed by tenant/authorization context or restricted to genuinely global configuration; never cache private API data publicly. Validate page inputs and use stable unique ordering/cursor pagination for mutable datasets. TTI is a historical metric, not a current Core Web Vital.

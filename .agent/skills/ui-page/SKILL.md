@@ -1,57 +1,41 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "3ecaf5e6d05dfb82dbe37273a15775e2f4c8d523b4a1e10d12ee6750612b690a"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: ui-page
+content_hash: 3ecaf5e6d05dfb82dbe37273a15775e2f4c8d523b4a1e10d12ee6750612b690a
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-07-01
 description: Scaffold a new mobile page/screen using the StyleSeed layout patterns
-tier: "experimental"
+license: MIT
+license_source: "https://github.com/bitjaru/styleseed/blob/main/LICENSE"
+name: ui-page
 risk: critical
-source: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-page
+source: "https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-page"
 source_repo: bitjaru/styleseed
 source_type: community
-date_added: 2026-07-01
-license: MIT
-license_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE
 ---
-
-
 # Mobile Page Scaffolder
 ## When to Use
-
 Use this skill when you need scaffold a new mobile page/screen using the StyleSeed layout patterns.
-
-
 ## When NOT to use
-
 - For a single composed pattern within an existing page → use `/ss-pattern`
 - For desktop-only screens — this skill is mobile-first
 - For multi-page navigation structure → use `/ss-flow` first
 - For tweaking an existing page — edit the file directly
-
 Create a new page: **$0**
 Description: $ARGUMENTS
-
 ## Instructions
-
 1. Read the design system reference:
    - `CLAUDE.md` for file structure and conventions
    - `components/patterns/page-shell.tsx` for page layout
    - `components/patterns/top-bar.tsx` for header pattern
    - `components/patterns/bottom-nav.tsx` for navigation
-
 2. Illustrative page structure (replace every comment-only JSX prop with a real value before compiling):
 ```tsx
 import { PageShell, PageContent } from "@/components/patterns/page-shell"
 import { TopBar, TopBarAction } from "@/components/patterns/top-bar"
 import { BottomNav } from "@/components/patterns/bottom-nav"
-
 export default function PageName() {
   return (
     <PageShell>
@@ -68,7 +52,6 @@ export default function PageName() {
   )
 }
 ```
-
 3. Layout rules:
    - Container: `max-w-[430px]` (mobile viewport)
    - Page background: `bg-background`
@@ -76,13 +59,9 @@ export default function PageName() {
    - Section vertical spacing: `space-y-6`
    - Bottom padding for nav: `pb-24`
    - Cards: `bg-card rounded-2xl p-6 shadow-[var(--shadow-card)]`
-
 4. Use semantic tokens for all colors — never hardcode hex values.
-
 5. Compose the page from existing components (ui/ and patterns/) wherever possible.
-
 6. Safe area: include `env(safe-area-inset-*)` padding for modern devices.
-
 7. **Post-generation verification (MANDATORY):**
    After creating the page, verify against the Golden Rules:
    - [ ] All content is inside cards (no bare background content)
@@ -94,13 +73,9 @@ export default function PageName() {
    - [ ] `mx-6` for single cards, `px-6` for grids/carousels
    - [ ] Touch targets ≥ 44px on all interactive elements
    If any violation is found, fix it before presenting the page to the user.
-
 ## Limitations
-
 - Use this skill only when the task clearly matches its upstream source and local project context.
 - Verify commands, generated code, dependencies, credentials, and external service behavior before applying changes.
 - Do not treat examples as a substitute for environment-specific tests, security review, or user approval for destructive or costly actions.
-
 ## Execution boundaries
-
 This guide targets an existing StyleSeed project. The listed project paths, components, tokens and /ss-* commands are not bundled in this single-file entrypoint. Discover the actual project root and verify those prerequisites before edits; report absent resources instead of inventing them. Use host-supported invocation and existing project conventions. Layout numbers are design-system choices, not universal usability guarantees. Test keyboard access, responsive overflow and reduced motion on the actual interface.

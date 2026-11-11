@@ -1,34 +1,23 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "acff3e7406346d9ee2d10c597c63528d8621bb6c079738cd1fa700177faefbb3"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: acff3e7406346d9ee2d10c597c63528d8621bb6c079738cd1fa700177faefbb3
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Generate two complementary onboarding documents that together give any engineer — from newcomer to principal — a complete understanding of a codebase. Use when user asks for onboarding docs or getting-started guides, user runs /deep-wiki, or user wants to help new team members understand a codebase.
 name: wiki-onboarding
-description: "Generate two complementary onboarding documents that together give any engineer — from newcomer to principal — a complete understanding of a codebase. Use when user asks for onboarding docs or getting-started guides, user runs /deep-wiki, or user wants to help new team members understand a codebase."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # Wiki Onboarding Guide Generator
-
 Generate two complementary onboarding documents that together give any engineer — from newcomer to principal — a complete understanding of a codebase.
-
 ## When to Use
 - User asks for onboarding docs or getting-started guides
 - User runs `/deep-wiki:onboard` command
 - User wants to help new team members understand a codebase
-
 ## Language Detection
-
 Scan the repository for build files to determine the primary language for code examples:
 - `package.json` / `tsconfig.json` → TypeScript/JavaScript
 - `*.csproj` / `*.sln` → C# / .NET
@@ -36,13 +25,9 @@ Scan the repository for build files to determine the primary language for code e
 - `pyproject.toml` / `setup.py` / `requirements.txt` → Python
 - `go.mod` → Go
 - `pom.xml` / `build.gradle` → Java
-
 ## Guide 1: Principal-Level Onboarding
-
 **Audience**: Senior/staff+ engineers who need the "why" behind decisions.
-
 ### Required Sections
-
 1. **System Philosophy & Design Principles** — What invariants does the system maintain? What were the key design choices and why?
 2. **Architecture Overview** — Component map with Mermaid diagram. What owns what, communication patterns.
 3. **Key Abstractions & Interfaces** — The load-bearing abstractions everything depends on
@@ -55,19 +40,14 @@ Scan the repository for build files to determine the primary language for code e
 10. **Testing Strategy** — What's tested, what isn't, testing philosophy
 11. **Operational Concerns** — Deployment, monitoring, feature flags, configuration
 12. **Known Technical Debt** — Honest assessment of shortcuts and their risks
-
 ### Rules
 - Every claim backed by `(file_path:line_number)` citation
 - Minimum 3 Mermaid diagrams (architecture, data flow, dependency graph)
 - All Mermaid diagrams use dark-mode colors (see wiki-vitepress skill)
 - Focus on WHY only when commit history, ADRs or owner evidence supports the rationale. Mark inferred rationale and unknown performance/security properties explicitly; source structure alone cannot establish intent or measured limits.
-
 ## Guide 2: Zero-to-Hero Contributor Guide
-
 **Audience**: New contributors who need step-by-step practical guidance.
-
 ### Required Sections
-
 1. **What This Project Does** — 2-3 sentence elevator pitch
 2. **Prerequisites** — Tools, versions, accounts needed
 3. **Environment Setup** — Step-by-step with exact commands, expected output at each step
@@ -82,23 +62,17 @@ Scan the repository for build files to determine the primary language for code e
 12. **Where to Get Help** — Communication channels, documentation, key contacts
 13. **Glossary** — Terms used in the codebase that aren't obvious
 14. **Quick Reference Card** — Cheat sheet of most-used commands and patterns
-
 ### Rules
 - All code examples in the detected primary language
 - Every command must be copy-pasteable
 - Include expected output for verification steps
 - Use Mermaid for workflow diagrams (dark-mode colors)
 - Ground all claims in actual code — cite `(file_path:line_number)`
-
 ### When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Example
-
 **User request:**
-
 > Create onboarding documentation that helps a new engineer run, understand, and safely change this codebase.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

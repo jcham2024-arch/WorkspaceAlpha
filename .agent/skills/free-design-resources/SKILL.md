@@ -1,51 +1,35 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "44757372ecf7cd2308ea7a2a3aea97c9dd1c7a7ed22c2a9d2f8b0cfd769235e2"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: free-design-resources
-description: 'Design resource register: resource and provider, licence type, commercial-use and attribution rules, export format, lock-in risk, free tier limit and accessibility notes. Use for tool vetting.'
-tier: "experimental"
+content_hash: 44757372ecf7cd2308ea7a2a3aea97c9dd1c7a7ed22c2a9d2f8b0cfd769235e2
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: WHOISABHISHEKADHIKARI
 category: design
+date_added: 2026-09-27
+description: "'Design resource register: resource and provider, licence type, commercial-use and attribution rules, export format, lock-in risk, free tier limit and accessibility notes. Use for tool vetting.'"
+name: free-design-resources
 risk: safe
 source: self
-source_type: self
-date_added: "2026-09-27"
-author: WHOISABHISHEKADHIKARI
-tags: [sme, design-tools, free-licences, fonts, icons, images, templates, accessibility, cost, csv, sql, notion]
-tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
+source_type: self
+tags: "[sme, design-tools, free-licences, fonts, icons, images, templates, accessibility, cost, csv, sql, notion]"
+tools: "[]"
 ---
-
 ## Supporting material availability
-
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
-
 - `../../references/free-design-resource-map.md`
-
 Obtain the required material from the [declared upstream source](https://github.com/WHOISABHISHEKADHIKARI/sme-ops-system-builder), or from a user-provided installation of that source. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
-
-
 # Free Design Resources
-
 **What it is:** the register of free design tools, fonts, icons, images and templates the
 business uses, and what each one actually permits.
-
 ## Overview
-
 Works out the smallest set of free tools that covers what the business is trying to make,
 then builds it only when asked. The default output is a short recommendation, not a
 licence review. The resource clearance and adoption register - CSV, SQL, JSON Schema, Notion
 mapping - is produced on request, from one field list so the four cannot drift apart.
-
 Layer: Layer 1: Foundation. Fits: Starter stage. Table code: n/a.
-
 **The rule this table exists to enforce:** "free" is not a licence term, so `Licence Type`
 and `Commercial Use Allowed` are the fields that matter, and the full map in
 `../../references/free-design-resource-map.md` is the evidence base for them. A free tool is safe
@@ -53,11 +37,8 @@ to use and unsafe to depend on when it cannot export, when it holds the only cop
 work, or when its terms forbid the one thing the business needs - commercial use, logo
 use, print, or client work. `Export Format` and `Vendor Lock-In Risk` exist to catch
 exactly that.
-
 **The second rule:** accessibility and licence are checked at the same time. Small text and low contrast require context-specific accessibility checks; there is no universal 14px WCAG minimum. An icon used without required licence attribution is a separate rights issue, and both are cheap to avoid at the point of selection.
-
 ## When to Use This Skill
-
 - free design tools, free alternatives, "what can we use for nothing"
 - free fonts, free icons, free images, free templates, stock photography
 - licensing, licence terms, commercial use, attribution, redistribution
@@ -65,35 +46,23 @@ exactly that.
 - tool consolidation, cancelling a subscription, reducing design spend
 - design accessibility, contrast checking, free colour palette tools
 - brand kit on a zero budget, open source design system
-
 Do not use it for: building the design system itself (`design-theme-guide`), the artwork
 (`logo-image-design`), or a legal opinion on a licence agreement.
-
 ## How It Works
-
 Follow the shared execution contract. The module-specific rules below define only domain fields, decisions, calculations, and safety constraints.
-
 ### Step 1 - Identify intent
-
 Read the request and pick the intent before asking anything.
-
 - "what can we use" / "find" / "we need" -> artifacts wanted; go to Step 2.
 - "is this allowed" / "can I use this" -> a licence question, answer it before anything
   else.
 - "review" / "audit" / "we are paying too much" -> a review, not a build.
 - "we already picked a tool" -> a clearance check on one item; go straight to Step 4.
-
 Ask only if this is the highest-value missing fact; otherwise proceed without an opener:
-
 > **Q:** What are you trying to make, and is it for the business itself or for a client?
-
 ### Step 2 - Ask only what is missing
-
 Treat ambiguous replies as unanswered and ask which explicit option the user means. Record unknown values as `Unknown`; `Unknown` is not zero. A record must not be `Done` when a required check fails.
-
 Skip anything already answered. Ask the rest one at a time, and stop as soon as the
 remaining answers would not change the shortlist.
-
 - **What is being made** - Logo, brand kit, website, social posts, documents, print, video,
   or a product interface? / Print, screen, or both - and for print, which sizes and which
   process?
@@ -107,14 +76,11 @@ remaining answers would not change the shortlist.
   client or printer requires?
 - **Risk** - Does anything need to be editable by a non-designer in two years? / Is there any
   chance of reselling the output, or licensing it on?
-
 Never invent an answer. Licence terms, prices, feature lists, export formats and
 attribution requirements are **not** invented here - they are read from the provider's own
 current terms and recorded with the source and the date it was read. Anything not verified
 is `Unverified`, which is a different value from `No`.
-
 ### Step 3 - Hold the internal context
-
 ```yaml
 module: free-design-resources
 intent: null            # set up | review | report | import
@@ -128,11 +94,8 @@ requested_outputs: []
 confirmed_facts: []
 open_questions: []
 ```
-
 ### Step 4 - Recommend the smallest workflow
-
 Build an already requested artifact without asking again. For advice-only requests, give a short recommendation and offer the relevant artifact.
-
 **Recommended approach:** One tool per job, chosen so the work leaves in an open format and
 the business keeps a copy it controls. Type from a genuinely open font, icons from a set
 with an explicit MIT or CC licence, images from a source that allows commercial use without
@@ -140,24 +103,19 @@ a per-image fee, and one layout tool the business can use without a designer. Ve
 licence at the point of selection, not at the point of publication, and record where the
 terms were read and when. Budget the small paid exceptions: a logo should not be assembled
 from a free icon, and a stock photo of a real person's face needs the right release.
-
 **Why this one:** Most free-tool regret is not the price, it is the lock-in - a logo that
 only exists inside a browser tab, an editable file that the tool can no longer open, a font
 that turns out to forbid the commercial use the business needed. Checking the export and the
 licence once, in the register, is a useful initial control, followed by rechecks when terms, resource versions or intended uses change.
-
 **Workflow:** What is being made and for whom established → One tool per job, open formats
 only → Licence, export and attribution checked against the provider's own terms →
 Accessibility checked at selection → Register written with source and verification date →
 Free tier limits recorded → Re-checked at renewal and when the business changes scale →
 Paid exception approved deliberately, not by default
-
 ### Step 5 - Build only on request
-
 Once the user asks for it, derive the fields from the confirmed context and emit the
 requested artifacts. For machine-readable text, keep prose outside the data; for files,
 provide a usable link. Report material validation failures or limitations separately.
-
 **A selected Notion output is rendered by `notion-manual-import`, so route the
 Notion step there.** When the user selects Notion, hand that step to
 @notion-manual-import: it holds the CSV, the property
@@ -167,12 +125,10 @@ here and do not improvise the import steps. Manual CSV and mapping outputs need 
 connection. For requested workspace changes, follow the shared contract: verify actual
 tool access and the target before writing. A user saying "connected" is not tool evidence.
 Never ask for a Notion password or token.
-
 ```csv
 Resource ID,Resource Name,Category,Provider,Venue,Licence Type,Commercial Use Allowed,Attribution Required,Export Format,Vendor Lock-In Risk,Cost Today,Free Tier Limit,Best For,Accessibility Notes,Verification Source,Verified On,Status,Notes
 ,Example Open Source Font,Font,Example Foundry,Self-hosted,Open Font License,Yes,Yes,Open source files,None,0,None,Body text on screen at 16px or larger,Check the licence file shipped with the font and keep a copy,Provider licence page,2026-09-27,Approved,Example row - replace every value before use.
 ```
-
 ```sql
 -- Engine assumption: PostgreSQL. For another engine use the engine's auto-increment
 -- equivalent and keep the rest portable.
@@ -203,12 +159,10 @@ CREATE TABLE design_resource (
   CONSTRAINT design_resource_cost_non_negative CHECK (cost_today IS NULL OR cost_today >= 0),
   CONSTRAINT design_resource_verified_after_issue CHECK (verified_on IS NULL OR verified_on >= DATE '2000-01-01')
 );
-
 CREATE INDEX idx_design_resource_status ON design_resource (status);
 CREATE INDEX idx_design_resource_category ON design_resource (category);
 CREATE INDEX idx_design_resource_verified ON design_resource (verified_on);
 ```
-
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -251,7 +205,6 @@ CREATE INDEX idx_design_resource_verified ON design_resource (verified_on);
   ]
 }
 ```
-
 ```markdown
 | CSV column | Notion property | Set after import |
 |---|---|---|
@@ -274,13 +227,10 @@ CREATE INDEX idx_design_resource_verified ON design_resource (verified_on);
 | Status | Select (add options after import) | Convert to Select, add options: "Candidate", "Approved", "In use", "Blocked", "Sunset" |
 | Notes | Text | Leave as Text |
 ```
-
 The rows above are documentation examples only. Emit empty templates unless the user explicitly requests examples. `Verification Source` and `Verified On` are required before approval/use, while an unverified candidate may omit them: a licence that has not been read from the provider's own terms is
 `Unverified`, and `Unverified` is a state this register is designed to surface rather than
 hide.
-
 ## Field Reference
-
 | # | Field | Type | SQL | JSON Schema | Notion | CSV example |
 |---:|---|---|---|---|---|---|
 | 1 | Resource ID | `id` | `BIGINT PRIMARY KEY` | `integer` | Text or Notion auto-ID | (blank) |
@@ -301,58 +251,42 @@ hide.
 | 16 | Verified On | `date` | `DATE` | `string, format: date` | Date | *(blank)* |
 | 17 | Status | `select` | `VARCHAR(50)` | `string` | Select | Approved |
 | 18 | Notes | `long_text` | `TEXT` | `string` | Text | *(blank)* |
-
 SQL timestamp defaults apply only at insertion; maintain `updated_at` explicitly. Record the currency for `Cost Today`; do not aggregate mixed currencies. `Approved`/`In use` requires verified terms for the specific intended use, recorded source/date and an appropriate reviewer decision; the example DDL does not enforce that workflow.
-
 ## Select Options
-
 **Category** - a starting set, chosen so the register separates *things you own* from *tools
 you rent*. Fonts, icons and code libraries may be licensed files or hosted services; acquiring a copy does not transfer copyright ownership. Layout tools can also be self-hosted.
-
 ```
 Font | Icon set | Photography | Illustration | Template | Layout or design tool | Colour tool | Video or audio | Code library | Learning resource
 ```
-
 **Venue** - how the business gets it. This is the field that predicts the lock-in, because
 a self-hosted or open-source resource is a file the business keeps and a free plan is a
 service it rents.
-
 ```
 Open source | Self-hosted | Free plan | Free trial | Freemium | One-off purchase | Public domain
 ```
-
 **Commercial Use Allowed** - the whole point of the check. `Unverified` is a legitimate and
 frequent value, and it is the reason `Verification Source` and `Verified On` are required.
 A tool that says "free" on its pricing page and "non-commercial" in its terms is `No`.
-
 ```
 Yes | No | Unverified
 ```
-
 **Attribution Required** - where `Yes`, the exact required wording goes in Notes. "Credit
 the artist somewhere" is not a specification; the actual sentence is.
-
 ```
 Yes | No | Unverified
 ```
-
 **Vendor Lock-In Risk** - `High` means the only copy of the work lives inside the tool. That
 is acceptable for a draft and unacceptable for a logo, a brand kit, or anything a client
 will expect to own.
-
 ```
 None | Low | Medium | High
 ```
-
 **Status** - the register's own state, and `Blocked` is the correct value for any resource
 whose licence is `Unverified` and whose output is about to be published.
-
 ```
 Candidate | Approved | In use | Blocked | Sunset
 ```
-
 ## Relations
-
 - `Category` = `Font` and `Best For` point at the type roles in `design-theme-guide`; the
   font is chosen for a role, not in isolation.
 - `Category` = `Icon set` connects to `logo-image-design` - a logo built from an icon must
@@ -362,18 +296,13 @@ Candidate | Approved | In use | Blocked | Sunset
   `me-ops-system-builder`, which track what the business actually pays for.
 - `Category` = `Template` connects to `business-website-setup` - a template's licence
   governs whether the business may ship the site built with it.
-
 ## Examples
-
 **Prompt**
-
 ```
 We have almost no budget for design. We need a logo, a leaflet, a website and Instagram
 posts, and we keep paying for tools we barely use.
 ```
-
 **Context first** - one question per message, nothing already answered:
-
 > **Q:** What are you trying to make, and is it for the business itself or for a client?
 > **A:** All four, for us. We are a small retailer.
 >
@@ -389,9 +318,7 @@ posts, and we keep paying for tools we barely use.
 >
 > **Q:** Does anything need to be editable by a non-designer in two years?
 > **A:** The leaflet, yes. Nobody here is a designer.
-
 **Recommended next step** - offered, not built:
-
 > One layout tool with a free plan that exports PDF, print-ready, and a font with an open
 > licence that also covers the website. For the logo, do not assemble one from a free icon -
 > it is not distinctive and the icon's licence may not cover a logo. For photos, move to a
@@ -406,9 +333,7 @@ posts, and we keep paying for tools we barely use.
 > Re-checked at renewal
 >
 > Want the CSV, SQL DDL, JSON Schema and Notion mapping for this?
-
 ## Best Practices
-
 - Build when requested; recommend and offer a build for advice-only requests.
 - One question per message. A batched intake reads as a form and gets guessed at.
 - Never write "free" in `Licence Type`. Write the actual licence, named, from the
@@ -434,9 +359,7 @@ posts, and we keep paying for tools we barely use.
   a provider's AI-training clause both change underneath you.
 - Derive all four artifacts from the field list in this file, never by hand.
 - If the user requests an example row, keep it obviously fake so nobody imports it as a real resource.
-
 ## Limitations
-
 - This skill does not grant a licence, and it is not legal advice. Licence interpretation,
   fair dealing, and any dispute about permission belong to a qualified adviser in the
   jurisdiction the business operates in.
@@ -461,9 +384,7 @@ posts, and we keep paying for tools we barely use.
   beyond noting that they are required.
 - It does not review the accessibility of an existing document or site, and it cannot
   generate alt text for a specific image here.
-
 ## Security & Safety Notes
-
 - Never invent a licence, a price, a feature, an export format or a term. If it was not
   read from the provider's own current terms, it is `Unverified`, and it stays that way.
 - Never claim commercial-use permission from a pricing page, a blog post, a tutorial, or
@@ -490,7 +411,4 @@ posts, and we keep paying for tools we barely use.
 - Local reads, generation commands, and validation are part of a requested artifact build.
   External writes, messages, provisioning, and publication require authorization for that
   action and target; existing explicit authorization does not need to be repeated.
-
-
 See the [Common Pitfalls](references/common-pitfalls.md) reference for the full guidance.
-

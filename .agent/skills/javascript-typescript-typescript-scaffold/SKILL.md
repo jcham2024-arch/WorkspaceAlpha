@@ -1,82 +1,55 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "0ce4e2b2715b4327b6fd5b111b1c1958e83fec911df904afefd46b2e13d4f5fe"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 0ce4e2b2715b4327b6fd5b111b1c1958e83fec911df904afefd46b2e13d4f5fe
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Scaffold TypeScript projects with build tooling, type checking, testing, and configuration.
 name: javascript-typescript-typescript-scaffold
-description: "Scaffold TypeScript projects with build tooling, type checking, testing, and configuration."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # TypeScript Project Scaffolding
-
 You are a TypeScript project architecture expert specializing in scaffolding production-ready Node.js and frontend applications. Generate complete project structures with modern tooling (pnpm, Vite, Next.js), type safety, testing setup, and configuration following current best practices.
-
 ## Use this skill when
-
 - Working on typescript project scaffolding tasks or workflows
 - Needing guidance, best practices, or checklists for typescript project scaffolding
-
 ## Do not use this skill when
-
 - The task is unrelated to typescript project scaffolding
 - You need a different domain or tool outside this scope
-
 ## Context
-
 The user needs automated TypeScript project scaffolding that creates consistent, type-safe applications with proper structure, dependency management, testing, and build tooling. Focus on modern TypeScript patterns and scalable architecture.
-
 ## Requirements
-
 $ARGUMENTS
-
 ## Instructions
-
 ### 1. Analyze Project Type
-
 Determine the project type from user requirements:
 - **Next.js**: Full-stack React applications, SSR/SSG, API routes
 - **React + Vite**: SPA applications, component libraries
 - **Node.js API**: Express/Fastify backends, microservices
 - **Library**: Reusable packages, utilities, tools
 - **CLI**: Command-line tools, automation scripts
-
 ### 2. Initialize Project with pnpm
-
 Choose one scaffold path. For Next/Vite, run the chosen generator in a new empty directory rather than pre-running `pnpm init` and then overwriting it. Inspect the actual generated package/lockfile and supported Node version; the package versions below are historical examples, not current security-approved pins. Do not globally install tooling or overwrite an existing project without authorization. Ignore `.env*` secrets while explicitly allowing a sanitized `.env.example`.
-
 ```bash
 # Install pnpm if needed
 npm install -g pnpm
-
 # Initialize project
 mkdir project-name && cd project-name
 pnpm init
-
 # Initialize git
 git init
 echo "node_modules/" >> .gitignore
 echo "dist/" >> .gitignore
 echo ".env" >> .gitignore
 ```
-
 ### 3. Generate Next.js Project Structure
-
 ```bash
 # Create Next.js project with TypeScript
 pnpm create next-app@latest . --typescript --tailwind --app --src-dir --import-alias "@/*"
 ```
-
 ```
 nextjs-project/
 ├── package.json
@@ -112,7 +85,6 @@ nextjs-project/
     └── components/
         └── Button.test.tsx
 ```
-
 **package.json**:
 ```json
 {
@@ -142,7 +114,6 @@ nextjs-project/
   }
 }
 ```
-
 **tsconfig.json**:
 ```json
 {
@@ -169,20 +140,16 @@ nextjs-project/
   "exclude": ["node_modules"]
 }
 ```
-
 ### 4. Generate React + Vite Project Structure
-
 ```bash
 # Create Vite project
 pnpm create vite . --template react-ts
 ```
-
 **vite.config.ts**:
 ```typescript
 import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 import path from 'path'
-
 export default defineConfig({
   plugins: [react()],
   resolve: {
@@ -200,9 +167,7 @@ export default defineConfig({
   },
 })
 ```
-
 ### 5. Generate Node.js API Project Structure
-
 ```
 nodejs-api/
 ├── package.json
@@ -232,7 +197,6 @@ nodejs-api/
     └── routes/
         └── users.test.ts
 ```
-
 **package.json for Node.js API**:
 ```json
 {
@@ -263,28 +227,22 @@ nodejs-api/
   }
 }
 ```
-
 **src/app.ts**:
 ```typescript
 import express, { Express } from 'express'
 import { healthRouter } from './routes/health.js'
 import { userRouter } from './routes/users.js'
 import { errorHandler } from './middleware/errorHandler.js'
-
 export function createApp(): Express {
   const app = express()
-
   app.use(express.json())
   app.use('/health', healthRouter)
   app.use('/api/users', userRouter)
   app.use(errorHandler)
-
   return app
 }
 ```
-
 ### 6. Generate TypeScript Library Structure
-
 ```
 library-name/
 ├── package.json
@@ -297,7 +255,6 @@ library-name/
 │   └── core.test.ts
 └── dist/
 ```
-
 **package.json for Library**:
 ```json
 {
@@ -324,9 +281,7 @@ library-name/
   }
 }
 ```
-
 ### 7. Configure Development Tools
-
 **.env.example**:
 ```env
 NODE_ENV=development
@@ -334,11 +289,9 @@ PORT=3000
 DATABASE_URL=postgresql://user:pass@localhost:5432/db
 JWT_SECRET=your-secret-key
 ```
-
 **vitest.config.ts**:
 ```typescript
 import { defineConfig } from 'vitest/config'
-
 export default defineConfig({
   test: {
     globals: true,
@@ -350,7 +303,6 @@ export default defineConfig({
   },
 })
 ```
-
 **.eslintrc.json**:
 ```json
 {
@@ -365,18 +317,14 @@ export default defineConfig({
   }
 }
 ```
-
 ## Output Format
-
 1. **Project Structure**: Complete directory tree with all necessary files
 2. **Configuration**: package.json, tsconfig.json, build tooling
 3. **Entry Point**: Main application file with type-safe setup
 4. **Tests**: Test structure with Vitest configuration
 5. **Documentation**: README with setup and usage instructions
 6. **Development Tools**: .env.example, .gitignore, linting config
-
 Focus on creating production-ready TypeScript projects with modern tooling, strict type safety, and comprehensive testing setup.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

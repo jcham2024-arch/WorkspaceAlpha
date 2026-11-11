@@ -1,59 +1,43 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "78c5d8633a8c6e36ed4bf28361bf5662af6686b9cd8760a528db4cb6f352bf20"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: aws-secrets-manager
-description: Store and rotate secrets in AWS Secrets Manager.
-tier: "experimental"
+content_hash: 78c5d8633a8c6e36ed4bf28361bf5662af6686b9cd8760a528db4cb6f352bf20
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: security
+compatibility: Requires the relevant security tooling (scanners, vault CLIs) and an
+date_added: 2026-09-20
+description: Store and rotate secrets in AWS Secrets Manager.
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: db-credentials
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant security tooling (scanners, vault CLIs) and an
-  authorized scope for any active assessment. Docs-only; helper scripts and templates
+version: 1.0
+---  authorized scope for any active assessment. Docs-only; helper scripts and templates
   not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # AWS Secrets Manager
-
 Securely store, manage, and rotate secrets in AWS.
-
 ## When to Use This Skill
-
 Use this skill when:
 - Storing database credentials, API keys, or tokens in AWS
 - Implementing automatic credential rotation for RDS or other services
 - Replacing hardcoded secrets in application code or config files
 - Integrating secrets into ECS, EKS, or Lambda workloads
 - Meeting compliance requirements for secret management and rotation
-
 ## Prerequisites
-
 - AWS account with appropriate IAM permissions
 - AWS CLI v2 installed and configured
 - IAM policy limited to needed Secrets Manager actions and exact secret ARNs, plus required KMS permissions
 - For rotation: Lambda execution role and VPC access to target services
 - Python 3.9+ with `boto3` for SDK examples
-
 ## Secret Creation and Management
-
 Create the referenced files privately (mode0600) using a secret-input/editor workflow, keep them out of Git and logs, and remove them according to the local secret-handling policy after use. Never put secret values directly into shell history or process arguments. `get-secret-value` prints plaintext: use only when explicitly needed in a private terminal; prefer consuming values inside the application. Confirm account/region/exact ARN before writes, rotation or scheduled deletion. Updating SecretString alone does not change the actual database password; use tested rotation for credentials.
-
 ```bash
 # Create a secret with JSON structure
 aws secretsmanager create-secret \
@@ -98,11 +82,8 @@ aws secretsmanager tag-resource \
   --secret-id myapp/production/database \
   --tags '[{"Key":"RotationEnabled","Value":"true"}]'
 ```
-
 ## Automatic Rotation
-
 ### Enable Rotation
-
 ```bash
 # Enable rotation with an existing Lambda function
 aws secretsmanager rotate-secret \
@@ -117,9 +98,7 @@ aws secretsmanager describe-secret \
   --secret-id myapp/production/database \
   --query '{RotationEnabled:RotationEnabled,RotationLambdaARN:RotationLambdaARN,RotationRules:RotationRules,LastRotatedDate:LastRotatedDate}'
 ```
-
 ### Lambda Rotation Function
-
 ```python
 """rotation_function.py - Custom rotation Lambda for database credentials."""
 import boto3
@@ -161,8 +140,6 @@ def lambda_handler(event, context):
         finish_secret(client, secret_arn, token)
     else:
         raise ValueError(f"Invalid step: {step}")
-
-
 def create_secret(client, secret_arn, token):
     """Generate once per pending token; retries reuse the same value."""
     try:
@@ -174,13 +151,11 @@ def create_secret(client, secret_arn, token):
         SecretId=secret_arn, VersionStage="AWSCURRENT"
     )
     current_dict = json.loads(current['SecretString'])
-
     new_password = client.get_random_password(
         PasswordLength=32,
         ExcludeCharacters='/@"\\',
         RequireEachIncludedType=True,
     )['RandomPassword']
-
     current_dict['password'] = new_password
     client.put_secret_value(
         SecretId=secret_arn,
@@ -189,20 +164,16 @@ def create_secret(client, secret_arn, token):
         VersionStages=['AWSPENDING'],
     )
     logger.info(f"createSecret: New secret version created for {secret_arn}")
-
-
 def set_secret(client, secret_arn, token):
     """Apply the new secret to the target database."""
     pending = client.get_secret_value(
         SecretId=secret_arn, VersionId=token, VersionStage="AWSPENDING"
     )
     pending_dict = json.loads(pending['SecretString'])
-
     current = client.get_secret_value(
         SecretId=secret_arn, VersionStage="AWSCURRENT"
     )
     current_dict = json.loads(current['SecretString'])
-
     if any(current_dict.get(k) != pending_dict.get(k) for k in ("host", "username", "port", "dbname")):
         raise ValueError("Current/pending target mismatch")
     # A production handler must first test pending credentials: if they already work,
@@ -231,15 +202,12 @@ def set_secret(client, secret_arn, token):
         )
     conn.close()
     logger.info(f"setSecret: Password updated in database for {secret_arn}")
-
-
 def test_secret(client, secret_arn, token):
     """Verify the new secret works."""
     pending = client.get_secret_value(
         SecretId=secret_arn, VersionId=token, VersionStage="AWSPENDING"
     )
     pending_dict = json.loads(pending['SecretString'])
-
     conn = psycopg2.connect(
         sslmode="verify-full", connect_timeout=10,
         host=pending_dict['host'],
@@ -250,13 +218,10 @@ def test_secret(client, secret_arn, token):
     )
     conn.close()
     logger.info(f"testSecret: New credentials verified for {secret_arn}")
-
-
 def finish_secret(client, secret_arn, token):
     """Finalize the rotation by updating version stages."""
     metadata = client.describe_secret(SecretId=secret_arn)
     versions = metadata.get('VersionIdsToStages', {})
-
     current_version = None
     for version_id, stages in versions.items():
         if "AWSCURRENT" in stages:
@@ -265,7 +230,6 @@ def finish_secret(client, secret_arn, token):
                 return
             current_version = version_id
             break
-
     client.update_secret_version_stage(
         SecretId=secret_arn,
         VersionStage="AWSCURRENT",
@@ -274,11 +238,8 @@ def finish_secret(client, secret_arn, token):
     )
     logger.info(f"finishSecret: Rotation complete for {secret_arn}")
 ```
-
 The handler is an illustrative single-user PostgreSQL flow, not an AWS-reviewed deployment. Use AWS’s service-specific rotation template and test retries/failures in staging. Package psycopg2 for the Lambda runtime, configure CA trust, scoped secret/KMS access and network egress; validate resource identity against an approved target before connecting. Do not log credentials or construct unescaped credential URLs. Environment-injected ECS secrets do not update running tasks automatically, and External Secrets CRD versions must match the installed operator.
-
 ### Rotation Lambda Terraform
-
 ```hcl
 resource "aws_lambda_function" "rotation" {
   filename         = "rotation_function.zip"
@@ -287,26 +248,22 @@ resource "aws_lambda_function" "rotation" {
   handler          = "rotation_function.lambda_handler"
   runtime          = "python3.11"
   timeout          = 60
-
   vpc_config {
     subnet_ids         = var.private_subnet_ids
     security_group_ids = [aws_security_group.rotation.id]
   }
-
   environment {
     variables = {
       SECRETS_MANAGER_ENDPOINT = "https://secretsmanager.${var.region}.amazonaws.com"
     }
   }
 }
-
 resource "aws_lambda_permission" "secrets_manager" {
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.rotation.function_name
   principal     = "secretsmanager.amazonaws.com"
   statement_id  = "AllowSecretsManager"
 }
-
 resource "aws_secretsmanager_secret_rotation" "db" {
   secret_id           = aws_secretsmanager_secret.db.id
   rotation_lambda_arn = aws_lambda_function.rotation.arn
@@ -315,16 +272,12 @@ resource "aws_secretsmanager_secret_rotation" "db" {
   }
 }
 ```
-
 ## Application Integration
-
 ### Python SDK
-
 ```python
 import boto3
 import json
 from functools import lru_cache
-
 def get_secret(secret_name: str, region: str = "us-east-1") -> dict:
     """Retrieve and parse a secret from AWS Secrets Manager."""
     client = boto3.client("secretsmanager", region_name=region)
@@ -333,12 +286,10 @@ def get_secret(secret_name: str, region: str = "us-east-1") -> dict:
         return json.loads(response["SecretString"])
     else:
         return response["SecretBinary"]  # boto3 already returns decoded bytes
-
 @lru_cache(maxsize=32)
 def get_cached_secret(secret_name: str) -> dict:
     """Illustrative process cache only: no TTL; unsuitable without invalidation."""
     return get_secret(secret_name)
-
 # Usage
 creds = get_secret("myapp/production/database")
 connection_string = (
@@ -346,9 +297,7 @@ connection_string = (
     f"@{creds['host']}:{creds['port']}/{creds['dbname']}"
 )
 ```
-
 ### ECS Task Definition
-
 ```json
 {
   "containerDefinitions": [
@@ -374,14 +323,10 @@ connection_string = (
   "executionRoleArn": "arn:aws:iam::123456789:role/ecsTaskExecutionRole"
 }
 ```
-
 ### EKS with External Secrets Operator
-
 ```yaml
 apiVersion: external-secrets.io/v1beta1
 kind: SecretStore
-metadata:
-  name: aws-secrets-manager
   namespace: production
 spec:
   provider:
@@ -391,20 +336,15 @@ spec:
       auth:
         jwt:
           serviceAccountRef:
-            name: external-secrets-sa
 ---
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
-metadata:
-  name: db-credentials
   namespace: production
 spec:
   refreshInterval: 1h
   secretStoreRef:
-    name: aws-secrets-manager
     kind: SecretStore
   target:
-    name: db-credentials
     creationPolicy: Owner
   data:
     - secretKey: username
@@ -416,9 +356,7 @@ spec:
         key: myapp/production/database
         property: password
 ```
-
 ## Resource-Based Policy
-
 ```bash
 # Restrict secret access to specific roles
 aws secretsmanager put-resource-policy \
@@ -458,9 +396,7 @@ aws secretsmanager put-resource-policy \
     ]
   }'
 ```
-
 ## Troubleshooting
-
 | Problem | Cause | Solution |
 |---------|-------|----------|
 | `AccessDeniedException` on GetSecretValue | IAM policy missing permission | Add `secretsmanager:GetSecretValue` to the role; check resource-based policy |
@@ -470,9 +406,7 @@ aws secretsmanager put-resource-policy \
 | Application uses old credentials after rotation | Client caching stale values | Implement cache invalidation on rotation; reduce cache TTL |
 | Rotation Lambda permission error | Missing `lambda:InvokeFunction` permission | Add `aws_lambda_permission` for secretsmanager.amazonaws.com principal |
 | KMS decrypt fails | Secret KMS key policy missing role | Add the accessing role to the KMS key policy's `kms:Decrypt` principals |
-
 ## Best Practices
-
 - Choose a supported rotation schedule from threat model and service limits; 30 days is an example, not a minimum
 - Use resource-based policies in addition to IAM policies (defense in depth)
 - Encrypt secrets with customer-managed KMS keys (not default)
@@ -483,24 +417,17 @@ aws secretsmanager put-resource-policy \
 - Never log secret values; log only secret ARNs and access metadata
 - Test rotation in staging before enabling in production
 - Set up CloudWatch alarms for rotation failures
-
 ## Related Skills
-
 - hashicorp-vault (`hashicorp-vault`) - Multi-cloud secrets
 - aws-iam (`aws-iam`) - IAM policies
 - azure-keyvault (`azure-keyvault`) - Azure secret management
 - gcp-secret-manager (`gcp-secret-manager`) - GCP secret management
-
 ## Limitations
-
 - Apply guidance only within authorized scope; test destructive steps in non-production first.
 - Docs-only import: upstream scripts and templates not bundled.
-
 ### Example
-
 ```bash
 # Read-only first: inventory before any active step.
 which <tool> && <tool> --help | head -n 20
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.

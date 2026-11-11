@@ -1,33 +1,21 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "df268a80bf71fd12c084c5ec3b7733b3beb080922ef6ab4d6ef64d0c32cf0b70"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: df268a80bf71fd12c084c5ec3b7733b3beb080922ef6ab4d6ef64d0c32cf0b70
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Game art principles. Visual style selection, asset pipeline, animation workflow.
 name: game-art
-description: "Game art principles. Visual style selection, asset pipeline, animation workflow."
-tier: "experimental"
 risk: none
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # Game Art Principles
-
 > Visual design thinking for games - style selection, asset pipelines, and art direction.
-
 ---
-
 ## 1. Art Style Selection
-
 ### Decision Tree
-
 ```
 What feeling should the game evoke?
 │
@@ -46,9 +34,7 @@ What feeling should the game evoke?
 └── Unique / Experimental
     └── Define custom style guide
 ```
-
 ### Style Comparison Matrix
-
 | Style | Production Speed | Skill Floor | Scalability | Best For |
 |-------|------------------|-------------|-------------|----------|
 | **Pixel Art** | Medium | Medium | Hard to hire | Indie, retro |
@@ -57,13 +43,9 @@ What feeling should the game evoke?
 | **PBR 3D** | Slow | High | AAA pipeline | Realistic games |
 | **Low-poly** | Fast | Medium | Easy | Indie 3D |
 | **Cel-shaded** | Medium | Medium | Medium | Anime, cartoon |
-
 ---
-
 ## 2. Asset Pipeline Decisions
-
 ### 2D Pipeline
-
 | Phase | Tool Options | Output |
 |-------|--------------|--------|
 | **Concept** | Paper, Procreate, Photoshop | Reference sheet |
@@ -71,9 +53,7 @@ What feeling should the game evoke?
 | **Atlas** | TexturePacker, Aseprite | Spritesheet |
 | **Animation** | Spine, DragonBones, Frame-by-frame | Animation data |
 | **Integration** | Engine import | Game-ready assets |
-
 ### 3D Pipeline
-
 | Phase | Tool Options | Output |
 |-------|--------------|--------|
 | **Concept** | 2D art, Blockout | Reference |
@@ -83,33 +63,23 @@ What feeling should the game evoke?
 | **Rigging** | Blender, Maya | Skeletal rig |
 | **Animation** | Blender, Maya, Mixamo | Animation clips |
 | **Export** | FBX, glTF | Engine-ready |
-
 ---
-
 ## 3. Color Theory Decisions
-
 ### Palette Selection
-
 | Goal | Strategy | Example |
 |------|----------|---------|
 | **Harmony** | Complementary or analogous | Nature games |
 | **Contrast** | High saturation differences | Action games |
 | **Mood** | Warm/cool temperature | Horror, cozy |
 | **Readability** | Value contrast over hue | Gameplay clarity |
-
 ### Color Principles
-
 - **Hierarchy:** Important elements should pop
 - **Consistency:** Same object = same color family
 - **Context:** Colors read differently on backgrounds
 - **Accessibility:** Don't rely only on color
-
 ---
-
 ## 4. Animation Principles
-
 ### Selected Animation Principles (Applied to Games)
-
 | Principle | Game Application |
 |-----------|------------------|
 | **Squash & Stretch** | Jump arcs, impacts |
@@ -122,9 +92,7 @@ What feeling should the game evoke?
 | **Timing** | Frame count = weight/speed |
 | **Exaggeration** | Readable from distance |
 | **Appeal** | Memorable design |
-
 ### Frame Count Guidelines
-
 | Action Type | Typical Frames | Feel |
 |-------------|----------------|------|
 | Idle breathing | 4-8 | Subtle |
@@ -132,43 +100,30 @@ What feeling should the game evoke?
 | Run cycle | 4-8 | Energetic |
 | Attack | 3-6 | Snappy |
 | Death | 8-16 | Dramatic |
-
 ---
-
 ## 5. Resolution & Scale Decisions
-
 ### 2D Resolution by Platform
-
 | Platform | Base Resolution | Sprite Scale |
 |----------|-----------------|--------------|
 | Mobile | 1080p | 64-128px characters |
 | Desktop | 1080p-4K | 128-256px characters |
 | Pixel art | 320x180 to 640x360 | 16-32px characters |
-
 ### Consistency Rule
-
 Choose a base unit and stick to it:
 - Pixel art: Work at 1x, scale up (never down)
 - HD screen art: define pixel dimensions, intended display scale and aspect ratio; DPI metadata alone does not determine on-screen size
 - 3D: record and convert the tool/engine unit convention (some use centimeters); validate imported scale against a known physical dimension
-
 ---
-
 ## 6. Asset Organization
-
 ### Naming Convention
-
 ```
 [type]_[object]_[variant]_[state].[ext]
-
 Examples:
 spr_player_idle_01.png
 tex_stone_wall_normal.png
 mesh_tree_oak_lod2.fbx
 ```
-
 ### Folder Structure Principle
-
 ```
 assets/
 ├── characters/
@@ -181,11 +136,8 @@ assets/
 ├── effects/
 └── audio/
 ```
-
 ---
-
 ## 7. Anti-Patterns
-
 | Don't | Do |
 |-------|-----|
 | Mix art styles randomly | Define and follow style guide |
@@ -193,14 +145,10 @@ assets/
 | Ignore silhouette readability | Test at gameplay distance |
 | Over-detail background | Focus detail on player area |
 | Skip color testing | Test on target display |
-
 ---
-
 > **Remember:** Art serves gameplay. If it doesn't help the player, it's decoration.
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

@@ -1,61 +1,39 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "778dfd6beaee0f843b150ed7be0d963d26914fa696cf65586e52b7eba094c147"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 778dfd6beaee0f843b150ed7be0d963d26914fa696cf65586e52b7eba094c147
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-03-06
+description: ""Use when reviewing Django or DRF access control: trace authorization flows, IDOR risks, object permissions, query scoping and tenant isolation before proposing a verified fix.""
 name: django-access-review
-description: "Use when reviewing Django or DRF access control: trace authorization flows, IDOR risks, object permissions, query scoping and tenant isolation before proposing a verified fix."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-03-06"
 ---
-
-
-
 <!--
 Reference material based on OWASP Cheat Sheet Series (CC BY-SA 4.0)
 https://cheatsheetseries.owasp.org/
 -->
-
 # Django Access Control & IDOR Review
-
 Find access control vulnerabilities by investigating how the codebase answers one question:
-
 **Can User A access, modify, or delete User B's data?**
-
 ## When to Use
 - You need to review Django or DRF code for access control gaps, IDOR risk, or object-level authorization failures.
 - The task involves confirming whether one user can access, modify, or delete another user's data.
 - You want an investigation-driven authorization review instead of generic pattern matching.
-
 ## Philosophy: Investigation Over Pattern Matching
-
 Do NOT scan for predefined vulnerable patterns. Instead:
-
 1. **Understand** how authorization works in THIS codebase
 2. **Ask questions** about specific data flows
 3. **Trace code** to find where (or if) access checks happen
 4. **Report** only what you've confirmed through investigation
-
 Every codebase implements authorization differently. Your job is to understand this specific implementation, then find gaps.
-
 ---
-
 ## Phase 1: Understand the Authorization Model
-
 Before looking for bugs, answer these questions about the codebase:
-
 ### How is authorization enforced?
-
 Research the codebase to find:
-
 ```
 □ Where are permission checks implemented?
   - Decorators? (@login_required, @permission_required, custom?)
@@ -63,53 +41,38 @@ Research the codebase to find:
   - Base classes? (BaseAPIView, TenantScopedViewSet?)
   - Permission classes? (DRF permission_classes?)
   - Custom mixins? (OwnershipMixin, TenantMixin?)
-
 □ How are queries scoped?
   - Custom managers? (TenantManager, UserScopedManager?)
   - get_queryset() overrides?
   - Middleware that sets query context?
-
 □ What's the ownership model?
   - Single user ownership? (document.owner_id)
   - Organization/tenant ownership? (document.organization_id)
   - Hierarchical? (org -> team -> user -> resource)
   - Role-based within context? (org admin vs member)
 ```
-
 ### Investigation commands
-
 ```bash
 # Find how auth is typically done
 grep -rn "permission_classes\|@login_required\|@permission_required" --include="*.py" | head -20
-
 # Find base classes that views inherit from
 grep -rn "class Base.*View\|class.*Mixin.*:" --include="*.py" | head -20
-
 # Find custom managers
 grep -rn "class.*Manager\|def get_queryset" --include="*.py" | head -20
-
 # Find ownership fields on models
 grep -rn "owner\|user_id\|organization\|tenant" --include="models.py" | head -30
 ```
-
 **Do not proceed until you understand the authorization model.**
-
 ---
-
 ## Phase 2: Map the Attack Surface
-
 Identify endpoints that handle user-specific data:
-
 ### What resources exist?
-
 ```
 □ What models contain user data?
 □ Which have ownership fields (owner_id, user_id, organization_id)?
 □ Which are accessed via ID in URLs or request bodies?
 ```
-
 ### What operations are exposed?
-
 For each resource, map:
 - List endpoints - what data is returned?
 - Detail/retrieve endpoints - how is the object fetched?
@@ -117,96 +80,66 @@ For each resource, map:
 - Update endpoints - can users modify others' data?
 - Delete endpoints - can users delete others' data?
 - Custom actions - what do they access?
-
 ---
-
 ## Phase 3: Ask Questions and Investigate
-
 For each endpoint that handles user data, ask:
-
 ### The Core Question
-
 **"If I'm User A and I know the ID of User B's resource, can I access it?"**
-
 Trace the code to answer this:
-
 ```
 1. Where does the resource ID enter the system?
    - URL path: /api/documents/{id}/
    - Query param: ?document_id=123
    - Request body: {"document_id": 123}
-
 2. Where is that ID used to fetch data?
    - Find the ORM query or database call
-
 3. Between (1) and (2), what checks exist?
    - Is the query scoped to current user?
    - Is there an explicit ownership check?
    - Is there a permission check on the object?
    - Does a base class or mixin enforce access?
-
 4. If you can't find a check, is there one you missed?
    - Check parent classes
    - Check middleware
    - Check managers
    - Check decorators at URL level
 ```
-
 ### Follow-Up Questions
-
 ```
 □ For list endpoints: Does the query filter to user's data, or return everything?
-
 □ For create endpoints: Who sets the owner - the server or the request?
-
 □ For bulk operations: Are they scoped to user's data?
-
 □ For related resources: If I can access a document, can I access its comments?
   What if the document belongs to someone else?
-
 □ For tenant/org resources: Can User in Org A access Org B's data by changing
   the org_id in the URL?
 ```
-
 ---
-
 ## Phase 4: Trace Specific Flows
-
 Pick a concrete endpoint and trace it completely.
-
 ### Example Investigation
-
 ```
 Endpoint: GET /api/documents/{pk}/
-
 1. Find the view handling this URL
    → DocumentViewSet.retrieve() in api/views.py
-
 2. Check what DocumentViewSet inherits from
    → class DocumentViewSet(viewsets.ModelViewSet)
    → No custom base class with authorization
-
 3. Check permission_classes
    → permission_classes = [IsAuthenticated]
    → Only checks login, not ownership
-
 4. Check get_queryset()
    → def get_queryset(self):
    →     return Document.objects.all()
    → Returns ALL documents!
-
 5. Check for has_object_permission()
    → Not implemented
-
 6. Check retrieve() method
    → Uses default, which calls get_object()
    → get_object() uses get_queryset(), which returns all
-
 7. Conclusion: IDOR - Any authenticated user can access any document
 ```
-
 ### What to look for when tracing
-
 ```
 Potential gap indicators (investigate further, don't auto-flag):
 - get_queryset() returns .all() or filters without user
@@ -214,58 +147,44 @@ Potential gap indicators (investigate further, don't auto-flag):
 - ID comes from request body for sensitive operations
 - Permission class checks auth but not ownership
 - No has_object_permission() and queryset isn't scoped
-
 Likely safe patterns (but verify the implementation):
 - get_queryset() filters by request.user or user's org
 - Custom permission class with has_object_permission()
 - Base class that enforces scoping
 - Manager that auto-filters
 ```
-
 ---
-
 ## Phase 5: Report Findings
-
 Only report issues you've confirmed through investigation.
-
 ### Confidence Levels
-
 | Level | Meaning | Action |
 |-------|---------|--------|
 | **HIGH** | Traced the flow, confirmed no check exists | Report with evidence |
 | **MEDIUM** | Check may exist but couldn't confirm | Note for manual verification |
 | **LOW** | Theoretical, likely mitigated | Do not report |
-
 ### Suggested Fixes Must Enforce, Not Document
-
 **Bad fix**: Adding a comment saying "caller must validate permissions"
 **Good fix**: Adding code that actually validates permissions
-
 A comment or docstring does not enforce authorization. Your suggested fix must include actual code that:
 - Validates the user has permission before proceeding
 - Raises an exception or returns an error if unauthorized
 - Enforces the stated ownership/tenant policy on the shown path, with negative tests; a small helper does not prove every endpoint is protected.
-
 Example of a BAD fix suggestion:
 ```python
 def get_resource(resource_id):
     # IMPORTANT: Caller must ensure user has access to this resource
     return Resource.objects.get(pk=resource_id)
 ```
-
 Example of a GOOD fix suggestion:
 ```python
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404
 from app.models import Resource  # Replace with the project's actual model.
-
-
 def get_resource(resource_id, user):
     if user is None or not user.is_authenticated:
         raise PermissionDenied("Authentication required")
     return get_object_or_404(Resource, pk=resource_id, owner_id=user.pk)
 ```
-
 This example assumes individually owned resources and a `user` supplied by the
 server's authenticated request context, never by a user-controlled request body.
 For organization roles or shared resources, use the actual verified membership
@@ -273,19 +192,13 @@ policy instead of replacing it with a simplistic ownership check. The scoped
 lookup returns 404 for an absent or unowned resource and does not expose its data.
 Test anonymous access, the owner, another user and another tenant, including bulk,
 create and custom-action paths; importing a permission class alone is not proof.
-
 If you can't determine the right enforcement mechanism, say so - but never suggest documentation as the fix.
-
 ### Report Format
-
 ```markdown
 ## Access Control Review: [Component]
-
 ### Authorization Model
 [Brief description of how this codebase handles authorization]
-
 ### Findings
-
 #### [IDOR-001] [Title] (Severity: High/Medium)
 - **Location**: `path/to/file.py:123`
 - **Confidence**: High - confirmed through code tracing
@@ -299,65 +212,47 @@ If you can't determine the right enforcement mechanism, say so - but never sugge
 - **Evidence**: [Code snippet showing the gap]
 - **Impact**: Any authenticated user can read any document by ID
 - **Suggested Fix**: [Code that enforces authorization - NOT a comment]
-
 ### Needs Manual Verification
 [Issues where authorization exists but couldn't confirm effectiveness]
-
 ### Areas Not Reviewed
 [Endpoints or flows not covered in this review]
 ```
-
 ---
-
 ## Common Django Authorization Patterns
-
 These are patterns you might find - not a checklist to match against.
-
 ### Query Scoping
 ```python
 # Scoped to user
 Document.objects.filter(owner=request.user)
-
 # Scoped to organization
 Document.objects.filter(organization=request.user.organization)
-
 # Using a custom manager
 Document.objects.for_user(request.user)  # Investigate what this does
 ```
-
 ### Permission Enforcement
 ```python
 # DRF permission classes
 permission_classes = [IsAuthenticated, IsOwner]
-
 # Custom has_object_permission
 def has_object_permission(self, request, view, obj):
     return obj.owner == request.user
-
 # Django decorators
 @permission_required('app.view_document')
-
 # Manual checks
 if document.owner != request.user:
     raise PermissionDenied()
 ```
-
 ### Ownership Assignment
 ```python
 # Server-side (safe)
 def perform_create(self, serializer):
     serializer.save(owner=self.request.user)
-
 # From request (investigate)
 serializer.save(**request.data)  # Does request.data include owner?
 ```
-
 ---
-
 ## Investigation Checklist
-
 Use this to guide your review, not as a pass/fail checklist:
-
 ```
 □ I understand how authorization is typically implemented in this codebase
 □ I've identified the ownership model (user, org, tenant, etc.)
@@ -369,7 +264,6 @@ Use this to guide your review, not as a pass/fail checklist:
 □ I've verified my findings by checking parent classes and middleware
 □ I've only reported issues I've confirmed through investigation
 ```
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

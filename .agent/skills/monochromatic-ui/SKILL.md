@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "f0e4f8f17b256236474a4b2162b03cbd17d2c5ae834c8afd5807430fc69aa1b4"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: monochromatic-ui
+content_hash: f0e4f8f17b256236474a4b2162b03cbd17d2c5ae834c8afd5807430fc69aa1b4
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Monochromatic UI. Trigger when user wants a single-color palette, high elegance, and strict color discipline.
-tier: "experimental"
-date_added: "2026-06-17"
+name: monochromatic-ui
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Monochromatic UI
-
 > "Elegance through constraint. A single hue, explored through all its tints, tones, and shades."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Single Hue**: Choose one base color (e.g., deep blue). The entire UI is built using lighter (tints) and darker (shades) versions of that exact hue.
 2. **High Contrast for Legibility**: The darkest shade and the lightest tint must have enough contrast to pass accessibility standards when placed together.
 3. **Texture over Color**: Since color is restricted, use subtle textures, patterns, or varying opacities to differentiate sections.
-
 ## Visual DNA
 - **Colors**: **Monochromatic Brown** or pick one dominant hue from **Earth-Grounded Elegance** and extrapolate it.
 - **Typography**: Clean and unobtrusive. The layout relies heavily on font weights to establish hierarchy since color cannot.
 - **Shadows**: Shadows must be tinted with the base hue, never pure black.
-
 ## Web Implementation
 - Use HSL (Hue, Saturation, Lightness) heavily in CSS to make building the palette easy.
 - **CSS Example**:
@@ -49,13 +36,11 @@ Use this sub-style when the user's request matches the aesthetic described above
   --mono-300: hsl(210, 50%, 80%); /* Light */
   --mono-100: hsl(210, 40%, 95%); /* Very light background */
 }
-
 body {
   background-color: var(--mono-100);
   color: var(--mono-900);
   font-family: 'Inter', sans-serif;
 }
-
 .mono-card {
   background-color: #ffffff; /* Or mono-100 */
   border: 1px solid var(--mono-300);
@@ -64,7 +49,6 @@ body {
   /* Tinted shadow */
   box-shadow: 0 10px 25px hsla(210, 80%, 10%, 0.05);
 }
-
 .mono-btn {
   background-color: var(--mono-700);
   color: #ffffff;
@@ -73,19 +57,15 @@ body {
   padding: 12px 24px;
   transition: background-color 0.2s;
 }
-
 .mono-btn:hover {
   background-color: var(--mono-700);
 }
-
 .mono-subtext {
   color: var(--mono-700); /* Darker tone for readable secondary text */
   font-weight: 500;
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct MonochromaticView: View {
@@ -96,7 +76,6 @@ struct MonochromaticView: View {
     let mono500 = Color(hue: 0.58, saturation: 0.60, brightness: 0.50)
     let mono300 = Color(hue: 0.58, saturation: 0.50, brightness: 0.80)
     let mono100 = Color(hue: 0.58, saturation: 0.40, brightness: 0.95)
-    
     var body: some View {
         VStack(spacing: 24) {
             // Card
@@ -104,7 +83,6 @@ struct MonochromaticView: View {
                 Text("Monochromatic Elegance")
                     .font(.title2).fontWeight(.semibold)
                     .foregroundColor(mono900)
-                
                 Text("Using only variations in saturation and brightness of a single hue.")
                     .foregroundColor(mono500)
             }
@@ -112,7 +90,6 @@ struct MonochromaticView: View {
             .background(Color.white)
             .border(mono300, width: 1)
             .shadow(color: mono900.opacity(0.1), radius: 15, y: 5) // Tinted shadow
-            
             // Button
             Button(action: {}) {
                 Text("Primary Action")
@@ -132,7 +109,6 @@ struct MonochromaticView: View {
 ```
 - Define your colors using `Color(hue: saturation: brightness:)`. HSB/HSV and CSS HSL are distinct models; identical numerical lightness/brightness values do not produce identical platform palettes. Verify contrast after conversion.
 - *Always* tint your drop shadows with your `mono900` color. Pure black shadows look dirty in a strict monochromatic UI.
-
 ### Flutter
 ```dart
 class MonochromaticScreen extends StatelessWidget {
@@ -142,7 +118,6 @@ class MonochromaticScreen extends StatelessWidget {
   final Color mono500 = const HSVColor.fromAHSV(1.0, 210, 0.60, 0.50).toColor();
   final Color mono300 = const HSVColor.fromAHSV(1.0, 210, 0.50, 0.80).toColor();
   final Color mono100 = const HSVColor.fromAHSV(1.0, 210, 0.40, 0.95).toColor();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -196,7 +171,6 @@ class MonochromaticScreen extends StatelessWidget {
 }
 ```
 - Flutter's `HSVColor.fromAHSV()` is the best way to explicitly code a monochromatic palette without guessing hex codes.
-
 ### React Native
 ```jsx
 // Base Hue: Deep Blue (210)
@@ -207,11 +181,9 @@ const theme = {
   mono300: 'hsl(210, 50%, 80%)',
   mono100: 'hsl(210, 40%, 95%)',
 };
-
 const MonochromaticScreen = () => {
   return (
     <View style={{ flex: 1, backgroundColor: theme.mono100, padding: 24, justifyContent: 'center' }}>
-      
       <View style={{
         backgroundColor: '#FFFFFF',
         borderColor: theme.mono300,
@@ -230,7 +202,6 @@ const MonochromaticScreen = () => {
           Using HSL strings in React Native makes palette generation trivial.
         </Text>
       </View>
-
       <TouchableOpacity style={{
         backgroundColor: theme.mono700,
         padding: 16,
@@ -241,13 +212,11 @@ const MonochromaticScreen = () => {
           Primary Action
         </Text>
       </TouchableOpacity>
-      
     </View>
   );
 };
 ```
 - React Native's StyleSheet accepts CSS `hsl()` strings natively. Use them! It makes debugging and tweaking a monochromatic palette a million times easier than using hex codes.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -258,7 +227,6 @@ fun MonochromaticScreen() {
     val mono500 = Color.hsv(210f, 0.60f, 0.50f)
     val mono300 = Color.hsv(210f, 0.50f, 0.80f)
     val mono100 = Color.hsv(210f, 0.40f, 0.95f)
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -281,9 +249,7 @@ fun MonochromaticScreen() {
                 Text("Strictly enforced hue discipline.", color = mono500)
             }
         }
-        
         Spacer(Modifier.height(24.dp))
-        
         // Button
         Button(
             onClick = { },
@@ -298,11 +264,9 @@ fun MonochromaticScreen() {
 ```
 - Use `Color.hsv()` to define the palette.
 - Set the `spotColor` in your `Modifier.shadow` to `mono900` to keep the shadows from looking muddy or disjointed from the design system.
-
 ## Do's and Don'ts
 - **DO**: Use pure white or pure black as absolute extremes if needed for text legibility.
 - **DON'T**: Sneak in an accent color. Use text and icons for errors and preserve semantic error colors when required; an accent does not automatically make a design duotone.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

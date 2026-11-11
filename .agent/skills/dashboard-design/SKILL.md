@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "80fc9423f22fcbffb74a635ef865647cda5919977cb1cc7262e915f70342152f"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: dashboard-design
+content_hash: 80fc9423f22fcbffb74a635ef865647cda5919977cb1cc7262e915f70342152f
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Dashboard Design. Trigger when user wants analytics-focused layouts, data visualization, and modular overview screens.
-tier: "experimental"
-date_added: "2026-06-17"
+name: dashboard-design
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Dashboard Design
-
 > "Data at a glance. Organized, scannable, and highly functional."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Modular Grid**: The screen is broken down into functional "widgets" or cards. Usually a sidebar on the left and a top nav.
 2. **Data Hierarchy**: The most important numbers (KPIs) are large and usually at the top. Charts take up the middle, and lists/tables are at the bottom.
 3. **Muted Backgrounds**: A soft grey or off-white background so the white data cards stand out clearly.
-
 ## Visual DNA
 - **Colors**: **Minimalist Slate** or **Earth-Grounded Elegance**. Avoid too many colors. Pair trend color with text, signs or icons. Define whether a rise or fall is favorable for each metric; lower churn may be favorable.
 - **Typography**: Clean, tabular sans-serifs (`Inter`, `Roboto Mono` for numbers).
 - **Styling**: Very subtle shadows or 1px borders to separate cards.
-
 ## Web Implementation
 - Use CSS Grid for the macro layout (Sidebar, Header, Main).
 - **CSS Example**:
@@ -47,21 +34,18 @@ body {
   font-family: 'Inter', sans-serif;
   margin: 0;
 }
-
 .dashboard-layout {
   display: grid;
   grid-template-columns: 250px 1fr;
   grid-template-rows: 70px 1fr;
   height: 100vh;
 }
-
 .sidebar {
   grid-row: 1 / 3;
   background-color: #ffffff;
   border-right: 1px solid #e9ecef;
   padding: 20px;
 }
-
 .header {
   background-color: #ffffff;
   border-bottom: 1px solid #e9ecef;
@@ -69,7 +53,6 @@ body {
   display: flex;
   align-items: center;
 }
-
 .main-content {
   padding: 30px;
   display: grid;
@@ -77,7 +60,6 @@ body {
   gap: 20px;
   overflow-y: auto;
 }
-
 /* KPI Card */
 .kpi-card {
   background: #fff;
@@ -86,14 +68,11 @@ body {
   border: 1px solid #e9ecef;
   box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 }
-
 .kpi-title { font-size: 0.9rem; color: #6c757d; }
 .kpi-value { font-size: 2rem; font-weight: 700; margin-top: 8px; }
 .kpi-trend.positive { color: #28a745; }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct DashboardView: View {
@@ -102,7 +81,6 @@ struct DashboardView: View {
     let columns = [
         GridItem(.adaptive(minimum: 150), spacing: 16)
     ]
-    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -113,7 +91,6 @@ struct DashboardView: View {
                     KPICard(title: "Avg. Session", value: "4m 12s", trend: "+0.1%", isPositive: true)
                 }
                 .padding()
-                
                 // Placeholder for Chart
                 RoundedRectangle(cornerRadius: 12)
                     .fill(Color.white)
@@ -126,13 +103,11 @@ struct DashboardView: View {
         }
     }
 }
-
 struct KPICard: View {
     let title: String
     let value: String
     let trend: String
     let isPositive: Bool
-    
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(title).font(.subheadline).foregroundColor(.secondary)
@@ -152,7 +127,6 @@ struct KPICard: View {
 ```
 - Dashboards require `.adaptive` grids. `LazyVGrid` handles rearranging 4 cards in a row on iPad down to 2 cards on iPhone automatically.
 - Use `Color(UIColor.systemGroupedBackground)` to provide that subtle off-white contrast against stark white cards.
-
 ### Flutter
 ```dart
 class DashboardScreen extends StatelessWidget {
@@ -198,7 +172,6 @@ class DashboardScreen extends StatelessWidget {
       ),
     );
   }
-
   Widget _buildKPI(String title, String value, String trend, bool isPositive) {
     return Container(
       padding: const EdgeInsets.all(16),
@@ -223,7 +196,6 @@ class DashboardScreen extends StatelessWidget {
 ```
 - `SliverGrid.extent` adapts column count, but fixed aspect ratios can clip long labels or enlarged text. Test width and text scale and choose content-based heights where needed.
 - `fl_chart` is one chart option; assess accessibility, maintenance and the required chart types.
-
 ### React Native
 ```jsx
 const DashboardScreen = () => {
@@ -235,7 +207,6 @@ const DashboardScreen = () => {
         <KPICard title="Churn" value="1.2%" trend="-0.4%" isPositive={true} />
         <KPICard title="Session" value="4m 12s" trend="+0.1%" isPositive={true} />
       </View>
-      
       <View style={{ paddingHorizontal: 16, paddingBottom: 32 }}>
         <View style={{ height: 250, backgroundColor: '#FFF', borderRadius: 12, justifyContent: 'center', alignItems: 'center' }}>
           <Text style={{ color: '#999' }}>Chart Area</Text>
@@ -244,7 +215,6 @@ const DashboardScreen = () => {
     </ScrollView>
   );
 };
-
 const KPICard = ({ title, value, trend, isPositive }) => (
   <View style={{
     backgroundColor: '#FFF',
@@ -263,7 +233,6 @@ const KPICard = ({ title, value, trend, isPositive }) => (
 ```
 - To make responsive flex grids in React Native, use `flexDirection: 'row'`, `flexWrap: 'wrap'`, and set the children to `flexBasis: '47%'`.
 - For heavy data visualization, look into `victory-native` or `@shopify/react-native-skia`.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -281,7 +250,6 @@ fun DashboardScreen() {
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(16.dp)
         )
-
         // KPI Grid
         LazyVerticalGrid(
             columns = GridCells.Adaptive(minSize = 150.dp),
@@ -295,9 +263,7 @@ fun DashboardScreen() {
             item { KPICard("Churn Rate", "1.2%", "-0.4%", true) }
             item { KPICard("Avg. Session", "4m 12s", "+0.1%", true) }
         }
-
         Spacer(Modifier.height(16.dp))
-
         // Chart Area
         Box(
             modifier = Modifier
@@ -310,11 +276,9 @@ fun DashboardScreen() {
         ) {
             Text("Chart Area", color = Color.Gray)
         }
-        
         Spacer(Modifier.height(32.dp))
     }
 }
-
 @Composable
 fun KPICard(title: String, value: String, trend: String, isPositive: Boolean) {
     Column(
@@ -333,11 +297,9 @@ fun KPICard(title: String, value: String, trend: String, isPositive: Boolean) {
 ```
 - `GridCells.Adaptive(minSize = 150.dp)` creates the responsive card layout automatically.
 - Warning: Nesting `LazyVerticalGrid` inside a `Column` with `.verticalScroll` can cause height calculation issues. You must use `.heightIn(max=...)` on the grid, or completely convert the entire layout to a single `LazyVerticalGrid` where the chart is just a `GridItemSpan(maxLineSpan)` element.
-
 ## Do's and Don'ts
 - **DO**: Right-align numbers in tables so they are easier to scan and compare.
 - **DON'T**: Clutter cards with unnecessary decorative images. The data is the decoration.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

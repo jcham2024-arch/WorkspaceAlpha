@@ -1,47 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "5bbd685e4da0c9ac11177ceb0317469206696c3e78b3ca459845b1e9edaa48c4"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 5bbd685e4da0c9ac11177ceb0317469206696c3e78b3ca459845b1e9edaa48c4
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-02
+description: You are a Python project architecture expert specializing in scaffolding production-ready Python applications. Generate complete project structures with modern tooling (uv, FastAPI, Django), type hint (Alias for python-development-python-scaffold)
 name: python-development
-description: "You are a Python project architecture expert specializing in scaffolding production-ready Python applications. Generate complete project structures with modern tooling (uv, FastAPI, Django), type hint (Alias for python-development-python-scaffold)"
-tier: "experimental"
 risk: critical
-source: "alias"
-date_added: "2026-06-02"
+source: alias
 ---
-
-
 # Python Development
-
 > **This is an alias.** The canonical skill is **`python-development-python-scaffold`**.
-
 This skill redirects to `python-development-python-scaffold`. Load it from the vault:
-
 `../python-development-python-scaffold/SKILL.md` relative to this skill directory. Confirm that the target is installed and read its complete instructions; if absent, report the missing dependency instead of claiming execution.
-
 ## When to Use
 - Use this skill when the task matches this description: You are a Python project architecture expert specializing in scaffolding production-ready Python applications. Generate complete project structures with modern tooling (uv, FastAPI, Django), type hint (Alias for python-development-python-scaffold).
-
 ## Why this alias exists
-
 Users commonly search for `python-development` but the full skill name in this collection is `python-development-python-scaffold`. This alias ensures discoverability.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## Examples
 ```text
 Use @python-development for this task: You are a Python project architecture expert specializing in scaffolding production-ready Python applications. Generate complete project structures with modern tooling (uv, FastAPI, Django), type hint (Alias for python-development-python-scaffold).
-
 Apply the skill to my current work and walk me through the safest next steps,
 key checks, and the concrete output I should produce.
 ```

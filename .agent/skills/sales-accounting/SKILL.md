@@ -1,106 +1,74 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "99cb4ad027412e6e0053d086b4f0792c62456bb4a8f0d1b34805d4130626bfda"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: sales-accounting
-description: 'Sales register: customer, invoice, gross amount, discount, VAT and TDS, net receivable, credit terms and balance. Use for sales accounting.'
-tier: "experimental"
+content_hash: 99cb4ad027412e6e0053d086b4f0792c62456bb4a8f0d1b34805d4130626bfda
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: WHOISABHISHEKADHIKARI
 category: business
+date_added: 2026-09-26
+description: "'Sales register: customer, invoice, gross amount, discount, VAT and TDS, net receivable, credit terms and balance. Use for sales accounting.'"
+name: sales-accounting
 risk: safe
 source: self
-source_type: self
-date_added: "2026-09-26"
-author: WHOISABHISHEKADHIKARI
-tags: [sme, accounting, audit, finance, database, csv, notion, sql, sales]
-tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
+source_type: self
+tags: "[sme, accounting, audit, finance, database, csv, notion, sql, sales]"
+tools: "[]"
 ---
-
-
 # Sales Accounting
-
 **What it is:** Sales invoices, the receivables they create, and the documents that support them.
-
 ## Overview
-
 Works out the smallest useful **Sales Accounting** setup for the business in front of it, then
 builds it only when asked. The default output is a short recommendation, not a
 spreadsheet. Artifacts - CSV, SQL DDL, JSON Schema, Notion mapping - are produced on
 request, from one field list so they cannot drift apart.
-
 **Scope of one row.** This is a single-table skill and one row is one invoice carrying
 **one line item**. It is deliberately not a multi-line billing engine. An invoice with
 several items requires an invoice header with a separate line table. Do not repeat invoice totals, payments or balances per item: summing them would double-count receivables.
 Decide that in Step 2, do not assume it.
-
 **Everything is conditional.** Not every sale is on credit, not every invoice has an order
 or a challan, not every sale attracts VAT, and not every customer deducts TDS. Those fields
 exist to record what was confirmed; they are left unset when the answer is "not applicable"
 or "not known". Never fill them with a default to make the row look complete.
-
 Layer: Layer 3: Record. Fits: Starter stage. Table code: n/a.
-
 ## When to Use This Skill
-
 - sales accounting
 - sales invoice register
 - customer billing and receivable tracker
 - sales vat register log
-
 Also use it when the user describes invoicing, billing or tracking who has paid, or the same
 process happening in a spreadsheet, a document or someone's inbox.
-
 Do not use it for: customer collections, tax filing, or legal advice. This skill produces
 empty templates only - it never holds or processes real customer or financial data.
-
 ## How It Works
-
 Follow the shared execution contract. The module-specific rules below define only domain fields, decisions, calculations, and safety constraints.
-
 ### Step 1 - Identify intent
-
 Read the request and pick the intent before asking anything.
-
 - "set up" or "build" or "create" -> the user wants artifacts; go to Step 2.
 - "our process is ..." or "it is in a sheet" -> the user wants to move an existing process; capture it, then Step 2.
 - "is this right" or "review" or "audit" -> the user wants a check, not a build; answer from what they share.
 - "how do I ..." -> advice question; answer directly and offer the build only if it helps.
-
 Then read everything the user has already said and work out which single missing answer
 would actually change the recommendation. If the request already contains enough to
 recommend, do not ask anything yet - go to Step 4. If the user is describing a problem
 rather than requesting a build, answer it first; a question is not owed.
-
 Never open with a fixed question such as "How are sales invoices raised today?" when the
 request has already answered it.
-
 ### Step 2 - Ask only what is missing
-
 Treat ambiguous replies as unanswered and ask which explicit option the user means. Record unknown values as `Unknown`; `Unknown` is not zero. A record must not be `Done` when a required check fails.
-
 Skip anything the user already answered, in any earlier message. Ask the rest one at a
 time, and stop as soon as the remaining answers would not change the output.
-
 - **Volume** - How many invoices a month? / Roughly how many lines per invoice?
 - **Documents** - Is there a sales order every time, or only for some customers? / Is a delivery challan used at all?
 - **Taxes and credit** - Is VAT charged, and at what rate? / Do any customers deduct TDS, and at what rate? / How many sales are on credit? / Standard credit period? / Who follows up?
 - **Current process** - Tracked now? / Software or sheet? / What gets missed?
 - **Outcome** - What do you need? / A sales register, an aging view or both?
-
 Never invent an answer. If the user does not know, record it as unknown and carry on.
-
 ### Step 3 - Hold the internal context
-
 Hold the answers in this shape. It stays internal - it is not shown to the user unless
 they ask, and it never carries a value the user did not give.
-
 ```yaml
 module: sales-accounting
 intent: null            # setup | advice | review | fix | build | convert | export
@@ -115,30 +83,22 @@ requested_outputs: []   # csv | sql | json | notion | xlsx - requested formats o
 confirmed_facts: []     # only what the user actually said
 open_questions: []      # the unanswered ones, in the order worth asking
 ```
-
 ### Step 4 - Recommend the smallest workflow
-
 Build an already requested artifact without asking again. For advice-only requests, give a short recommendation and offer the relevant artifact. Use
 conditional language and name what is conditional.
-
 **Recommended approach:** One invoice register, one row per invoice with a single line item.
 Link the sales order, delivery challan and source document only where the business actually
 raises them. Record VAT and TDS rates only where they were confirmed. For credit sales, add
 the credit terms, due date, amount received, balance, a payment status and an aging status;
 leave those unset for cash sales.
-
 **Why this one:** A sales register that stops at the invoice total loses the receivable.
 Splitting payment state from aging state is what turns billing into a collections list -
 "paid" and "overdue" are different questions and one field cannot answer both.
-
 **Workflow:** Documents prepared (where used) → Invoice issued → VAT register updated (where VAT applies) → Recorded → Receivable confirmed against the debtor ledger
-
 ### Step 5 - Build only on request
-
 Once the user asks for it, derive the fields from the confirmed context and emit the
 requested artifacts. For machine-readable text, keep prose outside the data; for files,
 provide a usable link. Report material validation failures or limitations separately.
-
 **A selected Notion output is rendered by `notion-manual-import`, so route the
 Notion step there.** When the user selects Notion, hand that step to
 @notion-manual-import: it holds the CSV, the property
@@ -148,17 +108,14 @@ here and do not improvise the import steps. Manual CSV and mapping outputs need 
 connection. For requested workspace changes, follow the shared contract: verify actual
 tool access and the target before writing. A user saying "connected" is not tool evidence.
 Never ask for a Notion password or token.
-
 The SQL below is written in PostgreSQL-flavoured DDL. `SERIAL PRIMARY KEY` and
 `TIMESTAMP DEFAULT NOW()` are PostgreSQL-specific; on another engine use that engine's
 identity column and default-timestamp syntax. `created_at` is initialized by the database; `updated_at` needs an application update or a trigger (DEFAULT alone does not maintain it). Both are technical metadata and are not business fields - leave them out of the CSV, JSON Schema and
 Notion mapping.
-
 ```csv
 Sales Number,Customer,Customer PAN/VAT,Sales Order,Delivery Challan,Invoice Number,Invoice Date,Item Description,Quantity,UOM,Rate,Gross Amount,Discount,Taxable Value,VAT Rate %,VAT Amount,TDS Rate %,TDS Amount,Invoice Total,Net Receivable,Credit Terms (Days),Due Date,Payment Status,Aging Status,Amount Received,Balance,Ledger Account,Source Document,VAT Register Updated,Entry Verified,Prepared By,Notes,Sales ID
 SAL-2026-0033,Example Customer Ltd,ZZZZZ0000Z,SO-2026-0094,DC-2026-0911,INV-2026-0733,2026-08-16,Corrugated carton packs printed,800,Nos,142.50,114000.00,2280.00,111720.00,18,20109.60,2,2234.40,131829.60,129595.20,30,2026-09-15,Part Paid,Overdue,50000.00,79595.20,Sales - Cartons,DOC-2026-0455,Done,In progress,Example Preparer,Credit sale net 30; order raised for this customer only.,
 ```
-
 ```sql
 -- PostgreSQL-flavoured DDL. See the note above for other engines.
 CREATE TABLE sales_accounting (
@@ -199,7 +156,6 @@ CREATE TABLE sales_accounting (
   updated_at TIMESTAMP DEFAULT NOW()
 );
 ```
-
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -259,7 +215,6 @@ CREATE TABLE sales_accounting (
   ]
 }
 ```
-
 ```markdown
 | CSV column | Notion property | Set after import |
 |---|---|---|
@@ -297,12 +252,9 @@ CREATE TABLE sales_accounting (
 | Notes | Text | Leave as Text |
 | Sales ID | Text (preserve source ID) | Keep imported IDs as Text; optionally add a separate Unique ID property |
 ```
-
 The rows above are documentation examples only. Emit empty templates unless the user explicitly requests examples. Money stays `currency`, dates stay `date`,
 and anything pointing at another table stays `relation`.
-
 ## Field Reference
-
 | # | Field | Type | SQL | JSON Schema | Notion | CSV example |
 |---:|---|---|---|---|---|---|
 | 1 | Sales Number | `text` | `VARCHAR(255)` | `string` | Text | `SAL-2026-0033` |
@@ -338,94 +290,70 @@ and anything pointing at another table stays `relation`.
 | 31 | Prepared By | `text` | `VARCHAR(255)` | `string` | Text | `Example Preparer` |
 | 32 | Notes | `long_text` | `TEXT` | `string` | Text | `Credit sale net 30; order raised for this customer only.` |
 | 33 | Sales ID | `id` | `SERIAL PRIMARY KEY` | `integer` | Text (preserve source ID) | `(blank)` |
-
 The table above is the single source of truth. The CSV, SQL, JSON Schema and Notion mapping
 are all derived from it - never edit one without the others.
-
 Before using calculations, confirm the single currency (add a currency code for mixed currencies), tax base, rounding stage and minor-unit precision. Example rates are fictional, not tax guidance. Unknown numeric values remain blank/null, not the literal string `Unknown`; incomplete records do not satisfy the final schema. Optional aging is unset for paid/cash invoices.
-
 How the amounts relate, so a reviewer can check any row:
-
 - `Gross Amount` = `Quantity` x `Rate`
 - `Taxable Value` = `Gross Amount` - `Discount`
 - `Invoice Total` = `Taxable Value` + `VAT Amount` (equals `Taxable Value` when no VAT applies)
 - `Net Receivable` = `Invoice Total` - `TDS Amount` (equals `Invoice Total` when no TDS applies)
 - `Balance` = `Net Receivable` - `Amount Received`
 - `Due Date` = `Invoice Date` + `Credit Terms (Days)`; both stay unset on a cash sale
-
 `VAT Rate %`, `VAT Amount`, `TDS Rate %`, `TDS Amount`, `Credit Terms (Days)` and
 `Due Date` are optional. Set them only from a confirmed answer, and never carry a rate as a
 universal default - a TDS rate belongs to a specific customer, contract and jurisdiction,
 and VAT applicability is a fact about the business and the supply.
-
 `Payment Status` is what has been received: `Unpaid`, `Part Paid`, `Paid`, `Written Off`.
 `Aging Status` is how late it is against `Due Date`: `Current`, `Due Soon`, `Overdue`,
 assessed as at the reporting date. They are separate because an invoice can be fully paid
 and no longer aging, or unpaid and long overdue.
-
 `Sales Number` is the internal reference used inside the business; `Invoice Number` is the
 number the customer is given. They are different things and both are useful, so both are
 kept - but if the business only has one, drop `Sales Number` and keep the invoice number.
 `Sales ID` is an internal database identifier only. It exists so the target database can
 address a row, it is left blank in the example, and it is not a business reference - do not
 print it on an invoice or quote it to a customer.
-
 ## Select Options
-
 **UOM**
-
 ```
 Nos | Kg | Litre | Metre | Set | Hour | Box | Packet
 ```
 **Payment Status**
-
 ```
 Unpaid | Part Paid | Paid | Written Off
 ```
 **Aging Status**
-
 ```
 Current | Due Soon | Overdue
 ```
 **VAT Register Updated**
-
 ```
 Not started | In progress | Blocked | Done | Cancelled
 ```
 **Entry Verified**
-
 ```
 Not started | In progress | Blocked | Done | Cancelled
 ```
-
 ## Relations
-
 Link fields: `Sales Order`, `Delivery Challan`, `Source Document`
-
 All three are optional. Many invoices carry none of them, and a cash sale usually carries
 none. Leave the cell unset rather than inventing a reference.
-
 - `Sales Order` -> the sales order database. Links to the order this invoice was raised
   against, where the business raises orders at all.
 - `Delivery Challan` -> the delivery challan database. Links to the challan evidencing
   despatch, where the business issues them at all.
 - `Source Document` -> the source document filing register (`source-document-filing`).
   Links to the filed invoice and its supporting papers.
-
 Each is a genuine link to a named database, not a typed reference. If the business does not
 run that register, keep the field as `text` and say so, rather than labelling plain text a
 relation.
-
 ## Examples
-
 **Prompt**
-
 ```
 We issue credit invoices and nobody can tell which customers have actually paid.
 ```
-
 **Context first** - one question per message, nothing already answered:
-
 > **Q:** Roughly how many lines does one invoice usually carry?
 > **A:** Usually one, sometimes two.
 >
@@ -434,9 +362,7 @@ We issue credit invoices and nobody can tell which customers have actually paid.
 >
 > **Q:** Is VAT charged, and do any customers deduct TDS?
 > **A:** VAT yes. TDS only two customers, different rates.
-
 **Recommended next step** - offered, not built:
-
 > Based on what you have confirmed: one invoice register, one row per invoice. Because most
 > of your invoices carry a single line, this stays a single table; for the two-item invoices,
 > use an invoice header plus a separate line table, keeping totals and payments only on the header - tell me
@@ -454,9 +380,7 @@ We issue credit invoices and nobody can tell which customers have actually paid.
 > Workflow: Order raised where needed → Invoice issued → VAT register updated → Recorded → Receivable confirmed against the debtor ledger
 >
 > Want the CSV, SQL DDL, JSON Schema and Notion mapping for this?
-
 ## Best Practices
-
 - Build when requested; recommend and offer a build for advice-only requests.
 - One question per message. A batched intake reads as a form and gets guessed at.
 - Skip any question the request has already answered. Asking it anyway costs trust.
@@ -470,9 +394,7 @@ We issue credit invoices and nobody can tell which customers have actually paid.
 - Use `relation` for anything that genuinely points at another table, `text` only for free text.
 - Money fields are `currency`, never `text`. Dates are `date`, never free text.
 - If the user requests an example row, keep it obviously fake so nobody imports it as real data.
-
 ## Limitations
-
 - One row is one invoice with a single line item. Multi-line invoices require a separate line table and header totals; this skill does not model line-level tax or discounts.
 - Empty template only. It does not compute tax, file returns or keep ledgers.
 - Does not raise or send invoices, collect money, execute accounting entries, or call any
@@ -483,9 +405,7 @@ We issue credit invoices and nobody can tell which customers have actually paid.
 - Select options are a starting set. Rename them to match how the business talks.
 - No automation, reminders or sync. Those need the integration layer.
 - `Sales ID` is a database identifier, not a business reference.
-
 ## Security & Safety Notes
-
 - Never fill in real customer names, tax identifiers, bank details or any real financial
   data. Placeholders only.
 - This is a sales and receivables skill: it has no employee, payroll, leave or medical data
@@ -498,7 +418,4 @@ We issue credit invoices and nobody can tell which customers have actually paid.
   the requested review needs; keep generated templates empty. Do not claim deletion
   from the conversation or service storage.
 - Anything that becomes a tax or legal filing needs a qualified human reviewer.
-
-
 See the [Common Pitfalls](references/common-pitfalls.md) reference for the full guidance.
-

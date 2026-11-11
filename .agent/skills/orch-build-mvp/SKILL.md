@@ -1,43 +1,28 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "02f7419c64e16d428848ed4e9cdef48ab08d97f62195dcb739bb6e40809eab18"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: orch-build-mvp
+content_hash: 02f7419c64e16d428848ed4e9cdef48ab08d97f62195dcb739bb6e40809eab18
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: Orchestrate bootstrapping a working MVP from a design or spec document — ingest the SDD/PRD, plan thin vertical slices, scaffold the first end-to-end slice, then drive a generator-evaluator build loop with review and gated feat commits. Use when a design or spec document must become a running MVP through planned vertical slices.
-tier: "experimental"
-metadata:
-  origin: ECC
+name: orch-build-mvp
+origin: ECC
 ---
-
-
 # orch-build-mvp
-
 Actor · action · target: **orch · build · mvp**. Thin wrapper over the shared
 engine in [`orch-pipeline`](../orch-pipeline/SKILL.md).
-
 ## When to Use
-
 - The user has a **design / spec document** (SDD, PRD, system_design) and wants a
   working vertical slice bootstrapped from it.
 - Takes a doc path as its argument, e.g. `civicpulse/docs/SDD-v0.6.md`.
-
 ## Operation settings
-
 - **Default size floor:** large — this is the full pipeline including Scaffold.
 - **Phase mask:** 0 (read the spec) → 1 → 2 (heavy) → 3 (scaffold) → 4 → 5 → 6.
 - **First move (phase 0 → 2):** read the doc; extract scope, locked decisions,
   and the feature list; order it into **thin vertical slices** (one end-to-end
   path first, not all-models-then-all-views). Phase 3 stands up that first slice.
-
 ## How It Works
-
 1. Run the `orch-pipeline` engine with the settings above.
 2. **Reuse the existing GAN harness** instead of hand-rolling an iterate loop:
    - Translate the SDD into `gan-harness/spec.md` + `gan-harness/eval-rubric.md`
@@ -50,9 +35,7 @@ engine in [`orch-pipeline`](../orch-pipeline/SKILL.md).
 3. Stop at **Gate 1** (slice plan) and **Gate 2** (pre-commit). Commit the
    scaffold and each slice as separate `feat:` commits.
 4. Add `security-reviewer` for any slice touching a security trigger.
-
 ## Example
-
 ```
 orch-build-mvp: civicpulse/docs/SDD-v0.6.md
 → read SDD → slice list (vertical) → scaffold slice 1  [GATE 1: approve]

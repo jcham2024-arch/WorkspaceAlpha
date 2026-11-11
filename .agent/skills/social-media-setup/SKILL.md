@@ -1,56 +1,41 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "79dcd3ba5d4f565e59b88d89be9db810927ac09f6f42056579a9ef878d62ceda"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: social-media-setup
-description: 'Social media register: platforms and handles, post captions and hashtags, publishing cadence, approval status and profile checklist. Use for social account setup.'
-tier: "experimental"
+content_hash: 79dcd3ba5d4f565e59b88d89be9db810927ac09f6f42056579a9ef878d62ceda
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: WHOISABHISHEKADHIKARI
 category: business
+date_added: 2026-09-27
+description: "'Social media register: platforms and handles, post captions and hashtags, publishing cadence, approval status and profile checklist. Use for social account setup.'"
+name: social-media-setup
 risk: safe
 source: self
-source_type: self
-date_added: "2026-09-27"
-author: WHOISABHISHEKADHIKARI
-tags: [sme, social-media, facebook, linkedin, tiktok, facebook-page, content-calendar, profile, cadence, brand-voice, csv, sql, notion]
-tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
+source_type: self
+tags: "[sme, social-media, facebook, linkedin, tiktok, facebook-page, content-calendar, profile, cadence, brand-voice, csv, sql, notion]"
+tools: "[]"
 ---
-
-
 # Social Media Setup
-
 **What it is:** the business on the channels it can actually sustain - Facebook Page,
 LinkedIn company page, TikTok - with each profile completed, each channel's format and
 limits recorded, and a content cadence small enough to keep.
-
 ## Overview
-
 Works out the smallest useful channel set for the business in front of it, then builds it
 only when asked. The default output is a short recommendation, not a content calendar. The
 channel and content register - CSV, SQL DDL, JSON Schema, Notion mapping - is produced on
 request, from one field list so the four cannot drift apart.
-
 Layer: Layer 6: Engage. Fits: Starter stage. Table code: n/a.
-
 **The rule this table exists to enforce:** a channel and a post are different rows, and a
 `Row Type` discriminator keeps them apart. A channel is a permanent configuration; a post
 is a dated event that is published once. Merging them means the channel settings change
 every time something is posted, and the profile checklist can never be marked complete
 against a post.
-
 **The second rule:** the cadence has to be one the business can keep with the people it
 has. A daily plan on one founder is a plan that stops in week three, and an abandoned
 account is worse than no account. Two posts a week beats five a week for one month.
-
 ## When to Use This Skill
-
 - Facebook, Facebook Page, LinkedIn, LinkedIn company page, TikTok
 - social media setup, profiles, bios, avatars, cover images
 - "we are not on social media", "we should be on Instagram"
@@ -58,36 +43,24 @@ account is worse than no account. Two posts a week beats five a week for one mon
 - "nobody engages with our posts"
 - brand voice on social, tone of voice
 - social profiles for recruitment, or for a local customer base
-
 Do not use it for: the link page every bio points to (`linktree-link-hub`), the
 presentation (`presentation-deck`), a paid advertising campaign, or a content marketing or
 guest-posting plan (`seo-directory-backlinks` for the citation side).
-
 ## How It Works
-
 Follow the shared execution contract. The module-specific rules below define only domain fields, decisions, calculations, and safety constraints.
-
 ### Step 1 - Identify intent
-
 Read the request and pick the intent before asking anything.
-
 - "set up" / "start" / "we are not on" -> artifacts wanted; go to Step 2.
 - "we have them, nothing happens" / "fix" -> something exists; capture the current state,
   then Step 2.
 - "which platform should we be on" / "review" -> a decision question, not a build.
 - "audit" / "check" -> a check, not a build.
-
 Ask only if this is the highest-value missing fact; otherwise proceed without an opener:
-
 > **Q:** What is the business called, and what does one line of it actually do?
-
 ### Step 2 - Ask only what is missing
-
 Treat ambiguous replies as unanswered and ask which explicit option the user means. Record unknown values as `Unknown`; `Unknown` is not zero. A record must not be `Done` when a required check fails.
-
 Skip anything already answered. Ask the rest one at a time, and stop as soon as the
 remaining answers would not change the channel set.
-
 - **Audience** - Who are the customers - local walk-ins, online, business buyers, job
   candidates, or a mix? / Where are they already - which platform do they use?
 - **Current** - Are any accounts open, even dormant? / Who has the logins, and are they
@@ -99,13 +72,10 @@ remaining answers would not change the channel set.
   to be on camera?
 - **Purpose** - What is the channel for - enquiries, recruitment, credibility, community,
   or advertising? / Is there a website to send people to yet?
-
 Never invent an answer. Handles, follower counts, engagement rates, post volumes, platform
 names, account URLs and metrics the user has not supplied are `Unknown`. A follower count
 is a measurement, never an estimate.
-
 ### Step 3 - Hold the internal context
-
 ```yaml
 module: social-media-setup
 intent: null            # set up | fix | review | report | import
@@ -120,36 +90,28 @@ requested_outputs: []
 confirmed_facts: []
 open_questions: []
 ```
-
 ### Step 4 - Recommend the smallest workflow
-
 Build an already requested artifact without asking again. For advice-only requests, give a short recommendation and offer the relevant artifact.
-
 **Illustrative approach, to adapt to confirmed audience/capacity:** A small channel set. A Facebook Page for a local customer base
 and a LinkedIn company page for credibility and recruitment - both low-effort, both
 tolerate text and photos, both work with a phone camera. Add TikTok only if there is
 someone who will genuinely make video, because an empty TikTok is worse than none. Three
 posts a week: one finished job, one behind the scenes, one useful tip. Every bio points at
 the same one page.
-
 **Why this one:** The channel that decides the outcome is the one with people who will
 reply. Facebook Page and LinkedIn company page need a phone and an hour a week; TikTok
 needs a person who will be filmed. Starting with the two that can be sustained, and adding
 the third when there is someone to run it, is the difference between a channel and a
 dormant profile.
-
 **Workflow:** Audience and platform confirmed → One canonical bio written → Profiles
 completed - name, category, address, hours, contact → Avatars and covers cut from the
 master mark → Website and link page connected → Three-post weekly pattern agreed →
 Approval and response ownership set → First fortnight scheduled → Comments answered within
 the hour → Reviewed at 30 days against the stated purpose
-
 ### Step 5 - Build only on request
-
 Once the user asks for it, derive the fields from the confirmed context and emit the
 requested artifacts. For machine-readable text, keep prose outside the data; for files,
 provide a usable link. Report material validation failures or limitations separately.
-
 **A selected Notion output is rendered by `notion-manual-import`, so route the
 Notion step there.** When the user selects Notion, hand that step to
 @notion-manual-import: it holds the CSV, the property
@@ -159,12 +121,10 @@ here and do not improvise the import steps. Manual CSV and mapping outputs need 
 connection. For requested workspace changes, follow the shared contract: verify actual
 tool access and the target before writing. A user saying "connected" is not tool evidence.
 Never ask for a Notion password or token.
-
 ```csv
 Row ID,Row Type,Platform,Account Handle,Account Type,Audience,Posting Cadence,Post Format,Post Caption,Hashtag Set,Media Asset,Link Destination,Publish Date,Publish Time,Call To Action,Approval Status,Owner,Brand Voice,Profile Checklist Complete,Review Date,Status,Notes
 ,Post,Facebook Page,Unknown,Business page,Local customers within the service area,Three posts a week,"Photo or short video with a caption","Behind-the-scenes, a finished job, or one useful tip - one idea per post",Not used,"One photo per post, shot on a phone",https://example.com/,2026-09-27,,Reply within one hour,Not required,Unknown,Plain and direct,false,2026-10-27,Planned,Example row - replace every value before use.
 ```
-
 ```sql
 -- Engine assumption: PostgreSQL. For another engine use the engine's auto-increment
 -- equivalent and keep the rest portable.
@@ -197,12 +157,10 @@ CREATE TABLE social_record (
   CONSTRAINT social_approval_status CHECK (approval_status IN ('Not required','Draft','In review','Approved','Rejected','Published')),
   CONSTRAINT social_checklist_applies CHECK (row_type <> 'Channel' OR profile_checklist_complete IS NOT NULL)
 );
-
 CREATE INDEX idx_social_record_row_type ON social_record (row_type);
 CREATE INDEX idx_social_record_platform ON social_record (platform);
 CREATE INDEX idx_social_record_status ON social_record (status);
 ```
-
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -243,7 +201,6 @@ CREATE INDEX idx_social_record_status ON social_record (status);
   ]
 }
 ```
-
 ```markdown
 | CSV column | Notion property | Set after import |
 |---|---|---|
@@ -270,17 +227,12 @@ CREATE INDEX idx_social_record_status ON social_record (status);
 | Status | Select (add options after import) | Convert to Select, add options: "Planned", "In progress", "Live", "Needs update", "Retired" |
 | Notes | Text | Leave as Text |
 ```
-
 The rows above are documentation examples only. Emit empty templates unless the user explicitly requests examples. A `Channel` row has no caption, no media and no
 publish date - those belong on a `Post` row, and putting them on both is how a profile ends
 up with a stranger's draft caption in its bio field.
-
 Separate requiredness by Row Type before generating a working schema: channel-only profile fields may be unset on posts, and post caption/media/schedule must stay unset on channel rows. The DDL leaves row-specific fields nullable and requires a checklist value for Channel rows; add the agreed post/channel checks before using it as a publishing system. A channel needs a meaningful technical Title in Notion if Post Caption is blank; preserve the confirmed business fields. `updated_at DEFAULT NOW()` initializes inserts only; maintain updates in application logic or a trigger.
-
 Use an unambiguous time zone (IANA identifier) with the publish date, and resolve daylight-saving ambiguities before any scheduler import. An approved row is not evidence of a scheduled or published post. Cadences and response times below are examples to agree, not guaranteed marketing outcomes.
-
 ## Field Reference
-
 | # | Field | Type | SQL | JSON Schema | Notion | CSV example |
 |---:|---|---|---|---|---|---|
 | 1 | Row ID | `id` | `BIGINT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY` | `integer` | Text or Notion auto-ID | `(blank)` |
@@ -305,68 +257,49 @@ Use an unambiguous time zone (IANA identifier) with the publish date, and resolv
 | 20 | Review Date | `date` | `DATE` | `string, format: date` | Date | *(blank)* |
 | 21 | Status | `select` | `VARCHAR(50)` | `string` | Select | `Draft` |
 | 22 | Notes | `long_text` | `TEXT` | `string` | Text | *(blank)* |
-
 ## Select Options
-
 **Row Type** - four kinds of row. `Bio` and `Comment` exist because the bio is a piece of
 copy that needs owning and versioning, and because the comment-response rule is a
 standing commitment rather than a one-off post.
-
 ```
 Channel | Post | Comment | Bio | Media
 ```
-
 **Platform** - a starting set, restricted to the three this module is asked about most.
 `Google Business Profile` is included because the same photo and caption often serves the
 profile and the Facebook Page, and the owner needs to know it is being reused.
-
 ```
 Facebook Page | LinkedIn Company Page | TikTok | Instagram | YouTube | X | Pinterest | Google Business Profile | Other
 ```
-
 **Account Type** - business pages and personal profiles behave differently for
 reach, for contact details and for who can edit them. `Personal profile` on a
 `Facebook Page` row is a mistake worth catching early.
-
 ```
 Business page | Personal profile | Creator account | Group | Community
 ```
-
 **Posting Cadence** - free text, because the honest answer is a number the business has
 agreed to, not a category. A cadence nobody can keep is a cadence of zero by month two.
-
 **Brand Voice** - a starting set. Set it once and hold it across every channel; the same
 business sounding different on Facebook and LinkedIn reads as two businesses.
-
 ```
 Plain and direct | Formal | Warm | Technical | Playful
 ```
-
 **Approval Status** - `Not required` is legitimate for a small business with one poster,
 and `Published` closes the loop so the register shows what actually went out.
-
 ```
 Not required | Draft | In review | Approved | Rejected | Published
 ```
-
 **Status**
-
 ```
 Planned | In progress | Live | Needs update | Retired
 ```
-
 ## Relations
-
 None standalone. `Media Asset` names an asset from the register in `logo-image-design`;
 confirm whether the business wants those two joined. `Owner` names a person from the
 operational pack's people register, which is not in this artifact set, so it stays Text
 with a note naming the intended target.
-
 ## The profile checklist
-
 This is the completion test for `Profile Checklist Complete`. Every box, on every channel,
 before the box is ticked.
-
 | # | Item | Notes |
 |---:|---|---|
 | 1 | Account name is the exact business name | Same as the canonical NAP. No keywords, no emoji, no second brand name |
@@ -380,18 +313,13 @@ before the box is ticked.
 | 9 | Bio written, with the one action and one link | The same wording the print collateral uses |
 | 10 | Two-factor authentication on, and named page admins | Not one person's personal login |
 | 11 | A post scheduled and a person named to reply | A profile with no reply owner gets no enquiries |
-
 ## Examples
-
 **Prompt**
-
 ```
 We have a Facebook page from 2019 with 300 followers, most of them our own family. We
 want to be on TikTok because our competitor is. Nobody here has ever posted on it.
 ```
-
 **Context first** - one question per message, nothing already answered:
-
 > **Q:** What is the business called, and what does one line of it actually do?
 > **A:** Example Retail, home and kitchen goods in Example City.
 >
@@ -406,9 +334,7 @@ want to be on TikTok because our competitor is. Nobody here has ever posted on i
 >
 > **Q:** Is there a website to point people at yet?
 > **A:** A very old one, mostly a phone number.
-
 **Recommended next step** - offered, not built:
-
 > Fix the Facebook Page first - it is where the local customers already are, and a
 > complete profile with a photo a week beats an active TikTok with no videos. Add a
 > LinkedIn company page next, because it costs the same two hours and is where suppliers
@@ -422,9 +348,7 @@ want to be on TikTok because our competitor is. Nobody here has ever posted on i
 > Comments answered within the hour → Reviewed at 30 days
 >
 > Want the CSV, SQL DDL, JSON Schema and Notion mapping for this?
-
 ## Best Practices
-
 - Build when requested; recommend and offer a build for advice-only requests.
 - One question per message. A batched intake reads as a form and gets guessed at.
 - Two channels with a named owner beat five channels nobody maintains. An abandoned profile
@@ -455,9 +379,7 @@ want to be on TikTok because our competitor is. Nobody here has ever posted on i
   the channel that produced nothing rather than posting to it out of habit.
 - Derive all four artifacts from the field list in this file, never by hand.
 - If the user requests an example row, keep it obviously fake so nobody imports it as a real post.
-
 ## Limitations
-
 - This is a plan and a register. It does not create an account, publish a post, or call any
   platform API.
 - It has no access to any platform, so it cannot see follower counts, reach, engagement
@@ -482,7 +404,4 @@ want to be on TikTok because our competitor is. Nobody here has ever posted on i
 - Legal and regulatory requirements differ by sector and by country - advertising rules,
   claims, promotions and endorsements. This skill asks what applies and never supplies the
   wording.
-
-
 See the [Security & Safety Notes](references/security-safety-notes.md) reference for the full guidance.
-

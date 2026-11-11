@@ -1,26 +1,16 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "1220d61c1e49fffeba3af5f200b47a5574d0f1de6b6c952734f93ad5dc15cde1"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
+content_hash: 1220d61c1e49fffeba3af5f200b47a5574d0f1de6b6c952734f93ad5dc15cde1
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+description: ""Data pipelines: Airflow DAGs, Spark, dbt, Kafka, ETL/ELT, data quality checks. Load whenever a DAG or batch job times out or fails, data arrives wrong, or the user designs an ingestion pipeline.""
+name: senior-data-engineer
 ---
-name: "senior-data-engineer"
-description: "Data pipelines: Airflow DAGs, Spark, dbt, Kafka, ETL/ELT, data quality checks. Load whenever a DAG or batch job times out or fails, data arrives wrong, or the user designs an ingestion pipeline."
-tier: "experimental"
----
-
-
 # Senior Data Engineer
-
 Production-grade data engineering skill for building scalable, reliable data systems.
-
 ## Table of Contents
-
 1. [Trigger Phrases](#trigger-phrases)
 2. [Quick Start](#quick-start)
 3. [Workflows](#workflows)
@@ -28,49 +18,37 @@ Production-grade data engineering skill for building scalable, reliable data sys
 5. [Tech Stack](#tech-stack)
 6. [Reference Documentation](#reference-documentation)
 7. [Troubleshooting](#troubleshooting)
-
 ---
-
 ## Trigger Phrases
-
 Activate this skill when you see:
-
 **Pipeline Design:**
 - "Design a data pipeline for..."
 - "Build an ETL/ELT process..."
 - "How should I ingest data from..."
 - "Set up data extraction from..."
-
 **Architecture:**
 - "Should I use batch or streaming?"
 - "Lambda vs Kappa architecture"
 - "How to handle late-arriving data"
 - "Design a data lakehouse"
-
 **Data Modeling:**
 - "Create a dimensional model..."
 - "Star schema vs snowflake"
 - "Implement slowly changing dimensions"
 - "Design a data vault"
-
 **Data Quality:**
 - "Add data validation to..."
 - "Set up data quality checks"
 - "Monitor data freshness"
 - "Implement data contracts"
-
 **Performance:**
 - "Optimize this Spark job"
 - "Query is running slow"
 - "Reduce pipeline execution time"
 - "Tune Airflow DAG"
-
 ---
-
 ## Quick Start
-
 ### Core Tools
-
 ```bash
 # Generate pipeline orchestration config
 python scripts/pipeline_orchestrator.py generate \
@@ -78,31 +56,23 @@ python scripts/pipeline_orchestrator.py generate \
   --source postgres \
   --destination snowflake \
   --schedule "0 5 * * *"
-
 # Validate data quality
 python scripts/data_quality_validator.py validate \
   --input data/sales.parquet \
   --schema schemas/sales.json \
   --checks freshness,completeness,uniqueness
-
 # Optimize ETL performance
 python scripts/etl_performance_optimizer.py analyze \
   --query queries/daily_aggregation.sql \
   --engine spark \
   --recommend
 ```
-
 ---
-
 ## Workflows
 → See references/workflows.md for details
-
 ## Architecture Decision Framework
-
 Use this framework to choose the right approach for your data pipeline.
-
 ### Batch vs Streaming
-
 | Criteria | Batch | Streaming |
 |----------|-------|-----------|
 | **Latency requirement** | Hours to days | Seconds to minutes |
@@ -110,7 +80,6 @@ Use this framework to choose the right approach for your data pipeline.
 | **Processing complexity** | Complex transformations, ML | Simple aggregations, filtering |
 | **Cost sensitivity** | More cost-effective | Higher infrastructure cost |
 | **Error handling** | Easier to reprocess | Requires careful design |
-
 **Decision Tree:**
 ```
 Is real-time insight required?
@@ -123,28 +92,22 @@ Is real-time insight required?
         ├── Yes → Spark/Databricks
         └── No → dbt + warehouse compute
 ```
-
 ### Lambda vs Kappa Architecture
-
 | Aspect | Lambda | Kappa |
 |--------|--------|-------|
 | **Complexity** | Two codebases (batch + stream) | Single codebase |
 | **Maintenance** | Higher (sync batch/stream logic) | Lower |
 | **Reprocessing** | Native batch layer | Replay from source |
 | **Use case** | ML training + real-time serving | Pure event-driven |
-
 **When to choose Lambda:**
 - Need to train ML models on historical data
 - Complex batch transformations not feasible in streaming
 - Existing batch infrastructure
-
 **When to choose Kappa:**
 - Event-sourced architecture
 - All processing can be expressed as stream operations
 - Starting fresh without legacy systems
-
 ### Data Warehouse vs Data Lakehouse
-
 | Feature | Warehouse (Snowflake/BigQuery) | Lakehouse (Delta/Iceberg) |
 |---------|-------------------------------|---------------------------|
 | **Best for** | BI, SQL analytics | ML, unstructured data |
@@ -152,11 +115,8 @@ Is real-time insight required?
 | **Flexibility** | Schema-on-write | Schema-on-read |
 | **Performance** | Excellent for SQL | Good, improving |
 | **Ecosystem** | Mature BI tools | Growing ML tooling |
-
 ---
-
 ## Tech Stack
-
 | Category | Technologies |
 |----------|--------------|
 | **Languages** | Python, SQL, Scala |
@@ -167,11 +127,8 @@ Is real-time insight required?
 | **Warehouses** | Snowflake, BigQuery, Redshift, Databricks |
 | **Quality** | Great Expectations, dbt tests, Monte Carlo |
 | **Monitoring** | Prometheus, Grafana, Datadog |
-
 ---
-
 ## Reference Documentation
-
 ### 1. Data Pipeline Architecture
 See `references/data_pipeline_architecture.md` for:
 - Lambda vs Kappa architecture patterns
@@ -179,7 +136,6 @@ See `references/data_pipeline_architecture.md` for:
 - Stream processing with Kafka and Flink
 - Exactly-once semantics implementation
 - Error handling and dead letter queues
-
 ### 2. Data Modeling Patterns
 See `references/data_modeling_patterns.md` for:
 - Dimensional modeling (Star/Snowflake)
@@ -187,7 +143,6 @@ See `references/data_modeling_patterns.md` for:
 - Data Vault modeling
 - dbt best practices
 - Partitioning and clustering
-
 ### 3. DataOps Best Practices
 See `references/dataops_best_practices.md` for:
 - Data testing frameworks
@@ -195,9 +150,6 @@ See `references/dataops_best_practices.md` for:
 - CI/CD for data pipelines
 - Observability and lineage
 - Incident response
-
 ---
-
 ## Troubleshooting
 → See references/troubleshooting.md for details
-

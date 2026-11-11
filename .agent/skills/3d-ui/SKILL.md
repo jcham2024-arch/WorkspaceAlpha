@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "a0c8e7df51d8e070b9f6948fa1729cee18777c1ad41b0fef9cb2c8986a2b69d1"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: 3d-ui
+content_hash: a0c8e7df51d8e070b9f6948fa1729cee18777c1ad41b0fef9cb2c8986a2b69d1
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for 3D UI. Trigger when user wants actual 3D objects, perspective effects, and spatial depth.
-tier: "experimental"
-date_added: "2026-06-17"
+name: 3d-ui
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # 3D UI
-
 > "Breaking the plane. Interfaces that exist in a three-dimensional, rotatable space."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **True Depth (Z-Axis Translation)**: Elements don't just have shadows; they physically move closer to or further from the camera.
 2. **Perspective**: Use CSS perspective or WebGL to create realistic vanishing points.
 3. **Interactive Rotation**: Elements should respond to mouse movement or device gyroscope by tilting or rotating in 3D space.
-
 ## Visual DNA
 - **Colors**: Bold, striking palettes like **Midnight Luxury** or **Industrial Chic**. 3D elements need high contrast to show their geometry.
 - **Typography**: Bold, blocky, or extruded text.
 - **Graphics**: Instead of flat icons, use rendered 3D assets (.glb, .gltf, or high-res PNGs of 3D objects).
-
 ## Web Implementation
 - Rely heavily on `perspective`, `transform-style: preserve-3d`, and `rotateX`/`rotateY`.
 - **CSS Example**:
@@ -47,35 +34,28 @@ Use this sub-style when the user's request matches the aesthetic described above
   justify-content: center;
   align-items: center;
 }
-
 .card-3d {
   width: 300px;
   height: 400px;
   transform-style: preserve-3d;
   transition: transform 0.5s ease;
-  
   /* Initial slight rotation */
   transform: rotateX(15deg) rotateY(-15deg);
 }
-
 .card-3d:hover {
   /* Straighten out on hover */
   transform: rotateX(0) rotateY(0) translateZ(50px);
 }
-
 /* Inner elements popping out */
 .card-content {
   transform: translateZ(30px); /* Pushes content 30px closer to viewer */
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct Card3D: View {
     @State private var dragOffset = CGSize.zero
-    
     var body: some View {
         VStack {
             Text("3D Card")
@@ -118,17 +98,14 @@ struct Card3D: View {
 - SwiftUI makes this incredibly easy with `.rotation3DEffect()`.
 - Use the `perspective` parameter (default 1/6, higher = more distorted) to control the camera distance.
 - Link the rotation axes (`x`, `y`) to drag gestures or CoreMotion (gyroscope) for interactive 3D UI.
-
 ### Flutter
 ```dart
 class Card3D extends StatefulWidget {
   @override
   State<Card3D> createState() => _Card3DState();
 }
-
 class _Card3DState extends State<Card3D> {
   Offset _offset = Offset.zero;
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -148,7 +125,6 @@ class _Card3DState extends State<Card3D> {
             ..setEntry(3, 2, 0.001) // perspective
             ..rotateX(-offset.dy * 0.01)
             ..rotateY(offset.dx * 0.01);
-
           return Transform(
             transform: transform,
             alignment: FractionalOffset.center,
@@ -174,12 +150,10 @@ class _Card3DState extends State<Card3D> {
 - The secret to perspective in Flutter is `Matrix4.identity()..setEntry(3, 2, 0.001)`.
 - Wrap the target container in a `Transform` widget and apply rotations on the X and Y axes.
 - Use `TweenAnimationBuilder` to smooth out the return-to-center physics.
-
 ### React Native
 ```jsx
 const Card3D = () => {
   const pan = useRef(new Animated.ValueXY()).current;
-
   const panResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
@@ -189,11 +163,9 @@ const Card3D = () => {
       },
     })
   ).current;
-
   // Map drag distance to degrees
   const rotateX = pan.y.interpolate({ inputRange: [-200, 200], outputRange: ['20deg', '-20deg'] });
   const rotateY = pan.x.interpolate({ inputRange: [-200, 200], outputRange: ['-20deg', '20deg'] });
-
   return (
     <Animated.View
       {...panResponder.panHandlers}
@@ -218,7 +190,6 @@ const Card3D = () => {
 - True 3D models require `react-three-fiber`.
 - For UI perspective transforms, use the `transform` array: `[{ perspective: 1000 }, { rotateX: '...' }, { rotateY: '...' }]`.
 - Transform order affects the result; the example places perspective first. Test the intended order and renderer instead of treating this as a universal API requirement.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -228,7 +199,6 @@ fun Card3D() {
         targetValue = offset,
         animationSpec = spring(dampingRatio = Spring.DampingRatioMediumBouncy)
     )
-
     Box(
         modifier = Modifier
             .size(300.dp, 400.dp)
@@ -261,11 +231,9 @@ fun Card3D() {
 - Apply 3D transformations inside `Modifier.graphicsLayer { }`.
 - Set `rotationX` and `rotationY` for the tilt.
 - **Critical**: Set `cameraDistance` to establish the Z-axis perspective vanishing point. Usually `8f * density` is a good starting point.
-
 ## Do's and Don'ts
 - **DO**: Tie 3D rotation to user input (mouse move on web, device tilt on mobile) for maximum impact.
 - **DON'T**: Make text itself 3D unless it's a massive headline. 3D text is generally unreadable at small sizes.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

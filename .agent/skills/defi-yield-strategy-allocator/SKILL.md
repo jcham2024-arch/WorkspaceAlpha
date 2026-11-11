@@ -1,51 +1,35 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "74e8ec43d4149538846aa61490ed784844174c0a8529b00bc9bb6666aee46a88"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: defi-yield-strategy-allocator
-description: 'Multi-vault automated yield strategy allocation register: APY benchmarks, impermanent loss risk tiers, and rebalancing triggers.'
-tier: "experimental"
+content_hash: 74e8ec43d4149538846aa61490ed784844174c0a8529b00bc9bb6666aee46a88
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: Ranjeet2063
 category: engineering
+date_added: 2026-10-01
+description: "'Multi-vault automated yield strategy allocation register: APY benchmarks, impermanent loss risk tiers, and rebalancing triggers.'"
+name: defi-yield-strategy-allocator
 risk: safe
 source: self
-source_type: self
-date_added: "2026-10-01"
-author: Ranjeet2063
-tags: [defi, yield, soroban, vault, liquidity, finance, stellar]
-tools: []
 source_repo: Ranjeet2063/agentic-awesome-skills
+source_type: self
+tags: "[defi, yield, soroban, vault, liquidity, finance, stellar]"
+tools: "[]"
 ---
-
-
 # DeFi Yield Strategy Allocation Register
-
 **What it is:** Monitors capital efficiency, yield compounding schedules, and downside protection bounds across decentralized finance yield protocols.
-
 ## Overview
-
 Provides a standardized, auditable framework and data model for **DeFi Yield Strategy Allocation Register** operations across distributed engineering and decentralized application systems.
-
 ## When to Use This Skill
-
 - When formalizing architectural contracts, security invariants, or operational limits for DeFi Yield Strategy Allocation Register.
 - When cross-functional review is required between protocol developers, smart contract auditors, and AI engineering agents.
 - When generating reproducible CSV, SQL DDL, JSON Schema, and Notion property registers for tracking compliance.
-
 ## How It Works
-
 1. Define the parameters, thresholds, and identity bindings required for the target operational register.
 2. Select appropriate boundary enforcement values from validated enum select sets.
 3. Export standardized artifacts (CSV table, SQL DDL, JSON Schema) to integrate into validation CI pipelines.
-
 ## Field Reference
-
 | # | Field Name | Type | SQL Type | JSON Schema Type | Notion Property Type | Example Value |
 |---|------------|------|----------|------------------|----------------------|---------------|
 | 1 | Strategy Allocation ID | `id` | `VARCHAR(64) PRIMARY KEY` | `string` | Text | `YLD-001` |
@@ -59,79 +43,52 @@ Provides a standardized, auditable framework and data model for **DeFi Yield Str
 | 9 | Capital Allocation Health | `select` | `VARCHAR(32)` | `string` | Select | `Optimum Yield` |
 | 10 | Portfolio Manager | `text` | `VARCHAR(64)` | `string` | Text | `Ranjeet2063` |
 | 11 | Last Rebalance Date | `date` | `DATE` | `string, format: date` | Date | `2026-10-01` |
-
 ## Select Options
-
 **Impermanent Loss Risk Score**
-
 ```
 Low (Stablecoin Pair) | Moderate (Correlated) | High (Volatile)
 ```
-
 **Emergency Unwind Trigger**
-
 ```
 Price Divergence > 3% | TVL Drain > 20% | Oracle Failure
 ```
-
 **Capital Allocation Health**
-
 ```
 Optimum Yield | Underperforming | Unwinding | Liquidated
 ```
-
 ## Relations
-
 - `Audit Reference` -> links to the formal review documentation or test repository.
 - `Target Architecture` -> links to the deployed contract or autonomous agent runtime component.
-
 ## Examples
-
 **Prompt**
-
 ```
 How do I configure and track DeFi Yield Strategy Allocation Register for our production environment?
 ```
-
 **Recommended Next Step**
-
 > Generate the unified field schema, SQL DDL migration, and JSON validation schema to register into your system catalog.
 >
 > Workflow: Define criteria -> Run automated verification -> Record baseline -> Monitor invariants.
-
 All APY, thresholds and risk labels are synthetic examples, not current quotes or allocation recommendations. Record chain, protocol/vault/asset identity, observation time, fees and yield methodology; use exact decimal strings or integer asset base units across JSON/SQL. A drawdown cap in this register cannot enforce a maximum loss: liquidity, depegs, oracle failures and execution delays can prevent an unwind. Stablecoin-pair labels do not establish low total risk. No rebalancing, approvals or asset movement is authorized by creating this register.
-
 ## Best Practices
-
 - Enforce strict typing on numerical bounds and currency amounts; avoid unstructured free-text fields for critical states.
 - Re-run validation test suites on every state-altering commit or parameter change.
 - Keep example data synthetic and isolated from production cryptographic keys or private endpoints.
-
 ## Limitations
-
 - Provides architectural specifications, data models, and verification schemas; does not execute direct transaction signing without authorized external tooling.
 - Requires network connectivity and valid RPC credentials when querying on-chain states.
-
 ## Security & Safety Notes
-
 - All parameters declare `risk: safe`. No unauthorized state modification or privileged credential access is performed.
 - Use synthetic dummy keys and mock addresses in test suites and local verification scripts.
-
 ## Common Pitfalls
-
 - **Problem:** Mismatched decimal precision between contract runtime and database register.
   **Solution:** Always verify decimals using the explicit field mapping in this reference.
 - **Problem:** Missing authorization checks prior to state update.
   **Solution:** Cross-validate against the Security Audit register before deployment.
-
 ## Related Skills
-
 - @soroban-liquidity-pool - covers AMM invariant and LP-share modelling.
 - @web3-rate-limiting-circuit-breaker - provides operational guardrails and threshold breakers.
 - @soroban-oracle-data-feed-audit - covers oracle heartbeat and stale-price handling.
-
 ## Reusable Prompt
-
 ```
 I want to establish a verified DeFi Yield Strategy Allocation Register register for our production protocol.
 Guide me through the required field parameters and output the corresponding SQL DDL and JSON Schema.

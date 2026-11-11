@@ -1,44 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "c5b37e22ea8d8cf5e5cb2c9820fbe2f2476748a613e065210c01306f7272df06"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-functions
+content_hash: c5b37e22ea8d8cf5e5cb2c9820fbe2f2476748a613e065210c01306f7272df06
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Expert patterns for Azure Functions development including isolated
-tier: "experimental"
-  worker model, Durable Functions orchestration, cold start optimization, and
-  production patterns. Covers .NET, Python, and Node.js programming models.
+name: azure-functions
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
-date_added: 2026-02-27
+---  worker model, Durable Functions orchestration, cold start optimization, and
+  production patterns. Covers .NET, Python, and Node.js programming models.
 ---
-
-
 # Azure Functions
-
 Expert patterns for Azure Functions development including isolated worker model,
 Durable Functions orchestration, cold start optimization, and production patterns.
 Covers .NET, Python, and Node.js programming models.
-
 Modified: output-binding and operational semantics review. Cloud provisioning/deployment and billable tests require the intended account, budget and authorization. Function keys are shared secrets, not per-user/tenant authorization; protect status/control URLs and do not log keys or payloads. Durable orchestrators must be deterministic, with I/O in activities.
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use
 - User mentions or implies: azure function
 - User mentions or implies: azure functions
 - User mentions or implies: durable functions
 - User mentions or implies: azure serverless
 - User mentions or implies: function app
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

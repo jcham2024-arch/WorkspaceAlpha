@@ -1,71 +1,52 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "feeb97010cc1f4e822f41cdc7e313a2c5554590bfdc20ef3a842bc28923736d1"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: vllm-server
-description: Deploy and manage vLLM for high-throughput LLM inference. Configure continuous
-tier: "experimental"
-  batching, tensor parallelism, quantization, and OpenAI-compatible API endpoints
-  for production LLM serving.
+content_hash: feeb97010cc1f4e822f41cdc7e313a2c5554590bfdc20ef3a842bc28923736d1
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant OS/platform tooling and privileged access where
+date_added: 2026-09-20
+description: Deploy and manage vLLM for high-throughput LLM inference. Configure continuous
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: vllm-server
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant OS/platform tooling and privileged access where
+version: 1.0
+---  batching, tensor parallelism, quantization, and OpenAI-compatible API endpoints
+  for production LLM serving.
   noted. Docs-only; helper scripts and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # vLLM Server Management
-
 Deploy production-grade LLM inference servers with vLLM — the fastest open-source LLM serving engine with PagedAttention and continuous batching.
-
 ## When to Use This Skill
-
 Use this skill when:
 - Serving open-source LLMs (Llama, Mistral, Qwen, Gemma) at scale
 - Building an OpenAI-compatible API endpoint for self-hosted models
 - Optimizing LLM throughput and latency for production traffic
 - Running multi-GPU inference with tensor or pipeline parallelism
 - Deploying quantized models to reduce GPU memory requirements
-
 ## Version and exposure boundary
-
 Pin a reviewed vLLM release, model revision and container digest. Validate the exact release’s Python/CUDA/hardware requirements and flags; the versions, memory figures and model/quantization examples below are historical sketches, not fit guarantees. Model weights, activations and KV cache must fit together. Keep examples loopback-only; remote service needs approved authentication, TLS, quotas and network policy. Never use the sample key as a real secret.
-
 ## Prerequisites
-
 - NVIDIA GPU(s) with CUDA 12.1+ (A100/H100 recommended for production)
 - Docker or Python 3.9+ with pip
 - 40GB+ VRAM for 70B models; 8GB+ for 7B models
 - `nvidia-container-toolkit` for Docker GPU passthrough
-
 ## Quick Start
-
 ```bash
 # Install vLLM
 pip install vllm
-
 # Serve a model (OpenAI-compatible API)
 vllm serve meta-llama/Llama-3.1-8B-Instruct \
   --host 127.0.0.1 \
   --port 8000 \
   --api-key your-secret-key
-
 # Test the endpoint
 curl http://localhost:8000/v1/chat/completions \
   -H "Content-Type: application/json" \
@@ -75,9 +56,7 @@ curl http://localhost:8000/v1/chat/completions \
     "messages": [{"role": "user", "content": "Hello!"}]
   }'
 ```
-
 ## Docker Deployment
-
 ```bash
 docker run --runtime nvidia --gpus all \
   -v ~/.cache/huggingface:/root/.cache/huggingface \
@@ -87,9 +66,7 @@ docker run --runtime nvidia --gpus all \
   --model meta-llama/Llama-3.1-8B-Instruct \
   --api-key your-secret-key
 ```
-
 ## Docker Compose (Production)
-
 ```yaml
 services:
   vllm:
@@ -115,51 +92,39 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-
 volumes:
   model-cache:
 ```
-
 ## Key Configuration Options
-
 ### Multi-GPU Tensor Parallelism
-
 ```bash
 # Split one model across 4 GPUs
 vllm serve meta-llama/Llama-3.1-70B-Instruct \
   --tensor-parallel-size 4 \
   --gpu-memory-utilization 0.90
 ```
-
 ### Quantization (Lower VRAM)
-
 ```bash
 # AWQ quantization (70B on 2x A100 40GB)
 vllm serve casperhansen/llama-3-70b-instruct-awq \
   --quantization awq \
   --tensor-parallel-size 2
-
 # GPTQ quantization
 vllm serve TheBloke/Llama-2-70B-Chat-GPTQ \
   --quantization gptq
-
 # FP8 (H100 NVL native)
 vllm serve meta-llama/Llama-3.1-405B-Instruct \
   --quantization fp8 \
   --tensor-parallel-size 8
 ```
-
 ### Structured Output & Tools
-
 ```bash
 vllm serve meta-llama/Llama-3.1-8B-Instruct \
   --enable-auto-tool-choice \
   --tool-call-parser llama3_json \
   --guided-decoding-backend outlines
 ```
-
 ### LoRA Adapters
-
 ```bash
 vllm serve meta-llama/Llama-3.1-8B-Instruct \
   --enable-lora \
@@ -167,9 +132,7 @@ vllm serve meta-llama/Llama-3.1-8B-Instruct \
                  code-lora=/path/to/code-lora \
   --max-lora-rank 64
 ```
-
 ## Performance Tuning
-
 ```bash
 # Maximize throughput for batch workloads
 vllm serve REPLACE_WITH_REVIEWED_MODEL \
@@ -177,25 +140,20 @@ vllm serve REPLACE_WITH_REVIEWED_MODEL \
   --max-num-batched-tokens 8192 \
   --gpu-memory-utilization 0.95 \
   --swap-space 4                  # CPU swap (GiB)
-
 # Minimize latency for interactive use
 vllm serve REPLACE_WITH_REVIEWED_MODEL \
   --max-num-seqs 32 \
   --enforce-eager              # disable CUDA graph capture
 ```
-
 ## Benchmarking
-
 ```bash
 # Install benchmark tool
 pip install vllm
-
 # Run throughput benchmark
 python -m vllm.entrypoints.openai.run_batch \
   --model meta-llama/Llama-3.1-8B-Instruct \
   --input-file prompts.jsonl \
   --output-file results.jsonl
-
 # Benchmark with vllm bench
 vllm bench throughput \
   --model meta-llama/Llama-3.1-8B-Instruct \
@@ -203,13 +161,10 @@ vllm bench throughput \
   --input-len 512 \
   --output-len 128
 ```
-
 ## Monitoring
-
 ```bash
 # Check running server stats
 curl http://localhost:8000/metrics  # Prometheus metrics
-
 # Key metrics to watch:
 # vllm:num_requests_running       - active requests
 # vllm:gpu_cache_usage_perc       - KV cache utilization
@@ -217,9 +172,7 @@ curl http://localhost:8000/metrics  # Prometheus metrics
 # vllm:time_to_first_token_ms     - TTFT latency
 # vllm:e2e_request_latency_seconds - end-to-end latency
 ```
-
 ## Common Issues
-
 | Issue | Cause | Fix |
 |-------|-------|-----|
 | `CUDA out of memory` | Model too large for VRAM | Add `--quantization awq` or reduce `--gpu-memory-utilization` |
@@ -227,26 +180,19 @@ curl http://localhost:8000/metrics  # Prometheus metrics
 | Low throughput | Too few concurrent requests | Increase `--max-num-seqs` |
 | KV cache full errors | Context length too long | Set `--max-model-len` lower |
 | `tokenizer error` | Tokenizer mismatch | Use `--tokenizer` to specify correct tokenizer |
-
 ## Best Practices
-
 - Use `--gpu-memory-utilization 0.90` to leave headroom for CUDA kernels.
 - Pin model versions with `--revision` for reproducible deployments.
 - Set `HF_HUB_OFFLINE=1` in production to prevent unexpected downloads.
 - Use AWQ or GPTQ quantization before tensor parallelism — lower VRAM first.
 - Enable `--enable-chunked-prefill` for long-context workloads.
 - Monitor `gpu_cache_usage_perc` — above 95% causes queuing.
-
 ## Related Skills
-
 - llm-inference-scaling (`llm-inference-scaling`) - Auto-scaling vLLM deployments
 - gpu-server-management (`gpu-server-management`) - GPU driver setup
 - llm-gateway (`llm-gateway`) - Load balancing across vLLM instances
 - llm-cost-optimization (`llm-cost-optimization`) - Cost management
 - model-serving-kubernetes (`model-serving-kubernetes`) - K8s deployment
-
 ## Limitations
-
 - Infrastructure commands can disrupt services: confirm target host/scope and have backups/snapshots before mutating state.
 - Docs-only import: upstream scripts and templates not bundled.
-

@@ -1,44 +1,30 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "18b311c225bb8b80efddd0e577e36d29b7bbd9dbceed8fb3ea0a8e78f6c68a69"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 18b311c225bb8b80efddd0e577e36d29b7bbd9dbceed8fb3ea0a8e78f6c68a69
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-03-04
+description: Use when planning or building a SaaS MVP from scratch. Provides a structured roadmap covering tech stack, architecture, auth, payments, and launch checklist.
+metadata: "{ userId },"
 name: saas-mvp-launcher
-description: "Use when planning or building a SaaS MVP from scratch. Provides a structured roadmap covering tech stack, architecture, auth, payments, and launch checklist."
-tier: "experimental"
 risk: safe
 source: community
-date_added: "2026-03-04"
 ---
-
-
 # SaaS MVP Launcher
-
 ## Overview
-
 This skill guides you through building a production-ready SaaS MVP in the shortest time possible. It covers everything from idea validation and tech stack selection to authentication, payments, database design, deployment, and launch — using modern, battle-tested tools.
-
 ## When to Use This Skill
-
 - Use when starting a new SaaS product from scratch
 - Use when you need to choose a tech stack for a web application
 - Use when setting up authentication, billing, or database for a SaaS
 - Use when you want a structured launch checklist before going live
 - Use when designing the architecture of a multi-tenant application
 - Use when doing a technical review of an existing early-stage SaaS
-
 ## Step-by-Step Guide
-
 ### 1. Validate Before You Build
-
 Before writing any code, validate the idea:
-
 ```
 Validation checklist:
 - [ ] Can you describe the problem in one sentence?
@@ -47,13 +33,9 @@ Validation checklist:
 - [ ] Have you talked to 5+ potential customers?
 - [ ] Will they pay $X/month for your solution?
 ```
-
 **Rule:** If you can't get 3 people to pre-pay or sign a letter of intent, don't build yet.
-
 ### 2. Choose Your Tech Stack
-
 Recommended modern SaaS stack (2026):
-
 | Layer | Choice | Why |
 |-------|--------|-----|
 | Frontend | Next.js 15 + TypeScript | Full-stack, great DX, Vercel deploy |
@@ -66,9 +48,7 @@ Recommended modern SaaS stack (2026):
 | Email | Resend + React Email | Modern, developer-friendly |
 | Deployment | Vercel (frontend) + Railway (backend) | Zero-config, fast CI/CD |
 | Monitoring | Sentry + PostHog | Error tracking + analytics |
-
 ### 3. Project Structure
-
 ```
 my-saas/
 ├── app/                    # Next.js App Router
@@ -88,9 +68,7 @@ my-saas/
 ├── .env.local              # Environment variables
 └── middleware.ts           # Auth middleware
 ```
-
 ### 4. Core Database Schema (Multi-tenant SaaS)
-
 ```prisma
 model User {
   id            String    @id @default(cuid())
@@ -100,7 +78,6 @@ model User {
   subscription  Subscription?
   workspaces    WorkspaceMember[]
 }
-
 model Workspace {
   id        String    @id @default(cuid())
   name      String
@@ -109,7 +86,6 @@ model Workspace {
   members   WorkspaceMember[]
   createdAt DateTime  @default(now())
 }
-
 model Subscription {
   id                 String   @id @default(cuid())
   userId             String   @unique
@@ -120,7 +96,6 @@ model Subscription {
   status             String   // active, canceled, past_due
   currentPeriodEnd   DateTime
 }
-
 model WorkspaceMember {
   userId      String
   workspaceId String
@@ -128,20 +103,16 @@ model WorkspaceMember {
   workspace   Workspace @relation(fields: [workspaceId], references: [id])
   @@id([userId, workspaceId])
 }
-
 enum Plan {
   FREE
   PRO
   ENTERPRISE
 }
 ```
-
 ### 5. Authentication Setup (Clerk)
-
 ```typescript
 // middleware.ts
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
-
 const isPublicRoute = createRouteMatcher([
   '/',
   '/pricing',
@@ -150,27 +121,22 @@ const isPublicRoute = createRouteMatcher([
   '/sign-up(.*)',
   '/api/webhooks(.*)',
 ]);
-
 export default clerkMiddleware(async (auth, req) => {
   if (!isPublicRoute(req)) {
     await auth.protect();
   }
 });
-
 export const config = {
   matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
 };
 ```
-
 ### 6. Stripe Integration (Subscriptions)
-
 ```typescript
 // lib/stripe.ts
 import Stripe from 'stripe';
 export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2025-01-27.acacia',
 });
-
 // Create checkout session
 export async function createCheckoutSession(userId: string, priceId: string) {
   return stripe.checkout.sessions.create({
@@ -179,13 +145,10 @@ export async function createCheckoutSession(userId: string, priceId: string) {
     line_items: [{ price: priceId, quantity: 1 }],
     success_url: `${process.env.NEXT_PUBLIC_URL}/dashboard?success=true`,
     cancel_url: `${process.env.NEXT_PUBLIC_URL}/pricing`,
-    metadata: { userId },
   });
 }
 ```
-
 ### 7. Pre-Launch Checklist
-
 **Technical:**
 - [ ] Authentication works (signup, login, logout, password reset)
 - [ ] Payments work end-to-end (subscribe, cancel, upgrade)
@@ -195,7 +158,6 @@ export async function createCheckoutSession(userId: string, priceId: string) {
 - [ ] Rate limiting on API routes
 - [ ] Input validation with Zod on all forms
 - [ ] HTTPS enforced, security headers set
-
 **Product:**
 - [ ] Landing page with clear value proposition
 - [ ] Pricing page with 2-3 tiers
@@ -203,16 +165,13 @@ export async function createCheckoutSession(userId: string, priceId: string) {
 - [ ] Email sequences (welcome, trial ending, payment failed)
 - [ ] Terms of Service and Privacy Policy pages
 - [ ] Support channel (email / chat)
-
 **Marketing:**
 - [ ] Domain purchased and configured
 - [ ] SEO meta tags on all pages
 - [ ] Google Analytics or PostHog installed
 - [ ] Social media accounts created
 - [ ] Product Hunt draft ready
-
 ## Best Practices
-
 - ✅ **Do:** Ship a working MVP in 4-6 weeks maximum, then iterate based on feedback
 - ✅ **Do:** Charge from day 1 — free users don't validate product-market fit
 - ✅ **Do:** Build the "happy path" first, handle edge cases later
@@ -222,24 +181,17 @@ export async function createCheckoutSession(userId: string, priceId: string) {
 - ❌ **Don't:** Optimize for scale before reaching $10k MRR
 - ❌ **Don't:** Build a custom auth system — use Clerk, Auth.js, or Supabase Auth
 - ❌ **Don't:** Skip the onboarding flow — it's where most SaaS lose users
-
 ## Troubleshooting
-
 **Problem:** Users sign up but don't activate (don't use core feature)
 **Solution:** Reduce steps to first value. Track with PostHog where users drop off in onboarding.
-
 **Problem:** High churn after trial
 **Solution:** Add an exit survey. Most churn is due to lack of perceived value, not price.
-
 **Problem:** Stripe webhook events not received locally
 **Solution:** Use Stripe CLI: `stripe listen --forward-to localhost:3000/api/webhooks/stripe`
-
 **Problem:** Database migrations failing in production
 **Solution:** Always run `prisma migrate deploy` (not `prisma migrate dev`) in production environments.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 These samples are starting points, not a production security implementation. Derive `userId`/workspace membership from the authenticated server session, validate price IDs against a server-owned allowlist, and use test-mode Stripe keys. Grant entitlements only from verified signed, idempotently handled webhook events, never the success URL. Tenant membership/schema alone does not enforce tenant authorization. Preserve critical failure, payment and recovery paths before launch; time/revenue/prepayment thresholds above are planning heuristics rather than universal go/no-go rules. Pin compatible SDK/API versions and verify the deployed Clerk integration.

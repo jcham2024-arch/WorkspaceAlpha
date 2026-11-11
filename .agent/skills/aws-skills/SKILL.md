@@ -1,29 +1,20 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "15624fda3027f55dd70def72d4c921367782091c8b7569d40b30e475c2729d83"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 15624fda3027f55dd70def72d4c921367782091c8b7569d40b30e475c2729d83
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Plan and review AWS architecture and infrastructure changes using the upstream AWS skill collection.
 name: aws-skills
-description: "Plan and review AWS architecture and infrastructure changes using the upstream AWS skill collection."
-tier: "experimental"
 risk: safe
-source: "https://github.com/zxkane/aws-skills"
-date_added: "2026-02-27"
+source: ""https://github.com/zxkane/aws-skills""
 ---
-
-
 # AWS Skill Collection Workflow
-
 ## When to Use
 - You need to choose an AWS architecture or infrastructure workflow for an existing application.
 - You want to review an infrastructure plan before any cloud change.
-
 ## Workflow
 1. Establish the application requirements, existing AWS services, target account/region, constraints, and required outcome. Read the project's infrastructure definitions before proposing changes.
 2. Open the [upstream AWS skill collection](https://github.com/zxkane/aws-skills) and select the workflow matching the actual services and infrastructure framework. This catalog entry is a routing workflow; it does not bundle every upstream skill.
@@ -31,10 +22,8 @@ date_added: "2026-02-27"
 4. Produce an architecture or infrastructure plan with resource boundaries, IAM access, networking, cost assumptions, and a validation/rollback plan. Distinguish observed configuration from proposed changes.
 5. Review the plan with the user before any operation that creates, modifies, or deletes cloud resources. Follow the selected tool's current documentation and the project's normal review/deployment process.
 6. Verify the result against the requested requirements and report which checks ran, which were simulated, and which require deployment access.
-
 ## Example
 > Review this application's AWS infrastructure and propose a least-privilege change plan. Read configuration first; do not deploy.
-
 ## Limitations
 - The upstream collection is an external prerequisite; report inaccessible guidance instead of inventing its instructions.
 - Planning does not prove a deployment works. Never claim account, pricing, permissions, or availability without current evidence.

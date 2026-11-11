@@ -1,112 +1,75 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "5f52c38b4cdd9386c1e7a4b6e45a91e5270a2e9f4a3e498ffe9e4bf462234ab2"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 5f52c38b4cdd9386c1e7a4b6e45a91e5270a2e9f4a3e498ffe9e4bf462234ab2
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: renat
+date_added: 2026-03-06
+description: Estrategia e implementacao de monetizacao para produtos digitais - Stripe, subscriptions, pricing experiments, freemium, upgrade flows, churn prevention, revenue optimization e modelos de negocio SaaS.
 name: monetization
-description: "Estrategia e implementacao de monetizacao para produtos digitais - Stripe, subscriptions, pricing experiments, freemium, upgrade flows, churn prevention, revenue optimization e modelos de negocio SaaS."
-tier: "experimental"
 risk: critical
 source: community
-date_added: '2026-03-06'
-author: renat
-tags:
-- monetization
-- stripe
-- saas
-- pricing
-- subscriptions
-tools:
-- claude-code
-- antigravity
-- cursor
-- gemini-cli
-- codex-cli
----
-
-
+  - monetization
+  - stripe
+  - saas
+  - pricing
+  - subscriptions
+  - claude-code
+  - antigravity
+  - cursor
+  - gemini-cli
+  - codex-cli
+------
 # MONETIZATION - Do Produto ao Revenue
-
 ## Overview
-
 Estrategia e implementacao de monetizacao para produtos digitais - Stripe, subscriptions, pricing experiments, freemium, upgrade flows, churn prevention, revenue optimization e modelos de negocio SaaS. Ativar para: integrar Stripe, criar planos de assinatura, pricing strategy, upgrade/downgrade, webhook de pagamento, trial gratuito, churn, LTV/CAC, unit economics, modelo de negocio.
-
 ## When to Use This Skill
-
 - When you need specialized assistance with this domain
-
 ## Do Not Use This Skill When
-
 - The task is unrelated to monetization
 - A simpler, more specific tool can handle the request
 - The user needs general-purpose assistance without domain expertise
-
 ## How It Works
-
 > Price is what you pay. Value is what you get. - Warren Buffett
 > A monetizacao perfeita captura valor proporcional ao valor entregue.
-
 ---
-
 ## A Regra De Ouro
-
 Usuarios pagam quando:
 1. O produto resolve um problema real (need)
 2. A solucao e melhor que alternativas (differentiation)
 3. O preco e percebido como justo (value perception)
 4. O momento de cobranca e natural (timing)
-
 ## Erros Classicos
-
 - Cobranca antes de mostrar valor (kill activation)
 - Preco muito baixo (sinaliza baixa qualidade)
 - Planos demais (paralisia de escolha)
 - Trial sem carta de credito (baixa conversao)
 - Churn invisivel (sem alertas de cancelamento iminente)
-
 ---
-
 ## Limites de implementacao
-
 Exemplos parciais, nao prontos para producao. Fixe SDK/API Stripe compativeis e teste em sandbox. Resolva customer e price no servidor a partir do usuario autenticado e de uma allowlist; nunca aceite IDs de outra conta. Use idempotencia na criacao, assinatura de webhook sobre bytes originais, deduplicacao persistente de event.id e processamento tolerante a ordem. Nao conceda acesso pelo redirecionamento de sucesso: confirme o estado autorizado da assinatura. Trial pode nao criar invoice/payment_intent pagavel; nao dereferencie esse caminho sem verificar. Uma unica assinatura retornada com status=all nao determina o plano ativo de um cliente. Os handlers e persistencia nao estao implementados aqui.
-
 Precos, benchmarks, taxas e percentuais sao exemplos sem validacao atual. Consentimento para pesquisa nao autoriza cobrancas reais ou envio de campanhas. Cancelamento deve ser simples; pesquisa de saida e opcional e nao bloqueia cancelamento. Nao invente selo “mais popular”, urgencia ou capacidades.
-
 ## Setup Inicial
-
 ```bash
 pip install stripe
-
 ## Ou
-
 npm install stripe
 ```
-
 ```python
-
 ## Config.Py
-
 import stripe
 import os
-
 stripe.api_key = os.environ["STRIPE_SECRET_KEY"]
 STRIPE_WEBHOOK_SECRET = os.environ["STRIPE_WEBHOOK_SECRET"]
-
 PLANS = {
     "free": None,
     "pro": os.environ["STRIPE_PRICE_PRO"],
     "business": os.environ["STRIPE_PRICE_BIZ"],
 }
 ```
-
 ## Criar Customer E Subscription
-
 ```python
 def create_customer(email: str, name: str, user_id: str) -> str:
     customer = stripe.Customer.create(
@@ -115,7 +78,6 @@ def create_customer(email: str, name: str, user_id: str) -> str:
         metadata={"user_id": user_id}
     )
     return customer.id
-
 def create_subscription(customer_id: str, price_id: str, trial_days: int = 14):
     subscription = stripe.Subscription.create(
         customer=customer_id,
@@ -130,9 +92,7 @@ def create_subscription(customer_id: str, price_id: str, trial_days: int = 14):
         "status": subscription.status
     }
 ```
-
 ## Checkout Session (Recomendado Para Conversao)
-
 ```python
 def create_checkout_session(
     customer_id: str,
@@ -152,9 +112,7 @@ def create_checkout_session(
     )
     return session.url
 ```
-
 ## Customer Portal (Self-Service)
-
 ```python
 def create_portal_session(customer_id: str, return_url: str) -> str:
     session = stripe.billing_portal.Session.create(
@@ -163,17 +121,13 @@ def create_portal_session(customer_id: str, return_url: str) -> str:
     )
     return session.url
 ```
-
 ## Webhook - Processar Eventos
-
 ```python
 from fastapi import Request, HTTPException
 import stripe
-
 async def stripe_webhook(request: Request):
     payload = await request.body()
     sig_header = request.headers.get("stripe-signature")
-
     try:
         event = stripe.Webhook.construct_event(
             payload, sig_header, STRIPE_WEBHOOK_SECRET
@@ -182,7 +136,6 @@ async def stripe_webhook(request: Request):
         raise HTTPException(status_code=400, detail="Invalid payload")
     except stripe.error.SignatureVerificationError:
         raise HTTPException(status_code=400, detail="Invalid signature")
-
     handlers = {
         "customer.subscription.created": handle_subscription_created,
         "customer.subscription.updated": handle_subscription_updated,
@@ -191,16 +144,12 @@ async def stripe_webhook(request: Request):
         "invoice.payment_failed": handle_payment_failed,
         "customer.subscription.trial_will_end": handle_trial_ending,
     }
-
     handler = handlers.get(event["type"])
     if handler:
         await handler(event["data"]["object"])
-
     return {"status": "ok"}
 ```
-
 ## Verificar Status Da Subscription
-
 ```python
 def get_subscription_status(customer_id: str) -> dict:
     subscriptions = stripe.Subscription.list(
@@ -210,7 +159,6 @@ def get_subscription_status(customer_id: str) -> dict:
     )
     if not subscriptions.data:
         return {"tier": "free", "status": "none"}
-
     sub = subscriptions.data[0]
     return {
         "tier": get_tier_from_price(sub.items.data[0].price.id),
@@ -220,11 +168,8 @@ def get_subscription_status(customer_id: str) -> dict:
         "cancel_at_period_end": sub.cancel_at_period_end,
     }
 ```
-
 ---
-
 ## Framework De Pricing Para Saas
-
 **Metodo 1: Value-Based Pricing (Recomendado)**
 ```
 1. Calcule o valor economico entregue ao usuario
@@ -234,7 +179,6 @@ def get_subscription_status(customer_id: str) -> dict:
 3. Valide com pesquisa de willingness-to-pay
 4. Teste 3 price points (A/B test)
 ```
-
 **Metodo 2: Competitive Anchor**
 ```
 Referencia: ChatGPT Plus = $20/mes (R$ 100)
@@ -242,9 +186,7 @@ Anchor: Notion = R$ 32/mes
 Posicao: Pro = R$ 29/mes (mais barato que ChatGPT, similar ao Notion)
 Mensagem: Tudo que o ChatGPT faz, por voz no Alexa
 ```
-
 ## Psicologia De Pricing
-
 ```
 R$ 29/mes (nao R$ 30 - efeito do digito esquerdo)
 Plano anual com desconto claro: R$ 249/ano (economize R$ 99)
@@ -253,9 +195,7 @@ Ancoragem: mostra o plano caro primeiro
 Trial sem cartao para ativacao, com cartao para retencao
 Badge Mais popular somente quando sustentado por dados reais
 ```
-
 ## Estrutura De Planos (3 E O Numero Certo)
-
 | Feature             | Free    | Pro        | Business   |
 |---------------------|---------|------------|------------|
 | Preco               | Gratis  | R$ 29/mes  | R$ 99/mes  |
@@ -265,11 +205,8 @@ Badge Mais popular somente quando sustentado por dados reais
 | Multi-usuarios      | Nao     | Nao        | Ate 10     |
 | API access          | Nao     | Nao        | Sim        |
 | Suporte             | Nao     | Email      | Priority   |
-
 ---
-
 ## Sinais De Churn Iminente
-
 ```python
 CHURN_SIGNALS = {
     "high_risk": [
@@ -286,29 +223,21 @@ CHURN_SIGNALS = {
     ]
 }
 ```
-
 ## Sequencia Anti-Churn
-
 ```
 Dia 0:  Usuario nao usa por 7 dias
         -> Email: Sentimos sua falta. O que aconteceu?
-
 Dia 3:  Sem resposta
         -> Push/Email: case study de usuario similar com sucesso
-
 Dia 7:  Nao voltou
         -> Email: oferta especial (20% off por 3 meses)
-
 Dia 14: Trial expirando
         -> In-app modal + email urgente: Sua conta vai dormir em 3 dias
-
 Dia 30: Cancelou
         -> Offboarding email: Lamentamos ver voce ir.
         -> 3 meses depois: reativacao com novidades
 ```
-
 ## Exit Survey (Opcional)
-
 ```python
 CANCELLATION_REASONS = [
     "Muito caro",
@@ -318,15 +247,10 @@ CANCELLATION_REASONS = [
     "Problemas tecnicos",
     "Outro"
 ]
-
 ## Falta Feature -> Roadmap + Notificacao Quando Lancar
-
 ```
-
 ---
-
 ## Calculos Essenciais
-
 ```python
 def calculate_unit_economics(
     mrr: float,
@@ -343,7 +267,6 @@ def calculate_unit_economics(
     cac = cac_total / new_customers
     ltv_cac = ltv / cac
     months_to_recover_cac = cac / arpu
-
     return {
         "ARPU": f"R$ {arpu:.2f}",
         "Churn Rate": f"{churn_rate*100:.1f}%",
@@ -354,9 +277,7 @@ def calculate_unit_economics(
         "Status": "Saudavel" if ltv_cac > 3 else "Otimizar"
     }
 ```
-
 ## Benchmarks Saas B2C Brasil
-
 | Metrica               | Ruim  | Ok     | Bom    | Excelente |
 |-----------------------|-------|--------|--------|-----------|
 | Churn Mensal          | >7%   | 5-7%   | 2-5%   | <2%       |
@@ -364,11 +285,8 @@ def calculate_unit_economics(
 | Payback               | >18m  | 12-18m | 6-12m  | <6m       |
 | Conversao trial->pago | <3%   | 3-8%   | 8-15%  | >15%      |
 | MoM Growth            | <5%   | 5-10%  | 10-20% | >20%      |
-
 ---
-
 ## Dashboard De Revenue (Metricas Diarias)
-
 ```
 MRR atual: R$ XX.XXX
   New MRR (novos assinantes): +R$ X.XXX
@@ -376,14 +294,11 @@ MRR atual: R$ XX.XXX
   Contraction MRR (downgrades): -R$ XXX
   Churned MRR (cancelamentos): -R$ XXX
   Net New MRR: +/- R$ XXX
-
 ARR (Annualized): R$ XX.XXX x 12
 Churn Rate: X.X%
 Net Revenue Retention: XXX% (meta: >100%)
 ```
-
 ## Automacao De Revenue Com Stripe
-
 ```python
 async def check_usage_and_upsell(user_id: str, usage: dict):
     if usage["conversations_this_month"] >= 45:
@@ -393,11 +308,8 @@ async def check_usage_and_upsell(user_id: str, usage: dict):
             cta_url=f"/upgrade?utm=usage-limit"
         )
 ```
-
 ---
-
 ## 7. Comandos Rapidos
-
 | Comando              | Acao                                     |
 |----------------------|------------------------------------------|
 | /stripe-setup        | Configura Stripe do zero                 |
@@ -407,26 +319,19 @@ async def check_usage_and_upsell(user_id: str, usage: dict):
 | /upgrade-flow        | Design do fluxo de upgrade               |
 | /revenue-dashboard   | Template de dashboard de revenue         |
 | /trial-optimization  | Otimiza conversao de trial               |
-
 ## Best Practices
-
 - Provide clear, specific context about your project and requirements
 - Review all suggestions before applying them to production code
 - Combine with other complementary skills for comprehensive analysis
-
 ## Common Pitfalls
-
 - Using this skill for tasks outside its domain expertise
 - Applying recommendations without understanding your specific context
 - Not providing enough project context for accurate analysis
-
 ## Related Skills
-
 - `analytics-product` - Complementary skill for enhanced analysis
 - `growth-engine` - Complementary skill for enhanced analysis
 - `product-design` - Complementary skill for enhanced analysis
 - `product-inventor` - Complementary skill for enhanced analysis
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

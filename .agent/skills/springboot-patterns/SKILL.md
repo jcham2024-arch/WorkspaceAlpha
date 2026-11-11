@@ -1,48 +1,33 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "400c4d4a309c8cc96252ac387a7cf6e1e4873aa7d7f9d21eb80911f29495d658"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: springboot-patterns
+content_hash: 400c4d4a309c8cc96252ac387a7cf6e1e4873aa7d7f9d21eb80911f29495d658
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: Spring Boot architecture patterns, REST API design, layered services, data access, caching, async processing, and logging. Use for Java Spring Boot backend work. Use when building or reviewing a Spring Boot backend — REST layer, services, data access, caching, or async work.
-tier: "experimental"
-metadata:
-  origin: ECC
+name: springboot-patterns
+origin: ECC
 ---
-
-
 # Spring Boot Development Patterns
-
 Spring Boot architecture and API patterns for scalable, production-grade services.
-
 ## When to Activate
-
 - Building REST APIs with Spring MVC or WebFlux
 - Structuring controller → service → repository layers
 - Configuring Spring Data JPA, caching, or async processing
 - Adding validation, exception handling, or pagination
 - Setting up profiles for dev/staging/production environments
 - Implementing event-driven patterns with Spring Events or Kafka
-
 ## REST API Structure
-
 ```java
 @RestController
 @RequestMapping("/api/markets")
 @Validated
 class MarketController {
   private final MarketService marketService;
-
   MarketController(MarketService marketService) {
     this.marketService = marketService;
   }
-
   @GetMapping
   ResponseEntity<Page<MarketResponse>> list(
       @RequestParam(defaultValue = "0") int page,
@@ -50,7 +35,6 @@ class MarketController {
     Page<Market> markets = marketService.list(PageRequest.of(page, size));
     return ResponseEntity.ok(markets.map(MarketResponse::from));
   }
-
   @PostMapping
   ResponseEntity<MarketResponse> create(@Valid @RequestBody CreateMarketRequest request) {
     Market market = marketService.create(request);
@@ -58,27 +42,21 @@ class MarketController {
   }
 }
 ```
-
 ## Repository Pattern (Spring Data JPA)
-
 ```java
 public interface MarketRepository extends JpaRepository<MarketEntity, Long> {
   @Query("select m from MarketEntity m where m.status = :status order by m.volume desc")
   List<MarketEntity> findActive(@Param("status") MarketStatus status, Pageable pageable);
 }
 ```
-
 ## Service Layer with Transactions
-
 ```java
 @Service
 public class MarketService {
   private final MarketRepository repo;
-
   public MarketService(MarketRepository repo) {
     this.repo = repo;
   }
-
   @Transactional
   public Market create(CreateMarketRequest request) {
     MarketEntity entity = MarketEntity.from(request);
@@ -87,25 +65,20 @@ public class MarketService {
   }
 }
 ```
-
 ## DTOs and Validation
-
 ```java
 public record CreateMarketRequest(
     @NotBlank @Size(max = 200) String name,
     @NotBlank @Size(max = 2000) String description,
     @NotNull @FutureOrPresent Instant endDate,
     @NotEmpty List<@NotBlank String> categories) {}
-
 public record MarketResponse(Long id, String name, MarketStatus status) {
   static MarketResponse from(Market market) {
     return new MarketResponse(market.id(), market.name(), market.status());
   }
 }
 ```
-
 ## Exception Handling
-
 ```java
 @ControllerAdvice
 class GlobalExceptionHandler {
@@ -116,12 +89,10 @@ class GlobalExceptionHandler {
         .collect(Collectors.joining(", "));
     return ResponseEntity.badRequest().body(ApiError.validation(message));
   }
-
   @ExceptionHandler(AccessDeniedException.class)
   ResponseEntity<ApiError> handleAccessDenied() {
     return ResponseEntity.status(HttpStatus.FORBIDDEN).body(ApiError.of("Forbidden"));
   }
-
   @ExceptionHandler(Exception.class)
   ResponseEntity<ApiError> handleGeneric(Exception ex) {
     // Log unexpected errors with stack traces
@@ -130,36 +101,27 @@ class GlobalExceptionHandler {
   }
 }
 ```
-
 ## Caching
-
 Requires `@EnableCaching` on a configuration class.
-
 ```java
 @Service
 public class MarketCacheService {
   private final MarketRepository repo;
-
   public MarketCacheService(MarketRepository repo) {
     this.repo = repo;
   }
-
   @Cacheable(value = "market", key = "#id")
   public Market getById(Long id) {
     return repo.findById(id)
         .map(Market::from)
         .orElseThrow(() -> new EntityNotFoundException("Market not found"));
   }
-
   @CacheEvict(value = "market", key = "#id")
   public void evict(Long id) {}
 }
 ```
-
 ## Async Processing
-
 Requires `@EnableAsync` on a configuration class.
-
 ```java
 @Service
 public class NotificationService {
@@ -170,14 +132,11 @@ public class NotificationService {
   }
 }
 ```
-
 ## Logging (SLF4J)
-
 ```java
 @Service
 public class ReportService {
   private static final Logger log = LoggerFactory.getLogger(ReportService.class);
-
   public Report generate(Long marketId) {
     log.info("generate_report marketId={}", marketId);
     try {
@@ -190,14 +149,11 @@ public class ReportService {
   }
 }
 ```
-
 ## Middleware / Filters
-
 ```java
 @Component
 public class RequestLoggingFilter extends OncePerRequestFilter {
   private static final Logger log = LoggerFactory.getLogger(RequestLoggingFilter.class);
-
   @Override
   protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
       FilterChain filterChain) throws ServletException, IOException {
@@ -212,16 +168,12 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
   }
 }
 ```
-
 ## Pagination and Sorting
-
 ```java
 PageRequest page = PageRequest.of(pageNumber, pageSize, Sort.by("createdAt").descending());
 Page<Market> results = marketService.list(page);
 ```
-
 ## Error-Resilient External Calls
-
 ```java
 public <T> T withRetry(Supplier<T> supplier, int maxRetries) {
   int attempts = 0;
@@ -243,26 +195,21 @@ public <T> T withRetry(Supplier<T> supplier, int maxRetries) {
   }
 }
 ```
-
 ## Rate Limiting (Filter + Bucket4j)
-
 **Security Note**: The `X-Forwarded-For` header is untrusted by default because clients can spoof it.
 Only use forwarded headers when:
 1. Your app is behind a trusted reverse proxy (nginx, AWS ALB, etc.)
 2. You have registered `ForwardedHeaderFilter` as a bean
 3. You have configured `server.forward-headers-strategy=NATIVE` or `FRAMEWORK` in application properties
 4. Your proxy is configured to overwrite (not append to) the `X-Forwarded-For` header
-
 When `ForwardedHeaderFilter` is properly configured, `request.getRemoteAddr()` will automatically
 return the correct client IP from the forwarded headers. Without this configuration, use
 `request.getRemoteAddr()` directly—it returns the immediate connection IP, which is the only
 trustworthy value.
-
 ```java
 @Component
 public class RateLimitFilter extends OncePerRequestFilter {
   private final Map<String, Bucket> buckets = new ConcurrentHashMap<>();
-
   /*
    * SECURITY: This filter uses request.getRemoteAddr() to identify clients for rate limiting.
    *
@@ -291,12 +238,10 @@ public class RateLimitFilter extends OncePerRequestFilter {
     // is configured, or the direct connection IP otherwise. Never trust X-Forwarded-For
     // headers directly without proper proxy configuration.
     String clientIp = request.getRemoteAddr();
-
     Bucket bucket = buckets.computeIfAbsent(clientIp,
         k -> Bucket.builder()
             .addLimit(Bandwidth.classic(100, Refill.greedy(100, Duration.ofMinutes(1))))
             .build());
-
     if (bucket.tryConsume(1)) {
       filterChain.doFilter(request, response);
     } else {
@@ -305,23 +250,16 @@ public class RateLimitFilter extends OncePerRequestFilter {
   }
 }
 ```
-
 ## Background Jobs
-
 Use Spring’s `@Scheduled` or integrate with queues (e.g., Kafka, SQS, RabbitMQ). Keep handlers idempotent and observable.
-
 ## Observability
-
 - Structured logging (JSON) via Logback encoder
 - Metrics: Micrometer + Prometheus/OTel
 - Tracing: Micrometer Tracing with OpenTelemetry or Brave backend
-
 ## Production Defaults
-
 - Prefer constructor injection, avoid field injection
 - Enable `spring.mvc.problemdetails.enabled=true` for RFC 7807 errors (Spring Boot 3+)
 - Configure HikariCP pool sizes for workload, set timeouts
 - Use `@Transactional(readOnly = true)` for queries
 - Enforce null-safety via `@NonNull` and `Optional` where appropriate
-
 **Remember**: Keep controllers thin, services focused, repositories simple, and errors handled centrally. Optimize for maintainability and testability.

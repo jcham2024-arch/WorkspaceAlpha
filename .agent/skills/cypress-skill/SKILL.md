@@ -1,37 +1,25 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "51a845b486b0d4d1c178d33123330872290e3ed11b704de1935a54aa9dc37438"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 51a845b486b0d4d1c178d33123330872290e3ed11b704de1935a54aa9dc37438
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-07-01
+description: Generates production-grade Cypress E2E and component tests in JavaScript or TypeScript. Supports local execution and TestMu AI cloud. Use when the user asks to write Cypress tests, set up Cypress, test with cy commands, or mentions \"Cypress\", \"cy.visit\", \"cy.get\", \"cy.intercept\".
+license: MIT
+license_source: "https://github.com/LambdaTest/agent-skills/blob/main/LICENSE"
 name: cypress-skill
-description: "Generates production-grade Cypress E2E and component tests in JavaScript or TypeScript. Supports local execution and TestMu AI cloud. Use when the user asks to write Cypress tests, set up Cypress, test with cy commands, or mentions \"Cypress\", \"cy.visit\", \"cy.get\", \"cy.intercept\"."
-tier: "experimental"
 risk: critical
-source: https://github.com/LambdaTest/agent-skills/tree/main/cypress-skill
+source: "https://github.com/LambdaTest/agent-skills/tree/main/cypress-skill"
 source_repo: LambdaTest/agent-skills
 source_type: community
-date_added: 2026-07-01
-license: MIT
-license_source: https://github.com/LambdaTest/agent-skills/blob/main/LICENSE
 ---
-
-
 # Cypress Automation Skill
 ## When to Use
-
 Use this skill when you need generates production-grade Cypress E2E and component tests in JavaScript or TypeScript. Supports local execution and TestMu AI cloud. Use when the user asks to write Cypress tests, set up Cypress, test with cy commands, or mentions "Cypress", "cy.visit", "cy.get", "cy.intercept"....
-
-
 You are a senior QA automation architect specializing in Cypress.
-
 ## Step 1 — Execution Target
-
 ```
 User says "test" / "automate"
 │
@@ -43,19 +31,14 @@ User says "test" / "automate"
 │
 └─ Ambiguous? → Default local, mention cloud option
 ```
-
 ## Step 2 — Test Type
-
 | Signal | Type | Config |
 |--------|------|--------|
 | "E2E", "end-to-end", page URL | E2E test | `cypress/e2e/` |
 | "component", "React", "Vue" | Component test | `cypress/component/` |
 | "API test", "cy.request" | API test via Cypress | `cypress/e2e/api/` |
-
 ## Core Patterns
-
 ### Command Chaining — CRITICAL
-
 ```javascript
 // ✅ Cypress chains — no await, no async
 cy.visit('/login');
@@ -63,13 +46,10 @@ cy.get('#username').type('user@test.com');
 cy.get('#password').type(Cypress.env('TEST_PASSWORD'), { log: false });
 cy.get('button[type="submit"]').click();
 cy.url().should('include', '/dashboard');
-
 // ❌ NEVER use async/await with cy commands
 // ❌ NEVER assign cy.get() to a variable for later use
 ```
-
 ### Selector Priority
-
 ```
 1. cy.get('[data-cy="submit"]')     ← Best practice
 2. cy.get('[data-testid="submit"]') ← Also good
@@ -77,9 +57,7 @@ cy.url().should('include', '/dashboard');
 4. cy.get('#submit-btn')            ← ID
 5. cy.get('.btn-primary')           ← Class (fragile)
 ```
-
 ### Anti-Patterns
-
 | Bad | Good | Why |
 |-----|------|-----|
 | `cy.wait(5000)` | `cy.intercept()` + `cy.wait('@alias')` | Arbitrary waits |
@@ -87,15 +65,12 @@ cy.url().should('include', '/dashboard');
 | `async/await` with cy | Chain `.then()` if needed | Different async model |
 | Testing 3rd party sites | Stub/mock instead | Flaky, slow |
 | Single `beforeEach` with everything | Multiple focused specs | Better isolation |
-
 ### Basic Test Structure
-
 ```javascript
 describe('Login', () => {
   beforeEach(() => {
     cy.visit('/login');
   });
-
   it('should login with valid credentials', () => {
     cy.get('[data-cy="username"]').type('user@test.com');
     cy.get('[data-cy="password"]').type(Cypress.env('TEST_PASSWORD'), { log: false });
@@ -103,7 +78,6 @@ describe('Login', () => {
     cy.url().should('include', '/dashboard');
     cy.get('[data-cy="welcome"]').should('contain', 'Welcome');
   });
-
   it('should show error for invalid credentials', () => {
     cy.get('[data-cy="username"]').type('wrong@test.com');
     cy.get('[data-cy="password"]').type('wrong');
@@ -112,29 +86,23 @@ describe('Login', () => {
   });
 });
 ```
-
 ### Network Interception
-
 ```javascript
 // Stub API response
 cy.intercept('POST', '/api/login', {
   statusCode: 200,
   body: { token: 'fake-jwt', user: { name: 'Test User' } },
 }).as('loginRequest');
-
 cy.get('[data-cy="submit"]').click();
 cy.wait('@loginRequest').its('request.body').should('deep.include', {
   email: 'user@test.com',
 });
-
 // Wait for real API
 cy.intercept('GET', '/api/dashboard').as('dashboardLoad');
 cy.visit('/dashboard');
 cy.wait('@dashboardLoad');
 ```
-
 ### Custom Commands
-
 ```javascript
 // cypress/support/commands.js
 Cypress.Commands.add('login', (email, password) => {
@@ -146,13 +114,10 @@ Cypress.Commands.add('login', (email, password) => {
     cy.url().should('include', '/dashboard');
   });
 });
-
 // Usage in tests
 cy.login('user@test.com', 'password123');
 ```
-
 ### TestMu AI Cloud
-
 ```javascript
 // cypress.config.js
 module.exports = {
@@ -162,7 +127,6 @@ module.exports = {
     },
   },
 };
-
 // lambdatest-config.json
 {
   "lambdatest_auth": {
@@ -180,22 +144,17 @@ module.exports = {
   }
 }
 ```
-
 **Run on cloud:**
 ```bash
 npx lambdatest-cypress run
 ```
-
 ## Validation Workflow
-
 1. **No arbitrary waits**: Zero `cy.wait(number)` — use intercepts
 2. **Selectors**: Prefer `data-cy` attributes
 3. **No async/await**: Pure Cypress chaining
 4. **Assertions**: Use `.should()` chains, not manual checks
 5. **Isolation**: Each test independent, use `cy.session()` for auth
-
 ## Quick Reference
-
 | Task | Command |
 |------|---------|
 | Open interactive | `npx cypress open` |
@@ -208,20 +167,15 @@ npx lambdatest-cypress run
 | File upload | `cy.get('input[type="file"]').selectFile('file.pdf')` |
 | Viewport | `cy.viewport('iphone-x')` or `cy.viewport(1280, 720)` |
 | Screenshot | `cy.screenshot('login-page')` |
-
 ## Reference Files
-
 | File | When to Read |
 |------|-------------|
 | `reference/cloud-integration.md` | LambdaTest Cypress CLI, parallel, config |
 | `reference/component-testing.md` | React/Vue/Angular component tests |
 | `reference/custom-commands.md` | Advanced commands, overwrite, TypeScript |
 | `reference/debugging-flaky.md` | Retry-ability, detached DOM, race conditions |
-
 ## Advanced Playbook
-
 For production-grade patterns, see `reference/playbook.md`:
-
 | Section | What's Inside |
 |---------|--------------|
 | §1 Production Config | Multi-env configs, setupNodeEvents |
@@ -239,11 +193,8 @@ For production-grade patterns, see `reference/playbook.md`:
 | §13 CI/CD | GitHub Actions matrix + Cypress Cloud parallel |
 | §14 Debugging Table | 11 common problems with fixes |
 | §15 Best Practices | 15-item production checklist |
-
 ## Limitations
-
 - Use this skill only when the task clearly matches its upstream source and local project context.
 - Verify commands, generated code, dependencies, credentials, and external service behavior before applying changes.
 - Do not treat examples as a substitute for environment-specific tests, security review, or user approval for destructive or costly actions.
-
 The `reference/*` guides named above are not bundled. Do not claim their advanced playbook was followed; use current Cypress/provider documentation for dependent steps. Tests run application code and can submit real writes: use an authorized disposable environment and test credentials. Cloud runs upload code/artifacts and consume quota; agree on data and cost scope before dispatch. Screenshots/video can still reveal secrets despite `log: false`; redact or disable sensitive capture.

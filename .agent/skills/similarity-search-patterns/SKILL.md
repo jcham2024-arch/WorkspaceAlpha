@@ -1,52 +1,35 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "9134af2fe7895c61d9f769c8700acd830d78b454d81e403ad738f457a74adb69"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 9134af2fe7895c61d9f769c8700acd830d78b454d81e403ad738f457a74adb69
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Implement efficient similarity search with vector databases. Use when building semantic search, implementing nearest neighbor queries, or optimizing retrieval performance.
 name: similarity-search-patterns
-description: "Implement efficient similarity search with vector databases. Use when building semantic search, implementing nearest neighbor queries, or optimizing retrieval performance."
-tier: "experimental"
 risk: safe
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # Similarity Search Patterns
-
 Patterns for implementing efficient similarity search in production systems.
-
 ## Use this skill when
-
 - Building semantic search systems
 - Implementing RAG retrieval
 - Creating recommendation engines
 - Optimizing search latency
 - Scaling to millions of vectors
 - Combining semantic and keyword search
-
 ## Do not use this skill when
-
 - The task is unrelated to similarity search patterns
 - You need a different domain or tool outside this scope
-
 ## Instructions
-
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
 - If detailed examples are required, open `resources/implementation-playbook.md`.
-
 ## Resources
-
 - `resources/implementation-playbook.md` for detailed patterns and examples.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

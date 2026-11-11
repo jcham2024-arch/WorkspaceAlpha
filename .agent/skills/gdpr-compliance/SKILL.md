@@ -1,92 +1,65 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "47f9571410e9cd31e3e4a31fe9bd2d39c9e98c15ee56acdd2572567d65037a8e"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: gdpr-compliance
-description: Implement GDPR data protection requirements. Configure consent management,
-tier: "experimental"
-  data subject rights, and privacy by design. Use when processing EU personal data.
+content_hash: 47f9571410e9cd31e3e4a31fe9bd2d39c9e98c15ee56acdd2572567d65037a8e
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: security
+compatibility: Checklist and framework guidance; no privileged tooling required. Apply
+description: Demonstrate compliance
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Checklist and framework guidance; no privileged tooling required. Apply
+version: 1.0
+---  data subject rights, and privacy by design. Use when processing EU personal data.
   controls through your own change process.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # GDPR Compliance
-
 Implement General Data Protection Regulation requirements for processing within GDPR’s territorial/material scope, which depends on establishment, offering goods/services or monitoring and is not determined solely by residence, covering lawful processing, data subject rights, and technical safeguards.
-
 ## Key Principles and Legal Bases
-
 ```yaml
 gdpr_principles:
   article_5:
     lawfulness_fairness_transparency:
-      description: "Process data lawfully, fairly, and transparently"
       implementation:
         - Document legal basis for every processing activity
         - Provide clear privacy notices
         - No hidden or deceptive data collection
-
     purpose_limitation:
-      description: "Collect for specified, explicit, and legitimate purposes"
       implementation:
         - Define purpose before collection
         - Do not repurpose data without new legal basis
         - Document all processing purposes in ROPA
-
     data_minimization:
-      description: "Adequate, relevant, and limited to what is necessary"
       implementation:
         - Collect only required fields
         - Review data models for unnecessary fields
         - Remove optional fields that are not used
-
     accuracy:
-      description: "Accurate and kept up to date"
       implementation:
         - Provide self-service profile editing
         - Implement data validation at point of entry
         - Schedule regular data quality reviews
-
     storage_limitation:
-      description: "Kept no longer than necessary"
       implementation:
         - Define retention periods per data category
         - Automate deletion when retention expires
         - Document retention schedule
-
     integrity_and_confidentiality:
-      description: "Appropriate security measures"
       implementation:
         - Encryption at rest and in transit
         - Access controls and audit logging
         - Pseudonymization where appropriate
-
     accountability:
-      description: "Demonstrate compliance"
       implementation:
         - Maintain Records of Processing Activities
         - Conduct DPIAs for high-risk processing
         - Appoint DPO if required
-
 legal_bases:
   article_6:
     consent: "Freely given, specific, informed, unambiguous"
@@ -96,13 +69,10 @@ legal_bases:
     public_interest: "Task carried out in public interest"
     legitimate_interest: "Legitimate interest not overridden by data subject rights"
 ```
-
 ## Data Mapping Template (Records of Processing Activities)
-
 ```yaml
 # Record of Processing Activities (ROPA) - Article 30
 processing_activity:
-  name: "Customer Account Management"
   controller: "Example Corp, 123 Main St, Dublin, Ireland"
   dpo_contact: "dpo@example.com"
   purpose: "Manage customer accounts, provide services, handle billing"
@@ -132,11 +102,9 @@ processing_activity:
     - Role-based access control
     - Audit logging of all access
   dpia_required: null # assess explicitly; not a default negative
-  last_reviewed: "2024-06-01"
 
 # Template for each processing activity
 processing_activity_template:
-  name: ""
   controller: ""
   joint_controller: ""  # if applicable
   processor: ""  # if acting as processor
@@ -152,12 +120,8 @@ processing_activity_template:
   retention_period: ""
   security_measures: []
   dpia_required: null # assess explicitly; not a default negative
-  date_added: ""
-  last_reviewed: ""
 ```
-
 ## Consent Management Implementation
-
 ```python
 """
 Consent management system implementing GDPR Article 7 requirements.
@@ -167,8 +131,6 @@ from datetime import datetime, timezone
 from enum import Enum
 import json
 import hashlib
-
-
 class ConsentPurpose(Enum):
     MARKETING_EMAIL = "marketing_email"
     MARKETING_SMS = "marketing_sms"
@@ -176,12 +138,9 @@ class ConsentPurpose(Enum):
     PERSONALIZATION = "personalization"
     THIRD_PARTY_SHARING = "third_party_sharing"
     PROFILING = "profiling"
-
-
 class ConsentManager:
     def __init__(self, db):
         self.db = db
-
     def record_consent(self, user_id, purpose, granted, source,
                        privacy_policy_version, ip_address=None):
         """Record a consent decision with full audit trail."""
@@ -201,7 +160,6 @@ class ConsentManager:
         ).hexdigest()
         self.db.consent_records.insert(consent_record)
         return consent_record
-
     def withdraw_consent(self, user_id, purpose):
         """Process consent withdrawal - must be as easy as giving consent."""
         record = self.record_consent(
@@ -215,7 +173,6 @@ class ConsentManager:
         self._stop_processing(user_id, purpose)
         self._notify_processors(user_id, purpose, "withdrawn")
         return record
-
     def get_consent_status(self, user_id, purpose):
         """Get current consent status for a specific purpose."""
         latest = self.db.consent_records.find_one(
@@ -223,14 +180,12 @@ class ConsentManager:
             sort=[("timestamp", -1)]
         )
         return latest["granted"] if latest else False
-
     def get_all_consents(self, user_id):
         """Get all consent records for a user (for DSAR response)."""
         return list(self.db.consent_records.find(
             {"user_id": user_id},
             sort=[("timestamp", -1)]
         ))
-
     def export_consent_proof(self, user_id, purpose):
         """Export consent records for review; records alone do not establish valid consent."""
         records = list(self.db.consent_records.find(
@@ -244,18 +199,14 @@ class ConsentManager:
             "current_status": self.get_consent_status(user_id, purpose),
             "exported_at": datetime.now(timezone.utc).isoformat(),
         }
-
     def _notify_processors(self, user_id, purpose, action):
         """Notify downstream processors of consent change."""
         raise NotImplementedError("Implement durable processor notification and failure handling")
-
     def _stop_processing(self, user_id, purpose):
         """Immediately stop processing for withdrawn consent."""
         raise NotImplementedError("Implement verified consent-dependent processing halt")
 ```
-
 ## Data Subject Access Request (DSAR) Procedures
-
 ```yaml
 dsar_workflow:
   step_1_receive:
@@ -268,14 +219,12 @@ dsar_workflow:
       - Use existing authentication where possible
       - Request additional proof if necessary (but not excessive)
     sla: "Respond without undue delay and within one calendar month; where justified by complexity/number, extend by up to two further months and notify reasons within the initial month"
-
   step_2_assess:
     actions:
       - Determine request type (access, rectification, erasure, portability, etc.)
       - Identify all systems containing the individual's data
       - Check for lawful grounds to refuse (legal obligations, etc.)
       - Assess if extension is needed (complex or numerous requests)
-
   step_3_collect:
     systems_to_search:
       - Primary application database
@@ -286,7 +235,6 @@ dsar_workflow:
       - Backup systems (if practically retrievable)
       - Log files containing PII
       - Third-party processors (request from each)
-
   step_4_respond:
     access_request:
       - Provide copy of all personal data in commonly used electronic format
@@ -305,7 +253,6 @@ dsar_workflow:
       - Provide data in structured, machine-readable format (JSON/CSV)
       - Include only data provided by the data subject
       - Transfer directly to another controller if requested and feasible
-
   step_5_close:
     actions:
       - Send response to data subject
@@ -313,18 +260,14 @@ dsar_workflow:
       - Archive DSAR record for accountability
       - Update data mapping if new data stores discovered
 ```
-
 ```python
 """DSAR automation - data collection across systems."""
 import json
 from datetime import datetime, timezone
-
-
 class DSARProcessor:
     def __init__(self, data_sources, authorize_request):
         self.authorize_request = authorize_request # required server-side verification/scope hook
         self.data_sources = data_sources  # Dict of system_name: DataSource
-
     def process_access_request(self, user_identifier):
         """Collect all personal data across registered systems."""
         self.authorize_request(user_identifier, "access")
@@ -334,7 +277,6 @@ class DSARProcessor:
             "data_subject": user_identifier,
             "systems": {},
         }
-
         for system_name, source in self.data_sources.items():
             try:
                 data = source.extract_user_data(user_identifier)
@@ -348,10 +290,8 @@ class DSARProcessor:
                     "status": "error",
                     "error": "Source operation failed; restricted diagnostics retained separately",
                 }
-
         collected_data["complete"] = all(v["status"] == "collected" for v in collected_data["systems"].values())
         return collected_data
-
     def process_erasure_request(self, user_identifier):
         """Delete personal data across all systems (right to erasure)."""
         self.authorize_request(user_identifier, "erasure")
@@ -360,7 +300,6 @@ class DSARProcessor:
             "data_subject": user_identifier,
             "systems": {},
         }
-
         for system_name, source in self.data_sources.items():
             try:
                 deleted = source.delete_user_data(user_identifier)
@@ -376,10 +315,8 @@ class DSARProcessor:
                     "status": "error",
                     "error": "Source operation failed; restricted diagnostics retained separately",
                 }
-
         results["complete"] = all(v["status"] == "deleted" for v in results["systems"].values())
         return results
-
     def export_portable_data(self, user_identifier, format="json"):
         """Export data in machine-readable format for portability."""
         self.authorize_request(user_identifier, "portability")
@@ -388,9 +325,7 @@ class DSARProcessor:
             "an access-response dump is not a portability export. Add tested JSON/CSV serializers."
         )
 ```
-
 ## Data Processing Agreement (DPA) Requirements
-
 ```yaml
 dpa_requirements:
   mandatory_clauses:
@@ -406,14 +341,12 @@ dpa_requirements:
       - Assistance with security obligations (Art. 32-36)
       - Deletion or return of data after service ends
       - Audit and inspection rights for the controller
-
   sub_processor_management:
     - [ ] List of current sub-processors provided by processor
     - [ ] Notification mechanism for new sub-processors (contractually agreed notice; no universal 30-day GDPR period)
     - [ ] Right to object to new sub-processors
     - [ ] Sub-processors bound by same data protection obligations
     - [ ] Processor remains liable for sub-processor compliance
-
   international_transfers:
     mechanisms:
       - Standard Contractual Clauses (SCCs) - most common
@@ -425,7 +358,6 @@ dpa_requirements:
       - [ ] Evaluate effectiveness of safeguards
       - [ ] Document supplementary measures if needed
       - [ ] Review periodically for legal changes
-
   dpa_registry:
     track_per_processor:
       - Processor name and contact details
@@ -436,36 +368,24 @@ dpa_requirements:
       - TIA completion date
       - Next review date
 ```
-
-
 ## Contents
-
 - [Data Protection Impact Assessment (DPIA) Template](references/details.md)
 - [GDPR Compliance Checklist](references/details.md)
 - [Best Practices](references/details.md)
-
 ## When to Use
-
 - Assessing processing that may fall within GDPR’s material/territorial scope
 - Building consent management and preference centers
 - Implementing Data Subject Access Request (DSAR) workflows
 - Conducting Data Protection Impact Assessments (DPIAs)
 - Setting up data processing agreements with third-party processors
 - Designing systems with privacy by design and by default principles
-
 ## Limitations
-
 - Guidance and checklists only; not legal advice and not a substitute for a qualified auditor.
 - Docs-only import: upstream templates and scripts not bundled.
-
 ### Example
-
 ```markdown
 Map this skill's control checklist to our current evidence and list gaps.
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.
-
 ## Implementation and legal boundaries
-
 This is a partial scaffold, not a compliant consent/DSAR service. Authentication, authorized subject/tenant resolution, request eligibility, retention holds, recipient rights and secure delivery must be implemented server-side; a supplied identifier is not proof of identity. Consent storage needs deterministic event ordering, protected evidence, purpose/notice versions and durable withdrawal propagation; an unkeyed hash proves neither immutability nor consent validity. Partial source errors are incomplete results and must not close a request or silently certify deletion. Access and portability have different scope: Article20 generally concerns data provided by the subject, consent/contract basis and automated processing; protect others’ rights. Erasure is conditional, and backups require an approved restoration/deletion policy. Special-category processing needs an applicable Article9 condition in addition to Article6 where applicable; pseudonymization is not anonymization. Recipient role, SCC/TIA, ROPA exceptions, DPIA/DPO and breach duties need factual legal assessment, not default booleans. No user request authorizes automatic deletion, disclosure, notices or processor API calls beyond the confirmed action and scope.

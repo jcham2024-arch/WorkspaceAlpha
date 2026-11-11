@@ -1,74 +1,54 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "5922f1460b580edf465bf4a16e9491fe3b86d4db2cedfa6976545e609ea0baac"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: sql-sentinel
-description: "Audit SQL for the cost & performance anti-patterns that burn warehouse credits. Scores warehouse health 0-100 and outputs a prioritized cost-reduction plan for BigQuery, Snowflake, Redshift, and Postgres."
-tier: "experimental"
+content_hash: 5922f1460b580edf465bf4a16e9491fe3b86d4db2cedfa6976545e609ea0baac
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: takeaseat
 category: data
+date_added: 2026-06-26
+description: Audit SQL for the cost & performance anti-patterns that burn warehouse credits. Scores warehouse health 0-100 and outputs a prioritized cost-reduction plan for BigQuery, Snowflake, Redshift, and Postgres.
+docs: SKILL.md
+license: MIT
+license_source: ""https://github.com/takeaseatventure/sql-sentinel/blob/main/LICENSE""
+name: sql-sentinel
 risk: critical
 source: community
 source_repo: takeaseatventure/sql-sentinel
 source_type: community
-date_added: "2026-06-26"
-author: takeaseat
-tags: [sql, bigquery, snowflake, redshift, postgres, data-warehouse, cost-optimization, performance, audit, finops]
-tools: [claude, cursor, codex, gemini]
-plugin:
+tags: "[sql, bigquery, snowflake, redshift, postgres, data-warehouse, cost-optimization, performance, audit, finops]"
+tools: "[claude, cursor, codex, gemini]"
+---plugin:
   targets:
     codex: blocked
     claude: blocked
   setup:
     type: manual
     summary: "Clone the upstream analyzer only after pinning or reviewing the exact commit to run."
-    docs: SKILL.md
-license: "MIT"
-license_source: "https://github.com/takeaseatventure/sql-sentinel/blob/main/LICENSE"
 ---
-
-
 # sql-sentinel
-
 ## Overview
-
 A static-analysis skill that audits SQL for the cost & performance anti-patterns that dominate warehouse bills — `SELECT *`, full-table scans, non-sargable predicates, Cartesian joins, the `NOT IN` NULL trap, and 15 more. It scores warehouse query health 0-100 (A-F) and outputs a prioritized cost-reduction plan, each finding with a `why`, a concrete `fix`, and an estimated savings.
-
 Built for analytics engineers (dbt, Looker), data platform teams running FinOps / "reduce cloud spend" initiatives, and anyone reviewing a SQL pull request before it hits production. Works across BigQuery, Snowflake, Redshift, and Postgres. Zero dependencies, MIT licensed.
-
 The executable engine and full rule set live in the source repository: https://github.com/takeaseatventure/sql-sentinel. Treat that repository as third-party executable code.
-
 ## When to Use This Skill
-
 - A user writes or reviews a query for BigQuery, Snowflake, Redshift, Postgres, or Spark SQL.
 - A user asks "why is this query so slow?" or "why is my warehouse bill so high?"
 - A user is about to promote a dashboard query or dbt model to production.
 - A data engineer wants a second pair of eyes before a code review or a cost-optimization sweep.
 - A team is running a "reduce cloud spend" or FinOps initiative.
-
 ## How It Works
-
 The engine splits a SQL script into statements (honoring quotes and comments), runs 20 rules over each statement, scores health 0-100 weighted by severity (critical 25, high 12, medium 5, low 1), and returns a prioritized cost-reduction plan.
-
 ### Step 1: Run the audit
-
 Install or clone the source repository only after choosing a reviewed commit, tag, or release to trust. Do not run code from a mutable default branch just because this skill links to it:
-
 ```bash
 git clone https://github.com/takeaseatventure/sql-sentinel.git
 cd sql-sentinel
 git checkout <reviewed-commit-or-tag>
 node scripts/sql-sentinel.js path/to/query.sql
 ```
-
 Or programmatically:
-
 ```javascript
 const { auditSql } = require('./scripts/sql-sentinel');
 const report = auditSql(yourSqlString, { dialect: 'bigquery' });
@@ -76,15 +56,10 @@ console.log(report.healthScore);      // 0-100
 console.log(report.grade);            // 'A' | 'B' | 'C' | 'D' | 'E' | 'F'
 console.log(report.prioritizedPlan);  // array, worst findings first
 ```
-
 ### Step 2: Read the prioritized plan
-
 The output leads with critical findings (Cartesian joins, mass DELETE) and descends to low-severity style issues. Each finding explains *why* it costs money and *how* to fix it.
-
 ## Examples
-
 ### Example 1: A messy dashboard query
-
 ```sql
 SELECT DISTINCT *
 FROM user_events, raw_logs
@@ -92,7 +67,6 @@ WHERE LOWER(event_name) LIKE '%signup%'
   AND user_id NOT IN (SELECT id FROM deleted_users)
 ORDER BY created_at;
 ```
-
 Illustrative candidate findings (no engine was run and no score/cost was measured):
 - CRITICAL: comma-join without a join predicate produces a Cartesian product; actual impact needs plan/cardinality evidence
 - HIGH: `SELECT *` may read unnecessary columns depending on engine/plan
@@ -101,9 +75,7 @@ Illustrative candidate findings (no engine was run and no score/cost was measure
 - HIGH: `NOT IN (SELECT ...)` — NULL semantics hazard
 - MEDIUM: `SELECT DISTINCT` dedup cost
 - MEDIUM: `ORDER BY` without `LIMIT` sorts the full result
-
 ### Example 2: A clean, sargable query
-
 ```sql
 -- Illustrative bounded query, not a measured score or proof of no findings
 SELECT id, email, created_at
@@ -113,11 +85,8 @@ WHERE created_at >= TIMESTAMP '2026-01-01'
 ORDER BY id
 LIMIT 100;
 ```
-
 Rules are heuristic candidates: expression/trigram indexes, partition pruning, small tables and intended CROSS JOIN/UNION semantics can change the verdict. Preserve result equivalence (including NULL/duplicate behavior), inspect EXPLAIN/warehouse dry-run and actual billing before recommending changes. EXPLAIN ANALYZE executes queries and needs separate data/cost authorization. A health score is not measured savings.
-
 ## The 20 rules (ruleset v1.0.0)
-
 | Rule | Severity | Catches |
 |---|---|---|
 | SQL001 | high | `SELECT *` full column scan |
@@ -140,15 +109,11 @@ Rules are heuristic candidates: expression/trigram indexes, partition pruning, s
 | SQL020 | critical | `DELETE`/`UPDATE` without `WHERE` |
 | SQL021 | low | `SELECT *` in `EXISTS`/`IN` |
 | SQL022 | medium | `UNION` vs `UNION ALL` |
-
 Run the test suite to verify each rule fires on real SQL:
-
 ```bash
 cd scripts && node test.js   # 26 tests, zero dependencies
 ```
-
 ## Limitations
-
 - This is a **static** analyzer. It finds anti-patterns in the *text* of SQL; it does not read query plans, row counts, or billing. A flagged query on a 100-row table is cheap; the same query on a billion-row table is the problem the rule exists to prevent.
 - The fact-table heuristic (SQL015) keys off table *names* (`*_events`, `*_log`) and is advisory, not definitive.
 - The intended analyzer reads SQL text rather than executing it; review the pinned engine/dependencies before running and keep private SQL local unless external processing is authorized.

@@ -1,53 +1,38 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "0c32093a6f4f5f0e085c504d6c4d24a5ad807f03b5b78b81e842c7c44b832a79"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: waf-setup
-description: Deploy and tune Web Application Firewalls. Configure rules for OWASP
-tier: "experimental"
-  Top 10 protection. Use when protecting web applications from common attacks.
+content_hash: 0c32093a6f4f5f0e085c504d6c4d24a5ad807f03b5b78b81e842c7c44b832a79
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: security
+compatibility: Requires the relevant security tooling (scanners, vault CLIs) and an
+date_added: 2026-09-20
+description: Deploy and tune Web Application Firewalls. Configure rules for OWASP
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: waf-setup
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant security tooling (scanners, vault CLIs) and an
+version: 1.0
+---  Top 10 protection. Use when protecting web applications from common attacks.
   authorized scope for any active assessment. Docs-only; helper scripts and templates
   not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # WAF Setup
-
 Protect web applications with Web Application Firewalls.
-
 ## Prerequisites
-
 - Web application behind a load balancer or reverse proxy
 - AWS account for AWS WAF, or Cloudflare account for Cloudflare WAF
 - Nginx with ModSecurity module compiled for self-hosted WAF
 - Access to application logs to tune rules and identify false positives
 - Understanding of HTTP request/response structure
-
 Before mutation, verify the owned account/zone/resource, existing rules and rollback plan. Save current configuration; creating duplicate phase entrypoints or applying Terraform can replace rules. Test the actual application in staging with representative allowed and disallowed requests, then promote a narrowly scoped blocking policy. The blocking examples below are desired enforcement states, not a recommendation to enable all rules immediately. Review sampled-request/log retention and redact tokens, cookies and bodies. WAFs do not replace application authorization, CSRF defenses, parameterized queries or dependency fixes.
-
 ## AWS WAF
-
 ### Create Web ACL with Managed Rules
-
 ```bash
 # Create Web ACL with AWS managed rules
 aws wafv2 create-web-acl \
@@ -57,11 +42,8 @@ aws wafv2 create-web-acl \
   --visibility-config SampledRequestsEnabled=true,CloudWatchMetricsEnabled=true,MetricName=production-waf \
   --rules file://waf-rules.json
 ```
-
 Save the following reviewed JSON as `waf-rules.json` before creation. Inspect managed-rule versions and start with Count overrides and scoped test targets; tune and explicitly remove overrides only after evidence. AWS CLI byte-blob encoding depends on its binary-format setting: verify SearchString encoding for your CLI, rather than assuming the inline JSON is portable.
-
 ### AWS WAF Rules Configuration
-
 ```json
 [
   {
@@ -164,102 +146,80 @@ Save the following reviewed JSON as `waf-rules.json` before creation. Inspect ma
   }
 ]
 ```
-
 ### Associate WAF with ALB
-
 ```bash
 # Associate with Application Load Balancer
 aws wafv2 associate-web-acl \
   --web-acl-arn arn:aws:wafv2:us-east-1:123456789012:regional/webacl/production-waf/abc123 \
   --resource-arn arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/my-alb/abc123
-
 # Associate with API Gateway
 aws wafv2 associate-web-acl \
   --web-acl-arn arn:aws:wafv2:us-east-1:123456789012:regional/webacl/production-waf/abc123 \
   --resource-arn arn:aws:apigateway:us-east-1::/restapis/abc123/stages/prod
 ```
-
 ### AWS WAF Terraform
-
 ```hcl
 resource "aws_wafv2_web_acl" "main" {
   name        = "production-waf"
   scope       = "REGIONAL"
   description = "Production WAF with OWASP protections"
-
   default_action {
     allow {}
   }
-
   rule {
     name     = "AWSManagedRulesCommonRuleSet"
     priority = 1
-
     override_action { none {} }
-
     statement {
       managed_rule_group_statement {
         name        = "AWSManagedRulesCommonRuleSet"
         vendor_name = "AWS"
-
         rule_action_override {
           name = "SizeRestrictions_BODY"
           action_to_use { count {} }
         }
       }
     }
-
     visibility_config {
       cloudwatch_metrics_enabled = true
       metric_name                = "AWSCommonRules"
       sampled_requests_enabled   = true
     }
   }
-
   rule {
     name     = "RateLimit"
     priority = 10
-
     action { block {} }
-
     statement {
       rate_based_statement {
         limit              = 2000
         aggregate_key_type = "IP"
       }
     }
-
     visibility_config {
       cloudwatch_metrics_enabled = true
       metric_name                = "RateLimit"
       sampled_requests_enabled   = true
     }
   }
-
   visibility_config {
     cloudwatch_metrics_enabled = true
     metric_name                = "production-waf"
     sampled_requests_enabled   = true
   }
 }
-
 resource "aws_wafv2_web_acl_association" "alb" {
   resource_arn = aws_lb.main.arn
   web_acl_arn  = aws_wafv2_web_acl.main.arn
 }
 ```
-
 ## Cloudflare WAF
-
 ### API Configuration
-
 Use an approved authenticated connector when available. For curl examples, `CF_CURL_CONFIG` refers to a user-provisioned private untracked config file (mode 0600) containing the authorization header; never pass the token in argv or print the file. Verify zone and token scope. Fetch the existing phase entrypoint/ruleset ID before any create/update, and merge intended changes without dropping other rules. The illustrative Cloudflare Terraform fragment uses provider v4-style blocks; pin and validate the actual provider schema before use.
-
 ```bash
 # List available WAF rulesets
 curl --fail-with-body --max-time 30 -sS "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/rulesets" \
   --config "$CF_CURL_CONFIG" | jq '.result[] | {id, name, phase}'
-
 # Create a custom WAF rule
 curl --fail-with-body --max-time 30 -X POST "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/rulesets" \
   --config "$CF_CURL_CONFIG" \
@@ -291,7 +251,6 @@ curl --fail-with-body --max-time 30 -X POST "https://api.cloudflare.com/client/v
       }
     ]
   }'
-
 # Configure rate limiting
 curl --fail-with-body --max-time 30 -X POST "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/rulesets" \
   --config "$CF_CURL_CONFIG" \
@@ -315,22 +274,18 @@ curl --fail-with-body --max-time 30 -X POST "https://api.cloudflare.com/client/v
     ]
   }'
 ```
-
 ### Cloudflare Terraform
-
 ```hcl
 resource "cloudflare_ruleset" "waf_custom" {
   zone_id = var.zone_id
   name    = "Custom WAF Rules"
   kind    = "zone"
   phase   = "http_request_firewall_custom"
-
   rules {
     action      = "block"
     expression  = "(http.request.uri.query contains \"union select\")"
     description = "Block SQL injection in query string"
   }
-
   rules {
     action      = "managed_challenge"
     expression  = "(http.request.uri.path eq \"/login\")"
@@ -338,37 +293,26 @@ resource "cloudflare_ruleset" "waf_custom" {
   }
 }
 ```
-
-
 Cloudflare `cf.threat_score` now always returns zero; do not use old score thresholds as protection. The login challenge above is an explicit path example, not a replacement threat score. Query substring and User-Agent rules are evadable and can block legitimate requests; use managed rules and application fixes. Rate-limit options and periods depend on the plan; confirm them before sending. Geo blocks require business authorization and are not proof of attacker origin.
-
 ## Contents
-
 - [ModSecurity with Nginx](references/details.md)
 - [WAF Tuning Workflow](references/details.md)
 - [Troubleshooting](references/details.md)
 - [Best Practices](references/details.md)
 - [Related Skills](references/details.md)
-
 ## When to Use This Skill
-
 Use this skill when:
 - Deploying a public-facing web application that needs attack protection
 - Meeting compliance requirements (PCI-DSS, SOC2) for web application security
 - Blocking OWASP Top 10 attack categories (SQLi, XSS, CSRF, etc.)
 - Protecting APIs from abuse, injection, and rate-based attacks
 - Adding a virtual patching layer while application code is being fixed
-
 ## Limitations
-
 - Apply guidance only within authorized scope; test destructive steps in non-production first.
 - Docs-only import: upstream scripts and templates not bundled.
-
 ### Example
-
 ```bash
 # Read-only first: inventory before any active step.
 which <tool> && <tool> --help | head -n 20
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.

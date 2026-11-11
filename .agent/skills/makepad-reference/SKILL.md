@@ -1,43 +1,30 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "b29371f85ef62724c9bb043187a76e1f0d530aa2a9a892dfaf23fc7730d9dc36"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: b29371f85ef62724c9bb043187a76e1f0d530aa2a9a892dfaf23fc7730d9dc36
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-03-06
+description: Guide to diagnosing Makepad build, widget, redraw and layout issues against the exact runtime revision.
 name: makepad-reference
-description: "Guide to diagnosing Makepad build, widget, redraw and layout issues against the exact runtime revision."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-03-06"
 ---
-
-
 # Makepad Reference
-
 This category provides reference materials for debugging, code quality, and advanced layout patterns.
-
 ## When to Use
 - You need quick-reference material for common Makepad errors, debugging, or API lookups.
 - The task is diagnostic or reference-oriented rather than writing a focused feature in one subsystem.
 - You want a central starting point before diving into more specialized Makepad skills.
-
 ## Quick Navigation
-
 | Topic | File | Use When |
 |-------|------|----------|
 | API Documentation | Official docs index, quick API reference | Finding detailed API info |
 | Troubleshooting | Common errors and fixes | Build fails, runtime errors |
 | Code Quality | Makepad-aware refactoring | Simplifying code safely |
 | Adaptive Layout | Desktop/mobile responsive | Cross-platform layouts |
-
 ## Common Issues Quick Reference
-
 | Error | Quick Fix |
 |-------|-----------|
 | `no matching field: font` | Use `text_style: <THEME_FONT_*>{}` |
@@ -45,30 +32,23 @@ This category provides reference materials for debugging, code quality, and adva
 | `set_text` missing argument | Add `cx` as first argument |
 | UI not updating | Call `redraw(cx)` after changes |
 | Widget not found | Check ID spelling, use `ids!()` for paths |
-
 ## Debug Tips
-
 ```bash
 # Run with line info for better error messages
 MAKEPAD=lines cargo run  # Use the project-pinned toolchain; verify this diagnostic flag for its revision
 ```
-
 ```rust
 // Add logging
 log!("Value: {:?}", my_value);
 log!("State: {} / {}", self.counter, self.is_loading);
 ```
-
 ## Resources
-
 - [Makepad Official Docs](https://publish.obsidian.md/makepad-docs/) - Obsidian-based documentation
 - [Makepad Repository](https://github.com/makepad/makepad)
 - [Robrix](https://github.com/project-robius/robrix) - Production reference
 - [Moly](https://github.com/moxin-org/moly) - Production reference
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 The navigation table names topics, not bundled reference files. Verify exact Makepad API signatures and the project toolchain before changing code; preserve private values in logs, and test widget updates, input and target layouts rather than assuming a redraw call fixes every issue.

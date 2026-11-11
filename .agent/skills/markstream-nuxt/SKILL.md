@@ -1,45 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "b0eba06282447dd59e67ea4c638a708a82f62eec98dba703e6125b450770c0c5"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: markstream-nuxt
-description: "Integrate markstream-vue into Nuxt 3 or 4 with SSR-safe client boundaries, renderer modes, explicit CSS, and browser-only optional peers."
-tier: "experimental"
+content_hash: b0eba06282447dd59e67ea4c638a708a82f62eec98dba703e6125b450770c0c5
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: Simon-He95
 category: frontend
+date_added: 2026-07-21
+description: Integrate markstream-vue into Nuxt 3 or 4 with SSR-safe client boundaries, renderer modes, explicit CSS, and browser-only optional peers.
+license: MIT
+license_source: "https://github.com/Simon-He95/markstream-vue/blob/main/license"
+name: markstream-nuxt
 risk: critical
-source: https://github.com/Simon-He95/markstream-vue/tree/main/.agents/skills/markstream-nuxt
+source: "https://github.com/Simon-He95/markstream-vue/tree/main/.agents/skills/markstream-nuxt"
 source_repo: Simon-He95/markstream-vue
 source_type: official
-date_added: "2026-07-21"
-author: Simon-He95
-tags: [nuxt, vue, ssr, markdown, streaming]
-tools: [claude, cursor, gemini, codex]
-license: MIT
-license_source: https://github.com/Simon-He95/markstream-vue/blob/main/license
+tags: "[nuxt, vue, ssr, markdown, streaming]"
+tools: "[claude, cursor, gemini, codex]"
 ---
-
-
 # Markstream Nuxt
-
 ## Overview
-
 Integrate `markstream-vue` into Nuxt while keeping hydration, browser-only peers, workers, and streaming behavior on the correct side of SSR boundaries.
-
 ## When to Use
-
 Use for Nuxt 3 or 4 pages, components, or plugins. Use `markstream-vue` for non-Nuxt Vue applications and `markstream-install` when the framework is not yet known.
-
 ## Workflow
-
 Inspect the existing package manager, installed package version and project conventions. A requested scoped integration already authorizes routine source/dependency edits; seek approval only for a material scope expansion or unresolved beta/alpha adoption decision.
-
 1. Confirm Nuxt 3 or 4 and install only requested peers.
 2. Put browser-only peers behind `<ClientOnly>`, `.client` plugins, dynamic imports, or guarded initialization.
 3. Import `markstream-vue/index.css` explicitly from a client-safe shell or plugin.
@@ -48,17 +34,13 @@ Inspect the existing package manager, installed package version and project conv
 6. When a chat row completes, keep its mode stable, set `final`, disable pacing/cursor, and enable fade only if desired.
 7. Keep HTML safe and Mermaid strict. Put optional code, diagram, and worker runtimes behind client boundaries.
 8. Validate build/typecheck, hydration, and one incremental client update.
-
 ## Example
-
 ```vue
 <script setup lang="ts">
 import MarkdownRender from 'markstream-vue'
 import 'markstream-vue/index.css'
-
 defineProps<{ markdown: string; done: boolean }>()
 </script>
-
 <template>
   <MarkdownRender
     mode="chat"
@@ -71,15 +53,10 @@ defineProps<{ markdown: string; done: boolean }>()
   />
 </template>
 ```
-
 ## Limitations
-
 - Browser-only peers cannot run during SSR.
 - Hydration depends on correct host plugin/component boundaries.
 - This skill does not configure deployment adapters.
-
 ## Security & Safety Notes
-
 Do not expose trusted HTML or loose Mermaid settings to untrusted model output. Review dependency and runtime-boundary changes.
-
 Verify props, export paths and peer ranges against the installed package, not a mutable upstream main. Test partial and completed streams, malformed/untrusted Markdown, links and image URLs, cancellation and reduced motion. Safe HTML and strict diagrams reduce exposure but do not alone enforce URL/network privacy or application component permissions.

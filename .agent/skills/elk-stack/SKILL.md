@@ -1,63 +1,46 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "a55451dfdf711a343074b3022b9a333046147284ceb6c60a996693596900362c"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: elk-stack
-description: Deploy and manage the ELK Stack (Elasticsearch, Logstash, Kibana) for
-tier: "experimental"
-  log aggregation and analysis.
+content_hash: a55451dfdf711a343074b3022b9a333046147284ceb6c60a996693596900362c
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+date_added: 2026-09-20
+description: Deploy and manage the ELK Stack (Elasticsearch, Logstash, Kibana) for
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: filebeat
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+tags: "["nginx"]"
+version: 3.8
+---  log aggregation and analysis.
   CI runners) and authorized access to the target environment. Docs-only; helper scripts
   and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # ELK Stack
-
 Centralize and analyze logs with Elasticsearch, Logstash, and Kibana.
-
 ## When to Use This Skill
-
 Use this skill when:
 - Centralizing logs from multiple sources
 - Building log search and analytics platforms
 - Creating log-based dashboards and alerts
 - Implementing full-text search for logs
 - Processing and transforming log data
-
 ## Prerequisites
-
 - Docker or server infrastructure
 - Sufficient disk space for log storage
 - Network access from log sources
-
 ## Lab and production boundaries
-
 The Compose file is a local disposable lab with Elasticsearch security disabled; loopback binding does not make it appropriate for shared networks. Production needs verified compatible patched versions, authentication/TLS between components, least-privilege ingestion and reviewed retention. A read-only docker.sock mount still exposes daemon API capabilities; omit it or use a restricted proxy. Redact secrets/PII before ingestion and restrict dashboards/exported logs. Watcher/webhook creation sends recurring external messages and requires the corresponding user instruction. ILM snippets are version-dependent and need a correctly bootstrapped rollover alias/data stream; date-named Logstash indices do not automatically satisfy that contract.
-
 ## Docker Deployment
-
 ```yaml
 # docker-compose.yml
-version: '3.8'
 
 services:
   elasticsearch:
@@ -70,7 +53,6 @@ services:
       - "127.0.0.1:9200:9200"
     volumes:
       - elasticsearch-data:/usr/share/elasticsearch/data
-
   logstash:
     image: docker.elastic.co/logstash/logstash:8.11.0
     volumes:
@@ -81,7 +63,6 @@ services:
       - "127.0.0.1:5000:5000"
     depends_on:
       - elasticsearch
-
   kibana:
     image: docker.elastic.co/kibana/kibana:8.11.0
     ports:
@@ -90,7 +71,6 @@ services:
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
     depends_on:
       - elasticsearch
-
   filebeat:
     image: docker.elastic.co/beats/filebeat:8.11.0
     user: root
@@ -100,15 +80,11 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     depends_on:
       - logstash
-
 volumes:
   elasticsearch-data:
 ```
-
 ## Elasticsearch Configuration
-
 ### Index Templates
-
 ```json
 PUT _index_template/logs-template
 {
@@ -132,9 +108,7 @@ PUT _index_template/logs-template
   }
 }
 ```
-
 ### Index Lifecycle Management
-
 ```json
 PUT _ilm/policy/logs-policy
 {
@@ -172,24 +146,19 @@ PUT _ilm/policy/logs-policy
   }
 }
 ```
-
 ## Logstash Pipeline
-
 ### Basic Pipeline
-
 ```ruby
 # logstash/pipeline/main.conf
 input {
   beats {
     port => 5044
   }
-  
   tcp {
     port => 5000
     codec => json_lines
   }
 }
-
 filter {
   # Parse JSON logs
   if [message] =~ /^\{/ {
@@ -197,18 +166,15 @@ filter {
       source => "message"
     }
   }
-  
   # Parse timestamp
   date {
     match => ["timestamp", "ISO8601", "yyyy-MM-dd HH:mm:ss"]
     target => "@timestamp"
   }
-  
   # Add environment tag
   mutate {
     add_field => { "environment" => "production" }
   }
-  
   # Grok pattern for nginx logs
   if [type] == "nginx" {
     grok {
@@ -218,7 +184,6 @@ filter {
     }
   }
 }
-
 output {
   elasticsearch {
     hosts => ["elasticsearch:9200"]
@@ -226,9 +191,7 @@ output {
   }
 }
 ```
-
 ### Advanced Filtering
-
 ```ruby
 filter {
   # Parse application logs
@@ -237,14 +200,12 @@ filter {
       "message" => "%{TIMESTAMP_ISO8601:timestamp} %{LOGLEVEL:level} \[%{DATA:service}\] %{GREEDYDATA:log_message}"
     }
   }
-  
   # Extract trace ID from message
   if [log_message] =~ /trace_id=/ {
     grok {
       match => { "log_message" => "trace_id=%{UUID:trace_id}" }
     }
   }
-  
   # GeoIP lookup
   if [client_ip] {
     geoip {
@@ -252,12 +213,10 @@ filter {
       target => "geoip"
     }
   }
-  
   # Drop debug logs in production
   if [level] == "DEBUG" and [environment] == "production" {
     drop {}
   }
-  
   # Enrich with lookup
   translate {
     field => "status"
@@ -270,9 +229,7 @@ filter {
   }
 }
 ```
-
 ## Filebeat Configuration
-
 ```yaml
 # filebeat/filebeat.yml
 filebeat.inputs:
@@ -282,30 +239,22 @@ filebeat.inputs:
     processors:
       - add_docker_metadata:
           host: "unix:///var/run/docker.sock"
-
   - type: log
     enabled: true
     paths:
       - /var/log/nginx/*.log
-    tags: ["nginx"]
     fields:
       type: nginx
-
 output.logstash:
   hosts: ["logstash:5044"]
-
 logging.level: info
 logging.to_files: true
 logging.files:
   path: /var/log/filebeat
-  name: filebeat
   keepfiles: 7
 ```
-
 ## Elasticsearch Queries
-
 ### Basic Queries
-
 ```json
 // Search all logs
 GET logs-*/_search
@@ -314,7 +263,6 @@ GET logs-*/_search
     "match_all": {}
   }
 }
-
 // Search by keyword
 GET logs-*/_search
 {
@@ -324,7 +272,6 @@ GET logs-*/_search
     }
   }
 }
-
 // Filter by field
 GET logs-*/_search
 {
@@ -341,9 +288,7 @@ GET logs-*/_search
   }
 }
 ```
-
 ### Aggregations
-
 ```json
 // Count by log level
 GET logs-*/_search
@@ -355,7 +300,6 @@ GET logs-*/_search
     }
   }
 }
-
 // Error rate over time
 GET logs-*/_search
 {
@@ -375,43 +319,31 @@ GET logs-*/_search
   }
 }
 ```
-
 ## Kibana Setup
-
 ### Index Patterns
-
 1. Go to Stack Management → Index Patterns
 2. Create pattern: `logs-*`
 3. Set time field: `@timestamp`
-
 ### Saved Searches
-
 Create saved searches for common queries:
 - `level:ERROR` - All errors
 - `service:api-gateway AND level:ERROR` - API gateway errors
 - `response_time:>1000` - Slow requests
-
 ### Visualizations
-
 Common visualization types:
 - **Line Chart**: Error rate over time
 - **Pie Chart**: Distribution by log level
 - **Data Table**: Top error messages
 - **Metric**: Total error count
-
 ### Dashboard Example
-
 Create dashboard with:
 1. Total log count (Metric)
 2. Error rate trend (Line chart)
 3. Logs by service (Pie chart)
 4. Recent errors (Data table)
 5. Log stream (Discover panel)
-
 ## Alerting
-
 ### Watcher (X-Pack)
-
 ```json
 PUT _watcher/watch/error_alert
 {
@@ -452,27 +384,20 @@ PUT _watcher/watch/error_alert
   }
 }
 ```
-
 ## Common Issues
-
 ### Issue: High Disk Usage
 **Problem**: Elasticsearch consuming too much disk
 **Solution**: Implement ILM policies, reduce retention
-
 ### Issue: Slow Searches
 **Problem**: Queries taking too long
 **Solution**: Optimize index settings, add more shards, use filters
-
 ### Issue: Log Parsing Failures
 **Problem**: Logs not parsed correctly
 **Solution**: Test grok patterns, check for log format changes
-
 ### Issue: Memory Pressure
 **Problem**: Elasticsearch OOM errors
 **Solution**: Increase heap size (max 50% of RAM), limit field data
-
 ## Best Practices
-
 - Implement index lifecycle management
 - Use index templates for consistent mappings
 - Parse logs at ingestion time
@@ -481,23 +406,16 @@ PUT _watcher/watch/error_alert
 - Monitor cluster health
 - Implement proper security (X-Pack)
 - Regular index maintenance
-
 ## Related Skills
-
 - loki-logging (`loki-logging`) - Alternative logging stack
 - prometheus-grafana (`prometheus-grafana`) - Metrics monitoring
 - audit-logging (`audit-logging`) - Compliance logging
-
 ## Limitations
-
 - Guidance executes against real environments: confirm target, blast radius, and rollback plan before applying anything.
 - Never deploy to production without explicit approval. Docs-only import: upstream scripts and templates not bundled.
-
 ### Example
-
 ```bash
 git status && git diff --stat
 kubectl diff -f manifest.yaml
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.

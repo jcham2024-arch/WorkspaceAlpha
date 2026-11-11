@@ -1,35 +1,22 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "0ea3a7970e29839ea947bc12d38b2ae1c3a5cd63021e3d2c9ee7e298248d25be"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 0ea3a7970e29839ea947bc12d38b2ae1c3a5cd63021e3d2c9ee7e298248d25be
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Review updates to GitHub SpecKit on Windows 11 with PowerShell, preserving local templates and customizations
 name: claude-win11-speckit-update-skill
-description: "Review updates to GitHub SpecKit on Windows 11 with PowerShell, preserving local templates and customizations"
-tier: "experimental"
 risk: critical
-source: "https://github.com/NotMyself/claude-win11-speckit-update-skill"
-date_added: "2026-02-27"
+source: ""https://github.com/NotMyself/claude-win11-speckit-update-skill""
 ---
-
-
 # Claude Win11 Speckit Update Skill
-
 ## Overview
-
 Review updates to GitHub SpecKit on Windows 11 with PowerShell, preserving local templates and customizations
-
 ## When to Use This Skill
-
 Use when reviewing a SpecKit project update on Windows 11 while preserving local templates and customizations; not for general Windows administration.
-
 ## Instructions
-
 This is a guide to an archived upstream SpecKit updater, not Windows system
 administration. No updater scripts are bundled in AAS. Confirm Windows, PowerShell,
 Git and the project's existing SpecKit installation before selecting a supported
@@ -39,20 +26,13 @@ three-way changes, and apply only the accepted changes within the project scope.
 Do not run `specify init --force` as a shortcut or claim preservation before inspecting
 the result. If the legacy updater is absent, produce a reviewable migration plan;
 do not invent its slash command or execute unreviewed scripts.
-
 ## Example
-
 **User request:**
-
 > Use @claude-win11-speckit-update-skill for this task: Review updates to GitHub SpecKit on Windows 11 with PowerShell, preserving local templates and customizations.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Windows](platforms/windows.md)

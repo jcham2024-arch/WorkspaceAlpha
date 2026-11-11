@@ -1,56 +1,41 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "f1f24824a027e6609f50acb2ae5351d89953106cbee80408381b749110357be6"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-monitor-audit
-description: Configure Azure Monitor and Activity Log for auditing. Set up diagnostic
-tier: "experimental"
-  settings and log analytics. Use when auditing Azure activity.
+content_hash: f1f24824a027e6609f50acb2ae5351d89953106cbee80408381b749110357be6
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: security
+compatibility: Checklist and framework guidance; no privileged tooling required. Apply
+date_added: 2026-09-20
+description: Configure Azure Monitor and Activity Log for auditing. Set up diagnostic
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: azure-monitor-audit
 risk: safe
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Checklist and framework guidance; no privileged tooling required. Apply
+version: 1.0
+---  settings and log analytics. Use when auditing Azure activity.
   controls through your own change process.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # Azure Monitor Audit
-
 Audit Azure activity with Monitor, Activity Logs, and Log Analytics for compliance, security, and operational visibility.
-
 ## When to Use
-
 - Enabling centralized audit logging across Azure subscriptions
 - Meeting compliance requirements for SOC 2, HIPAA, PCI DSS, or ISO 27001
 - Investigating security incidents or unauthorized activity in Azure
 - Setting up alerting on administrative and security events
 - Building compliance dashboards and automated evidence collection
-
 These are paid provisioning/configuration examples requiring authorized Azure access, not privilege-free checks. Confirm tenant/subscription, data residency, cost/retention and alert recipients before writes. Inspect supported categories for each resource and verify actual ingestion after setup; Entra SigninLogs/AuditLogs require their own connector/licensing, and SQL diagnostics do not enable SQL auditing by themselves. Never place real PagerDuty integration keys in committed command URLs.
-
 ## Create Log Analytics Workspace
-
 ```bash
 # Create resource group for audit resources
 az group create \
   --name rg-audit \
   --location eastus
-
 # Create Log Analytics workspace
 az monitor log-analytics workspace create \
   --resource-group rg-audit \
@@ -58,20 +43,15 @@ az monitor log-analytics workspace create \
   --location eastus \
   --retention-time 365 \
   --sku PerGB2018
-
 # Get workspace ID for later use
 WORKSPACE_ID=$(az monitor log-analytics workspace show \
   --resource-group rg-audit \
   --workspace-name audit-workspace \
   --query id -o tsv)
-
 # Verify required data connectors separately; workspace creation does not ingest logs.
 ```
-
 Diagnostic-setting retentionPolicy no longer enforces storage retention (retired September30,2025); use reviewed Azure Storage lifecycle policies and separately configure Log Analytics table/workspace retention. Retention is not immutability and diagnostic settings do not establish regulatory compliance.
-
 ## Configure Diagnostic Settings for Subscription Activity Log
-
 ```bash
 # Export subscription activity log to Log Analytics
 az monitor diagnostic-settings subscription create \
@@ -88,7 +68,6 @@ az monitor diagnostic-settings subscription create \
     {"category": "Autoscale", "enabled": true},
     {"category": "ResourceHealth", "enabled": true}
   ]'
-
 # Also archive to storage account for long-term retention
 az storage account create \
   --name auditlogsarchive \
@@ -98,7 +77,6 @@ az storage account create \
   --kind StorageV2 \
   --min-tls-version TLS1_2 \
   --allow-blob-public-access false
-
 az monitor diagnostic-settings subscription create \
   --name activity-log-to-storage \
   --location global \
@@ -108,9 +86,7 @@ az monitor diagnostic-settings subscription create \
     {"category": "Security", "enabled": true}
   ]'
 ```
-
 ## Resource-Level Diagnostic Settings
-
 ```bash
 # Enable diagnostics for Azure Key Vault
 az monitor diagnostic-settings create \
@@ -124,7 +100,6 @@ az monitor diagnostic-settings create \
   --metrics '[
     {"category": "AllMetrics", "enabled": true}
   ]'
-
 # Enable diagnostics for Azure SQL Database
 az monitor diagnostic-settings create \
   --name sql-audit \
@@ -135,7 +110,6 @@ az monitor diagnostic-settings create \
     {"category": "SQLInsights", "enabled": true},
     {"category": "AutomaticTuning", "enabled": true}
   ]'
-
 # Enable diagnostics for Azure App Service
 az monitor diagnostic-settings create \
   --name appservice-audit \
@@ -147,7 +121,6 @@ az monitor diagnostic-settings create \
     {"category": "AppServiceIPSecAuditLogs", "enabled": true},
     {"category": "AppServicePlatformLogs", "enabled": true}
   ]'
-
 # NSG diagnostic events below are not flow logs. New deployments should use
 # Network Watcher VNet flow logs; new NSG flow logs cannot be created.
 # Inspect supported diagnostic categories before enabling these event categories.
@@ -160,13 +133,9 @@ az monitor diagnostic-settings create \
     {"category": "NetworkSecurityGroupRuleCounter", "enabled": true}
   ]'
 ```
-
 ## Azure Policy for Diagnostic Settings Enforcement
-
 Discover the applicable built-in policy definition/version and its actual parameter schema before assignment; do not reuse hardcoded unrelated GUIDs. Review scope, managed identity, deployment location, role assignments and remediation tasks for DeployIfNotExists. Existing resources may need a separate authorized remediation. Record current assignments and test the exact definition on a small scope before subscription-wide changes.
-
 ## KQL Queries for Security Investigation
-
 ```kusto
 // Failed sign-in attempts with location and device details
 SigninLogs
@@ -178,7 +147,6 @@ SigninLogs
     by UserPrincipalName, ResultDescription, AppDisplayName
 | where FailureCount > 5
 | order by FailureCount desc
-
 // Successful sign-ins from unusual locations
 SigninLogs
 | where TimeGenerated > ago(7d)
@@ -190,7 +158,6 @@ SigninLogs
             Countries = make_set(Country)
     by UserPrincipalName
 | where array_length(Countries) > 2
-
 // Risky sign-ins requiring investigation
 SigninLogs
 | where TimeGenerated > ago(7d)
@@ -199,7 +166,6 @@ SigninLogs
           LocationDetails.city, RiskLevelDuringSignIn,
           RiskEventTypes_V2, AppDisplayName
 | order by TimeGenerated desc
-
 // Administrative operations across subscriptions
 AzureActivity
 | where TimeGenerated > ago(24h)
@@ -209,7 +175,6 @@ AzureActivity
 | project TimeGenerated, Caller, OperationNameValue,
           ResourceGroup, Resource, SubscriptionId
 | order by TimeGenerated desc
-
 // Key Vault access patterns
 AzureDiagnostics
 | where ResourceType == "VAULTS"
@@ -219,7 +184,6 @@ AzureDiagnostics
 | project TimeGenerated, CallerIPAddress, identity_claim_upn_s,
           OperationName, id_s, ResultType
 | order by TimeGenerated desc
-
 // Detect changes to Network Security Groups
 AzureActivity
 | where TimeGenerated > ago(7d)
@@ -228,10 +192,8 @@ AzureActivity
 | project TimeGenerated, Caller, OperationNameValue,
           ResourceGroup, Properties
 | order by TimeGenerated desc
-
 // Policy compliance is a separate Policy Insights/Resource Graph data source.
 // Query the actual configured policy-state source; no PolicyInsights Log Analytics table is assumed.
-
 // Privileged role assignments (PIM)
 AuditLogs
 | where TimeGenerated > ago(30d)
@@ -242,9 +204,7 @@ AuditLogs
 | project TimeGenerated, AssignedBy, TargetType, TargetName, TargetId, OperationName
 | order by TimeGenerated desc
 ```
-
 ## Alert Rules
-
 ```bash
 # Create action group for security notifications
 az monitor action-group create \
@@ -253,7 +213,6 @@ az monitor action-group create \
   --short-name SecTeam \
   --email-receivers name=SecurityLead email=security@example.com \
   --webhook-receivers name=PagerDuty uri=https://events.pagerduty.com/integration/{key}/enqueue
-
 # Alert on multiple failed sign-ins (brute force detection)
 az monitor scheduled-query create \
   --resource-group rg-audit \
@@ -265,7 +224,6 @@ az monitor scheduled-query create \
   --window-size 5m \
   --severity 2 \
   --action-groups /subscriptions/{sub}/resourceGroups/rg-audit/providers/Microsoft.Insights/actionGroups/security-team
-
 # Alert on Key Vault secret access outside business hours
 az monitor scheduled-query create \
   --resource-group rg-audit \
@@ -277,7 +235,6 @@ az monitor scheduled-query create \
   --window-size 15m \
   --severity 3 \
   --action-groups /subscriptions/{sub}/resourceGroups/rg-audit/providers/Microsoft.Insights/actionGroups/security-team
-
 # Alert on subscription-level administrative changes
 az monitor activity-log alert create \
   --resource-group rg-audit \
@@ -286,9 +243,7 @@ az monitor activity-log alert create \
   --action-group /subscriptions/{sub}/resourceGroups/rg-audit/providers/Microsoft.Insights/actionGroups/security-team \
   --description "Alert on new role assignments"
 ```
-
 ## Workbook for Compliance Dashboard (ARM Template Snippet)
-
 ```json
 {
   "type": "Microsoft.Insights/workbooks",
@@ -302,9 +257,7 @@ az monitor activity-log alert create \
   }
 }
 ```
-
 ## Setup Checklist
-
 ```yaml
 azure_monitor_checklist:
   workspace_setup:
@@ -312,7 +265,6 @@ azure_monitor_checklist:
     - [ ] Retention period configured (minimum per compliance framework)
     - [ ] Budgets/ingestion alerts configured; a daily cap can stop audit ingestion and is not a cost guarantee
     - [ ] RBAC permissions set (Log Analytics Reader for auditors)
-
   diagnostic_settings:
     - [ ] Subscription activity log exported to Log Analytics
     - [ ] Subscription activity log archived to storage account
@@ -321,12 +273,10 @@ azure_monitor_checklist:
     - [ ] VNet flow logs configured/verified through Network Watcher
     - [ ] App Service audit logs enabled
     - [ ] Azure AD sign-in and audit logs connected
-
   policy_enforcement:
     - [ ] Azure Policy assigned to enforce diagnostic settings
     - [ ] DeployIfNotExists policies for critical resource types
     - [ ] Compliance state monitored via Policy Insights
-
   alerting:
     - [ ] Action groups configured for security and operations teams
     - [ ] Alert on brute force sign-in attempts
@@ -334,16 +284,13 @@ azure_monitor_checklist:
     - [ ] Alert on Key Vault sensitive operations
     - [ ] Alert on NSG rule changes
     - [ ] Alert on resource deletions in production
-
   reporting:
     - [ ] Compliance workbook deployed
     - [ ] Weekly automated query reports exported
     - [ ] Quarterly access review queries prepared
     - [ ] Evidence collection queries documented for auditors
 ```
-
 ## Best Practices
-
 - Choose workspace boundaries according to residency, access, billing and operational requirements; one workspace per tenant is not universal
 - Archive logs to immutable storage for long-term retention and compliance
 - Use Azure Policy with DeployIfNotExists to enforce diagnostic settings on new resources
@@ -354,16 +301,11 @@ azure_monitor_checklist:
 - Use workbooks for visual compliance dashboards shared with stakeholders
 - Export query results on a schedule for compliance evidence packages
 - Separate operational and security alerting to avoid alert fatigue
-
 ## Limitations
-
 - Guidance and checklists only; not legal advice and not a substitute for a qualified auditor.
 - Docs-only import: upstream templates and scripts not bundled.
-
 ### Example
-
 ```markdown
 Map this skill's control checklist to our current evidence and list gaps.
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.

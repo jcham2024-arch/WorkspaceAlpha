@@ -1,39 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "b4d051991d21c552d7e93c23d3dc71a30d0230fa3185a58bde55bf4253689146"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: dast-scanning
-description: Perform dynamic application security testing with OWASP ZAP, Burp Suite,
-tier: "experimental"
-  and Nikto.
+content_hash: b4d051991d21c552d7e93c23d3dc71a30d0230fa3185a58bde55bf4253689146
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: security
+compatibility: Requires the relevant security tooling (scanners, vault CLIs) and an
+date_added: 2026-09-20
+description: Perform dynamic application security testing with OWASP ZAP, Burp Suite,
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: zap-report
 risk: offensive
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant security tooling (scanners, vault CLIs) and an
+version: 1.0
+---  and Nikto.
   authorized scope for any active assessment. Docs-only; helper scripts and templates
   not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.
 > Misuse of this tool is illegal and strictly prohibited.
-
 > **Mandatory confirmation gate**
 > Before running any command that probes, exploits, changes, persists on, extracts data from, or attempts credential access against a target:
 > 1. Ask the user to state the exact target URL, IP, account, or resource.
@@ -42,29 +34,21 @@ metadata:
 > 4. Wait for explicit confirmation in the current conversation.
 >
 > Without that confirmation, remain read-only and provide defensive guidance only. Prefer a sandbox, disposable VM, or controlled lab.
-
 # DAST Scanning
-
 Test running applications for security vulnerabilities through dynamic analysis.
-
 ## When to Use This Skill
-
 Use this skill when:
 - Testing deployed applications
 - Performing automated security scans
 - Finding runtime vulnerabilities
 - Testing authentication flows
 - Validating API security
-
 ## Prerequisites
-
 - Running application instance
 - Network access to target
 - Testing authorization
 - Understanding of web security
-
 ## Tool Overview
-
 | Tool | Type | Best For |
 |------|------|----------|
 | OWASP ZAP | OSS | Automated scanning, CI |
@@ -72,13 +56,9 @@ Use this skill when:
 | Nikto | OSS | Web server scanning |
 | Nuclei | OSS | Template-based scanning |
 | Arachni | OSS | Comprehensive scanning |
-
 Agree exact URLs/hosts, authenticated test accounts, exclusions, rates, duration and stop conditions before scanning; spiders can trigger state-changing links even during baseline scans. Use staged data/backups and deny off-scope redirects/crawl targets. Keep ZAP API private with a strong API key rather than the broad address allowlist as a remote exposure pattern. The [baseline script](https://www.zaproxy.org/docs/docker/baseline-scan/) uses a preconfigured context and -U user for authentication, not the original ad-hoc login flags. Full/API scans actively attack; do not schedule them without authorization. Pin images/actions, quote mount paths and poll readiness rather than sleep. Burp REST APIs vary by edition/version: verify endpoints/auth, add timeouts/raise_for_status, parse Location and bound polling with failed/cancelled states. Its sketch also lacks time import. Reports may contain secrets/PII; restrict artifacts and permissions. No findings or HTTP 200 alone establish security; validate behavior and coverage, and do not suppress CI warnings with -I without policy review.
-
 ## OWASP ZAP
-
 ### Docker Setup
-
 ```bash
 # Run ZAP in daemon mode
 docker run -d --name zap \
@@ -89,16 +69,13 @@ docker run -d --name zap \
   -config api.addrs.addr.name=.* \
   -config api.addrs.addr.regex=true
 ```
-
 ### Baseline Scan
-
 ```bash
 # Quick baseline scan
 docker run --rm -v $(pwd):/zap/wrk \
   ghcr.io/zaproxy/zaproxy:stable \
   zap-baseline.py -t https://target.example.com \
   -r baseline-report.html
-
 # With authentication
 docker run --rm -v $(pwd):/zap/wrk \
   ghcr.io/zaproxy/zaproxy:stable \
@@ -107,9 +84,7 @@ docker run --rm -v $(pwd):/zap/wrk \
   -n /zap/wrk/auth.context \
   -U testuser
 ```
-
 ### Full Scan
-
 ```bash
 # Comprehensive scan
 docker run --rm -v $(pwd):/zap/wrk \
@@ -118,9 +93,7 @@ docker run --rm -v $(pwd):/zap/wrk \
   -r full-report.html \
   -J full-report.json
 ```
-
 ### API Scan
-
 ```bash
 # OpenAPI specification scan
 docker run --rm -v $(pwd):/zap/wrk \
@@ -129,9 +102,7 @@ docker run --rm -v $(pwd):/zap/wrk \
   -f openapi \
   -r api-report.html
 ```
-
 ### ZAP Automation Framework
-
 ```yaml
 # zap-automation.yaml
 env:
@@ -156,84 +127,67 @@ env:
           credentials:
             username: "test@example.com"
             password: "password123"
-
 jobs:
   - type: spider
     parameters:
       context: "Default Context"
       user: "testuser"
       maxDuration: 10
-      
   - type: spiderAjax
     parameters:
       context: "Default Context"
       user: "testuser"
       maxDuration: 10
-      
   - type: passiveScan-wait
     parameters:
       maxDuration: 5
-      
   - type: activeScan
     parameters:
       context: "Default Context"
       user: "testuser"
       policy: "Default Policy"
-      
   - type: report
     parameters:
       template: "traditional-html"
       reportDir: "/zap/reports"
       reportFile: "zap-report"
 ```
-
 ```bash
 # Run automation
 docker run --rm -v $(pwd):/zap/wrk \
   ghcr.io/zaproxy/zaproxy:stable \
   zap.sh -cmd -autorun /zap/wrk/zap-automation.yaml
 ```
-
 ## CI/CD Integration
-
 ### GitHub Actions
-
 ```yaml
-name: DAST Scan
 
 on:
   workflow_dispatch:
   schedule:
     - cron: '0 2 * * *'
-
 jobs:
   dast:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Start Application
         run: |
           docker-compose up -d
           sleep 30  # Wait for app to be ready
-
       - name: OWASP ZAP Scan
         uses: zaproxy/action-full-scan@v0.8.0
         with:
           target: 'http://localhost:8080'
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a'
-
       - name: Upload Report
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: zap-report
           path: report_html.html
 ```
-
 ### GitLab CI
-
 ```yaml
 dast:
   stage: security
@@ -250,19 +204,14 @@ dast:
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
 ```
-
 ## Burp Suite Automation
-
 ### REST API Usage
-
 ```python
 import requests
-
 class BurpScanner:
     def __init__(self, api_url, api_key):
         self.api_url = api_url
         self.headers = {'Authorization': api_key}
-    
     def create_scan(self, target_url):
         """Create and start a new scan."""
         payload = {
@@ -280,7 +229,6 @@ class BurpScanner:
             headers=self.headers
         )
         return response.headers.get('Location')
-    
     def get_scan_status(self, scan_id):
         """Get scan status."""
         response = requests.get(
@@ -288,7 +236,6 @@ class BurpScanner:
             headers=self.headers
         )
         return response.json()
-    
     def get_issues(self, scan_id):
         """Get scan issues."""
         response = requests.get(
@@ -296,80 +243,61 @@ class BurpScanner:
             headers=self.headers
         )
         return response.json()
-
 # Usage
 scanner = BurpScanner('http://burp:1337', 'api-key')
 scan_id = scanner.create_scan('https://target.example.com')
-
 while True:
     status = scanner.get_scan_status(scan_id)
     if status['scan_status'] == 'succeeded':
         break
     time.sleep(30)
-
 issues = scanner.get_issues(scan_id)
 ```
-
 ## Nikto
-
 ### Basic Scanning
-
 ```bash
 # Install
 apt-get install nikto
-
 # Basic scan
 nikto -h https://target.example.com
-
 # With specific options
 nikto -h https://target.example.com \
   -ssl \
   -Tuning 123bde \
   -output nikto-report.html \
   -Format html
-
 # Scan specific ports
 nikto -h target.example.com -p 80,443,8080
 ```
-
 ## Common DAST Findings
-
 ### OWASP Top 10
-
 ```yaml
 owasp_findings:
   A01_Broken_Access_Control:
     - IDOR vulnerabilities
     - Missing function-level access control
     - Privilege escalation
-    
   A02_Cryptographic_Failures:
     - Sensitive data in URLs
     - Missing HTTPS
     - Weak ciphers
-    
   A03_Injection:
     - SQL injection
     - Command injection
     - XSS
-    
   A05_Security_Misconfiguration:
     - Default credentials
     - Verbose error messages
     - Missing security headers
-    
   A07_Auth_Failures:
     - Weak passwords accepted
     - Session fixation
     - Missing MFA
 ```
-
 ## Security Headers Check
-
 ```bash
 # Check security headers
 curl -I https://target.example.com | grep -i "x-\|content-security\|strict"
-
 # Expected headers:
 # X-Content-Type-Options: nosniff
 # X-Frame-Options: DENY
@@ -377,9 +305,7 @@ curl -I https://target.example.com | grep -i "x-\|content-security\|strict"
 # Content-Security-Policy: default-src 'self'
 # Strict-Transport-Security: max-age=31536000
 ```
-
 ## Custom Test Cases
-
 ```yaml
 # Test authentication
 tests:
@@ -389,37 +315,29 @@ tests:
       - Verify 401/403 response
       - Access with valid auth
       - Verify 200 response
-    
   - name: "Session Management"
     steps:
       - Login and capture session token
       - Logout
       - Attempt to use old session
       - Verify session invalidated
-    
   - name: "Input Validation"
     steps:
       - Submit XSS payload in all inputs
       - Submit SQL injection in all inputs
       - Verify proper sanitization
 ```
-
 ## Common Issues
-
 ### Issue: False Positives
 **Problem**: Scanner reports non-vulnerabilities
 **Solution**: Configure scan policy, review findings manually
-
 ### Issue: Missing Authentication
 **Problem**: Cannot scan authenticated areas
 **Solution**: Configure authentication context, use session tokens
-
 ### Issue: Incomplete Coverage
 **Problem**: Scanner misses endpoints
 **Solution**: Import API specs, improve spidering, use authenticated scanning
-
 ## Best Practices
-
 - Test in staging environment first
 - Configure proper authentication
 - Import API specifications for complete coverage
@@ -428,23 +346,16 @@ tests:
 - Run regular scans (weekly minimum)
 - Track findings over time
 - Coordinate with development team
-
 ## Related Skills
-
 - sast-scanning (`sast-scanning`) - Static analysis
 - penetration-testing (`penetration-testing`) - Manual testing
 - waf-setup (`waf-setup`) - WAF configuration
-
 ## Limitations
-
 - Apply guidance only within authorized scope; test destructive steps in non-production first.
 - Docs-only import: upstream scripts and templates not bundled.
-
 ### Example
-
 ```bash
 # Read-only first: inventory before any active step.
 which <tool> && <tool> --help | head -n 20
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.

@@ -1,41 +1,27 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "5480988bbf5ed2a5cf0800d4136d73b7e6391c0367ec00a909e9b578997b79cd"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: thinking-systems
+content_hash: 5480988bbf5ed2a5cf0800d4136d73b7e6391c0367ec00a909e9b578997b79cd
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: When behavior is emergent across components—fixes elsewhere break, loops/delays dominate—map boundary, stocks/flows, feedback, archetypes, then rank leverage.
-tier: "experimental"
-disable-model-invocation: true
+name: thinking-systems
+---disable-model-invocation: true
 ---
-
-
 # Systems Mapping and Leverage
-
 Treat the problem as structure and interaction, not isolated parts. Map boundary, stocks/flows, loops/delays, and recurring patterns; intervene at the highest feasible leverage after a side-effect check.
-
 ## When to Use
-
 - Symptom spans services/components; single-stack fixes fail or bounce.
 - A change in one place breaks another; behavior is emergent.
 - Problem recurs despite local fixes (structure, not only symptom).
 - Need to rank interventions when parameter/buffer tweaks do not stick.
-
 ## When NOT to Use
-
 - Single-component linear bug with clear stack/diff—trace and fix.
 - Throughput limited by one obvious stage—use theory-of-constraints.
 - Decision is a consequence chain of one proposed action—use second-order.
 - Approach selection (plan vs probe vs stabilize)—use cynefin first.
-
 ## Procedure
-
 1. **Bound the system.** Name purpose, actors, boundary, and in/out flows. Exclude noise outside the decision horizon; include any path that can feed the symptom.
 2. **Map stocks and flows.** List accumulating stocks (queue depth, debt, cache size, WIP) and the rates that fill/drain them. Note what changes slowly even when flows jump.
 3. **Find feedback and delays.** For each candidate loop: classify reinforcing (amplifies) vs balancing (resists); mark same-direction (+) vs opposite (-) links; name delays (TTL, deploy lag, metric lag, ramp-up). Even count of opposite links → reinforcing; odd → balancing. Long delay + strong correction → overshoot risk.
@@ -51,11 +37,8 @@ Treat the problem as structure and interaction, not isolated parts. Map boundary
 5. **Trace symptom to structure.** Walk upstream along flows and loops; separate proximate symptom from structural driver (interaction, delay, wrong goal, missing info).
 6. **Rank interventions by leverage, then side effects.** Prefer higher feasible class: goals/paradigm → rules/information → loop structure (gain, balancing add, delay shorten) → stock/flow topology → buffers/parameters. For each candidate: feasibility, blast radius, delayed reversal risk. Prefer moves that cut harmful reinforcing gain or strengthen needed balancing loops without creating a new commons/escalation.
 7. **Stop.** Commit highest feasible intervention plus watch signals for loop/delay response. Re-map only if the structure changes or the intervention fails its watch.
-
 **Stop when** boundary, key stocks/flows, dominant loop(s)+delay(s), optional archetype, and a ranked intervention with side-effect check are stated—or when the problem collapses to a single linear cause.
-
 ## Output
-
 ```text
 boundary: <system purpose and edges>
 stocks_flows: <stock → inflow/outflow list>
@@ -73,9 +56,7 @@ interventions_ranked:
 chosen: <highest feasible>
 watch: <signals that confirm or falsify>
 ```
-
 ## Verification
-
 - **Falsify:** If removing one component fully explains and fixes the issue with no cross-effects, systems mapping is wrong—drop to local debug. If utilization shows one fixed stage as the sole cap, switch to theory-of-constraints.
 - **Stop:** Do not keep adding loops after the chosen intervention and watch are set.
 - **Over-application guard:** No archetype without recurrence evidence. No low-leverage param tweak listed as primary when a feasible higher class exists. Do not recreate standalone archetype/feedback/leverage procedures—those checks live only inside this map.

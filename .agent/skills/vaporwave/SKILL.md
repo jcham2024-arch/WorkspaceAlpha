@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "2c5f2fb353d0a29e4b70ae348f24c2839caca134baafbdf1356bfdcd7b30d6c2"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: vaporwave
+content_hash: 2c5f2fb353d0a29e4b70ae348f24c2839caca134baafbdf1356bfdcd7b30d6c2
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Vaporwave. Trigger when user wants neon colors, retro digital aesthetics, 90s OS elements, and Roman statues.
-tier: "experimental"
-date_added: "2026-06-17"
+name: vaporwave
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Vaporwave
-
 > "A surreal, nostalgic dream of 90s computing and pastel neon."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Windows 95 / Mac OS 9 Motifs**: UI elements designed to look explicitly like 1990s operating systems (grey boxes, hard bevels, blue title bars).
 2. **Surreal Pastels & Neons**: A mix of soft pinks, cyans, and harsh neon overlays.
 3. **Collage Aesthetic**: Mixing classical art (Roman busts), early 3D renders (checkerboard floors), and Japanese text (Kanji/Katakana).
-
 ## Visual DNA
 - **Colors**: Cyan (`#00FFFF`), Magenta (`#FF00FF`), Lavender (`#E6E6FA`), and classic Windows Grey (`#C0C0C0`).
 - **Typography**: `MS Sans Serif`, `Tahoma`, or pixel fonts. Fullwidth characters (ＡＥＳＴＨＥＴＩＣ) are highly encouraged for headers.
 - **Styling**: Hard, 1px outsets and insets to simulate 90s 3D buttons.
-
 ## Web Implementation
 - Use standard CSS borders to create the classic 90s button look.
 - **CSS Example**:
@@ -47,7 +34,6 @@ body {
   font-family: 'Tahoma', sans-serif;
   min-height: 100vh;
 }
-
 /* Windows 95 Style Window */
 .vapor-window {
   background-color: #C0C0C0;
@@ -58,7 +44,6 @@ body {
   box-sizing: border-box;
   padding: 2px;
 }
-
 .vapor-titlebar {
   background: linear-gradient(90deg, #000080, #1084d0);
   color: white;
@@ -67,7 +52,6 @@ body {
   display: flex;
   justify-content: space-between;
 }
-
 .vapor-button {
   background-color: #C0C0C0;
   border: 2px outset #fff;
@@ -78,7 +62,6 @@ body {
 .vapor-button:active {
   border-style: inset;
 }
-
 /* The iconic vaporwave sun/grid */
 .vapor-sun {
   width: 200px; height: 200px;
@@ -87,9 +70,7 @@ body {
   box-shadow: 0 0 20px #ff00ff;
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct VaporwaveView: View {
@@ -98,7 +79,6 @@ struct VaporwaveView: View {
             // Neon Gradient Background
             LinearGradient(colors: [Color(hex: "ff99cc"), Color(hex: "99ccff")], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
-            
             // Win95 Window
             VStack(spacing: 0) {
                 // Title Bar
@@ -115,13 +95,11 @@ struct VaporwaveView: View {
                 }
                 .padding(4)
                 .background(LinearGradient(colors: [Color(hex: "000080"), Color(hex: "1084d0")], startPoint: .leading, endPoint: .trailing))
-                
                 // Content
                 VStack {
                     Text("It's all in your head.")
                         .font(.custom("Tahoma", size: 16))
                         .padding()
-                    
                     // Win95 Button
                     Button(action: {}) {
                         Text("ＯＫ")
@@ -152,7 +130,6 @@ struct VaporwaveView: View {
 ```
 - You cannot use `.cornerRadius()` anywhere in Vaporwave design.
 - The Win95 3D bevel is achieved by stacking `.border()` and `.overlay(Rectangle().stroke())` with different colors (white for top/left, dark gray for bottom/right).
-
 ### Flutter
 ```dart
 class VaporwaveScreen extends StatelessWidget {
@@ -224,13 +201,11 @@ class VaporwaveScreen extends StatelessWidget {
 }
 ```
 - Flutter's `BoxDecoration` supports complex `Border` definitions where you can set `BorderSide` colors independently. This perfectly recreates CSS `outset` / `inset`.
-
 ### React Native
 ```jsx
 const VaporwaveScreen = () => {
   return (
     <LinearGradient colors={['#ff99cc', '#99ccff']} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      
       {/* Window */}
       <View style={{
         backgroundColor: '#C0C0C0', width: 300,
@@ -238,16 +213,13 @@ const VaporwaveScreen = () => {
         borderBottomWidth: 2, borderRightWidth: 2, borderBottomColor: '#808080', borderRightColor: '#808080',
         padding: 2
       }}>
-        
         {/* Title Bar */}
         <LinearGradient colors={['#000080', '#1084d0']} start={{x: 0, y: 0}} end={{x: 1, y: 0}} style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 4 }}>
           <Text style={{ color: '#FFF', fontWeight: 'bold' }}>ＡＥＳＴＨＥＴＩＣ.exe</Text>
           <View style={{ backgroundColor: '#C0C0C0', paddingHorizontal: 4 }}><Text style={{ fontWeight: 'bold' }}>X</Text></View>
         </LinearGradient>
-
         <View style={{ padding: 16, alignItems: 'center' }}>
           <Text style={{ fontFamily: 'monospace', marginBottom: 16 }}>nostalgia.sys</Text>
-          
           {/* Outset Button */}
           <TouchableOpacity style={{
             backgroundColor: '#C0C0C0', paddingHorizontal: 24, paddingVertical: 8,
@@ -257,16 +229,13 @@ const VaporwaveScreen = () => {
             <Text style={{ fontWeight: 'bold' }}>ＯＫ</Text>
           </TouchableOpacity>
         </View>
-
       </View>
-
     </LinearGradient>
   );
 };
 ```
 - Use independent border color styles (`borderTopColor: '#FFF'`, `borderBottomColor: '#808080'`) to build 90s OS chroming.
 - Decorative fullwidth lettering may fit the theme; use readable localized labels for real controls and expose ordinary text to assistive technology.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -307,12 +276,10 @@ fun VaporwaveScreen() {
                     Text("X", fontWeight = FontWeight.Bold)
                 }
             }
-            
             // Content
             Column(modifier = Modifier.fillMaxWidth().padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
                 Text("Welcome to the 90s.", fontFamily = FontFamily.Monospace)
                 Spacer(Modifier.height(16.dp))
-                
                 // Win95 Button
                 Box(
                     modifier = Modifier
@@ -334,13 +301,10 @@ fun VaporwaveScreen() {
 }
 ```
 - Compose's `Modifier.border` draws on all sides equally. To achieve the 90s outset look, you must use `Modifier.drawBehind` and manually draw the top/left lines in white and bottom/right lines in dark gray.
-
 ## Do's and Don'ts
 - **DO**: Use authentic 90s icons (pixelated hourglasses, folders, error dialogs).
 - **DON'T**: Use modern drop shadows or rounded corners. The 90s UI was sharp and jagged.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.
-
 The X and container-only OK examples are visual decorations, not working close/confirm controls. Use semantic buttons with actual callbacks, labels, focus and minimum target sizes before use. LinearGradient requires an installed and imported gradient implementation.

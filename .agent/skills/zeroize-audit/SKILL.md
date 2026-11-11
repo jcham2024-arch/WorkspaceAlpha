@@ -1,18 +1,16 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "860818660176d959dfcf18b8ff4f58b96d945da79fa4799511f570352615ff64"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 860818660176d959dfcf18b8ff4f58b96d945da79fa4799511f570352615ff64
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-03-06
+description: Detects missing zeroization of sensitive data in source code and identifies zeroization removed by compiler optimizations, with assembly-level analysis, and control-flow verification. Use for auditing C/C++/Rust code handling secrets, keys, passwords, or other sensitive data.
 name: zeroize-audit
-description: "Detects missing zeroization of sensitive data in source code and identifies zeroization removed by compiler optimizations, with assembly-level analysis, and control-flow verification. Use for auditing C/C++/Rust code handling secrets, keys, passwords, or other sensitive data."
-tier: "experimental"
-allowed-tools:
+risk: offensive
+source: community
+---allowed-tools:
   - Read
   - Grep
   - Glob
@@ -24,24 +22,14 @@ allowed-tools:
   - mcp__serena__find_symbol
   - mcp__serena__find_referencing_symbols
   - mcp__serena__get_symbols_overview
-risk: offensive
-source: community
-date_added: "2026-03-06"
 ---
-
 ## Supporting material availability
-
 This catalog copy contains the inline guidance below, but does not include the referenced supporting paths, including `tools/`, `schemas/`, `configs/`, `prompts/`, `workflows/` and `references/detection-strategy.md`. They are external prerequisites, not bundled files:
-
-
 Ask for the original supporting material or an existing installation before using a step that depends on these paths; this catalog does not identify a verified download source for them. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
-
-
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.
 > Misuse of this tool is illegal and strictly prohibited.
-
 > **Mandatory confirmation gate**
 > Before running any command that probes, exploits, changes, persists on, extracts data from, or attempts credential access against a target:
 > 1. Ask the user to state the exact target URL, IP, account, or resource.
@@ -50,24 +38,19 @@ Ask for the original supporting material or an existing installation before usin
 > 4. Wait for explicit confirmation in the current conversation.
 >
 > Without that confirmation, remain read-only and provide defensive guidance only. Prefer a sandbox, disposable VM, or controlled lab.
-
 # zeroize-audit — Claude Skill
-
 ## When to Use
 - Auditing cryptographic implementations (keys, seeds, nonces, secrets)
 - Reviewing authentication systems (passwords, tokens, session data)
 - Analyzing code that handles PII or sensitive credentials
 - Verifying secure cleanup in security-critical codebases
 - Investigating memory safety of sensitive data handling
-
 ## When NOT to Use
 - General code review without security focus
 - Performance optimization (unless related to secure wiping)
 - Refactoring tasks not related to sensitive data
 - Code without identifiable secrets or sensitive values
-
 ---
-
 ## Purpose
 Detect missing zeroization of sensitive data in source code and identify zeroization that is removed or weakened by compiler optimizations (e.g., dead-store elimination), with mandatory LLVM IR/asm evidence. Capabilities include:
 - Assembly-level analysis for register spills and stack retention
@@ -76,19 +59,14 @@ Detect missing zeroization of sensitive data in source code and identify zeroiza
 - Semantic IR analysis for loop unrolling and SSA form
 - Control-flow graph analysis for path coverage verification
 - Runtime validation test generation
-
 ## Scope
 - Read-only against the target codebase (does not modify audited code; writes analysis artifacts to a temporary working directory).
 - Produces a structured report (JSON).
 - Requires valid build context (`compile_commands.json`) and compilable translation units.
 - "Optimized away" findings only allowed with compiler evidence (IR/asm diff).
-
 ---
-
 ## Inputs
-
 See `{baseDir}/schemas/input.json` for the full schema. Key fields:
-
 | Field | Required | Default | Description |
 |---|---|---|---|
 | `path` | yes | — | Repo root |
@@ -107,15 +85,10 @@ See `{baseDir}/schemas/input.json` for the full schema. Key fields:
 | `enable_semantic_ir` | no | `false` | Enable semantic LLVM IR analysis (Step 9); produces `LOOP_UNROLLED_INCOMPLETE` |
 | `enable_cfg` | no | `false` | Enable control-flow graph analysis (Step 10); produces `MISSING_ON_ERROR_PATH`, `NOT_DOMINATING_EXITS` |
 | `enable_runtime_tests` | no | `false` | Enable runtime test harness generation (Step 11) |
-
 ---
-
 ## Prerequisites
-
 Before running, verify the following. Each has a defined failure mode.
-
 **C/C++ prerequisites:**
-
 | Prerequisite | Failure mode if missing |
 |---|---|
 | `compile_commands.json` at `compile_db` path | Fail fast — do not proceed |
@@ -126,9 +99,7 @@ Before running, verify the following. Each has a defined failure mode.
 | `{baseDir}/tools/emit_asm.sh` | Warn and skip assembly findings (STACK_RETENTION, REGISTER_SPILL) |
 | `{baseDir}/tools/mcp/check_mcp.sh` | Warn and treat as MCP unavailable |
 | `{baseDir}/tools/mcp/normalize_mcp_evidence.py` | Warn and use raw MCP output |
-
 **Rust prerequisites:**
-
 | Prerequisite | Failure mode if missing |
 |---|---|
 | `Cargo.toml` at `cargo_manifest` path | Fail fast — do not proceed |
@@ -147,19 +118,13 @@ Before running, verify the following. Each has a defined failure mode.
 | `{baseDir}/tools/scripts/check_rust_asm.py` | Warn and skip Rust assembly analysis (`STACK_RETENTION`, `REGISTER_SPILL`, drop-glue checks). Dispatches to `check_rust_asm_x86.py` (production) or `check_rust_asm_aarch64.py` (**EXPERIMENTAL** — AArch64 findings require manual verification). |
 | `{baseDir}/tools/scripts/check_rust_asm_x86.py` | Required by `check_rust_asm.py` for x86-64 analysis; warn and skip if missing |
 | `{baseDir}/tools/scripts/check_rust_asm_aarch64.py` | Required by `check_rust_asm.py` for AArch64 analysis (**EXPERIMENTAL**); warn and skip if missing |
-
 **Common prerequisite:**
-
 | Prerequisite | Failure mode if missing |
 |---|---|
 | `{baseDir}/tools/generate_poc.py` | Fail fast — PoC generation is mandatory |
-
 ---
-
 ## Approved Wipe APIs
-
 The following are recognized as valid zeroization. Configure additional entries in `{baseDir}/configs/`.
-
 **C/C++**
 - `explicit_bzero`
 - `memset_s`
@@ -168,18 +133,13 @@ The following are recognized as valid zeroization. Configure additional entries 
 - `sodium_memzero`
 - Volatile wipe loops (pattern-based; see `volatile_wipe_patterns` in `{baseDir}/configs/default.yaml`)
 - In IR: `llvm.memset` with volatile flag, volatile stores, or non-elidable wipe call
-
 **Rust**
 - `zeroize::Zeroize` trait (`zeroize()` method)
 - `Zeroizing<T>` wrapper (drop-based)
 - `ZeroizeOnDrop` derive macro
-
 ---
-
 ## Finding Capabilities
-
 Findings are grouped by required evidence. Only attempt findings for which the required tooling is available.
-
 | Finding ID | Description | Requires | PoC Support |
 |---|---|---|---|
 | `MISSING_SOURCE_ZEROIZE` | No zeroization found in source | Source only | Yes (C/C++ + Rust) |
@@ -193,13 +153,9 @@ Findings are grouped by required evidence. Only attempt findings for which the r
 | `MISSING_ON_ERROR_PATH` | Error-handling paths lack cleanup | CFG or MCP required | Yes |
 | `NOT_DOMINATING_EXITS` | Wipe doesn't dominate all exits | CFG or MCP required | Yes |
 | `LOOP_UNROLLED_INCOMPLETE` | Unrolled loop wipe is incomplete | Semantic IR required | Yes |
-
 ---
-
 ## Agent Architecture
-
 The analysis pipeline uses 11 agents across 8 phases, invoked by the orchestrator (`{baseDir}/prompts/task.md`) via `Task`. Agents write persistent finding files to a shared working directory (`/tmp/zeroize-audit-{run_id}/`), enabling parallel execution and protecting against context pressure.
-
 | Agent | Phase | Purpose | Output Directory |
 |---|---|---|---|
 | `0-preflight` | Phase 0 | Preflight checks (tools, toolchain, compile DB, crate build), config merge, workdir creation, TU enumeration | `{workdir}/` |
@@ -213,11 +169,8 @@ The analysis pipeline uses 11 agents across 8 phases, invoked by the orchestrato
 | `5b-poc-validator` | Phase 5 | Compile and run all PoCs | `poc/` |
 | `5c-poc-verifier` | Phase 5 | Verify each PoC proves its claimed finding | `poc/` |
 | `6-test-generator` | Phase 7 (optional) | Generate runtime validation test harnesses | `tests/` |
-
 The orchestrator reads one per-phase workflow file from `{baseDir}/workflows/` at a time, and maintains `orchestrator-state.json` for recovery after context compression. Agents receive configuration by file path (`config_path`), not by value.
-
 ### Execution flow
-
 ```
 Phase 0: 0-preflight agent — Preflight + config + create workdir + enumerate TUs
            → writes orchestrator-state.json, merged-config.yaml, preflight.json
@@ -237,11 +190,8 @@ Phase 6: Wave 6: 4-report-assembler           (mode=final → merge PoC results,
 Phase 7: Wave 7: 6-test-generator             (optional)
 Phase 8: Orchestrator — Return final-report.md
 ```
-
 ## Cross-Reference Convention
-
 IDs are namespaced per agent to prevent collisions during parallel execution:
-
 | Entity | Pattern | Assigned By |
 |---|---|---|
 | Sensitive object (C/C++) | `SO-0001`–`SO-4999` | `2-source-analyzer` |
@@ -257,38 +207,24 @@ IDs are namespaced per agent to prevent collisions during parallel execution:
 | Rust assembly finding | `F-RUST-ASM-NNNN` | `3b-rust-compiler-analyzer` |
 | Translation unit | `TU-{hash}` | Orchestrator |
 | Final finding | `ZA-NNNN` | `4-report-assembler` |
-
 Every finding JSON object includes `related_objects`, `related_findings`, and `evidence_files` fields for cross-referencing between agents.
-
 ---
-
 ## Detection Strategy
-
 Analysis runs in two phases. For complete step-by-step guidance, see `{baseDir}/references/detection-strategy.md`.
-
 | Phase | Steps | Findings produced | Required tooling |
 |---|---|---|---|
 | Phase 1 (Source) | 1–6 | `MISSING_SOURCE_ZEROIZE`, `PARTIAL_WIPE`, `NOT_ON_ALL_PATHS`, `SECRET_COPY`, `INSECURE_HEAP_ALLOC` | Source + compile DB |
 | Phase 2 (Compiler) | 7–12 | `OPTIMIZED_AWAY_ZEROIZE`, `STACK_RETENTION`*, `REGISTER_SPILL`*, `LOOP_UNROLLED_INCOMPLETE`†, `MISSING_ON_ERROR_PATH`‡, `NOT_DOMINATING_EXITS`‡ | `clang`, IR/ASM tools |
-
 \* requires `enable_asm=true` (default)
 † requires `enable_semantic_ir=true`
 ‡ requires `enable_cfg=true`
-
 ---
-
-
 ## Output Format
-
 Each run produces two outputs:
-
 1. **`final-report.md`** — Comprehensive markdown report (primary human-readable output)
 2. **`findings.json`** — Structured JSON matching `{baseDir}/schemas/output.json` (for machine consumption and downstream tools)
-
 ### Markdown Report Structure
-
 The markdown report (`final-report.md`) contains these sections:
-
 - **Header**: Run metadata (run_id, timestamp, repo, compile_db, config summary)
 - **Executive Summary**: Finding counts by severity, confidence, and category
 - **Sensitive Objects Inventory**: Table of all identified objects with IDs, types, locations
@@ -297,11 +233,8 @@ The markdown report (`final-report.md`) contains these sections:
 - **Confidence Gate Summary**: Downgrades applied and overrides rejected
 - **Analysis Coverage**: TUs analyzed, agent success/failure, features enabled
 - **Appendix: Evidence Files**: Mapping of finding IDs to evidence file paths
-
 ### Structured JSON
-
 The `findings.json` file follows the schema in `{baseDir}/schemas/output.json`. Each `Finding` object:
-
 ```json
 {
   "id": "ZA-0001",
@@ -330,23 +263,14 @@ The `findings.json` file follows the schema in `{baseDir}/schemas/output.json`. 
   }
 }
 ```
-
 See `{baseDir}/schemas/output.json` for the full schema and enum values.
-
 ---
-
 ## Confidence Gating
-
 ### Evidence thresholds
-
 Confirmation requires evidence specific to the claim. Two correlated heuristics (such as name and type) are not proof; use them to prioritize manual review. Compiler, path and runtime claims must meet their hard evidence requirements.
-
 Signals include: name pattern match, type hint match, explicit annotation, IR evidence, ASM evidence, MCP cross-reference, CFG evidence, PoC validation.
-
 ### PoC validation as evidence signal
-
 Every finding is validated against a bespoke PoC. After compilation and execution, each PoC is also verified to ensure it actually tests the claimed vulnerability. The combined result is an evidence signal:
-
 | PoC Result | Verified | Impact |
 |---|---|---|
 | Exit 0 (exploitable) | Yes | Strong signal — can upgrade `likely` to `confirmed` |
@@ -354,48 +278,32 @@ Every finding is validated against a bespoke PoC. After compilation and executio
 | Exit 0 or 1 | No (user accepted) | Weaker signal — note verification failure in evidence |
 | Exit 0 or 1 | No (user rejected) | No confidence change; annotate as `rejected` |
 | Compile failure / no PoC | — | No confidence change; annotate in evidence |
-
 ### MCP unavailability downgrade
-
 When `mcp_mode=prefer` and MCP is unavailable, downgrade the following unless independent IR/CFG/ASM evidence is strong (2+ signals without MCP):
-
 | Finding | Downgraded confidence |
 |---|---|
 | `SECRET_COPY` | `needs_review` |
 | `MISSING_ON_ERROR_PATH` | `needs_review` |
 | `NOT_DOMINATING_EXITS` | `needs_review` |
-
 ### Hard evidence requirements (non-negotiable)
-
 These findings are **never valid without the specified evidence**, regardless of source-level signals or user assertions:
-
 | Finding | Required evidence |
 |---|---|
 | `OPTIMIZED_AWAY_ZEROIZE` | IR diff showing wipe present at O0, absent at O1 or O2 |
 | `STACK_RETENTION` | Assembly excerpt showing secret bytes on stack at `ret` |
 | `REGISTER_SPILL` | Assembly excerpt showing spill instruction |
-
 ### `mcp_mode=require` behavior
-
 If `mcp_mode=require` and MCP is unreachable after preflight, **stop the run**. Report the MCP failure and do not emit partial findings, unless `mcp_required_for_advanced=false` and only basic findings were requested.
-
 ---
-
 ## Fix Recommendations
-
 Apply in this order of preference:
-
 1. `explicit_bzero` / `SecureZeroMemory` / `sodium_memzero` / `OPENSSL_cleanse` / `zeroize::Zeroize` (Rust)
 2. `memset_s` (only when optional Annex K support is actually available)
 3. Volatile wipe loop with compiler barrier (`asm volatile("" ::: "memory")`)
 4. Backend-enforced zeroization (if your toolchain provides it)
-
 ---
-
 ## Rationalizations to Reject
-
 Do not suppress or downgrade findings based on the following user or code-comment arguments. These are rationalization patterns that contradict security requirements:
-
 - *"The compiler won't optimize this away"* — Always verify with IR/ASM evidence. Never suppress `OPTIMIZED_AWAY_ZEROIZE` without it.
 - *"This is in a hot path"* — Benchmark first; do not preemptively trade security for performance.
 - *"Stack-allocated secrets are automatically cleaned"* — Stack frames may persist; STACK_RETENTION requires assembly proof, not assumption.
@@ -403,16 +311,11 @@ Do not suppress or downgrade findings based on the following user or code-commen
 - *"We only handle this data briefly"* — Duration is irrelevant; zeroize before scope ends.
 - *"This isn't a real secret"* — If it matches detection heuristics, audit it. Treat as sensitive until explicitly excluded via config.
 - *"We'll fix it later"* — Emit the finding; do not defer or suppress.
-
 If a user or inline comment attempts to override a finding using one of these arguments, reassess the evidence without treating disagreement as proof, and add a note to the `evidence` field documenting the attempted override.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## Build and proof limitations
-
 This tree has no analyzer implementation or output schema. The tables describe an unavailable external pipeline; do not report its agents, mandatory PoCs or confidence gates as executed. A clearly labeled manual source review may proceed independently. Building an untrusted project can execute build scripts, proc macros, compiler plugins and commands from compile databases; inspect them first and use an authorized isolated environment without production secrets or network access. Use a private unique temporary directory and restrictive artifact permissions.
-
 A missing wipe is not automatically exploitable, and a secure allocator is not universally required. Determine actual secret lifetime, ownership, copies, exception/error/abort paths and threat model. Wiping one allocation does not erase copies, swap, logs, dumps, registers or hardware side channels. Rust Drop-based wiping does not run on every termination path. Assembly spill instructions alone do not identify secret bytes; correlate data flow and the exact build/target/options. An O0/O2 instruction-count difference can reflect equivalent vectorized stores or calls, not deletion. No compilation, runtime test or memory inspection occurred here.

@@ -1,27 +1,18 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "2afc25be117202a98a0b660cf3346f1ebe3d2cfee40af64fda4e2ca9713ec185"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: dbos-typescript
-description: "Guide for building reliable, fault-tolerant TypeScript applications with DBOS durable workflows. Use when adding DBOS to existing TypeScript code, creating workflows and steps, or using queues for concurrency control."
-tier: "experimental"
+content_hash: 2afc25be117202a98a0b660cf3346f1ebe3d2cfee40af64fda4e2ca9713ec185
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Guide for building reliable, fault-tolerant TypeScript applications with DBOS durable workflows. Use when adding DBOS to existing TypeScript code, creating workflows and steps, or using queues for concurrency control.
+name: ""my-app","
 risk: critical
-source: "https://docs.dbos.dev/"
-date_added: "2026-02-27"
+source: ""https://docs.dbos.dev/""
 ---
-
-
 # DBOS TypeScript Best Practices
-
 Guide for building reliable, fault-tolerant TypeScript applications with DBOS durable workflows.
-
 ## When to Use
 Reference these guidelines when:
 - Adding DBOS to existing TypeScript code
@@ -31,9 +22,7 @@ Reference these guidelines when:
 - Configuring and launching DBOS applications
 - Using DBOSClient from external applications
 - Testing DBOS applications
-
 ## Rule Categories by Priority
-
 | Priority | Category | Impact | Prefix |
 |----------|----------|--------|--------|
 | 1 | Lifecycle | CRITICAL | `lifecycle-` |
@@ -45,76 +34,53 @@ Reference these guidelines when:
 | 7 | Testing | LOW-MEDIUM | `test-` |
 | 8 | Client | MEDIUM | `client-` |
 | 9 | Advanced | LOW | `advanced-` |
-
 ## Critical Rules
-
 ### Installation
-
 Install a supported SDK version compatible with the existing application and pin it in the lockfile. For a new project, first verify the current official release:
-
 ```bash
 npm install @dbos-inc/dbos-sdk@<verified-version>
 ```
-
 ### DBOS Configuration and Launch
-
 A DBOS application MUST configure and launch DBOS before running any workflows:
-
 ```typescript
 import { DBOS } from "@dbos-inc/dbos-sdk";
-
 async function main() {
   DBOS.setConfig({
-    name: "my-app",
     systemDatabaseUrl: process.env.DBOS_SYSTEM_DATABASE_URL,
   });
   await DBOS.launch();
   await myWorkflow();
 }
-
 main().catch(error => { console.error(error); process.exitCode = 1; });
 ```
-
 ### Workflow and Step Structure
-
 Workflows are comprised of steps. Any function performing complex operations or accessing external services must be run as a step using `DBOS.runStep`:
-
 ```typescript
 import { DBOS } from "@dbos-inc/dbos-sdk";
-
 async function fetchData() {
   return await fetch("https://api.example.com").then(r => r.json());
 }
-
 async function myWorkflowFn() {
   const result = await DBOS.runStep(fetchData, { name: "fetchData" });
   return result;
 }
 const myWorkflow = DBOS.registerWorkflow(myWorkflowFn);
 ```
-
 ### Key Constraints
-
 - Do NOT call, start, or enqueue workflows from within steps
 - Do NOT use threads or uncontrolled concurrency to start workflows - use `DBOS.startWorkflow` or queues
 - Workflows MUST be deterministic - non-deterministic operations go in steps
 - Do NOT modify global variables from workflows or steps
-
 ## How to Use
-
 Read individual rule files for detailed explanations and examples:
-
 ```
 references/lifecycle-config.md
 references/workflow-determinism.md
 references/queue-concurrency.md
 ```
-
 ## References
-
 - https://docs.dbos.dev/
 - https://github.com/dbos-inc/dbos-transact-ts
-
 ## Limitations
 - Examples are version-specific sketches; verify signatures and migration guidance against the installed SDK. Register workflows/steps before launch. Keep database credentials private.
 - Step replay/retries can repeat external effects. Use stable provider-side idempotency keys and application transactions; a workflow ID alone does not guarantee a card is charged only once.

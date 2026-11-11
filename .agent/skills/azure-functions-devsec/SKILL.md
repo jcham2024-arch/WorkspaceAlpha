@@ -1,79 +1,57 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "2b33ba6200d5cf23584f122b8c5915751500fcdb0f5268522f2f73d8bcd84fd9"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-functions-devsec
-description: Build serverless applications on Azure Functions. Configure triggers,
-tier: "experimental"
-  bindings, and deployment. Use when implementing serverless workloads on Azure.
+content_hash: 2b33ba6200d5cf23584f122b8c5915751500fcdb0f5268522f2f73d8bcd84fd9
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant OS/platform tooling and privileged access where
+date_added: 2026-09-20
+description: Build serverless applications on Azure Functions. Configure triggers,
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: azure-functions-devsec
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant OS/platform tooling and privileged access where
+version: 1.0
+---  bindings, and deployment. Use when implementing serverless workloads on Azure.
   noted. Docs-only; helper scripts and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # Azure Functions
-
 Build and deploy serverless applications with Azure Functions. Covers function app creation, trigger and binding configuration, deployment strategies, real code examples in Python and Node.js, and production best practices.
-
 ## When to Use
-
 - You need event-driven compute that scales automatically to zero.
 - You are building APIs, webhooks, or background processing pipelines.
 - You want per-execution billing without managing servers.
 - You need to respond to Azure service events (Blob Storage, Service Bus, Cosmos DB changes).
 - You are implementing lightweight microservices or scheduled tasks.
-
 Historical snippets require current runtime/plan/region and extension compatibility verification; scale-to-zero, billing and slot support vary by plan. Confirm subscription/resource IDs, cost, secrets, storage and rollback before provisioning/deploying/swapping. Function keys are shared access secrets, not user/object-level authorization. HTTP records here are synthetic examples, not persisted users. Validate/allowlist request fields and never spread arbitrary input into protected output/state.
-
 ## Prerequisites
-
 ```bash
 # Install Azure CLI
 # Prerequisite: organization-approved Azure CLI installed from a verified signed package.
 az version
-
 # Install Azure Functions Core Tools v4
 npm install -g azure-functions-core-tools@4
-
 # Verify installation
 func --version
-
 # Login
 az login
 az account set --subscription "my-subscription-id"
-
 # Create supporting resources
 az group create --name functions-rg --location eastus
-
 az storage account create \
   --name myfuncstorageacct \
   --resource-group functions-rg \
   --location eastus \
   --sku Standard_LRS
 ```
-
 ## Function App Creation
-
 ### Consumption Plan (Pay-per-execution)
-
 ```bash
 # Python function app on Consumption plan
 az functionapp create \
@@ -85,7 +63,6 @@ az functionapp create \
   --name myapp-func \
   --storage-account myfuncstorageacct \
   --os-type Linux
-
 # Node.js function app
 az functionapp create \
   --resource-group functions-rg \
@@ -97,9 +74,7 @@ az functionapp create \
   --storage-account myfuncstorageacct \
   --os-type Linux
 ```
-
 ### Premium Plan (VNet integration, no cold start)
-
 ```bash
 # Create Premium plan
 az functionapp plan create \
@@ -108,7 +83,6 @@ az functionapp plan create \
   --location eastus \
   --sku EP1 \
   --is-linux true
-
 # Create function app on Premium plan
 az functionapp create \
   --resource-group functions-rg \
@@ -119,38 +93,30 @@ az functionapp create \
   --name myapp-premium-func \
   --storage-account myfuncstorageacct
 ```
-
 ## Trigger and Binding Examples
-
 ### HTTP Trigger -- Python
-
 ```python
 # function_app.py (v2 programming model)
 import azure.functions as func
 import json
 import logging
-
 app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
-
 @app.route(route="users/{userId}", methods=["GET"])
 def get_user(req: func.HttpRequest) -> func.HttpResponse:
     user_id = req.route_params.get("userId")
     logging.info(f"Fetching user: {user_id}")
-
     if not user_id:
         return func.HttpResponse(
             json.dumps({"error": "userId is required"}),
             status_code=400,
             mimetype="application/json"
         )
-
     user = {"id": user_id, "name": "Jane Doe", "email": "jane@example.com"}
     return func.HttpResponse(
         json.dumps(user),
         status_code=200,
         mimetype="application/json"
     )
-
 @app.route(route="users", methods=["POST"])
 def create_user(req: func.HttpRequest) -> func.HttpResponse:
     try:
@@ -161,7 +127,6 @@ def create_user(req: func.HttpRequest) -> func.HttpResponse:
             status_code=400,
             mimetype="application/json"
         )
-
     logging.info(f"Creating user: {body.get('name')}")
     return func.HttpResponse(
         json.dumps({"id": "new-id", "name": body.get("name")}),
@@ -169,13 +134,10 @@ def create_user(req: func.HttpRequest) -> func.HttpResponse:
         mimetype="application/json"
     )
 ```
-
 ### HTTP Trigger -- Node.js
-
 ```javascript
 // src/functions/httpTrigger.js (v4 programming model)
 const { app } = require("@azure/functions");
-
 app.http("getUser", {
   methods: ["GET"],
   authLevel: "function",
@@ -183,16 +145,13 @@ app.http("getUser", {
   handler: async (request, context) => {
     const userId = request.params.userId;
     context.log(`Fetching user: ${userId}`);
-
     if (!userId) {
       return { status: 400, jsonBody: { error: "userId is required" } };
     }
-
     const user = { id: userId, name: "Jane Doe", email: "jane@example.com" };
     return { status: 200, jsonBody: user };
   },
 });
-
 app.http("createUser", {
   methods: ["POST"],
   authLevel: "function",
@@ -200,14 +159,11 @@ app.http("createUser", {
   handler: async (request, context) => {
     const body = await request.json();
     context.log(`Creating user: ${body.name}`);
-
     return { status: 201, jsonBody: { id: "new-id", name: body.name } };
   },
 });
 ```
-
 ### Blob Trigger -- Python
-
 ```python
 @app.blob_trigger(arg_name="blob", path="uploads/{name}",
                    connection="AzureWebJobsStorage")
@@ -216,9 +172,7 @@ def process_upload(blob: func.InputStream):
     content = blob.read()
     # Process file content here
 ```
-
 ### Timer Trigger -- Python
-
 ```python
 @app.timer_trigger(schedule="0 */5 * * * *", arg_name="timer",
                     run_on_startup=False)
@@ -228,9 +182,7 @@ def cleanup_job(timer: func.TimerRequest):
     logging.info("Running scheduled cleanup")
     # Cleanup logic here
 ```
-
 ### Service Bus Trigger -- Python
-
 ```python
 @app.service_bus_queue_trigger(arg_name="msg", queue_name="orders",
                                 connection="ServiceBusConnection")
@@ -240,7 +192,6 @@ def cleanup_job(timer: func.TimerRequest):
 def process_order(msg: func.ServiceBusMessage, doc: func.Out[func.Document]):
     order = json.loads(msg.get_body().decode("utf-8"))
     logging.info(f"Processing order: {order['id']}")
-
     processed = {
         "id": order["id"],
         "status": "processed",
@@ -249,9 +200,7 @@ def process_order(msg: func.ServiceBusMessage, doc: func.Out[func.Document]):
     }
     doc.set(func.Document.from_dict(processed))
 ```
-
 ### Cosmos DB Change Feed Trigger -- Python
-
 ```python
 @app.cosmos_db_trigger_v3(arg_name="documents", database_name="mydb",
                            container_name="orders",
@@ -262,36 +211,26 @@ def on_order_change(documents: func.DocumentList):
     for doc in documents:
         logging.info(f"Document changed: {doc['id']}")
 ```
-
 ## Local Development
-
 ```bash
 # Initialize a new Python function project
 func init MyFunctionProject --python
 cd MyFunctionProject
-
 # Create a new function from template
 func new --name HttpExample --template "HTTP trigger" --authlevel function
-
 # Run locally
 func start
-
 # Run locally with specific port
 func start --port 7072
-
 # Test locally
 curl http://localhost:7071/api/HttpExample?name=World
 ```
-
 ## Deployment
-
 ```bash
 # Deploy using Core Tools
 func azure functionapp publish myapp-func
-
 # Deploy with build step for Python
 func azure functionapp publish myapp-func --build remote
-
 # Deploy using ZIP package
 zip -r function.zip . -x ".git/*" ".venv/*" "__pycache__/*" "local.settings.json" ".env" ".env.*"
 # Inspect the complete archive allowlist before upload; exclusion patterns alone
@@ -300,7 +239,6 @@ az functionapp deployment source config-zip \
   --resource-group functions-rg \
   --name myapp-func \
   --src function.zip
-
 # Deploy via CI/CD with GitHub Actions
 az functionapp deployment github-actions add \
   --resource-group functions-rg \
@@ -310,29 +248,23 @@ az functionapp deployment github-actions add \
   --runtime python \
   --login-with-github
 ```
-
 ## Deployment Slots
-
 ```bash
 # Create a staging slot
 az functionapp deployment slot create \
   --resource-group functions-rg \
   --name myapp-func \
   --slot staging
-
 # Deploy to staging slot
 func azure functionapp publish myapp-func --slot staging
-
 # Test staging slot
 curl https://myapp-func-staging.azurewebsites.net/api/health
-
 # Swap staging to production
 az functionapp deployment slot swap \
   --resource-group functions-rg \
   --name myapp-func \
   --slot staging \
   --target-slot production
-
 # Roll back by swapping again
 az functionapp deployment slot swap \
   --resource-group functions-rg \
@@ -340,9 +272,7 @@ az functionapp deployment slot swap \
   --slot staging \
   --target-slot production
 ```
-
 ## Application Settings and Security
-
 ```bash
 # Set application settings
 az functionapp config appsettings set \
@@ -352,40 +282,33 @@ az functionapp config appsettings set \
     ServiceBusConnection="Endpoint=sb://..." \
     CosmosDBConnection="AccountEndpoint=https://..." \
     CUSTOM_SETTING="my-value"
-
 # Set settings as slot-specific
 az functionapp config appsettings set \
   --resource-group functions-rg \
   --name myapp-func \
   --slot-settings \
     ENVIRONMENT="staging"
-
 # Enable managed identity
 az functionapp identity assign \
   --resource-group functions-rg \
   --name myapp-func
-
 # Configure CORS
 az functionapp cors add \
   --resource-group functions-rg \
   --name myapp-func \
   --allowed-origins "https://myapp.example.com"
-
 # Set minimum TLS version
 az functionapp config set \
   --resource-group functions-rg \
   --name myapp-func \
   --min-tls-version 1.2
-
 # Enable Application Insights
 az functionapp config appsettings set \
   --resource-group functions-rg \
   --name myapp-func \
   --settings APPINSIGHTS_INSTRUMENTATIONKEY="your-key"
 ```
-
 ## Terraform Configuration
-
 ```hcl
 resource "azurerm_service_plan" "functions" {
   name                = "myapp-func-plan"
@@ -394,7 +317,6 @@ resource "azurerm_service_plan" "functions" {
   os_type             = "Linux"
   sku_name            = "Y1"  # Consumption plan
 }
-
 resource "azurerm_linux_function_app" "main" {
   name                       = "myapp-func"
   location                   = azurerm_resource_group.main.location
@@ -402,11 +324,9 @@ resource "azurerm_linux_function_app" "main" {
   service_plan_id            = azurerm_service_plan.functions.id
   storage_account_name       = azurerm_storage_account.func.name
   storage_account_access_key = azurerm_storage_account.func.primary_access_key
-
   identity {
     type = "SystemAssigned"
   }
-
   site_config {
     application_stack {
       python_version = "3.11"
@@ -415,19 +335,15 @@ resource "azurerm_linux_function_app" "main" {
       allowed_origins = ["https://myapp.example.com"]
     }
   }
-
   app_settings = {
     FUNCTIONS_WORKER_RUNTIME       = "python"
     WEBSITE_RUN_FROM_PACKAGE       = "1"
     APPINSIGHTS_INSTRUMENTATIONKEY = azurerm_application_insights.main.instrumentation_key
   }
-
   tags = var.tags
 }
 ```
-
 ## Troubleshooting
-
 | Symptom | Cause | Fix |
 |---------|-------|-----|
 | Cold start latency > 10s | Consumption plan cold start | Measure startup/dependency latency and plan options; run-from-package does not guarantee no cold starts |
@@ -438,16 +354,11 @@ resource "azurerm_linux_function_app" "main" {
 | Timer trigger runs twice | Multiple instances on Premium plan | Inspect host IDs, timer storage leases, retries and duplicate registrations; use idempotent business logic. Reducing scale is not a correctness guarantee |
 | Deployment slot swap fails | Slot settings not configured | Ensure slot-specific settings are marked with `--slot-settings` |
 | Out of memory errors | Large payloads or memory leaks | Stream data instead of loading entirely; increase plan tier |
-
 ## Related Skills
-
 - `azure-networking` -- VNet integration for Premium plan functions accessing private resources.
 - `azure-sql` -- Database connections from function bindings.
 - `terraform-azure` -- Infrastructure as Code for function app provisioning.
 - `arm-templates` -- Bicep-based function app deployment.
-
 ## Limitations
-
 - Infrastructure commands can disrupt services: confirm target host/scope and have backups/snapshots before mutating state.
 - Docs-only import: upstream scripts and templates not bundled.
-

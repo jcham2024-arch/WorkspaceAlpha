@@ -1,63 +1,46 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "932e2c7a907aedbff4155973b7b8270821c90220c412e373833c59666a403817"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: semantic-versioning
-description: Automate versioning and changelog generation using semantic versioning
-tier: "experimental"
-  principles.
+content_hash: 932e2c7a907aedbff4155973b7b8270821c90220c412e373833c59666a403817
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+date_added: 2026-09-20
+description: Automate versioning and changelog generation using semantic versioning
+docs: → PATCH (or no release)
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: Release
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+version: 1.0
+---  principles.
   CI runners) and authorized access to the target environment. Docs-only; helper scripts
   and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # Semantic Versioning
-
 Automate version management and changelog generation following SemVer principles.
-
 Follow the target repository’s release workflow and protected-branch rules before any commit/tag/publish. These configurations are alternatives, not permission to bypass a PR-only branch. A version bump does not authorize registry or GitHub publication. Derive breaking changes from public API compatibility, not commit type alone; refactor/docs release rules are configurable. Version scripts below support only plain numeric MAJOR.MINOR.PATCH and simple metadata files; use a SemVer-aware library for prereleases/builds and verify exact file changes before committing. Do not delete or move published tags to resolve duplicates.
-
 ## Prerequisites
-
 - Git repository with commit history
 - Node.js (for most tools)
 - Conventional commits (recommended)
-
 ## Semantic Versioning Basics
-
 ### Version Format
-
 ```
 MAJOR.MINOR.PATCH[-PRERELEASE][+BUILD]
-
 Examples:
 1.0.0
 2.1.3
 1.0.0-alpha.1
 1.0.0-beta.2+build.123
 ```
-
 ### Version Components
-
 | Component | When to Increment |
 |-----------|-------------------|
 | MAJOR | Breaking changes (incompatible API changes) |
@@ -65,45 +48,34 @@ Examples:
 | PATCH | Bug fixes (backward compatible) |
 | PRERELEASE | Pre-release versions (alpha, beta, rc) |
 | BUILD | Build metadata (ignored in precedence) |
-
 ### Version Precedence
-
 ```
 1.0.0-alpha < 1.0.0-alpha.1 < 1.0.0-alpha.beta
 < 1.0.0-beta < 1.0.0-beta.2 < 1.0.0-beta.11
 < 1.0.0-rc.1 < 1.0.0 < 2.0.0
 ```
-
 ## Conventional Commits to Version
-
 ```yaml
 Commit Type → Version Bump:
   feat:     → MINOR
   fix:      → PATCH
-  docs:     → PATCH (or no release)
   style:    → PATCH (or no release)
   refactor: → PATCH
   perf:     → PATCH
   test:     → No release
   chore:    → No release
-  
   BREAKING CHANGE: → MAJOR
   feat!:   → MAJOR
   fix!:    → MAJOR
 ```
-
 ## semantic-release
-
 ### Installation
-
 ```bash
 npm install --save-dev semantic-release \
   @semantic-release/changelog \
   @semantic-release/git
 ```
-
 ### Configuration
-
 ```json
 // .releaserc.json
 {
@@ -125,9 +97,7 @@ npm install --save-dev semantic-release \
   ]
 }
 ```
-
 ### Advanced Configuration
-
 ```javascript
 // release.config.js
 module.exports = {
@@ -160,17 +130,13 @@ module.exports = {
   ]
 };
 ```
-
 ### GitHub Actions Integration
-
 ```yaml
 # .github/workflows/release.yml
-name: Release
 
 on:
   push:
     branches: [main]
-
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -179,30 +145,22 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-
       - run: npm ci
-
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
 ```
-
 ## standard-version
-
 ### Installation
-
 ```bash
 npm install --save-dev standard-version
 ```
-
 ### Configuration
-
 ```json
 // .versionrc.json
 {
@@ -226,33 +184,24 @@ npm install --save-dev standard-version
   "compareUrlFormat": "https://github.com/owner/repo/compare/{{previousTag}}...{{currentTag}}"
 }
 ```
-
 ### Usage
-
 ```bash
 # First release
 npx standard-version --first-release
-
 # Regular release (auto-detect version bump)
 npx standard-version
-
 # Specific version bump
 npx standard-version --release-as minor
 npx standard-version --release-as 1.1.0
-
 # Pre-release
 npx standard-version --prerelease alpha
 npx standard-version --prerelease beta
-
 # Dry run
 npx standard-version --dry-run
-
 # Skip specific steps
 npx standard-version --skip.changelog
 ```
-
 ### NPM Scripts
-
 ```json
 // package.json
 {
@@ -266,32 +215,23 @@ npx standard-version --skip.changelog
   }
 }
 ```
-
 ## Changelog Generation
-
 ### conventional-changelog
-
 ```bash
 # Install
 npm install -g conventional-changelog-cli
-
 # Generate changelog
 conventional-changelog -p angular -i CHANGELOG.md -s
-
 # Generate all history
 conventional-changelog -p angular -i CHANGELOG.md -s -r 0
 ```
-
 ### git-cliff
-
 ```bash
 # Install
 cargo install git-cliff
-
 # Generate changelog
 git cliff -o CHANGELOG.md
 ```
-
 ```toml
 # cliff.toml
 [changelog]
@@ -305,7 +245,6 @@ body = """
 {% endfor %}
 """
 trim = true
-
 [git]
 conventional_commits = true
 filter_unconventional = true
@@ -325,20 +264,14 @@ commit_parsers = [
 filter_commits = true
 tag_pattern = "v[0-9]*"
 ```
-
 ## Version Bumping Scripts
-
 ### Bash Script
-
 ```bash
 #!/bin/bash
 # bump-version.sh
-
 CURRENT_VERSION=$(cat package.json | jq -r '.version')
 echo "Current version: $CURRENT_VERSION"
-
 IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT_VERSION"
-
 case $1 in
   major)
     NEW_VERSION="$((MAJOR + 1)).0.0"
@@ -354,37 +287,28 @@ case $1 in
     exit 1
     ;;
 esac
-
 echo "New version: $NEW_VERSION"
-
 # Update package.json
 npm version $NEW_VERSION --no-git-tag-version
-
 # Create git tag
 git add package.json package-lock.json
 git commit -m "chore: bump version to $NEW_VERSION"
 git tag -a "v$NEW_VERSION" -m "Version $NEW_VERSION"
 ```
-
 ### Python Script
-
 ```python
 #!/usr/bin/env python3
 # bump_version.py
-
 import re
 import sys
 import subprocess
-
 def get_current_version():
     with open('setup.py', 'r') as f:
         content = f.read()
         match = re.search(r"version\s*=\s*['\"]" + r"([^'\"]+)['\"]", content)
         return match.group(1) if match else None
-
 def bump_version(current, bump_type):
     major, minor, patch = map(int, current.split('.'))
-    
     if bump_type == 'major':
         return f'{major + 1}.0.0'
     elif bump_type == 'minor':
@@ -393,56 +317,40 @@ def bump_version(current, bump_type):
         return f'{major}.{minor}.{patch + 1}'
     else:
         raise ValueError(f'Invalid bump type: {bump_type}')
-
 def update_version(old_version, new_version):
     with open('setup.py', 'r') as f:
         content = f.read()
-    
     content = content.replace(f"version='{old_version}'", f"version='{new_version}'")
-    
     with open('setup.py', 'w') as f:
         f.write(content)
-
 if __name__ == '__main__':
     bump_type = sys.argv[1] if len(sys.argv) > 1 else 'patch'
     current = get_current_version()
     new = bump_version(current, bump_type)
-    
     print(f'Bumping version: {current} → {new}')
     update_version(current, new)
-    
     subprocess.run(['git', 'add', 'setup.py'], check=True)
     subprocess.run(['git', 'commit', '-m', f'chore: bump version to {new}'], check=True)
     subprocess.run(['git', 'tag', '-a', f'v{new}', '-m', f'Version {new}'], check=True)
 ```
-
-
 ## Contents
-
 - [Multi-Package Versioning](references/details.md)
 - [Common Issues](references/details.md)
 - [Best Practices](references/details.md)
 - [Related Skills](references/details.md)
-
 ## When to Use This Skill
-
 Use this skill when:
 - Implementing version numbering standards
 - Automating release versioning
 - Generating changelogs automatically
 - Setting up release pipelines
 - Managing package versions
-
 ## Limitations
-
 - Guidance executes against real environments: confirm target, blast radius, and rollback plan before applying anything.
 - Never deploy to production without explicit approval. Docs-only import: upstream scripts and templates not bundled.
-
 ### Example
-
 ```bash
 git status && git diff --stat
 kubectl diff -f manifest.yaml
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.

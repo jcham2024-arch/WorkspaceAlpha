@@ -1,55 +1,36 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "7f4fc8e83efc84829cfafd566f129cbcd0b2188b37f959b4a4f793173b5f3c7d"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 7f4fc8e83efc84829cfafd566f129cbcd0b2188b37f959b4a4f793173b5f3c7d
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Generate images and videos using fal.ai AI models
 name: fal-generate
-description: "Generate images and videos using fal.ai AI models"
-tier: "experimental"
 risk: critical
-source: "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-generate/SKILL.md"
-date_added: "2026-02-27"
+source: ""https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-generate/SKILL.md""
 ---
-
-
 # Fal Generate
-
 ## Overview
-
 Generate images and videos using fal.ai AI models
-
 ## When to Use
-
 Prepare image or video generation through an available fal.ai integration when the user requests that media operation.
-
 ## Procedure and Inputs
-
 Resolve prompt, intended use, aspect ratio, duration, reference permissions and budget. This AAS entrypoint does not bundle a fal client, model catalog,
 credentials or executable examples. The historical upstream file is currently
 unavailable; preserve its attribution and do not invent an endpoint or model ID.
 Use only an already configured integration with a verified current schema, or
 report execution unavailable and return the requested job specification.
-
 Choose a currently available model from the actual integration, inspect its input schema, and submit the smallest requested job. Preserve returned job identity and distinguish queued, failed and completed status.
-
 Confirm upload/privacy and paid-call scope before submitting. Use bounded status
 polling appropriate to the actual tool; do not retry an ambiguous submission until
 its job identity/account state is reconciled. Deliver the actual returned artifact
 and state which requested properties were checked; a draft or queued job is not a
 finished output.
-
 ## Example
-
 **User request:**
-
 > Generate images and videos using fal.ai AI models.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

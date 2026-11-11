@@ -1,31 +1,20 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "3864ef46fb2600d53f49e4b212b439507924c8bf939e82c91c486daf853550ab"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 3864ef46fb2600d53f49e4b212b439507924c8bf939e82c91c486daf853550ab
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Main application building orchestrator. Creates full-stack applications from natural language requests. Determines project type, selects tech stack, coordinates agents.
 name: app-builder
-description: "Main application building orchestrator. Creates full-stack applications from natural language requests. Determines project type, selects tech stack, coordinates agents."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # App Builder - Application Building Orchestrator
-
 > Analyzes user's requests, determines tech stack, plans structure, and coordinates agents.
-
 ## 🎯 Selective Reading Rule
-
 **Read ONLY files relevant to the request!** Check the content map, find what you need.
-
 | File | Description | When to Read |
 |------|-------------|--------------|
 | `project-detection.md` | Keyword matrix, project type detection | Starting new project |
@@ -34,17 +23,11 @@ date_added: "2026-02-27"
 | `scaffolding.md` | Directory structure, core files | Creating project structure |
 | `feature-building.md` | Feature analysis, error handling | Adding features to existing project |
 | `templates/SKILL.md` | **Project templates** | Scaffolding new project |
-
 ---
-
 ## Scope and template prerequisites
-
 These13 Markdown templates describe layouts, not complete generated projects. Preserve an existing application's framework, package manager and lockfile; keywords alone do not justify replacing its stack. Template versions are historical baselines and scaffold @latest can produce incompatible layouts/APIs. Check current primary framework docs and host constraints before selecting exact versions. Named agents/tools are optional environment-specific roles, not bundled capabilities or authority to delegate. Honor existing plans rather than requiring a new conflicting filename or three redundant questions. Confirm data/tenant authorization and acceptance examples; keep secrets server-side, review migration effects and use local previews before authorized deployment/publication/payments/messages. Report actual tests, not production-ready guarantees.
-
 ## 📦 Templates (13)
-
 Quick-start scaffolding for new projects. **Read the matching template only!**
-
 | Template | Tech Stack | When to Use |
 |----------|------------|-------------|
 | [nextjs-fullstack](templates/nextjs-fullstack/TEMPLATE.md) | Next.js + Prisma | Full-stack web app |
@@ -59,11 +42,8 @@ Quick-start scaffolding for new projects. **Read the matching template only!**
 | [chrome-extension](templates/chrome-extension/TEMPLATE.md) | Chrome MV3 | Browser extension |
 | [cli-tool](templates/cli-tool/TEMPLATE.md) | Node.js + Commander | CLI app |
 | [monorepo-turborepo](templates/monorepo-turborepo/TEMPLATE.md) | Turborepo + pnpm | Monorepo |
-
 ---
-
 ## 🔗 Related Agents
-
 | Agent | Role |
 |-------|------|
 | `project-planner` | Task breakdown, dependency graph |
@@ -71,14 +51,10 @@ Quick-start scaffolding for new projects. **Read the matching template only!**
 | `backend-specialist` | API, business logic |
 | `database-architect` | Schema, migrations |
 | `devops-engineer` | Deployment, preview |
-
 ---
-
 ## Usage Example
-
 ```
 User: "Make an Instagram clone with photo sharing and likes"
-
 App Builder Process:
 1. Project type: Social Media App
 2. Tech stack: Next.js + Prisma + Cloudinary + Clerk
@@ -91,10 +67,8 @@ App Builder Process:
 5. Report progress
 6. Start preview
 ```
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

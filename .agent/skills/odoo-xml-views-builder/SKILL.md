@@ -1,48 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "ca605f6ac646cb44b72c7b6574fb00497c1d3bfe19eb3a9bfabb4f6f86e53fe1"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: ca605f6ac646cb44b72c7b6574fb00497c1d3bfe19eb3a9bfabb4f6f86e53fe1
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-03-04
+description: ""Expert at building Odoo XML views: Form, List, Kanban, Search, Calendar, and Graph. Generates correct XML for Odoo 14-17 with proper visibility syntax.""
 name: odoo-xml-views-builder
-description: "Expert at building Odoo XML views: Form, List, Kanban, Search, Calendar, and Graph. Generates correct XML for Odoo 14-17 with proper visibility syntax."
-tier: "experimental"
 risk: safe
-source: "self"
-date_added: "2026-03-04"
+source: self
 ---
-
-
 # Odoo XML Views Builder
-
 ## Overview
-
 This skill generates and reviews Odoo XML view definitions for Kanban, Form, List, Search, Calendar, and Graph views. It understands visibility modifiers, `groups`, `domain`, `context`, and widget usage across Odoo versions 14–17, including the migration from `attrs` (v14–16) to inline expressions (v17+).
-
 ## When to Use This Skill
-
 - Creating a new form or list view for a custom model.
 - Adding fields, tabs, or smart buttons to an existing view.
 - Building a Kanban view with color coding or progress bars.
 - Creating a search view with filters and group-by options.
-
 ## How It Works
-
 1. **Activate**: Mention `@odoo-xml-views-builder` and describe the view you want.
 2. **Generate**: Get complete, ready-to-paste XML view definitions.
 3. **Review**: Paste existing XML and get fixes for common mistakes.
-
 ## Examples
-
 These examples target Odoo 17 and require the custom model, fields and methods. For v14–16, convert dynamic modifiers to `attrs` domains. View visibility is not access control: enforce ACLs, record rules and method authorization separately.
-
 ### Example 1: Form View with Tabs
-
 ```xml
 <record id="view_hospital_patient_form" model="ir.ui.view">
     <field name="name">hospital.patient.form</field>
@@ -78,9 +61,7 @@ These examples target Odoo 17 and require the custom model, fields and methods. 
     </field>
 </record>
 ```
-
 ### Example 2: Kanban View
-
 ```xml
 <record id="view_hospital_patient_kanban" model="ir.ui.view">
     <field name="name">hospital.patient.kanban</field>
@@ -102,9 +83,7 @@ These examples target Odoo 17 and require the custom model, fields and methods. 
     </field>
 </record>
 ```
-
 ## Best Practices
-
 - ✅ **Do:** Use inline `invisible="condition"` (Odoo 17+) instead of `attrs` for show/hide logic.
 - ✅ **Do:** Use `attrs="{'invisible': [...]}"` only if you are targeting Odoo 14–16 — it is no longer supported in v17.
 - ✅ **Do:** Set the `ir.ui.view` record's `name` field; use supported `string` attributes on the architecture elements that accept them.
@@ -112,11 +91,8 @@ These examples target Odoo 17 and require the custom model, fields and methods. 
 - ❌ **Don't:** Use `attrs` in Odoo 17 — it is unsupported and can prevent view loading.
 - ❌ **Don't:** Put business logic in view XML — keep it in Python model methods.
 - ❌ **Don't:** Use hardcoded `domain` strings in views when a `domain` field on the model can be used dynamically.
-
 Reference: [Odoo 17 view architectures](https://www.odoo.com/documentation/17.0/developer/reference/user_interface/view_architectures.html).
-
 ## Limitations
-
 - Does not cover **OWL JavaScript widgets** or client-side component development.
 - **Search panel views** (`<searchpanel>`) are not fully covered — those require frontend knowledge.
 - Does not address **website QWeb views** — use `@odoo-qweb-templates` for those.

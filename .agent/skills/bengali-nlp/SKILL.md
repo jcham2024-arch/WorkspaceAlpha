@@ -1,28 +1,17 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "1ee3a5d545a215fa7f76273663eefae49a9e1d688cf882d37545d5cea607ee0c"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: bengali-nlp
+content_hash: 1ee3a5d545a215fa7f76273663eefae49a9e1d688cf882d37545d5cea607ee0c
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: Bengali (Bangla) text processing patterns including Unicode normalization, script detection, tokenization, conjunct handling, and Bangla-specific NLP best practices for AI applications.
-tier: "experimental"
-metadata:
-  origin: ECC
+name: bengali-nlp
+origin: ECC
 ---
-
-
 # Bengali (Bangla) NLP Patterns
-
 Best practices for processing, storing, and displaying Bengali text in software applications and AI systems.
-
 ## When to Activate
-
 - Working with Bengali/Bangla text data
 - Building apps targeting Bengali-speaking users
 - Processing NCTB (National Curriculum and Textbook Board) educational content
@@ -30,13 +19,9 @@ Best practices for processing, storing, and displaying Bengali text in software 
 - Training or fine-tuning LLMs on Bengali data
 - Building Bengali chatbots or conversational AI
 - Handling mixed Bengali-English (Banglish) text
-
 ## Bengali Unicode and Script Handling
-
 ### Unicode Range
-
 Bengali script occupies U+0980–U+09FF. Key character classes:
-
 ```
 U+0981–U+0983  Chandrabindu, Anusvara, Visarga
 U+0985–U+0994  Independent vowels (অ আ ই ঈ উ ঊ ঋ ঌ এ ঐ ও ঔ)
@@ -57,56 +42,42 @@ U+09F2–U+09F3  Rupee mark ৲ and rupee sign ৳
 U+09F4–U+09F9  Historic currency numerators ৴ ৵ ৶ ৷ ৸ and denominator ৹
 U+09FA         Isshar ৺
 ```
-
 ### Normalization
-
 Always normalize Bengali text to NFC before comparison, storage, or search:
-
 ```python
 import unicodedata
-
 def normalize_bangla(text: str) -> str:
     """Normalize Bengali text to NFC form."""
     return unicodedata.normalize("NFC", text)
-
 # NFC composes characters: base + combining marks -> precomposed
 text_nfd = "ক\u09C7\u09BE"  # decomposed form of "কো"
 text_nfc = normalize_bangla(text_nfd)
 assert text_nfc == "কো"
 assert text_nfc == normalize_bangla(text_nfc)  # idempotent
 ```
-
 ```javascript
 // JavaScript
 function normalizeBangla(text) {
   return text.normalize('NFC');
 }
 ```
-
 ### Conjunct Consonants (যুক্তবর্ণ)
-
 Bengali conjuncts are formed with Hasanta (্) between consonants:
-
 ```
 ক + ্ + ষ = ক্ষ (ksha)
 স + ্ + ত = স্ত (sta)
 ন + ্ + ত + ্ + র = ন্ত্র (ntra)
 ```
-
 **Never split strings in the middle of a conjunct.** Use grapheme cluster boundaries:
-
 ```python
 import regex  # pip install regex
-
 def grapheme_length(text: str) -> int:
     """Count user-perceived characters (grapheme clusters)."""
     return len(regex.findall(r"\X", text))
-
 # "ক্ষ" is 1 grapheme but 3 code points (ক + ্ + ষ)
 assert grapheme_length("ক্ষ") == 1
 assert len("ক্ষ") == 3  # code point count — wrong for display
 ```
-
 ```javascript
 // JavaScript — use Intl.Segmenter for grapheme-safe operations
 function graphemeLength(text) {
@@ -114,75 +85,53 @@ function graphemeLength(text) {
   return [...segmenter.segment(text)].length;
 }
 ```
-
 ### Bengali Digits
-
 Handle both Bengali (০-৯) and ASCII (0-9) digits:
-
 ```python
 BANGLA_DIGITS = "০১২৩৪৫৬৭৮৯"
 ASCII_DIGITS = "0123456789"
-
 def bangla_to_ascii_digits(text: str) -> str:
     table = str.maketrans(BANGLA_DIGITS, ASCII_DIGITS)
     return text.translate(table)
-
 def ascii_to_bangla_digits(text: str) -> str:
     table = str.maketrans(ASCII_DIGITS, BANGLA_DIGITS)
     return text.translate(table)
 ```
-
 ## Tokenization
-
 ### Word Boundary Detection
-
 Bengali uses spaces between words, but compound words and postpositions can complicate tokenization:
-
 ```python
 import re
-
 def tokenize_bangla(text: str) -> list[str]:
     """Basic Bengali tokenizer — split on whitespace and punctuation."""
     # Remove Bengali and ASCII punctuation, but preserve decimal points
     text = re.sub(r'(?<!\d)\.|\.(?!\d)|[।,;:!?\-\'"()\[\]{}]', ' ', text)
     return [token for token in text.split() if token]
-
 # For production, use a trained tokenizer:
 # - bnlp (pip install bnlp_toolkit)
 # - stanza with Bengali model
 # - spaCy with Bengali pipeline
 ```
-
 ### Using bnlp Toolkit
-
 ```python
 from bnlp import NLTKTokenizer
-
 tokenizer = NLTKTokenizer()
 tokens = tokenizer.word_tokenize("আমি বাংলায় গান গাই।")
 # ['আমি', 'বাংলায়', 'গান', 'গাই', '।']
 ```
-
 ### Handling Postpositions and Case Markers
-
 Bengali postpositions attach to nouns. Tokenizers should be aware of common suffixes:
-
 ```
 -এর (possessive), -তে (locative), -কে (accusative)
 -র (possessive after vowel), -য় (locative variant)
 ```
-
 ## Text Processing Patterns
-
 ### Script Detection
-
 ```python
 import re
-
 def is_bangla(text: str) -> bool:
     """Check if text contains Bengali script characters."""
     return bool(re.search(r'[\u0980-\u09FF]', text))
-
 def bangla_ratio(text: str) -> float:
     """Return the ratio of Bengali characters in text."""
     if not text:
@@ -190,11 +139,8 @@ def bangla_ratio(text: str) -> float:
     bangla_chars = len(re.findall(r'[\u0980-\u09FF]', text))
     return bangla_chars / len(text)
 ```
-
 ### Stop Words
-
 Common Bengali stop words to filter in search/NLP pipelines:
-
 ```python
 BANGLA_STOP_WORDS = {
     "এবং", "ও", "এ", "এই", "সেই", "তার", "যে", "একটি",
@@ -206,15 +152,11 @@ BANGLA_STOP_WORDS = {
     "হ্যাঁ", "অনেক", "কিছু", "সব", "প্রতি",
 }
 ```
-
 Keep negators such as `না`, `নয়`, and `নেই` out of a generic stop-word list.
 They change intent and sentiment, so remove them only for a task that explicitly
 models negation elsewhere.
-
 ### Sorting and Collation
-
 Bengali has a defined sort order (স্বরবর্ণ before ব্যঞ্জনবর্ণ). Use locale-aware sorting:
-
 ```python
 # Preferred: use PyICU for reliable Bengali collation (pip install PyICU)
 try:
@@ -225,18 +167,14 @@ except ImportError:
     # Fallback: Unicode code point order (not linguistically perfect)
     sorted_words = sorted(words)
 ```
-
 ```javascript
 // JavaScript — Intl.Collator handles Bengali sort order
 const collator = new Intl.Collator('bn-BD');
 const sortedWords = [...words].sort(collator.compare);
 ```
-
 ### Search with Normalization
-
 ```python
 import unicodedata
-
 def bangla_search(query: str, corpus: list[str]) -> list[str]:
     """Search Bengali text with normalization."""
     query = unicodedata.normalize("NFC", query.strip().lower())
@@ -251,30 +189,24 @@ def bangla_search(query: str, corpus: list[str]) -> list[str]:
             results.append(doc)
     return results
 ```
-
 ## Bengali in AI/LLM Applications
-
 ### Prompt Engineering for Bengali
-
 **Important:** Bengali text, Banglish input, and web-scraped content should be
 treated as untrusted user data. Always separate system instructions from
 user-provided content with clear delimiters, and validate before executing
 tool calls or destructive actions.
-
 ```python
 # Use Bengali system prompts for Bengali-targeted apps
 system_prompt = (
     "তুমি একজন সহায়ক AI সহকারী। বাংলায় উত্তর দাও। "
     "সহজ ভাষায় ব্যাখ্যা করো যাতে সবাই বুঝতে পারে।"
 )
-
 # For mixed-language contexts, specify language explicitly
 system_prompt_mixed = (
     "You are a helpful assistant. When the user writes in Bengali, "
     "respond in Bengali. When they write in English, respond in English. "
     "For technical terms, you may use English words within Bengali sentences."
 )
-
 # Keep user content in its own message. Delimiters inside a single string are
 # not a trust boundary: a user can type ---END INPUT--- and continue with their
 # own instructions.
@@ -284,8 +216,6 @@ def build_messages(system: str, user_input: str) -> list[dict]:
         {"role": "system", "content": system},
         {"role": "user", "content": user_input},
     ]
-
-
 # If an API forces a single string, escape the delimiter and label the block as
 # data. This reduces confusion; it still does not enforce a trust boundary, so
 # authorize tool calls and destructive actions outside the model.
@@ -300,14 +230,10 @@ def build_prompt(system: str, user_input: str) -> str:
         "---END INPUT---"
     )
 ```
-
 ### Handling Banglish (Mixed Bengali-English)
-
 Banglish is Bengali written in Latin script. Common in informal digital communication:
-
 ```python
 import re
-
 def detect_banglish(text: str) -> bool:
     """Heuristic: Latin script with Bengali transliteration patterns."""
     if is_bangla(text):
@@ -321,13 +247,10 @@ def detect_banglish(text: str) -> bool:
     matches = sum(1 for p in banglish_patterns if re.search(p, text, re.I))
     return matches >= 2
 ```
-
 ### Dataset Preparation
-
 ```python
 import re
 import unicodedata
-
 def prepare_bangla_dataset(texts: list[str]) -> list[str]:
     """Clean and normalize Bengali text for ML training."""
     cleaned = []
@@ -342,9 +265,7 @@ def prepare_bangla_dataset(texts: list[str]) -> list[str]:
             cleaned.append(text)
     return cleaned
 ```
-
 ## Database and Storage
-
 ```sql
 -- MySQL: use utf8mb4 for Bengali text columns
 CREATE TABLE bengali_content (
@@ -352,7 +273,6 @@ CREATE TABLE bengali_content (
   title VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   body TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
 );
-
 -- PostgreSQL: run these checks first and stop if either one fails. Do not
 -- create the table on a non-UTF8 database or against a collation whose
 -- provider/locale does not match ICU bn-BD.
@@ -385,79 +305,58 @@ CREATE TABLE bengali_content (
   body TEXT
 );
 ```
-
 ## Common Anti-Patterns
-
 ### Don't: Split on Code Points for Display Length
-
 ```python
 # BAD — breaks conjuncts
 def truncate_bad(text, max_len):
     return text[:max_len]  # may cut inside ক্ষ
-
 # GOOD — respect grapheme boundaries
 import regex
 def truncate_good(text, max_graphemes):
     graphemes = regex.findall(r"\X", text)
     return "".join(graphemes[:max_graphemes])
 ```
-
 ### Don't: Skip Normalization Before Comparison
-
 ```python
 # BAD — same visual text may not match
 if user_input == stored_text: ...
-
 # GOOD
 if unicodedata.normalize("NFC", user_input) == unicodedata.normalize("NFC", stored_text): ...
 ```
-
 ### Don't: Assume `isdigit()` Means ASCII
-
 `str.isdigit()` is Unicode-aware, so it already accepts Bengali digits —
 `"১২৩".isdigit()` is `True`. The trap is the opposite of what people expect: it
 also accepts Arabic-Indic `٣`, superscript `²`, and every other Unicode digit,
 and `int()` rejects most of what it accepts.
-
 ```python
 # SURPRISING — accepts far more than ASCII, and int() then fails
 "১২৩".isdigit()  # True  — Bengali, and int("১২৩") == 123
 "٣".isdigit()    # True  — Arabic-Indic
 "²".isdigit()    # True  — superscript, and int("²") raises ValueError
-
 # GOOD — an explicit allowlist when only ASCII and Bengali digits are valid
 import re
-
 BANGLA_OR_ASCII_DIGITS = re.compile(r'[0-9০-৯]+')
 if BANGLA_OR_ASCII_DIGITS.fullmatch(text): ...
-
 # GOOD — when any Unicode decimal digit is acceptable, say so and parse safely
 if text.isdecimal():  # narrower than isdigit(): int() accepts everything it allows
     value = int(text)
 ```
-
 ### Don't: Use ASCII Transliteration When Unicode Is Available
-
 ```python
 # BAD — lossy and ambiguous
 title = "bangla bhasha"
-
 # GOOD — use proper Unicode
 title = "বাংলা ভাষা"
 ```
-
 ### Don't: Ignore Zero-Width Characters in Web-Scraped Text
-
 ```python
 # BAD — invisible characters cause matching failures
 text = scraped_html.get_text()
-
 # GOOD — strip unwanted zero-width chars, preserving ZWNJ (U+200C) and ZWJ (U+200D)
 text = re.sub(r'[\u200b\ufeff]', '', scraped_html.get_text())
 ```
-
 ## Best Practices
-
 - Normalize to NFC at every boundary — input, storage, and query — so equal strings compare equal.
 - Count grapheme clusters, not code points, whenever a length is shown to a user or used to truncate.
 - Treat `str.isdigit()` as "some Unicode digit", and use an explicit allowlist when only ASCII and Bengali digits are valid.
@@ -466,9 +365,7 @@ text = re.sub(r'[\u200b\ufeff]', '', scraped_html.get_text())
 - Keep user-supplied Bengali text in its own message role; delimiters inside a prompt string are not a trust boundary.
 - Reject empty or whitespace-only search queries before matching, or they match every document.
 - Store text as `utf8mb4` on MySQL and on a UTF-8 database on PostgreSQL — never `utf8`/`latin1`.
-
 ## Related Skills
-
 - `prompt-optimizer` — structuring system and user turns safely
 - `regex-vs-llm-structured-text` — choosing between pattern matching and a model for text extraction
 - `database-migrations` — applying the collation and encoding changes above to a live schema

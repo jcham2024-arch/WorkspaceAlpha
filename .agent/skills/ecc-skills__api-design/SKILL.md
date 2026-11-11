@@ -1,39 +1,25 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "024a6649a2c0b58fadc7b0e9f44c167eed53412ccc45d494b79b5892fca5f10d"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: api-design
+content_hash: 024a6649a2c0b58fadc7b0e9f44c167eed53412ccc45d494b79b5892fca5f10d
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: REST API design patterns including resource naming, status codes, pagination, filtering, error responses, versioning, and rate limiting for production APIs. Use when designing or reviewing REST endpoints, resource names, status codes, pagination, or versioning.
-tier: "experimental"
-metadata:
-  origin: ECC
+name: api-design
+origin: ECC
 ---
-
-
 # API Design Patterns
-
 Conventions and best practices for designing consistent, developer-friendly REST APIs.
-
 ## When to Activate
-
 - Designing new API endpoints
 - Reviewing existing API contracts
 - Adding pagination, filtering, or sorting
 - Implementing error handling for APIs
 - Planning API versioning strategy
 - Building public or partner-facing APIs
-
 ## Resource Design
-
 ### URL Structure
-
 ```
 # Resources are nouns, plural, lowercase, kebab-case
 GET    /api/v1/users
@@ -42,36 +28,28 @@ POST   /api/v1/users
 PUT    /api/v1/users/:id
 PATCH  /api/v1/users/:id
 DELETE /api/v1/users/:id
-
 # Sub-resources for relationships
 GET    /api/v1/users/:id/orders
 POST   /api/v1/users/:id/orders
-
 # Actions that don't map to CRUD (use verbs sparingly)
 POST   /api/v1/orders/:id/cancel
 POST   /api/v1/auth/login
 POST   /api/v1/auth/refresh
 ```
-
 ### Naming Rules
-
 ```
 # GOOD
 /api/v1/team-members          # kebab-case for multi-word resources
 /api/v1/orders?status=active  # query params for filtering
 /api/v1/users/123/orders      # nested resources for ownership
-
 # BAD
 /api/v1/getUsers              # verb in URL
 /api/v1/user                  # singular (use plural)
 /api/v1/team_members          # snake_case in URLs
 /api/v1/users/123/getOrders   # verb in nested resource
 ```
-
 ## HTTP Methods and Status Codes
-
 ### Method Semantics
-
 | Method | Idempotent | Safe | Use For |
 |--------|-----------|------|---------|
 | GET | Yes | Yes | Retrieve resources |
@@ -79,17 +57,13 @@ POST   /api/v1/auth/refresh
 | PUT | Yes | No | Full replacement of a resource |
 | PATCH | No* | No | Partial update of a resource |
 | DELETE | Yes | No | Remove a resource |
-
 *PATCH can be made idempotent with proper implementation
-
 ### Status Code Reference
-
 ```
 # Success
 200 OK                    — GET, PUT, PATCH (with response body)
 201 Created               — POST (include Location header)
 204 No Content            — DELETE, PUT (no response body)
-
 # Client Errors
 400 Bad Request           — Validation failure, malformed JSON
 401 Unauthorized          — Missing or invalid authentication
@@ -98,161 +72,110 @@ POST   /api/v1/auth/refresh
 409 Conflict              — Duplicate entry, state conflict
 422 Unprocessable Entity  — Semantically invalid (valid JSON, bad data)
 429 Too Many Requests     — Rate limit exceeded
-
 # Server Errors
 500 Internal Server Error — Unexpected failure (never expose details)
 502 Bad Gateway           — Upstream service failed
 503 Service Unavailable   — Temporary overload, include Retry-After
 ```
-
 ### Common Mistakes
-
 ```
 # BAD: 200 for everything
 { "status": 200, "success": false, "error": "Not found" }
-
 # GOOD: Use HTTP status codes semantically
 HTTP/1.1 404 Not Found
 { "error": { "code": "not_found", "message": "User not found" } }
-
 # BAD: 500 for validation errors
 # GOOD: 400 or 422 with field-level details
-
 # BAD: 200 for created resources
 # GOOD: 201 with Location header
 HTTP/1.1 201 Created
 Location: /api/v1/users/abc-123
 ```
-
 ## Response Format
-
 ### Success Response
-
-
 ### Collection Response (with Pagination)
-
-
 ### Error Response
-
-
 ### Response Envelope Variants
-
-
 ## Pagination
-
 ### Offset-Based (Simple)
-
 ```
 GET /api/v1/users?page=2&per_page=20
-
 # Implementation
 SELECT * FROM users
 ORDER BY created_at DESC
 LIMIT 20 OFFSET 20;
 ```
-
 **Pros:** Easy to implement, supports "jump to page N"
 **Cons:** Slow on large offsets (OFFSET 100000), inconsistent with concurrent inserts
-
 ### Cursor-Based (Scalable)
-
 ```
 GET /api/v1/users?cursor=eyJpZCI6MTIzfQ&limit=20
-
 # Implementation
 SELECT * FROM users
 WHERE id > :cursor_id
 ORDER BY id ASC
 LIMIT 21;  -- fetch one extra to determine has_next
 ```
-
-
 **Pros:** Consistent performance regardless of position, stable with concurrent inserts
 **Cons:** Cannot jump to arbitrary page, cursor is opaque
-
 ### When to Use Which
-
 | Use Case | Pagination Type |
 |----------|----------------|
 | Admin dashboards, small datasets (<10K) | Offset |
 | Infinite scroll, feeds, large datasets | Cursor |
 | Public APIs | Cursor (default) with offset (optional) |
 | Search results | Offset (users expect page numbers) |
-
 ## Filtering, Sorting, and Search
-
 ### Filtering
-
 ```
 # Simple equality
 GET /api/v1/orders?status=active&customer_id=abc-123
-
 # Comparison operators (use bracket notation)
 GET /api/v1/products?price[gte]=10&price[lte]=100
 GET /api/v1/orders?created_at[after]=2025-01-01
-
 # Multiple values (comma-separated)
 GET /api/v1/products?category=electronics,clothing
-
 # Nested fields (dot notation)
 GET /api/v1/orders?customer.country=US
 ```
-
 ### Sorting
-
 ```
 # Single field (prefix - for descending)
 GET /api/v1/products?sort=-created_at
-
 # Multiple fields (comma-separated)
 GET /api/v1/products?sort=-featured,price,-created_at
 ```
-
 ### Full-Text Search
-
 ```
 # Search query parameter
 GET /api/v1/products?q=wireless+headphones
-
 # Field-specific search
 GET /api/v1/users?email=alice
 ```
-
 ### Sparse Fieldsets
-
 ```
 # Return only specified fields (reduces payload)
 GET /api/v1/users?fields=id,name,email
 GET /api/v1/orders?fields=id,total,status&include=customer.name
 ```
-
 ## Authentication and Authorization
-
 ### Token-Based Auth
-
 ```
 # Bearer token in Authorization header
 GET /api/v1/users
 Authorization: Bearer eyJhbGciOiJIUzI1NiIs...
-
 # API key (for server-to-server)
 GET /api/v1/data
 X-API-Key: sk_live_...
 ```
-
 ### Authorization Patterns
-
-
 ## Rate Limiting
-
 ### Headers
-
 ```
 HTTP/1.1 200 OK
 X-RateLimit-Limit: 100
 X-RateLimit-Remaining: 95
 X-RateLimit-Reset: 1640000000
-
 # When exceeded
 HTTP/1.1 429 Too Many Requests
 Retry-After: 60
@@ -263,40 +186,29 @@ Retry-After: 60
   }
 }
 ```
-
 ### Rate Limit Tiers
-
 | Tier | Limit | Window | Use Case |
 |------|-------|--------|----------|
 | Anonymous | 30/min | Per IP | Public endpoints |
 | Authenticated | 100/min | Per user | Standard API access |
 | Premium | 1000/min | Per API key | Paid API plans |
 | Internal | 10000/min | Per service | Service-to-service |
-
 ## Versioning
-
 ### URL Path Versioning (Recommended)
-
 ```
 /api/v1/users
 /api/v2/users
 ```
-
 **Pros:** Explicit, easy to route, cacheable
 **Cons:** URL changes between versions
-
 ### Header Versioning
-
 ```
 GET /api/users
 Accept: application/vnd.myapp.v2+json
 ```
-
 **Pros:** Clean URLs
 **Cons:** Harder to test, easy to forget
-
 ### Versioning Strategy
-
 ```
 1. Start with /api/v1/ — don't version until you need to
 2. Maintain at most 2 active versions (current + previous)
@@ -314,22 +226,12 @@ Accept: application/vnd.myapp.v2+json
    - Changing URL structure
    - Changing authentication method
 ```
-
 ## Implementation Patterns
-
 ### TypeScript (Next.js API Route)
-
-
 ### Python (Django REST Framework)
-
-
 ### Go (net/http)
-
-
 ## API Design Checklist
-
 Before shipping a new endpoint:
-
 - [ ] Resource URL follows naming conventions (plural, kebab-case, no verbs)
 - [ ] Correct HTTP method used (GET for reads, POST for creates, etc.)
 - [ ] Appropriate status codes returned (not 200 for everything)

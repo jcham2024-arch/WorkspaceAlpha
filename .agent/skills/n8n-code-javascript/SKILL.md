@@ -1,35 +1,22 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "773fba24ae73d6ce052c729d3c9f888fcb1756655690c2f74c4d90fd29b7d5eb"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: n8n-code-javascript
+content_hash: 773fba24ae73d6ce052c729d3c9f888fcb1756655690c2f74c4d90fd29b7d5eb
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-03-06
 description: Write JavaScript code in n8n Code nodes. Use when writing JavaScript in n8n, using $input/$json/$node syntax, selecting the HTTP Request node for network access, working with dates using DateTime, troubleshooting Code node errors, or choosing between Code node modes.
-tier: "experimental"
+name: n8n-code-javascript
 risk: critical
 source: community
-date_added: "2026-03-06"
 ---
-
-
 # JavaScript Code Node
-
 Expert guidance for writing JavaScript code in n8n Code nodes.
-
 ---
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use Code Node
-
 Use Code node when:
 - ✅ Complex transformations requiring multiple steps
 - ✅ Custom calculations or business logic
@@ -37,17 +24,13 @@ Use Code node when:
 - ✅ API response parsing with complex structure
 - ✅ Multi-step conditionals
 - ✅ Data aggregation across items
-
 Consider other nodes when:
 - ❌ Simple field mapping → Use **Set** node
 - ❌ Basic filtering → Use **Filter** node
 - ❌ Simple conditionals → Use **IF** or **Switch** node
 - ❌ HTTP requests only → Use **HTTP Request** node
-
 **Code node excels at**: Complex logic that would require chaining many simple nodes
-
 ---
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

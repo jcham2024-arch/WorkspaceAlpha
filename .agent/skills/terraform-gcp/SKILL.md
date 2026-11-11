@@ -1,62 +1,45 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "629ccf441bd7f065affbea841f43c5e2c2e700c0d23116886dd7bf74f7ce97d2"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: terraform-gcp
-description: Provision GCP infrastructure with Terraform. Configure providers and
-tier: "experimental"
-  deploy Google Cloud resources. Use when implementing IaC for GCP.
+content_hash: 629ccf441bd7f065affbea841f43c5e2c2e700c0d23116886dd7bf74f7ce97d2
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant OS/platform tooling and privileged access where
+date_added: 2026-09-20
+description: Provision GCP infrastructure with Terraform. Configure providers and
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: terraform-gcp
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant OS/platform tooling and privileged access where
+version: 1.0
+---  deploy Google Cloud resources. Use when implementing IaC for GCP.
   noted. Docs-only
  helper scripts and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # Terraform GCP
-
 Provision and manage Google Cloud Platform infrastructure using Terraform with the `hashicorp/google` provider.
-
 ## When to Use
-
 - Defining GCP infrastructure as code for repeatable, auditable deployments
 - Managing multi-environment setups (dev, staging, production) from a single codebase
 - Provisioning complex resource graphs (VPC + GKE + Cloud SQL + IAM) in one plan
 - Integrating infrastructure changes into CI/CD pipelines with plan/apply stages
-
 Examples are partial modules and require complete variable declarations, subnet CIDRs, API enablement dependencies, private service networking connection/outputs and provider-compatible schemas before planning. HCL attributes use newlines, not semicolon separators. Confirm project/backend/workspace, cost and saved-plan changes before apply; protect state and plan files because generated passwords remain in state despite sensitive flags. Prefer workload identity/short-lived CI credentials over service account key files. Private GKE nodes do not imply a private control-plane endpoint; explicitly configure endpoint access. A force-new property cannot generally be fixed with state mv; use moved/state operations only for a true address refactor of the same resource.
-
 ## Prerequisites
-
 - Terraform >= 1.5 installed
 - Google Cloud SDK or a service account key for CI
 - A GCP project with billing enabled
-
 ```bash
 gcloud auth application-default login          # local dev
 export GOOGLE_APPLICATION_CREDENTIALS="sa.json" # CI/CD
 terraform version
 ```
-
 ## Provider Configuration
-
 ```hcl
 # versions.tf
 terraform {
@@ -70,13 +53,11 @@ terraform {
   backend "gcs" { bucket = "my-project-tf-state"
  prefix = "terraform/state" }
 }
-
 provider "google"      { project = var.project_id
  region = var.region }
 provider "google-beta" { project = var.project_id
  region = var.region }
 ```
-
 ```hcl
 # variables.tf
 variable "project_id"  { type = string }
@@ -90,19 +71,15 @@ variable "environment" {
   }
 }
 ```
-
 ## Project Setup and State Bucket
-
 ```bash
 gcloud storage buckets create gs://my-project-tf-state \
   --location=us-central1 --uniform-bucket-level-access --public-access-prevention
 gcloud storage buckets update gs://my-project-tf-state --versioning
-
 terraform init
 terraform plan -var="project_id=my-project" -var="environment=production" -out=tfplan
 terraform apply tfplan
 ```
-
 ```hcl
 resource "google_project_service" "apis" {
   for_each = toset([
@@ -117,9 +94,7 @@ resource "google_project_service" "apis" {
   disable_on_destroy         = false
 }
 ```
-
 ## Networking Module
-
 ```hcl
 # modules/networking/main.tf
 resource "google_compute_network" "vpc" {
@@ -127,7 +102,6 @@ resource "google_compute_network" "vpc" {
   auto_create_subnetworks = false
   routing_mode            = "REGIONAL"
 }
-
 resource "google_compute_subnetwork" "main" {
   name                     = "${var.environment}-main-subnet"
   ip_cidr_range            = var.subnet_cidr
@@ -137,7 +111,6 @@ resource "google_compute_subnetwork" "main" {
   log_config { aggregation_interval = "INTERVAL_5_SEC"
  flow_sampling = 0.5 }
 }
-
 resource "google_compute_subnetwork" "gke" {
   name                     = "${var.environment}-gke-subnet"
   ip_cidr_range            = var.gke_subnet_cidr
@@ -149,7 +122,6 @@ resource "google_compute_subnetwork" "gke" {
   secondary_ip_range { range_name = "services"
  ip_cidr_range = var.services_cidr }
 }
-
 resource "google_compute_firewall" "allow_iap" {
   name    = "${var.environment}-allow-iap"
   network = google_compute_network.vpc.name
@@ -157,13 +129,11 @@ resource "google_compute_firewall" "allow_iap" {
  ports = ["22", "3389"] }
   source_ranges = ["35.235.240.0/20"]
 }
-
 resource "google_compute_router" "router" {
   name    = "${var.environment}-router"
   region  = var.region
   network = google_compute_network.vpc.id
 }
-
 resource "google_compute_router_nat" "nat" {
   name                               = "${var.environment}-nat"
   router                             = google_compute_router.router.name
@@ -173,24 +143,19 @@ resource "google_compute_router_nat" "nat" {
   log_config { enable = true
  filter = "ERRORS_ONLY" }
 }
-
 output "vpc_id"         { value = google_compute_network.vpc.id }
 output "gke_subnet_id"  { value = google_compute_subnetwork.gke.id }
 ```
-
 ## GKE Cluster Module
-
 ```hcl
 # modules/gke/main.tf
 resource "google_container_cluster" "primary" {
   name     = "${var.environment}-cluster"
   location = var.region
-
   release_channel { channel = var.release_channel }
   workload_identity_config { workload_pool = "${var.project_id}.svc.id.goog" }
   network    = var.vpc_name
   subnetwork = var.gke_subnet_name
-
   ip_allocation_policy {
     cluster_secondary_range_name  = "pods"
     services_secondary_range_name = "services"
@@ -205,22 +170,18 @@ resource "google_container_cluster" "primary" {
     enable_components = ["SYSTEM_COMPONENTS", "WORKLOADS"]
     managed_prometheus { enabled = true }
   }
-
   remove_default_node_pool = true
   initial_node_count       = 1
 }
-
 resource "google_container_node_pool" "primary" {
   name     = "primary-pool"
   cluster  = google_container_cluster.primary.name
   location = var.region
-
   initial_node_count = var.initial_node_count
   autoscaling { min_node_count = var.min_nodes
  max_node_count = var.max_nodes }
   management  { auto_repair = true
  auto_upgrade = true }
-
   node_config {
     service_account = var.node_sa_email
     machine_type = var.machine_type
@@ -231,28 +192,23 @@ resource "google_container_node_pool" "primary" {
     metadata = { disable-legacy-endpoints = "true" }
   }
 }
-
 output "cluster_name"     { value = google_container_cluster.primary.name }
 output "cluster_endpoint" { value = google_container_cluster.primary.endpoint
  sensitive = true }
 ```
-
 ## Cloud SQL Module
-
 ```hcl
 # modules/cloud-sql/main.tf
 resource "google_sql_database_instance" "main" {
   name             = "${var.environment}-db"
   database_version = var.database_version
   region           = var.region
-
   settings {
     tier              = var.tier
     availability_type = var.environment == "production" ? "REGIONAL" : "ZONAL"
     disk_type         = "PD_SSD"
     disk_size         = var.disk_size
     disk_autoresize   = true
-
     backup_configuration {
       enabled                        = true
       start_time                     = "02:00"
@@ -267,11 +223,9 @@ resource "google_sql_database_instance" "main" {
     database_flags { name = "max_connections"
  value = var.max_connections }
   }
-
   deletion_protection = var.environment == "production"
   # In this module, depend on a real private service networking connection resource.
 }
-
 resource "google_sql_database" "app" { name = var.database_name
  instance = google_sql_database_instance.main.name }
 resource "google_sql_user" "app"     { name = var.db_user
@@ -279,19 +233,15 @@ resource "google_sql_user" "app"     { name = var.db_user
  password = random_password.db.result }
 resource "random_password" "db"      { length = 32
  special = true }
-
 output "connection_name" { value = google_sql_database_instance.main.connection_name }
 output "private_ip"      { value = google_sql_database_instance.main.private_ip_address }
 ```
-
 ## IAM and Service Accounts
-
 ```hcl
 resource "google_service_account" "gke_nodes" {
   account_id   = "${var.environment}-gke-nodes"
   display_name = "GKE Node Pool SA"
 }
-
 resource "google_project_iam_member" "gke_nodes" {
   for_each = toset([
     "roles/logging.logWriter", "roles/monitoring.metricWriter",
@@ -301,21 +251,17 @@ resource "google_project_iam_member" "gke_nodes" {
   role    = each.value
   member  = "serviceAccount:${google_service_account.gke_nodes.email}"
 }
-
 resource "google_service_account" "app" {
   account_id   = "${var.environment}-app"
   display_name = "Application SA"
 }
-
 resource "google_service_account_iam_member" "workload_identity" {
   service_account_id = google_service_account.app.name
   role               = "roles/iam.workloadIdentityUser"
   member             = "serviceAccount:${var.project_id}.svc.id.goog[myapp/app-ksa]"
 }
 ```
-
 ## Root Module Composition
-
 ```hcl
 module "networking" {
   source      = "./modules/networking"
@@ -323,7 +269,6 @@ module "networking" {
   environment = var.environment
   region      = var.region
 }
-
 module "gke" {
   source          = "./modules/gke"
   project_id      = var.project_id
@@ -334,7 +279,6 @@ module "gke" {
   node_sa_email   = google_service_account.gke_nodes.email
   depends_on      = [module.networking]
 }
-
 module "database" {
   source               = "./modules/cloud-sql"
   project_id           = var.project_id
@@ -347,39 +291,30 @@ module "database" {
   depends_on           = [module.networking]
 }
 ```
-
 ## Environment Configuration
-
 ```hcl
 # environments/production.tfvars
 project_id  = "my-company-prod"
 environment = "production"
 region      = "us-central1"
 ```
-
 ```bash
 terraform plan -var-file=environments/production.tfvars -out=tfplan
 terraform apply tfplan
 ```
-
 ## CI/CD Integration
-
 ```bash
 terraform init -input=false
 terraform validate && terraform fmt -check
 terraform plan -var-file=environments/${ENV}.tfvars -out=tfplan -input=false
 terraform apply -input=false tfplan
-
 # Import existing resources
 terraform import google_compute_network.vpc projects/${PROJECT_ID}/global/networks/prod-vpc
-
 # State management
 terraform state list
 terraform state mv google_compute_instance.old google_compute_instance.new
 ```
-
 ## Troubleshooting
-
 | Symptom | Cause | Fix |
 |---------|-------|-----|
 | `Error 403: Access Not Configured` | API not enabled | Add API to `google_project_service` resources |
@@ -390,22 +325,15 @@ terraform state mv google_compute_instance.old google_compute_instance.new
 | `Backend initialization required` | Changed backend config | Run `terraform init -migrate-state` |
 | Cycle in resource graph | Circular references | Refactor with data sources
  split applies |
-
 ## Related Skills
-
 - **gcp-networking** - VPC and firewall resources managed by Terraform
 - **gcp-gke** - GKE cluster provisioning with Terraform modules
 - **gcp-cloud-sql** - Cloud SQL instance management via Terraform
 - **gcp-compute** - Compute Engine resources defined in Terraform
 - **gcp-cloud-functions** - Serverless function deployment with Terraform
-
 ## Limitations
-
 - Infrastructure commands can disrupt services: confirm target host/scope and have backups/snapshots before mutating state.
 - Docs-only import: upstream scripts and templates not bundled.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Linux](platforms/linux.md)

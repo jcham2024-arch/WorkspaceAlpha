@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "aaf2d2da191807ee8fd7ecec02ca4ea0ae6311c62461e6e9be806519641637e4"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: y2k-design
+content_hash: aaf2d2da191807ee8fd7ecec02ca4ea0ae6311c62461e6e9be806519641637e4
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Y2K Design. Trigger when user wants chrome effects, futuristic 2000s look, blob shapes, and tech optimism.
-tier: "experimental"
-date_added: "2026-06-17"
+name: y2k-design
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Y2K Design
-
 > "The optimistic, shiny future as imagined in 1999. Chrome, blobs, and alien tech."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Metallic & Chrome Effects**: Extensive use of silver, chrome, and shiny metallic gradients.
 2. **Organic, Amorphous Shapes**: "Blob" architecture, curved intersecting lines, and liquid-like forms.
 3. **Tech-Optimism**: Circuit board motifs, target crosshairs, and digital grid backgrounds.
-
 ## Visual DNA
 - **Colors**: Silver/chrome, bright cyan, hot pink, lime green. **Industrial Chic** mixed with neon accents works well.
 - **Typography**: Extended (wide) sans-serifs, pixel fonts, or futuristic/alien display fonts (e.g., `Orbitron`, `Syncopate`).
 - **Styling**: Outer glows, metallic bevels, and starry glints (sparkles).
-
 ## Web Implementation
 - Rely heavily on complex linear and radial gradients to simulate shiny metal.
 - **CSS Example**:
@@ -50,12 +37,10 @@ body {
   color: #ffffff;
   font-family: 'Syncopate', sans-serif;
 }
-
 .y2k-chrome-text {
   font-size: 4rem;
   font-weight: 900;
   text-transform: uppercase;
-  
   /* Chrome gradient effect */
   background: linear-gradient(
     to bottom, 
@@ -67,11 +52,9 @@ body {
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  
   /* Outer glow */
   filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
 }
-
 .y2k-blob-btn {
   background: linear-gradient(135deg, #00FFFF, #FF00FF);
   border: none;
@@ -83,9 +66,7 @@ body {
   box-shadow: 0 0 15px #FF00FF;
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct Y2KDesignView: View {
@@ -95,11 +76,9 @@ struct Y2KDesignView: View {
         startPoint: .top,
         endPoint: .bottom
     )
-    
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
-            
             VStack(spacing: 40) {
                 // Chrome Text
                 Text("Y2K FUTURE")
@@ -107,7 +86,6 @@ struct Y2KDesignView: View {
                     .foregroundStyle(chromeGradient)
                     // Cyan glow
                     .shadow(color: Color(hex: "00FFFF"), radius: 10, x: 0, y: 0)
-                
                 // Blob Button (Faked with Capsule in standard SwiftUI, requires Path for true blob)
                 Button(action: {}) {
                     Text("ENTER CORE")
@@ -127,7 +105,6 @@ struct Y2KDesignView: View {
 ```
 - SwiftUI's `.foregroundStyle()` makes applying a complex multi-stop `LinearGradient` to text trivial, which is exactly how you build the Chrome Text effect.
 - Add an un-offset `.shadow()` with a neon color to create the Y2K outer glow.
-
 ### Flutter
 ```dart
 class Y2KDesignScreen extends StatelessWidget {
@@ -155,7 +132,6 @@ class Y2KDesignScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 40),
-            
             // Neon Button
             Container(
               decoration: BoxDecoration(
@@ -181,17 +157,14 @@ class Y2KDesignScreen extends StatelessWidget {
 ```
 - You MUST use `ShaderMask` with a complex multi-stop `LinearGradient` to render the metallic chrome effect on text in Flutter.
 - The `stops` property `[0.0, 0.45, 0.5, 0.55, 1.0]` is the secret to a good metal gradient: a sharp contrast right in the middle simulates the horizon reflection on a cylinder.
-
 ### React Native
 ```jsx
 // REQUIRES: @react-native-masked-view/masked-view and react-native-linear-gradient
 import MaskedView from '@react-native-masked-view/masked-view';
 import LinearGradient from 'react-native-linear-gradient';
-
 const Y2KDesignScreen = () => {
   return (
     <View style={{ flex: 1, backgroundColor: '#000', justifyContent: 'center', alignItems: 'center' }}>
-      
       {/* Chrome Text */}
       <View style={{ height: 60, width: '100%', marginBottom: 40, shadowColor: '#00FFFF', shadowOffset: {width: 0, height: 0}, shadowOpacity: 1, shadowRadius: 10 }}>
         <MaskedView
@@ -205,7 +178,6 @@ const Y2KDesignScreen = () => {
           />
         </MaskedView>
       </View>
-
       {/* Neon Gradient Button */}
       <View style={{ shadowColor: '#FF00FF', shadowOffset: {width: 0, height: 0}, shadowOpacity: 1, shadowRadius: 15 }}>
         <LinearGradient
@@ -215,14 +187,12 @@ const Y2KDesignScreen = () => {
           <Text style={{ fontFamily: 'Orbitron-Bold', fontSize: 20, color: '#FFF' }}>ENTER CORE</Text>
         </LinearGradient>
       </View>
-
     </View>
   );
 };
 ```
 - In React Native, you need the community `MaskedView` to apply a gradient to text. Create the `<Text>` in the `maskElement` prop, and put the `<LinearGradient>` inside as a child.
 - Pass `locations` to the gradient to create the sharp metallic reflection line.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -232,7 +202,6 @@ fun Y2KDesignScreen() {
         contentAlignment = Alignment.Center
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            
             // Chrome Text
             Text(
                 text = "Y2K FUTURE",
@@ -251,9 +220,7 @@ fun Y2KDesignScreen() {
                     shadow = Shadow(color = Color(0xFF00FFFF), blurRadius = 20f) // Glow
                 )
             )
-            
             Spacer(Modifier.height(40.dp))
-            
             // Neon Button
             Box(
                 modifier = Modifier
@@ -270,11 +237,9 @@ fun Y2KDesignScreen() {
 ```
 - Jetpack Compose makes gradient text incredibly easy via `TextStyle(brush = ...)`.
 - Provide specific color stops (`0.45f to ...`) to the `verticalGradient` to create the hard reflection line characteristic of 2000s chrome.
-
 ## Do's and Don'ts
 - **DO**: Use sparkles (✨) as decorative elements around headers and buttons.
 - **DON'T**: Make it minimal. Y2K is fundamentally maximalist and flashy.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

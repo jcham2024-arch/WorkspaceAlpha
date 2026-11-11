@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "73d766bee278e193a984e61c98a1587d837ad62311ae083b90a6987bc526c7bf"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: minimalism
+content_hash: 73d766bee278e193a984e61c98a1587d837ad62311ae083b90a6987bc526c7bf
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for the Minimalism design style. Trigger when the user wants simple layouts, lots of whitespace, few colors, and clear hierarchy.
-tier: "experimental"
-date_added: "2026-06-17"
+name: minimalism
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Minimalism
-
 > "Less is more. Remove until nothing is left but the essential."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Extreme Whitespace**: Margins and padding should be double what you initially think is appropriate.
 2. **Strict Typography**: Rely on font weights and sizes to establish hierarchy, not colors or boxes.
 3. **Absence of Decor**: Minimize decorative borders, shadows and textures; preserve necessary focus, control boundaries and state cues.
-
 ## Visual DNA
 - **Colors**: Best paired with **Minimalist Slate** or **Modern Editorial** palettes. Backgrounds must be absolute (pure or off-white/black).
 - **Typography**: Sans-serif, geometric. (e.g., `Inter`, `Helvetica Neue`, `SF Pro`). Use extreme contrast in weights (Thin vs Black).
 - **Spacing**: Use a generous baseline grid (e.g., multiples of 8px, heavily favoring 48px to 120px padding).
-
 ## Web Implementation
 - Use Flexbox/Grid with large `gap` properties.
 - **CSS Example**:
@@ -62,9 +49,7 @@ Use this sub-style when the user's request matches the aesthetic described above
   transition: all 0.3s ease;
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct MinimalView: View {
@@ -74,12 +59,10 @@ struct MinimalView: View {
                 Text("Headline")
                     .font(.system(size: 34, weight: .light))
                     .tracking(-0.5)
-                
                 Text("Body text sits quietly with generous space around it. Let the content breathe.")
                     .font(.system(size: 17, weight: .regular))
                     .foregroundColor(.secondary)
                     .lineSpacing(6)
-                
                 // Minimal button — just a thin border, no fill
                 Button(action: {}) {
                     Text("Continue")
@@ -104,7 +87,6 @@ struct MinimalView: View {
 - Use `VStack(spacing: 40...64)` for generous separation between elements.
 - Never use `.shadow()` or `Card`-like containers. Let whitespace define grouping.
 - Use `Divider()` sparingly — only when two adjacent sections need separation.
-
 ### Flutter
 ```dart
 class MinimalScreen extends StatelessWidget {
@@ -165,7 +147,6 @@ class MinimalScreen extends StatelessWidget {
 - Set `elevation: 0` on **all** Material widgets (`AppBar`, `Card`, `FloatingActionButton`).
 - Use `SizedBox(height: 48)` or larger for vertical spacing. Avoid tight layouts.
 - Override `ThemeData` to remove all default shadows: `cardTheme: CardThemeData(elevation: 0)`.
-
 ### React Native
 ```jsx
 const MinimalScreen = () => (
@@ -182,7 +163,6 @@ const MinimalScreen = () => (
     }}>
       Headline
     </Text>
-
     <Text style={{
       fontSize: 17,
       fontWeight: '400',
@@ -192,7 +172,6 @@ const MinimalScreen = () => (
     }}>
       Body text sits quietly with generous space around it.
     </Text>
-
     <TouchableOpacity
       style={{
         borderWidth: 1,
@@ -219,7 +198,6 @@ const MinimalScreen = () => (
 - Use `paddingVertical: 80` for screen-level spacing. Double what feels natural.
 - Avoid all `elevation` and `shadowColor` properties. No `borderRadius` on cards.
 - If using a UI library (e.g., React Native Paper), strip default elevations.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -269,11 +247,9 @@ fun MinimalScreen() {
 - Use each component's actual elevation API: for example CardDefaults.cardElevation and FloatingActionButtonDefaults.elevation. TopAppBar uses its own scroll behavior and colors; it has no universal elevation argument.
 - Use `Spacer(modifier = Modifier.height(48.dp))` consistently for generous vertical gaps.
 - Override `MaterialTheme` shape and shadow defaults to remove all depth cues.
-
 ## Do's and Don'ts
 - **DO**: Focus intensely on alignment. A 1px misalignment breaks the illusion of minimalism.
 - **DON'T**: Use "card" wrappers for content. Let the whitespace define the grouping.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

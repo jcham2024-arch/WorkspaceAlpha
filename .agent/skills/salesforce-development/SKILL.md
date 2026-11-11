@@ -1,34 +1,23 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "d470f7059df63a11a4bcc7b5338026e339039e2b55903ab8e2c5111f20eceb65"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: salesforce-development
+content_hash: d470f7059df63a11a4bcc7b5338026e339039e2b55903ab8e2c5111f20eceb65
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Expert patterns for Salesforce platform development including
-tier: "experimental"
-  Lightning Web Components (LWC), Apex triggers and classes, REST/Bulk APIs, External Client Apps, and Salesforce DX with scratch orgs and 2nd generation
-  packages (2GP).
+name: salesforce-development
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
-date_added: 2026-02-27
+---  Lightning Web Components (LWC), Apex triggers and classes, REST/Bulk APIs, External Client Apps, and Salesforce DX with scratch orgs and 2nd generation
+  packages (2GP).
 ---
-
-
 # Salesforce Development
-
 Expert patterns for Salesforce platform development including Lightning Web
 Components (LWC), Apex triggers and classes, REST/Bulk APIs, External Client Apps, and Salesforce DX with scratch orgs and 2nd generation packages (2GP).
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use
 - User mentions or implies: salesforce
 - User mentions or implies: sfdc
@@ -41,7 +30,6 @@ Read [the detailed guide](references/detailed-guide.md) before executing this sk
 - User mentions or implies: soql
 - User mentions or implies: governor limits
 - User mentions or implies: connected app
-
 ## Limitations
 - Examples are incomplete fragments, not deployment-ready packages: custom fields/classes, CSV parsing, abort handling, imports, result typing and security tests are omitted. Confirm org/API version, CRUD/FLS/sharing, callout/job limits and user/system mode explicitly. Use test orgs and synthetic data; production deployment and package promotion require the approved target/change process. Do not send outbound Slack/CRM data merely because a trigger example includes it.
 - Salesforce platform behavior and API versions change frequently; verify current official documentation before implementing version-sensitive features.

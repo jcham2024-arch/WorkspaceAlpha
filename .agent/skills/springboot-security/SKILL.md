@@ -1,28 +1,17 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "a7706ced5faf233b2d188f7cd5a8bd772b31b7ef35eb457530c16926075e541c"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: springboot-security
+content_hash: a7706ced5faf233b2d188f7cd5a8bd772b31b7ef35eb457530c16926075e541c
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: Spring Security best practices for authn/authz, validation, CSRF, secrets, headers, rate limiting, and dependency security in Java Spring Boot services. Use when reviewing Spring Security authn/authz, validation, CSRF, secrets, headers, or rate limiting.
-tier: "experimental"
-metadata:
-  origin: ECC
+name: springboot-security
+origin: ECC
 ---
-
-
 # Spring Boot Security Review
-
 Use when adding auth, handling input, creating endpoints, or dealing with secrets.
-
 ## When to Activate
-
 - Adding authentication (JWT, OAuth2, session-based)
 - Implementing authorization (@PreAuthorize, role-based access)
 - Validating user input (Bean Validation, custom validators)
@@ -30,22 +19,17 @@ Use when adding auth, handling input, creating endpoints, or dealing with secret
 - Managing secrets (Vault, environment variables)
 - Adding rate limiting or brute-force protection
 - Scanning dependencies for CVEs
-
 ## Authentication
-
 - Prefer stateless JWT or opaque tokens with revocation list
 - Use `httpOnly`, `Secure`, `SameSite=Strict` cookies for sessions
 - Validate tokens with `OncePerRequestFilter` or resource server
-
 ```java
 @Component
 public class JwtAuthFilter extends OncePerRequestFilter {
   private final JwtService jwtService;
-
   public JwtAuthFilter(JwtService jwtService) {
     this.jwtService = jwtService;
   }
-
   @Override
   protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
       FilterChain chain) throws ServletException, IOException {
@@ -59,24 +43,19 @@ public class JwtAuthFilter extends OncePerRequestFilter {
   }
 }
 ```
-
 ## Authorization
-
 - Enable method security: `@EnableMethodSecurity`
 - Use `@PreAuthorize("hasRole('ADMIN')")` or `@PreAuthorize("@authz.canEdit(#id)")`
 - Deny by default; expose only required scopes
-
 ```java
 @RestController
 @RequestMapping("/api/admin")
 public class AdminController {
-
   @PreAuthorize("hasRole('ADMIN')")
   @GetMapping("/users")
   public List<UserDto> listUsers() {
     return userService.findAll();
   }
-
   @PreAuthorize("@authz.isOwner(#id, authentication)")
   @DeleteMapping("/users/{id}")
   public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
@@ -85,97 +64,75 @@ public class AdminController {
   }
 }
 ```
-
 ## Input Validation
-
 - Use Bean Validation with `@Valid` on controllers
 - Apply constraints on DTOs: `@NotBlank`, `@Email`, `@Size`, custom validators
 - Sanitize any HTML with a whitelist before rendering
-
 ```java
 // BAD: No validation
 @PostMapping("/users")
 public User createUser(@RequestBody UserDto dto) {
   return userService.create(dto);
 }
-
 // GOOD: Validated DTO
 public record CreateUserDto(
     @NotBlank @Size(max = 100) String name,
     @NotBlank @Email String email,
     @NotNull @Min(0) @Max(150) Integer age
 ) {}
-
 @PostMapping("/users")
 public ResponseEntity<UserDto> createUser(@Valid @RequestBody CreateUserDto dto) {
   return ResponseEntity.status(HttpStatus.CREATED)
       .body(userService.create(dto));
 }
 ```
-
 ## SQL Injection Prevention
-
 - Use Spring Data repositories or parameterized queries
 - For native queries, use `:param` bindings; never concatenate strings
-
 ```java
 // BAD: String concatenation in native query
 @Query(value = "SELECT * FROM users WHERE name = '" + name + "'", nativeQuery = true)
-
 // GOOD: Parameterized native query
 @Query(value = "SELECT * FROM users WHERE name = :name", nativeQuery = true)
 List<User> findByName(@Param("name") String name);
-
 // GOOD: Spring Data derived query (auto-parameterized)
 List<User> findByEmailAndActiveTrue(String email);
 ```
-
 ## Password Encoding
-
 - Always hash passwords with BCrypt or Argon2 — never store plaintext
 - Use `PasswordEncoder` bean, not manual hashing
-
 ```java
 @Bean
 public PasswordEncoder passwordEncoder() {
   return new BCryptPasswordEncoder(12); // cost factor 12
 }
-
 // In service
 public User register(CreateUserDto dto) {
   String hashedPassword = passwordEncoder.encode(dto.password());
   return userRepository.save(new User(dto.email(), hashedPassword));
 }
 ```
-
 ## CSRF Protection
-
 - For browser session apps, keep CSRF enabled; include token in forms/headers
 - For pure APIs with Bearer tokens, disable CSRF and rely on stateless auth
-
 ```java
 http
   .csrf(csrf -> csrf.disable())
   .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 ```
-
 ## Secrets Management
-
 - No secrets in source; load from env or vault
 - Keep `application.yml` free of credentials; use placeholders
 - Rotate tokens and DB credentials regularly
-
 ```yaml
 # BAD: Hardcoded in application.yml
 spring:
   datasource:
     password: mySecretPassword123
-
 # GOOD: Environment variable placeholder
 spring:
   datasource:
     password: ${DB_PASSWORD}
-
 # GOOD: Spring Cloud Vault integration
 spring:
   cloud:
@@ -183,9 +140,7 @@ spring:
       uri: https://vault.example.com
       token: ${VAULT_TOKEN}
 ```
-
 ## Security Headers
-
 ```java
 http
   .headers(headers -> headers
@@ -195,12 +150,9 @@ http
     .xssProtection(Customizer.withDefaults())
     .referrerPolicy(rp -> rp.policy(ReferrerPolicyHeaderWriter.ReferrerPolicy.NO_REFERRER)));
 ```
-
 ## CORS Configuration
-
 - Configure CORS at the security filter level, not per-controller
 - Restrict allowed origins — never use `*` in production
-
 ```java
 @Bean
 public CorsConfigurationSource corsConfigurationSource() {
@@ -210,39 +162,31 @@ public CorsConfigurationSource corsConfigurationSource() {
   config.setAllowedHeaders(List.of("Authorization", "Content-Type"));
   config.setAllowCredentials(true);
   config.setMaxAge(3600L);
-
   UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
   source.registerCorsConfiguration("/api/**", config);
   return source;
 }
-
 // In SecurityFilterChain:
 http.cors(cors -> cors.configurationSource(corsConfigurationSource()));
 ```
-
 ## Rate Limiting
-
 - Apply Bucket4j or gateway-level limits on expensive endpoints
 - Log and alert on bursts; return 429 with retry hints
-
 ```java
 // Using Bucket4j for per-endpoint rate limiting
 @Component
 public class RateLimitFilter extends OncePerRequestFilter {
   private final Map<String, Bucket> buckets = new ConcurrentHashMap<>();
-
   private Bucket createBucket() {
     return Bucket.builder()
         .addLimit(Bandwidth.classic(100, Refill.intervally(100, Duration.ofMinutes(1))))
         .build();
   }
-
   @Override
   protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
       FilterChain chain) throws ServletException, IOException {
     String clientIp = request.getRemoteAddr();
     Bucket bucket = buckets.computeIfAbsent(clientIp, k -> createBucket());
-
     if (bucket.tryConsume(1)) {
       chain.doFilter(request, response);
     } else {
@@ -252,25 +196,17 @@ public class RateLimitFilter extends OncePerRequestFilter {
   }
 }
 ```
-
 ## Dependency Security
-
 - Run OWASP Dependency Check / Snyk in CI
 - Keep Spring Boot and Spring Security on supported versions
 - Fail builds on known CVEs
-
 ## Logging and PII
-
 - Never log secrets, tokens, passwords, or full PAN data
 - Redact sensitive fields; use structured JSON logging
-
 ## File Uploads
-
 - Validate size, content type, and extension
 - Store outside web root; scan if required
-
 ## Checklist Before Release
-
 - [ ] Auth tokens validated and expired correctly
 - [ ] Authorization guards on every sensitive path
 - [ ] All inputs validated and sanitized
@@ -281,5 +217,4 @@ public class RateLimitFilter extends OncePerRequestFilter {
 - [ ] Rate limiting on APIs
 - [ ] Dependencies scanned and up to date
 - [ ] Logs free of sensitive data
-
 **Remember**: Deny by default, validate inputs, least privilege, and secure-by-configuration first.

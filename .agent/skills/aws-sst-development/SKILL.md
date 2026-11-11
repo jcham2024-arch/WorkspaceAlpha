@@ -1,36 +1,25 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "1c58f4ce045e29015be52acc4f9fba1b8add4b6cf6ca4302a06a88bfef518f45"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 1c58f4ce045e29015be52acc4f9fba1b8add4b6cf6ca4302a06a88bfef518f45
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-07-01
+description: SST v4 (Ion) expert for managing AWS resources as code with the Pulumi-backed framework.
+license: MIT
+license_source: "https://github.com/zxkane/aws-skills/blob/main/LICENSE"
 name: aws-sst-development
-description: "SST v4 (Ion) expert for managing AWS resources as code with the Pulumi-backed framework."
-tier: "experimental"
 risk: critical
-source: https://github.com/zxkane/aws-skills/tree/main/plugins/aws-iac/skills/aws-sst-development
+source: "https://github.com/zxkane/aws-skills/tree/main/plugins/aws-iac/skills/aws-sst-development"
 source_repo: zxkane/aws-skills
 source_type: community
-date_added: 2026-07-01
-license: MIT
-license_source: https://github.com/zxkane/aws-skills/blob/main/LICENSE
 ---
-
 ## Bundled upstream support
-
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.
-
 # SST v4 for AWS
 ## When to Use
-
 Use this skill when you need sST v4 (Ion) expert for managing AWS resources as code with the Pulumi-backed framework. Use when writing or editing sst.config.ts, building infra/ modules (sst.aws.Function/Bucket/Dynamo/Cron/Service/Router, sst.Secret, sst.Linkable, raw aws.* Pulumi resources), wiring resource links,...
-
-
 SST v4 (the "Ion" engine) is a Pulumi-backed IaC framework: you describe AWS
 resources in TypeScript and SST/Pulumi reconciles them into your account. It
 gives you high-level `sst.aws.*` components (Function, Bucket, Dynamo, Cron,
@@ -38,17 +27,13 @@ Service, …) that expand into many underlying resources, plus an escape hatch t
 *any* raw Pulumi `aws.*` resource for the long tail. This skill encodes a
 set of project-derived patterns to author, link, test, deploy, and troubleshoot SST
 stacks on AWS . The catalog review does not establish those incident or production-validation claims.
-
 **SST and Pulumi are third-party — verify current syntax with Context7**
 (`resolve-library-id` → `query-docs` for `sst` or `pulumi-aws`) when you're
 unsure about a component's options. Verify AWS-side facts (service limits,
 model IDs, IAM action names, region availability) with the AWS docs MCP, never
 from memory. The patterns here are the *how*; the docs are the *what*.
-
 ## When you're invoked
-
 Figure out which mode you're in and jump to the right reference:
-
 | Situation | Go to |
 |-----------|-------|
 | New project, or adding a resource/module to an existing SST app | **Author** → `references/authoring.md` |
@@ -56,15 +41,11 @@ Figure out which mode you're in and jump to the right reference:
 | Writing tests for infra so changes don't silently break | **Test** → `references/testing.md` |
 | Running a deploy, or a deploy just failed | **Deploy/Operate** → `references/deploy-and-troubleshoot.md` |
 | Migrating a resource between Pulumi types, renaming a physical name | **Deploy/Operate** → `references/deploy-and-troubleshoot.md` § Migrations |
-
 Always read the relevant reference before editing — they carry the *why* behind
 each rule, which matters more than the rule itself.
-
 ## Orientation: read the repo before you touch it
-
 SST projects are conventional but not identical. Before editing, build a quick
 map so your change matches the house style instead of fighting it:
-
 1. **`sst.config.ts`** — the app name, `home`, providers/region, `defaultTags`,
    any global `$transform` (Node runtime pin, bundle fixups), and the order in
    which `run()` imports `infra/` modules. The import order *is* the dependency
@@ -78,19 +59,14 @@ map so your change matches the house style instead of fighting it:
    needs a new assertion.
 4. **`package.json` / `.nvmrc`** — package manager (npm vs pnpm), Node version,
    and the `sst`/`pulumi` versions actually installed.
-
 Run `npx sst version` to confirm you're on v4/Ion (the `$config` + `.sst/platform/`
 signature). v2 (Classic) is CDK-based; v3 also introduced the Pulumi-backed Ion architecture. Verify v3-to-v4 breaking changes rather than classifying v3 as CDK-based.
-
 ## The conventions, and which are universal vs tunable
-
 The projects this skill is built from share a deliberate house style. Some of it
 is **universal** (true for any SST v4 + AWS project — apply it everywhere); some
 is **project-specific** (a sensible default these projects chose — adopt it for
 consistency, but recognize a project may differ).
-
 **Universal — these principles hold for any SST v4 + AWS project:**
-
 - **Control the Node runtime deliberately, in one place.** Don't leave it to
   whatever the installed SST happens to default to. The idiom is a single global
   `$transform(sst.aws.Function, (args) => { args.runtime ??= "nodejs24.x" })` in
@@ -111,9 +87,7 @@ consistency, but recognize a project may differ).
   `aws.cloudcontrol.Resource` escape hatch.** CloudControl outputs are
   stringly-typed and `oneOf` fields don't patch cleanly. Use it only when no
   typed resource exists yet, and migrate off it when one ships.
-
 **Project-specific defaults — adopt for consistency, but confirm per repo:**
-
 - **Region `ap-northeast-1`**, `home: "aws"`, and `defaultTags` carrying
   `Project` / `Stage` / `ManagedBy: "sst"`.
 - **Stage-gated lifecycle**: `removal: stage === "prod" ? "retain" : "remove"`
@@ -138,15 +112,11 @@ consistency, but recognize a project may differ).
   structured logging before merge. Whether you enforce this depends on the
   project, but it's cheap insurance. See `references/deploy-and-troubleshoot.md`
   § Observability.
-
 When you introduce a convention, say which bucket it's in ("this is universal"
 vs "matching this repo's house style") so the user can override the
 project-specific ones deliberately.
-
 CLI and config evaluation can run arbitrary project code, including during diff/preview, and dev/deploy can create billable resources. Use the locked local CLI (do not let npx fetch an unreviewed package), verify account/role/region/stage and authorization before cloud operations. Context7/AWS MCP are optional documentation routes; use official web docs if unavailable.
-
 ## Working rhythm
-
 1. **Orient** (above) — map config, modules, tests, tooling.
 2. **Verify syntax** with Context7 / AWS docs MCP if anything is non-obvious.
    Don't guess at a component's option name.
@@ -161,9 +131,7 @@ CLI and config evaluation can run arbitrary project code, including during diff/
    target account with `aws sts get-caller-identity` before any `sst deploy`.
 6. **Clean up** any exported state files — they contain account IDs and ARNs and
    must not linger in `/tmp` or chat history.
-
 ## What good looks like
-
 - The change is the smallest diff that satisfies the requirement, in the right
   `infra/` module, wired into `run()` in dependency order.
 - Every Lambda gets the right runtime via the global transform (you didn't
@@ -175,15 +143,10 @@ CLI and config evaluation can run arbitrary project code, including during diff/
   Context7 rather than relying on recall.
 - Anything irreversible (deploy, `sst remove`, a resource-type migration) was
   flagged to the user with the account it targets, and stateful migrations had a reviewed preservation/rollback plan.
-
 ## Example
-
 **User request:**
-
 > Use @aws-sst-development for this task: SST v4 (Ion) expert for managing AWS resources as code with the Pulumi-backed framework.
-
 ## Limitations
-
 - Use this skill only when the task clearly matches its upstream source and local project context.
 - Verify commands, generated code, dependencies, credentials, and external service behavior before applying changes.
 - Do not treat examples as a substitute for environment-specific tests, security review, or user approval for destructive or costly actions.

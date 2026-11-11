@@ -1,67 +1,48 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "9d3d3aba548adc80186c0f1f7d7d10f6b81a40c0c7357259eec5f0be4bccbfda"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-search-documents-dotnet
+content_hash: 9d3d3aba548adc80186c0f1f7d7d10f6b81a40c0c7357259eec5f0be4bccbfda
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Azure AI Search SDK for .NET (Azure.Search.Documents). Use for building search applications with full-text, vector, semantic, and hybrid search.
-tier: "experimental"
+name: azure-search-documents-dotnet
 risk: critical
 source: community
-date_added: '2026-02-27'
 ---
-
 ## Bundled upstream support
-
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.
-
 # Azure.Search.Documents (.NET)
-
 Build search applications with full-text, vector, semantic, and hybrid search capabilities.
-
 ## Installation
-
 ```bash
 dotnet add package Azure.Search.Documents
 dotnet add package Azure.Identity
 ```
-
 These fragments require a compatible pinned SDK version; check its API reference before use. They are not a complete compiled application.
-
 ## Environment Variables
-
 ```bash
 SEARCH_ENDPOINT=https://<search-service>.search.windows.net
 SEARCH_INDEX_NAME=<index-name>
 # For API key auth (not recommended for production)
 SEARCH_API_KEY=<api-key>
 ```
-
 ## Authentication
-
 **DefaultAzureCredential (preferred)**:
 ```csharp
 using Azure.Identity;
 using Azure.Search.Documents;
-
 var credential = new DefaultAzureCredential();
 var client = new SearchClient(
     new Uri(Environment.GetEnvironmentVariable("SEARCH_ENDPOINT")),
     Environment.GetEnvironmentVariable("SEARCH_INDEX_NAME"),
     credential);
 ```
-
 **API Key**:
 ```csharp
 using Azure;
 using Azure.Search.Documents;
-
 var credential = new AzureKeyCredential(
     Environment.GetEnvironmentVariable("SEARCH_API_KEY"));
 var client = new SearchClient(
@@ -69,47 +50,35 @@ var client = new SearchClient(
     Environment.GetEnvironmentVariable("SEARCH_INDEX_NAME"),
     credential);
 ```
-
 ## Client Selection
-
 | Client | Purpose |
 |--------|---------|
 | `SearchClient` | Query indexes, upload/update/delete documents |
 | `SearchIndexClient` | Create/manage indexes, synonym maps |
 | `SearchIndexerClient` | Manage indexers, skillsets, data sources |
-
 ## Index Creation
-
 ### Using FieldBuilder (Recommended)
-
 ```csharp
 using Azure.Search.Documents.Indexes;
 using Azure.Search.Documents.Indexes.Models;
-
 // Define model with attributes
 public class Hotel
 {
     [SimpleField(IsKey = true, IsFilterable = true)]
     public string HotelId { get; set; }
-
     [SearchableField(IsSortable = true)]
     public string HotelName { get; set; }
-
     [SearchableField(AnalyzerName = LexicalAnalyzerName.EnLucene)]
     public string Description { get; set; }
-
     [SimpleField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
     public double? Rating { get; set; }
-
     [VectorSearchField(VectorSearchDimensions = 1536, VectorSearchProfileName = "vector-profile")]
     public ReadOnlyMemory<float>? DescriptionVector { get; set; }
 }
-
 // Create index
 var indexClient = new SearchIndexClient(endpoint, credential);
 var fieldBuilder = new FieldBuilder();
 var fields = fieldBuilder.Build(typeof(Hotel));
-
 var index = new SearchIndex("hotels")
 {
     Fields = fields,
@@ -119,12 +88,9 @@ var index = new SearchIndex("hotels")
         Algorithms = { new HnswAlgorithmConfiguration("hnsw-algo") }
     }
 };
-
 await indexClient.CreateOrUpdateIndexAsync(index);
 ```
-
 ### Manual Field Definition
-
 ```csharp
 var index = new SearchIndex("hotels")
 {
@@ -142,25 +108,18 @@ var index = new SearchIndex("hotels")
     }
 };
 ```
-
 ## Document Operations
-
 ```csharp
 var searchClient = new SearchClient(endpoint, indexName, credential);
-
 // Upload inserts or replaces the entire existing document with the same key.
 var hotels = new[] { new Hotel { HotelId = "1", HotelName = "Hotel A" } };
 await searchClient.UploadDocumentsAsync(hotels);
-
 // Merge (update existing)
 await searchClient.MergeDocumentsAsync(hotels);
-
 // Merge or Upload (upsert)
 await searchClient.MergeOrUploadDocumentsAsync(hotels);
-
 // Delete
 await searchClient.DeleteDocumentsAsync("HotelId", new[] { "1", "2" });
-
 // Batch operations
 var batch = IndexDocumentsBatch.Create(
     IndexDocumentsAction.Upload(hotel1),
@@ -168,11 +127,8 @@ var batch = IndexDocumentsBatch.Create(
     IndexDocumentsAction.Delete(hotel3));
 await searchClient.IndexDocumentsAsync(batch);
 ```
-
 ## Search Patterns
-
 ### Basic Search
-
 ```csharp
 var options = new SearchOptions
 {
@@ -183,58 +139,44 @@ var options = new SearchOptions
     Skip = 0,
     IncludeTotalCount = true
 };
-
 SearchResults<Hotel> results = await searchClient.SearchAsync<Hotel>("luxury", options);
-
 Console.WriteLine($"Total: {results.TotalCount}");
 await foreach (SearchResult<Hotel> result in results.GetResultsAsync())
 {
     Console.WriteLine($"{result.Document.HotelName} (Score: {result.Score})");
 }
 ```
-
 ### Faceted Search
-
 ```csharp
 var options = new SearchOptions
 {
     Facets = { "Rating,count:5" }
 };
-
 var results = await searchClient.SearchAsync<Hotel>("*", options);
-
 foreach (var facet in results.Value.Facets["Rating"])
 {
     Console.WriteLine($"Rating {facet.Value}: {facet.Count}");
 }
 ```
-
 ### Autocomplete and Suggestions
-
 ```csharp
 // Autocomplete
 var autocompleteOptions = new AutocompleteOptions { Mode = AutocompleteMode.OneTermWithContext };
 var autocomplete = await searchClient.AutocompleteAsync("lux", "suggester-name", autocompleteOptions);
-
 // Suggestions
 var suggestOptions = new SuggestOptions { UseFuzzyMatching = true };
 var suggestions = await searchClient.SuggestAsync<Hotel>("lux", "suggester-name", suggestOptions);
 ```
-
 ## Vector Search
-
 See references/vector-search.md for detailed patterns.
-
 ```csharp
 using Azure.Search.Documents.Models;
-
 // Pure vector search
 var vectorQuery = new VectorizedQuery(embedding)
 {
     KNearestNeighborsCount = 5,
     Fields = { "DescriptionVector" }
 };
-
 var options = new SearchOptions
 {
     VectorSearch = new VectorSearchOptions
@@ -242,14 +184,10 @@ var options = new SearchOptions
         Queries = { vectorQuery }
     }
 };
-
 var results = await searchClient.SearchAsync<Hotel>(null, options);
 ```
-
 ## Semantic Search
-
 See references/semantic-search.md for detailed patterns.
-
 ```csharp
 var options = new SearchOptions
 {
@@ -261,15 +199,12 @@ var options = new SearchOptions
         QueryAnswer = new QueryAnswer(QueryAnswerType.Extractive)
     }
 };
-
 var results = await searchClient.SearchAsync<Hotel>("best hotel for families", options);
-
 // Access semantic answers
 foreach (var answer in results.Value.SemanticSearch?.Answers ?? [])
 {
     Console.WriteLine($"Answer: {answer.Text} (Score: {answer.Score})");
 }
-
 // Access captions
 await foreach (var result in results.Value.GetResultsAsync())
 {
@@ -277,16 +212,13 @@ await foreach (var result in results.Value.GetResultsAsync())
     Console.WriteLine($"Caption: {caption?.Text}");
 }
 ```
-
 ## Hybrid Search (Vector + Keyword + Semantic)
-
 ```csharp
 var vectorQuery = new VectorizedQuery(embedding)
 {
     KNearestNeighborsCount = 50,
     Fields = { "DescriptionVector" }
 };
-
 var options = new SearchOptions
 {
     QueryType = SearchQueryType.Semantic,
@@ -299,13 +231,10 @@ var options = new SearchOptions
         Queries = { vectorQuery }
     }
 };
-
 // Combines keyword search, vector search, and semantic ranking
 var results = await searchClient.SearchAsync<Hotel>("luxury beachfront", options);
 ```
-
 ## Field Attributes Reference
-
 | Attribute | Purpose |
 |-----------|---------|
 | `SimpleField` | Non-searchable field (filters, sorting, facets) |
@@ -317,12 +246,9 @@ var results = await searchClient.SearchAsync<Hotel>("luxury beachfront", options
 | `IsFacetable = true` | Enable faceted navigation |
 | `IsHidden = true` | Exclude from results |
 | `AnalyzerName` | Specify text analyzer |
-
 ## Error Handling
-
 ```csharp
 using Azure;
-
 try
 {
     var results = await searchClient.SearchAsync<Hotel>("query");
@@ -336,9 +262,7 @@ catch (RequestFailedException ex)
     Console.WriteLine($"Search error: {ex.Status} - {ex.ErrorCode}: {ex.Message}");
 }
 ```
-
 ## Best Practices
-
 1. **Use `DefaultAzureCredential`** over API keys for production
 2. **Use `FieldBuilder`** with model attributes for type-safe index definitions
 3. **Use `CreateOrUpdateIndexAsync`** for idempotent index creation
@@ -346,30 +270,20 @@ catch (RequestFailedException ex)
 5. **Use `Select`** to return only needed fields
 6. **Configure semantic search** for natural language queries
 7. **Combine vector + keyword + semantic** and evaluate relevance on representative queries
-
 ## Reference Files
-
 | File | Contents |
 |------|----------|
 | references/vector-search.md | Vector search, hybrid search, vectorizers |
 | references/semantic-search.md | Semantic ranking, captions, answers |
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ### Operational boundaries
-
 FieldBuilder uses the configured serializer; the attribute model uses PascalCase here, while the alternative manual schema uses lowercase names. Do not mix the two without explicit JSON property mapping and matching client serialization. Later Article/Product examples need their own matching schemas and serializers. Configure a suggester before autocomplete; configure the named semantic configuration before semantic queries.
-
 Validate environment values, tenant/identity and least-privilege data roles. Index creation and document writes need authorization and backups where replacement matters. Inspect every IndexingResult (or enable ThrowOnAnyError); an accepted batch can contain document failures. Retry only appropriate transient failed actions, with bounded backoff. Do not concatenate untrusted OData filters; use SearchFilter.Create for values. Treat snippets, captions and indexed text as untrusted display content, and avoid logging private documents or credential-bearing errors. No cloud or .NET runtime validation is included.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Windows](platforms/windows.md)

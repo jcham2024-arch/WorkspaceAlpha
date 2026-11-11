@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "b149c79b9be2abed2d5471a8c9842e3c0ea74fa03893c71bb58ee8749b22173b"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: retro-futurism
+content_hash: b149c79b9be2abed2d5471a8c9842e3c0ea74fa03893c71bb58ee8749b22173b
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Retro Futurism. Trigger when user wants vintage future concepts, 1950s space age aesthetics, or atompunk vibes.
-tier: "experimental"
-date_added: "2026-06-17"
+name: retro-futurism
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Retro Futurism
-
 > "The future as imagined in the 1950s and 60s. Rockets, atoms, and sleek, aerodynamic chrome."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Aerodynamic Shapes**: Lots of sweeping curves, teardrop shapes, and swooping lines. Nothing is a perfect square.
 2. **Space-Age Motifs**: Stars, atoms, orbits, and fins (like a 1950s Cadillac).
 3. **Mid-Century Colors mixed with Chrome**: Classic 50s pastels paired with shiny, reflective metals.
-
 ## Visual DNA
 - **Colors**: Turquoise (`#40E0D0`), Atomic Tangerine (`#FF9966`), Mint Green (`#98FF98`), paired with Silver/Chrome and deep Space Black.
 - **Typography**: Googie architecture fonts, bold cursive scripts, or clean mid-century geometric sans-serifs (like `Futura`).
 - **Styling**: Sleek bezels, dramatic drop shadows, and offset overlapping shapes.
-
 ## Web Implementation
 - **CSS Example**:
 ```css
@@ -46,7 +33,6 @@ body {
   font-family: 'Futura', 'Trebuchet MS', sans-serif;
   overflow-x: hidden;
 }
-
 /* Googie-style sweeping background element */
 .retro-future-swoop {
   position: absolute;
@@ -58,7 +44,6 @@ body {
   z-index: -1;
   border-bottom: 8px solid #FF9966; /* Atomic tangerine stripe */
 }
-
 .atompunk-card {
   background-color: #fff;
   border: 4px solid silver;
@@ -67,7 +52,6 @@ body {
   box-shadow: 15px 15px 0px rgba(0,0,0,0.1);
   position: relative;
 }
-
 /* Classic starburst motif */
 .starburst {
   position: absolute;
@@ -77,9 +61,7 @@ body {
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct AtompunkShape: Shape {
@@ -95,7 +77,6 @@ struct AtompunkShape: Shape {
         return path
     }
 }
-
 struct RetroFutureCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -103,7 +84,6 @@ struct RetroFutureCard: View {
                 .font(.custom("Futura", size: 28))
                 .fontWeight(.bold)
                 .foregroundColor(Color(red: 0.18, green: 0.31, blue: 0.31))
-            
             Text("Sleek chrome and sweeping curves.")
                 .font(.custom("Futura", size: 16))
         }
@@ -129,7 +109,6 @@ struct RetroFutureCard: View {
 ```
 - Rely on asymmetrical corner radii to create the aerodynamic, teardrop aesthetic.
 - Metallic/Chrome borders are faked by using a `LinearGradient` of grays and whites.
-
 ### Flutter
 ```dart
 class RetroFutureCard extends StatelessWidget {
@@ -176,7 +155,6 @@ class RetroFutureCard extends StatelessWidget {
 ```
 - Flutter handles asymmetric corners natively via `BorderRadius.only()`.
 - Gradient borders (for chrome) require a `CustomPaint` or wrapping the container in another container with a gradient background and padding.
-
 ### React Native
 ```jsx
 const RetroFutureCard = () => {
@@ -189,10 +167,8 @@ const RetroFutureCard = () => {
       borderBottomRightRadius: 40,
       borderTopRightRadius: 10,
       borderBottomLeftRadius: 10,
-      
       borderWidth: 4,
       borderColor: '#C0C0C0', // Solid silver fallback for chrome
-      
       // Offset hard shadow
       shadowColor: '#000',
       shadowOffset: { width: 15, height: 15 },
@@ -212,7 +188,6 @@ const RetroFutureCard = () => {
 ```
 - React Native natively supports `borderTopLeftRadius` style independent props, making the aerodynamic shapes trivial.
 - Complex geometric backgrounds (like starbursts) should definitely be SVG components imported via `react-native-svg`.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -263,11 +238,9 @@ fun RetroFutureCard() {
 ```
 - Use `RoundedCornerShape(topStart, topEnd, bottomEnd, bottomStart)` to create the atompunk aesthetic.
 - The `Modifier.border` takes a `Brush` natively, making the metallic chrome gradient incredibly easy to achieve compared to other frameworks.
-
 ## Do's and Don'ts
 - **DO**: Use strict `Futura` or `Century Gothic` for a very authentic mid-century feel.
 - **DON'T**: Make the UI look dirty or distressed (that's standard retro or steampunk). Retro-futurism is clean, optimistic, and shiny.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

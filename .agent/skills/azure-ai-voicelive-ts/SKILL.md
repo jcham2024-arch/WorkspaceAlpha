@@ -1,43 +1,30 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "5613f04dfd7435ee02eeb3a2b3bfd2deb8de434707baa637898224c51ed33b02"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-ai-voicelive-ts
-description: Azure AI Voice Live SDK for JavaScript/TypeScript. Build real-time voice AI applications with bidirectional WebSocket communication.
-tier: "experimental"
+content_hash: 5613f04dfd7435ee02eeb3a2b3bfd2deb8de434707baa637898224c51ed33b02
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: ""City and state or country","
+name: ""get_weather","
 risk: critical
 source: community
-date_added: '2026-02-27'
+tools: "["
 ---
-
-
 # @azure/ai-voicelive (JavaScript/TypeScript)
-
 Real-time voice AI SDK for building bidirectional voice assistants with Azure AI in Node.js and browser environments.
-
 ## Installation
-
 ```bash
 npm install @azure/ai-voicelive @azure/identity
 # TypeScript users
 npm install @types/node
 ```
-
 **Historical example baseline**: 1.0.0-beta.3. Pin and verify preview API compatibility before use.
-
 **Supported Environments**:
 - Node.js LTS versions (20+)
 - Modern browsers (Chrome, Firefox, Safari, Edge)
-
 ## Environment Variables
-
 ```bash
 AZURE_VOICELIVE_ENDPOINT=https://<resource>.cognitiveservices.azure.com
 # Optional: API key if not using Entra ID
@@ -45,35 +32,24 @@ AZURE_VOICELIVE_API_KEY=<your-api-key>
 # Optional: Logging
 AZURE_LOG_LEVEL=info
 ```
-
 ## Authentication
-
 ### Microsoft Entra ID (Recommended)
-
 ```typescript
 import { DefaultAzureCredential } from "@azure/identity";
 import { VoiceLiveClient } from "@azure/ai-voicelive";
-
 const credential = new DefaultAzureCredential();
 const endpoint = "https://your-resource.cognitiveservices.azure.com";
-
 const client = new VoiceLiveClient(endpoint, credential);
 ```
-
 ### API Key
-
 ```typescript
 import { AzureKeyCredential } from "@azure/core-auth";
 import { VoiceLiveClient } from "@azure/ai-voicelive";
-
 const endpoint = "https://your-resource.cognitiveservices.azure.com";
 const credential = new AzureKeyCredential("your-api-key");
-
 const client = new VoiceLiveClient(endpoint, credential);
 ```
-
 ## Client Hierarchy
-
 ```
 VoiceLiveClient
 └── VoiceLiveSession (WebSocket connection)
@@ -83,27 +59,21 @@ VoiceLiveClient
     ├── addConversationItem() → Add messages/function outputs
     └── sendEvent()          → Send raw protocol events
 ```
-
 ## Quick Start
-
 ```typescript
 import { DefaultAzureCredential } from "@azure/identity";
 import { VoiceLiveClient } from "@azure/ai-voicelive";
-
 const credential = new DefaultAzureCredential();
 const endpoint = process.env.AZURE_VOICELIVE_ENDPOINT!;
-
 // Create client and start session
 const client = new VoiceLiveClient(endpoint, credential);
 const session = await client.startSession("gpt-4o-mini-realtime-preview");
-
 // Configure session
 await session.updateSession({
   modalities: ["text", "audio"],
   instructions: "You are a helpful AI assistant. Respond naturally.",
   voice: {
     type: "azure-standard",
-    name: "en-US-AvaNeural",
   },
   turnDetection: {
     type: "server_vad",
@@ -114,7 +84,6 @@ await session.updateSession({
   inputAudioFormat: "pcm16",
   outputAudioFormat: "pcm16",
 });
-
 // Subscribe to events
 const subscription = session.subscribe({
   onResponseAudioDelta: async (event, context) => {
@@ -130,29 +99,22 @@ const subscription = session.subscribe({
     console.log("User said:", event.transcript);
   },
 });
-
 // Send audio from microphone
 function sendAudioChunk(audioBuffer: ArrayBuffer) {
   return session.sendAudio(audioBuffer);
 }
 ```
-
 ## Session Configuration
-
 ```typescript
 await session.updateSession({
   // Modalities
   modalities: ["audio", "text"],
-  
   // System instructions
   instructions: "You are a customer service representative.",
-  
   // Voice selection
   voice: {
     type: "azure-standard",  // or "azure-custom", "openai"
-    name: "en-US-AvaNeural",
   },
-  
   // Turn detection (VAD)
   turnDetection: {
     type: "server_vad",      // or "azure_semantic_vad"
@@ -160,17 +122,12 @@ await session.updateSession({
     prefixPaddingMs: 300,
     silenceDurationMs: 500,
   },
-  
   // Audio formats
   inputAudioFormat: "pcm16",
   outputAudioFormat: "pcm16",
-  
   // Tools (function calling)
-  tools: [
     {
       type: "function",
-      name: "get_weather",
-      description: "Get current weather",
       parameters: {
         type: "object",
         properties: {
@@ -183,11 +140,8 @@ await session.updateSession({
   toolChoice: "auto",
 });
 ```
-
 ## Event Handling (Azure SDK Pattern)
-
 The SDK uses a subscription-based event handling pattern:
-
 ```typescript
 const subscription = session.subscribe({
   // Connection lifecycle
@@ -200,7 +154,6 @@ const subscription = session.subscribe({
   onError: async (args, context) => {
     console.error("Error:", args.error.message);
   },
-  
   // Session events
   onSessionCreated: async (event, context) => {
     console.log("Session created:", context.sessionId);
@@ -208,7 +161,6 @@ const subscription = session.subscribe({
   onSessionUpdated: async (event, context) => {
     console.log("Session updated");
   },
-  
   // Audio input events (VAD)
   onInputAudioBufferSpeechStarted: async (event, context) => {
     console.log("Speech started at:", event.audioStartMs);
@@ -216,7 +168,6 @@ const subscription = session.subscribe({
   onInputAudioBufferSpeechStopped: async (event, context) => {
     console.log("Speech stopped at:", event.audioEndMs);
   },
-  
   // Transcription events
   onConversationItemInputAudioTranscriptionCompleted: async (event, context) => {
     console.log("User said:", event.transcript);
@@ -224,7 +175,6 @@ const subscription = session.subscribe({
   onConversationItemInputAudioTranscriptionDelta: async (event, context) => {
     process.stdout.write(event.delta);
   },
-  
   // Response events
   onResponseCreated: async (event, context) => {
     console.log("Response started");
@@ -232,7 +182,6 @@ const subscription = session.subscribe({
   onResponseDone: async (event, context) => {
     console.log("Response complete");
   },
-  
   // Streaming text
   onResponseTextDelta: async (event, context) => {
     process.stdout.write(event.delta);
@@ -240,7 +189,6 @@ const subscription = session.subscribe({
   onResponseTextDone: async (event, context) => {
     console.log("\n--- Text complete ---");
   },
-  
   // Streaming audio
   onResponseAudioDelta: async (event, context) => {
     const audioData = event.delta;
@@ -249,56 +197,44 @@ const subscription = session.subscribe({
   onResponseAudioDone: async (event, context) => {
     console.log("Audio complete");
   },
-  
   // Audio transcript (what assistant said)
   onResponseAudioTranscriptDelta: async (event, context) => {
     process.stdout.write(event.delta);
   },
-  
   // Function calling
   onResponseFunctionCallArgumentsDone: async (event, context) => {
     if (event.name === "get_weather") {
       const args = JSON.parse(event.arguments);
       const result = await getWeather(args.location);
-      
       await session.addConversationItem({
         type: "function_call_output",
         callId: event.callId,
         output: JSON.stringify(result),
       });
-      
       await session.sendEvent({ type: "response.create" });
     }
   },
-  
   // Catch-all for debugging
   onServerEvent: async (event, context) => {
     console.log("Event:", event.type);
   },
 });
-
 // Clean up when done
 await subscription.close();
 ```
-
 ## Function Calling
-
 ```typescript
 // Define tools in session config
 await session.updateSession({
   modalities: ["audio", "text"],
   instructions: "Help users with weather information.",
-  tools: [
     {
       type: "function",
-      name: "get_weather",
-      description: "Get current weather for a location",
       parameters: {
         type: "object",
         properties: {
           location: {
             type: "string",
-            description: "City and state or country",
           },
         },
         required: ["location"],
@@ -307,47 +243,38 @@ await session.updateSession({
   ],
   toolChoice: "auto",
 });
-
 // Handle function calls
 const subscription = session.subscribe({
   onResponseFunctionCallArgumentsDone: async (event, context) => {
     if (event.name === "get_weather") {
       const args = JSON.parse(event.arguments);
       const weatherData = await fetchWeather(args.location);
-      
       // Send function result
       await session.addConversationItem({
         type: "function_call_output",
         callId: event.callId,
         output: JSON.stringify(weatherData),
       });
-      
       // Trigger response generation
       await session.sendEvent({ type: "response.create" });
     }
   },
 });
 ```
-
 ## Voice Options
-
 | Voice Type | Config | Example |
 |------------|--------|---------|
 | Azure Standard | `{ type: "azure-standard", name: "..." }` | `"en-US-AvaNeural"` |
 | Azure Custom | `{ type: "azure-custom", name: "...", endpointId: "..." }` | Custom voice endpoint |
 | Azure Personal | `{ type: "azure-personal", speakerProfileId: "..." }` | Personal voice clone |
 | OpenAI | `{ type: "openai", name: "..." }` | `"alloy"`, `"echo"`, `"shimmer"` |
-
 ## Supported Models
-
 | Model | Description | Use Case |
 |-------|-------------|----------|
 | `gpt-4o-realtime-preview` | GPT-4o with real-time audio | High-quality conversational AI |
 | `gpt-4o-mini-realtime-preview` | Lightweight GPT-4o | Fast, efficient interactions |
 | `phi4-mm-realtime` | Phi multimodal | Cost-effective applications |
-
 ## Turn Detection Options
-
 ```typescript
 // Server VAD (default)
 turnDetection: {
@@ -356,25 +283,20 @@ turnDetection: {
   prefixPaddingMs: 300,
   silenceDurationMs: 500,
 }
-
 // Azure Semantic VAD (smarter detection)
 turnDetection: {
   type: "azure_semantic_vad",
 }
-
 // Azure Semantic VAD (English optimized)
 turnDetection: {
   type: "azure_semantic_vad_en",
 }
-
 // Azure Semantic VAD (Multilingual)
 turnDetection: {
   type: "azure_semantic_vad_multilingual",
 }
 ```
-
 ## Audio Formats
-
 | Format | Sample Rate | Use Case |
 |--------|-------------|----------|
 | `pcm16` | 24kHz | Default, high quality |
@@ -382,9 +304,7 @@ turnDetection: {
 | `pcm16-16000hz` | 16kHz | Voice assistants |
 | `g711_ulaw` | 8kHz | Telephony (US) |
 | `g711_alaw` | 8kHz | Telephony (EU) |
-
 ## Key Types Reference
-
 | Type | Purpose |
 |------|---------|
 | `VoiceLiveClient` | Main client for creating sessions |
@@ -394,9 +314,7 @@ turnDetection: {
 | `ConnectionContext` | Context for connection events |
 | `SessionContext` | Context for session events |
 | `ServerEventUnion` | Union of all server events |
-
 ## Error Handling
-
 ```typescript
 import {
   VoiceLiveError,
@@ -404,11 +322,9 @@ import {
   VoiceLiveAuthenticationError,
   VoiceLiveProtocolError,
 } from "@azure/ai-voicelive";
-
 const subscription = session.subscribe({
   onError: async (args, context) => {
     const { error } = args;
-    
     if (error instanceof VoiceLiveConnectionError) {
       console.error("Connection error:", error.message);
     } else if (error instanceof VoiceLiveAuthenticationError) {
@@ -417,72 +333,54 @@ const subscription = session.subscribe({
       console.error("Protocol error:", error.message);
     }
   },
-  
   onServerError: async (event, context) => {
     console.error("Server error:", event.error?.message);
   },
 });
 ```
-
 ## Logging
-
 ```typescript
 import { setLogLevel } from "@azure/logger";
-
 // Enable verbose logging
 setLogLevel("info");
-
 // Or via environment variable
 // AZURE_LOG_LEVEL=info
 ```
-
 ## Browser Usage
-
 ```typescript
 // Browser requires bundler (Vite, webpack, etc.)
 import { VoiceLiveClient } from "@azure/ai-voicelive";
 import { InteractiveBrowserCredential } from "@azure/identity";
-
 // Use browser-compatible credential
 const credential = new InteractiveBrowserCredential({
   clientId: "your-client-id",
   tenantId: "your-tenant-id",
 });
-
 const client = new VoiceLiveClient(endpoint, credential);
-
 // Request microphone access
 const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
 const audioContext = new AudioContext({ sampleRate: 24000 });
-
 // Process audio and send to session
 // ... (see samples for full implementation)
 ```
-
 ## Best Practices
-
 1. **Use environment-appropriate credentials** — DefaultAzureCredential is a server pattern; use supported interactive browser auth and never expose service keys
 2. **Set both modalities** — Include `["text", "audio"]` for voice assistants
 3. **Evaluate VAD** — Select and test a supported mode for the language, latency and noise conditions
 4. **Handle all error types** — Connection, auth, and protocol errors
 5. **Clean up subscriptions** — Call `subscription.close()` when done
 6. **Use appropriate audio format** — PCM16 at 24kHz for best quality
-
 ## Reference Links
-
 | Resource | URL |
 |----------|-----|
 | npm Package | https://www.npmjs.com/package/@azure/ai-voicelive |
 | GitHub Source | https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai/ai-voicelive |
 | Samples | https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai/ai-voicelive/samples |
 | API Reference | https://learn.microsoft.com/javascript/api/@azure/ai-voicelive |
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 Snippets are separate, uncompiled examples with application helpers omitted. Model/voice/format support varies by region and API version. Subscribe before sending input where necessary to avoid missed events. Validate parsed tool arguments and independently authorize actions; model output is untrusted. Obtain permission before microphone capture or voice cloning and define audio/transcript retention. Stop tracks, close audio contexts, subscriptions and the underlying session on every exit path. A requested AudioContext sample rate does not by itself encode captured browser audio as PCM16; resample/encode and bound buffers/backpressure using the SDK sample for the pinned version.

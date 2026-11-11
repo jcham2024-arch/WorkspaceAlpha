@@ -1,55 +1,40 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "94096fb5086512724f9715299c9197749fd530669403e8b5d8ac4893be523225"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 94096fb5086512724f9715299c9197749fd530669403e8b5d8ac4893be523225
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: Conner K Ward
+date_added: 2026-06-16
+description: ""Automated visual tuning: a vision or video model rates rendered variants in a loop. Render several labeled variants into one artifact, ask the model to rate them and suggest better values, render the suggestions, ask it to pick the best, repeat until good — the model is the eye, you run the loop.""
+license: MIT
 name: lookdev-auto
-description: "Automated visual tuning: a vision or video model rates rendered variants in a loop. Render several labeled variants into one artifact, ask the model to rate them and suggest better values, render the suggestions, ask it to pick the best, repeat until good — the model is the eye, you run the loop."
-tier: "experimental"
 risk: safe
 source: community
-source_type: community
 source_repo: connerkward/lookdev-auto-skill
-date_added: "2026-06-16"
-author: Conner K Ward
-license: MIT
-tags:
+source_type: community
   - visual-eval
   - vision-model
   - tuning
   - automation
   - render-loop
-tools:
   - claude-code
   - antigravity
   - cursor
   - gemini-cli
   - codex-cli
----
-
+------
 ## When to Use
-
 Use whenever "looks/feels right" is the success criterion and there's no cheap numeric metric — animation easing/timing, zoom/camera feel, color grade, layout/spacing, design params, render/encoder settings, prompt params. Use the automated counterpart to lookdev when there's no human to sit the loop.
-
 _Source: [connerkward/lookdev-auto-skill](https://github.com/connerkward/lookdev-auto-skill) (MIT)._
-
 # Visual eval loop — let a vision/video model tune what only an eye can judge
-
 When the target is "does this LOOK/FEEL right" (not a number you can minimize), a
 vision model (image) or video-understanding model (motion/timing) can be the judge in
 a tight optimize loop. Worked reference: the `screenstudio-alternative` skill (`iteration.py`)
 (tuned zoom-animation feel via `fal-ai/video-understanding`).
-
 Set a maximum rounds/variants/render time and provider cost cap before starting. Upload only authorized artifacts to an approved destination, retain the previous best and stop on invalid output or no meaningful improvement. The referenced iteration.py helper is not bundled. Two-round convergence and token savings are hypotheses, not measured guarantees.
-
 ## The loop
-
 1. **Render N labeled variants into ONE artifact.** Vary the parameter(s) across a
    small spread. **Annotate each variant's params ON the artifact** (burn the label in:
    "A · 2.2Hz · ζ0.5"). Images → a labeled grid/contact sheet. Video/motion → a
@@ -63,9 +48,7 @@ Set a maximum rounds/variants/render time and provider cost cap before starting.
    model's suggestions (+ carry the current best) into one artifact; ask it to **pick
    the single best**. Usually converges in **2 rounds**.
 4. **Stop when sufficient** — best rates high and suggestions cluster. Apply the winner.
-
 ## Token / quality / step reductions (do these)
-
 - **One artifact per round, not one call per variant.** The biggest saver — a 6-variant
   round is 1 upload + 1 inference, not 6. Montage/grid beats a loop of single calls.
 - **Burn params onto the artifact.** The model sees label+result together → no separate
@@ -91,31 +74,22 @@ Set a maximum rounds/variants/render time and provider cost cap before starting.
   spatial things (layout, color, crop); only reach for a true *video* model when the
   thing being judged is **temporal** (easing, timing, motion smoothness) — those are
   invisible in stills.
-
 ## When NOT to use it
-
 - A real numeric metric exists and correlates with quality → optimize that directly;
   don't pay a model per step.
 - The judgment is subjective-to-the-user (their taste, brand) → show them the variants
   and let them pick; a model's "best" isn't their best. (This is why the screen-studio
   spring auto-tune was dropped — the model's pick didn't match the owner's eye.)
 - One or two variants → just look yourself.
-
 ## Caveats (learned)
-
 - The model's pick is an *opinion*, not ground truth — anchor it, and sanity-check the
   winner against the safe default yourself before committing.
 - Vision/video models perceive gross differences well, fine ones poorly — keep variant
   spacing perceptible; near-identical variants get noise-rated.
-
 ## Example
-
 **User request:**
-
 > Use @lookdev-auto for this task: Automated visual tuning: a vision or video model rates rendered variants in a loop.
-
 ## Limitations
-
 - Model ratings are probabilistic aesthetic judgments, not objective truth; keep a human review step for brand-critical or subjective work.
 - Automated rounds can become expensive or slow when renders are heavy or many variants are explored.
 - This skill needs screenshots, frames, or clips that expose the quality difference; it is weak for subtle motion, audio, copy nuance, or user-preference calls.

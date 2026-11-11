@@ -1,72 +1,52 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "b1fb5025ebc980db64668ac1fec71be8a05e0d1485beef84e54556b8b125d49a"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-mgmt-botservice-py
+content_hash: b1fb5025ebc980db64668ac1fec71be8a05e0d1485beef84e54556b8b125d49a
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Azure Bot Service Management SDK for Python. Use for creating, managing, and configuring Azure Bot Service resources.
-tier: "experimental"
+name: azure-mgmt-botservice-py
 risk: critical
 source: community
-date_added: '2026-02-27'
 ---
-
-
 # Azure Bot Service Management SDK for Python
-
 Manage Azure Bot Service resources including bots, channels, and connections.
-
 ## Installation
-
 ```bash
 pip install azure-mgmt-botservice
 pip install azure-identity
 ```
-
 ## Environment Variables
-
 ```bash
 AZURE_SUBSCRIPTION_ID=<your-subscription-id>
 AZURE_RESOURCE_GROUP=<your-resource-group>
 ```
-
 ## Authentication
-
 ```python
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.botservice import AzureBotService
 import os
-
 credential = DefaultAzureCredential()
 client = AzureBotService(
     credential=credential,
     subscription_id=os.environ["AZURE_SUBSCRIPTION_ID"]
 )
 ```
-
 ## Create a Bot
-
 ```python
 from azure.mgmt.botservice import AzureBotService
 from azure.mgmt.botservice.models import Bot, BotProperties, Sku
 from azure.identity import DefaultAzureCredential
 import os
-
 credential = DefaultAzureCredential()
 client = AzureBotService(
     credential=credential,
     subscription_id=os.environ["AZURE_SUBSCRIPTION_ID"]
 )
-
 resource_group = os.environ["AZURE_RESOURCE_GROUP"]
 bot_name = "my-chat-bot"
-
 bot = client.bots.create(
     resource_group_name=resource_group,
     resource_name=bot_name,
@@ -83,43 +63,31 @@ bot = client.bots.create(
         )
     )
 )
-
 print(f"Bot created: {bot.name}")
 ```
-
 ## Get Bot Details
-
 ```python
 bot = client.bots.get(
     resource_group_name=resource_group,
     resource_name=bot_name
 )
-
 print(f"Bot: {bot.properties.display_name}")
 print(f"Endpoint: {bot.properties.endpoint}")
 print(f"SKU: {bot.sku.name}")
 ```
-
 ## List Bots in Resource Group
-
 ```python
 bots = client.bots.list_by_resource_group(resource_group_name=resource_group)
-
 for bot in bots:
     print(f"Bot: {bot.name} - {bot.properties.display_name}")
 ```
-
 ## List All Bots in Subscription
-
 ```python
 all_bots = client.bots.list()
-
 for bot in all_bots:
     print(f"Bot: {bot.name} in {bot.id.split('/')[4]}")
 ```
-
 ## Update Bot
-
 ```python
 bot = client.bots.update(
     resource_group_name=resource_group,
@@ -130,27 +98,21 @@ bot = client.bots.update(
     )
 )
 ```
-
 ## Delete Bot
-
 ```python
 client.bots.delete(
     resource_group_name=resource_group,
     resource_name=bot_name
 )
 ```
-
 ## Configure Channels
-
 ### Add Teams Channel
-
 ```python
 from azure.mgmt.botservice.models import (
     BotChannel,
     MsTeamsChannel,
     MsTeamsChannelProperties
 )
-
 channel = client.channels.create(
     resource_group_name=resource_group,
     resource_name=bot_name,
@@ -165,9 +127,7 @@ channel = client.channels.create(
     )
 )
 ```
-
 ### Add Direct Line Channel
-
 ```python
 from azure.mgmt.botservice.models import (
     BotChannel,
@@ -175,7 +135,6 @@ from azure.mgmt.botservice.models import (
     DirectLineChannelProperties,
     DirectLineSite
 )
-
 channel = client.channels.create(
     resource_group_name=resource_group,
     resource_name=bot_name,
@@ -197,9 +156,7 @@ channel = client.channels.create(
     )
 )
 ```
-
 ### Add Web Chat Channel
-
 ```python
 from azure.mgmt.botservice.models import (
     BotChannel,
@@ -207,7 +164,6 @@ from azure.mgmt.botservice.models import (
     WebChatChannelProperties,
     WebChatSite
 )
-
 channel = client.channels.create(
     resource_group_name=resource_group,
     resource_name=bot_name,
@@ -227,9 +183,7 @@ channel = client.channels.create(
     )
 )
 ```
-
 ## Get Channel Details
-
 ```python
 channel = client.channels.get(
     resource_group_name=resource_group,
@@ -237,34 +191,27 @@ channel = client.channels.get(
     channel_name="DirectLineChannel"
 )
 ```
-
 ## List Channel Keys
-
 ```python
 keys = client.channels.list_with_keys(
     resource_group_name=resource_group,
     resource_name=bot_name,
     channel_name="DirectLineChannel"
 )
-
 # Access Direct Line keys
 if hasattr(keys.properties, 'properties'):
     for site in keys.properties.properties.sites:
         print(f"Site: {site.site_name}")
         # Do not print Direct Line keys; store only in approved secret storage.
 ```
-
 ## Bot Connections (OAuth)
-
 ### Create Connection Setting
-
 ```python
 import os
 from azure.mgmt.botservice.models import (
     ConnectionSetting,
     ConnectionSettingProperties
 )
-
 connection = client.bot_connection.create(
     resource_group_name=resource_group,
     resource_name=bot_name,
@@ -280,21 +227,16 @@ connection = client.bot_connection.create(
     )
 )
 ```
-
 ### List Connections
-
 ```python
 connections = client.bot_connection.list_by_bot_service(
     resource_group_name=resource_group,
     resource_name=bot_name
 )
-
 for conn in connections:
     print(f"Connection: {conn.name}")
 ```
-
 ## Client Operations
-
 | Operation | Method |
 |-----------|--------|
 | `client.bots` | Bot CRUD operations |
@@ -304,16 +246,12 @@ for conn in connections:
 | `client.email` | Email channel operations |
 | `client.operations` | Available operations |
 | `client.host_settings` | Host settings operations |
-
 ## SKU Options
-
 | SKU | Description |
 |-----|-------------|
 | `F0` | Free tier (limited messages) |
 | `S1` | Standard tier (unlimited messages) |
-
 ## Channel Types
-
 | Channel | Class | Purpose |
 |---------|-------|---------|
 | `MsTeamsChannel` | Microsoft Teams | Teams integration |
@@ -322,9 +260,7 @@ for conn in connections:
 | `SlackChannel` | Slack | Slack workspace integration |
 | `FacebookChannel` | Facebook | Messenger integration |
 | `EmailChannel` | Email | Email communication |
-
 ## Best Practices
-
 1. **Use DefaultAzureCredential** for authentication
 2. **Start with F0 SKU** for development, upgrade to S1 for production
 3. **Store MSA App ID/Secret securely** — use Key Vault
@@ -332,13 +268,10 @@ for conn in connections:
 5. **Rotate Direct Line keys** periodically
 6. **Use managed identity** when possible for bot connections
 7. **Configure proper CORS** for Web Chat channel
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 Management examples create/change real resources and channels: confirm subscription, resource group, bot/channel IDs and intended diff. Verify current supported identity/app types and channel/API versions before registering a new bot; a historical `MultiTenant` example does not establish current registration eligibility. F0 is a tier name, not a promise that every integration/channel is cost-free. Do not log channel keys or full management responses.

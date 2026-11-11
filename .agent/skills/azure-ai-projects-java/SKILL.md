@@ -1,33 +1,21 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "2317ec8789b150a10178fa5a6ffe8c18a39ebdfdec673f6bf5b05d498c60a690"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-ai-projects-java
+content_hash: 2317ec8789b150a10178fa5a6ffe8c18a39ebdfdec673f6bf5b05d498c60a690
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Azure AI Projects SDK for Java. High-level SDK for Azure AI Foundry project management including connections, datasets, indexes, and evaluations.
-tier: "experimental"
+name: azure-ai-projects-java
 risk: critical
 source: community
-date_added: '2026-02-27'
 ---
-
-
 # Azure AI Projects SDK for Java
-
 High-level SDK for Azure AI Foundry project management with access to connections, datasets, indexes, and evaluations.
-
 ## Version and data boundary
-
 This guide names a historical beta SDK. Inspect the selected artifact’s exact API before using client-builder/model signatures; pin compatible identity/core dependencies and compile a minimal test. Use synthetic data in an authorized test project. Dataset upload, index mutation, evaluation provider charges and schedules are separate effects; inspect destination, retention and cost before executing. Never log connection credentials.
-
 ## Installation
-
 ```xml
 <dependency>
     <groupId>com.azure</groupId>
@@ -35,28 +23,20 @@ This guide names a historical beta SDK. Inspect the selected artifact’s exact 
     <version>1.0.0-beta.1</version>
 </dependency>
 ```
-
 ## Environment Variables
-
 ```bash
 PROJECT_ENDPOINT=https://<resource>.services.ai.azure.com/api/projects/<project>
 ```
-
 ## Authentication
-
 ```java
 import com.azure.ai.projects.AIProjectClientBuilder;
 import com.azure.identity.DefaultAzureCredentialBuilder;
-
 AIProjectClientBuilder builder = new AIProjectClientBuilder()
     .endpoint(System.getenv("PROJECT_ENDPOINT"))
     .credential(new DefaultAzureCredentialBuilder().build());
 ```
-
 ## Client Hierarchy
-
 The SDK provides multiple sub-clients for different operations:
-
 | Client | Purpose |
 |--------|---------|
 | `ConnectionsClient` | Enumerate connected Azure resources |
@@ -66,7 +46,6 @@ The SDK provides multiple sub-clients for different operations:
 | `EvaluationsClient` | Run AI model evaluations |
 | `EvaluatorsClient` | Manage evaluator configurations |
 | `SchedulesClient` | Manage scheduled operations |
-
 ```java
 // Build sub-clients from builder
 ConnectionsClient connectionsClient = builder.buildConnectionsClient();
@@ -75,15 +54,11 @@ DeploymentsClient deploymentsClient = builder.buildDeploymentsClient();
 IndexesClient indexesClient = builder.buildIndexesClient();
 EvaluationsClient evaluationsClient = builder.buildEvaluationsClient();
 ```
-
 ## Core Operations
-
 ### List Connections
-
 ```java
 import com.azure.ai.projects.models.Connection;
 import com.azure.core.http.rest.PagedIterable;
-
 PagedIterable<Connection> connections = connectionsClient.listConnections();
 for (Connection connection : connections) {
     System.out.println("Name: " + connection.getName());
@@ -91,9 +66,7 @@ for (Connection connection : connections) {
     System.out.println("Credential Type: " + connection.getCredentials().getType());
 }
 ```
-
 ### List Indexes
-
 ```java
 indexesClient.listLatest().forEach(index -> {
     System.out.println("Index name: " + index.getName());
@@ -101,18 +74,14 @@ indexesClient.listLatest().forEach(index -> {
     System.out.println("Description: " + index.getDescription());
 });
 ```
-
 ### Create or Update Index
-
 ```java
 import com.azure.ai.projects.models.AzureAISearchIndex;
 import com.azure.ai.projects.models.Index;
-
 String indexName = "my-index";
 String indexVersion = "1.0";
 String searchConnectionName = System.getenv("AI_SEARCH_CONNECTION_NAME");
 String searchIndexName = System.getenv("AI_SEARCH_INDEX_NAME");
-
 Index index = indexesClient.createOrUpdate(
     indexName,
     indexVersion,
@@ -120,28 +89,20 @@ Index index = indexesClient.createOrUpdate(
         .setConnectionName(searchConnectionName)
         .setIndexName(searchIndexName)
 );
-
 System.out.println("Created index: " + index.getName());
 ```
-
 ### Evaluation integration
-
 Do not assume an EvaluationsClient is an OpenAI EvalService or exposes `getOpenAIClient()`. Check the exact installed beta SDK reference and construct the documented evaluation client for that API. These are distinct SDK surfaces and require compatible dependencies, endpoints and authorization.
-
 ## Best Practices
-
 1. **Use DefaultAzureCredential** for production authentication
 2. **Reuse client builder** to create multiple sub-clients efficiently
 3. **Handle pagination** when listing resources with `PagedIterable`
 4. **Use environment variables** for connection names and configuration
 5. **Check connection types** before accessing credentials
-
 ## Error Handling
-
 ```java
 import com.azure.core.exception.HttpResponseException;
 import com.azure.core.exception.ResourceNotFoundException;
-
 try {
     Index index = indexesClient.get(indexName, version);
 } catch (ResourceNotFoundException e) {
@@ -150,19 +111,15 @@ try {
     System.err.println("Error: " + e.getResponse().getStatusCode());
 }
 ```
-
 ## Reference Links
-
 | Resource | URL |
 |----------|-----|
 | Product Docs | https://learn.microsoft.com/azure/ai-studio/ |
 | API Reference | https://learn.microsoft.com/rest/api/aifoundry/aiprojects/ |
 | GitHub Source | https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/ai/azure-ai-projects |
 | Samples | https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/ai/azure-ai-projects/src/samples |
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

@@ -1,37 +1,25 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "b870f3b33e1861db66677ce16a66ebd3b69001aa4bc2907dc3e797ea3138e694"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: supabase-postgres-best-practices
+content_hash: b870f3b33e1861db66677ce16a66ebd3b69001aa4bc2907dc3e797ea3138e694
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-07-01
 description: Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations.
-tier: "experimental"
+license: MIT
+license_source: "https://github.com/supabase/agent-skills/blob/main/LICENSE"
+name: supabase-postgres-best-practices
 risk: critical
-source: https://github.com/supabase/agent-skills/tree/main/skills/supabase-postgres-best-practices
+source: "https://github.com/supabase/agent-skills/tree/main/skills/supabase-postgres-best-practices"
 source_repo: supabase/agent-skills
 source_type: official
-date_added: 2026-07-01
-license: MIT
-license_source: https://github.com/supabase/agent-skills/blob/main/LICENSE
 ---
-
-
 # Supabase Postgres Best Practices
 ## When to Use
-
 Use this skill when you need postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations.
-
-
 Comprehensive performance optimization guide for Postgres, maintained by Supabase. Contains rules across 8 categories, prioritized by impact to guide automated query optimization and schema design.
-
 ## When to Apply
-
 Reference these guidelines when:
 - Writing SQL queries or designing schemas
 - Implementing indexes or query optimization
@@ -39,13 +27,9 @@ Reference these guidelines when:
 - Configuring connection pooling or scaling
 - Optimizing for Postgres-specific features
 - Working with Row-Level Security (RLS)
-
 ## Execution and evidence boundaries
-
 SQL is illustrative, not an instruction to mutate a live database. Confirm target, permissions, locks, backups and rollback before DDL/DML, global settings, resets or extension changes. EXPLAIN ANALYZE executes its statement and can invoke side effects even for SELECT; inspect first and use a disposable environment when needed. All speedups, row counts, memory estimates and plan outputs here are examples, not measured guarantees. Benchmark equivalent workloads and preserve RLS semantics while optimizing.
-
 ## Rule Categories by Priority
-
 | Priority | Category | Impact | Prefix |
 |----------|----------|--------|--------|
 | 1 | Query Performance | CRITICAL | `query-` |
@@ -56,17 +40,13 @@ SQL is illustrative, not an instruction to mutate a live database. Confirm targe
 | 6 | Data Access Patterns | MEDIUM | `data-` |
 | 7 | Monitoring & Diagnostics | LOW-MEDIUM | `monitor-` |
 | 8 | Advanced Features | LOW | `advanced-` |
-
 ## How to Use
-
 Read individual rule files for detailed explanations and SQL examples:
-
 ```
 references/query-missing-indexes.md
 references/query-partial-indexes.md
 references/_sections.md
 ```
-
 Each rule file contains:
 - Brief explanation of why it matters
 - Incorrect SQL example with explanation
@@ -74,17 +54,13 @@ Each rule file contains:
 - Optional EXPLAIN output or metrics
 - Additional context and references
 - Supabase-specific notes (when applicable)
-
 ## References
-
 - https://www.postgresql.org/docs/current/
 - https://supabase.com/docs
 - https://wiki.postgresql.org/wiki/Performance_Optimization
 - https://supabase.com/docs/guides/database/overview
 - https://supabase.com/docs/guides/auth/row-level-security
-
 ## Limitations
-
 - Use this skill only when the task clearly matches its upstream product or API scope.
 - Verify commands, API behavior, pricing, quotas, credentials, and deployment effects against current official documentation before making changes.
 - Do not treat generated examples as a substitute for environment-specific tests, security review, or user approval for destructive or costly actions.

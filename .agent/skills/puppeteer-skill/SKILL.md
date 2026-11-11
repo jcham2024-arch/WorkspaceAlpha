@@ -1,45 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "781b15b0257de476217bd70e389bb915f2712941d0de75cf09a3903666f6f010"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 781b15b0257de476217bd70e389bb915f2712941d0de75cf09a3903666f6f010
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-07-01
+description: "'Generates Puppeteer scripts for browser automation, scraping, and PDF generation. Triggers on: "Puppeteer", "headless Chrome", "page.goto", "scrape", "PDF generation".'"
+license: MIT
+license_source: "https://github.com/LambdaTest/agent-skills/blob/main/LICENSE"
 name: puppeteer-skill
-description: 'Generates Puppeteer scripts for browser automation, scraping, and PDF generation. Triggers on: "Puppeteer", "headless Chrome", "page.goto", "scrape", "PDF generation".'
-tier: "experimental"
 risk: critical
-source: https://github.com/LambdaTest/agent-skills/tree/main/puppeteer-skill
+source: "https://github.com/LambdaTest/agent-skills/tree/main/puppeteer-skill"
 source_repo: LambdaTest/agent-skills
 source_type: community
-date_added: 2026-07-01
-license: MIT
-license_source: https://github.com/LambdaTest/agent-skills/blob/main/LICENSE
 ---
-
-
 # Puppeteer Automation Skill
 ## When to Use
-
 Use this skill when you need generates Puppeteer scripts for browser automation, scraping, and PDF generation. Triggers on: "Puppeteer", "headless Chrome", "page.goto", "scrape", "PDF generation".
-
-
 ## Core Patterns
-
 ### Basic Script
-
 ```javascript
 const puppeteer = require('puppeteer');
-
 (async () => {
     const browser = await puppeteer.launch({ headless: 'new' });
     const page = await browser.newPage();
     await page.setViewport({ width: 1280, height: 720 });
-
     await page.goto('https://example.com', { waitUntil: 'networkidle0' });
     await page.type('#username', 'user@test.com');
     await page.type('#password', 'password123');
@@ -47,44 +33,33 @@ const puppeteer = require('puppeteer');
         page.waitForNavigation({ waitUntil: 'networkidle0' }),
         page.click('button[type="submit"]'),
     ]);
-
     const title = await page.title();
     console.log('Title:', title);
-
     await browser.close();
 })();
 ```
-
 ### Wait Strategies
-
 ```javascript
 // Wait for selector
 await page.waitForSelector('.result', { visible: true, timeout: 10000 });
-
 // Wait for navigation
 await Promise.all([
     page.waitForNavigation({ waitUntil: 'networkidle0' }),
     page.click('a.nav-link'),
 ]);
-
 // Wait for function
 await page.waitForFunction('document.querySelector(".count").innerText === "5"');
-
 // Wait for network request
 const response = await page.waitForResponse(resp =>
     resp.url().includes('/api/data') && resp.status() === 200
 );
 ```
-
 ### Screenshot & PDF
-
 ```javascript
 await page.screenshot({ path: 'screenshot.png', fullPage: true });
 await page.pdf({ path: 'page.pdf', format: 'A4', printBackground: true });
 ```
-
 ### Network Interception
-
 ```javascript
 await page.setRequestInterception(true);
 // One resolution handler: never continue/abort/respond the same request twice.
@@ -101,11 +76,8 @@ page.on('request', request => {
     return request.continue();
 });
 ```
-
 ### TestMu AI Cloud
-
 For full setup, capabilities, and shared capability reference, see [reference/cloud-integration.md](https://github.com/LambdaTest/agent-skills/tree/main/puppeteer-skill/reference/cloud-integration.md).
-
 ```javascript
 const capabilities = {
     browserName: 'Chrome', browserVersion: 'latest',
@@ -114,14 +86,11 @@ const capabilities = {
         user: process.env.LT_USERNAME, accessKey: process.env.LT_ACCESS_KEY,
     },
 };
-
 const browser = await puppeteer.connect({
     browserWSEndpoint: `wss://cdp.lambdatest.com/puppeteer?capabilities=${encodeURIComponent(JSON.stringify(capabilities))}`,
 });
 ```
-
 ## Quick Reference
-
 | Task | Code |
 |------|------|
 | Launch headed | `puppeteer.launch({ headless: false })` |
@@ -130,11 +99,8 @@ const browser = await puppeteer.connect({
 | Extract all | `await page.$$eval('.items', els => els.map(e => e.textContent))` |
 | Set cookie | `await page.setCookie({ name: 'token', value: 'abc' })` |
 | Emulate device | `await page.emulate(puppeteer.devices['iPhone 12'])` |
-
 ## Upstream deep patterns (not bundled)
-
 `reference/playbook.md` is not present in this AAS tree. Check installed-version APIs before using device/cookie/launch examples. The login selectors are illustrative, not elements on example.com. Use disposable contexts and synthetic accounts, close browsers in finally blocks, and authorize cloud transfer/spend before sending credentials or private pages. Cloud capability URLs may contain secrets; never log them.
-
 | § | Section | Lines |
 |---|---------|-------|
 | 1 | Production Setup & Configuration | Launch options, Jest integration |
@@ -149,9 +115,7 @@ const browser = await puppeteer.connect({
 | 10 | CI/CD Integration | GitHub Actions, Docker |
 | 11 | Debugging Quick-Reference | 11 common problems |
 | 12 | Best Practices Checklist | 13 items |
-
 ## Limitations
-
 - Use this skill only when the task clearly matches its upstream source and local project context.
 - Verify commands, generated code, dependencies, credentials, and external service behavior before applying changes.
 - Do not treat examples as a substitute for environment-specific tests, security review, or user approval for destructive or costly actions.

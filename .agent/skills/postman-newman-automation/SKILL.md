@@ -1,47 +1,33 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "717bdd82c5042ecb9a8d542f386e96c96abadea0d107d4c83b72c28fe47f1b01"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 717bdd82c5042ecb9a8d542f386e96c96abadea0d107d4c83b72c28fe47f1b01
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-07-01
+description: Generate Newman CLI commands, configuration files, Jenkins pipeline scripts, and shell automation for running Postman collections in CI/CD or local environments.
+license: MIT
+license_source: "https://github.com/LambdaTest/agent-skills/blob/main/LICENSE"
 name: postman-newman-automation
-description: "Generate Newman CLI commands, configuration files, Jenkins pipeline scripts, and shell automation for running Postman collections in CI/CD or local environments."
-tier: "experimental"
 risk: critical
-source: https://github.com/LambdaTest/agent-skills/tree/main/api-skill/postman/postman-to-newman
+source: "https://github.com/LambdaTest/agent-skills/tree/main/api-skill/postman/postman-to-newman"
 source_repo: LambdaTest/agent-skills
 source_type: community
-date_added: 2026-07-01
-license: MIT
-license_source: https://github.com/LambdaTest/agent-skills/blob/main/LICENSE
 ---
-
-
 # Postman Newman Automation
 ## When to Use
-
 Use this skill when you need generate Newman CLI commands, configuration files, Jenkins pipeline scripts, and shell automation for running Postman collections in CI/CD or local environments. Use this skill whenever the user wants to run Postman collections from the command line, automate API tests, integrate...
-
-
 Generates **Newman CLI** commands, **shell scripts**, and **Jenkins pipeline** configs
 for running Postman collections in automated environments.
-
 ---
-
 ## Newman Basics
-
 Newman is Postman's CLI runner. Install with:
 ```bash
 npm install -g newman
 # Optional HTML reporter:
 npm install -g newman-reporter-htmlextra
 ```
-
 ### Core Command Structure
 ```bash
 newman run <collection> \
@@ -57,13 +43,9 @@ newman run <collection> \
   --bail \
   --color on
 ```
-
 ---
-
 ## Step 1 — Gather Requirements
-
 Ask or infer from context:
-
 | Parameter | Question |
 |---|---|
 | Collection source | File path, URL, or Postman API UID? |
@@ -72,11 +54,8 @@ Ask or infer from context:
 | Fail behavior | Stop on first failure (`--bail`) or run all? |
 | Iterations | Single run or data-driven (CSV/JSON)? |
 | Target | Local shell, Jenkins, or both? |
-
 ---
-
 ## Step 2 — Generate Newman Command
-
 ### Basic run (local)
 ```bash
 newman run collection.json \
@@ -85,7 +64,6 @@ newman run collection.json \
   --reporter-htmlextra-export reports/report.html \
   --bail
 ```
-
 ### Run from Postman API (by UID)
 ```bash
 newman run "https://api.getpostman.com/collections/<UID>?apikey={{POSTMAN_API_KEY}}" \
@@ -93,7 +71,6 @@ newman run "https://api.getpostman.com/collections/<UID>?apikey={{POSTMAN_API_KE
   --reporters cli,junit \
   --reporter-junit-export results/junit.xml
 ```
-
 ### Data-driven run (CSV)
 ```bash
 newman run collection.json \
@@ -102,7 +79,6 @@ newman run collection.json \
   --reporters cli,htmlextra \
   --reporter-htmlextra-export reports/data-driven-report.html
 ```
-
 ### With environment variable overrides (no file needed)
 ```bash
 newman run collection.json \
@@ -110,28 +86,20 @@ newman run collection.json \
   --env-var "token=abc123" \
   --reporters cli
 ```
-
 ---
-
 ## Step 3 — Shell Script
-
 Generate a reusable shell script:
-
 ```bash
 #!/bin/bash
 set -e
-
 # Configuration
 COLLECTION="./collection.json"
 ENVIRONMENT="./environment.json"
 REPORT_DIR="./reports"
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-
 # Ensure report directory exists
 mkdir -p "$REPORT_DIR"
-
 echo "Running Newman collection: $COLLECTION"
-
 newman run "$COLLECTION" \
   --environment "$ENVIRONMENT" \
   --reporters cli,htmlextra,junit \
@@ -139,9 +107,7 @@ newman run "$COLLECTION" \
   --reporter-junit-export "$REPORT_DIR/junit_$TIMESTAMP.xml" \
   --timeout-request 10000 \
   --bail
-
 EXIT_CODE=$?
-
 if [ $EXIT_CODE -eq 0 ]; then
   echo "✅ All tests passed."
 else
@@ -149,28 +115,21 @@ else
   exit $EXIT_CODE
 fi
 ```
-
 ---
-
 ## Step 4 — Jenkins Pipeline
-
 ### Declarative Jenkinsfile (preferred)
-
 ```groovy
 pipeline {
   agent any
-
   environment {
     POSTMAN_ENV = credentials('postman-environment-file') // Jenkins credential ID
   }
-
   stages {
     stage('Install Newman') {
       steps {
         sh 'npm install -g newman newman-reporter-htmlextra'
       }
     }
-
     stage('Run API Tests') {
       steps {
         sh """
@@ -185,7 +144,6 @@ pipeline {
       }
     }
   }
-
   post {
     always {
       // Archive HTML report
@@ -206,15 +164,12 @@ pipeline {
   }
 }
 ```
-
 ### Scripted Jenkinsfile (if declarative not available)
-
 ```groovy
 node {
   stage('Install Newman') {
     sh 'npm install -g newman newman-reporter-htmlextra'
   }
-
   stage('Run API Tests') {
     try {
       sh """
@@ -233,14 +188,12 @@ node {
   }
 }
 ```
-
 ### Jenkins with environment variables (no credentials file)
 ```groovy
 environment {
   BASE_URL = 'https://api.example.com'
   API_TOKEN = credentials('api-token-secret')
 }
-
 steps {
   sh """
     newman run collection.json \\
@@ -251,36 +204,25 @@ steps {
   """
 }
 ```
-
 ---
-
 ## Step 5 — Reporter Reference
-
 | Reporter | Install | Flag | Output |
 |---|---|---|---|
 | `cli` | built-in | `--reporters cli` | Terminal output |
 | `junit` | built-in | `--reporters junit` | JUnit XML (for Jenkins) |
 | `htmlextra` | `npm i -g newman-reporter-htmlextra` | `--reporters htmlextra` | Rich HTML report |
 | `json` | built-in | `--reporters json` | Raw JSON results |
-
 Multiple reporters: `--reporters cli,htmlextra,junit`
-
 ---
-
 ## Step 6 — Output
-
 Provide based on what the user needs:
-
 1. **Newman command** — ready to paste in terminal
 2. **Shell script** (`run-tests.sh`) — with exit code handling
 3. **Jenkinsfile** — declarative or scripted based on context
 4. **Setup notes** — Node.js version requirement (≥14), npm install commands
 5. **Report locations** — where output files will be written
-
 ---
-
 ## Common Flags Quick Reference
-
 | Flag | Purpose |
 |---|---|
 | `--bail` | Stop run on first test failure |
@@ -292,15 +234,10 @@ Provide based on what the user needs:
 | `--suppress-exit-code` | Always exit 0 (don't fail CI) |
 | `--verbose` | Show full request/response details |
 | `--color off` | Disable color (useful for logs) |
-
 ---
-
 ## After Completing the Newman Commands
-
 Once the CLI command output is delivered, ask the user:
-
 "Would you like me to generate API documentation for this design? (yes/no)"
-
 If the user says **yes**:
 - Check if the API Documentation skill is available in the installed skills list
 - If the skill **is available**:
@@ -310,16 +247,11 @@ If the user says **yes**:
 - If the skill **is NOT available**:
   - Inform the user: "It looks like the API Documentation skill isn't installed.
     You can install it and re-run.
-
 If the user says **no**:
 - End the task here
-
 ---
-
 ## Limitations
-
 - Use this skill only when the task clearly matches its upstream source and local project context.
 - Verify commands, generated code, dependencies, credentials, and external service behavior before applying changes.
 - Do not treat examples as a substitute for environment-specific tests, security review, or user approval for destructive or costly actions.
-
 Collections and pre-request/test scripts execute code and can call real services; inspect them and run with scoped test credentials in an authorized environment. Keep API keys out of query strings/command arguments and public HTML/JUnit reports; use approved secret injection with logging/artifact redaction. In Jenkins bind credentials to environment variables and use single-quoted Groovy shell blocks rather than interpolating secrets. With `set -e`, capture the Newman exit status explicitly if cleanup/reporting must run, then return that status; never suppress required failures.

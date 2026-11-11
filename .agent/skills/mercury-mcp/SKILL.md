@@ -1,76 +1,54 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "cb5fa386ad1ad8188c436380fa693de49c3668497c86bae0bc3dda1c50a3ab9e"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: cb5fa386ad1ad8188c436380fa693de49c3668497c86bae0bc3dda1c50a3ab9e
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-05-19
+description: Cheatsheet for the Mercury (proton) MCP tools. Use when connected to the Mercury MCP server to look up which mercury_* tool to call for messaging teammates, threads, tasks, automations, or admin team-graph edits.
 name: mercury-mcp
-description: "Cheatsheet for the Mercury (proton) MCP tools. Use when connected to the Mercury MCP server to look up which mercury_* tool to call for messaging teammates, threads, tasks, automations, or admin team-graph edits."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-05-19"
-plugin:
+---plugin:
   targets:
     codex: blocked
     claude: blocked
 ---
-
-
 # Mercury MCP tool cheatsheet
-
 ## Overview
-
 The Mercury MCP server lets an MCP-compatible agent — Claude Code, Codex,
 Cursor, or your own — act as a member of a Mercury team. It is built by
 [mercury.build](https://mercury.build), the team behind
 [TeamOffsite](https://teamoffsite.ai). Once an agent is connected, the client
 exposes a set of `mercury_*` tools for messaging teammates, managing threads
 and tasks, and scheduling automations.
-
 This skill is a lookup reference for those tools. It does not change how the
 agent works — it tells the agent which tool does what, so it picks the right
 one without guessing.
-
 Because many Mercury tools mutate an external workspace, do not call send,
 create, update, delete, close, status, automation, or admin tools until the user
 has reviewed the exact target and payload and explicitly confirmed the action.
-
 ## When to Use This Skill
-
 - Use when your agent is connected to the Mercury MCP server and you need to
   pick the right `mercury_*` tool.
 - Use when messaging teammates, or reading, listing, or posting to threads.
 - Use when creating, updating, or closing tasks.
 - Use when scheduling or editing recurring automations.
 - Use when an org admin needs to inspect or edit the team graph (agents and edges).
-
 ## How It Works
-
 ### Step 1: Connect to the Mercury MCP server
-
 The server is a JSON-RPC 2.0 endpoint.
-
 - Endpoint: `POST https://api.mercury.build/api/v1/mcp`
 - Auth: per-agent header `x-api-key: ak_agent_...`
-
 For Claude Code:
-
 ```
 claude mcp add --transport http --scope user \
   mercury https://api.mercury.build/api/v1/mcp \
   -H "x-api-key: ak_agent_..."
 ```
-
 ### Step 2: Use the core tools
-
 Every connected agent gets these.
-
 | Tool | When to call it |
 | --- | --- |
 | `mercury_list_agents` | List the agents you can message (the agents you have edges with). |
@@ -89,13 +67,10 @@ Every connected agent gets these.
 | `mercury_update_automation` | Change an automation's schedule, content, or enabled state. |
 | `mercury_delete_automation` | Remove an automation. |
 | `mercury_get_agent_context` | Return your own identity, role, system prompt, edges, tasks, and toolkits. |
-
 ### Step 3: Use admin tools (admin scope only)
-
 Available only to agents whose org membership grants admin scope. These edit
 the team graph itself. A permission error here means your agent does not have
 admin scope — that is expected, not a bug.
-
 | Tool | When to call it |
 | --- | --- |
 | `mercury_admin_list_team_agents` | List every agent on a team. |
@@ -107,40 +82,29 @@ admin scope — that is expected, not a bug.
 | `mercury_admin_delete_agent` | Delete an agent. Cascades to its edges. |
 | `mercury_admin_create_edge` | Connect two agents with a new edge. |
 | `mercury_admin_update_edge` | Rename or retopologize an edge. |
-
 ## Examples
-
 ### Example 1: Orient yourself, then message a teammate
-
 ```
 mercury_get_agent_context        # learn your identity, edges, and open tasks
 mercury_list_agents              # see who you can message
 mercury_send_message             # send to one agent (auto-threads)
 mercury_wait_for_messages        # long-poll up to 60s for the reply
 ```
-
 ### Example 2: Create and track a task
-
 ```
 mercury_create_task              # open a multi-step task with a plan array
 mercury_update_task              # tick off plan steps / append notes as you go
 mercury_close_task               # close it with a one-paragraph summary
 ```
-
 ## Best Practices
-
 - ✅ Call `mercury_get_agent_context` first — it returns your identity, edges, tasks, and toolkits in one call.
 - ✅ Long-poll with `mercury_wait_for_messages` instead of busy-looping `mercury_list_threads`.
 - ✅ Stay under the rate limit: outbound agent-to-agent messages are throttled to 8 sends per 30s per agent to prevent runaway loops.
 - ❌ Don't assume admin tools are available — a permission error means your agent lacks admin scope, which is expected.
-
 ## Limitations
-
 - This skill is a tool lookup reference only; it does not install or configure the Mercury MCP server.
 - Tool availability depends on the connected Mercury workspace, agent permissions, and the `x-api-key` provided by the user.
 - Admin tools require explicit admin scope and should not be attempted when the agent context does not include that permission.
-
 ## More
-
 - Full MCP reference: https://www.teamoffsite.ai/proton/docs/mcp
 - Skill source and install: https://www.teamoffsite.ai/proton/docs/skill

@@ -1,37 +1,30 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "bc4098ebf0da35da69e44bf46cbce4b6003f3f139de49e9c943470a9d616bbce"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: ios-redteam-pipeline
-description: End-to-end iOS red-team pipeline
-tier: "experimental"
+content_hash: bc4098ebf0da35da69e44bf46cbce4b6003f3f139de49e9c943470a9d616bbce
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 category: security
+compatibility: Requires explicit written authorization for a target scope plus the
+date_added: 2026-09-20
+description: End-to-end iOS red-team pipeline
+license: MIT
+license_source: "https://github.com/elementalsouls/Claude-BugHunter/blob/main/LICENSE"
+name: ios-redteam-pipeline
 risk: offensive
-source: https://github.com/elementalsouls/Claude-BugHunter
+source: "https://github.com/elementalsouls/Claude-BugHunter"
 source_repo: elementalsouls/Claude-BugHunter
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/elementalsouls/Claude-BugHunter/blob/main/LICENSE
-compatibility: Requires explicit written authorization for a target scope plus the
-  relevant testing tools for this technique. Docs-only; helper scripts and commands
+---  relevant testing tools for this technique. Docs-only; helper scripts and commands
   not bundled.
 sources: public_research, frida_docs, objection_docs, owasp_mastg
 report_count: 0
 ---
-
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.
 > Misuse of this tool is illegal and strictly prohibited.
-
 > **Mandatory confirmation gate**
 > Before running any command that probes, exploits, changes, persists on, extracts data from, or attempts credential access against a target:
 > 1. Ask the user to state the exact target URL, IP, account, or resource.
@@ -40,45 +33,32 @@ report_count: 0
 > 4. Wait for explicit confirmation in the current conversation.
 >
 > Without that confirmation, remain read-only and provide defensive guidance only. Prefer a sandbox, disposable VM, or controlled lab.
-
 ## When to use this skill
-
 Trigger when:
 - Recon surfaces 1+ apps under the target's Apple Developer / App Store publisher page
 - A TestFlight public link or enterprise/ad-hoc `.ipa`/`manifest.plist` (OTA install) is found
 - Customer-facing app, dealer/partner portal, or employee mobile companion app ships on iOS
 - Bug bounty program lists iOS in scope
 - `apk-redteam-pipeline` already found Android endpoints/secrets — the iOS build often ships a *different* backend version worth diffing (see `hunt-shadow-api`)
-
 DO NOT use for:
 - Android-only targets — that's `apk-redteam-pipeline`
 - A task limited to web bundles with no authorized iOS scope; React Native/Flutter native bridges, entitlements and platform storage still need iOS-specific review when in scope
 - Server-side only assessments with no mobile client in scope
-
 ---
-
 Use a dedicated authorized test device/account and private evidence directory. Establish whether app binary, backend, credential validation, TLS instrumentation and test-CA/profile changes are each in scope; record/remove test profiles and artifacts afterward. Never use discovered keys merely because they exist: public Firebase config is not automatically a secret, and network access needs separate target confirmation. Create a virtual environment before Python installs, pin/review tools/scripts and check installed --help; legacy flags such as --no-pause and objection subcommands may differ. No universal TLS hook guarantees coverage across all stacks.
-
 ## Stage 0 — Inventory all org-owned iOS apps
-
 ```bash
 # App Store search API (no auth, no scraping needed)
 curl -s "https://itunes.apple.com/search?term=<brand>&country=us&entity=software&limit=50" | python3 -m json.tool
-
 # Pull the full metadata for a known bundle ID (once you have one)
 curl -s "https://itunes.apple.com/lookup?bundleId=com.<brand>.app&country=us"
 ```
-
 Extract: `trackId`, `bundleId`, `sellerName` (developer account — pivot to find sibling apps), `version`,
 `releaseNotes` (changelogs often reference deprecated/removed API behavior — feeds `hunt-shadow-api`).
-
 Cross-reference sibling-app bundle IDs surfaced from Android APK inventories (same
 multi-brand conglomerate usually reuses `com.<corp>.<sub-brand>` naming on both platforms).
-
 ---
-
 ## Stage 1 — IPA acquisition
-
 ### Primary: from a real device you control (no jailbreak needed for a purchased/free app)
 ```bash
 # Obtain an owner-provided test IPA/build when possible. Installing/listing apps does not
@@ -87,12 +67,10 @@ multi-brand conglomerate usually reuses `com.<corp>.<sub-brand>` naming on both 
 brew install libimobiledevice ideviceinstaller
 ideviceinstaller -l              # list installed apps + bundle IDs
 ```
-
 ### Secondary: TestFlight (if the program distributes betas publicly)
 Open the public TestFlight link, install via the TestFlight app, then extract as above.
 TestFlight builds are frequently LESS hardened than App Store releases (debug logging left on,
 staging API hosts hardcoded) — compare channel/build/version; a beta finding does not establish production exposure.
-
 ### Tertiary: enterprise / ad-hoc distribution (OTA install)
 ```bash
 # itms-services:// links embed a manifest.plist with a direct .ipa URL
@@ -102,7 +80,6 @@ curl --fail --show-error --proto =https --proto-redir =https --max-time 120 "<ap
 ```
 Enterprise/ad-hoc IPAs are **not FairPlay-encrypted** — no jailbreak or decryption tooling needed,
 unlike an App Store binary pulled from a device.
-
 ### Decrypting an App-Store-sourced binary (only if extracted from a jailbroken device)
 App Store binaries are FairPlay-encrypted at rest; a binary copied off a jailbroken device
 needs runtime decryption (`frida-ios-dump`, `bagbak`, or `flexdecrypt`) before static tools can
@@ -112,73 +89,54 @@ python -m pip install frida-tools
 # with frida-server running on the jailbroken device and the app in foreground:
 python3 dump.py <bundle_id>          # frida-ios-dump — outputs a decrypted .ipa
 ```
-
 ---
-
 ## Stage 2 — Unpack and static analysis
-
 ```bash
 # An IPA is just a zip
 unzip -l target.ipa  # inspect archive paths/size first; reject traversal/symlinks/oversized entries
 # Extract only in a fresh private directory with an archive tool that enforces containment.
 unzip target.ipa -d extracted_target/
 cd extracted_target/Payload/*.app
-
 # Info.plist — bundle ID, URL schemes, ATS config, entitlements hint
 plutil -convert xml1 -o - Info.plist
-
 # Entitlements — codesign reads the .app bundle (or the Mach-O binary), NOT Info.plist
 codesign -d --entitlements :- . 2>/dev/null || \
   security cms -D -i embedded.mobileprovision | plutil -convert xml1 -o - -
-
 # class-dump for Objective-C symbol/class recovery (compiled binary, not the .app bundle)
 brew install class-dump
 class-dump -H <AppBinaryName> -o headers/
-
 # Swift binaries: class-dump won't show much — use Hopper, Ghidra, or `nm`/`strings` instead
 nm -a <AppBinaryName> | grep -i swift | head -50
 strings -a <AppBinaryName> > strings_target.txt
 ```
-
 For a fast triage pass without a disassembler, the strings dump alone usually surfaces most of
 what Stage 3 is looking for.
-
 ---
-
 ## Stage 3 — Secret grep (same catalog as apk-redteam-pipeline, iOS-specific sources added)
-
 ```bash
 # URL grep — owned-domain references
 grep -oE 'https?://[a-zA-Z0-9.-]+\.(target1|target2|target3)\.(com|io|net)[a-zA-Z0-9./_?=&%-]*' strings_target.txt | sort -u
-
 # Cloud credentials (same 60-pattern catalog as Android — reuse verbatim)
 grep -oE 'AKIA[A-Z0-9]{16}' strings_target.txt          # candidate ID, not proof of valid credential
 grep -oE 'AIza[A-Za-z0-9_-]{35}' strings_target.txt     # may be public/restricted app configuration
 grep -oE 'eyJ[A-Za-z0-9_-]+\.eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]*' strings_target.txt   # JWT
-
 # iOS-specific: GoogleService-Info.plist (Firebase config bundled per-platform)
 find . -iname "GoogleService-Info.plist" -exec plutil -convert xml1 -o - {} \;
 # Look for API_KEY, PROJECT_ID, STORAGE_BUCKET, GCM_SENDER_ID, GOOGLE_APP_ID — same Firebase
 # public-read tests as apk-redteam-pipeline Stage 6.
-
 # iOS-specific: hardcoded config plists shipped in the bundle
 find . -iname '*.plist' ! -iname 'Info.plist' -exec sh -c 'for p do printf "=== %s ===\n" "$p"; plutil -convert xml1 -o - "$p"; done' sh {} +
-
 # App Transport Security exceptions (Info.plist) — tells you if arbitrary/insecure loads are allowed
 plutil -extract NSAppTransportSecurity xml1 -o - Info.plist 2>/dev/null
 ```
-
 ### Keychain items left in a backup (if you have a device backup, encrypted or not)
 ```bash
 python -m pip install iphone_backup_decrypt   # for encrypted local backups
 # keychain-dumper (run ON a jailbroken device) for live keychain contents:
 ./keychain-dumper -e   # -e also decodes entitlements per item, showing which app owns which secret
 ```
-
 ---
-
 ## Stage 4 — App Transport Security (ATS) misconfig + certificate-pinning bypass
-
 ### Check for blanket ATS disablement (the single most common iOS network misconfig)
 ```bash
 plutil -extract NSAppTransportSecurity xml1 -o - Info.plist
@@ -187,10 +145,8 @@ Red flags in the output:
 - `NSAllowsArbitraryLoads = true` at the top level — HTTP (cleartext) allowed anywhere, app-wide.
 - Per-domain `NSExceptionAllowsInsecureHTTPLoads = true` for a domain that carries auth tokens.
 - `NSAllowsArbitraryLoadsInWebContent = true` — WKWebView traffic exempted, common blind spot.
-
 A blanket ATS exception + a network position (rogue AP, ARP spoof, malicious VPN profile) =
 plaintext credential/token interception without touching pinning at all.
-
 ### Certificate-pinning bypass (when pinning IS present and correctly configured)
 ```bash
 python -m pip install frida-tools objection
@@ -211,20 +167,15 @@ frida -U -f <bundle_id> -l ios-ssl-bypass.js --no-pause
 In practice, prefer **SSL Kill Switch 2** (jailbroken device, installs as a tweak) or
 **objection's `ios sslpinning disable`** over any hand-rolled script — both cover the common
 pinning implementations (`NSURLSession`, `AFNetworking`, `TrustKit`) without per-app tuning.
-
 ---
-
 ## Stage 5 — URL scheme / Universal Link enumeration
-
 ```bash
 # Custom URL schemes (CFBundleURLTypes) — anything can invoke these via Safari/another app
 plutil -extract CFBundleURLTypes xml1 -o - Info.plist
-
 # Universal Links / Associated Domains (applinks:) — requires a matching apple-app-site-association
 codesign -d --entitlements :- .  # associated-domains belongs to signed entitlements, not Info.plist
 curl -s "https://<domain>/.well-known/apple-app-site-association" | python3 -m json.tool
 ```
-
 For each custom scheme found (e.g. `myapp://`):
 - Trigger it from Safari/Notes and observe what the app does with parameters:
   `myapp://reset-password?token=x&redirect=https://evil.com` — does the app trust an
@@ -233,19 +184,14 @@ For each custom scheme found (e.g. `myapp://`):
 - If the scheme is also registered by another app on the device (scheme squatting), a malicious
   app can intercept traffic intended for the legitimate app — check `CFBundleURLName` uniqueness.
 - Failed Universal Link association normally leaves an HTTPS web link; any custom-scheme fallback is application-specific and must be observed, not assumed.
-
 ---
-
 ## Stage 6 — Runtime instrumentation (Frida / objection)
-
 Use an authorized compatible test environment. Frida supports jailbroken devices and debuggable apps without jailbreak (Gadget/developer setup); support depends on the build/device.
-
 ```bash
 # Setup
 python -m pip install frida-tools objection
 # Install frida-server on the jailbroken device via Cydia/Sileo (frida repo), matching the
 # host frida-tools version exactly — version skew is the #1 cause of "failed to attach" errors.
-
 # Full interactive exploration
 objection --gadget <bundle_id> explore
 # Inside objection:
@@ -255,7 +201,6 @@ ios keychain dump
 ios plist dump
 ios cookies get
 ```
-
 ### Network traffic capture (once pinning is bypassed)
 ```bash
 mitmproxy --listen-port 8080
@@ -263,11 +208,8 @@ mitmproxy --listen-port 8080
 # (Settings > General > VPN & Device Management > trust the cert, then enable full trust under
 # Certificate Trust Settings — iOS requires this second step, unlike Android)
 ```
-
 ---
-
 ## Decision tree — what to do with what you find
-
 | Finding | Next move |
 |---|---|
 | `NSAllowsArbitraryLoads = true` | Confirm a token/credential actually transits HTTP — needs a network position to exploit, but is a real finding on its own (config-level, no MITM needed to report) |
@@ -277,11 +219,8 @@ mitmproxy --listen-port 8080
 | Universal Link AASA missing/misconfigured | Confirm scheme fallback still carries the same injectable params |
 | Entitlements show `keychain-access-groups` shared with other apps | Cross-app Keychain read — a compromised sibling app reads this app's secrets |
 | Older API version referenced vs. what the current web app calls | Hand off to `hunt-shadow-api` for version-diffing |
-
 ---
-
 ## Anti-patterns
-
 - **Don't assume App Store = FairPlay-encrypted requires jailbreak** — TestFlight and enterprise/ad-hoc
   builds are frequently NOT encrypted and need no decryption step at all. Always check distribution
   channel before reaching for `frida-ios-dump`.
@@ -293,22 +232,16 @@ mitmproxy --listen-port 8080
   frequently-overlooked exception from the top-level ATS setting.
 - **Don't run Frida instrumentation against a personal/production Apple ID device** — use a
   dedicated jailbroken test device or Corellium instance.
-
 ---
-
 ## Tooling install (one-time)
-
 ```bash
 brew install libimobiledevice ideviceinstaller class-dump
 python -m pip install frida-tools objection iphone_backup_decrypt
 # Jailbroken test device (checkra1n/palera1n) or a Corellium virtual iOS device for runtime work
 # frida-server installed on-device via the Frida Cydia/Sileo repo
 ```
-
 ---
-
 ## Related Skills & Chains
-
 - **`apk-redteam-pipeline`** — the Android counterpart; run both when a target ships on both
   platforms. Sibling bundle IDs and shared backend endpoints frequently surface cross-platform.
 - **`hunt-shadow-api`** — mobile builds (iOS and Android alike) often hardcode an older API
@@ -323,18 +256,13 @@ python -m pip install frida-tools objection iphone_backup_decrypt
   inclusion.
 - **`offensive-osint`** — App Store developer-page enumeration is part of the broader org recon
   graph; pair with certificate-transparency lookups for the same brand.
-
 ## Limitations
-
 - Authorized scope only: the confirmation gate above is mandatory before any probing, exploitation, or credential-access command.
 - Docs-only import: upstream helper scripts, commands, engine, and research assets are not bundled; reinstall tooling from the source repo when needed.
 - Validate every finding (see `triage-validation`) before reporting; report via `report-writing`. Prefer a sandbox, disposable VM, or controlled lab.
-
 ### Example
-
 ```bash
 # Read-only first step; confirm scope before anything active.
 cat scope.txt  # target list from the authorized engagement brief
 ```
-
 > Adapted from [elementalsouls/Claude-BugHunter](https://github.com/elementalsouls/Claude-BugHunter) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: executable helpers, commands, engine, and research assets not bundled.

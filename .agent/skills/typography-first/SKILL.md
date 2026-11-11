@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "cbebf49672f1c8ed86291473e114d4ed97bc36ce60050a9246ce95d927477f25"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: typography-first
+content_hash: cbebf49672f1c8ed86291473e114d4ed97bc36ce60050a9246ce95d927477f25
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Typography First Design. Trigger when user wants text as the absolute main visual element, with minimal UI chroming.
-tier: "experimental"
-date_added: "2026-06-17"
+name: typography-first
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Typography First Design
-
 > "The words are the interface. No distractions, just beautiful text."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Hyper-Sized Typography**: The main headline is so large it becomes an abstract graphic element.
 2. **Minimal UI Chroming**: Buttons and navigation may be visually text-only, but retain semantic controls, usable targets and visible focus.
 3. **Kinetic Typography**: Text that moves, scrolls, or reacts to the user's cursor.
-
 ## Visual DNA
 - **Colors**: Extreme high contrast. Pure black and white, or a very dark background with a single neon accent color. **Midnight Luxury** works well.
 - **Typography**: Display fonts with extreme character. Try `Oswald`, `Anton`, or `Bebas Neue` for impact, or a massive serif.
 - **Layout**: Often centers the massive text perfectly in the viewport, cutting off at the edges.
-
 ## Web Implementation
 - Rely on `vw` and `vh` units for font sizing so the text perfectly fills the screen.
 - **CSS Example**:
@@ -47,25 +34,21 @@ body {
   overflow-x: hidden;
   margin: 0;
 }
-
 .hero-type {
   font-family: 'Anton', sans-serif;
   font-size: 25vw; /* Fills the width of the screen */
   text-transform: uppercase;
   line-height: 0.8;
   white-space: nowrap;
-  
   /* Outline effect */
   color: transparent;
   -webkit-text-stroke: 2px #F5F5F0;
   transition: color 0.3s;
 }
-
 .hero-type:hover {
   color: var(--cta-highlight, #F5F5F0);
   -webkit-text-stroke: 0;
 }
-
 .nav-text-btn {
   background: none;
   border: none;
@@ -77,16 +60,13 @@ body {
   cursor: pointer;
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct TypographyFirstView: View {
     var body: some View {
         ZStack {
             Color(hex: "0A0A0A").ignoresSafeArea()
-            
             VStack {
                 // Massive Typography Bleeding Off Edge
                 Text("THE WORDS ARE THE INTERFACE")
@@ -95,7 +75,6 @@ struct TypographyFirstView: View {
                     .lineLimit(1)
                     .fixedSize(horizontal: true, vertical: false) // Force no wrapping
                     .minimumScaleFactor(1.0) // Prevent auto-shrinking
-                
                 // Outlined variant
                 Text("NO CHROMING")
                     .font(.custom("Anton", size: 150))
@@ -118,7 +97,6 @@ struct TypographyFirstView: View {
 ```
 - Use `.fixedSize(horizontal: true, vertical: false)` and `.lineLimit(1)` to force massive fonts to bleed off the edge of the screen rather than wrapping into a paragraph.
 - Native text-stroke is difficult in SwiftUI; overlapping a masked text or using thin shadows is the common workaround.
-
 ### Flutter
 ```dart
 class TypographyFirstScreen extends StatelessWidget {
@@ -139,7 +117,6 @@ class TypographyFirstScreen extends StatelessWidget {
                 style: TextStyle(fontFamily: 'Anton', color: const Color(0xFFF5F5F0), height: 0.8),
               ),
             ),
-            
             // Outlined text
             FittedBox(
               fit: BoxFit.cover,
@@ -167,14 +144,12 @@ class TypographyFirstScreen extends StatelessWidget {
 ```
 - `FittedBox` with `BoxFit.cover` is your best friend here. It ensures the text takes up the maximum possible width/height regardless of the device screen size.
 - Flutter makes text outlines easy by using `foreground: Paint()..style = PaintingStyle.stroke` in the `TextStyle`.
-
 ### React Native
 ```jsx
 const TypographyFirstScreen = () => {
   const { width } = useWindowDimensions(); // Update on resize/orientation changes.
   return (
     <View style={{ flex: 1, backgroundColor: '#0A0A0A', justifyContent: 'center' }}>
-      
       {/* Massive Text */}
       <Text 
         numberOfLines={1} 
@@ -182,7 +157,6 @@ const TypographyFirstScreen = () => {
       >
         WORDS ARE
       </Text>
-
       {/* Outlined Text (Not supported natively in standard React Native Text, requires SVG or shadows) */}
       <Text 
         numberOfLines={1} 
@@ -193,21 +167,18 @@ const TypographyFirstScreen = () => {
       >
         INTERFACE
       </Text>
-
       {/* Typography Button */}
       <TouchableOpacity style={{ marginTop: 40, alignSelf: 'center' }}>
         <Text style={{ color: '#F5F5F0', fontSize: 24, textDecorationLine: 'underline' }}>
           Explore Now
         </Text>
       </TouchableOpacity>
-
     </View>
   );
 };
 ```
 - Use `useWindowDimensions().width` to calculate extreme font sizes dynamically (e.g., `fontSize: width * 0.4`).
 - Use `numberOfLines={1}` and negative margins to allow the text to act as a graphic element bleeding off the screen.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -226,7 +197,6 @@ fun TypographyFirstScreen() {
             softWrap = false, // Force bleed off edge
             modifier = Modifier.offset(x = (-20).dp)
         )
-        
         // Outlined Text
         Text(
             text = "THE INTERFACE",
@@ -248,13 +218,10 @@ fun TypographyFirstScreen() {
 ```
 - Set `softWrap = false` on `Text` to prevent it from wrapping and ruining the massive headline aesthetic.
 - Compose fully supports text outlines natively using `style = TextStyle(drawStyle = Stroke(...))`.
-
 ## Do's and Don'ts
 - **DO**: Mix filled text and outlined text (using `-webkit-text-stroke`) for visual interest.
 - **DON'T**: Wrap the text in cards or containers. Let it bleed into the background.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.
-
 Oversized clipped headlines are decorative studies. Keep essential copy complete, wrappable and scalable; provide an uncut accessible text equivalent. Thin shadow halos approximate an outline and are not true glyph strokes.

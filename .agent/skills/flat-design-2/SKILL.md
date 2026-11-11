@@ -1,49 +1,35 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "17040f4bab70de9d6b8024c3eda707f7d32c89085691a66d4eceaf60164b4da0"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: flat-design-2
+content_hash: 17040f4bab70de9d6b8024c3eda707f7d32c89085691a66d4eceaf60164b4da0
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Flat Design 2.0 (Semi-Flat). Trigger when the user wants flat design with subtle shadows and improved usability.
-tier: "experimental"
-date_added: "2026-06-17"
+name: flat-design-2
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Flat Design 2.0 (Semi-Flat)
-
 > "Flat aesthetics, but with subtle hints of physics to communicate interactability."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Mostly Flat**: The primary aesthetic remains 2D and solid.
 2. **Subtle Elevation**: Use extremely soft, large-spread shadows strictly to indicate interactable elements (buttons, floating action buttons) or layers (modals).
 3. **Micro-Gradients**: Occasional, barely noticeable linear gradients to prevent large surfaces from feeling dead.
-
 ## Visual DNA
 - **Colors**: Pairs well with **Warm Tech** or **Earth-Grounded Elegance**.
 - **Typography**: Clean, readable sans-serifs.
 - **Shadows**: Shadows must be low opacity, high blur, and usually tinted with the background color, not pure black.
-
 ## Web Implementation
 - **CSS Example**:
 ```css
 :root {
   --shadow-color: rgba(43, 48, 58, 0.08); /* Tinted shadow */
 }
-
 .flat2-card {
   background-color: var(--bg-primary);
   border-radius: 8px;
@@ -52,12 +38,10 @@ Use this sub-style when the user's request matches the aesthetic described above
   box-shadow: 0 10px 30px var(--shadow-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .flat2-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 40px rgba(43, 48, 58, 0.12);
 }
-
 .flat2-btn {
   background: var(--cta-highlight);
   border-radius: 4px;
@@ -67,14 +51,11 @@ Use this sub-style when the user's request matches the aesthetic described above
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct SemiFlatCard: View {
     @State private var isPressed = false
-    
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             Text("Semi-Flat Card")
@@ -95,7 +76,6 @@ struct SemiFlatCard: View {
         }, perform: {})
     }
 }
-
 struct SemiFlatButton: View {
     var body: some View {
         Button(action: {}) {
@@ -116,7 +96,6 @@ struct SemiFlatButton: View {
 - Shadow color should be tinted (e.g., `Color.accentColor.opacity(0.15)`), never pure black.
 - Use `radius: 10...16` with `opacity: 0.05...0.08` — if you can immediately see the shadow, it's too heavy.
 - Add subtle `scaleEffect` on press to hint at physical feedback.
-
 ### Flutter
 ```dart
 class SemiFlatCard extends StatelessWidget {
@@ -166,7 +145,6 @@ class SemiFlatCard extends StatelessWidget {
 - Use `elevation: 1` to `elevation: 4` max. Never exceed `elevation: 6`.
 - Tint the `shadowColor` to match the card's background or the brand color.
 - Use `InkWell` for ripple effects and a slight `Transform.translate` animation on press.
-
 ### React Native
 ```jsx
 const SemiFlatCard = () => (
@@ -210,7 +188,6 @@ const SemiFlatCard = () => (
 - On iOS use `shadowOpacity: 0.05...0.10` with `shadowRadius: 16...24` for a diffuse spread.
 - Android elevation and iOS shadow radius use different rendering models; these values are starting points, not visual equivalents.
 - Use `Pressable` with `({ pressed })` style callback for animated press states.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -242,11 +219,9 @@ fun SemiFlatCard() {
 - Use `CardDefaults.cardElevation(defaultElevation = 2.dp)` — keep it under 4dp.
 - On hover/press: `hoveredElevation = 4.dp, pressedElevation = 1.dp` for subtle physics.
 - Tint shadows by using `Modifier.shadow(elevation, shape, ambientColor, spotColor)` with custom tinted colors.
-
 ## Do's and Don'ts
 - **DO**: Keep shadows incredibly subtle. If you immediately notice the shadow, it's too dark.
 - **DON'T**: Use inner shadows, heavy gradients, or skeuomorphic textures.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

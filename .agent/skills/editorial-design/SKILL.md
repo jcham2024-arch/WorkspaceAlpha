@@ -1,44 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "f1d4e9a554bce78756f63c618a18257248584a7814e159185b9e182e1cd3043f"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: editorial-design
+content_hash: f1d4e9a554bce78756f63c618a18257248584a7814e159185b9e182e1cd3043f
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Editorial Design. Trigger when user wants a magazine-inspired layout, large headlines, and elegant typography pairing.
-tier: "experimental"
-date_added: "2026-06-17"
+name: editorial-design
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Editorial Design
-
 > "The digital magazine. Sophisticated typography pairings and deliberate, elegant pacing."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Serif & Sans-Serif Pairing**: The hallmark of editorial design. A beautiful, high-contrast serif for headings, paired with a clean sans-serif for body copy.
 2. **Large Drop Caps & Pull Quotes**: Typographic flourishes that guide the eye and break up long blocks of text.
 3. **Columnar Layouts**: Content flows in distinct columns, often with fine lines (rules) separating them.
-
 ## Visual DNA
 - **Colors**: **Modern Editorial** or **Yacht Club**. Warm, paper-like backgrounds with deep, ink-like blacks or navy blues.
 - **Typography**: 
   - Headlines: `Playfair Display`, `Merriweather`, `Bodoni`.
   - Body: `Lato`, `Open Sans`, `Source Sans Pro`.
 - **Borders**: Thin, elegant horizontal lines (hairlines) used to separate sections.
-
 ## Web Implementation
 - **CSS Example**:
 ```css
@@ -46,7 +33,6 @@ body {
   background-color: #F9F9F9; /* Paper white */
   color: #121212; /* Ink black */
 }
-
 /* Typography Pairing */
 .editorial-headline {
   font-family: 'Playfair Display', serif;
@@ -57,7 +43,6 @@ body {
   border-bottom: 1px solid #121212;
   padding-bottom: 24px;
 }
-
 .editorial-body {
   font-family: 'Lato', sans-serif;
   font-size: 1.1rem;
@@ -65,7 +50,6 @@ body {
   column-width: 24rem; /* Collapse to one column when space is limited. */
   column-gap: 40px;
 }
-
 /* Drop Cap */
 .editorial-body::first-letter {
   font-family: 'Playfair Display', serif;
@@ -75,7 +59,6 @@ body {
   padding-right: 12px;
   color: var(--cta-highlight, #8b0000);
 }
-
 .pull-quote {
   font-family: 'Playfair Display', serif;
   font-size: 2rem;
@@ -86,9 +69,7 @@ body {
   border-bottom: 2px solid #121212;
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct EditorialView: View {
@@ -102,9 +83,7 @@ struct EditorialView: View {
                     .italic()
                     .foregroundColor(Color(white: 0.05))
                     .padding(.bottom, 16)
-                
                 Divider().background(Color.black)
-                
                 // Drop Cap and Body
                 HStack(alignment: .top, spacing: 8) {
                     Text("I")
@@ -112,13 +91,11 @@ struct EditorialView: View {
                         .foregroundColor(Color(red: 0.7, green: 0.2, blue: 0.2))
                         // Negative padding to pull the body text tighter to the drop cap
                         .padding(.top, -10) 
-                    
                     Text("n an era of sterile, flat interfaces, the return to elegant typography feels like a breath of fresh air. The interplay of serif and sans-serif...")
                         .font(.custom("Lato", size: 16))
                         .lineSpacing(6)
                         .foregroundColor(Color(white: 0.1))
                 }
-                
                 // Pull Quote
                 VStack {
                     Divider().background(Color.black)
@@ -140,7 +117,6 @@ struct EditorialView: View {
 - Custom fonts are optional and require licensed, registered assets. System serif and sans-serif fonts are valid fallbacks. Preserve text scaling and expose a split drop-cap paragraph as one complete spoken sentence.
 - Use `Divider()` to create the hairlines that are so common in print design.
 - A fake "drop cap" can be achieved with an `HStack` aligning top.
-
 ### Flutter
 ```dart
 class EditorialScreen extends StatelessWidget {
@@ -202,7 +178,6 @@ class EditorialScreen extends StatelessWidget {
 ```
 - Set `height` parameters in `TextStyle` (line-height). `1.6` is a good editorial body height.
 - Use `Divider` with `thickness: 2` for the heavy rules around pull quotes.
-
 ### React Native
 ```jsx
 const EditorialScreen = () => {
@@ -218,9 +193,7 @@ const EditorialScreen = () => {
       }}>
         The Digital{'\n'}Magazine
       </Text>
-      
       <View style={{ height: 1, backgroundColor: '#121212', marginBottom: 24 }} />
-      
       <View style={{ flexDirection: 'row' }}>
         <Text style={{ 
           fontFamily: 'PlayfairDisplay-Bold', 
@@ -242,7 +215,6 @@ const EditorialScreen = () => {
           n an era of sterile, flat interfaces, the return to elegant typography feels like a breath of fresh air. The interplay of serif and sans-serif brings humanity.
         </Text>
       </View>
-      
       {/* Pull Quote */}
       <View style={{ 
         borderTopWidth: 2, borderBottomWidth: 2, borderColor: '#121212', 
@@ -263,7 +235,6 @@ const EditorialScreen = () => {
 ```
 - Line heights and fonts are everything. You must have custom fonts linked in your React Native project for this style to work.
 - Use `borderTopWidth` and `borderBottomWidth` on a container `View` to create the pull quote styling.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -271,7 +242,6 @@ fun EditorialScreen() {
     // Assuming Playfair and Lato are defined in FontFamily
     val playfair = FontFamily.Serif 
     val lato = FontFamily.SansSerif
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -280,7 +250,6 @@ fun EditorialScreen() {
             .padding(24.dp)
     ) {
         Spacer(Modifier.height(40.dp))
-        
         Text(
             text = "The Digital\nMagazine",
             fontFamily = playfair,
@@ -290,11 +259,9 @@ fun EditorialScreen() {
             lineHeight = 52.sp,
             color = Color(0xFF121212)
         )
-        
         Spacer(Modifier.height(24.dp))
         Divider(color = Color(0xFF121212), thickness = 1.dp)
         Spacer(Modifier.height(24.dp))
-        
         Row(verticalAlignment = Alignment.Top) {
             Text(
                 text = "I",
@@ -311,9 +278,7 @@ fun EditorialScreen() {
                 color = Color(0xFF333333)
             )
         }
-        
         Spacer(Modifier.height(48.dp))
-        
         // Pull Quote
         Divider(color = Color(0xFF121212), thickness = 2.dp)
         Text(
@@ -330,11 +295,9 @@ fun EditorialScreen() {
 ```
 - Compose handles custom fonts and line heights (`26.sp`) very elegantly.
 - Use `Divider()` for the hairlines. Adjust thickness as needed for headers vs pull quotes.
-
 ## Do's and Don'ts
 - **DO**: Treat the interface like a printed page. Margins should be generous.
 - **DON'T**: Clutter the UI with typical app components like floating action buttons or heavy navigation bars. Keep it clean.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

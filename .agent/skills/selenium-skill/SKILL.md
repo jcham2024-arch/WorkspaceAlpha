@@ -1,42 +1,28 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "94a99a1ca5d20b091c723145991ffc6feef81fae8048d53ada4caa8fb448da63"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 94a99a1ca5d20b091c723145991ffc6feef81fae8048d53ada4caa8fb448da63
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-07-01
+description: ""Generates production-grade Selenium WebDriver automation scripts and tests in Java, Python, JavaScript, C#, Ruby, or PHP. Supports local execution and TestMu AI cloud with 3000+ browser/OS combinations.""
+license: MIT
+license_source: "https://github.com/LambdaTest/agent-skills/blob/main/LICENSE"
 name: selenium-skill
-description: "Generates production-grade Selenium WebDriver automation scripts and tests in Java, Python, JavaScript, C#, Ruby, or PHP. Supports local execution and TestMu AI cloud with 3000+ browser/OS combinations."
-tier: "experimental"
 risk: critical
-source: https://github.com/LambdaTest/agent-skills/tree/main/selenium-skill
+source: "https://github.com/LambdaTest/agent-skills/tree/main/selenium-skill"
 source_repo: LambdaTest/agent-skills
 source_type: community
-date_added: 2026-07-01
-license: MIT
-license_source: https://github.com/LambdaTest/agent-skills/blob/main/LICENSE
 ---
-
-
 # Selenium Automation Skill
 ## When to Use
-
 Use when writing or debugging Selenium WebDriver browser tests, selecting local/Grid execution, or structuring page objects. Match the language and execution environment to the actual project.
-
-
 You are a senior QA automation architect. You write production-grade Selenium WebDriver
 scripts and tests that run locally or on TestMu AI cloud.
-
 ## Availability and data scope
-
 This catalog tree contains only this file: all `reference/` paths below are upstream prerequisites, not bundled playbooks. Do not claim to have read them or invent their contents. Use authorized test accounts and sandbox targets; browser actions can send messages, buy or delete. Cloud/Grid choice needs the applicable data/account/cost authority, and provider logs/video/network capture may expose secrets or personal data. Verify real supported browser/OS combinations instead of assuming that naming a combination makes it available; keep credentials out of emitted URLs/logs and clean up remote sessions.
-
 ## Step 1 — Execution Target
-
 ```
 User says "automate" / "test my site"
 │
@@ -51,9 +37,7 @@ User says "automate" / "test my site"
 │
 └─ Ambiguous? → Default local, mention cloud for broader coverage
 ```
-
 ## Step 2 — Language Detection
-
 | Signal | Language | Config |
 |--------|----------|--------|
 | Default / no signal | Java | Maven + JUnit 5 |
@@ -62,45 +46,33 @@ User says "automate" / "test my site"
 | "C#", ".NET", "NUnit" | C# | NuGet + NUnit |
 | "Ruby", ".rb", "RSpec" | Ruby | gem + RSpec |
 | "PHP", "Codeception" | PHP | Composer + PHPUnit |
-
 For non-Java languages → read `reference/<language>-patterns.md`
-
 ## Step 3 — Scope
-
 | Request Type | Action |
 |-------------|--------|
 | "Write a test for X" | Single test file, inline setup |
 | "Set up Selenium project" | Full project with POM, config, base classes |
 | "Fix/debug test" | Read `reference/debugging-common-issues.md` |
 | "Run on cloud" | Read `reference/cloud-integration.md` |
-
 ## Core Patterns — Java (Default)
-
 ### Locator Priority
-
 ```
 1. By.id("element-id")           ← Most stable
 2. By.name("field-name")         ← Form elements
 3. By.cssSelector(".class")      ← Fast, readable
 4. By.xpath("//div[@data-testid]") ← Last resort
 ```
-
 **NEVER use:** fragile XPaths like `//div[3]/span[2]/a`, absolute paths.
-
 ### Wait Strategy — CRITICAL
-
 ```java
 // ✅ ALWAYS use explicit waits
 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("submit")));
-
 // ❌ NEVER use Thread.sleep() or implicit waits mixed with explicit
 Thread.sleep(3000); // FORBIDDEN
 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); // Don't mix
 ```
-
 ### Anti-Patterns
-
 | Bad | Good | Why |
 |-----|------|-----|
 | `Thread.sleep(5000)` | Explicit `WebDriverWait` | Flaky, slow |
@@ -108,9 +80,7 @@ driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); // Don't mix
 | `driver.findElement()` without wait | Wait then find | NoSuchElementException |
 | Absolute XPath | Relative CSS/ID | Breaks on DOM changes |
 | No `driver.quit()` | Always `quit()` in finally/teardown | Leaks browsers |
-
 ### Basic Test Structure
-
 ```java
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -119,18 +89,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.junit.jupiter.api.*;
 import java.time.Duration;
-
 public class LoginTest {
     private WebDriver driver;
     private WebDriverWait wait;
-
     @BeforeEach
     void setUp() {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.manage().window().maximize();
     }
-
     @Test
     void testLogin() {
         driver.get("https://example.com/login");
@@ -141,31 +108,25 @@ public class LoginTest {
         wait.until(ExpectedConditions.urlContains("/dashboard"));
         Assertions.assertTrue(driver.getTitle().contains("Dashboard"));
     }
-
     @AfterEach
     void tearDown() {
         if (driver != null) driver.quit();
     }
 }
 ```
-
 ### Page Object Model — Quick Example
-
 ```java
 // pages/LoginPage.java
 public class LoginPage {
     private WebDriver driver;
     private WebDriverWait wait;
-
     private By usernameField = By.id("username");
     private By passwordField = By.id("password");
     private By submitButton  = By.cssSelector("button[type='submit']");
-
     public LoginPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
-
     public void login(String username, String password) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(usernameField))
             .sendKeys(username);
@@ -174,19 +135,15 @@ public class LoginPage {
     }
 }
 ```
-
 ### TestMu AI Cloud — Quick Setup
-
 ```java
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.URL;
 import java.util.HashMap;
-
 String username = System.getenv("LT_USERNAME");
 String accessKey = System.getenv("LT_ACCESS_KEY");
 String hub = "https://" + username + ":" + accessKey + "@hub.lambdatest.com/wd/hub";
-
 DesiredCapabilities caps = new DesiredCapabilities();
 caps.setCapability("browserName", "Chrome");
 caps.setCapability("browserVersion", "latest");
@@ -197,29 +154,22 @@ ltOptions.put("name", "My Test");
 ltOptions.put("video", true);
 ltOptions.put("network", true);
 caps.setCapability("LT:Options", ltOptions);
-
 WebDriver driver = new RemoteWebDriver(new URL(hub), caps);
 ```
-
 ### Test Status Reporting
-
 ```java
 // After test — report to TestMu AI dashboard
 ((JavascriptExecutor) driver).executeScript(
     "lambda-status=" + (testPassed ? "passed" : "failed")
 );
 ```
-
 ## Validation Workflow
-
 1. **Locators**: No absolute XPath, prefer ID/CSS
 2. **Waits**: Only explicit WebDriverWait, zero Thread.sleep()
 3. **Cleanup**: driver.quit() in @AfterEach/teardown
 4. **Cloud**: LT_USERNAME + LT_ACCESS_KEY from env vars
 5. **POM**: Locators in page class, assertions in test class
-
 ## Quick Reference
-
 | Task | Command/Code |
 |------|-------------|
 | Run with Maven | `mvn test` |
@@ -232,9 +182,7 @@ WebDriver driver = new RemoteWebDriver(new URL(hub), caps);
 | Handle alert | `driver.switchTo().alert().accept()` |
 | Switch iframe | `driver.switchTo().frame("frameName")` |
 | New tab/window | `driver.switchTo().newWindow(WindowType.TAB)` |
-
 ## Reference Files
-
 | File | When to Read |
 |------|-------------|
 | `reference/cloud-integration.md` | Cloud/Grid setup, parallel, capabilities |
@@ -245,11 +193,8 @@ WebDriver driver = new RemoteWebDriver(new URL(hub), caps);
 | `reference/ruby-patterns.md` | Ruby + RSpec/Capybara |
 | `reference/php-patterns.md` | PHP + Composer + PHPUnit |
 | `reference/debugging-common-issues.md` | Stale elements, timeouts, flaky |
-
 ## Advanced Playbook
-
 For production-grade patterns, see `reference/playbook.md`:
-
 | Section | What's Inside |
 |---------|--------------|
 | §1 DriverFactory | Thread-safe, multi-browser, local + remote, headless CI |
@@ -266,9 +211,7 @@ For production-grade patterns, see `reference/playbook.md`:
 | §12 Retry Mechanism | TestNG IRetryAnalyzer for flaky test handling |
 | §13 Debugging Table | 11 common exceptions with cause + fix |
 | §14 Best Practices | 17-item production checklist |
-
 ## Limitations
-
 - Use this skill only when the task clearly matches its upstream source and local project context.
 - Verify commands, generated code, dependencies, credentials, and external service behavior before applying changes.
 - Do not treat examples as a substitute for environment-specific tests, security review, or user approval for destructive or costly actions.

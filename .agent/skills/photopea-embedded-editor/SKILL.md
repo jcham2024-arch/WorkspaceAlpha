@@ -1,53 +1,37 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "515270ad9a8172dfc98cd8a0fbe8465858a1c8235d02872ff45fdec20230f733"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: photopea-embedded-editor
+content_hash: 515270ad9a8172dfc98cd8a0fbe8465858a1c8235d02872ff45fdec20230f733
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-05-20
 description: Embed Photopea in web apps using photopea.js. Covers embedding, file I/O, scripting, exporting, layers, text, filters, and selected Photoshop-like scripting patterns.
-tier: "experimental"
+license: MIT
+license_source: ""https://github.com/yikuansun/PhotopeaAPI/blob/master/LICENSE""
+name: l.name,
 risk: critical
 source: community
 source_repo: yikuansun/PhotopeaAPI
 source_type: community
-license: MIT
-license_source: "https://github.com/yikuansun/PhotopeaAPI/blob/master/LICENSE"
-date_added: 2026-05-20
 ---
-
-
 # Photopea Embedded Editor Skill
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use This Skill
-
 Use this skill for **every task** that involves:
 - Embedding Photopea as an image editor inside a webpage or web app
 - Controlling an embedded Photopea instance from your JavaScript code
 - Automating image editing workflows from a host page (open files, run scripts, export results)
 - Building an image editing feature into your product using Photopea as the engine
 - Writing scripts to manipulate documents, layers, text, selections, filters, colors, and paths
-
 Use a reviewed messaging wrapper or carefully scoped Live Messaging implementation. A wrapper alone does not establish message authenticity: verify received `origin` and `source` against the exact iframe/parent, use an exact target origin, serialize operations and bound timeouts. Do not accept arbitrary page messages as export data.
-
 ---
-
 ## Complete Practical Script Examples
-
 ### 1. Rename all text layers based on their contents
 ```js
 app.preferences.rulerUnits = Units.PIXELS;
 var doc = app.activeDocument;
-
 function processLayers(parent) {
   for (var i = 0; i < parent.layers.length; i++) {
     var l = parent.layers[i];
@@ -60,12 +44,10 @@ function processLayers(parent) {
 processLayers(doc);
 app.echoToOE("done");
 ```
-
 ### 2. Export each layer as a separate PNG
 ```js
 app.preferences.rulerUnits = Units.PIXELS;
 var doc = app.activeDocument;
-
 var originalVisibility = [];
 for (var i = 0; i < doc.layers.length; i++) originalVisibility.push(doc.layers[i].visible);
 try {
@@ -84,17 +66,14 @@ for (var i = 0; i < doc.layers.length; i++) {
     ExportType.SAVEFORWEB, opts
   );
 }
-
 } finally {
   for (var i = 0; i < doc.layers.length; i++) doc.layers[i].visible = originalVisibility[i];
 }
 ```
-
 ### 3. Find and replace text across all text layers
 ```js
 var searchText   = "2024";
 var replaceText  = "2025";
-
 function findReplaceText(parent) {
   for (var i = 0; i < parent.layers.length; i++) {
     var l = parent.layers[i];
@@ -110,7 +89,6 @@ function findReplaceText(parent) {
 findReplaceText(app.activeDocument);
 app.echoToOE("Find & Replace complete");
 ```
-
 ### 4. Grid of duplicate layers
 ```js
 app.preferences.rulerUnits = Units.PIXELS;
@@ -120,7 +98,6 @@ var cols  = 4, rows = 3;
 var padX  = 20, padY = 20;
 var w = layer.bounds[2] - layer.bounds[0];
 var h = layer.bounds[3] - layer.bounds[1];
-
 for (var r = 0; r < rows; r++) {
   for (var c = 0; c < cols; c++) {
     if (r === 0 && c === 0) continue; // skip original
@@ -132,23 +109,19 @@ for (var r = 0; r < rows; r++) {
   }
 }
 ```
-
 ### 5. Apply watermark from URL
 ```js
 app.preferences.rulerUnits = Units.PIXELS;
 var doc = app.activeDocument;
-
 // Open watermark as smart object layer
 app.open("https://example.com/watermark.png", null, true);
 var wm = doc.activeLayer;
-
 // Resize to 20% of document width
 var wmW = wm.bounds[2] - wm.bounds[0];
 var targetW = doc.width * 0.2;
 if (wmW <= 0) throw new Error("Watermark has no measurable width");
 var scalePct = (targetW / wmW) * 100;
 wm.resize(scalePct, scalePct, AnchorPosition.TOPLEFT);
-
 // Move to bottom-right with 20px margin
 var wmNewW = wm.bounds[2] - wm.bounds[0];
 var wmNewH = wm.bounds[3] - wm.bounds[1];
@@ -159,7 +132,6 @@ wm.translate(
 wm.opacity = 60;
 app.echoToOE("watermark applied");
 ```
-
 ### 6. Get all layer info as JSON
 ```js
 function getLayerInfo(parent, depth) {
@@ -168,7 +140,6 @@ function getLayerInfo(parent, depth) {
   for (var i = 0; i < parent.layers.length; i++) {
     var l = parent.layers[i];
     var info = {
-      name:    l.name,
       type:    l.typename,
       visible: l.visible,
       opacity: l.opacity,
@@ -191,19 +162,13 @@ function getLayerInfo(parent, depth) {
 }
 app.echoToOE(JSON.stringify(getLayerInfo(app.activeDocument)));
 ```
-
 ---
-
 ## Integration boundary
-
 Embedding loads a third-party application. Review its terms and privacy/network behavior before loading confidential documents, fonts or assets. Work on an approved duplicate for destructive scripts and preserve a recoverable original. The third-party wrapper source is not bundled; pin and inspect its actual version before enabling document control. Treat URLs and returned strings as data; HTML script embedding also requires safe handling of `</script>` beyond JavaScript string serialization. Do not expose credentials in remote asset URLs.
-
 ## Limitations
-
 - This skill covers host-page integration patterns; it does not replace Photopea's own terms, API documentation, or licensing guidance.
 - Remote URL loading depends on browser CORS behavior, network availability, and the user's Photopea account/session state.
 - `runScript` executes scripts inside the embedded Photopea document context. Only run scripts you understand and only with user-approved files.
 - Serialize dynamic values with `JSON.stringify` before embedding them in a `runScript` string. Never concatenate user-provided URLs, layer names, or text directly into Photopea script source.
 - Export behavior can vary by document size, browser memory limits, and the formats supported by the active Photopea runtime.
-
 ---

@@ -1,38 +1,28 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "96834690b5c2861f7239d9cb8643cc573bfcbae55d912f4eb439101cd8f1495c"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: ai-podcast-voiceover
-description: "Install and use the official AI Podcast Voiceover package, pinned by digest, for paid hosted work on the Beatra service."
-tier: "experimental"
+content_hash: 96834690b5c2861f7239d9cb8643cc573bfcbae55d912f4eb439101cd8f1495c
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: beatra-ai
 category: media
+date_added: 2026-09-18
+description: Install and use the official AI Podcast Voiceover package, pinned by digest, for paid hosted work on the Beatra service.
+license: MIT-0
+license_source: ""https://github.com/beatra-ai/ai-podcast-voiceover-skill/blob/0fe5c523fc42754ba8d328e2db4df895a6276ee3/LICENSE""
+name: ai-podcast-voiceover
 risk: critical
 source: community
 source_repo: beatra-ai/ai-podcast-voiceover-skill
 source_type: official
-date_added: "2026-09-18"
-author: beatra-ai
-tags: [podcast, tts, voiceover, mcp, paid-api, beatra]
-tools: [claude, codex, cursor, gemini]
-license: "MIT-0"
-license_source: "https://github.com/beatra-ai/ai-podcast-voiceover-skill/blob/0fe5c523fc42754ba8d328e2db4df895a6276ee3/LICENSE"
+tags: "[podcast, tts, voiceover, mcp, paid-api, beatra]"
+tools: "[claude, codex, cursor, gemini]"
 ---
-
-
 # AI Podcast Voiceover Skill
-
 ## Overview
-
 Turn an article, notes, or a finished script into a solo podcast episode with a consistent host voice, natural pacing, pronunciation control, and an MP3 you can publish, from inside Claude Code, Codex, or OpenClaw. The work is produced on the hosted, paid Beatra service
 (`mcp.beatra.ai`).
-
 This catalog entry is a **reviewed pointer, not the executable package**. It
 contains no client code and performs no Beatra operation by itself. The package
 it points to bundles three standard-library Python scripts that make network
@@ -40,30 +30,22 @@ calls and store a credential. It has no self-updater: it never downloads
 code and never changes its own files. Read
 [Install](#install-pinned-verified-approved-twice) and
 [Security & Safety Notes](#security--safety-notes) before activating it.
-
 | Pinned identity | Value |
 | --- | --- |
 | Package | `ai-podcast-voiceover` `0.2.5` |
 | Source commit | [`beatra-ai/ai-podcast-voiceover-skill@0fe5c52`](https://github.com/beatra-ai/ai-podcast-voiceover-skill/tree/0fe5c523fc42754ba8d328e2db4df895a6276ee3/skills/ai-podcast-voiceover) (full SHA `0fe5c523fc42754ba8d328e2db4df895a6276ee3`) |
 | Package tree | `3e9432060beedd7f2592804bc928fb26b595e2fd` (Git tree ID of `skills/ai-podcast-voiceover` at that commit) |
 | License | MIT No Attribution (MIT-0) |
-
 The pinned tree holds regular files only (no symlinks, no executable bits, no
 binaries). Confirm that with the inspect commands below.
-
 ## When to Use This Skill
-
 - Use when the user explicitly wants AI Podcast Voiceover audio produced on Beatra and accepts that it is paid.
 - Use when they have agreed to send scripts to a third party for hosted synthesis.
 - Do not use for local TTS or when no paid synthesis was approved.
-
 ## Install (pinned, verified, approved twice)
-
 ### Step 1: Fetch the pinned tree into a review directory
-
 Explain that this fetches an external package from `github.com`, then ask
 for approval. Only after approval:
-
 ```bash
 set -e
 umask 077
@@ -73,21 +55,16 @@ git clone --quiet --filter=blob:none --no-checkout https://github.com/beatra-ai/
 git -C src checkout --quiet 0fe5c523fc42754ba8d328e2db4df895a6276ee3 -- skills/ai-podcast-voiceover
 test "$(git -C src rev-parse '0fe5c523fc42754ba8d328e2db4df895a6276ee3:skills/ai-podcast-voiceover')" = '3e9432060beedd7f2592804bc928fb26b595e2fd' && echo TREE-OK
 ```
-
 Stop if the last command does not print `TREE-OK`. The expected commit and
 tree IDs come from this catalog entry, not from the package or its website,
 and Git addresses every fetched object by its hash.
-
 ### Step 2: Inspect before activation
-
 ```bash
 git -C src ls-tree -r 0fe5c523fc42754ba8d328e2db4df895a6276ee3 -- skills/ai-podcast-voiceover | awk '$1 != "100644"'  # expect no output
 grep -n -E 'maybe_auto_update|download_update|_apply_update' src/skills/ai-podcast-voiceover/scripts/mcp_client.py  # expect no output
 ```
-
 The first check lists any symlink, executable, or submodule entry; the second
 finds the entry points of the self-updater that earlier versions shipped.
-
 Report to the user what the review found: `SKILL.md`, `manifest.json`,
 `install-source.json` (the one-line marker `{"schema_version":1,"source":"github"}`),
 the bundled Markdown references, and `scripts/authorize.py`,
@@ -95,35 +72,24 @@ the bundled Markdown references, and `scripts/authorize.py`,
 library only, no dependency installation, no lifecycle hooks). Summarize the
 network, credential, local-state, telemetry, and version-notice behavior
 listed under [Security & Safety Notes](#security--safety-notes).
-
 The manifest and pattern scans above are only inventory aids. Before activation, read every file in the pinned tree, including each script, reference and hook, and inspect all dependency and network behavior. Do not claim source review from grep output. If complete review cannot be performed, stop before copying or executing; ask for a separate review rather than treating a digest as evidence of safety.
-
 ### Step 3: Copy in
-
 Ask for a **second, separate** approval, because this changes agent
 configuration. Then copy the reviewed tree to the host's skills directory
 (Claude Code shown; use the equivalent path for other hosts):
-
 ```bash
 dest="$HOME/.claude/skills/ai-podcast-voiceover"
 test ! -e "$dest" && test ! -L "$dest" || { echo "destination exists; stop and ask the user"; exit 1; }
 cp -R "src/skills/ai-podcast-voiceover" "$dest"
 ```
-
 There is no update switch to turn off in this version.
-
 ### Step 4: Authorize as its own decision
-
 Authorization opens a browser sign-in and stores a bearer token. Ask first.
-
 ```bash
 python3 "$dest/scripts/authorize.py"
 ```
-
 Start a new agent session if the host discovers skills only at startup.
-
 ## How It Works
-
 1. Read the installed package's `SKILL.md` and its references; they define the
    routes, payload shapes, and review loop.
 2. Use free, non-billable discovery first (`beatra.models.list`, task list) to
@@ -135,44 +101,33 @@ Start a new agent session if the host discovers skills only at startup.
    once with a stable `client_request_id` and poll the returned task.
 5. Report the delivered artifact and `billing.net_charged_credits`, review the
    result with the user, and ask again before any further paid stage.
-
 ## Examples
-
 ### Free connection check (non-billable)
-
 ```bash
 python3 "$HOME/.claude/skills/ai-podcast-voiceover/scripts/mcp_client.py" verify
 ```
-
 ### One approved paid call
-
 After the user approved the cost card for this exact payload, submit once with
 a stable request id using the tool name from the installed `SKILL.md`. If the
 response is lost, retry only with the same `client_request_id` and identical
 arguments; never submit a replacement while the task is running.
-
 ## Update
-
 This pinned version cannot update itself: it has no code that downloads or
 replaces package files. `update` only reports what the store or tool that
 installed the copy offers; for a copy installed by the steps above it finds
 no such record and says to update the way you installed it. See the version
 notice under [Security & Safety Notes](#security--safety-notes).
-
 To move to a newer version, repeat Steps 1 to 3 for that commit in a new
 review directory, show the user the file-level changes against the installed
 copy (for example `git -C src diff --stat 0fe5c52 <new-commit> -- skills/ai-podcast-voiceover`),
 and replace the directory only after approval. A version not listed in this
 entry has not been reviewed here.
-
 ## Uninstall
-
 ```bash
 dest="$HOME/.claude/skills/ai-podcast-voiceover"
 python3 "$dest/scripts/uninstall.py" --dry-run
 python3 "$dest/scripts/uninstall.py"
 ```
-
 Read the JSON decision. `disconnected` means this was the last Beatra skill on
 the device: the token was revoked (when `revoked` is `true`) and the files
 `credentials.json`, `installation.json`, `host.json`, `skills.json`,
@@ -182,23 +137,18 @@ another Beatra skill still uses the shared token, which stays.
 `revoke_retry` means the server refused the revocation and nothing changed;
 run it again shortly. The script never deletes the package directory: after
 confirming the path it prints with the user, delete `$dest`.
-
 `uninstall.py` does not remove `~/.beatra/updates/`. When the decision is
 `disconnected` and no other Beatra skill is installed, remove that directory
 and then the empty `~/.beatra`; otherwise leave them. A token that could not
 be revoked expires after 15 days idle and can be revoked at once in the
 Beatra Console under Agents.
-
 ## Best Practices
-
 - ✅ Keep one approval per paid call, per upload set, and per install step.
 - ✅ Report net charged credits from the terminal task, not the estimate.
 - ❌ Do not replace the installed copy with an unreviewed version silently.
 - ❌ Do not print, paste, or move the token out of `~/.beatra/credentials.json`.
 - ❌ Do not retry a paid call with a new request ID after an uncertain response.
-
 ## Limitations
-
 - Requires a Beatra account, network access, Python 3.10+, and prepaid credits.
 - Models, prices, schemas, and availability are controlled by Beatra and its
   upstream model providers and can change; the service is provided as is.
@@ -206,11 +156,8 @@ Beatra Console under Agents.
   human review before publication.
 - This catalog entry reviews only the pinned tree above. A newer version is
   a different review.
-
 ## Security & Safety Notes
-
 `risk: critical` is deliberate.
-
 - **Network.** Every request is HTTPS and refuses redirects. Authorization
   uses `api.beatra.ai` and tool calls go to `mcp.beatra.ai`; an upload is a
   `PUT` of the approved file to the HTTPS address the server returns, without
@@ -285,11 +232,8 @@ Beatra Console under Agents.
 - **Content rights.** Users keep rights in their inputs and receive Beatra's
   rights in outputs; they must hold rights to uploaded media and must not
   create deceptive impersonations.
-
 ## Additional Resources
-
 - [Source tree at the pinned commit](https://github.com/beatra-ai/ai-podcast-voiceover-skill/tree/0fe5c523fc42754ba8d328e2db4df895a6276ee3/skills/ai-podcast-voiceover)
 - [Product page](https://beatra.ai/skills/ai-podcast-voiceover)
 - [Terms](https://beatra.ai/en/terms) and [privacy policy](https://beatra.ai/en/privacy)
-
 Listen to the complete output and compare against the approved script for omissions, pronunciation, speaker rights and timing before claiming a publishable episode. An MP3 download does not authorize publishing it.

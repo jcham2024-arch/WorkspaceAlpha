@@ -1,51 +1,35 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "01c38349fe2cd785618323e0e1c82b0b9f180f3164300e290053633cb58a065f"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: react-state-management
-description: "Master modern React state management with Redux Toolkit, Zustand, Jotai, and React Query. Use when setting up global state, managing server state, or choosing between state management solutions."
-tier: "experimental"
+content_hash: 01c38349fe2cd785618323e0e1c82b0b9f180f3164300e290053633cb58a065f
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Master modern React state management with Redux Toolkit, Zustand, Jotai, and React Query. Use when setting up global state, managing server state, or choosing between state management solutions.
+id: string
+name: "'todos',"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # React State Management
-
 Comprehensive guide to modern React state management patterns, from local component state to global stores and server state synchronization.
-
 ## Do not use this skill when
-
 - The task is unrelated to react state management
 - You need a different domain or tool outside this scope
-
 ## Instructions
-
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-
 ## Use this skill when
-
 - Setting up global state management in a React app
 - Choosing between Redux Toolkit, Zustand, or Jotai
 - Managing server state with React Query or SWR
 - Implementing optimistic updates
 - Debugging state-related issues
 - Migrating from legacy Redux to modern patterns
-
 ## Core Concepts
-
 ### 1. State Categories
-
 | Type | Description | Solutions |
 |------|-------------|-----------|
 | **Local State** | Component-specific, UI state | useState, useReducer |
@@ -53,32 +37,25 @@ Comprehensive guide to modern React state management patterns, from local compon
 | **Server State** | Remote data, caching | React Query, SWR, RTK Query |
 | **URL State** | Route parameters, search | React Router, nuqs |
 | **Form State** | Input values, validation | React Hook Form, Formik |
-
 ### 2. Selection Criteria
-
 ```
 Small app, simple state → Zustand or Jotai
 Large app, complex state → Redux Toolkit
 Heavy server interaction → React Query + light client state
 Atomic/granular updates → Jotai
 ```
-
 ## Quick Start
-
 ### Zustand (Simplest)
-
 ```typescript
 // store/useStore.ts
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
-
 interface AppState {
   user: User | null
   theme: 'light' | 'dark'
   setUser: (user: User | null) => void
   toggleTheme: () => void
 }
-
 export const useStore = create<AppState>()(
   devtools(
     persist(
@@ -94,7 +71,6 @@ export const useStore = create<AppState>()(
     )
   )
 )
-
 // Usage in component
 function Header() {
   const { user, theme, toggleTheme } = useStore()
@@ -106,18 +82,14 @@ function Header() {
   )
 }
 ```
-
 ## Patterns
-
 ### Pattern 1: Redux Toolkit with TypeScript
-
 ```typescript
 // store/index.ts
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import userReducer from './slices/userSlice'
 import cartReducer from './slices/cartSlice'
-
 export const store = configureStore({
   reducer: {
     user: userReducer,
@@ -130,37 +102,28 @@ export const store = configureStore({
       },
     }),
 })
-
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
-
 // Typed hooks
 export const useAppDispatch: () => AppDispatch = useDispatch
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 ```
-
 ```typescript
 // store/slices/userSlice.ts
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
-
 interface User {
-  id: string
   email: string
-  name: string
 }
-
 interface UserState {
   current: User | null
   status: 'idle' | 'loading' | 'succeeded' | 'failed'
   error: string | null
 }
-
 const initialState: UserState = {
   current: null,
   status: 'idle',
   error: null,
 }
-
 export const fetchUser = createAsyncThunk(
   'user/fetchUser',
   async (userId: string, { rejectWithValue }) => {
@@ -173,9 +136,7 @@ export const fetchUser = createAsyncThunk(
     }
   }
 )
-
 const userSlice = createSlice({
-  name: 'user',
   initialState,
   reducers: {
     setUser: (state, action: PayloadAction<User>) => {
@@ -203,24 +164,19 @@ const userSlice = createSlice({
       })
   },
 })
-
 export const { setUser, clearUser } = userSlice.actions
 export default userSlice.reducer
 ```
-
 ### Pattern 2: Zustand with Slices (Scalable)
-
 ```typescript
 // store/slices/createUserSlice.ts
 import { StateCreator } from 'zustand'
-
 export interface UserSlice {
   user: User | null
   isAuthenticated: boolean
   login: (credentials: Credentials) => Promise<void>
   logout: () => void
 }
-
 export const createUserSlice: StateCreator<
   UserSlice & CartSlice, // Combined store type
   [],
@@ -239,42 +195,31 @@ export const createUserSlice: StateCreator<
     // get().clearCart()
   },
 })
-
 // store/index.ts
 import { create } from 'zustand'
 import { createUserSlice, UserSlice } from './slices/createUserSlice'
 import { createCartSlice, CartSlice } from './slices/createCartSlice'
-
 type StoreState = UserSlice & CartSlice
-
 export const useStore = create<StoreState>()((...args) => ({
   ...createUserSlice(...args),
   ...createCartSlice(...args),
 }))
-
 // Selective subscriptions (prevents unnecessary re-renders)
 export const useUser = () => useStore((state) => state.user)
 export const useCart = () => useStore((state) => state.cart)
 ```
-
 ### Pattern 3: Jotai for Atomic State
-
 Place Suspense outside the component that calls the async atom hook (for example, wrap `<Profile />` in `<Suspense>` at its parent); a boundary returned after a suspending hook cannot catch that suspension.
-
 ```typescript
 // atoms/userAtoms.ts
 import { atom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
-
 // Basic atom
 export const userAtom = atom<User | null>(null)
-
 // Derived atom (computed)
 export const isAuthenticatedAtom = atom((get) => get(userAtom) !== null)
-
 // Atom with localStorage persistence
 export const themeAtom = atomWithStorage<'light' | 'dark'>('theme', 'light')
-
 // Async atom
 export const userProfileAtom = atom(async (get) => {
   const user = get(userAtom)
@@ -282,20 +227,17 @@ export const userProfileAtom = atom(async (get) => {
   const response = await fetch(`/api/users/${user.id}/profile`)
   return response.json()
 })
-
 // Write-only atom (action)
 export const logoutAtom = atom(null, (get, set) => {
   set(userAtom, null)
   set(cartAtom, [])
   localStorage.removeItem('token')
 })
-
 // Usage
 function Profile() {
   const [user] = useAtom(userAtom)
   const [, logout] = useAtom(logoutAtom)
   const [profile] = useAtom(userProfileAtom) // Suspense-enabled
-
   return (
     <Suspense fallback={<Skeleton />}>
       <ProfileContent profile={profile} onLogout={logout} />
@@ -303,13 +245,10 @@ function Profile() {
   )
 }
 ```
-
 ### Pattern 4: React Query for Server State
-
 ```typescript
 // hooks/useUsers.ts
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-
 // Query keys factory
 export const userKeys = {
   all: ['users'] as const,
@@ -318,7 +257,6 @@ export const userKeys = {
   details: () => [...userKeys.all, 'detail'] as const,
   detail: (id: string) => [...userKeys.details(), id] as const,
 }
-
 // Fetch hook
 export function useUsers(filters: UserFilters) {
   return useQuery({
@@ -328,7 +266,6 @@ export function useUsers(filters: UserFilters) {
     gcTime: 30 * 60 * 1000, // 30 minutes (formerly cacheTime)
   })
 }
-
 // Single user hook
 export function useUser(id: string) {
   return useQuery({
@@ -337,23 +274,18 @@ export function useUser(id: string) {
     enabled: !!id, // Don't fetch if no id
   })
 }
-
 // Mutation with optimistic update
 export function useUpdateUser() {
   const queryClient = useQueryClient()
-
   return useMutation({
     mutationFn: updateUser,
     onMutate: async (newUser) => {
       // Cancel outgoing refetches
       await queryClient.cancelQueries({ queryKey: userKeys.detail(newUser.id) })
-
       // Snapshot previous value
       const previousUser = queryClient.getQueryData(userKeys.detail(newUser.id))
-
       // Optimistically update
       queryClient.setQueryData(userKeys.detail(newUser.id), newUser)
-
       return { previousUser }
     },
     onError: (err, newUser, context) => {
@@ -370,9 +302,7 @@ export function useUpdateUser() {
   })
 }
 ```
-
 ### Pattern 5: Combining Client + Server State
-
 ```typescript
 // Zustand for client state
 const useUIStore = create<UIState>((set) => ({
@@ -382,15 +312,12 @@ const useUIStore = create<UIState>((set) => ({
   openModal: (modal) => set({ modal }),
   closeModal: () => set({ modal: null }),
 }))
-
 // React Query for server state
 function Dashboard() {
   const { sidebarOpen, toggleSidebar } = useUIStore()
   const { data: users, isLoading } = useUsers({ active: true })
   const { data: stats } = useStats()
-
   if (isLoading) return <DashboardSkeleton />
-
   return (
     <div className={sidebarOpen ? 'with-sidebar' : ''}>
       <Sidebar open={sidebarOpen} onToggle={toggleSidebar} />
@@ -402,29 +329,22 @@ function Dashboard() {
   )
 }
 ```
-
 These are partial client-side fragments. Do not persist credentials/private user records in localStorage or expose them through devtools. Create request-isolated stores/caches for SSR and clear tenant/user data on sign-out. Include authorization context in server query keys; frontend isAuthenticated flags do not authorize APIs. Validate fetched JSON at runtime. Optimistic snapshots can overwrite concurrent mutations: serialize conflicting writes or reconcile from the server; invalidate affected lists as well as detail queries.
-
 ## Best Practices
-
 ### Do's
 - **Colocate state** - Keep state as close to where it's used as possible
 - **Use selectors** - Prevent unnecessary re-renders with selective subscriptions
 - **Normalize data** - Flatten nested structures for easier updates
 - **Type everything** - Full TypeScript coverage prevents runtime errors
 - **Separate concerns** - Server state (React Query) vs client state (Zustand)
-
 ### Don'ts
 - **Don't over-globalize** - Not everything needs to be in global state
 - **Don't duplicate server state** - Let React Query manage it
 - **Don't mutate directly** - Always use immutable updates
 - **Don't store derived data** - Compute it instead
 - **Don't mix paradigms** - Pick one primary solution per category
-
 ## Migration Guides
-
 ### From Legacy Redux to RTK
-
 ```typescript
 // Before (legacy Redux)
 const ADD_TODO = 'ADD_TODO'
@@ -437,10 +357,8 @@ function todosReducer(state = [], action) {
       return state
   }
 }
-
 // After (Redux Toolkit)
 const todosSlice = createSlice({
-  name: 'todos',
   initialState: [] as { text: string; completed: boolean }[],
   reducers: {
     addTodo: (state, action: PayloadAction<string>) => {
@@ -450,14 +368,11 @@ const todosSlice = createSlice({
   },
 })
 ```
-
 ## Resources
-
 - [Redux Toolkit Documentation](https://redux-toolkit.js.org/)
 - [Zustand GitHub](https://github.com/pmndrs/zustand)
 - [Jotai Documentation](https://jotai.org/)
 - [TanStack Query](https://tanstack.com/query)
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

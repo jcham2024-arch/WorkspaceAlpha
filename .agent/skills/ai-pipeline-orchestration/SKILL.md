@@ -1,81 +1,59 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "3b21d77e9ca8769e5e0d02d06e74fd3966950c43867f2d7d038ca9980625ba52"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: ai-pipeline-orchestration
-description: Orchestrate AI/ML pipelines for data ingestion, model training, batch
-tier: "experimental"
-  inference, and RAG indexing using Prefect, Airflow, or Dagster.
+content_hash: 3b21d77e9ca8769e5e0d02d06e74fd3966950c43867f2d7d038ca9980625ba52
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+date_added: 2026-09-20
+description: Orchestrate AI/ML pipelines for data ingestion, model training, batch
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: ai-pipeline-orchestration
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+version: 1.0
+---  inference, and RAG indexing using Prefect, Airflow, or Dagster.
   CI runners) and authorized access to the target environment. Docs-only; helper scripts
   and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # AI Pipeline Orchestration
-
 Build reliable, observable AI workflows — from document ingestion to batch inference to model training pipelines.
-
 ## When to Use This Skill
-
 Use this skill when:
 - Scheduling recurring RAG document ingestion and re-indexing
 - Orchestrating multi-step batch LLM processing workflows
 - Running nightly model evaluation and fine-tuning jobs
 - Building ETL pipelines that feed into AI models
 - Managing dependencies between data preparation and model serving
-
 ## Execution contract
-
 These are application design fragments: adapters, datasets, model files, secrets, vector schemas and deployment handlers are not bundled. Pin supported framework/provider versions, select the actual target and permissions, and authorize schedules, provider charges and writes separately. Use synthetic fixtures first; preserve private data, validate fetched sources, and persist versioned checkpoints to avoid repeating side effects.
-
 ## Tool Selection
-
 | Tool | Best For | Complexity | GPU Jobs |
 |------|----------|------------|----------|
 | **Prefect** | Modern Python-first; easy to adopt | Low | Good |
 | **Airflow** | Complex DAGs; large teams; existing usage | High | Good |
 | **Dagster** | Asset-centric; strong data lineage | Medium | Excellent |
 | **Temporal** | Long-running workflows; reliability-first | Medium | Good |
-
 ## Prefect — Quick Start
-
 ```bash
 pip install prefect prefect-kubernetes
-
 # Start Prefect server (or use Prefect Cloud)
 prefect server start
-
 # In another terminal
 prefect worker start --pool default-agent-pool
 ```
-
 ## Prefect: RAG ingestion design sketch (not executable)
-
 ```text
 from prefect import flow, task, get_run_logger
 from prefect.tasks import task_input_hash
 from datetime import timedelta
 import hashlib
-
 @task(cache_key_fn=task_input_hash, cache_expiration=timedelta(hours=24))
 def fetch_documents(source_url: str) -> list[dict]:
     """Fetch documents from source; cached to avoid re-fetching."""
@@ -83,7 +61,6 @@ def fetch_documents(source_url: str) -> list[dict]:
     logger.info(f"Fetching from {source_url}")
     # ... fetch logic
     return documents
-
 @task(retries=3, retry_delay_seconds=30)
 def chunk_and_embed(documents: list[dict]) -> list[dict]:
     """Chunk documents and generate embeddings with retry on failure."""
@@ -97,7 +74,6 @@ def chunk_and_embed(documents: list[dict]) -> list[dict]:
             chunks.append({"text": chunk, "embedding": emb.tolist(),
                            "source": doc["url"], "doc_hash": doc["hash"]})
     return chunks
-
 @task(retries=2)
 def upsert_to_vector_store(chunks: list[dict]) -> int:
     """Upsert embeddings to Qdrant, skip unchanged documents."""
@@ -105,7 +81,6 @@ def upsert_to_vector_store(chunks: list[dict]) -> int:
     client = QdrantClient("http://qdrant:6333")
     client.upsert(collection_name="knowledge-base", points=[...])
     return len(chunks)
-
 @flow(name="rag-ingestion", log_prints=True)
 def rag_ingestion_pipeline(sources: list[str]):
     """Full RAG ingestion flow — runs daily."""
@@ -118,7 +93,6 @@ def rag_ingestion_pipeline(sources: list[str]):
         total += count
         logger.info(f"Ingested {count} chunks from {source}")
     logger.info(f"Pipeline complete: {total} total chunks indexed")
-
 if __name__ == "__main__":
     rag_ingestion_pipeline.serve(
         name="daily-rag-ingestion",
@@ -126,15 +100,12 @@ if __name__ == "__main__":
         parameters={"sources": ["https://docs.myapp.com", "https://api.myapp.com/kb"]},
     )
 ```
-
 ## Prefect: Batch LLM Inference Pipeline
-
 ```python
 from prefect import flow, task
 from prefect.concurrency.asyncio import concurrency
 import asyncio
 from openai import AsyncOpenAI
-
 @task(retries=0)  # A batch retry can repeat successful billable calls
 async def process_batch(items: list[dict], model: str) -> list[dict]:
     """Process a batch of items through LLM with rate limit protection."""
@@ -149,7 +120,6 @@ async def process_batch(items: list[dict], model: str) -> list[dict]:
             for item in items
         ]
         responses = await asyncio.gather(*tasks, return_exceptions=True)
-
     await client.close()
     results = []
     for item, response in zip(items, responses):
@@ -158,7 +128,6 @@ async def process_batch(items: list[dict], model: str) -> list[dict]:
         else:
             results.append({**item, "output": response.choices[0].message.content})
     return results
-
 @flow(name="batch-llm-inference")
 async def batch_inference_flow(input_file: str, output_file: str, model: str, batch_size: int = 10):
     import json
@@ -174,12 +143,10 @@ async def batch_inference_flow(input_file: str, output_file: str, model: str, ba
                 raise ValueError("Invalid input item")
             items.append(item)
     batches = [items[i:i+batch_size] for i in range(0, len(items), batch_size)]
-
     all_results = []
     for batch in batches:
         results = await process_batch(batch, model)
         all_results.extend(results)
-
     # A full implementation reserves the output/checkpoint before any billed calls;
     # late file creation can otherwise fail after the whole batch has been charged.
     with open(output_file, "x", encoding="utf-8") as f:
@@ -188,17 +155,13 @@ async def batch_inference_flow(input_file: str, output_file: str, model: str, ba
     failed = sum(result.get("output") is None for result in all_results)
     return {"total": len(all_results), "failed_or_empty": failed, "completed": len(all_results) - failed}
 ```
-
 The async batch fragment requires a pre-created limit large enough for each batch; it fails if absent. Store outputs in an authorized private directory, handle existing/partial files explicitly, and reconcile every provider call on timeout before retrying. Close the client in a `finally` block in a full implementation. Semaphore slots do not alone enforce token/RPM or currency budgets.
-
 ## Airflow: training DAG design sketch (not executable)
-
 ```text
 from airflow.decorators import dag, task
 from airflow.providers.cncf.kubernetes.operators.pod import KubernetesPodOperator
 from datetime import datetime
 from kubernetes.client import models as k8s
-
 @dag(
     dag_id="llm_fine_tuning",
     schedule="@weekly",
@@ -207,13 +170,11 @@ from kubernetes.client import models as k8s
     tags=["ai", "training"],
 )
 def llm_fine_tuning_dag():
-
     @task
     def prepare_dataset() -> str:
         """Download and preprocess training data."""
         # ... data prep logic
         return "s3://my-bucket/training-data/2025-03-01/"
-
     train = KubernetesPodOperator(
         task_id="train_model",
         name="llm-training-job",
@@ -230,7 +191,6 @@ def llm_fine_tuning_dag():
         get_logs=True,
         is_delete_operator_pod=True,
     )
-
     @task
     def evaluate_model(dataset_path: str) -> dict:
         """Run evals; fail pipeline if quality drops."""
@@ -238,31 +198,24 @@ def llm_fine_tuning_dag():
         if metrics["accuracy"] < 0.85:
             raise ValueError(f"Model quality too low: {metrics}")
         return metrics
-
     @task
     def deploy_model(metrics: dict):
         """Push merged model to HF Hub and update vLLM config."""
         update_serving_config(new_model="org/fine-tuned-v2")
-
     dataset = prepare_dataset()
     train.set_upstream(dataset)
     eval_result = evaluate_model(dataset)
     eval_result.set_upstream(train)
     deploy_model(eval_result)
-
 llm_fine_tuning_dag()
 ```
-
 ## Dagster: asset pipeline design sketch (not executable)
-
 ```text
 from dagster import asset, AssetExecutionContext, define_asset_job, ScheduleDefinition
-
 @asset(description="Raw documents fetched from knowledge sources")
 def raw_documents(context: AssetExecutionContext) -> list[dict]:
     context.log.info("Fetching documents...")
     return fetch_all_documents()
-
 @asset(
     deps=[raw_documents],
     description="Chunked and embedded document vectors",
@@ -272,7 +225,6 @@ def document_embeddings(context: AssetExecutionContext, raw_documents) -> int:
     context.log.info(f"Generated {len(chunks)} embeddings")
     upsert_to_qdrant(chunks)
     return len(chunks)
-
 @asset(
     deps=[document_embeddings],
     description="RAG system quality metrics",
@@ -281,39 +233,29 @@ def rag_quality_metrics(context: AssetExecutionContext) -> dict:
     metrics = evaluate_rag_system()
     context.add_output_metadata({"ragas_score": metrics["ragas_score"]})
     return metrics
-
 # Schedule: refresh embeddings nightly
 nightly_refresh = ScheduleDefinition(
     job=define_asset_job("rag_refresh_job", [raw_documents, document_embeddings]),
     cron_schedule="0 1 * * *",
 )
 ```
-
 ## Best Practices
-
 - Use task-level retries for API calls; use flow-level retries for transient infra failures.
 - Cache expensive steps (embedding generation, data fetching) to speed up reruns.
 - Emit custom metrics from pipelines (chunk count, error rate, cost) to your observability stack.
 - Use `concurrency` limits in Prefect or `pool` slots in Airflow to respect external rate limits.
 - Separate ingestion, training, and deployment pipelines — don't couple them in one giant DAG.
-
 ## Related Skills
-
 - rag-infrastructure (`rag-infrastructure`) - RAG system setup
 - llm-fine-tuning (`llm-fine-tuning`) - Training jobs
 - agent-observability (`agent-observability`) - Pipeline monitoring
 - kubernetes-ops (`kubernetes-ops`) - Running pipeline pods on K8s
-
 ## Limitations
-
 - Guidance executes against real environments: confirm target, blast radius, and rollback plan before applying anything.
 - Never deploy to production without explicit approval. Docs-only import: upstream scripts and templates not bundled.
-
 ### Example
-
 ```bash
 git status && git diff --stat
 kubectl diff -f manifest.yaml
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.

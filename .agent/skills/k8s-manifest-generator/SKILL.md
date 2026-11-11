@@ -1,29 +1,19 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "8470f12a3c448bf6833ce1f7932ab6084862063b73cdbf2054202c30e1023440"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 8470f12a3c448bf6833ce1f7932ab6084862063b73cdbf2054202c30e1023440
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Step-by-step guidance for creating production-ready Kubernetes manifests including Deployments, Services, ConfigMaps, Secrets, and PersistentVolumeClaims.
 name: k8s-manifest-generator
-description: "Step-by-step guidance for creating production-ready Kubernetes manifests including Deployments, Services, ConfigMaps, Secrets, and PersistentVolumeClaims."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # Kubernetes Manifest Generator
-
 Step-by-step guidance for creating production-ready Kubernetes manifests including Deployments, Services, ConfigMaps, Secrets, and PersistentVolumeClaims.
-
 ## Use this skill when
-
 Use this skill when you need to:
 - Create new Kubernetes Deployment manifests
 - Define Service resources for network connectivity
@@ -32,34 +22,22 @@ Use this skill when you need to:
 - Follow Kubernetes best practices and naming conventions
 - Implement resource limits, health checks, and security contexts
 - Design manifests for multi-environment deployments
-
 ## Do not use this skill when
-
 - The task is unrelated to kubernetes manifest generator
 - You need a different domain or tool outside this scope
-
 ## Deployment boundaries
-
 These are illustrative fragments, not validated production manifests. Resolve placeholders, pin images, select supported APIs/controllers for the target cluster, and verify ServiceAccount, storage, secrets, ports and probes. Generating files does not authorize kubectl apply, debug Pods, load balancers, migrations or credential reads. Confirm target context and namespace before authorized operations; server dry-run still contacts admission webhooks. Keep secrets out of Git and logs. ConfigMap/Secret environment updates do not refresh existing processes automatically. Replicas and maxUnavailable alone do not guarantee availability. Never apply all template variants together.
-
 ## Instructions
-
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
 - If detailed examples are required, open `resources/implementation-playbook.md`.
-
 ## Resources
-
 - `resources/implementation-playbook.md` for detailed patterns and examples.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Linux](platforms/linux.md)

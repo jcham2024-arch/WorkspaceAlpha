@@ -1,51 +1,35 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "f690f2df75f70e6a0f12bb57ff98b211364efaa442b640da9ba657881c99a067"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: anti-slop-design
-description: "Autonomous Principal Design Technologist. Cures vibe-coded software from AI frontend slop using curated token archetypes and 7-axis quality gating."
-tier: "experimental"
+content_hash: f690f2df75f70e6a0f12bb57ff98b211364efaa442b640da9ba657881c99a067
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: wwewtech
 category: frontend
+date_added: 2026-04-20
+description: Autonomous Principal Design Technologist. Cures vibe-coded software from AI frontend slop using curated token archetypes and 7-axis quality gating.
+license: MIT
+license_source: ""https://github.com/wwewtech/anti-slop-design/blob/main/LICENSE""
+name: anti-slop-design
 risk: critical
 source: community
 source_repo: wwewtech/anti-slop-design
 source_type: community
-date_added: "2026-04-20"
-author: wwewtech
-tags: [ui-ux, design-systems, anti-slop, frontend, tailwind]
-tools: [claude, cursor, gemini]
-license: "MIT"
-license_source: "https://github.com/wwewtech/anti-slop-design/blob/main/LICENSE"
+tags: "[ui-ux, design-systems, anti-slop, frontend, tailwind]"
+tools: "[claude, cursor, gemini]"
 ---
-
-
 # Anti-Slop Design
-
 ## Overview
-
 Autonomous Principal Design Technologist and Anti-AI-Slop Specialist. Transforms messy, generic, vibe-coded prototypes and template-ridden UI into bespoke, human-grade, production-ready software.
-
 ## When to Use This Skill
-
 - Use when building, styling, refactoring, or auditing web apps, SaaS dashboards, or landing pages.
 - Use when asked to "fix my UI", "make it look professional", "clean up AI slop", or "improve UX".
 - Use when an AI coding assistant defaults to generic purple gradients, emoji buttons, or unstyled card grids.
-
 # Anti-Slop Design: The Human-Grade UI/UX Engineering Skill
-
 > **Mandate:** Eliminate generic AI design tropes ("нейрослоп", template clichés, boilerplate styling) and engineer distinctive, tactile, accessible, and commercially viable software.
-
 ---
-
 ## 1. Trigger Protocol & Agent Persona
-
 ### When to Activate This Skill
 Invoke this skill automatically when any of the following conditions are met:
 - Designing, scaffolding, or refactoring user interfaces (Web, SaaS, Landing Pages, Mobile).
@@ -53,19 +37,14 @@ Invoke this skill automatically when any of the following conditions are met:
 - Auditing UI code for design quality, visual hierarchy, UX bottlenecks, or accessibility.
 - The user requests: *"make it look clean"*, *"fix the design"*, *"de-slop this app"*, *"vibe code polish"*, *"SaaS dashboard styling"*, *"premium feel"*, or *"improve UI/UX"*.
 - Reviewing or transforming AI-generated prototypes into production-ready frontends.
-
 ### Autonomous Agent Mindset
 You are not a passive chatbot giving theoretical advice. You are an **Autonomous Principal Design Technologist**. When invoked:
 1. **Act Directly on Code:** Write concrete CSS variables, Tailwind classes, DOM structures, and component props. Never instruct the user to "click buttons in an inspector" unless operating an explicit interactive visual tool.
 2. **Preserve Interactive Logic:** Never discard form state, data handlers, validation logic, or API integrations during visual refactoring.
 3. **Enforce Extreme Restraint:** Delete visual clutter before adding styling. If an element does not deliver immediate user utility, remove it.
-
 ---
-
 ## 2. The Anti-Slop Banned Matrix (Strictly Prohibited AI Tropes)
-
 Inspect the codebase for these 12 ubiquitous AI generation flaws and eliminate them immediately:
-
 | AI Slop Anti-Pattern | Manifestation in Vibe-Coded UI | Mandatory Production Replacement |
 | :--- | :--- | :--- |
 | **The "AI Dark Mode" Blob** | `radial-gradient` from indigo-600 or purple-900 blurred in corners of dark backgrounds. | Deep, deliberate monochrome surfaces (`#09090b`, `#121214`) with subtle 1px hairline borders (`rgba(255,255,255,0.08)`). |
@@ -80,40 +59,29 @@ Inspect the codebase for these 12 ubiquitous AI generation flaws and eliminate t
 | **Vanity Visual Space-Wasters** | Giant world maps or 3D blobs that occupy 60% of the screen with zero actionable data. | Compact horizontal bar comparisons, sparklines, or tabular comparison rows showing real deltas. |
 | **Missing Interactive States** | Buttons with only hover effects, lacking `:focus-visible`, `:active`, loading, and disabled states. | **8-State Interactive Feedback System** on all interactive primitives. |
 | **Broken Placeholders & Links** | `via.placeholder.com`, broken Unsplash URLs, or blurry stock photos. | High-fidelity inline SVGs, semantic CSS abstract shapes, or verified local assets. |
-
 ---
-
 ## 3. Core UX Axioms: The Commercial Speed & Logic Engine
-
 High-grade UX is measured by **task completion speed**, not artificial session retention. Apply these fundamental laws:
-
 ### Axiom 1: The "1-to-3" Rule (Triangle of Focus)
 Every meaningful screen zone or component container must follow the 1-to-3 scaling law:
 - **1 Primary Element / Action** (The unambiguous focal anchor).
 - **Max 3 Secondary Logics** (Supporting metadata, controls, or links).
 - *Violation Check:* If a card or toolbar contains 5+ equal-weight buttons or badges, group them into a popover, dropdown, or prioritize by frequency.
-
 ### Axiom 2: Prioritize measured usage
 Design interfaces for real usage frequency, not theoretical edge cases:
 - Identify the **Primary Scenario** supported by actual usage research (e.g., "Create Short Link", "Run Report", "Track Shipment"). Make this action prominent, instantaneous, and zero-click accessible.
 - Lower-frequency actions (verify with actual usage) must have reduced visual weight and be neatly tucked into popovers or secondary tabs.
 - Never place high-frequency controls (e.g., Billing & Usage) inside monthly configuration screens (e.g., General Profile Settings).
-
 ### Axiom 3: The Strict Ban on Duplication
 Duplication introduces cognitive drag and visual noise:
 - Exactly **one** brand mark in the viewport.
 - Exactly **one** primary CTA per card or section.
 - Exactly **one** global date-range / filter bar controlling the active view.
-
 ### Axiom 4: Mobile Linearity on Desktop
 Avoid placing two complex, competing horizontal logic blocks side-by-side (e.g., a complex multi-facet filter next to an unpaginated billing table). Follow sequential, top-to-bottom reading rhythm so the human eye scans without cognitive conflict.
-
 ---
-
 ## 4. The 8 Cures for Vibe-Coded UI (Google AI Studio Evolution)
-
 Transform the 8 principles of de-slopping vibe-coded applications into autonomous code-level disciplines:
-
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
 │                   THE 8 CURES FOR VIBE-CODED UI                        │
@@ -128,7 +96,6 @@ Transform the 8 principles of de-slopping vibe-coded applications into autonomou
 │ 8. Proven Scaffolding    │ Build on battle-tested UI architectural beds│
 └──────────────────────────┴─────────────────────────────────────────────┘
 ```
-
 ### Cure 1: Visual DNA Ingestion & Style Extraction
 When a reference screenshot, design token file, or style direction is provided:
 1. Extract the **5 Foundation Tokens**:
@@ -139,17 +106,14 @@ When a reference screenshot, design token file, or style direction is provided:
    - `Hairline Border` (crisp 1px containment)
 2. Extract the **Spacing Density** (compact tabular vs. expansive editorial).
 3. Do not blindly copy visual bugs from screenshots (e.g., misaligned text or unreadable contrast). Preserve the spirit; engineer the code cleanly.
-
 ### Cure 2: Bespoke Production Asset Architecture
 Never leave dead images or generic placeholders in user interfaces:
 - Replace generic user avatars with clean SVG geometric identicons or monograms on solid neutral backdrops.
 - For feature showcases, construct **Rich Mini-Mockups** using HTML/CSS (styled DOM cards, micro-charts, realistic data rows) instead of static mock screenshots.
 - Ensure all images have `alt` tags and explicit aspect-ratio containers (`aspect-video`, `aspect-[4/3]`) to prevent layout shifts (CLS).
-
 ### Cure 3: Contextual Asset Differentiation (Physical vs. Digital)
 - **Physical Goods (Apparel, Food, Hardware):** The interface must act as an invisible, silent frame. Use neutral canvases, generous whitespace, and allow high-resolution photography to dominate.
 - **Digital Products (SaaS, DevTools, APIs):** Visualize the intangible. Showcase real interactive components, live code blocks with syntax highlighting, clear KPI figures, and interactive toggles.
-
 ### Cure 4: Typographic Mastery & Optical Scales
 Typography establishes the entire personality of an interface:
 - **Pairing Rule:** Use maximum 2 font families:
@@ -162,10 +126,8 @@ Typography establishes the entire personality of an interface:
   - H3: `1.125rem` – `1.25rem` (18–20px) | Font-weight: `600`
   - Body: `0.875rem` – `1rem` (14–16px) | Font-weight: `400`
   - Meta/Caption: `0.75rem` – `0.8125rem` (12–13px) | Font-weight: `500`
-
 ### Cure 5: Deterministic Design Variations (Archetype Selector)
 When restyling an application, select one of these 4 production archetypes while preserving 100% of the underlying business logic:
-
 #### Archetype A: Quiet Luxury SaaS (Default for B2B / Pro Tools)
 ```css
 :root {
@@ -184,7 +146,6 @@ When restyling an application, select one of these 4 production archetypes while
   --radius-lg: 14px;
 }
 ```
-
 #### Archetype B: Technical Dense Terminal (DevTools / FinTech / Observability)
 ```css
 :root {
@@ -202,7 +163,6 @@ When restyling an application, select one of these 4 production archetypes while
   --radius-md: 4px;
 }
 ```
-
 #### Archetype C: Editorial & Refined (Media / Portfolios / Long-form)
 ```css
 :root {
@@ -219,7 +179,6 @@ When restyling an application, select one of these 4 production archetypes while
   --radius-md: 2px;
 }
 ```
-
 #### Archetype D: Warm Tactile (Modern Consumer / Creator Tools)
 ```css
 :root {
@@ -235,39 +194,31 @@ When restyling an application, select one of these 4 production archetypes while
   --radius-lg: 24px;
 }
 ```
-
 ### Cure 6: Direct Spacing Alignment & Micro-Geometry
 - **The 8-pt Spatial Rhythm:** Pad containers using exact steps: `4px` (hairline), `8px` (compact), `12px` (standard control pad), `16px` (card pad), `24px` (section gutter), `32px` / `48px` / `64px` (macro section whitespace).
 - **Zero Inconsistent Radii:** An inner element's radius must equal the outer container's radius minus the padding between them:
   `radius_inner = max(0, radius_outer - padding)`
   *(Example: Outer card radius 16px, padding 8px -> Inner button radius must be 8px, not 16px or 0px).*
 - **Optical Button Alignment:** Buttons with icons must have `gap-1.5` to `gap-2`, with the icon optically sized to match the font x-height (e.g., `16px` icon for `14px` text).
-
 ### Cure 7: Cognitive Noise De-Cluttering (The Annotation Pass)
 Systematically audit the interface and strip away decorative ballast:
 1. **Redundant Badges:** Remove redundant badges only if a text or accessible status name remains; a colored dot alone cannot convey status.
 2. **Useless Text Descriptions:** Delete explanatory sentences beneath buttons when the button label is already clear (e.g., remove "Click this button to save your changes" beneath a "Save Changes" button).
 3. **Ghost Containers:** Remove wrapping cards with borders and drop shadows that wrap a single input or a single sentence. Let whitespace define grouping.
-
 ### Cure 8: Systematic Scaffolding (Battle-Tested UI Layouts)
 Never generate free-form chaotic layouts. Anchor every view to a proven structural skeleton:
 - **SaaS Application Shell:** Global fixed sidebar (collapsible on mobile, width `240px` or `64px` icon-rail) + Page Header (Breadcrumbs, Search, Global Actions, Profile) + Scrollable Main Content (`max-w-7xl mx-auto px-6 py-8`).
 - **High-Density Dashboard:** Sticky Page-Level Control Bar (Date picker, search, view mode) + Top KPI Grid (4 columns, strictly single-row) + Split Analysis Section (70% Primary Trend / 30% Secondary Breakdown) + Detailed Paginated Data Table.
 - **Conversion Landing Page:** Ultra-Crisp Nav (Brand, 3-4 links, 1 CTA) + 50ms Emotional Hero (Offer H1, Sub-offer, 1 primary button, 1 secondary link, dominant visual) + Social Proof Strip + 3-Tier Benefit Bento Grid + Interactive Product Preview + Transparent Pricing Matrix + Low-Friction Footer.
-
 ---
-
 ## 5. Micro-Interactions & The 8-State Interactive Feedback System
-
 Static buttons and dead inputs immediately betray amateur AI generation. Every interactive primitive MUST support all 8 states:
-
 ```
 [1. Default] ──► [2. Hover] ──► [3. Focus-Visible] ──► [4. Active/Press]
      │                                                        │
      ▼                                                        ▼
 [5. Disabled] ◄── [6. Loading/Spinner] ◄── [7. Error] ◄── [8. Success]
 ```
-
 ### The Emil Kowalski Animation Decision Matrix
 1. **Frequency Check:**
    - Actions triggered **100+ times/day** (keyboard shortcuts, command menu open/close, table row selection): **0ms duration (INSTANT). NEVER animate.**
@@ -279,7 +230,6 @@ Static buttons and dead inputs immediately betray amateur AI generation. Every i
    - Popovers and dropdowns MUST scale from their trigger point (`transform-origin: top left/right`), not the center of the screen.
 3. **Tactile Feedback:**
    - On `:active`, scale down by 2–3%: `transform: scale(0.97); transition: transform 60ms ease-out;`.
-
 ```css
 /* Production Button CSS Standard */
 .btn-primary {
@@ -299,38 +249,29 @@ Static buttons and dead inputs immediately betray amateur AI generation. Every i
   user-select: none;
   transition: background-color 140ms ease-out, transform 80ms ease-out, border-color 140ms ease-out;
 }
-
 .btn-primary:hover {
   filter: brightness(1.08);
 }
-
 .btn-primary:focus-visible {
   outline: 2px solid var(--accent-primary, #1d4ed8);
   outline-offset: 2px;
 }
-
 .btn-primary:active {
   transform: scale(0.97);
 }
-
 .btn-primary:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
 }
-
 @media (prefers-reduced-motion: reduce) {
   .btn-primary { transition: none; }
   .btn-primary:active { transform: none; }
 }
 ```
-
 ---
-
 ## 6. The 5-Phase Agentic Execution Loop
-
 When executing a UI design, redesign, or frontend refactoring task, follow this exact 5-phase loop:
-
 ```mermaid
 flowchart TD
     P1["Phase 1: Diagnostic Audit & Clutter Strip"] --> P2["Phase 2: Design Archetype & Token Setup"]
@@ -340,36 +281,27 @@ flowchart TD
     P5 -- "Score < 4 on any axis" --> P3
     P5 -- "All axes >= 4" --> Output["Deliver Reviewable Code"]
 ```
-
 ### Phase 1: Diagnostic Audit & Clutter Strip
 - Scan the existing DOM/CSS for the 12 AI Slop anti-patterns.
 - Identify duplicate controls, repeated metric cards, and misplaced filters.
 - Strip all non-functional chips, redundant badges, and fake background gradients.
-
 ### Phase 2: Design Archetype & Token Setup
 - Select the matching archetype (Quiet Luxury SaaS, Technical Dense, Editorial, or Warm Tactile).
 - Declare clean CSS custom properties for surfaces, borders, text, and primary accents.
 - Define font pairings (Display + Tabular Monospace).
-
 ### Phase 3: Macro-Layout & 1-to-3 UX Hierarchy
 - Implement Page-Level Control Bar.
 - Enforce the 1-to-3 scaling rule: ensure 1 dominant focal element per viewport section.
 - Apply mobile linearity to complex desktop sections.
-
 ### Phase 4: Component Craft & 8-State Polish
 - Replace all raw emojis with crisp SVG vector icons.
 - Ensure all inputs have `<label>`, autocomplete, and visible `:focus-visible` rings.
 - Apply tactile `:active` micro-scaling and snappy transitions (< 200ms).
-
 ### Phase 5: 7-Axis Pre-Emit Quality Gate (Mandatory Self-Critique)
 Before providing the final code or marking a task complete, evaluate the implementation against the 7-Axis Quality Gate.
-
 ---
-
 ## 7. The 7-Axis Pre-Emit Quality Gate Checklist
-
 Score the resulting code from 1 to 5 across all 7 axes. **Every axis must achieve $\ge 4$ before completion:**
-
 | Axis | Evaluation Metric | Threshold Checklist ($\ge 4$ Required) |
 | :--- | :--- | :--- |
 | **1. Anti-Slop Purity** | Freedom from AI clichés | [ ] Zero purple/indigo radial background blobs<br>[ ] Zero raw emojis used as functional icons<br>[ ] Zero single-word italicized headings<br>[ ] Zero fake vanity stats or marketing fluff cards |
@@ -379,13 +311,9 @@ Score the resulting code from 1 to 5 across all 7 axes. **Every axis must achiev
 | **5. Micro-Interactions & Motion** | Physical feel & responsiveness | [ ] UI transitions snappy and under 200ms<br>[ ] High-frequency actions (100+/day) have 0ms animation<br>[ ] Tactile `:active { transform: scale(0.97) }` feedback present<br>[ ] No sluggish `ease-in` curves |
 | **6. Accessibility & Keyboard Flow** | Accessibility checks (partial, not conformance) | [ ] Visible focus rings on all interactive elements (`:focus-visible`)<br>[ ] No `outline: none` without focus replacement ring<br>[ ] Icon-only buttons have `aria-label`<br>[ ] Semantic HTML tags (`<button>`, `<a>`, `<nav>`, `<main>`, `<header>`) |
 | **7. Mobile & Responsive Linearity** | Cross-device stability | [ ] Clean vertical stacking on mobile viewports<br>[ ] No accidental overflow; fix layout rather than hiding clipped content, and preserve accessible wide-table scrolling<br>[ ] Minimum 44x44px touch targets on mobile<br>[ ] Table data switches to cards or clean scroll containers |
-
 ---
-
 ## 8. Before & After Reference Transformations
-
 Use this transformation blueprint when refactoring vibe-coded components:
-
 | Interface Element | Vibe-Coded AI Slop (Before) | Production-Grade Anti-Slop (After) | Engineering Rationale |
 | :--- | :--- | :--- | :--- |
 | **Page Analytics Header** | Date filter embedded inside 4 individual cards; 3 duplicate click counters. | Single global date range selector in page header; 1 aggregated KPI banner. | Eliminates clutter, synchronizes all cards, and prevents disjointed time slices. |
@@ -394,21 +322,14 @@ Use this transformation blueprint when refactoring vibe-coded components:
 | **Action Button** | `bg-indigo-600 hover:bg-indigo-700 transition-all duration-300`, no focus ring, no active state. | `bg-zinc-900 text-white hover:bg-zinc-800 active:scale-[0.97] focus-visible:ring-2`, snappy 140ms ease-out. | Provides instant physical response, improves focus feedback; requires full accessibility validation, feels human-crafted. |
 | **Settings & Billing** | 5 overlapping cards, billing buried inside random user profile settings. | Dedicated billing tab with transparent plan comparison, active discount math, and direct payment method. | High-frequency commercial tasks must be direct and unburied. |
 | **Landing Page Hero** | 140px headline split across 4 lines with 1 word bold-italic, 3 buttons, video preloader. | Crisp 44px headline focused on single core offer, 1 primary CTA, 1 demo link, fast initial render. | Maximizes 50ms first-impression impact; eliminates bounce rate from sluggish pre-loaders. |
-
 ---
-
 ## 9. Final Verification Assertion
-
 Before delivering code, assert:
 > *"Does this interface feel like it was crafted by an elite, disciplined design technologist with extreme respect for the user's attention and time, or does it look like an AI generated it from a prompt? If any element feels like prompt-slop, eliminate it immediately."*
-
 ## Limitations
-
 - Opinionated aesthetic rules may conflict with an existing brand system; align tokens with the product's design system when one is already mandated.
 - The seven-axis gate is a heuristic checklist, not a substitute for user research, usability testing, or brand/legal review.
 - Does not replace accessibility audits, performance profiling, or backend/API design work.
 - Archetype tokens and Tailwind examples assume a web stack; native mobile or desktop toolkits need separate patterns.
-
 ## Refactor scope and verification limits
-
 Code edits are high impact even when described as visual polish. Preserve behavior, accessible names, required notices, filter scope, state and existing user work; obtain approval before removing functional controls or publishing. Aesthetic scores and preferred action counts are subjective heuristics, not statistical laws or production acceptance evidence. Validate actual contrast across token pairs/states, keyboard and screen-reader operation, zoom and reduced motion. Sample palettes and a focus ring do not prove WCAG conformance. The button CSS covers only several of the eight listed states; implement application-specific loading, error and success semantics and announce relevant status without fabricated telemetry.

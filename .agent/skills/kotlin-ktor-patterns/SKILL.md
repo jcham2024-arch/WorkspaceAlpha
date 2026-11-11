@@ -1,111 +1,51 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "f52aa6a43801a0706ecc048598ff9c2d94478e991eac19f14d8a42450e0f8aac"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: kotlin-ktor-patterns
+content_hash: f52aa6a43801a0706ecc048598ff9c2d94478e991eac19f14d8a42450e0f8aac
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: Ktor server patterns including routing DSL, plugins, authentication, Koin DI, kotlinx.serialization, WebSockets, and testApplication testing. Use when building a Ktor server — routing, plugins, auth, DI, serialization, or tests.
-tier: "experimental"
-metadata:
-  origin: ECC
+name: kotlin-ktor-patterns
+origin: ECC
 ---
-
-
 # Ktor Server Patterns
-
 Comprehensive Ktor patterns for building robust, maintainable HTTP servers with Kotlin coroutines.
-
 ## When to Activate
-
 - Building Ktor HTTP servers
 - Configuring Ktor plugins (Auth, CORS, ContentNegotiation, StatusPages)
 - Implementing REST APIs with Ktor
 - Setting up dependency injection with Koin
 - Writing Ktor integration tests with testApplication
 - Working with WebSockets in Ktor
-
 ## Application Structure
-
 ### Standard Ktor Project Layout
-
-
 ### Application Entry Point
-
-
 ## Routing DSL
-
 ### Basic Routes
-
-
 ### Route Organization with Authenticated Routes
-
-
 ## Content Negotiation & Serialization
-
 ### kotlinx.serialization Setup
-
-
 ### Serializable Models
-
-
 ### Custom Serializers
-
-
 ## Authentication
-
 ### JWT Authentication
-
-
 ### Auth Routes
-
-
 ## Status Pages (Error Handling)
-
-
 ## CORS Configuration
-
-
 ## Koin Dependency Injection
-
 ### Module Definition
-
-
 ### Using Koin in Routes
-
-
 ### Koin for Testing
-
-
 ## Request Validation
-
-
 ## WebSockets
-
-
 ## testApplication Testing
-
 ### Basic Route Testing
-
-
 ### Testing Authenticated Routes
-
-
 ## Configuration
-
 ### application.yaml
-
-
 ### Reading Config
-
-
 ## Quick Reference: Ktor Patterns
-
 | Pattern | Description |
 |---------|-------------|
 | `route("/path") { get { } }` | Route grouping with DSL |
@@ -117,11 +57,7 @@ Comprehensive Ktor patterns for building robust, maintainable HTTP servers with 
 | `authenticate("name") { }` | Protect routes with auth |
 | `by inject<T>()` | Koin dependency injection |
 | `testApplication { }` | Integration testing |
-
 **Remember**: Ktor is designed around Kotlin coroutines and DSLs. Keep routes thin, push logic to services, and use Koin for dependency injection. Test with `testApplication` for full integration coverage.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Android](platforms/android.md)

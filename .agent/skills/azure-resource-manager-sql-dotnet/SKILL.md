@@ -1,45 +1,30 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "d78d9bd213082757e8129d204c74d0aab0f076db602546d38f3cdd7f62d68997"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-resource-manager-sql-dotnet
+content_hash: d78d9bd213082757e8129d204c74d0aab0f076db602546d38f3cdd7f62d68997
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Azure Resource Manager SDK for Azure SQL in .NET.
-tier: "experimental"
+name: azure-resource-manager-sql-dotnet
 risk: critical
 source: community
-date_added: '2026-02-27'
 ---
-
 ## Bundled upstream support
-
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.
-
 # Azure.ResourceManager.Sql (.NET)
-
 Management plane SDK for provisioning and managing Azure SQL resources via Azure Resource Manager.
-
 > **⚠️ Management vs Data Plane**
 > - **This SDK (Azure.ResourceManager.Sql)**: Create servers, databases, elastic pools, configure firewall rules, manage failover groups
 > - **Data Plane SDK (Microsoft.Data.SqlClient)**: Execute queries, stored procedures, manage connections
-
 ## Installation
-
 ```bash
 dotnet add package Azure.ResourceManager.Sql
 dotnet add package Azure.Identity
 ```
-
 **Version boundary:** These are illustrative fragments, not a compiled project. Pin the intended SDK version and check its API reference and regional SKU availability before adapting; no current-version claim is established here.
-
 ## Environment Variables
-
 ```bash
 AZURE_SUBSCRIPTION_ID=<your-subscription-id>
 # For service principal auth (optional)
@@ -47,26 +32,20 @@ AZURE_TENANT_ID=<tenant-id>
 AZURE_CLIENT_ID=<client-id>
 AZURE_CLIENT_SECRET=<client-secret>
 ```
-
 ## Authentication
-
 ```csharp
 using Azure.Identity;
 using Azure.ResourceManager;
 using Azure.ResourceManager.Sql;
-
 // Always use DefaultAzureCredential
 var credential = new DefaultAzureCredential();
 var armClient = new ArmClient(credential);
-
 // Get subscription
 var subscriptionId = Environment.GetEnvironmentVariable("AZURE_SUBSCRIPTION_ID");
 var subscription = armClient.GetSubscriptionResource(
     new ResourceIdentifier($"/subscriptions/{subscriptionId}"));
 ```
-
 ## Resource Hierarchy
-
 ```
 ArmClient
 └── SubscriptionResource
@@ -81,22 +60,16 @@ ArmClient
             ├── EncryptionProtectorResource
             └── VirtualNetworkRuleResource
 ```
-
 ## Core Workflow
-
 Confirm subscription, tenant, resource group, exact target, SKU budget and production-change scope before any write. Read current state and use update/patch semantics appropriate to the pinned SDK; a sparse CreateOrUpdate payload is not proof that omitted settings are preserved. Management authentication does not grant SQL data-plane access. Do not log passwords, connection strings or storage keys. Private networking requires endpoint, DNS and routing setup; disabling public access alone does not establish connectivity.
-
 ### 1. Create SQL Server
-
 ```csharp
 using System;
 using Azure.ResourceManager.Sql;
 using Azure.ResourceManager.Sql.Models;
-
 // Get resource group
 var resourceGroup = await subscription
     .GetResourceGroupAsync("my-resource-group");
-
 // Define server
 var serverData = new SqlServerData(AzureLocation.EastUS)
 {
@@ -106,19 +79,15 @@ var serverData = new SqlServerData(AzureLocation.EastUS)
     MinimalTlsVersion = SqlMinimalTlsVersion.Tls1_2,
     PublicNetworkAccess = ServerNetworkAccessFlag.Disabled // configure approved private endpoint and DNS separately
 };
-
 // Create server (long-running operation)
 var serverCollection = resourceGroup.Value.GetSqlServers();
 var operation = await serverCollection.CreateOrUpdateAsync(
     WaitUntil.Completed,
     "my-sql-server",
     serverData);
-
 SqlServerResource server = operation.Value;
 ```
-
 ### 2. Create SQL Database
-
 ```csharp
 var databaseData = new SqlDatabaseData(AzureLocation.EastUS)
 {
@@ -127,18 +96,14 @@ var databaseData = new SqlDatabaseData(AzureLocation.EastUS)
     Collation = "SQL_Latin1_General_CP1_CI_AS",
     RequestedBackupStorageRedundancy = SqlBackupStorageRedundancy.Local
 };
-
 var databaseCollection = server.GetSqlDatabases();
 var dbOperation = await databaseCollection.CreateOrUpdateAsync(
     WaitUntil.Completed,
     "my-database",
     databaseData);
-
 SqlDatabaseResource database = dbOperation.Value;
 ```
-
 ### 3. Create Elastic Pool
-
 ```csharp
 var poolData = new ElasticPoolData(AzureLocation.EastUS)
 {
@@ -153,32 +118,25 @@ var poolData = new ElasticPoolData(AzureLocation.EastUS)
         MaxCapacity = 100
     }
 };
-
 var poolCollection = server.GetElasticPools();
 var poolOperation = await poolCollection.CreateOrUpdateAsync(
     WaitUntil.Completed,
     "my-elastic-pool",
     poolData);
-
 ElasticPoolResource pool = poolOperation.Value;
 ```
-
 ### 4. Add Database to Elastic Pool
-
 ```csharp
 var databaseData = new SqlDatabaseData(AzureLocation.EastUS)
 {
     ElasticPoolId = pool.Id
 };
-
 await databaseCollection.CreateOrUpdateAsync(
     WaitUntil.Completed,
     "pooled-database",
     databaseData);
 ```
-
 ### 5. Configure Firewall Rules
-
 ```csharp
 // OPTIONAL broad exception: 0.0.0.0 permits connections from Azure services
 // outside this subscription too; it is not a tenant-only firewall rule. Do not
@@ -189,50 +147,41 @@ var azureServicesRule = new SqlFirewallRuleData
     StartIPAddress = "0.0.0.0",
     EndIPAddress = "0.0.0.0"
 };
-
 var firewallCollection = server.GetSqlFirewallRules();
 await firewallCollection.CreateOrUpdateAsync(
     WaitUntil.Completed,
     "AllowAzureServices",
     azureServicesRule);
-
 // Allow specific IP range
 var clientRule = new SqlFirewallRuleData
 {
     StartIPAddress = "203.0.113.0",
     EndIPAddress = "203.0.113.255"
 };
-
 await firewallCollection.CreateOrUpdateAsync(
     WaitUntil.Completed,
     "AllowClientIPs",
     clientRule);
 ```
-
 ### 6. List Resources
-
 ```csharp
 // List all servers in subscription
 await foreach (var srv in subscription.GetSqlServersAsync())
 {
     Console.WriteLine($"Server: {srv.Data.Name} in {srv.Data.Location}");
 }
-
 // List databases in a server
 await foreach (var db in server.GetSqlDatabases())
 {
     Console.WriteLine($"Database: {db.Data.Name}, SKU: {db.Data.Sku?.Name}");
 }
-
 // List elastic pools
 await foreach (var ep in server.GetElasticPools())
 {
     Console.WriteLine($"Pool: {ep.Data.Name}, DTU: {ep.Data.Sku?.Capacity}");
 }
 ```
-
 ### 7. Get Connection String
-
 ```csharp
 // Use returned FQDN; sovereign cloud suffixes can differ.
 var serverFqdn = server.Data.FullyQualifiedDomainName;
@@ -246,9 +195,7 @@ var connectionString = $"Server=tcp:{serverFqdn},1433;" +
     "TrustServerCertificate=False;" +
     "Connection Timeout=30;";
 ```
-
 ## Key Types Reference
-
 | Type | Purpose |
 |------|---------|
 | `ArmClient` | Entry point for all ARM operations |
@@ -265,11 +212,8 @@ var connectionString = $"Server=tcp:{serverFqdn},1433;" +
 | `ElasticPoolData` | Elastic pool creation/update payload |
 | `SqlFirewallRuleData` | Firewall rule creation/update payload |
 | `SqlSku` | SKU configuration (tier, capacity) |
-
 ## Common SKUs
-
 ### Database SKUs
-
 | SKU Name | Tier | Description |
 |----------|------|-------------|
 | `Basic` | Basic | 5 DTUs, 2 GB max |
@@ -278,9 +222,7 @@ var connectionString = $"Server=tcp:{serverFqdn},1433;" +
 | `GP_Gen5_2` | GeneralPurpose | vCore-based, 2 vCores |
 | `BC_Gen5_2` | BusinessCritical | vCore-based, 2 vCores |
 | `HS_Gen5_2` | Hyperscale | vCore-based, 2 vCores |
-
 ### Elastic Pool SKUs
-
 | SKU Name | Tier | Description |
 |----------|------|-------------|
 | `BasicPool` | Basic | 50-1600 eDTUs |
@@ -288,9 +230,7 @@ var connectionString = $"Server=tcp:{serverFqdn},1433;" +
 | `PremiumPool` | Premium | 125-4000 eDTUs |
 | `GP_Gen5_2` | GeneralPurpose | vCore-based |
 | `BC_Gen5_2` | BusinessCritical | vCore-based |
-
 ## Best Practices
-
 1. **Use `WaitUntil.Completed`** for operations that must finish before proceeding
 2. **Use `WaitUntil.Started`** when you want to poll manually or run operations in parallel
 3. **Always use `DefaultAzureCredential`** — never hardcode passwords in production
@@ -299,12 +239,9 @@ var connectionString = $"Server=tcp:{serverFqdn},1433;" +
 6. **Navigate hierarchy** via `Get*` methods (e.g., `server.GetSqlDatabases()`)
 7. **Use elastic pools** for cost optimization when managing multiple databases
 8. **Configure firewall rules** before attempting connections
-
 ## Error Handling
-
 ```csharp
 using Azure;
-
 try
 {
     var operation = await serverCollection.CreateOrUpdateAsync(
@@ -324,33 +261,24 @@ catch (RequestFailedException ex)
     Console.WriteLine($"ARM Error: {ex.Status} - {ex.ErrorCode}: {ex.Message}");
 }
 ```
-
 ## Reference Files
-
 | File | When to Read |
 |------|--------------|
 | references/server-management.md | Server CRUD, admin credentials, Azure AD auth, networking |
 | references/database-operations.md | Database CRUD, scaling, backup, restore, copy |
 | references/elastic-pools.md | Pool management, adding/removing databases, scaling |
-
 ## Related SDKs
-
 | SDK | Purpose | Install |
 |-----|---------|---------|
 | `Microsoft.Data.SqlClient` | Data plane (execute queries, stored procedures) | `dotnet add package Microsoft.Data.SqlClient` |
 | `Azure.ResourceManager.Sql` | Management plane (this SDK) | `dotnet add package Azure.ResourceManager.Sql` |
 | `Microsoft.EntityFrameworkCore.SqlServer` | ORM for SQL Server | `dotnet add package Microsoft.EntityFrameworkCore.SqlServer` |
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Windows](platforms/windows.md)

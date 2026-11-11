@@ -1,44 +1,30 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "b9c844072fc436f1cf604d6ed3b94b529845cfceefe915aa83c970514bbbc0d5"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: react-component-performance
+content_hash: b9c844072fc436f1cf604d6ed3b94b529845cfceefe915aa83c970514bbbc0d5
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-03-25
 description: Diagnose slow React components and suggest targeted performance fixes.
-tier: "experimental"
+name: react-component-performance
 risk: safe
-source: "Dimillian/Skills (MIT)"
-date_added: "2026-03-25"
+source: Dimillian/Skills (MIT)
 ---
-
-
 # React Component Performance
-
 ## Overview
-
 Identify render hotspots, isolate expensive updates, and apply targeted optimizations without changing UI behavior.
-
 ## When to Use
 - When the user asks to profile or improve a slow React component.
 - When you need to reduce re-renders, list lag, or expensive render work in React UI.
-
 ## Workflow
-
 1. Reproduce or describe the slowdown.
 2. Identify what triggers re-renders (state updates, props churn, effects).
 3. Isolate fast-changing state from heavy subtrees.
 4. Stabilize props and handlers; memoize where it pays off.
 5. Reduce expensive work (computation, DOM size, list length).
 6. **Validate**: open React DevTools Profiler → record the interaction → inspect the Flamegraph for components rendering longer than ~16 ms → compare against a pre-optimization baseline recording.
-
 ## Checklist
-
 - Measure: use React DevTools Profiler or log renders; capture baseline.
 - Find churn: identify state updated on a timer, scroll, input, or animation.
 - Split: move ticking state into a child; keep heavy lists static.
@@ -49,13 +35,9 @@ Identify render hotspots, isolate expensive updates, and apply targeted optimiza
 - Keys: ensure stable keys; avoid index when order can change.
 - Effects: verify dependency arrays; avoid effects that re-run on every render.
 - Style/layout: watch for expensive layout thrash or large Markdown/diff renders.
-
 ## Optimization Patterns
-
 ### Isolate ticking state
-
 Move a timer or animation counter into a child so the parent list never re-renders on each tick.
-
 ```tsx
 // ❌ Before – entire parent (and list) re-renders every second
 function Dashboard({ items }: { items: Item[] }) {
@@ -71,7 +53,6 @@ function Dashboard({ items }: { items: Item[] }) {
     </>
   );
 }
-
 // ✅ After – only <Clock> re-renders; list is untouched
 function Clock() {
   const [tick, setTick] = useState(0);
@@ -81,7 +62,6 @@ function Clock() {
   }, []);
   return <span>{tick}s</span>;
 }
-
 function Dashboard({ items }: { items: Item[] }) {
   return (
     <>
@@ -91,60 +71,46 @@ function Dashboard({ items }: { items: Item[] }) {
   );
 }
 ```
-
 ### Stabilize callbacks with `useCallback` + `memo`
-
 ```tsx
 // ❌ Before – new handler reference on every render busts Row memo
 function List({ items }: { items: Item[] }) {
   const handleClick = (id: string) => console.log(id); // new ref each render
   return items.map(item => <Row key={item.id} item={item} onClick={handleClick} />);
 }
-
 // ✅ After – stable handler; memo can skip parent-driven re-renders when props compare equal; state/context can still re-render Row
 const Row = memo(({ item, onClick }: RowProps) => (
   <li><button type="button" onClick={() => onClick(item.id)}>{item.name}</button></li>
 ));
-
 function List({ items }: { items: Item[] }) {
   const handleClick = useCallback((id: string) => console.log(id), []);
   return items.map(item => <Row key={item.id} item={item} onClick={handleClick} />);
 }
 ```
-
 ### Prefer derived data outside render
-
 ```tsx
 // ❌ Before – recomputes on every render
 function Summary({ orders }: { orders: Order[] }) {
   const total = orders.reduce((sum, o) => sum + o.amount, 0); // runs every render
   return <p>Total: {total}</p>;
 }
-
 // ✅ After – recomputes only when orders changes
 function Summary({ orders }: { orders: Order[] }) {
   const total = useMemo(() => orders.reduce((sum, o) => sum + o.amount, 0), [orders]);
   return <p>Total: {total}</p>;
 }
 ```
-
 ### Additional patterns
-
 - **Split rows**: extract list rows into memoized components with narrow props.
 - **Defer heavy rendering**: lazy-render or collapse expensive content until expanded.
-
 ## Profiling Validation Steps
-
 1. Open **React DevTools → Profiler** tab.
 2. Click **Record**, perform the slow interaction, then **Stop**.
 3. Switch to **Flamegraph** view; any bar labeled with a component and time > ~16 ms is a candidate.
 4. Use **Ranked chart** to sort by self render time and target the top offenders.
 5. Apply one optimization at a time, re-record, and compare render counts and durations against the baseline.
-
 ## Example Reference
-
 Load `references/examples.md` when the user wants a concrete refactor example.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

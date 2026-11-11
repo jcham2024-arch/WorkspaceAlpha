@@ -1,43 +1,30 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "777d3a0960b7caa18b770471825837cc79a9d28c6afd9d8652883760e656fb9a"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: tool-use-guardian
-description: "Triage tool failures, validate responses and resume bounded workflows using replay-safe retries and explicit handling of unknown write outcomes."
-tier: "experimental"
+content_hash: 777d3a0960b7caa18b770471825837cc79a9d28c6afd9d8652883760e656fb9a
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: christopherlhammer11-ai
 category: reliability
+date_added: 2026-03-13
+description: Triage tool failures, validate responses and resume bounded workflows using replay-safe retries and explicit handling of unknown write outcomes.
+name: tool-use-guardian
 risk: critical
 source: community
-date_added: "2026-03-13"
-author: christopherlhammer11-ai
-tags: [reliability, tool-use, error-handling, retries, recovery, agent-infrastructure]
-tools: [claude, cursor, codex, gemini, copilot, windsurf, antigravity]
+tags: "[reliability, tool-use, error-handling, retries, recovery, agent-infrastructure]"
+tools: "[claude, cursor, codex, gemini, copilot, windsurf, antigravity]"
 ---
-
-
 # Tool Use Guardian
-
 ## Scope
-
 This is a manual recovery procedure, not an installed wrapper, automatic monitor
 or learned reliability service. No runtime, checkpoint store or telemetry is
 bundled. Preserve the host's tool contracts and the user's action boundaries.
-
 ## When to Use This Skill
-
 - A tool response is incomplete, malformed, rate-limited or inconsistent.
 - A workflow needs to resume without replaying completed mutations.
 - A write timed out and its outcome must be reconciled before any further action.
-
 ## Procedure
-
 1. Record the tool, target, exact non-secret parameters, request identity, observed
    error and any confirmed effects. Separate transport status from application
    success. Do not log credentials, private payloads or full conversation context.
@@ -59,9 +46,7 @@ bundled. Preserve the host's tool contracts and the user's action boundaries.
    evidence. Before resuming a dependent step, verify its prerequisites still
    hold. Do not replay earlier writes merely because a later step failed. Return
    completed, failed and unknown steps separately.
-
 ## Recovery Examples
-
 | Observation | Bounded next action |
 | --- | --- |
 | Truncated read-only inventory | Fetch supported pages; reject incomplete inventory as completion evidence. |
@@ -70,25 +55,20 @@ bundled. Preserve the host's tool contracts and the user's action boundaries.
 | Authentication expired | Report required reauthentication through the supported host flow. |
 | HTTP 200 with an error body | Apply the documented result schema; record application failure. |
 | Schema mismatch | Retain the original result; investigate contract/version mismatch without lossy coercion. |
-
 ```text
 Step: publish-message, operation ID op-17
 Observation: request timed out; no receipt returned.
 Status lookup: unavailable.
 Disposition: outcome unknown; no retry sent. Dependent announcement paused.
 ```
-
 ## Limitations
-
 - These instructions cannot enforce retry safety or recover unknown remote state.
 - Repeated failures are observations about this task, not proof a tool is globally
   unreliable. Do not write a global denylist or persistent memory automatically.
 - Checkpoints can become stale; verify the target state and authorization on resume.
 - No automatic interception, free service, learning or guaranteed recovery is
   established by the source links.
-
 ## Declared source links
-
 - https://github.com/christopherlhammer11-ai/tool-use-guardian
 - https://genesis-node-api.vercel.app
 - https://genesis-marketplace.vercel.app

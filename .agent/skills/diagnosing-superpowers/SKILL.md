@@ -1,37 +1,24 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "e2eb5d1c4460cbd26c17d2552f8604ff05af3c92ac4b6bb3d5beb2516ce05223"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: diagnosing-superpowers
+content_hash: e2eb5d1c4460cbd26c17d2552f8604ff05af3c92ac4b6bb3d5beb2516ce05223
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: Use when a superpowers session went wrong and your human partner wants to know why — repeated work, ignored plans, stumbles, poor results, a skill that didn't fire, "it took too long", "why is it so expensive", "what is it doing" — or wants to build a bug report for the superpowers maintainers, for the current session or a past
-tier: "experimental"
+name: diagnosing-superpowers
 ---
-
-
 # Diagnosing Superpowers
-
 ## Overview
-
 Pin down with your human partner what went wrong in a session, read the
 transcripts on disk, and report what happened with evidence. You report;
 you do not diagnose superpowers. Whoever triages the bundle or the issue
 decides whether superpowers changes.
-
 **Core principle:** Every finding cites `path:line`. No citation, no
 finding. Every number comes from the transcript or from a command you ran,
 never from memory.
-
 ## Workflow
-
 Create a todo per step. Steps 5–7 run only on their stated condition.
-
 1. **Problem intake.** Ask one question at a time until you can write a
    statement naming the session(s), the turn range if known, what your
    partner expected, what happened, and the observable they care about
@@ -80,12 +67,9 @@ Create a todo per step. Steps 5–7 run only on their stated condition.
    signature, list candidates by mtime and size, find marker line numbers,
    dispatch `prompts/similar-session.md` per candidate in parallel, and
    append report §9.
-
 ## Quick reference
-
 All seven analysts always run. This table says which region to read
 yourself in step 3 and which findings to lead with in the verdict.
-
 | Complaint | Read first, lead with |
 |---|---|
 | "It took too long" | cost-and-time, stumbles |
@@ -94,9 +78,7 @@ yourself in step 3 and which findings to lead with in the verdict.
 | "What the hell is it doing?" (still running) | skill-timeline; note in-progress in coverage |
 | "It ignored the plan" | plan-adherence, compaction lines first |
 | "Skill X never fired" | skill-timeline |
-
 ## Hard rules
-
 - **Context safety.** One transcript line can be a megabyte. Follow
   `references/context-safety.md` on every session file, every time.
 - **Read-only.** Never modify, move, or delete a session file.
@@ -119,9 +101,7 @@ yourself in step 3 and which findings to lead with in the verdict.
   already-scoped request — one specific event, what is running now, or
   the analysis to run — is itself the statement: answer it, then ask.
   A whole-session "why" is a complaint.
-
 ## Red Flags
-
 | Thought | Reality |
 |---------|---------|
 | "The problem is obvious, skip intake" | The problem statement scopes everything. Ask. |

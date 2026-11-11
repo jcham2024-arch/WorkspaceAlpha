@@ -1,45 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "3458de7e369e233c381109fb1c6a955002710c0effac600209bf44ae8c84fbc7"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: markstream-svelte
-description: "Integrate the beta markstream-svelte renderer into Svelte 5 or SvelteKit with runes, explicit CSS, smooth streaming, workers, and SSR-safe boundaries."
-tier: "experimental"
+content_hash: 3458de7e369e233c381109fb1c6a955002710c0effac600209bf44ae8c84fbc7
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: Simon-He95
 category: frontend
+date_added: 2026-07-21
+description: Integrate the beta markstream-svelte renderer into Svelte 5 or SvelteKit with runes, explicit CSS, smooth streaming, workers, and SSR-safe boundaries.
+license: MIT
+license_source: "https://github.com/Simon-He95/markstream-vue/blob/main/license"
+name: markstream-svelte
 risk: critical
-source: https://github.com/Simon-He95/markstream-vue/tree/main/.agents/skills/markstream-svelte
+source: "https://github.com/Simon-He95/markstream-vue/tree/main/.agents/skills/markstream-svelte"
 source_repo: Simon-He95/markstream-vue
 source_type: official
-date_added: "2026-07-21"
-author: Simon-He95
-tags: [svelte, sveltekit, markdown, streaming, ssr]
-tools: [claude, cursor, gemini, codex]
-license: MIT
-license_source: https://github.com/Simon-He95/markstream-vue/blob/main/license
+tags: "[svelte, sveltekit, markdown, streaming, ssr]"
+tools: "[claude, cursor, gemini, codex]"
 ---
-
-
 # Markstream Svelte
-
 ## Overview
-
 Integrate Markstream using Svelte 5 runes and SvelteKit-safe browser boundaries.
-
 ## When to Use
-
 Use for Svelte 5 or SvelteKit package setup, streaming state, workers, or scoped custom components. Svelte 4 is unsupported.
-
 ## Workflow
-
 Inspect the existing package manager, installed package version and project conventions. A requested scoped integration already authorizes routine source/dependency edits; seek approval only for a material scope expansion or unresolved beta/alpha adoption decision.
-
 1. Confirm Svelte 5 and acceptance of a beta package.
 2. Install only requested peers; import package CSS after resets and KaTeX CSS only for math.
 3. Start with `<MarkdownRender {content} />` and smooth streaming `auto`.
@@ -48,17 +34,13 @@ Inspect the existing package manager, installed package version and project conv
 6. Use `$props()` and callbacks. Configure KaTeX or Mermaid workers only when requested.
 7. Prefer renderer-local `customComponents`; use scoped registration only when sharing is intentional.
 8. Keep browser-only workers behind SvelteKit client boundaries; validate with `svelte-check`, build, or e2e.
-
 ## Example
-
 ```svelte
 <script lang="ts">
   import MarkdownRender from 'markstream-svelte'
   import 'markstream-svelte/index.css'
-
   let { content, isDone }: { content: string; isDone: boolean } = $props()
 </script>
-
 <MarkdownRender
   {content}
   final={isDone}
@@ -68,15 +50,10 @@ Inspect the existing package manager, installed package version and project conv
   htmlPolicy="safe"
 />
 ```
-
 ## Limitations
-
 - Svelte 4 is unsupported and the package is beta.
 - Workers and heavy peers require client-side bundler support.
 - This skill does not migrate unrelated Svelte architecture.
-
 ## Security & Safety Notes
-
 Keep safe HTML and strict Mermaid defaults. Review dependencies and never run browser-only peers during SSR.
-
 Verify props, export paths and peer ranges against the installed package, not a mutable upstream main. Test partial and completed streams, malformed/untrusted Markdown, links and image URLs, cancellation and reduced motion. Safe HTML and strict diagrams reduce exposure but do not alone enforce URL/network privacy or application component permissions.

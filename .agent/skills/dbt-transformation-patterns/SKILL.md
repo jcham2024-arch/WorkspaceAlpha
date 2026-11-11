@@ -1,53 +1,36 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "a62f711eec8f2afa292baf8d8d603fe4266031767ccd5a7dd4624d82d9699da0"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: a62f711eec8f2afa292baf8d8d603fe4266031767ccd5a7dd4624d82d9699da0
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Production-ready patterns for dbt (data build tool) including model organization, testing strategies, documentation, and incremental processing.
 name: dbt-transformation-patterns
-description: "Production-ready patterns for dbt (data build tool) including model organization, testing strategies, documentation, and incremental processing."
-tier: "experimental"
 risk: none
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # dbt Transformation Patterns
-
 Production-ready patterns for dbt (data build tool) including model organization, testing strategies, documentation, and incremental processing.
-
 ## Use this skill when
-
 - Building data transformation pipelines with dbt
 - Organizing models into staging, intermediate, and marts layers
 - Implementing data quality tests and documentation
 - Creating incremental models for large datasets
 - Setting up dbt project structure and conventions
-
 ## Do not use this skill when
-
 - The project is not using dbt or a warehouse-backed workflow
 - You only need ad-hoc SQL queries
 - There is no access to source data or schemas
-
 ## Instructions
-
 - Define model layers, naming, and ownership.
 - Implement tests, documentation, and freshness checks.
 - Choose materializations and incremental strategies.
 - Optimize runs with selectors and CI workflows.
 - If detailed patterns are required, open `resources/implementation-playbook.md`.
-
 ## Resources
-
 - `resources/implementation-playbook.md` for detailed dbt patterns and examples.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

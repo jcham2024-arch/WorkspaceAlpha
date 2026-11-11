@@ -1,55 +1,35 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "9c5f0b884a9269f1222965c0ecb4d5614969c1ecbe9e4bbedc56f02a03df20b4"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: vexor-cli
+content_hash: 9c5f0b884a9269f1222965c0ecb4d5614969c1ecbe9e4bbedc56f02a03df20b4
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-03-06
 description: Semantic file discovery via `vexor`. Use whenever locating where something is implemented/loaded/defined in a medium or large repo, or when the file location is unclear. Prefer this over manual browsing.
-tier: "experimental"
+name: vexor-cli
 risk: critical
 source: community
-date_added: "2026-03-06"
 ---
-
 ## Supporting material availability
-
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
-
 - `<support-root>/references/install-vexor.md`
-
 Ask for the original supporting material or an existing installation before using a step that depends on these paths; this catalog does not identify a verified download source for them. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
-
-
 # Vexor CLI Skill
-
 ## When to Use
 - You need to locate files by intent rather than exact filename or text match.
 - The repository is large enough that manual browsing or naive grep is too slow or ambiguous.
 - You want semantic discovery of where something is implemented, loaded, defined, or documented.
-
 ## Goal
-
 Find files by intent (what they do), not exact text.
-
 ## Use It Like This
-
 - Use `vexor` first for intent-based file discovery.
 - If `vexor` is missing, the installation reference is not bundled; obtain the original supporting material or use existing local search tools.
-
 ## Command
-
 ```bash
 vexor search "<QUERY>" [--path <ROOT>] [--mode <MODE>] [--ext .py,.md] [--exclude-pattern <PATTERN>] [--top 5] [--format rich|porcelain|porcelain-z]
 ```
-
 ## Common Flags
-
 - `--path/-p`: root directory (default: current dir)
 - `--mode/-m`: indexing/search strategy
 - `--ext/-e`: limit file extensions (e.g., `.py,.md`)
@@ -60,9 +40,7 @@ vexor search "<QUERY>" [--path <ROOT>] [--mode <MODE>] [--ext .py,.md] [--exclud
 - `--no-recursive`: only the top directory
 - `--format`: `rich` (default) or `porcelain`/`porcelain-z` for scripts
 - `--no-cache`: in-memory only, do not read/write index cache
-
 ## Modes (pick the cheapest that works)
-
 - `auto`: routes by file type (default)
 - `name`: filename-only (fastest)
 - `head`: first lines only (fast)
@@ -70,44 +48,33 @@ vexor search "<QUERY>" [--path <ROOT>] [--mode <MODE>] [--ext .py,.md] [--exclud
 - `code`: code-aware chunking for `.py/.js/.ts` (best default for codebases)
 - `outline`: Markdown headings/sections (best for docs)
 - `full`: chunk full file contents (slowest, highest recall)
-
 ## Troubleshooting
-
 - Need ignored or hidden files: add `--include-hidden` and/or `--no-respect-gitignore`.
 - Scriptable output: use `--format porcelain` (TSV) or `--format porcelain-z` (NUL-delimited).
 - Get detailed help: `vexor search --help`.
 - Config issues: `vexor doctor` or `vexor config --show` diagnoses API, cache, and connectivity (tell the user to set up).
-
 ## Examples
-
 ```bash
 # Find CLI entrypoints / commands
 vexor search "typer app commands" --top 5
 ```
-
 ```bash
 # Search docs by headings/sections
 vexor search "user authentication flow" --path docs --mode outline --ext .md --format porcelain
 ```
-
 ```bash
 # Locate config loading/validation logic
 vexor search "config loader" --path . --mode code --ext .py
 ```
-
 ```bash
 # Exclude tests and JavaScript files
 vexor search "config loader" --path . --exclude-pattern 'tests/**' --exclude-pattern .js
 ```
-
 ## Tips
-
 - Inspect the configured embedding/index provider before indexing private code. Do not upload repository content without authorization; `--no-cache` does not by itself make an API-backed search local.
-
 - First time search will index files (may take a minute). Subsequent searches are fast. Use longer timeouts if needed.
 - Results return similarity ranking, exact file location, line numbers, and matching snippet preview.
 - Combine `--ext` with `--exclude-pattern` to focus on a subset (exclude rules apply on top).
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

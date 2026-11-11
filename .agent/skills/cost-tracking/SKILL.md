@@ -1,34 +1,22 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "ef93e3286553bc4d10d53a34dd04d17ed78ed172ed397520db606d937107658e"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: cost-tracking
+content_hash: ef93e3286553bc4d10d53a34dd04d17ed78ed172ed397520db606d937107658e
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: Track and report Claude Code token usage, spending, and budgets from the local ECC cost-tracker metrics log. Use when the user asks about costs, spending, usage, tokens, budgets, or cost breakdowns by model, session, or date.
-tier: "experimental"
-metadata:
-  origin: community
+name: cost-tracking
+origin: community
 ---
-
-
 # Cost Tracking
-
 Use this skill to analyze Claude Code cost and usage history from the metrics log
 that ECC's `stop:cost-tracker` hook writes.
-
 ## Where the data lives
-
 The tracker appends one JSON object per session-stop to
 `~/.claude/metrics/costs.jsonl`. Each row is a **cumulative snapshot for that
 session**, so to total spend you take the **latest row per `session_id`** and
 sum across sessions — summing every row multiply-counts.
-
 ECC also maintains internal per-session files under
 `~/.claude/metrics/cost-snapshots/` so runtime hooks can read the current
 session total without rescanning all history. Treat those files as a
@@ -38,9 +26,7 @@ entries are pruned after 30 days or when the directory exceeds 512 sessions.
 Cold catch-up work is limited to 16 MiB per hook invocation, and malformed
 unterminated rows larger than 1 MiB are discarded with a resumable cursor.
 Reports and exports should continue to use `costs.jsonl`.
-
 Row schema:
-
 | Field | Meaning |
 | --- | --- |
 | `timestamp` | ISO timestamp of the snapshot |
@@ -50,32 +36,23 @@ Row schema:
 | `input_tokens` / `output_tokens` | Token counts |
 | `cache_write_tokens` / `cache_read_tokens` | Prompt-cache token counts |
 | `estimated_cost_usd` | Precomputed cumulative cost in USD for the session |
-
 Prefer `estimated_cost_usd` over hand-calculating pricing — model and cache
 prices change, and the tracker is the source of truth.
-
 ## When to Use
-
 - The user asks "how much have I spent?", "what did this session cost?", or
   "what is my token usage?"
 - The user mentions budgets, spending limits, overruns, or cost controls.
 - The user wants a cost breakdown by model, session, or date, or a CSV export.
-
 ## How It Works
-
 First verify the log exists (use `node`, not `sqlite3` — the tracker writes
 JSONL, and `node` is cross-platform):
-
 ```bash
 node -e 'const fs=require("fs"),os=require("os"),p=require("path");const f=p.join(os.homedir(),".claude","metrics","costs.jsonl");console.log(fs.existsSync(f)?"cost log found":"cost log not found: "+f)'
 ```
-
 If the log is missing, do not fabricate usage data. Tell the user that cost
 tracking populates after the first session ends with the `stop:cost-tracker`
 hook enabled.
-
 ## Example — summary, by model, last 7 days
-
 ```bash
 node -e '
 const fs=require("fs"),os=require("os"),path=require("path");
@@ -92,27 +69,20 @@ const m=new Map();for(const r of latest){const k=r.model||"(unknown)";m.set(k,(m
 console.log("by model:");[...m.entries()].sort((a,b)=>b[1]-a[1]).forEach(([k,v])=>console.log("  "+f4(v)+"  "+k));
 '
 ```
-
 For a session drilldown or CSV export, iterate the same `latest` set (or the raw
 rows for CSV) and print the fields you need.
-
 ## Reporting Guidance
-
 When presenting cost data, include today's spend vs yesterday, total across all
 sessions, a by-model breakdown, and session count. Format sub-dollar amounts
 with four decimals, larger amounts with two.
-
 ## Anti-Patterns
-
 - Do not sum every row — they are cumulative per session; reduce to the latest
   row per `session_id` first.
 - Do not estimate costs from raw token counts when `estimated_cost_usd` is present.
 - Do not assume the log exists without checking.
 - Do not hard-code current model pricing in user-facing answers.
 - Do not recommend installing unreviewed hooks or plugins that execute arbitrary code.
-
 ## Related
-
 - `/cost-report` - Command-form report over the same metrics log.
 - `cost-aware-llm-pipeline` - Model-routing and budget-design patterns.
 - `token-budget-advisor` - Context and token-budget planning.

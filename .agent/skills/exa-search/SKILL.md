@@ -1,55 +1,39 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "25f967aaf159f1e3874604e7516a2d7dc75f1158959a8bde9422b4d6adce0799"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 25f967aaf159f1e3874604e7516a2d7dc75f1158959a8bde9422b4d6adce0799
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Semantic search, similar content discovery, and structured research using Exa API. Use when you need semantic/embeddings-based search, finding similar content, or searching by category (company, people, research papers, etc.).
 name: exa-search
-description: "Semantic search, similar content discovery, and structured research using Exa API. Use when you need semantic/embeddings-based search, finding similar content, or searching by category (company, people, research papers, etc.)."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # exa-search
-
 ## Overview
 Semantic search, similar content discovery, and structured research using Exa API
-
 ## When to Use
 - When you need semantic/embeddings-based search
 - When finding similar content
 - When searching by category (company, people, research papers, etc.)
-
 ## Installation
 ```bash
 npx skills add -g BenedictKing/exa-search
 ```
-
 ## Step-by-Step Guide
 1. Prefer an already configured Exa connector; this entrypoint does not bundle an API client or authorize a global installation.
 2. Configure Exa API key
 3. Define query, date range and source type. Run the smallest authorized search through the actual available tool, inspect primary sources, and return cited findings with uncertainties. Do not claim returned search snippets establish facts by themselves.
-
 ## Examples
 See [GitHub Repository](https://github.com/BenedictKing/exa-search) for examples.
-
 ## Best Practices
 - Configure API keys via environment variables
-
 ## Troubleshooting
 See the GitHub repository for troubleshooting guides.
-
 ## Related Skills
 - context7-auto-research, tavily-web, firecrawl-scraper, codex-review
-
 ## Limitations
 - Query and retrieved content may be sent to an external service. Do not include secrets or private customer information without authorization; confirm paid usage scope.
 - Search ranking is not evidence quality. Verify material claims at the linked source and report incomplete or unavailable retrieval honestly.

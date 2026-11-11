@@ -1,59 +1,43 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "d3d449d4a91862e8cb83f1ced0d601c56bb9558901b6c54a66d091d9b2004ee7"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: gcp-cloud-functions
-description: Deploy serverless functions on Google Cloud Functions. Configure triggers
-tier: "experimental"
-  and manage deployments. Use when implementing serverless workloads on GCP.
+content_hash: d3d449d4a91862e8cb83f1ced0d601c56bb9558901b6c54a66d091d9b2004ee7
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant OS/platform tooling and privileged access where
+date_added: 2026-09-20
+description: Deploy serverless functions on Google Cloud Functions. Configure triggers
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: gcp-cloud-functions
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant OS/platform tooling and privileged access where
+version: 1.0
+---  and manage deployments. Use when implementing serverless workloads on GCP.
   noted. Docs-only; helper scripts and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # GCP Cloud Functions
-
 Build and deploy event-driven serverless applications with Google Cloud Functions (Gen1 and Gen2).
-
 ## When to Use
-
 - Processing webhooks, API endpoints, or lightweight HTTP backends
 - Reacting to events from Pub/Sub, Cloud Storage, Firestore, or Eventarc
 - Running scheduled tasks (cron) without maintaining a server
 - Building data-processing pipelines triggered by file uploads
 - Prototyping microservices before committing to Cloud Run or GKE
-
 ## Prerequisites
-
 - Google Cloud SDK (`gcloud`) installed and authenticated
 - APIs enabled: Cloud Functions, Cloud Build, Artifact Registry, Cloud Run (Gen2)
 - IAM role `roles/cloudfunctions.developer` (or `roles/run.developer` for Gen2)
-
 ```bash
 gcloud services enable cloudfunctions.googleapis.com cloudbuild.googleapis.com \
   artifactregistry.googleapis.com run.googleapis.com eventarc.googleapis.com
 ```
-
 ## Gen1 vs Gen2 Comparison
-
 | Feature | Gen1 | Gen2 (recommended) |
 |---------|------|---------------------|
 | Runtime | Cloud Functions infra | Built on Cloud Run |
@@ -62,13 +46,9 @@ gcloud services enable cloudfunctions.googleapis.com cloudbuild.googleapis.com \
 | Concurrency | 1 request/instance | Up to 1000/instance |
 | Traffic splitting | No | Yes |
 | Eventarc triggers | No | Yes |
-
 ## Deployment and event boundaries
-
 Select exact project/region/generation, approved service accounts and current supported runtime/quotas. Do not grant broad public access or extra IAM roles simply to clear an error. Deployment can replace code/config and incur costs; preview source exclusions so secrets are not uploaded. Event delivery/retries can duplicate effects: validate payloads, derive authorized resource IDs and make order/file processing idempotent using durable event IDs/state transitions. Set total resource/cost limits and inspect the actual deployed URL for Scheduler rather than constructing it blindly.
-
 ## Deploy an HTTP Function (Gen2)
-
 ```bash
 # Python HTTP function
 gcloud functions deploy hello-http \
@@ -78,19 +58,15 @@ gcloud functions deploy hello-http \
   --memory=256Mi --timeout=60s \
   --min-instances=0 --max-instances=100 \
   --set-env-vars=APP_ENV=production --source=.
-
 # Node.js HTTP function
 gcloud functions deploy hello-node \
   --gen2 --region=us-central1 --runtime=nodejs20 \
   --trigger-http --no-allow-unauthenticated \
   --entry-point=helloNode --memory=256Mi --source=.
 ```
-
 ## Deploy a Pub/Sub Triggered Function
-
 ```bash
 gcloud pubsub topics create order-events
-
 gcloud functions deploy process-order \
   --gen2 --region=us-central1 --runtime=python312 \
   --trigger-topic=order-events \
@@ -99,9 +75,7 @@ gcloud functions deploy process-order \
   --service-account=order-processor@${PROJECT_ID}.iam.gserviceaccount.com \
   --source=.
 ```
-
 ## Deploy a Cloud Storage Triggered Function
-
 ```bash
 gcloud functions deploy process-upload \
   --gen2 --region=us-central1 --runtime=python312 \
@@ -110,15 +84,12 @@ gcloud functions deploy process-upload \
   --entry-point=process_upload \
   --memory=1Gi --timeout=300s --source=.
 ```
-
 ## Deploy a Scheduled Function
-
 ```bash
 gcloud functions deploy daily-cleanup \
   --gen2 --region=us-central1 --runtime=python312 \
   --trigger-http --no-allow-unauthenticated \
   --entry-point=daily_cleanup --source=.
-
 gcloud scheduler jobs create http daily-cleanup-job \
   --schedule="0 2 * * *" \
   --uri="https://us-central1-${PROJECT_ID}.cloudfunctions.net/daily-cleanup" \
@@ -126,22 +97,18 @@ gcloud scheduler jobs create http daily-cleanup-job \
   --oidc-service-account-email=scheduler-sa@${PROJECT_ID}.iam.gserviceaccount.com \
   --location=us-central1
 ```
-
 ## Python Function Examples
-
 ```python
 # main.py
 import functions_framework
 import base64, json
 from flask import jsonify
 from google.cloud import firestore
-
 @functions_framework.http
 def hello_http(request):
     """HTTP Cloud Function."""
     name = request.args.get("name", "World")
     return jsonify({"message": f"Hello, {name}!", "status": "ok"}), 200
-
 @functions_framework.cloud_event
 def process_order(cloud_event):
     """Triggered by a Pub/Sub message."""
@@ -151,7 +118,6 @@ def process_order(cloud_event):
     db.collection("orders").document(order["id"]).set({
         "status": "processing", "items": order["items"], "total": order["total"],
     })
-
 @functions_framework.cloud_event
 def process_upload(cloud_event):
     """Triggered when a file is uploaded to Cloud Storage."""
@@ -166,7 +132,6 @@ def process_upload(cloud_event):
     labels = [l.description for l in client.label_detection(image=image).label_annotations]
     print(f"Labels for {file_name}: {labels}")
 ```
-
 ```
 # requirements.txt
 functions-framework==3.*
@@ -175,47 +140,36 @@ google-cloud-storage==2.*
 google-cloud-vision==3.*
 flask>=2.0
 ```
-
 ## Node.js Function Examples
-
 ```javascript
 // index.js
 const functions = require("@google-cloud/functions-framework");
-
 functions.http("helloNode", (req, res) => {
   const name = req.query.name || "World";
   res.json({ message: `Hello, ${name}!`, status: "ok" });
 });
-
 functions.cloudEvent("processMessage", (cloudEvent) => {
   const data = Buffer.from(cloudEvent.data.message.data, "base64").toString();
   console.log(`Processing: ${JSON.parse(data)}`);
 });
 ```
-
 ## Managing Deployed Functions
-
 ```bash
 gcloud functions list --gen2 --region=us-central1
 gcloud functions describe hello-http --gen2 --region=us-central1
 gcloud functions logs read hello-http --gen2 --region=us-central1 --limit=50
 gcloud functions delete hello-http --gen2 --region=us-central1 --quiet
-
 # Update configuration via deploy (inspect source/config behavior before running)
 gcloud functions deploy hello-http --gen2 --region=us-central1 \
   --update-env-vars=APP_ENV=staging
-
 # Test locally before deploying
 functions-framework --target=hello_http --port=8080
 ```
-
 ## Terraform Configuration
-
 ```hcl
 resource "google_cloudfunctions2_function" "api" {
   name     = "hello-http"
   location = "us-central1"
-
   build_config {
     runtime     = "python312"
     entry_point = "hello_http"
@@ -226,7 +180,6 @@ resource "google_cloudfunctions2_function" "api" {
       }
     }
   }
-
   service_config {
     min_instance_count    = 0
     max_instance_count    = 100
@@ -236,18 +189,15 @@ resource "google_cloudfunctions2_function" "api" {
     environment_variables = { APP_ENV = "production" }
   }
 }
-
 resource "google_cloud_run_service_iam_member" "invoker" {
   location = google_cloudfunctions2_function.api.location
   service  = google_cloudfunctions2_function.api.name
   role     = "roles/run.invoker"
   member   = "serviceAccount:approved-caller@PROJECT_ID.iam.gserviceaccount.com"
 }
-
 resource "google_cloudfunctions2_function" "processor" {
   name     = "process-order"
   location = "us-central1"
-
   build_config {
     runtime     = "python312"
     entry_point = "process_order"
@@ -258,14 +208,12 @@ resource "google_cloudfunctions2_function" "processor" {
       }
     }
   }
-
   service_config {
     max_instance_count    = 50
     available_memory      = "512Mi"
     timeout_seconds       = 120
     service_account_email = google_service_account.fn.email
   }
-
   event_trigger {
     trigger_region = "us-central1"
     event_type     = "google.cloud.pubsub.topic.v1.messagePublished"
@@ -274,9 +222,7 @@ resource "google_cloudfunctions2_function" "processor" {
   }
 }
 ```
-
 ## Troubleshooting
-
 | Symptom | Cause | Fix |
 |---------|-------|-----|
 | `PERMISSION_DENIED` on deploy | Missing Cloud Build or Artifact Registry perms | Grant `roles/cloudbuild.builds.builder` to Cloud Build SA |
@@ -285,16 +231,11 @@ resource "google_cloudfunctions2_function" "processor" {
 | Pub/Sub messages redelivered | Function errors or times out | Increase `--timeout`; fix error handling; add dead-letter topic |
 | `Build failed` during deploy | Syntax error or missing dependency | Check `gcloud builds log`; verify requirements.txt |
 | Cannot connect to VPC resource | Function not on VPC connector | Add `--vpc-connector=my-connector` to deploy |
-
 ## Related Skills
-
 - **gcp-networking** - VPC connectors for accessing private resources from functions
 - **gcp-cloud-sql** - Connecting Cloud Functions to managed databases
 - **terraform-gcp** - Deploy Cloud Functions with Infrastructure as Code
 - **gcp-gke** - When workloads outgrow serverless and need Kubernetes
-
 ## Limitations
-
 - Infrastructure commands can disrupt services: confirm target host/scope and have backups/snapshots before mutating state.
 - Docs-only import: upstream scripts and templates not bundled.
-

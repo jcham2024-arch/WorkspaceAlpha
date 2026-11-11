@@ -1,53 +1,37 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "660749a29b26f055569217a94614d63d025c61fd38d9e60ecbf58ab9cfe25739"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 660749a29b26f055569217a94614d63d025c61fd38d9e60ecbf58ab9cfe25739
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: CloudFormation template optimization, nested stacks, drift detection, and production-ready patterns. Use when writing or reviewing CF templates.
 name: cloudformation-best-practices
-description: "CloudFormation template optimization, nested stacks, drift detection, and production-ready patterns. Use when writing or reviewing CF templates."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
 You are an expert in AWS CloudFormation specializing in template optimization, stack architecture, and production-grade infrastructure deployment.
-
 ## Use this skill when
-
 - Writing or reviewing CloudFormation templates (YAML/JSON)
 - Optimizing existing templates for maintainability and cost
 - Designing nested or cross-stack architectures
 - Troubleshooting stack creation/update failures and drift
-
 ## Do not use this skill when
-
 - The user prefers CDK or Terraform over raw CloudFormation
 - The task is application code, not infrastructure
-
 ## Instructions
-
 1. Use YAML over JSON for readability.
 2. Parameterize environment-specific values; use `Mappings` for static lookups.
 3. Apply `DeletionPolicy: Retain` on stateful resources (RDS, S3, DynamoDB).
 4. Use `Conditions` to support multi-environment templates.
 5. Validate templates with `aws cloudformation validate-template` before deployment.
 6. Prefer `!Sub` over `!Join` for string interpolation.
-
 ## Examples
-
 ### Example 1: Parameterized VPC Template
-
 ```yaml
 AWSTemplateFormatVersion: "2010-09-09"
 Description: Minimal VPC skeleton; subnet/routing/security resources are not included
-
 Parameters:
   Environment:
     Type: String
@@ -55,10 +39,8 @@ Parameters:
   VpcCidr:
     Type: String
     Default: "10.0.0.0/16"
-
 Conditions:
   IsProd: !Equals [!Ref Environment, prod]
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -69,27 +51,21 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub "${Environment}-vpc"
-
 Outputs:
   VpcId:
     Value: !Ref VPC
     Export:
       Name: !Sub "${Environment}-VpcId"
 ```
-
 ## Best Practices
-
 - ✅ **Do:** Use `Outputs` with `Export` for cross-stack references
 - ✅ **Do:** Add `DeletionPolicy` and `UpdateReplacePolicy` on stateful resources
 - ✅ **Do:** Use `cfn-lint` and `cfn-nag` in CI pipelines
 - ❌ **Don't:** Hardcode ARNs or account IDs — use `!Sub` with pseudo parameters
 - ❌ **Don't:** Put all resources in a single monolithic template
-
 ## Troubleshooting
-
 **Problem:** Stack stuck in `UPDATE_ROLLBACK_FAILED`
 **Solution:** Inspect the exact stack events and failed-resource state first. Skipping resources is a last-resort recovery action requiring approval; skipped resources can remain inconsistent with the template and must be reconciled before another update.
-
 ## Limitations
 - validate-template checks template form, not deployability, cost, policy or safe replacements. Review an explicit change set in the authorized account/region, especially deletes/replacements and IAM capabilities. DeletionPolicy alone does not protect replacement; evaluate UpdateReplacePolicy and backups.
 - Never execute a deploy/recovery or change a stack merely to validate these examples. The VPC skeleton does not provide production networking or public/private subnet isolation.

@@ -1,54 +1,36 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "3b6bbfb96726235b53263bd7d56f3059b5e1562ea8eab3ff7aa3db174d7e7cb6"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 3b6bbfb96726235b53263bd7d56f3059b5e1562ea8eab3ff7aa3db174d7e7cb6
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: AI-powered PPT generation with document analysis and styled images
 name: nanobanana-ppt-skills
-description: "AI-powered PPT generation with document analysis and styled images"
-tier: "experimental"
 risk: critical
-source: "https://github.com/op7418/NanoBanana-PPT-Skills"
-date_added: "2026-02-27"
+source: ""https://github.com/op7418/NanoBanana-PPT-Skills""
 ---
-
-
 # Nanobanana Ppt Skills
-
 ## Overview
-
 AI-powered PPT generation with document analysis and styled images
-
 ## When to Use This Skill
-
 Use this skill when you need to work with ai-powered ppt generation with document analysis and styled images.
-
 ## Procedure
-
 Resolve audience, purpose, slide count, language, supplied sources, brand and output
 format. Build an evidence-linked outline before generating visual assets; do not
 invent business data, citations or image licensing. This entrypoint does not bundle
 the upstream generator, image model access or a slide-export runtime. Inspect a
 reviewed actual installation before using its commands, and authorize private-file
 uploads and paid generation explicitly.
-
 Create one representative slide before a large run. Preserve editable text when
 required; a set of slide images is not automatically an editable PPTX. Inspect all
 rendered slides for clipping, text legibility, aspect ratio and factual consistency.
 Deliver actual generated files, report export format and missing checks, and retain
 source materials and originals. No external publication is implied.
-
 ## Example
-
 **User request:**
-
 > Use @nanobanana-ppt-skills for this task: AI-powered PPT generation with document analysis and styled images.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

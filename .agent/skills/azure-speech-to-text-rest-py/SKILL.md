@@ -1,83 +1,58 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "e89c5ed84e9a35cde4d5498464b963815b57be90c1c1ad84e5ac3e3f67762ec7"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-speech-to-text-rest-py
+content_hash: e89c5ed84e9a35cde4d5498464b963815b57be90c1c1ad84e5ac3e3f67762ec7
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Azure Speech to Text REST API for short audio (Python). Use for simple speech recognition of audio files up to 60 seconds without the Speech SDK.
-tier: "experimental"
+name: azure-speech-to-text-rest-py
 risk: critical
 source: community
-date_added: '2026-02-27'
 ---
-
 ## Bundled upstream support
-
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.
-
 # Azure Speech to Text REST API for Short Audio
-
 Simple REST API for speech-to-text transcription of short audio files (up to 60 seconds). No SDK required - just HTTP requests.
-
 ## Prerequisites
-
 1. **Azure subscription** - [Create one free](https://azure.microsoft.com/free/)
 2. **Speech resource** - Create in [Azure Portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)
 3. **Get credentials** - After deployment, go to resource > Keys and Endpoint
-
 ## Environment Variables
-
 ```bash
 # Required
 AZURE_SPEECH_KEY=<your-speech-resource-key>
 AZURE_SPEECH_REGION=<region>  # e.g., eastus, westus2, westeurope
-
 # Alternative: Use endpoint directly
 AZURE_SPEECH_ENDPOINT=https://<region>.stt.speech.microsoft.com
 ```
-
 ## Installation
-
 ```bash
 pip install requests
 ```
-
 ## Quick Start
-
 ```python
 import os
 import requests
-
 def transcribe_audio(audio_file_path: str, language: str = "en-US") -> dict:
     """Transcribe short audio file (max 60 seconds) using REST API."""
     region = os.environ["AZURE_SPEECH_REGION"]
     api_key = os.environ["AZURE_SPEECH_KEY"]
-    
     url = f"https://{region}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1"
-    
     headers = {
         "Ocp-Apim-Subscription-Key": api_key,
         "Content-Type": "audio/wav; codecs=audio/pcm; samplerate=16000",
         "Accept": "application/json"
     }
-    
     params = {
         "language": language,
         "format": "detailed"  # or "simple"
     }
-    
     with open(audio_file_path, "rb") as audio_file:
         response = requests.post(url, headers=headers, params=params, data=audio_file, timeout=(10, 90))
-    
     response.raise_for_status()
     return response.json()
-
 # Usage
 result = transcribe_audio("audio.wav", "en-US")
 if result.get("RecognitionStatus") == "Success" and result.get("NBest"):
@@ -85,37 +60,27 @@ if result.get("RecognitionStatus") == "Success" and result.get("NBest"):
 else:
     print("No successful detailed recognition result")
 ```
-
 ## Audio Requirements
-
 | Format | Codec | Sample Rate | Notes |
 |--------|-------|-------------|-------|
 | WAV | PCM | 16 kHz, mono | **Recommended** |
 | OGG | OPUS | 16 kHz, mono | Smaller file size |
-
 **Limitations:**
 - Maximum 60 seconds of audio
 - For pronunciation assessment: maximum 30 seconds
 - No partial/interim results (final only)
-
 ## Content-Type Headers
-
 ```python
 # WAV PCM 16kHz
 "Content-Type": "audio/wav; codecs=audio/pcm; samplerate=16000"
-
 # OGG OPUS
 "Content-Type": "audio/ogg; codecs=opus"
 ```
-
 ## Response Formats
-
 ### Simple Format (default)
-
 ```python
 params = {"language": "en-US", "format": "simple"}
 ```
-
 ```json
 {
   "RecognitionStatus": "Success",
@@ -124,13 +89,10 @@ params = {"language": "en-US", "format": "simple"}
   "Duration": "1236645672289"
 }
 ```
-
 ### Detailed Format
-
 ```python
 params = {"language": "en-US", "format": "detailed"}
 ```
-
 ```json
 {
   "RecognitionStatus": "Success",
@@ -147,22 +109,16 @@ params = {"language": "en-US", "format": "detailed"}
   ]
 }
 ```
-
 ## Chunked Transfer (Recommended)
-
 For lower latency, stream audio in chunks:
-
 ```python
 import os
 import requests
-
 def transcribe_chunked(audio_file_path: str, language: str = "en-US") -> dict:
     """Stream audio in chunks for lower latency."""
     region = os.environ["AZURE_SPEECH_REGION"]
     api_key = os.environ["AZURE_SPEECH_KEY"]
-    
     url = f"https://{region}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1"
-    
     headers = {
         "Ocp-Apim-Subscription-Key": api_key,
         "Content-Type": "audio/wav; codecs=audio/pcm; samplerate=16000",
@@ -170,14 +126,11 @@ def transcribe_chunked(audio_file_path: str, language: str = "en-US") -> dict:
         "Transfer-Encoding": "chunked",
         "Expect": "100-continue"
     }
-    
     params = {"language": language, "format": "detailed"}
-    
     def generate_chunks(file_path: str, chunk_size: int = 1024):
         with open(file_path, "rb") as f:
             while chunk := f.read(chunk_size):
                 yield chunk
-    
     response = requests.post(
         url, 
         headers=headers, 
@@ -185,34 +138,25 @@ def transcribe_chunked(audio_file_path: str, language: str = "en-US") -> dict:
         data=generate_chunks(audio_file_path),
         timeout=(10, 90)
     )
-    
     response.raise_for_status()
     return response.json()
 ```
-
 ## Authentication Options
-
 ### Option 1: Subscription Key (Simple)
-
 ```python
 headers = {
     "Ocp-Apim-Subscription-Key": os.environ["AZURE_SPEECH_KEY"]
 }
 ```
-
 ### Option 2: Bearer Token
-
 ```python
 import requests
 import os
-
 def get_access_token() -> str:
     """Get access token from the token endpoint."""
     region = os.environ["AZURE_SPEECH_REGION"]
     api_key = os.environ["AZURE_SPEECH_KEY"]
-    
     token_url = f"https://{region}.api.cognitive.microsoft.com/sts/v1.0/issueToken"
-    
     response = requests.post(
         token_url,
         headers={
@@ -224,7 +168,6 @@ def get_access_token() -> str:
     )
     response.raise_for_status()
     return response.text
-
 # Use token in requests (valid for 10 minutes)
 token = get_access_token()
 headers = {
@@ -233,17 +176,13 @@ headers = {
     "Accept": "application/json"
 }
 ```
-
 ## Query Parameters
-
 | Parameter | Required | Values | Description |
 |-----------|----------|--------|-------------|
 | `language` | **Yes** | `en-US`, `de-DE`, etc. | Language of speech |
 | `format` | No | `simple`, `detailed` | Result format (default: simple) |
 | `profanity` | No | `masked`, `removed`, `raw` | Profanity handling (default: masked) |
-
 ## Recognition Status Values
-
 | Status | Description |
 |--------|-------------|
 | `Success` | Recognition succeeded |
@@ -251,32 +190,23 @@ headers = {
 | `InitialSilenceTimeout` | Only silence detected |
 | `BabbleTimeout` | Only noise detected |
 | `Error` | Internal service error |
-
 ## Profanity Handling
-
 ```python
 # Mask profanity with asterisks (default)
 params = {"language": "en-US", "profanity": "masked"}
-
 # Remove profanity entirely
 params = {"language": "en-US", "profanity": "removed"}
-
 # Include profanity as-is
 params = {"language": "en-US", "profanity": "raw"}
 ```
-
 ## Error Handling
-
 ```python
 import requests
-
 def transcribe_with_error_handling(audio_path: str, language: str = "en-US") -> dict | None:
     """Transcribe with proper error handling."""
     region = os.environ["AZURE_SPEECH_REGION"]
     api_key = os.environ["AZURE_SPEECH_KEY"]
-    
     url = f"https://{region}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1"
-    
     try:
         with open(audio_path, "rb") as audio_file:
             response = requests.post(
@@ -290,7 +220,6 @@ def transcribe_with_error_handling(audio_path: str, language: str = "en-US") -> 
                 data=audio_file,
                 timeout=(10, 90)
             )
-        
         if response.status_code == 200:
             result = response.json()
             if result.get("RecognitionStatus") == "Success":
@@ -306,44 +235,33 @@ def transcribe_with_error_handling(audio_path: str, language: str = "en-US") -> 
             print("Forbidden: Check resource permissions, endpoint and service policy")
         else:
             print(f"Error {response.status_code}; response body withheld")
-        
         return None
-        
     except requests.exceptions.RequestException as e:
         print(f"Request failed: {e}")
         return None
 ```
-
 ## Async Version
-
 ```python
 import os
 import aiohttp
 import asyncio
-
 async def transcribe_async(audio_file_path: str, language: str = "en-US") -> dict:
     """Async version using aiohttp."""
     region = os.environ["AZURE_SPEECH_REGION"]
     api_key = os.environ["AZURE_SPEECH_KEY"]
-    
     url = f"https://{region}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1"
-    
     headers = {
         "Ocp-Apim-Subscription-Key": api_key,
         "Content-Type": "audio/wav; codecs=audio/pcm; samplerate=16000",
         "Accept": "application/json"
     }
-    
     params = {"language": language, "format": "detailed"}
-    
     async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=90)) as session:
         with open(audio_file_path, "rb") as f:
             audio_data = f.read()
-        
         async with session.post(url, headers=headers, params=params, data=audio_data) as response:
             response.raise_for_status()
             return await response.json()
-
 # Usage
 result = asyncio.run(transcribe_async("audio.wav", "en-US"))
 if result.get("RecognitionStatus") == "Success" and result.get("NBest"):
@@ -351,11 +269,8 @@ if result.get("RecognitionStatus") == "Success" and result.get("NBest"):
 else:
     print("No successful detailed recognition result")
 ```
-
 ## Supported Languages
-
 Common language codes (see [full list](https://learn.microsoft.com/azure/ai-services/speech-service/language-support)):
-
 | Code | Language |
 |------|----------|
 | `en-US` | English (US) |
@@ -368,39 +283,29 @@ Common language codes (see [full list](https://learn.microsoft.com/azure/ai-serv
 | `ja-JP` | Japanese |
 | `ko-KR` | Korean |
 | `pt-BR` | Portuguese (Brazil) |
-
 ## Best Practices
-
 1. **Use WAV PCM 16kHz mono** for best compatibility
 2. **Enable chunked transfer** for lower latency
 3. **Cache access tokens** for 9 minutes (valid for 10)
 4. **Specify the correct language** for accurate recognition
 5. **Use detailed format** when you need confidence scores
 6. **Handle all RecognitionStatus values** in production code
-
 ## When NOT to Use This API
-
 Use the Speech SDK or Batch Transcription API instead when you need:
-
 - Audio longer than 60 seconds
 - Real-time streaming transcription
 - Partial/interim results
 - Speech translation
 - Custom speech models
 - Batch transcription of many files
-
 ## Reference Files
-
 | File | Contents |
 |------|----------|
 | references/pronunciation-assessment.md | Pronunciation assessment parameters and scoring |
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 Examples send audio and reference text to Azure; obtain the exact data-transfer/retention scope and use synthetic recordings by default. Resolve/validate the configured region or resource endpoint against the actual approved Azure resource before attaching credentials; do not accept an arbitrary hostname from untrusted input. Check duration/format/size locally, bound requests and keep keys/transcripts out of logs. Detailed recognition uses `NBest[].Display`, and `Success`/nonempty results must be checked before indexing. Pronunciation/prosody scores are model estimates, not clinical or objective speaker-quality judgments; locale/API support varies. See [official short-audio API](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/rest-speech-to-text-short).

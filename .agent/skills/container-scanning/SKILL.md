@@ -1,56 +1,41 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "d33b84c7875b3112e6f1b07559d99d8e3a4d39353a2d2c32dcbb29cae9b4c77c"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: container-scanning
-description: Scan container images for vulnerabilities using Trivy, Grype, and cloud-native
-tier: "experimental"
-  tools.
+content_hash: d33b84c7875b3112e6f1b07559d99d8e3a4d39353a2d2c32dcbb29cae9b4c77c
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: security
+compatibility: Requires the relevant security tooling (scanners, vault CLIs) and an
+date_added: 2026-09-20
+description: Only allow approved base images
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: require-image-scan
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant security tooling (scanners, vault CLIs) and an
+version: 1.0
+---  tools.
   authorized scope for any active assessment. Docs-only; helper scripts and templates
   not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # Container Scanning
-
 Scan container images for vulnerabilities and security misconfigurations.
-
 ## When to Use This Skill
-
 Use this skill when:
 - Building container images
 - Implementing container security gates
 - Scanning registry images
 - Meeting compliance requirements
 - Hardening container deployments
-
 ## Prerequisites
-
 - Container runtime (Docker, Podman)
 - Container images to scan
 - Scanning tool installation
-
 ## Tool Comparison
-
 | Tool | License | Speed | Features |
 |------|---------|-------|----------|
 | Trivy | OSS | Fast | Comprehensive, IaC |
@@ -58,59 +43,41 @@ Use this skill when:
 | Clair | OSS | Medium | Registry integration |
 | Snyk Container | Commercial | Fast | Fix suggestions |
 | Docker Scout | Commercial | Fast | GitHub integration |
-
 ## Trivy
-
 ### Installation
-
 ```bash
 # Linux
 # Tool prerequisite: use a verified preinstalled binary; no network installer runs here.
-
 # macOS
 brew install trivy
-
 # Docker
 docker pull aquasec/trivy
 ```
-
 ### Image Scanning
-
 ```bash
 # Scan local image
 trivy image myapp:latest
-
 # Scan remote image
 trivy image nginx:1.25
-
 # JSON output
 trivy image --format json -o results.json myapp:latest
-
 # Filter by severity
 trivy image --severity HIGH,CRITICAL myapp:latest
-
 # Optional filtered view; retain an unfiltered report of unfixed risk too.
 trivy image --ignore-unfixed myapp:latest
-
 # Exit code on vulnerability
 trivy image --exit-code 1 --severity CRITICAL myapp:latest
 ```
-
 ### Filesystem Scanning
-
 ```bash
 # Scan project directory
 trivy fs /path/to/project
-
 # Scan Dockerfile
 trivy config Dockerfile
-
 # Scan Kubernetes manifests
 trivy config k8s/
 ```
-
 ### Configuration
-
 ```yaml
 # trivy.yaml
 timeout: 10m
@@ -119,39 +86,31 @@ severity:
   - CRITICAL
 ignore-unfixed: true
 exit-code: 1
-
 vulnerability:
   type:
     - os
     - library
-
 scan:
   file-patterns:
     - "Dockerfile"
     - "*.yaml"
 ```
-
 ### CI Integration
-
 ```text
 NON-EXECUTABLE CI DESIGN: before adoption, use least-privilege jobs, pin every action to a reviewed full SHA, and provision verified fixed-version tools in a digest-pinned runner image. Never expose credentials during tool provisioning.
 # GitHub Actions
-name: Container Security
 
 on:
   push:
     branches: [main]
   pull_request:
-
 jobs:
   scan:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Build image
         run: docker build -t myapp:${{ github.sha }} .
-
       - name: Run Trivy
         step: Run the preinstalled reviewed Trivy binary
         with:
@@ -160,79 +119,57 @@ jobs:
           output: 'trivy-results.sarif'
           severity: 'CRITICAL,HIGH'
           exit-code: '1'
-
       - name: Upload results
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: 'trivy-results.sarif'
 ```
-
 ## Grype
-
 ### Installation
-
 ```bash
 # Linux/macOS
 # Tool prerequisite: use a verified preinstalled binary; no network installer runs here.
-
 # Homebrew
 brew install grype
 ```
-
 ### Usage
-
 ```bash
 # Scan image
 grype myapp:latest
-
 # Scan from SBOM
 grype sbom:./sbom.json
-
 # JSON output
 grype myapp:latest -o json > results.json
-
 # Filter severity
 grype myapp:latest --fail-on high
-
 # Scan directory
 grype dir:/path/to/project
 ```
-
 ### Configuration
-
 ```yaml
 # .grype.yaml
 check-for-app-update: false
 fail-on-severity: high
 output: "json"
 scope: "Squashed"
-
 ignore:
   - vulnerability: CVE-2023-12345
     reason: "False positive"
     expires: "2024-12-31"
 ```
-
 ## Docker Scout
-
 ### Usage
-
 ```bash
 # Enable Docker Scout
 docker scout quickview myapp:latest
-
 # Full CVE report
 docker scout cves myapp:latest
-
 # Compare images
 docker scout compare myapp:v1 myapp:v2
-
 # Recommendations
 docker scout recommendations myapp:latest
 ```
-
 ### CI Integration
-
 ```text
 NON-EXECUTABLE CI DESIGN: before adoption, use least-privilege jobs, pin every action to a reviewed full SHA, and provision verified fixed-version tools in a digest-pinned runner image. Never expose credentials during tool provisioning.
 - name: Docker Scout
@@ -243,67 +180,49 @@ NON-EXECUTABLE CI DESIGN: before adoption, use least-privilege jobs, pin every a
     sarif-file: scout-results.sarif
     summary: true
 ```
-
 ## Registry Integration
-
 ### Amazon ECR
-
 ```bash
 # Enable scan on push
 aws ecr put-image-scanning-configuration \
   --repository-name myapp \
   --image-scanning-configuration scanOnPush=true
-
 # Get scan findings
 aws ecr describe-image-scan-findings \
   --repository-name myapp \
   --image-id imageTag=latest
-
 # Start manual scan
 aws ecr start-image-scan \
   --repository-name myapp \
   --image-id imageTag=latest
 ```
-
 ### Azure ACR
-
 ```bash
 # Enable Defender for Containers
 az security pricing create \
   --name Containers \
   --tier Standard
-
 # Read Defender vulnerability findings through its supported findings API/portal.
 # az acr repository show returns image metadata, not a vulnerability report.
 ```
-
 ### Google Artifact Registry
-
 ```bash
 # Enable vulnerability scanning
 gcloud artifacts repositories update myrepo \
   --location=us-central1 \
   --enable-vulnerability-scanning
-
 # View vulnerabilities
 gcloud artifacts docker images describe \
   us-central1-docker.pkg.dev/project/myrepo/myapp:latest \
   --show-package-vulnerability
 ```
-
 ## Admission example boundaries
-
 The Gatekeeper/Kyverno snippets are incomplete/version-specific sketches, not enforceable proof of scan policy. Pin actual CRDs/Rego syntax, supply required Constraint/trusted attestor configuration, and test accept/reject cases before cluster admission. Repository prefix checks require a normalized boundary (for example an approved registry/path plus `/`), not an attacker-lookalike prefix; cover init and ephemeral containers. A `verifyImages` predicate needs a verified signer/issuer and actual predicate schema, not an invented `scanner` variable. The `scan-policy.yaml` below is conceptual, with no bundled consumer. Record image digest, scanner/DB versions, date, exclusions and residual unfixed findings; a clean scan is not certification.
-
 ## Admission Controllers
-
 ### OPA Gatekeeper
-
 ```yaml
 apiVersion: templates.gatekeeper.sh/v1beta1
 kind: ConstraintTemplate
-metadata:
-  name: k8sallowedrepos
 spec:
   crd:
     spec:
@@ -320,7 +239,6 @@ spec:
     - target: admission.k8s.gatekeeper.sh
       rego: |
         package k8sallowedrepos
-        
         violation[{"msg": msg}] {
           container := input.review.object.spec.containers[_]
           satisfied := [good | repo = input.parameters.repos[_]; good = startswith(container.image, repo)]
@@ -328,14 +246,10 @@ spec:
           msg := sprintf("container <%v> has an invalid image repo <%v>", [container.name, container.image])
         }
 ```
-
 ### Kyverno
-
 ```yaml
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
-metadata:
-  name: require-image-scan
 spec:
   validationFailureAction: enforce
   rules:
@@ -354,54 +268,38 @@ spec:
                       operator: Equals
                       value: "0"
 ```
-
 ## Scanning Policies
-
 ### Policy Definition
-
 ```yaml
 # scan-policy.yaml
 policies:
   - name: critical-vulnerabilities
-    description: Block images with critical CVEs
     severity: CRITICAL
     action: block
-    
   - name: high-vulnerabilities
-    description: Warn on high severity CVEs
     severity: HIGH
     action: warn
     max_count: 5
-    
   - name: age-policy
-    description: Block images older than 30 days
     max_age_days: 30
     action: block
-    
   - name: base-image
-    description: Only allow approved base images
     allowed_bases:
       - alpine:3.18
       - ubuntu:22.04
       - python:3.11-slim
 ```
-
 ## Common Issues
-
 ### Issue: False Positives
 **Problem**: Scanner reports non-exploitable vulnerabilities
 **Solution**: Use ignore files, validate with context
-
 ### Issue: Slow Scans
 **Problem**: Scanning takes too long
 **Solution**: Use caching, scan incrementally, optimize image layers
-
 ### Issue: Unfixed Vulnerabilities
 **Problem**: No patch available for CVE
 **Solution**: Update base image, implement compensating controls
-
 ## Best Practices
-
 - Scan in CI/CD pipeline
 - Use minimal base images (Alpine, distroless)
 - Update base images regularly
@@ -410,23 +308,16 @@ policies:
 - Set severity thresholds
 - Document accepted risks
 - Use multi-stage builds
-
 ## Related Skills
-
 - docker-management (`docker-management`) - Container basics
 - container-hardening (`container-hardening`) - Security hardening
 - kubernetes-hardening (`kubernetes-hardening`) - K8s security
-
 ## Limitations
-
 - Apply guidance only within authorized scope; test destructive steps in non-production first.
 - Docs-only import: upstream scripts and templates not bundled.
-
 ### Example
-
 ```bash
 # Read-only first: inventory before any active step.
 which <tool> && <tool> --help | head -n 20
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.

@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "bd38f34ca00073516f4868a914fb252f91ee2f1f229849ca6232db822fc95bcf"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: cyberpunk-ui
+content_hash: bd38f34ca00073516f4868a914fb252f91ee2f1f229849ca6232db822fc95bcf
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Cyberpunk UI. Trigger when user wants neon colors, dark backgrounds, high-tech dystopian aesthetics, and hacking interfaces.
-tier: "experimental"
-date_added: "2026-06-17"
+name: cyberpunk-ui
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Cyberpunk UI
-
 > "High tech, low life. Neon signs cutting through the smog of a dystopian megacity."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Neon on Black**: The foundation is absolute black (`#000000`) or deep charcoal, cut by searingly bright neon accents.
 2. **Angled Geometries**: Clipped corners (chamfers) rather than rounded corners. UI elements often look like they were cut from metal plates.
 3. **Glitch and Data**: Random streams of hexadecimal data, barcode accents, and intentional visual tearing.
-
 ## Visual DNA
 - **Colors**: Acid Yellow (`#FCE205`), Cyan (`#00FFFF`), Hot Pink (`#FF003C`), against Black. 
 - **Typography**: Industrial, squared-off sans-serifs (like `Rajdhani`, `Blender Pro`, or `Teko`), mixed with small monospace fonts for data.
 - **Styling**: Diagonal stripes, warning tape patterns, and heavy outer glows.
-
 ## Web Implementation
 - Rely on `clip-path` for the angled cuts.
 - **CSS Example**:
@@ -53,7 +40,6 @@ body {
     #0a0a0a 20px
   );
 }
-
 .cyberpunk-button {
   background-color: #FF003C; /* Cyberpunk Red/Pink */
   color: #FFF;
@@ -62,7 +48,6 @@ body {
   text-transform: uppercase;
   border: none;
   padding: 16px 32px;
-  
   /* The signature clipped corner */
   clip-path: polygon(
     0 0, 
@@ -72,11 +57,9 @@ body {
     15px 100%, 
     0 calc(100% - 15px)
   );
-  
   position: relative;
   transition: all 0.2s ease;
 }
-
 /* The glitch/shadow effect */
 .cyberpunk-button:hover {
   background-color: #FCE205; /* Acid Yellow */
@@ -85,16 +68,13 @@ body {
     -4px 0 0 #00FFFF,
     4px 0 0 #FF003C;
 }
-
 .data-stream {
   font-family: monospace;
   font-size: 0.8rem;
   color: rgba(0, 255, 255, 0.5);
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct CyberpunkShape: Shape {
@@ -115,7 +95,6 @@ struct CyberpunkShape: Shape {
         return path
     }
 }
-
 struct CyberButton: View {
     var body: some View {
         Button(action: {}) {
@@ -137,12 +116,10 @@ struct CyberButton: View {
 ```
 - Define a custom `Shape` that physically cuts off the corners, bypassing standard `cornerRadius`.
 - Use `.clipShape()` for the background, and `.overlay()` with `.stroke()` for high-tech borders.
-
 ### Flutter
 ```dart
 class CyberpunkClipper extends CustomClipper<Path> {
   final double cutSize = 15.0;
-
   @override
   Path getClip(Size size) {
     Path path = Path();
@@ -154,11 +131,9 @@ class CyberpunkClipper extends CustomClipper<Path> {
     path.close();
     return path;
   }
-
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
-
 class CyberButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -184,11 +159,9 @@ class CyberButton extends StatelessWidget {
 - Extend `CustomClipper<Path>` to calculate the precise angular cuts.
 - Wrap your containers in `ClipPath`. 
 - For borders, you must use a `CustomPaint` with a `CustomPainter` that traces the exact same path.
-
 ### React Native
 ```jsx
 import Svg, { Polygon } from 'react-native-svg';
-
 const CyberButton = () => {
   return (
     <View style={{ alignItems: 'center', justifyContent: 'center', width: 200, height: 60 }}>
@@ -203,7 +176,6 @@ const CyberButton = () => {
           />
         </Svg>
       </View>
-      
       <Text style={{ 
         color: '#FFF', 
         fontSize: 20, 
@@ -218,7 +190,6 @@ const CyberButton = () => {
 ```
 - React Native does not natively support clipping paths on views easily.
 - **Solution**: Use `react-native-svg` to draw a `<Polygon>` that acts as the absolute-positioned background behind transparent text.
-
 ### Jetpack Compose
 ```kotlin
 class CyberpunkShape(private val cutSize: Dp) : Shape {
@@ -240,7 +211,6 @@ class CyberpunkShape(private val cutSize: Dp) : Shape {
         return Outline.Generic(path)
     }
 }
-
 @Composable
 fun CyberButton() {
     Box(
@@ -264,11 +234,9 @@ fun CyberButton() {
 - Create a custom `Shape` by overriding `createOutline` and tracing the `Path`.
 - Pass this shape directly into `Modifier.clip()` and `Modifier.background()`.
 - You can elegantly apply a border stroke directly to the custom shape using `Modifier.border()`.
-
 ## Do's and Don'ts
 - **DO**: Keep decorative technical details out of accessibility labels; controls need clear action names and visible keyboard focus that is not clipped.
 - **DON'T**: Use soft, organic curves or gradients. It must be sharp and aggressive.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

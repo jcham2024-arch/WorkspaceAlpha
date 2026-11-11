@@ -1,30 +1,19 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "9bac4d477901357e314acd8beb4677ab3eec32bdb5f87b2c9890b11d6eecef4b"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: laravel-security
+content_hash: 9bac4d477901357e314acd8beb4677ab3eec32bdb5f87b2c9890b11d6eecef4b
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: Laravel security best practices — authentication, authorization, Eloquent safety, CSRF, XSS prevention, API security, and secure deployment configurations. Use when reviewing Laravel auth, Eloquent safety, CSRF, XSS, API security, or deployment configuration.
-tier: "experimental"
-metadata:
-  origin: ECC
+name: laravel-security
+origin: ECC
 ---
-
-
 # Laravel Security Best Practices
-
 Scope: secure Laravel apps — auth, authorization, Eloquent, CSRF,
 XSS, API, uploads, secrets, queues, logging, deployment.
 Load references by domain when you need that domain's code.
-
 ## When to Activate
-
 - Setting up Laravel authentication and authorization (Sanctum,
   Passport, Jetstream, Breeze)
 - Implementing user roles, permissions, and policies
@@ -32,9 +21,7 @@ Load references by domain when you need that domain's code.
 - Reviewing Laravel applications for security vulnerabilities
 - Deploying Laravel applications to production
 - Writing secure Eloquent queries and migrations
-
 ## Workflow
-
 1. **Production config**: force `APP_DEBUG=false`, set `APP_KEY`,
    harden sessions, enforce HTTPS. See [production-config](references/production-config.md).
 2. **Authentication**: Sanctum (API, scoped tokens) with bcrypt/Argon2id,
@@ -57,9 +44,7 @@ Load references by domain when you need that domain's code.
    See [file-uploads-secrets](references/file-uploads-secrets.md)
    and [queue-logging](references/queue-logging.md).
 9. **Checklist** (below) on every security review.
-
 ## Quick Security Checklist
-
 | Check | Description |
 |-------|-------------|
 | `APP_DEBUG=false` | Never run with debug enabled in production |
@@ -77,9 +62,7 @@ Load references by domain when you need that domain's code.
 | Security headers middleware | CSP, X-Frame-Options, X-Content-Type-Options |
 | Logged security events | Audit log for auth failures, role changes, suspicious activity |
 | `.env` not committed | Verify `.gitignore` includes `.env` |
-
 ## References
-
 - [production-config](references/production-config.md) — APP_DEBUG,
   keys, sessions, HTTPS
 - [authentication](references/authentication.md) — Sanctum, passwords,
@@ -97,9 +80,7 @@ Load references by domain when you need that domain's code.
   uploads, S3, secrets, composer
 - [queue-logging](references/queue-logging.md) — encrypted jobs,
   audit logging
-
 ## Related Skills
-
 - `laravel-patterns` — Laravel architecture, routing, Eloquent, and API patterns
 - `backend-patterns` — General backend API and database patterns
 - `laravel-tdd` — Laravel testing with PHPUnit and Pest

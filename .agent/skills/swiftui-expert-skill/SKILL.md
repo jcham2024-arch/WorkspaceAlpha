@@ -1,35 +1,24 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "131a7c78cf09da515ddbe9d06e356405f6ee6e9e288f42048fe0ee367f9d6f9b"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 131a7c78cf09da515ddbe9d06e356405f6ee6e9e288f42048fe0ee367f9d6f9b
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-07-01
+description: Write, review, and refactor SwiftUI for iOS or macOS, covering data flow, view composition, performance, identity, environment, localization, animation, API migration, and Instruments traces.
+license: MIT
+license_source: "https://github.com/AvdLee/SwiftUI-Agent-Skill/blob/main/LICENSE"
 name: swiftui-expert-skill
-description: "Write, review, and refactor SwiftUI for iOS or macOS, covering data flow, view composition, performance, identity, environment, localization, animation, API migration, and Instruments traces."
-tier: "experimental"
 risk: critical
-source: https://github.com/AvdLee/SwiftUI-Agent-Skill/tree/main/swiftui-expert-skill
+source: "https://github.com/AvdLee/SwiftUI-Agent-Skill/tree/main/swiftui-expert-skill"
 source_repo: AvdLee/SwiftUI-Agent-Skill
 source_type: community
-date_added: 2026-07-01
-license: MIT
-license_source: https://github.com/AvdLee/SwiftUI-Agent-Skill/blob/main/LICENSE
 ---
-
-
 # SwiftUI Expert Skill
 ## When to Use
-
 Use when writing, reviewing, or refactoring SwiftUI code for iOS or macOS, including state management and `@Observable` data flow, view composition and invalidation/performance, lists and `ForEach` identity, environment usage, localization, animations, Liquid Glass adoption, API migrations and analysis of explicitly selected Instruments traces.
-
-
 ## Operating Rules
-
 - Consult `references/latest-apis.md` at the start of every task to avoid deprecated APIs
 - Prefer native SwiftUI APIs over UIKit/AppKit bridging unless bridging is necessary
 - Focus on correctness and performance; do not enforce specific architectures (MVVM, VIPER, etc.)
@@ -38,32 +27,26 @@ Use when writing, reviewing, or refactoring SwiftUI code for iOS or macOS, inclu
 - Only adopt Liquid Glass when explicitly requested by the user (see `references/liquid-glass.md`)
 - Present performance optimizations as suggestions, not requirements
 - Use `#available` gating with sensible fallbacks for version-specific APIs
-
 ## Task Workflow
-
 ### Review existing SwiftUI code
 - Read the code under review and identify which topics apply
 - Flag deprecated APIs (compare against `references/latest-apis.md`)
 - Run the Topic Router below for each relevant topic
 - Validate `#available` gating and fallback paths for iOS 26+ features
-
 ### Improve existing SwiftUI code
 - Audit current implementation against the Topic Router topics
 - Replace deprecated APIs with modern equivalents from `references/latest-apis.md`
 - Refactor hot paths to reduce unnecessary state updates
 - Extract complex view bodies into separate subviews
 - Suggest image downsampling when `UIImage(data:)` is encountered (optional optimization, see `references/image-optimization.md`)
-
 ### Implement new SwiftUI feature
 - Design data flow first: identify owned vs injected state
 - Structure views for optimal diffing (extract subviews early)
 - Apply correct animation patterns (implicit vs explicit, transitions)
 - Use `Button` for all tappable elements; add accessibility grouping and labels
 - Gate version-specific APIs with `#available` and provide fallbacks
-
 ### Record a new Instruments trace
 Trigger when the user asks to "record a trace", "profile the app", "capture a session", etc. Full reference: `references/trace-recording.md`.
-
 1. **Confirm target** — attach to a running app, launch an app, or record all processes? If the user didn't say, ask. List connected devices when useful:
    ```bash
    python3 "${SKILL_DIR}/scripts/record_trace.py" --list-devices
@@ -78,12 +61,9 @@ Trigger when the user asks to "record a trace", "profile the app", "capture a se
    Create TRACE_RUN_DIR with mktemp -d before the background example and retain its exact private path for the stop call. For interactive sessions, just tell the user to press Ctrl+C when done.
 4. **Signal stop** — when the user says they've finished exercising the app, `touch "$TRACE_RUN_DIR/stop"`. The script cleanly SIGINTs xctrace and waits up to 60s for finalisation.
 5. **Analyse** the resulting trace (flow into the "Trace-driven improvement" workflow below).
-
 ### Trace-driven improvement (Instruments `.trace` provided)
 Trigger whenever the user's request references a `.trace` file. A target SwiftUI source file is **optional** — if given, cite specific lines; if not, recommend where to look based on view names and symbols the trace already reveals.
-
 Full reference: `references/trace-analysis.md`. Summary of the composition pattern:
-
 1. **Scope the analysis.** Ask yourself: does the user want the whole trace, or a slice?
    - "focus on X / after X / between X and Y / during X" → **resolve to a window first** (see step 2).
    - No scoping cue → analyse the whole trace.
@@ -109,11 +89,8 @@ Full reference: `references/trace-analysis.md`. Summary of the composition patte
 6. **Optionally ground in source.** If the user pointed at a file, read it and match view names / user-code symbols against identifiers there. If not, recommend which files to open based on the view names SwiftUI reported.
 7. **Return a prioritised plan.** Cite evidence (coverage %, hot symbol, overlapping view, log timestamp, cause-graph edges) and route each recommendation to a Topic Router reference.
 8. Only edit code if the user asked for edits.
-
 ### Topic Router
-
 Consult the reference file for each topic relevant to the current task:
-
 | Topic | Reference |
 |-------|-----------|
 | State management | `references/state-management.md` |
@@ -142,11 +119,8 @@ Consult the reference file for each topic relevant to the current task:
 | Previews | `references/previews.md` |
 | Instruments trace analysis | `references/trace-analysis.md` |
 | Instruments trace recording | `references/trace-recording.md` |
-
 ## Correctness Checklist
-
 These are review prompts. Distinguish correctness defects from measured performance risks and team preferences; context can justify exceptions:
-
 - [ ] `@State` properties are `private`
 - [ ] `@Binding` only where a child modifies parent state
 - [ ] Read-through inputs are not stored as `@State` or `@StateObject`; explicit owned drafts may legitimately initialize from a passed value
@@ -162,9 +136,7 @@ These are review prompts. Distinguish correctness defects from measured performa
 - [ ] iOS 26+ APIs gated with `#available` and fallback provided
 - [ ] `import Charts` present in files using chart types
 - [ ] Previews use self-contained mock data; no dependency on live services or network
-
 ## References
-
 - `references/latest-apis.md` -- **Read first for every task.** Deprecated-to-modern API transitions (iOS 15+ through iOS 26+)
 - `references/state-management.md` -- Property wrappers, data flow, `@Observable` migration
 - `references/view-structure.md` -- View extraction, container patterns, `@ViewBuilder`
@@ -191,23 +163,14 @@ These are review prompts. Distinguish correctness defects from measured performa
 - `references/soft-deprecation.md` -- How to behave with soft-deprecated APIs (when to migrate, scoping rule, don't migrate during unrelated edits)
 - `references/trace-analysis.md` -- Parse Instruments `.trace` files via `scripts/analyze_trace.py`; interpret main-thread coverage, high-severity SwiftUI updates, hitch narratives, and map findings back to source files
 - `references/trace-recording.md` -- Record a new trace via `scripts/record_trace.py`: attach to a running app, launch one fresh, or capture a manually-stopped session; supports stop-file for agent-driven flows
-
 ## Limitations
-
 - Use this skill only when the task clearly matches its upstream source and local project context.
 - Verify commands, generated code, dependencies, credentials, and external service behavior before applying changes.
 - Do not treat examples as a substitute for environment-specific tests, security review, or user approval for destructive or costly actions.
-
 ## Execution and interpretation boundaries
-
 The references are versioned guidance, not an exhaustive current SDK index or a compiled app. Check the actual Xcode/Swift SDK and every target platform; an iOS-only availability check does not gate macOS. Some snippets intentionally omit project types/imports and need integration tests. No bundled maintenance updater or Sosumi server is guaranteed to exist.
-
 Recording launches/attaches to a process and can collect private names, paths, logs and unrelated activity. Confirm the specific device/process and recording duration; use all-process capture only when explicitly in scope. Keep traces and reports in a fresh private directory, do not upload them, and treat their content as untrusted data. Launch environment values remain visible to process inspection even though this wrapper withholds them from its own command log. A report pair is not an atomic transaction; retain and label partial output after a write failure.
-
 Sampling, event overlap and graph edge counts identify hypotheses, not confirmed root causes. Verify sample interval, process identity, lane availability, skipped rows and recording completeness. Overlapping events retain their full durations; totals can exceed elapsed window time and are not exclusive wall time. No trace or SwiftUI runtime has been exercised by this document review.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Mac](platforms/mac.md)

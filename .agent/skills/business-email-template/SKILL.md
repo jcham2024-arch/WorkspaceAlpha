@@ -1,51 +1,37 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "f13a3304870fc853af8846b5c550fba59b4c8ffda78cfb3af3f029a23c3ddc70"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: business-email-template
-description: 'Business email template register: trigger, sender and recipient type, subject pattern, body structure, personalisation tokens and send checks. Use for repeatable outbound email.'
-tier: "experimental"
+content_hash: f13a3304870fc853af8846b5c550fba59b4c8ffda78cfb3af3f029a23c3ddc70
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: WHOISABHISHEKADHIKARI
 category: business
+date_added: 2026-09-27
+description: "'Business email template register: trigger, sender and recipient type, subject pattern, body structure, personalisation tokens and send checks. Use for repeatable outbound email.'"
+name: business-email-template
 risk: safe
 source: self
-source_type: self
-date_added: "2026-09-27"
-author: WHOISABHISHEKADHIKARI
-tags: [sme, email, templates, spf, dkim, dmarc, deliverability, spam, accessibility, plain-text, mjml, csv, sql, notion]
-tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
+source_type: self
+tags: "[sme, email, templates, spf, dkim, dmarc, deliverability, spam, accessibility, plain-text, mjml, csv, sql, notion]"
+tools: "[]"
 ---
-
-
 # Business Email Templates
-
 **What it is:** the repeatable emails a business actually sends - enquiry reply, quote, invoice, payment reminder, onboarding, complaint, review request, newsletter - with the sendable copy, the authentication records and the accessibility and spam checks each one needs.
-
 ## Overview
-
 Works out the smallest useful template set for the business in front of it, then builds it
 only when asked. The default output is a short recommendation, not a set of email files.
 The template register - CSV, SQL DDL, JSON Schema, Notion mapping - is produced on request,
 from one field list so the four cannot drift apart.
-
 Layer: Layer 6: Engage. Fits: Starter stage. Table code: n/a.
-
 **The rule this table exists to enforce:** a template is not the HTML. A template is the
 envelope - who it is from, who it is to, what triggers it, what subject pattern it uses, and
 whether the domain is allowed to send it - plus the body. `Sender Role` and `Trigger`
 exist because most "our email looks unprofessional" complaints are a missing trigger and a
 missing signature, not a missing design. And every template needs a plain-text version,
 which is a separate field here rather than an afterthought inside the HTML.
-
 ## When to Use This Skill
-
 - email templates, email signatures blocks for body copy, cold outreach
 - enquiry reply, quotation, invoice email, payment reminder
 - welcome email, onboarding, delivery notification
@@ -53,35 +39,23 @@ which is a separate field here rather than an afterthought inside the HTML.
 - "our emails go to spam", SPF, DKIM, DMARC, deliverability
 - email tone and structure standards
 - "make our emails look professional"
-
 Do not use it for: the printed signature block on letterhead and cards
 (`brand-kit-print-collateral`), the mailbox and account register
 (`company-email-accounts` in the operational pack), or marketing campaign automation.
-
 ## How It Works
-
 Follow the shared execution contract. The module-specific rules below define only domain fields, decisions, calculations, and safety constraints.
-
 ### Step 1 - Identify intent
-
 Read the request and pick the intent before asking anything.
-
 - "set up" / "build" / "we need" -> artifacts wanted; go to Step 2.
 - "ours look bad" / "fix" -> something exists; capture what is sent today, then Step 2.
 - "they go to spam" / "review" / "audit" -> a deliverability check, not a build.
 - "how do I write ..." -> advice question; answer directly, offer the build only if it helps.
-
 Ask only if this is the highest-value missing fact; otherwise proceed without an opener:
-
 > **Q:** What is the business called, and what does one line of it actually do?
-
 ### Step 2 - Ask only what is missing
-
 Treat ambiguous replies as unanswered and ask which explicit option the user means. Record unknown values as `Unknown`; `Unknown` is not zero. A record must not be `Done` when a required check fails.
-
 Skip anything already answered. Ask the rest one at a time, and stop as soon as the
 remaining answers would not change the template list.
-
 - **Volume** - How many emails a day, and who reads them - one person or a team? / Are
   they sent from a Gmail/Outlook account, a proper domain mailbox, or a platform?
 - **Categories** - Which of enquiry, quote, invoice, reminder, welcome, complaint, review
@@ -93,12 +67,9 @@ remaining answers would not change the template list.
   must not use?
 - **Tone** - Formal or plain-spoken? / Who signs, by title or by name? / Any sector that
   has a required service standard?
-
 Never invent an answer. Domain names, SPF records, DKIM selectors, unsubscribe periods,
 legal wording, senders, volumes and metrics the user has not supplied are `Unknown`.
-
 ### Step 3 - Hold the internal context
-
 ```yaml
 module: business-email-template
 intent: null            # set up | fix | review | report | import
@@ -113,34 +84,26 @@ requested_outputs: []
 confirmed_facts: []
 open_questions: []
 ```
-
 ### Step 4 - Recommend the smallest workflow
-
 Build an already requested artifact without asking again. For advice-only requests, give a short recommendation and offer the relevant artifact.
-
 **Recommended approach:** Start with the four that are sent every week and carry the most
 risk - enquiry reply, quote, invoice with payment terms, and payment reminder - plus one
 plain-text alternative for each. Put the signature block in a single place so it is edited
 once. Confirm SPF, DKIM and DMARC before anything is sent from the domain, because no
 template quality survives an unauthenticated domain.
-
 **Why this one:** Those four are where money and reputation move. The enquiry reply wins
 the customer, the quote and the invoice set the commercial terms, and the reminder is the
 one that recovers cash. A newsletter is a marketing decision that needs consent and a list,
 so it is not in the first set.
-
 **Workflow:** Categories confirmed from what is actually sent → Shared structure agreed
 (subject, greeting, body, action, signature) → Four templates drafted → Plain-text
 alternative written for each → SPF, DKIM and DMARC confirmed → Tested in a real client →
 Spam score checked → Accessibility pass on contrast and text size → Register approved and
 versioned
-
 ### Step 5 - Build only on request
-
 Once the user asks for it, derive the fields from the confirmed context and emit the
 requested artifacts. For machine-readable text, keep prose outside the data; for files,
 provide a usable link. Report material validation failures or limitations separately.
-
 **A selected Notion output is rendered by `notion-manual-import`, so route the
 Notion step there.** When the user selects Notion, hand that step to
 @notion-manual-import: it holds the CSV, the property
@@ -150,12 +113,10 @@ here and do not improvise the import steps. Manual CSV and mapping outputs need 
 connection. For requested workspace changes, follow the shared contract: verify actual
 tool access and the target before writing. A user saying "connected" is not tool evidence.
 Never ask for a Notion password or token.
-
 ```csv
 Template ID,Template Name,Template Type,Trigger,Sender Role,Recipient Type,Subject Line Pattern,Preview Text,Body Structure,Tone,Call To Action,Required Fields,Personalisation Tokens,Signature Block,Unsubscribe Required,Spam Risk Notes,Test Status,Mobile Checked,Accessibility Checked,Version,Status,Notes
 ,Example Retail enquiry reply,Transactional,Website enquiry received,Sales,Prospective Customer,{Service} enquiry - {Business Name},Enquiry received,Thanks - next step - action - signature,Plain and direct,Reply with availability,"First Name; Service; Business Name","{First Name}; {Service}; {Business Name}",Yes - signature block only,false,Review actual provider feedback,Not tested,false,false,1.0,Draft,Synthetic example - replace before use.
 ```
-
 ```sql
 -- Engine assumption: PostgreSQL. For another engine use the engine's auto-increment
 -- equivalent and keep the rest portable.
@@ -187,11 +148,9 @@ CREATE TABLE email_template (
   CONSTRAINT email_template_type CHECK (template_type IN ('Transactional','Marketing','Notification','Personal','System')),
   CONSTRAINT email_template_test_status CHECK (test_status IN ('Not tested','Tested - internal','Tested - real client','Tested - seed list','Failed - see Notes'))
 );
-
 CREATE INDEX idx_email_template_status ON email_template (status);
 CREATE INDEX idx_email_template_type ON email_template (template_type);
 ```
-
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -240,7 +199,6 @@ CREATE INDEX idx_email_template_type ON email_template (template_type);
   ]
 }
 ```
-
 ```markdown
 | CSV column | Notion property | Set after import |
 |---|---|---|
@@ -267,12 +225,9 @@ CREATE INDEX idx_email_template_type ON email_template (template_type);
 | Status | Select (add options after import) | Convert to Select, add options: "Draft", "In review", "Approved", "Retired" |
 | Notes | Text | Leave as Text |
 ```
-
 The rows above are documentation examples only. Emit empty templates unless the user explicitly requests examples. `Unsubscribe Required` and the two checkboxes
 are booleans - no `Yes`/`No` strings in a boolean cell.
-
 ## Field Reference
-
 | # | Field | Type | SQL | JSON Schema | Notion | CSV example |
 |---:|---|---|---|---|---|---|
 | 1 | Template ID | `id` | `BIGINT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY` | `integer` | Text or Notion auto-ID | `(blank)` |
@@ -297,73 +252,51 @@ are booleans - no `Yes`/`No` strings in a boolean cell.
 | 20 | Version | `text` | `VARCHAR(50)` | `string` | Text | `1.0` |
 | 21 | Status | `select` | `VARCHAR(50)` | `string` | Select | `Draft` |
 | 22 | Notes | `long_text` | `TEXT` | `string` | Text | *(blank)* |
-
 ## Select Options
-
 **Template Type** - a starting taxonomy, not a legal classification. Marketing and
 transactional are separated because they have different consent and unsubscribe rules.
-
 ```
 Transactional | Marketing | Notification | Personal | System
 ```
-
 **Sender Role** - a starting set. The role is what stops three people writing the same
 email three different ways.
-
 ```
 Sales | Front Desk | Accounts | Support | Owner | Marketing | System
 ```
-
 **Recipient Type** - a starting set.
-
 ```
 Prospective Customer | Existing Customer | Prospect | Supplier | Employee | Regulator | Public
 ```
-
 **Tone** - a starting set. Tone is a decision the business makes once, not per sender.
-
 ```
 Plain and direct | Formal | Warm | Technical | Apologetic
 ```
-
 **Signature Block** - three values, because "no signature" is a legitimate choice for a
 system email and a wrong one for anything a human reads.
-
 ```
 Yes - signature block only | Yes - signature block and contact details | No
 ```
-
 **Test Status** - Record the exact client/test scope; no test status proves universal delivery. Sending a
 first campaign to real customers is not a test.
-
 ```
 Not tested | Tested - internal | Tested - real client | Tested - seed list | Failed - see Notes
 ```
-
 **Status**
-
 ```
 Draft | In review | Approved | Retired
 ```
-
 ## Relations
-
 None standalone. `Sender Role` names the role that appears in the signature block; where
 the business keeps a people register with roles, confirm that database exists in the same
 build before treating it as a relation. Otherwise it is Text with a note naming the
 intended target.
-
 ## Examples
-
 **Prompt**
-
 ```
 Our quotes go out as freeform email from a Gmail address, everyone signs differently, and
 last month our invoice emails started going to spam.
 ```
-
 **Context first** - one question per message, nothing already answered:
-
 > **Q:** What is the business called, and what does one line of it actually do?
 > **A:** Example Retail, home and kitchen goods in Example City.
 >
@@ -379,9 +312,7 @@ last month our invoice emails started going to spam.
 > **Q:** Any wording that has to appear - company registration, tax details, an address for
 > complaints?
 > **A:** The tax details are on the invoice already.
-
 **Recommended next step** - offered, not built:
-
 > Three templates - enquiry reply, quote, invoice with payment terms - plus a phone-logged
 > payment reminder template, each with a plain-text alternative. One shared five-part
 > structure and one signature block, edited in a single place. And before any of them go
@@ -393,9 +324,7 @@ last month our invoice emails started going to spam.
 > approved
 >
 > Want the CSV, SQL DDL, JSON Schema and Notion mapping for this?
-
 ## Best Practices
-
 - Build when requested; recommend and offer a build for advice-only requests.
 - One question per message. A batched intake reads as a form and gets guessed at.
 - Write a plain-text alternative for every template. It is what gets read when HTML is
@@ -418,9 +347,7 @@ last month our invoice emails started going to spam.
   plain text. Unsubscribe, where it applies, must be a working link and not a tiny grey one.
 - Derive all four artifacts from the field list in this file, never by hand.
 - If the user requests an example row, keep it obviously fake so nobody imports it as a real template.
-
 ## Limitations
-
 - This is a register of templates and their envelope. It does not contain the HTML, and it
   cannot render or send a message.
 - It cannot set up SPF, DKIM or DMARC. Those are DNS records on the domain, and this skill
@@ -439,9 +366,7 @@ last month our invoice emails started going to spam.
   does not certify conformance.
 - Bounce and complaint handling, list hygiene and sunset policy are out of scope.
 - Dark mode in email clients is inconsistent and cannot be reliably themed.
-
 ## Security & Safety Notes
-
 - Never invent a domain, a DNS record, a DKIM selector, a legal disclaimer, a tax
   registration number or a sender identity. `Unknown` and blank are correct.
 - Authentication records are security configuration. Do not publish SPF, DKIM or DMARC
@@ -458,13 +383,9 @@ last month our invoice emails started going to spam.
   action and target; existing explicit authorization does not need to be repeated.
 - Phishing awareness: if the business reports suspicious email, that is a security
   incident, not a template question. Route it to the security owner.
-
 ## Common Pitfalls
-
 See the [bundled common-pitfalls reference](references/common-pitfalls.md) for review and troubleshooting guidance.
-
 ## Related Skills
-
 - `brand-growth-system-builder` - routes to this skill and the other 12 brand and growth modules.
 - `brand-kit-print-collateral` - the printed signature block on letterhead and cards; the
   email signature must match it.
@@ -475,9 +396,7 @@ See the [bundled common-pitfalls reference](references/common-pitfalls.md) for r
 - `company-email-accounts` (operational pack) - the mailbox register behind the senders.
 - `data-privacy-controls` (operational pack) - the lawful basis for any recipient list.
 - @free-design-resources - Litmus, Mail Tester, MXToolbox, MJML and the rest.
-
 ## Reusable Prompt
-
 ```
 I want a set of business email templates - enquiry reply, quote, invoice, reminder - with
 a consistent structure and signature, and we also have deliverability problems.
@@ -487,9 +406,6 @@ set that fits, and confirm authentication before anything is sent. Wait for me t
 before you build it.
 When I ask, output CSV, SQL DDL, JSON Schema and a Notion property mapping. Data only.
 ```
-
 ### Validation and sending limits
-
 This register does not include a separate plain-text body field despite the overview claim: store approved plain/HTML source locations explicitly in Notes or add confirmed fields before claiming they are tracked. DNS SPF/DKIM/DMARC records are normally public; never confuse public DKIM records with private signing keys. Authentication does not prove consent, prevent all spoofing or guarantee delivery. Stage DMARC enforcement after inventory/monitoring to avoid blocking legitimate senders.
-
 Legal basis, unsubscribe and sender requirements depend on jurisdiction, purpose and provider bulk-sender policies; a template-type label cannot decide them. Validate suppression/consent separately. External spam/rendering services receive message content; use authorized synthetic samples and avoid private invoice/customer data. Public invoice links can leak sensitive data; require access-controlled expiry. Reject CR/LF in header values, escape personalization for its HTML/text context and validate missing tokens before send. JSON/SQL select constraints and status fields need a consistent confirmed contract; updated_at needs actual update logic. No DNS changes, tests or messages were sent.

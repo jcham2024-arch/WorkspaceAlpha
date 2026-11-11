@@ -1,40 +1,30 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "59f100880c5638aa91aa51bedd6e22fc54e9ca74a996b7a7d6d07f09e547c747"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: beatra-ai-video-studio
-description: "Install and use the official Beatra AI Video Studio package, pinned by digest, for paid text-to-video, image-to-video, and video edit or extend jobs on the hosted Beatra service."
-tier: "experimental"
+content_hash: 59f100880c5638aa91aa51bedd6e22fc54e9ca74a996b7a7d6d07f09e547c747
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: beatra-ai
 category: media
+date_added: 2026-09-17
+description: Install and use the official Beatra AI Video Studio package, pinned by digest, for paid text-to-video, image-to-video, and video edit or extend jobs on the hosted Beatra service.
+license: MIT-0
+license_source: ""https://github.com/beatra-ai/beatra-skills/blob/b7ab8ed02980ee44b6dac62633f8d79daf0809ab/LICENSE""
+name: beatra-ai-video-studio
 risk: critical
 source: community
 source_repo: beatra-ai/beatra-skills
 source_type: official
-date_added: "2026-09-17"
-author: beatra-ai
-tags: [video-generation, text-to-video, image-to-video, video-editing, mcp, paid-api, beatra]
-tools: [claude, codex, cursor, gemini]
-license: "MIT-0"
-license_source: "https://github.com/beatra-ai/beatra-skills/blob/b7ab8ed02980ee44b6dac62633f8d79daf0809ab/LICENSE"
+tags: "[video-generation, text-to-video, image-to-video, video-editing, mcp, paid-api, beatra]"
+tools: "[claude, codex, cursor, gemini]"
 ---
-
-
 # Beatra AI Video Studio
-
 ## Overview
-
 Beatra AI Video Studio is Beatra's official agent package for short AI video
 work: text-to-video, image-to-video, first/last-frame interpolation,
 reference-guided generation, and editing or extending an existing clip. The
 video is produced on the hosted, paid Beatra service (`mcp.beatra.ai`).
-
 This catalog entry is a **reviewed pointer, not the executable package**. It
 contains no client code and performs no Beatra operation by itself. The package
 it points to bundles three standard-library Python scripts that make network
@@ -42,33 +32,25 @@ calls and store a credential. It has no self-updater: it never downloads
 code and never changes its own files. Read
 [Install](#install-pinned-verified-approved-twice) and
 [Security & Safety Notes](#security--safety-notes) before activating it.
-
 | Pinned identity | Value |
 | --- | --- |
 | Package | `beatra-ai-video-studio` `1.3.5` |
 | Source commit | [`beatra-ai/beatra-skills@b7ab8ed`](https://github.com/beatra-ai/beatra-skills/tree/b7ab8ed02980ee44b6dac62633f8d79daf0809ab/skills/beatra-ai-video-studio) (full SHA `b7ab8ed02980ee44b6dac62633f8d79daf0809ab`) |
 | Package tree | `5183c76c894e650691c8bb638257dd202b23e66c` (Git tree ID of `skills/beatra-ai-video-studio` at that commit) |
 | License | MIT No Attribution (MIT-0) |
-
 The pinned tree holds regular files only (no symlinks, no executable bits, no
 binaries). Confirm that with the inspect commands below.
-
 ## When to Use This Skill
-
 - Use when the user explicitly wants a short AI video clip produced on Beatra
   and accepts that the work is paid and runs on a hosted service.
 - Use when a still image should be animated, two frames interpolated, or an
   existing clip edited or extended by Beatra.
 - Do not use for local-only or offline video editing, timeline assembly, or
   when the user has not agreed to send prompts and media to a third party.
-
 ## Install (pinned, verified, approved twice)
-
 ### Step 1: Fetch the pinned tree into a review directory
-
 Explain that this fetches an external package from `github.com`, then ask
 for approval. Only after approval:
-
 ```bash
 set -e
 umask 077
@@ -78,21 +60,16 @@ git clone --quiet --filter=blob:none --no-checkout https://github.com/beatra-ai/
 git -C src checkout --quiet b7ab8ed02980ee44b6dac62633f8d79daf0809ab -- skills/beatra-ai-video-studio
 test "$(git -C src rev-parse 'b7ab8ed02980ee44b6dac62633f8d79daf0809ab:skills/beatra-ai-video-studio')" = '5183c76c894e650691c8bb638257dd202b23e66c' && echo TREE-OK
 ```
-
 Stop if the last command does not print `TREE-OK`. The expected commit and
 tree IDs come from this catalog entry, not from the package or its website,
 and Git addresses every fetched object by its hash.
-
 ### Step 2: Inspect before activation
-
 ```bash
 git -C src ls-tree -r b7ab8ed02980ee44b6dac62633f8d79daf0809ab -- skills/beatra-ai-video-studio | awk '$1 != "100644"'  # expect no output
 grep -n -E 'maybe_auto_update|download_update|_apply_update' src/skills/beatra-ai-video-studio/scripts/mcp_client.py  # expect no output
 ```
-
 The first check lists any symlink, executable, or submodule entry; the second
 finds the entry points of the self-updater that earlier versions shipped.
-
 Report to the user what the review found: `SKILL.md`, `manifest.json`,
 `install-source.json` (the one-line marker `{"schema_version":1,"source":"github"}`),
 the bundled Markdown references, and `scripts/authorize.py`,
@@ -100,35 +77,24 @@ the bundled Markdown references, and `scripts/authorize.py`,
 library only, no dependency installation, no lifecycle hooks). Summarize the
 network, credential, local-state, telemetry, and version-notice behavior
 listed under [Security & Safety Notes](#security--safety-notes).
-
 The manifest and pattern scans above are only inventory aids. Before activation, read every file in the pinned tree, including each script, reference and hook, and inspect all dependency and network behavior. Do not claim source review from grep output. If complete review cannot be performed, stop before copying or executing; ask for a separate review rather than treating a digest as evidence of safety.
-
 ### Step 3: Copy in
-
 Ask for a **second, separate** approval, because this changes agent
 configuration. Then copy the reviewed tree to the host's skills directory
 (Claude Code shown; use the equivalent path for other hosts):
-
 ```bash
 dest="$HOME/.claude/skills/beatra-ai-video-studio"
 test ! -e "$dest" && test ! -L "$dest" || { echo "destination exists; stop and ask the user"; exit 1; }
 cp -R "src/skills/beatra-ai-video-studio" "$dest"
 ```
-
 There is no update switch to turn off in this version.
-
 ### Step 4: Authorize as its own decision
-
 Authorization opens a browser sign-in and stores a bearer token. Ask first.
-
 ```bash
 python3 "$dest/scripts/authorize.py"
 ```
-
 Start a new agent session if the host discovers skills only at startup.
-
 ## How It Works
-
 1. Read the installed package's `SKILL.md` and its references; they define the
    video routes, payload shapes, and review loop.
 2. Use free, non-billable discovery first (`beatra.models.list`, task list) to
@@ -140,49 +106,36 @@ Start a new agent session if the host discovers skills only at startup.
    once with a stable `client_request_id` and poll the returned task.
 5. Report the delivered artifact and `billing.net_charged_credits`, review the
    clip with the user, and ask again before any further paid stage.
-
 ## Examples
-
 ### Free connection check (non-billable)
-
 ```bash
 python3 "$HOME/.claude/skills/beatra-ai-video-studio/scripts/mcp_client.py" verify
 ```
-
 ### One approved text-to-video call
-
 After the user approved the cost card for this exact payload, replace the illustrative request ID once with a fresh unique ID and persist it for identical retries. Never reuse the sample ID for separate jobs:
-
 ```bash
 printf '%s' '{"prompt":"A close product reveal with one slow push-in.","model":"auto","duration":5,"client_request_id":"req-7f3c2a"}' \
   | python3 "$HOME/.claude/skills/beatra-ai-video-studio/scripts/mcp_client.py" call beatra.videos.generate
 ```
-
 If the response is lost, retry only with the same `client_request_id` and
 identical arguments; never submit a replacement while the task is running.
-
 ## Update
-
 This pinned version cannot update itself: it has no code that downloads or
 replaces package files. `update` only reports what the store or tool that
 installed the copy offers; for a copy installed by the steps above it finds
 no such record and says to update the way you installed it. See the version
 notice under [Security & Safety Notes](#security--safety-notes).
-
 To move to a newer version, repeat Steps 1 to 3 for that commit in a new
 review directory, show the user the file-level changes against the installed
 copy (for example `git -C src diff --stat b7ab8ed <new-commit> -- skills/beatra-ai-video-studio`),
 and replace the directory only after approval. A version not listed in this
 entry has not been reviewed here.
-
 ## Uninstall
-
 ```bash
 dest="$HOME/.claude/skills/beatra-ai-video-studio"
 python3 "$dest/scripts/uninstall.py" --dry-run
 python3 "$dest/scripts/uninstall.py"
 ```
-
 Read the JSON decision. `disconnected` means this was the last Beatra skill on
 the device: the token was revoked (when `revoked` is `true`) and the files
 `credentials.json`, `installation.json`, `host.json`, `skills.json`,
@@ -192,26 +145,20 @@ another Beatra skill still uses the shared token, which stays.
 `revoke_retry` means the server refused the revocation and nothing changed;
 run it again shortly. The script never deletes the package directory: after
 confirming the path it prints with the user, delete `$dest`.
-
 `uninstall.py` does not remove `~/.beatra/updates/`. When the decision is
 `disconnected` and no other Beatra skill is installed, remove that directory
 and then the empty `~/.beatra`; otherwise leave them. A token that could not
 be revoked expires after 15 days idle and can be revoked at once in the
 Beatra Console under Agents.
-
 ## Best Practices
-
 - ✅ Keep one approval per paid call, per upload set, and per install step.
 - ✅ Start with the shortest duration and lowest resolution the model admits.
 - ✅ Report net charged credits from the terminal task, not the estimate.
 - ❌ Do not replace the installed copy with an unreviewed version silently.
 - ❌ Do not print, paste, or move the token out of `~/.beatra/credentials.json`.
 - ❌ Do not retry a paid call with a new request ID after an uncertain response.
-
 Before publication, inspect the complete clip for continuity, temporal artifacts, source likeness/brand drift, unsafe or deceptive details and rights/consent. A completed task is not evidence of those editorial checks.
-
 ## Limitations
-
 - Requires a Beatra account, network access, Python 3.10+, and prepaid credits;
   the sign-up gift usually cannot cover a video generation.
 - Short clips only; not a timeline editor. Multi-shot work is delivered as
@@ -222,11 +169,8 @@ Before publication, inspect the complete clip for continuity, temporal artifacts
   upstream model providers and can change; the service is provided as is.
 - Outputs are probabilistic, not guaranteed unique or non-infringing, and need
   human review before publication.
-
 ## Security & Safety Notes
-
 `risk: critical` is deliberate.
-
 - **Network.** Every request is HTTPS and refuses redirects. Authorization
   uses `api.beatra.ai` and tool calls go to `mcp.beatra.ai`; an upload is a
   `PUT` of the approved file to the HTTPS address the server returns, without
@@ -301,9 +245,7 @@ Before publication, inspect the complete clip for continuity, temporal artifacts
 - **Content rights.** Users keep rights in their inputs and receive Beatra's
   rights in outputs; they must hold rights to uploaded media and must not
   create deceptive impersonations.
-
 ## Additional Resources
-
 - [Source tree at the pinned commit](https://github.com/beatra-ai/beatra-skills/tree/b7ab8ed02980ee44b6dac62633f8d79daf0809ab/skills/beatra-ai-video-studio)
 - [Product page](https://beatra.ai/skills/beatra-ai-video-studio)
 - [Terms](https://beatra.ai/en/terms) and [privacy policy](https://beatra.ai/en/privacy)

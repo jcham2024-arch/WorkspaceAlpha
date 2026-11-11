@@ -1,32 +1,23 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "cd5a8ef872cacda1b2b0c6711654b4c2f748b1f2f36732fa2bb79e36cbd9b077"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: ponytail-review
+content_hash: cd5a8ef872cacda1b2b0c6711654b4c2f748b1f2f36732fa2bb79e36cbd9b077
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: >
-tier: "experimental"
-  Quality review of a change: is the logic right, is it safe, does it hold
+name: ponytail-review
+---  Quality review of a change: is the logic right, is it safe, does it hold
   under real load, is risky code tested, is it fast enough, and is every line
   needed. Reads the connected code, not only the diff. Each finding is
   explained in plain English. Use for "review this", "code review", "review
   the last commit", "review my PR", "is this over-engineered", /ponytail-review.
 ---
-
-
 Review a change like the senior developer who will be paged when it breaks.
 Order of importance: correct, safe, holds under load, tested, fast, lean.
 Lean still matters: every extra line must be read, tested and fixed later.
 This is a report the user asked for, so give it in full.
-
 ## 1. Understand first
-
 - Review what the user names: uncommitted or staged changes, a branch, a PR
   link, or files. Nothing named: the uncommitted changes, or the last commit
   if there are none.
@@ -38,9 +29,7 @@ This is a report the user asked for, so give it in full.
 - Find the expected load in the repo (README, deploy config): one person
   running a script, or many users and processes at once. Judge scale against
   that, and say which load you assumed.
-
 ## 2. Look for
-
 1. **Bug:** wrong result, crash, missed edge case (empty, zero, last item,
    rounding, time zones), a caller broken by the change, a fix applied in one
    caller while the shared function stays broken.
@@ -65,9 +54,7 @@ This is a report the user asked for, so give it in full.
    - split: one function doing several unrelated jobs, so it is hard to read
      or test. Split by job, never by line count, and never into helpers that
      exist only to make a function shorter.
-
 ## 3. Check before you report
-
 - Every finding needs a concrete case: "this input or situation leads to this
   wrong result". No case, no finding.
 - Re-read the lines and confirm: the caller exists, the value can really be
@@ -77,23 +64,17 @@ This is a report the user asked for, so give it in full.
 - Propose the smallest fix that works. Prefer fixes that delete code. Never
   add layers, frameworks or config the problem does not need.
 - No style taste, no "consider", no vague worries.
-
 ## 4. Output
-
 Very simple English: short sentences, everyday words. Explain a technical
 term the first time you use it. The reader may never have seen this code.
-
 Start with `What this change does:` in two or three sentences.
-
 Then the findings in three groups, skip empty groups:
 - **Must fix:** bug, security, data loss, breaks at the expected load.
 - **Should fix:** risky code without a test, real slowness, duplication, a
   function that mixes jobs, code that should not exist.
 - **Nice to have:** small speed-ups, shorter forms.
-
 Number findings across all groups, so the user can say "fix 2 and 5".
 Every finding has all four parts, each one or two short sentences:
-
 2. **Orders land on the wrong day** (`billing/close_day.py:L40-52`)
    - **What this is:** At midnight this job closes the day and bills all orders of that day.
    - **Problem:** It takes "today" from the server clock, which runs in UTC. An order placed
@@ -101,13 +82,10 @@ Every finding has all four parts, each one or two short sentences:
    - **Fix:** Compute the day once in the shop's time zone:
      `datetime.now(ZoneInfo("Europe/Berlin")).date()`. One line, nothing else changes.
    - **If we skip it:** Late orders show the wrong date, and accounting fixes them by hand.
-
 End with:
 - `Verdict: Ship.` or `Verdict: fix 1 and 3 first.`
 - `Lean: -<N> lines possible.` when lean findings exist.
 - `Not checked:` one line, if something mattered and you could not check it.
-
 Nothing found: `What this change does:`, then `Looks good. Ship.` and one line
 on what you checked.
-
 Lists findings, changes no code.

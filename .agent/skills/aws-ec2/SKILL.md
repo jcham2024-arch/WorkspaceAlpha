@@ -1,56 +1,41 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "15c26f829dda3aa274f4eacdaca731181b57935015a0c5096b785a6133a00b22"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: aws-ec2
-description: Manage EC2 instances, AMIs, and auto-scaling groups. Configure security
-tier: "experimental"
-  groups, key pairs, and instance types. Use when deploying compute resources on AWS.
+content_hash: 15c26f829dda3aa274f4eacdaca731181b57935015a0c5096b785a6133a00b22
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant OS/platform tooling and privileged access where
+date_added: 2026-09-20
+description: Manage EC2 instances, AMIs, and auto-scaling groups. Configure security
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: aws-ec2
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant OS/platform tooling and privileged access where
+version: 1.0
+---  groups, key pairs, and instance types. Use when deploying compute resources on AWS.
   noted. Docs-only; helper scripts and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # AWS EC2
-
 Deploy and manage Amazon EC2 compute instances for production, staging, and development workloads.
-
 ## When to Use This Skill
-
 - Launching new compute instances for application hosting
 - Building golden AMIs for consistent deployments
 - Setting up auto-scaling groups behind load balancers
 - Migrating workloads to Spot instances for cost savings
 - Troubleshooting instance connectivity, performance, or launch failures
 - Creating launch templates for repeatable infrastructure
-
 ## Prerequisites
-
 - AWS CLI v2 installed and configured (`aws configure`)
 - Least-privilege IAM actions for selected compute, scaling and load-balancer resources; restrict iam:PassRole to the intended instance role
 - An existing VPC with subnets (see aws-vpc (`aws-vpc`))
 - SSH key pair created (`umask 077` before creating a key file in a private directory; prefer approved session access where appropriate)
-
 ## Instance Type Selection Guide
-
 | Category | Types | Use Case |
 |---|---|---|
 | General Purpose | t3, t3a, m6i, m7g | Web servers, small databases, dev/test |
@@ -59,9 +44,7 @@ Deploy and manage Amazon EC2 compute instances for production, staging, and deve
 | Storage Optimized | i3, i4i, d3 | Data warehousing, distributed file systems |
 | Accelerated | p4d, g5, inf2 | ML training, GPU rendering, inference |
 | Burstable | t3.micro-t3.2xlarge | Low-steady-state with occasional bursts |
-
 ## Launch an Instance
-
 ```bash
 # Launch a production web server
 aws ec2 run-instances \
@@ -88,7 +71,6 @@ aws ec2 run-instances \
     {Key=Team,Value=platform}
   ]' \
   --user-data file://userdata.sh
-
 # Launch with IMDSv2 required (security best practice)
 aws ec2 run-instances \
   --image-id ami-0abcdef1234567890 \
@@ -96,40 +78,31 @@ aws ec2 run-instances \
   --metadata-options "HttpTokens=required,HttpPutResponseHopLimit=1,HttpEndpoint=enabled" \
   --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=secure-instance}]'
 ```
-
 ## User Data Scripts
-
 ```bash
 #!/bin/bash
 # userdata.sh - Bootstrap a web server on Amazon Linux 2023
 set -euo pipefail # avoid tracing secrets in user-data logs
-
 # System updates
 dnf update -y
-
 # Install and start web server
 dnf install -y nginx
 systemctl enable nginx
 systemctl start nginx
-
 # Install CloudWatch agent
 dnf install -y amazon-cloudwatch-agent
 /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
   -a fetch-config -m ec2 \
   -s -c ssm:AmazonCloudWatch-linux
-
 # Install CodeDeploy agent
 dnf install -y ruby wget
 cd /home/ec2-user
 wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install
 # Verify a reviewed pinned installer and integrity before execution; do not run latest blindly.
-
 # Signal CloudFormation (if launched via CFN)
 # /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource ASG --region ${AWS::Region}
 ```
-
 ## Launch Templates
-
 ```bash
 # Create a launch template with full configuration
 aws ec2 create-launch-template \
@@ -163,22 +136,18 @@ aws ec2 create-launch-template \
     "Monitoring": {"Enabled": true},
     "UserData": "'"$(base64 -w0 userdata.sh)"'"
   }'
-
 # Create a new version of the launch template
 aws ec2 create-launch-template-version \
   --launch-template-name web-server-template \
   --source-version 1 \
   --version-description "v2 - updated AMI" \
   --launch-template-data '{"ImageId": "ami-0newami1234567890"}'
-
 # Set the default version
 aws ec2 modify-launch-template \
   --launch-template-name web-server-template \
   --default-version 2
 ```
-
 ## Auto Scaling Group
-
 ```bash
 # Create ASG with mixed instances (on-demand + spot)
 aws autoscaling create-auto-scaling-group \
@@ -210,7 +179,6 @@ aws autoscaling create-auto-scaling-group \
     {"Key":"Name","Value":"web-asg","PropagateAtLaunch":true},
     {"Key":"Environment","Value":"production","PropagateAtLaunch":true}
   ]'
-
 # Create target tracking scaling policy (target 60% CPU)
 aws autoscaling put-scaling-policy \
   --auto-scaling-group-name web-asg \
@@ -222,23 +190,19 @@ aws autoscaling put-scaling-policy \
     },
     "TargetValue": 60.0
   }'
-
 # Create scheduled scaling for known traffic patterns
 aws autoscaling put-scheduled-update-group-action \
   --auto-scaling-group-name web-asg \
   --scheduled-action-name scale-up-morning \
   --recurrence "0 8 * * MON-FRI" \
   --min-size 4 --max-size 20 --desired-capacity 8
-
 aws autoscaling put-scheduled-update-group-action \
   --auto-scaling-group-name web-asg \
   --scheduled-action-name scale-down-evening \
   --recurrence "0 20 * * MON-FRI" \
   --min-size 2 --max-size 10 --desired-capacity 2
 ```
-
 ## Spot Instances
-
 ```bash
 # Request Spot instances
 aws ec2 request-spot-instances \
@@ -252,7 +216,6 @@ aws ec2 request-spot-instances \
     "SecurityGroupIds": ["sg-12345678"],
     "SubnetId": "subnet-12345678"
   }'
-
 # Check current Spot prices
 aws ec2 describe-spot-price-history \
   --instance-types t3.medium t3a.medium m5.large \
@@ -261,7 +224,6 @@ aws ec2 describe-spot-price-history \
   --start-time "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
   --query "SpotPriceHistory[].{Type:InstanceType,Price:SpotPrice,AZ:AvailabilityZone}" \
   --output table
-
 # Create a Spot Fleet request
 aws ec2 request-spot-fleet \
   --spot-fleet-request-config '{
@@ -275,9 +237,7 @@ aws ec2 request-spot-fleet \
     ]
   }'
 ```
-
 ## AMI Management
-
 ```bash
 # Create an AMI from a running instance
 aws ec2 create-image \
@@ -288,37 +248,30 @@ aws ec2 create-image \
     {Key=Name,Value=web-server-golden},
     {Key=Version,Value=2026.03.24}
   ]'
-
 # Copy AMI to another region for disaster recovery
 aws ec2 copy-image \
   --source-image-id ami-0abcdef1234567890 \
   --source-region us-east-1 \
   --region us-west-2 \
   --name "web-server-dr-copy"
-
 # Deregister old AMIs and delete associated snapshots
 aws ec2 deregister-image --image-id ami-old123
 aws ec2 delete-snapshot --snapshot-id snap-old123
-
 # Share AMI with another AWS account
 aws ec2 modify-image-attribute \
   --image-id ami-0abcdef1234567890 \
   --launch-permission "Add=[{UserId=987654321098}]"
 ```
-
 ## Instance Management
-
 ```bash
 # List running instances with key details
 aws ec2 describe-instances \
   --filters "Name=instance-state-name,Values=running" \
   --query "Reservations[].Instances[].{ID:InstanceId,Type:InstanceType,IP:PrivateIpAddress,Name:Tags[?Key=='Name']|[0].Value,State:State.Name}" \
   --output table
-
 # Stop and start instances
 aws ec2 stop-instances --instance-ids i-0abc123def456
 aws ec2 start-instances --instance-ids i-0abc123def456
-
 # Resize an instance (stop first)
 aws ec2 stop-instances --instance-ids i-0abc123def456
 aws ec2 wait instance-stopped --instance-ids i-0abc123def456
@@ -326,31 +279,24 @@ aws ec2 modify-instance-attribute \
   --instance-id i-0abc123def456 \
   --instance-type '{"Value": "t3.large"}'
 aws ec2 start-instances --instance-ids i-0abc123def456
-
 # Get console output for debugging boot issues
 aws ec2 get-console-output --instance-id i-0abc123def456
-
 # Get instance screenshot (helps debug GUI issues)
 aws ec2 get-console-screenshot --instance-id i-0abc123def456
 ```
-
 ## Terraform EC2 with Auto Scaling
-
 ```hcl
 resource "aws_launch_template" "web" {
   name_prefix   = "web-"
   image_id      = data.aws_ami.amazon_linux.id
   instance_type = "t3.medium"
-
   iam_instance_profile {
     name = aws_iam_instance_profile.web.name
   }
-
   metadata_options {
     http_tokens   = "required"
     http_endpoint = "enabled"
   }
-
   block_device_mappings {
     device_name = "/dev/xvda"
     ebs {
@@ -359,9 +305,7 @@ resource "aws_launch_template" "web" {
       encrypted   = true
     }
   }
-
   user_data = base64encode(file("userdata.sh"))
-
   tag_specifications {
     resource_type = "instance"
     tags = {
@@ -370,7 +314,6 @@ resource "aws_launch_template" "web" {
     }
   }
 }
-
 resource "aws_autoscaling_group" "web" {
   name                = "web-asg"
   min_size            = 2
@@ -379,24 +322,20 @@ resource "aws_autoscaling_group" "web" {
   vpc_zone_identifier = [aws_subnet.private_a.id, aws_subnet.private_b.id]
   target_group_arns   = [aws_lb_target_group.web.arn]
   health_check_type   = "ELB"
-
   launch_template {
     id      = aws_launch_template.web.id
     version = "$Latest"
   }
-
   tag {
     key                 = "Name"
     value               = "web-asg"
     propagate_at_launch = true
   }
 }
-
 resource "aws_autoscaling_policy" "cpu" {
   name                   = "cpu-target-tracking"
   autoscaling_group_name = aws_autoscaling_group.web.name
   policy_type            = "TargetTrackingScaling"
-
   target_tracking_configuration {
     predefined_metric_specification {
       predefined_metric_type = "ASGAverageCPUUtilization"
@@ -405,9 +344,7 @@ resource "aws_autoscaling_policy" "cpu" {
   }
 }
 ```
-
 ## Troubleshooting
-
 | Problem | Cause | Fix |
 |---|---|---|
 | Instance stuck in `pending` | Insufficient capacity | Try a different AZ or instance type |
@@ -418,19 +355,13 @@ resource "aws_autoscaling_policy" "cpu" {
 | Spot instance terminated | Capacity reclaimed by AWS | Use capacity-optimized allocation and diversify types |
 | ASG not replacing unhealthy | Health check grace period too short | Increase grace period to cover app boot time |
 | EBS throughput bottleneck | gp2 volume too small for IOPS | Migrate to gp3 and set explicit IOPS/throughput |
-
 ## Related Skills
-
 - aws-vpc (`aws-vpc`) - VPC networking, subnets, and security groups
 - aws-iam (`aws-iam`) - Instance profiles and roles
 - aws-cost-optimization (`aws-cost-optimization`) - Rightsizing and Spot strategies
 - terraform-aws (`terraform-aws`) - Infrastructure as Code deployment
 - cloudformation (`cloudformation`) - AWS-native IaC templates
-
 ## Limitations
-
 - Infrastructure commands can disrupt services: confirm target host/scope and have backups/snapshots before mutating state.
 - Docs-only import: upstream scripts and templates not bundled.
-
-
 The target-tracking example is for EC2 Auto Scaling, whose configuration differs from Application Auto Scaling cooldown fields; configure supported instance warmup separately. AMI IDs, paths, instance families and dates are placeholders/historical choices: verify region, trusted owner and CPU architecture. Creating an image normally reboots; schedule downtime or explicitly quiesce application state before choosing no-reboot. EBS snapshots do not capture instance-store data. Sharing AMIs, deleting snapshots, changing instance types and recurring scaling need exact approved scope/cost/rollback. User data is retrievable and logged, not secret storage. Changing a launch-template version does not itself replace existing instances; plan a verified refresh. The Terraform fragment omits networking/AMI resources; define security groups and application health routing explicitly. GNU base64 -w0 is not portable to macOS.

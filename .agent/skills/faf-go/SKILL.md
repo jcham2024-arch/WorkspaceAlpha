@@ -1,87 +1,59 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "0185cbf162e75e574cab82bb1a8e757d43e04bdba06b9d62888a46fa7dc136d3"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: faf-go
+content_hash: 0185cbf162e75e574cab82bb1a8e757d43e04bdba06b9d62888a46fa7dc136d3
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-07-01
 description: Guided interview to Gold Code (100% AI-Readiness). Use when helping users improve their .faf file through questions. Leverages Claude Code's AskUserQuestion for seamless integration. Just type /faf-go and answer questions till done.
-tier: "experimental"
+license: MIT
+license_source: "https://github.com/Wolfe-Jam/faf-skills/blob/main/LICENSE"
+name: faf-go
 risk: critical
-source: https://github.com/Wolfe-Jam/faf-skills/tree/main/skills/faf-go
+source: "https://github.com/Wolfe-Jam/faf-skills/tree/main/skills/faf-go"
 source_repo: Wolfe-Jam/faf-skills
 source_type: community
-date_added: 2026-07-01
-license: MIT
-license_source: https://github.com/Wolfe-Jam/faf-skills/blob/main/LICENSE
 ---
-
-
 # FAF Go — Guided Path to 100% ✪
-
 **"Just type /faf-go, answer questions till you're done. 100% target."**
-
 `.faf` is an **IANA-registered context format** (`application/vnd.faf+yaml`) — a typed, portable file *you own*, readable by any AI. **faf-cli scores on 21 slots**; your `app_type` selects which are *active*, and **100% ✪ = every active slot filled**. This skill is the guided interview that gets you there: the AI fills what it can detect, then asks you — via Claude Code's AskUserQuestion — only for the gaps it can't source.
-
 ## When to Use This Skill
-
 Activate when:
 - User wants to improve their .faf score
 - User mentions "Gold Code" or "100%"
 - User has incomplete project context
 - After `faf init` to fill in missing fields
 - User says "help me with my .faf"
-
 ## Integration with Claude Code
-
 FAF Go is built FOR Claude Code:
 - **AskUserQuestion** - Native Claude Code UI for questions
 - **multiSelect: true** - Allow multiple answers (e.g., "pytest + WJTTC")
 - **TodoWrite** - Track progress through the interview
 - **Structured output** - JSON that Claude Code understands
 - **Bi-sync** - Answers flow to .faf AND CLAUDE.md
-
 ### multiSelect Support
-
 Some questions allow multiple selections:
 - `stack.testing` → "pytest + WJTTC"
 - `stack.cicd` → "GitHub Actions + Cloud Build"
 - `stack.frontend` → "React + Tailwind"
 - `human_context.who` → "Developers + AI agents"
-
 When `multiSelect: true`, user can pick 2+ options. Results are joined with " + ".
-
 ## Score and instruction-file boundaries
-
 A 100% score measures filled slots under the installed CLI rules, not complete or correct project knowledge. Keep unknowns explicit instead of inventing answers to improve the score. Use the question tools actually available in the host; the examples below are Claude-specific shapes. Before any `faf sync`, inspect its diff/output paths and preserve existing CLAUDE.md/AGENTS.md instructions and user edits; filling context does not authorize overwriting repository policy or syncing secrets into agent-readable files. Report sync only if it actually ran and its output was checked.
-
 ## Workflow
-
 ### Step 1: Check Current State
-
 Run faf score to understand current position:
-
 ```bash
 faf score --verbose
 ```
-
 Or get it as structured data for programmatic use:
-
 ```bash
 faf score --json
 ```
-
 `--json` returns the score + per-slot breakdown — the empty slots are what you interview on (the priority order is in Step 2).
-
 ### Step 2: Ask Questions Using AskUserQuestion
-
 For each missing field, use Claude Code's AskUserQuestion tool:
-
 **Priority Order (most impactful first):**
 1. `project.goal` - What does this project do?
 2. `human_context.why` - Why does this exist?
@@ -95,29 +67,20 @@ For each missing field, use Claude Code's AskUserQuestion tool:
 10. `human_context.where` - Environment
 11. `human_context.when` - Timeline/phase
 12. `human_context.how` - How the project is built (sourced from the stack)
-
 ### Step 3: Apply Answers
-
 After collecting answers, update the .faf file:
-
 ```bash
 # Read current .faf
 cat project.faf
-
 # Update fields (use Edit tool)
 # Then verify:
 faf score
 ```
-
 ### Step 4: Celebrate or Continue
-
 If score >= 100: Celebrate Gold Code achievement
 If score < 100: Continue with remaining questions
-
 ## Question Templates for AskUserQuestion
-
 ### Single-Select Questions (pick one)
-
 #### project.goal
 ```json
 {
@@ -130,7 +93,6 @@ If score < 100: Continue with remaining questions
   ]
 }
 ```
-
 #### human_context.why
 ```json
 {
@@ -145,7 +107,6 @@ If score < 100: Continue with remaining questions
   ]
 }
 ```
-
 #### stack.database
 ```json
 {
@@ -160,7 +121,6 @@ If score < 100: Continue with remaining questions
   ]
 }
 ```
-
 #### stack.hosting
 ```json
 {
@@ -175,9 +135,7 @@ If score < 100: Continue with remaining questions
   ]
 }
 ```
-
 ### Multi-Select Questions (pick multiple, joined with " + ")
-
 #### stack.testing
 ```json
 {
@@ -193,11 +151,9 @@ If score < 100: Continue with remaining questions
 }
 ```
 **Result format:** `pytest + WJTTC` (industry first, WJTTC follows)
-
 **Ordering:** When both selected, industry tests come first:
 - `pytest + WJTTC` (not `WJTTC + pytest`)
 - WJTTC can also run standalone
-
 #### stack.cicd
 ```json
 {
@@ -213,7 +169,6 @@ If score < 100: Continue with remaining questions
 }
 ```
 **Result format:** `GitHub Actions + Cloud Build`
-
 #### stack.frontend
 ```json
 {
@@ -228,7 +183,6 @@ If score < 100: Continue with remaining questions
   ]
 }
 ```
-
 #### human_context.who
 ```json
 {
@@ -244,53 +198,35 @@ If score < 100: Continue with remaining questions
 }
 ```
 **Result format:** `Developers + AI agents`
-
 ### Processing Multi-Select Answers
-
 When user selects multiple options, join them with " + ":
-
 ```python
 # Example: User selects ["pytest", "WJTTC"]
 selected = ["pytest", "WJTTC"]
 value = " + ".join(selected)  # "pytest + WJTTC"
 ```
-
 This creates readable, scannable values in the .faf file:
 ```yaml
 stack:
   testing: pytest + WJTTC
   cicd: GitHub Actions + Cloud Build
 ```
-
 ## Example Session
-
 ```
 User: /faf-go
-
 Claude: Let me check your current .faf status.
-
 [Runs: faf score --verbose]
-
 Your score is 45%. Let's get you to Gold Code!
-
 [Uses AskUserQuestion for project.goal]
-
 User: [Selects option or types custom]
-
 Claude: Great! Now let's capture why this project exists.
-
 [Uses AskUserQuestion for human_context.why]
-
 ... continues until 100% ...
-
 Claude: ✪ GOLD CODE ACHIEVED!
 All active scoring slots are filled; accuracy and project coverage still need review.
 ```
-
 ## TodoWrite Integration
-
 Track progress with todos:
-
 ```javascript
 [
   {"content": "Answer project.goal question", "status": "completed"},
@@ -299,54 +235,35 @@ Track progress with todos:
   {"content": "Verify Gold Code achieved", "status": "pending"}
 ]
 ```
-
 ## CLI Fallback
-
 Outside Claude Code, the same destination is reached with the CLI's own interactive interview:
-
 ```bash
 faf go            # interactive terminal interview (--resume continues a session)
 ```
-
 This skill is the **Claude-native** version of that interview — AskUserQuestion instead of terminal prompts. For structured, programmatic data, use `faf score --json`.
-
 ## Success Metrics
-
 - User reaches 100% score
 - All required fields filled with meaningful content
 - No placeholder values (TBD, Unknown, None where inappropriate)
 - User understands what each field is for
-
 ## On Completion
-
 When 100% ✪ is achieved:
-
 ```
 ✪ 100% — Gold Code
-
 project.faf: complete
 CLAUDE.md:   synced from .faf
 ```
-
 Optionally run `faf sync` to emit CLAUDE.md / AGENTS.md from the .faf. Your AI now starts every session with complete project context.
-
 ## Related Skills
-
 - **faf-context** — the builder's quickstart: hand the AI what it needs to hit 100%, fast
 - **faf-wizard** — done-for-you, one-click .faf for any project
 - **faf-expert** — master the format: scoring internals, MCP config, bi-sync, the full 21-slot model
-
 ---
-
 > .faf is the format. project.faf is the file.
 > 100% ✪ AI-Readiness is the result.
-
 ---
-
 *MIT · part of the FAF skill family (faf-context · faf-wizard · faf-expert). Native to Claude Code.*
-
 ## Limitations
-
 - Use this skill only when the task clearly matches its upstream source and local project context.
 - Verify commands, generated code, dependencies, credentials, and external service behavior before applying changes.
 - Do not treat examples as a substitute for environment-specific tests, security review, or user approval for destructive or costly actions.

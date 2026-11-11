@@ -1,55 +1,36 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "7dc79da653805dd43c9907112f26378bb038f0300d0b162c716db0480eca5f9d"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: cpp-coding-standards
+content_hash: 7dc79da653805dd43c9907112f26378bb038f0300d0b162c716db0480eca5f9d
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: C++ coding standards based on the C++ Core Guidelines (isocpp.github.io). Use when writing, reviewing, or refactoring C++ code to enforce modern, safe, and idiomatic practices.
-tier: "experimental"
-metadata:
-  origin: ECC
+name: cpp-coding-standards
+origin: ECC
 ---
-
-
 # C++ Coding Standards (C++ Core Guidelines)
-
 Comprehensive coding standards for modern C++ (C++17/20/23) derived from the [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines). Enforces type safety, resource safety, immutability, and clarity.
-
 ## When to Use
-
 - Writing new C++ code (classes, functions, templates)
 - Reviewing or refactoring existing C++ code
 - Making architectural decisions in C++ projects
 - Enforcing consistent style across a C++ codebase
 - Choosing between language features (e.g., `enum` vs `enum class`, raw pointer vs smart pointer)
-
 ### When NOT to Use
-
 - Non-C++ projects
 - Legacy C codebases that cannot adopt modern C++ features
 - Embedded/bare-metal contexts where specific guidelines conflict with hardware constraints (adapt selectively)
-
 ## Cross-Cutting Principles
-
 These themes recur across the entire guidelines and form the foundation:
-
 1. **RAII everywhere** (P.8, R.1, E.6, CP.20): Bind resource lifetime to object lifetime
 2. **Immutability by default** (P.10, Con.1-5, ES.25): Start with `const`/`constexpr`; mutability is the exception
 3. **Type safety** (P.4, I.4, ES.46-49, Enum.3): Use the type system to prevent errors at compile time
 4. **Express intent** (P.3, F.1, NL.1-2, T.10): Names, types, and concepts should communicate purpose
 5. **Minimize complexity** (F.2-3, ES.5, Per.4-5): Simple code is correct code
 6. **Value semantics over pointer semantics** (C.10, R.3-5, F.20, CP.31): Prefer returning by value and scoped objects
-
 ## Philosophy & Interfaces (P.*, I.*)
-
 ### Key Rules
-
 | Rule | Summary |
 |------|---------|
 | **P.1** | Express ideas directly in code |
@@ -63,17 +44,10 @@ These themes recur across the entire guidelines and form the foundation:
 | **I.4** | Make interfaces precisely and strongly typed |
 | **I.11** | Never transfer ownership by a raw pointer or reference |
 | **I.23** | Keep the number of function arguments low |
-
 ### DO
-
-
 ### DON'T
-
-
 ## Functions (F.*)
-
 ### Key Rules
-
 | Rule | Summary |
 |------|---------|
 | **F.1** | Package meaningful operations as carefully named functions |
@@ -86,24 +60,15 @@ These themes recur across the entire guidelines and form the foundation:
 | **F.20** | For "out" values, prefer return values to output parameters |
 | **F.21** | To return multiple "out" values, prefer returning a struct |
 | **F.43** | Never return a pointer or reference to a local object |
-
 ### Parameter Passing
-
-
 ### Pure Functions and constexpr
-
-
 ### Anti-Patterns
-
 - Returning `T&&` from functions (F.45)
 - Using `va_arg` / C-style variadics (F.55)
 - Capturing by reference in lambdas passed to other threads (F.53)
 - Returning `const T` which inhibits move semantics (F.49)
-
 ## Classes & Class Hierarchies (C.*)
-
 ### Key Rules
-
 | Rule | Summary |
 |------|---------|
 | **C.2** | Use `class` if invariant exists; `struct` if data members vary independently |
@@ -115,27 +80,16 @@ These themes recur across the entire guidelines and form the foundation:
 | **C.46** | Declare single-argument constructors `explicit` |
 | **C.67** | A polymorphic class should suppress public copy/move |
 | **C.128** | Virtual functions: specify exactly one of `virtual`, `override`, or `final` |
-
 ### Rule of Zero
-
-
 ### Rule of Five
-
-
 ### Class Hierarchy
-
-
 ### Anti-Patterns
-
 - Calling virtual functions in constructors/destructors (C.82)
 - Using `memset`/`memcpy` on non-trivial types (C.90)
 - Providing different default arguments for virtual function and overrider (C.140)
 - Making data members `const` or references, which suppresses move/copy (C.12)
-
 ## Resource Management (R.*)
-
 ### Key Rules
-
 | Rule | Summary |
 |------|---------|
 | **R.1** | Manage resources automatically using RAII |
@@ -146,24 +100,15 @@ These themes recur across the entire guidelines and form the foundation:
 | **R.20** | Use `unique_ptr` or `shared_ptr` to represent ownership |
 | **R.21** | Prefer `unique_ptr` over `shared_ptr` unless sharing ownership |
 | **R.22** | Use `make_shared()` to make `shared_ptr`s |
-
 ### Smart Pointer Usage
-
-
 ### RAII Pattern
-
-
 ### Anti-Patterns
-
 - Naked `new`/`delete` (R.11)
 - `malloc()`/`free()` in C++ code (R.10)
 - Multiple resource allocations in a single expression (R.13 -- exception safety hazard)
 - `shared_ptr` where `unique_ptr` suffices (R.21)
-
 ## Expressions & Statements (ES.*)
-
 ### Key Rules
-
 | Rule | Summary |
 |------|---------|
 | **ES.5** | Keep scopes small |
@@ -176,12 +121,8 @@ These themes recur across the entire guidelines and form the foundation:
 | **ES.47** | Use `nullptr` rather than `0` or `NULL` |
 | **ES.48** | Avoid casts |
 | **ES.50** | Don't cast away `const` |
-
 ### Initialization
-
-
 ### Anti-Patterns
-
 - Uninitialized variables (ES.20)
 - Using `0` or `NULL` as pointer (ES.47 -- use `nullptr`)
 - C-style casts (ES.48 -- use `static_cast`, `const_cast`, etc.)
@@ -189,11 +130,8 @@ These themes recur across the entire guidelines and form the foundation:
 - Magic numbers without named constants (ES.45)
 - Mixing signed and unsigned arithmetic (ES.100)
 - Reusing names in nested scopes (ES.12)
-
 ## Error Handling (E.*)
-
 ### Key Rules
-
 | Rule | Summary |
 |------|---------|
 | **E.1** | Develop an error-handling strategy early in a design |
@@ -204,22 +142,15 @@ These themes recur across the entire guidelines and form the foundation:
 | **E.15** | Throw by value, catch by reference |
 | **E.16** | Destructors, deallocation, and swap must never fail |
 | **E.17** | Don't try to catch every exception in every function |
-
 ### Exception Hierarchy
-
-
 ### Anti-Patterns
-
 - Throwing built-in types like `int` or string literals (E.14)
 - Catching by value (slicing risk) (E.15)
 - Empty catch blocks that silently swallow errors
 - Using exceptions for flow control (E.3)
 - Error handling based on global state like `errno` (E.28)
-
 ## Constants & Immutability (Con.*)
-
 ### All Rules
-
 | Rule | Summary |
 |------|---------|
 | **Con.1** | By default, make objects immutable |
@@ -227,12 +158,8 @@ These themes recur across the entire guidelines and form the foundation:
 | **Con.3** | By default, pass pointers and references to `const` |
 | **Con.4** | Use `const` for values that don't change after construction |
 | **Con.5** | Use `constexpr` for values computable at compile time |
-
-
 ## Concurrency & Parallelism (CP.*)
-
 ### Key Rules
-
 | Rule | Summary |
 |------|---------|
 | **CP.2** | Avoid data races |
@@ -245,25 +172,16 @@ These themes recur across the entire guidelines and form the foundation:
 | **CP.42** | Don't wait without a condition |
 | **CP.44** | Remember to name your `lock_guard`s and `unique_lock`s |
 | **CP.100** | Don't use lock-free programming unless you absolutely have to |
-
 ### Safe Locking
-
-
 ### Multiple Mutexes
-
-
 ### Anti-Patterns
-
 - `volatile` for synchronization (CP.8 -- it's for hardware I/O only)
 - Detaching threads (CP.26 -- lifetime management becomes nearly impossible)
 - Unnamed lock guards: `std::lock_guard<std::mutex>(m);` destroys immediately (CP.44)
 - Holding locks while calling callbacks (CP.22 -- deadlock risk)
 - Lock-free programming without deep expertise (CP.100)
-
 ## Templates & Generic Programming (T.*)
-
 ### Key Rules
-
 | Rule | Summary |
 |------|---------|
 | **T.1** | Use templates to raise the level of abstraction |
@@ -274,21 +192,14 @@ These themes recur across the entire guidelines and form the foundation:
 | **T.43** | Prefer `using` over `typedef` |
 | **T.120** | Use template metaprogramming only when you really need to |
 | **T.144** | Don't specialize function templates (overload instead) |
-
 ### Concepts (C++20)
-
-
 ### Anti-Patterns
-
 - Unconstrained templates in visible namespaces (T.47)
 - Specializing function templates instead of overloading (T.144)
 - Template metaprogramming where `constexpr` suffices (T.120)
 - `typedef` instead of `using` (T.43)
-
 ## Standard Library (SL.*)
-
 ### Key Rules
-
 | Rule | Summary |
 |------|---------|
 | **SL.1** | Use libraries wherever possible |
@@ -298,24 +209,16 @@ These themes recur across the entire guidelines and form the foundation:
 | **SL.str.1** | Use `std::string` to own character sequences |
 | **SL.str.2** | Use `std::string_view` to refer to character sequences |
 | **SL.io.50** | Avoid `endl` (use `'\n'` -- `endl` forces a flush) |
-
-
 ## Enumerations (Enum.*)
-
 ### Key Rules
-
 | Rule | Summary |
 |------|---------|
 | **Enum.1** | Prefer enumerations over macros |
 | **Enum.3** | Prefer `enum class` over plain `enum` |
 | **Enum.5** | Don't use ALL_CAPS for enumerators |
 | **Enum.6** | Avoid unnamed enumerations |
-
-
 ## Source Files & Naming (SF.*, NL.*)
-
 ### Key Rules
-
 | Rule | Summary |
 |------|---------|
 | **SF.1** | Use `.cpp` for code files and `.h` for interface files |
@@ -326,24 +229,15 @@ These themes recur across the entire guidelines and form the foundation:
 | **NL.8** | Use a consistent naming style |
 | **NL.9** | Use ALL_CAPS for macro names only |
 | **NL.10** | Prefer `underscore_style` names |
-
 ### Header Guard
-
-
 ### Naming Conventions
-
-
 ### Anti-Patterns
-
 - `using namespace std;` in a header at global scope (SF.7)
 - Headers that depend on inclusion order (SF.10, SF.11)
 - Hungarian notation like `strName`, `iCount` (NL.5)
 - ALL_CAPS for anything other than macros (NL.9)
-
 ## Performance (Per.*)
-
 ### Key Rules
-
 | Rule | Summary |
 |------|---------|
 | **Per.1** | Don't optimize without reason |
@@ -353,20 +247,13 @@ These themes recur across the entire guidelines and form the foundation:
 | **Per.10** | Rely on the static type system |
 | **Per.11** | Move computation from run time to compile time |
 | **Per.19** | Access memory predictably |
-
 ### Guidelines
-
-
 ### Anti-Patterns
-
 - Optimizing without profiling data (Per.1, Per.6)
 - Choosing "clever" low-level code over clear abstractions (Per.4, Per.5)
 - Ignoring data layout and cache behavior (Per.19)
-
 ## Quick Reference Checklist
-
 Before marking C++ work complete:
-
 - [ ] No raw `new`/`delete` -- use smart pointers or RAII (R.11)
 - [ ] Objects initialized at declaration (ES.20)
 - [ ] Variables are `const`/`constexpr` by default (Con.1, ES.25)

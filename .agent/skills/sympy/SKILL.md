@@ -1,34 +1,22 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "1f8d719af037616243cfa5c79ca0d9534cff1a4c9d16a1128bfc969150d54540"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 1f8d719af037616243cfa5c79ca0d9534cff1a4c9d16a1128bfc969150d54540
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-03-06
+description: SymPy is a Python library for symbolic mathematics that enables exact computation using mathematical symbols rather than numerical approximations.
+license: "https://github.com/sympy/sympy/blob/master/LICENSE"
 name: sympy
-description: "SymPy is a Python library for symbolic mathematics that enables exact computation using mathematical symbols rather than numerical approximations."
-tier: "experimental"
-license: https://github.com/sympy/sympy/blob/master/LICENSE
-metadata:
-    skill-author: K-Dense Inc.
 risk: safe
-source: "https://github.com/sympy/sympy"
-date_added: "2026-03-06"
+source: ""https://github.com/sympy/sympy""
+---    skill-author: K-Dense Inc.
 ---
-
-
 # SymPy - Symbolic Mathematics in Python
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use This Skill
-
 Use this skill when:
 - Solving equations symbolically (algebraic, differential, systems of equations)
 - Performing calculus operations (derivatives, integrals, limits, series)
@@ -40,9 +28,7 @@ Use this skill when:
 - Converting mathematical expressions to executable code (Python, C, Fortran)
 - Generating LaTeX or other formatted mathematical output
 - Needing exact mathematical results (e.g., `sqrt(2)` not `1.414...`)
-
 ## Getting Started Examples
-
 ### Example 1: Solve Quadratic Equation
 ```python
 from sympy import symbols, solve, sqrt
@@ -50,7 +36,6 @@ x = symbols('x')
 solution = solve(x**2 - 5*x + 6, x)
 # [2, 3]
 ```
-
 ### Example 2: Calculate Derivative
 ```python
 from sympy import symbols, diff, sin
@@ -59,7 +44,6 @@ f = sin(x**2)
 df_dx = diff(f, x)
 # 2*x*cos(x**2)
 ```
-
 ### Example 3: Evaluate Integral
 ```python
 from sympy import symbols, integrate, exp, oo
@@ -67,7 +51,6 @@ x = symbols('x')
 integral = integrate(x * exp(-x**2), (x, 0, oo))
 # 1/2
 ```
-
 ### Example 4: Matrix Eigenvalues
 ```python
 from sympy import Matrix
@@ -75,7 +58,6 @@ M = Matrix([[1, 2], [2, 1]])
 eigenvals = M.eigenvals()
 # {3: 1, -1: 1}
 ```
-
 ### Example 5: Generate Python Function
 ```python
 from sympy import symbols, lambdify
@@ -86,7 +68,6 @@ f = lambdify(x, expr, 'numpy')
 f(np.array([1, 2, 3]))
 # array([ 4,  9, 16])
 ```
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

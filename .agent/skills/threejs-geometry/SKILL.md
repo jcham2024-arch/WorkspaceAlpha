@@ -1,34 +1,23 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "7395dcf3856c62cf7cfc7af20e0d20ec39462e79da86936a6ffd98e29e110edb"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: threejs-geometry
+content_hash: 7395dcf3856c62cf7cfc7af20e0d20ec39462e79da86936a6ffd98e29e110edb
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-03-06
 description: Three.js geometry creation - built-in shapes, BufferGeometry, custom geometry, instancing. Use when creating 3D shapes, working with vertices, building custom meshes, or optimizing with instanced rendering.
-tier: "experimental"
+name: threejs-geometry
 risk: critical
 source: community
-date_added: "2026-03-06"
 ---
-
-
 # Three.js Geometry
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use
 - You need to create or optimize geometry in Three.js.
 - The task involves built-in shapes, custom `BufferGeometry`, vertices, or instanced rendering.
 - You are working on mesh structure rather than scene setup or materials alone.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

@@ -1,42 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "5f6b6efba4ec2c659c009bfd1e204cd117477a9f2187c0b162b6a2e3756828dd"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: talivia-agent-kit
-description: "Set up and verify Talivia revenue analytics through MCP, with explicit confirmation for website changes and payment attribution."
-tier: "experimental"
+content_hash: 5f6b6efba4ec2c659c009bfd1e204cd117477a9f2187c0b162b6a2e3756828dd
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: taliviagroup
 category: marketing
+date_added: 2026-08-02
+description: Set up and verify Talivia revenue analytics through MCP, with explicit confirmation for website changes and payment attribution.
+license: MIT
+license_source: ""https://github.com/talivia-group/agent/blob/f4ed3fc6b554ad5183a57ae13ca2a9bd5162c12a/LICENSE""
+name: talivia-agent-kit
 risk: critical
-source: "https://github.com/talivia-group/agent/tree/f4ed3fc6b554ad5183a57ae13ca2a9bd5162c12a"
+source: ""https://github.com/talivia-group/agent/tree/f4ed3fc6b554ad5183a57ae13ca2a9bd5162c12a""
 source_repo: talivia-group/agent
 source_type: community
-date_added: "2026-08-02"
-author: taliviagroup
-tags: [analytics, revenue, attribution, mcp, talivia, marketing]
-tools: [codex, claude]
-license: "MIT"
-license_source: "https://github.com/talivia-group/agent/blob/f4ed3fc6b554ad5183a57ae13ca2a9bd5162c12a/LICENSE"
+tags: "[analytics, revenue, attribution, mcp, talivia, marketing]"
+tools: "[codex, claude]"
 ---
-
-
 # Talivia Agent Kit
-
 ## Overview
-
 Talivia connects website traffic and visitor journeys to payment revenue through
 its MCP server. Use this skill to inspect an existing Talivia setup, install or
 verify website tracking, and review traffic-to-revenue attribution while keeping
 account, website, file, and payment changes behind explicit user consent.
-
 ## When to Use
-
 - Use when the user explicitly asks to set up or verify Talivia revenue analytics.
 - Use when the user mentions the Talivia MCP server, `talivia-group/agent`, or
   `@talivia/agent`.
@@ -44,9 +33,7 @@ account, website, file, and payment changes behind explicit user consent.
   visitor journeys are associated with revenue.
 - Do not use this skill for generic analytics work or unrelated payment-provider
   setup.
-
 ## Safety Gate
-
 1. Confirm the user owns or is authorized to manage the Talivia account and the
    target website.
 2. Use only the configured official MCP endpoint, `https://talivia.com/mcp`.
@@ -60,22 +47,15 @@ account, website, file, and payment changes behind explicit user consent.
    user explicitly asks to create one.
 5. Before any state-changing MCP call, state the exact account, website, action,
    data involved, and expected effect, then obtain explicit user confirmation.
-
 ## Workflow
-
 ### Inspect the current setup
-
 Call the read-only tools first:
-
 1. `talivia_account_status`
 2. `talivia_websites_list`
 3. `talivia_setup_status_get` when a website or installation status is known
-
 Do not infer account ownership, website identity, or consent from a domain name
 alone. Ask when more than one website matches or the target is ambiguous.
-
 ### Plan and install tracking
-
 1. Call `talivia_tracking_snippet_get` and
    `talivia_framework_install_plan_get` for the selected website.
 2. Show the files, framework, and tracking changes that would be made. Use the
@@ -85,39 +65,26 @@ alone. Ask when more than one website matches or the target is ambiguous.
    confirmed the exact proposed changes. Preserve existing analytics, consent,
    and security controls.
 4. Run the project's normal build and test commands before deployment.
-
 ### Verify after deployment
-
 After the user confirms that the site is deployed, call:
-
 - `talivia_tracker_verify`
 - `talivia_setup_status_get`
-
 Report what was actually verified, including any delay, missing event, or
 unverified deployment. Do not claim revenue attribution from a tracking check
 alone.
-
 ## Examples
-
 ### Read-only revenue review
-
 > Inspect the Talivia account and tell me which pages and referrers are
 > associated with revenue. Do not create websites, edit files, or connect a
 > payment provider.
-
 Start with the read-only account, website, and setup-status tools. Report the
 returned evidence and uncertainty without inferring causation.
-
 ### Tracking installation
-
 > Prepare Talivia tracking for the selected site and show me the exact files
 > and changes before applying anything.
-
 Resolve the website, retrieve the tracking snippet and framework plan, present
 the proposed local diff, and wait for confirmation before writing or deploying.
-
 ### Connect payment attribution
-
 1. Explain that payment attribution starts a browser-based authorization flow
    and identify the Talivia account and website involved.
 2. Obtain explicit confirmation before calling
@@ -127,9 +94,7 @@ the proposed local diff, and wait for confirmation before writing or deploying.
 4. Finish with `talivia_payment_status_get` and
    `talivia_checkout_attribution_guide_get`, and clearly separate connected
    status from verified revenue data.
-
 ## Limitations
-
 - This skill does not establish legal authority, cookie consent, privacy
   compliance, or payment-provider permissions for the user.
 - Talivia metrics and attribution depend on the upstream service, deployment,
@@ -144,8 +109,6 @@ the proposed local diff, and wait for confirmation before writing or deploying.
   that future upstream changes are safe.
 - Stop and ask for clarification when the account, website, endpoint, consent
   state, requested file changes, or payment scope is ambiguous.
-
 ## Source
-
 - Upstream repository: [talivia-group/agent](https://github.com/talivia-group/agent/tree/f4ed3fc6b554ad5183a57ae13ca2a9bd5162c12a)
 - Reviewed package version: `@talivia/agent@0.1.0`

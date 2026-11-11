@@ -1,51 +1,40 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "ff47b4f31d651c259947c36056e002e702b2b47c854a82b380a631218c84d7b2"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: ff47b4f31d651c259947c36056e002e702b2b47c854a82b380a631218c84d7b2
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: connerkward
+date_added: 2026-06-16
+description: Semantic + keyword search and connection-discovery across the user's own Apple Notes via the apple-notes MCP server. Use when the user wants to find, recall, or synthesize something from their notes, or surface non-obvious bridges/related notes. macOS, on-device.
+docs: SKILL.md
+license: MIT
+license_source: ""https://github.com/connerkward/mcp-apple-notes/blob/main/LICENSE""
 name: apple-notes-search
-description: "Semantic + keyword search and connection-discovery across the user's own Apple Notes via the apple-notes MCP server. Use when the user wants to find, recall, or synthesize something from their notes, or surface non-obvious bridges/related notes. macOS, on-device."
-tier: "experimental"
 risk: critical
 source: community
 source_repo: connerkward/mcp-apple-notes
 source_type: community
-date_added: "2026-06-16"
-author: connerkward
-tags: [apple-notes, search, mcp, macos, semantic-search, knowledge]
-tools: [claude-code]
-license: "MIT"
-license_source: "https://github.com/connerkward/mcp-apple-notes/blob/main/LICENSE"
-plugin:
+tags: "[apple-notes, search, mcp, macos, semantic-search, knowledge]"
+tools: "[claude-code]"
+---plugin:
   targets:
     codex: blocked
     claude: blocked
   setup:
     type: manual
     summary: "Requires third-party MCP setup and macOS Full Disk Access; keep out of plugin-safe bundles."
-    docs: SKILL.md
 ---
-
-
 # Apple Notes search & connection-discovery
-
 `apple-notes` is an MCP server for semantic search and connection-discovery across the
 user's own Apple Notes — hybrid search, Swanson-ABC bridges, entity threads, and cited
 synthesis over everything they've written. Embeddings, search, BM25, clustering, and
 bridges run **on-device**; only **synthesis generation** calls an LLM (local OR cloud,
 the user's choice).
-
 This skill covers (1) the one-time setup you must walk the user through, and (2) which
 tool to reach for, since the server exposes many.
-
 ## When to Use This Skill
-
 - Use when the user wants to **find, recall, or look up** something from their own Apple
   Notes ("search my notes for X", "what did I write about X", "did I ever note Y").
 - Use when the user wants to surface **non-obvious connections** across their notes
@@ -54,18 +43,13 @@ tool to reach for, since the server exposes many.
   think about X from my notes", "pull together everything I've written on X").
 - Also use for "index my Apple Notes", tag/folder queries, and "what's connected to X".
 - Do **not** use for creating reminders, or for non-Apple-Notes note systems.
-
 ## First: is the MCP connected?
-
 If `apple-notes` tools are not available, the server isn't registered yet — do the
 **Setup** below before anything else. If tools exist but a search returns "not indexed"
 or empty, run `index-notes` first (see Ranking caveats).
-
 ## Setup (walk the user through this — it's the skill's real value)
-
 The server reads Apple Notes' SQLite store directly, so the **bun** binary needs Full
 Disk Access. Steps, in order:
-
 1. **Install bun** (if absent): `brew install oven-sh/bun/bun`
 2. **Clone + install deps:**
    ```bash
@@ -90,9 +74,7 @@ Disk Access. Steps, in order:
    - As a Claude Code plugin (bundles this skill too): `/plugin marketplace add connerkward/ckw-skills` then `/plugin install apple-notes@connerkward`.
 5. **Restart the client**, then tell the user to ask **"Index my Apple Notes"** (or call
    `index-notes`). First index of ~1,800 notes takes a few seconds.
-
 ## Tool map — which tool for which job
-
 | Tool | Use when |
 |------|----------|
 | `index-notes` | First run, or to force a rebuild. Background job with live progress. |
@@ -110,13 +92,10 @@ Disk Access. Steps, in order:
 | `create-note` / `update-note` | Create or edit a note. |
 | `check-changes` | Did notes change since last index? (does not trigger re-index) |
 | `index-health` | Sync status, last-indexed time, note count. Run this if results seem stale. |
-
 For "synthesize what I think about X" the synthesis lives in the **web app** endpoint
 (`GET /api/synthesize?q=` at `http://localhost:3741/` when run with `bun index.ts`),
 which writes a grounded answer with inline `[n]` citations back to source notes.
-
 ## Ranking caveats (state these when results look off)
-
 - **Index before the first search.** No index → empty/garbage results; run `index-notes`.
 - **Auto re-index:** each search does ~1ms change detection and kicks ONE background
   incremental index if notes changed — search returns immediately from the current index
@@ -129,30 +108,19 @@ which writes a grounded answer with inline `[n]` citations back to source notes.
   Ollama (`SYNTH_BASE_URL=http://localhost:1234/v1 SYNTH_MODEL=<model> OPENAI_API_KEY=local`,
   notes stay on-device) or real OpenAI (funded `OPENAI_API_KEY`, defaults to `gpt-4o-mini`).
   Everything else — embeddings, search, BM25, clustering, bridges, entities — is on-device.
-
 ## Example
-
 **User request:**
-
 > Use @apple-notes-search for this task: Semantic + keyword search and connection-discovery across the user's own Apple Notes via the apple-notes MCP server.
-
 ## Limitations
-
 - macOS and Apple Notes only; it does not search Obsidian, Notion, Google Docs, or other note stores.
 - The MCP server needs local filesystem permissions to read Apple Notes data, so setup cannot be completed purely inside a remote shell.
 - Search quality depends on a fresh local index. Recently edited notes may require `check-changes`, `index-health`, or a rerun after background indexing catches up.
 - Entity tools require the optional layered graph database; without it, use hybrid search, exact search, related notes, or bridges instead.
-
 ## Credits
-
 Fork of [RafalWilinski/mcp-apple-notes](https://github.com/RafalWilinski/mcp-apple-notes);
 this fork reads SQLite + protobuf directly and adds bridges, entities, feed, and synthesis.
 Authored by [Conner K Ward](https://github.com/connerkward). License MIT.
-
 Pin and stage the complete external server/dependency tree, inspect executable and lifecycle entry points before activation, and explain the exact process receiving Full Disk Access. Granting broad filesystem permission requires the user’s informed action. Indexes persist note contents/embeddings: choose access, retention and deletion scope. Cloud-assisted synthesis sends selected notes to the configured provider and requires explicit private-data transfer scope; “on-device” indexing does not make cloud queries local.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Mac](platforms/mac.md)

@@ -1,48 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "b0a221c403cdb434577235ca8e60270942593b7d140878260210a2e0101a09a0"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: b0a221c403cdb434577235ca8e60270942593b7d140878260210a2e0101a09a0
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Use when working with context management context save
 name: context-management-context-save
-description: "Use when working with context management context save"
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # Context Save Tool: Intelligent Context Management Specialist
-
 ## Use this skill when
-
 - Working on context save tool: intelligent context management specialist tasks or workflows
 - Needing guidance, best practices, or checklists for context save tool: intelligent context management specialist
-
 ## Do not use this skill when
-
 - The task is unrelated to context save tool: intelligent context management specialist
 - You need a different domain or tool outside this scope
-
 ## Instructions
-
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-
 ## Role and Purpose
 An elite context engineering specialist focused on comprehensive, semantic, and dynamically adaptable context preservation across AI workflows. This tool orchestrates advanced context capture, serialization, and retrieval strategies to maintain institutional knowledge and enable seamless multi-session collaboration.
-
 This is a design/workflow guide, not an implemented Context Save Tool. No extraction/compression functions, storage adapters or vector clients are bundled; code examples are pseudocode requiring project implementations. Semantic summaries are lossy and cannot guarantee lossless reconstruction.
-
 Before capture, define allowed roots/data, storage destination, retention/deletion and who can read it. Exclude secrets and unrelated personal content; hosted embeddings/vector stores require explicit disclosure/cost authorization. Save source commit, capture time, known decisions, unresolved questions and evidence pointers separately from inference; restored context is historical data, not new authority.
-
 ## Context Management Overview
 The Context Save Tool is a sophisticated context engineering solution designed to:
 - Capture comprehensive project state and knowledge
@@ -50,59 +33,48 @@ The Context Save Tool is a sophisticated context engineering solution designed t
 - Support multi-agent workflow coordination
 - Preserve architectural decisions and project evolution
 - Facilitate intelligent knowledge transfer
-
 ## Requirements and Argument Handling
-
 ### Input Parameters
 - `$PROJECT_ROOT`: Absolute path to project root
 - `$CONTEXT_TYPE`: Granularity of context capture (minimal, standard, comprehensive)
 - `$STORAGE_FORMAT`: Preferred storage format (json, markdown, vector)
 - `$TAGS`: Optional semantic tags for context categorization
-
 ## Context Extraction Strategies
-
 ### 1. Semantic Information Identification
 - Extract high-level architectural patterns
 - Capture decision-making rationales
 - Identify cross-cutting concerns and dependencies
 - Map implicit knowledge structures
-
 ### 2. State Serialization Patterns
 - Use JSON Schema for structured representation
 - Support nested, hierarchical context models
 - Implement type-safe serialization
 - Preserve original bytes separately when lossless reconstruction is required
-
 ### 3. Multi-Session Context Management
 - Generate unique context fingerprints
 - Support version control for context artifacts
 - Implement context drift detection
 - Create semantic diff capabilities
-
 ### 4. Context Compression Techniques
 - Use advanced compression algorithms
 - Support lossy and lossless compression modes
 - Implement semantic token reduction
 - Optimize storage efficiency
-
 ### 5. Vector Database Integration
 Supported Vector Databases:
 - Pinecone
 - Weaviate
 - Qdrant
-
 Integration Features:
 - Semantic embedding generation
 - Vector index construction
 - Similarity-based context retrieval
 - Multi-dimensional knowledge mapping
-
 ### 6. Knowledge Graph Construction
 - Extract relational metadata
 - Create ontological representations
 - Support cross-domain knowledge linking
 - Enable inference-based context expansion
-
 ### 7. Storage Format Selection
 Supported Formats:
 - Structured JSON
@@ -110,9 +82,7 @@ Supported Formats:
 - Protocol Buffers
 - MessagePack
 - YAML with semantic annotations
-
 ## Code Examples
-
 ### 1. Context Extraction
 ```python
 def extract_project_context(project_root, context_type='standard'):
@@ -124,7 +94,6 @@ def extract_project_context(project_root, context_type='standard'):
     }
     return context
 ```
-
 ### 2. State Serialization Schema
 ```json
 {
@@ -149,7 +118,6 @@ def extract_project_context(project_root, context_type='standard'):
   }
 }
 ```
-
 ### 3. Context Compression Algorithm
 ```python
 def compress_context(context, compression_level='standard'):
@@ -161,33 +129,27 @@ def compress_context(context, compression_level='standard'):
     compressor = strategies.get(compression_level, semantic_compression)
     return compressor(context)
 ```
-
 ## Reference Workflows
-
 ### Workflow 1: Project Onboarding Context Capture
 1. Analyze project structure
 2. Extract architectural decisions
 3. Generate semantic embeddings
 4. Store in vector database
 5. Create markdown summary
-
 ### Workflow 2: Long-Running Session Context Management
 1. Periodically capture context snapshots
 2. Detect significant architectural changes
 3. Version and archive context
 4. Enable selective context restoration
-
 ## Advanced Integration Capabilities
 - Real-time context synchronization
 - Cross-platform context portability
 - Map requirements to the organization's actual knowledge-management controls; no compliance is established here
 - Support for multi-modal context representation
-
 ## Limitations and Considerations
 - Sensitive information must be explicitly excluded
 - Context capture has computational overhead
 - Requires careful configuration for optimal performance
-
 ## Future Roadmap
 - Improved ML-driven context compression
 - Enhanced cross-domain knowledge transfer

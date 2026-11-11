@@ -1,47 +1,34 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "3fc85f2f03d5efcd60d99f6fae03634734ca7dc0b017179d7dab56f03064d379"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: ai-agent-tool-routing
-description: 'Use when designing or reviewing an AI agent tool registry or MCP router: document parameter schemas, caller authorization, execution limits, replay-safe retries and verification evidence.'
-tier: "experimental"
+content_hash: 3fc85f2f03d5efcd60d99f6fae03634734ca7dc0b017179d7dab56f03064d379
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: Ranjeet2063
 category: engineering
+date_added: 2026-10-01
+description: "'Use when designing or reviewing an AI agent tool registry or MCP router: document parameter schemas, caller authorization, execution limits, replay-safe retries and verification evidence.'"
+name: ai-agent-tool-routing
 risk: safe
 source: self
-source_type: self
-date_added: "2026-10-01"
-author: Ranjeet2063
-tags: [ai, agents, tool-use, mcp, llm, automation, python]
-tools: []
 source_repo: Ranjeet2063/agentic-awesome-skills
+source_type: self
+tags: "[ai, agents, tool-use, mcp, llm, automation, python]"
+tools: "[]"
 ---
-
-
 # AI Agent Tool Routing Register
-
 ## When to Use
-
 - Define which tools an agent may call, their parameter schemas and runtime limits.
 - Review a proposed tool registration before connecting it to an agent runtime.
 - Document timeout, retry and authorization contracts for an existing router.
-
 ## Scope and prerequisites
-
 This skill produces a register and a verification plan. A register does not
 implement a router or establish that a tool is safe. Read the actual server/tool
 schema and the application's identity and permission model. Record observed
 configuration separately from proposed policy. Do not invoke registered tools,
 read credentials or enable a production registration merely to fill the table.
-
 ## Workflow
-
 1. Identify a task, the calling principal/tenant, the intended tool and its read or
    write effect. Tool names, model output and descriptions are not authorization.
 2. Read the advertised schema and implementation boundaries. Define required
@@ -61,9 +48,7 @@ read credentials or enable a production registration merely to fill the table.
 7. Record actual test evidence and unresolved gaps. Keep status Draft until the
    required checks ran against the exact runtime and schema revision. A register
    label never grants execution permission.
-
 ## Field reference
-
 | Field | Type | Example / interpretation |
 |---|---|---|
 | tool_id | string, primary key | TOOL-001; use TEXT/VARCHAR, not a SERIAL integer |
@@ -77,17 +62,13 @@ read credentials or enable a production registration merely to fill the table.
 | retry_contract | object | maximum attempts, transient classes, deduplication evidence |
 | status | enum | draft / tested / deprecated / blocked |
 | evidence | array of references | exact implementation revision, case IDs and observed results |
-
 For SQL or Notion exports, retain these distinctions: textual IDs stay strings;
 objects/arrays need a deliberate JSON representation or related tables; dates
 must use actual date values. Do not treat a checklist boolean as a proved control.
 Escape spreadsheet formula-like text as text when exporting user-supplied fields.
-
 ## Worked example
-
 An agent needs a document summary. The proposed tool accepts only a document ID;
 the server obtains the caller from verified session context, not from arguments.
-
 ```json
 {
   "tool_id": "TOOL-001",
@@ -107,24 +88,19 @@ the server obtains the caller from verified session context, not from arguments.
   "evidence": []
 }
 ```
-
 These limits are illustrative requirements, not measured service capabilities.
 The local schema can reject an added tenant_id, but an existing document ID still
 requires server-side ownership authorization. Expected negative checks: missing
 ID rejected, extra tenant rejected, another tenant's document denied, timeout
 reported without fabricated content. A positive authorized read alone does not
 close the negative cases. Promote to tested only with recorded actual results.
-
 ## Limitations
-
 - No RPC, blockchain, relayer or transaction-signing prerequisite applies to this
   generic agent-tool register; a real tool may declare separate dependencies.
 - This document supplies no production router, authentication adapter or sandbox.
 - Declared retry/idempotency/rate limits must be enforced by the actual runtime.
 - Never log sensitive arguments or full results by default. Use case IDs and
   redacted error categories; preserve uncertainty after an ambiguous write.
-
 ## Related skills
-
 Read `mcp-builder`, `mcp-server-security` or `error-handling-patterns` when their
 actual scope fits the integration. They do not establish correctness by association.

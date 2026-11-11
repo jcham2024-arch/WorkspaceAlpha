@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "c1704b2900a7788163150f45981c98e1e2d42318263e98efed166c09cd19991c"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: frutiger-aero
+content_hash: c1704b2900a7788163150f45981c98e1e2d42318263e98efed166c09cd19991c
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Frutiger Aero. Trigger when user wants glossy gradients, early 2000s nature-inspired tech, glass, and water motifs.
-tier: "experimental"
-date_added: "2026-06-17"
+name: frutiger-aero
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Frutiger Aero
-
 > "The aesthetic of mid-2000s optimism. Glossy plastic, clear water, blue skies, and eco-friendly technology."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Hyper-Glossy Textures**: Buttons look like polished glass or wet plastic. Extensive use of convex gradients and specular highlights.
 2. **Skeuomorphic Nature**: Motifs of green grass, blue skies, water droplets, and bubbles intersecting with sleek glass technology (think Windows Aero or early iOS).
 3. **Translucency**: Frosted glass effects, but much more saturated and reflective than modern glassmorphism.
-
 ## Visual DNA
 - **Colors**: Cyan, sky blue, lime green, and pure white. Avoid dark themes entirely.
 - **Typography**: Clean, highly legible humanist sans-serifs (like the font *Frutiger*, `Segoe UI`, or `Myriad Pro`).
 - **Styling**: Drop shadows are deep. Highlights are bright, sharp white lines at the top of buttons.
-
 ## Web Implementation
 - Use multiple box-shadows (inset for the gloss, outset for depth) and linear-gradients.
 - **CSS Example**:
@@ -46,7 +33,6 @@ body {
   background: linear-gradient(to bottom, #87CEEB 0%, #E0F6FF 60%, #98FB98 100%);
   font-family: 'Segoe UI', Tahoma, sans-serif;
 }
-
 .aero-btn {
   background: linear-gradient(to bottom, #73c8f8 0%, #1583d7 50%, #0361a3 50%, #299eef 100%);
   color: white;
@@ -55,14 +41,12 @@ body {
   padding: 12px 32px;
   font-weight: 600;
   text-shadow: 0 -1px 1px rgba(0,0,0,0.5);
-  
   /* The Glossy Highlight and Depth */
   box-shadow: 
     inset 0 1px 1px rgba(255,255,255,0.8), /* Top edge highlight */
     inset 0 15px 15px rgba(255,255,255,0.3), /* Convex plastic shine */
     0 4px 6px rgba(0,0,0,0.2); /* Drop shadow */
 }
-
 .aero-panel {
   /* Windows Vista/7 Aero Glass */
   background: rgba(255, 255, 255, 0.4);
@@ -73,9 +57,7 @@ body {
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct FrutigerAeroView: View {
@@ -86,7 +68,6 @@ struct FrutigerAeroView: View {
                 colors: [Color(hex: "87CEEB"), Color(hex: "E0F6FF"), Color(hex: "98FB98")],
                 startPoint: .top, endPoint: .bottom
             ).ignoresSafeArea()
-            
             // Glossy Button
             Button(action: {}) {
                 Text("Windows Vista")
@@ -125,7 +106,6 @@ struct FrutigerAeroView: View {
 ```
 - The signature Frutiger Aero "gel" look requires a sharp color transition right in the middle. Set two gradient stops at `0.5` with different colors.
 - An `.overlay` with a top-down white-to-clear gradient stroke creates the glass highlight edge.
-
 ### Flutter
 ```dart
 class FrutigerAeroScreen extends StatelessWidget {
@@ -185,11 +165,9 @@ class FrutigerAeroScreen extends StatelessWidget {
 ```
 - Flutter's `LinearGradient` `stops` array is perfect for this. Providing `0.5` twice creates a hard line that mimics a curved glass reflection.
 - Use `Text` shadows with a negative `offset: Offset(0, -1)` to recreate the classic etched-text look of the 2000s.
-
 ### React Native
 ```jsx
 import LinearGradient from 'react-native-linear-gradient';
-
 const FrutigerAeroScreen = () => {
   return (
     <LinearGradient
@@ -229,7 +207,6 @@ const FrutigerAeroScreen = () => {
 ```
 - `react-native-linear-gradient` supports `locations`. Set them to `[0, 0.5, 0.5, 1]` to create the two-tone convex reflection.
 - Setting `borderTopWidth: 2` with a white border color effectively simulates the bright white top-edge highlight of a shiny plastic object.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -249,7 +226,6 @@ fun FrutigerAeroScreen() {
             0.5f to Color(0xFF0361A3), // Sharp reflection line
             1.0f to Color(0xFF299EEF)
         )
-
         Box(
             modifier = Modifier
                 .shadow(8.dp, RoundedCornerShape(25.dp))
@@ -276,11 +252,9 @@ fun FrutigerAeroScreen() {
 ```
 - Compose's `Brush.verticalGradient` accepts `vararg colorStops: Pair<Float, Color>`. Use `0.49f` and `0.5f` to create the hard reflection line.
 - A gradient border `Modifier.border(brush = ...)` transitioning from White to Transparent perfectly recreates the top-down specular highlight.
-
 ## Do's and Don'ts
 - **DO**: Include imagery of lens flares, auroras, or water bubbles if appropriate.
 - **DON'T**: Make it flat. Frutiger Aero is the ultimate antithesis of Flat Design. Everything must shine.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

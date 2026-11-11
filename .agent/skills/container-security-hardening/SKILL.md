@@ -1,40 +1,27 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "94937f65660d59d459eaa2d89bb645a7e4d2c7bf99262bb3f03a49b0d9030e5d"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: container-security-hardening
+content_hash: 94937f65660d59d459eaa2d89bb645a7e4d2c7bf99262bb3f03a49b0d9030e5d
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+category: security
+date_added: 2026-05-30
 description: >
-tier: "experimental"
-  Harden Docker/container images and runtime deployments with secure base images,
+name: container-security-hardening
+risk: critical
+source: community
+---  Harden Docker/container images and runtime deployments with secure base images,
   non-root users, CVE scanning, SBOM/signing, seccomp/AppArmor, and Kubernetes
   pod security controls. Use for Dockerfile security reviews, container CVEs,
   image scanning, distroless images, or production hardening.
-category: security
-risk: critical
-source: community
-date_added: "2026-05-30"
 ---
-
-
 # Container Security Hardening Skill
-
 A production-focused guide for building, scanning, and running containers securely — from Dockerfile authoring through runtime enforcement and supply chain integrity.
-
 ---
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use This Skill
-
 - User mentions Docker security, container hardening, or Dockerfile security review
 - User asks about distroless images, non-root containers, or read-only filesystems
 - User wants to scan images for CVEs with Trivy, Grype, or Snyk
@@ -43,18 +30,13 @@ Read [the detailed guide](references/detailed-guide.md) before executing this sk
 - User wants to sign/verify images with Cosign or generate SBOMs
 - User asks about Kubernetes pod security, NetworkPolicy, or RBAC hardening
 - User says "fix container CVEs" or "harden my container for production"
-
 ## When NOT to Use This Skill
-
 - The user is primarily asking about GitHub Actions CI/CD → recommend `github-actions-advanced`
 - The user needs general Docker usage help (not security) → recommend `docker-expert`
 - The user is working with Kubernetes orchestration beyond security → recommend `kubernetes-architect`
 - The user needs application-level security (SQL injection, XSS) → recommend `api-security-best-practices`
-
 ---
-
 ## Security Checklist
-
 ### Dockerfile
 - [ ] Supported minimal base image compatible with the application
 - [ ] Multi-stage build — no build tools, devDependencies, or compilers in runtime image
@@ -65,14 +47,12 @@ Read [the detailed guide](references/detailed-guide.md) before executing this sk
 - [ ] OCI labels present (`org.opencontainers.image.*`)
 - [ ] `.dockerignore` excludes `.git`, `.env`, secrets, tests
 - [ ] `ENTRYPOINT` uses exec form, not shell form
-
 ### Image Scanning
 - [ ] Trivy or Grype scan in CI (fails on HIGH/CRITICAL)
 - [ ] Hadolint passes with no warnings
 - [ ] Secret scan run on image (`trivy --scanners secret`)
 - [ ] SBOM generated and stored
 - [ ] `.trivyignore` has justified entries for accepted CVEs
-
 ### Runtime
 - [ ] `--read-only` filesystem
 - [ ] `--cap-drop ALL` (add back only what's documented as required)
@@ -80,7 +60,6 @@ Read [the detailed guide](references/detailed-guide.md) before executing this sk
 - [ ] Runtime default seccomp applied; custom profile only after isolated validation
 - [ ] Resource limits set (`--memory`, `--cpus`, `--pids-limit`)
 - [ ] Image signed with Cosign; verified before deploy
-
 ### Kubernetes
 - [ ] `readOnlyRootFilesystem: true`
 - [ ] `allowPrivilegeEscalation: false`
@@ -91,13 +70,9 @@ Read [the detailed guide](references/detailed-guide.md) before executing this sk
 - [ ] Namespace PSA enforced at `restricted` level
 - [ ] `NetworkPolicy` default-deny applied
 - [ ] RBAC uses specific resource names and minimal verbs
-
 ---
-
 ## Limitations
-
 - Cluster-wide admission policies, registry settings and runtime restrictions can disrupt workloads. Review the intended scope, test in staging and provide rollback before applying. Bundled profiles and manifests are examples, not a security certification.
-
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific penetration testing or a formal security audit.
 - Seccomp and AppArmor act on the Linux host/kernel; Docker Desktop may apply them inside its Linux VM depending on runtime support.

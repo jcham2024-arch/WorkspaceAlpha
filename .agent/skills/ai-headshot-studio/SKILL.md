@@ -1,38 +1,28 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "9a37b5b0ef24f17d99f448ed7c89847db4eed6654e26476d4468c5bfd0a871b1"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: ai-headshot-studio
-description: "Install and use the official AI Headshot Generator package, pinned by digest, for paid hosted work on the Beatra service."
-tier: "experimental"
+content_hash: 9a37b5b0ef24f17d99f448ed7c89847db4eed6654e26476d4468c5bfd0a871b1
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: beatra-ai
 category: media
+date_added: 2026-10-12
+description: Install and use the official AI Headshot Generator package, pinned by digest, for paid hosted work on the Beatra service.
+license: MIT-0
+license_source: ""https://github.com/beatra-ai/ai-headshot-generator-skill/blob/c5a2ab9483f81b36b501a16868516f960ec84ede/LICENSE""
+name: ai-headshot-studio
 risk: critical
 source: community
 source_repo: beatra-ai/ai-headshot-generator-skill
 source_type: official
-date_added: "2026-10-12"
-author: beatra-ai
-tags: [headshot, text-to-image, mcp, paid-api, beatra]
-tools: [claude, codex, cursor, gemini]
-license: "MIT-0"
-license_source: "https://github.com/beatra-ai/ai-headshot-generator-skill/blob/c5a2ab9483f81b36b501a16868516f960ec84ede/LICENSE"
+tags: "[headshot, text-to-image, mcp, paid-api, beatra]"
+tools: "[claude, codex, cursor, gemini]"
 ---
-
-
 # AI Headshot Generator Skill
-
 ## Overview
-
 Turn a casual selfie into a professional headshot with a new background, business attire, and studio lighting for resumes, company websites, career profiles, and social media, from inside Claude Code, Codex, or OpenClaw. The work is produced on the hosted, paid Beatra service
 (`mcp.beatra.ai`).
-
 This catalog entry is a **reviewed pointer, not the executable package**. It
 contains no client code and performs no Beatra operation by itself. The package
 it points to bundles three standard-library Python scripts that make network
@@ -40,30 +30,22 @@ calls and store a credential. It has no self-updater: it never downloads
 code and never changes its own files. Read
 [Install](#install-pinned-verified-approved-twice) and
 [Security & Safety Notes](#security--safety-notes) before activating it.
-
 | Pinned identity | Value |
 | --- | --- |
 | Package | `ai-headshot-studio` `0.2.2` |
 | Source commit | [`beatra-ai/ai-headshot-generator-skill@c5a2ab9`](https://github.com/beatra-ai/ai-headshot-generator-skill/tree/c5a2ab9483f81b36b501a16868516f960ec84ede/skills/ai-headshot-studio) (full SHA `c5a2ab9483f81b36b501a16868516f960ec84ede`) |
 | Package tree | `14b395322c83d66604701fca1cb2b2e0dcc0abce` (Git tree ID of `skills/ai-headshot-studio` at that commit) |
 | License | MIT No Attribution (MIT-0) |
-
 The pinned tree holds regular files only (no symlinks, no executable bits, no
 binaries). Confirm that with the inspect commands below.
-
 ## When to Use This Skill
-
 - Use when the user explicitly wants AI Headshot Generator work produced on Beatra and accepts that it is paid.
 - Use when they have agreed to send prompts and any reference images to a third party.
 - Do not use for local-only image editing or when no paid render was approved.
-
 ## Install (pinned, verified, approved twice)
-
 ### Step 1: Fetch the pinned tree into a review directory
-
 Explain that this fetches an external package from `github.com`, then ask
 for approval. Only after approval:
-
 ```bash
 set -e
 umask 077
@@ -73,21 +55,16 @@ git clone --quiet --filter=blob:none --no-checkout https://github.com/beatra-ai/
 git -C src checkout --quiet c5a2ab9483f81b36b501a16868516f960ec84ede -- skills/ai-headshot-studio
 test "$(git -C src rev-parse 'c5a2ab9483f81b36b501a16868516f960ec84ede:skills/ai-headshot-studio')" = '14b395322c83d66604701fca1cb2b2e0dcc0abce' && echo TREE-OK
 ```
-
 Stop if the last command does not print `TREE-OK`. The expected commit and
 tree IDs come from this catalog entry, not from the package or its website,
 and Git addresses every fetched object by its hash.
-
 ### Step 2: Inspect before activation
-
 ```bash
 git -C src ls-tree -r c5a2ab9483f81b36b501a16868516f960ec84ede -- skills/ai-headshot-studio | awk '$1 != "100644"'  # expect no output
 grep -n -E 'maybe_auto_update|download_update|_apply_update' src/skills/ai-headshot-studio/scripts/mcp_client.py  # expect no output
 ```
-
 The first check lists any symlink, executable, or submodule entry; the second
 finds the entry points of the self-updater that earlier versions shipped.
-
 Report to the user what the review found: `SKILL.md`, `manifest.json`,
 `install-source.json` (the one-line marker `{"schema_version":1,"source":"github"}`),
 the bundled Markdown references, and `scripts/authorize.py`,
@@ -95,34 +72,23 @@ the bundled Markdown references, and `scripts/authorize.py`,
 library only, no dependency installation, no lifecycle hooks). Summarize the
 network, credential, local-state, telemetry, and version-notice behavior
 listed under [Security & Safety Notes](#security--safety-notes).
-
 The manifest and pattern scans above are only inventory aids. Before activation, read every file in the pinned tree, including each script, reference and hook, and inspect all dependency and network behavior. Do not claim source review from grep output. If complete review cannot be performed, stop before copying or executing; ask for a separate review rather than treating a digest as evidence of safety.
-
 ### Step 3: Copy in
-
 Obtain explicit authorization for this host configuration change if it is not already covered by the user's request; do not repeat an existing scoped approval. Then copy the reviewed tree to the host's skills directory
 (Claude Code shown; use the equivalent path for other hosts):
-
 ```bash
 dest="$HOME/.claude/skills/ai-headshot-studio"
 test ! -e "$dest" && test ! -L "$dest" || { echo "destination exists; stop and ask the user"; exit 1; }
 cp -R "src/skills/ai-headshot-studio" "$dest"
 ```
-
 There is no update switch to turn off in this version.
-
 ### Step 4: Authorize as its own decision
-
 Authorization opens a browser sign-in and stores a bearer token. Ask first.
-
 ```bash
 python3 "$dest/scripts/authorize.py"
 ```
-
 Start a new agent session if the host discovers skills only at startup.
-
 ## How It Works
-
 1. Read the installed package's `SKILL.md` and its references; they define the
    routes, payload shapes, and review loop.
 2. Use free, non-billable discovery first (`beatra.models.list`, task list) to
@@ -133,44 +99,33 @@ Start a new agent session if the host discovers skills only at startup.
    once with a stable `client_request_id` and poll the returned task.
 5. Report the delivered artifact and `billing.net_charged_credits`, review the
    result with the user, and ask again before any further paid stage.
-
 ## Examples
-
 ### Free connection check (non-billable)
-
 ```bash
 python3 "$HOME/.claude/skills/ai-headshot-studio/scripts/mcp_client.py" verify
 ```
-
 ### One approved paid call
-
 After the user approved the cost card for this exact payload, submit once with
 a stable request id using the tool name from the installed `SKILL.md`. If the
 response is lost, retry only with the same `client_request_id` and identical
 arguments; never submit a replacement while the task is running.
-
 ## Update
-
 This pinned version cannot update itself: it has no code that downloads or
 replaces package files. `update` only reports what the store or tool that
 installed the copy offers; for a copy installed by the steps above it finds
 no such record and says to update the way you installed it. See the version
 notice under [Security & Safety Notes](#security--safety-notes).
-
 To move to a newer version, repeat Steps 1 to 3 for that commit in a new
 review directory, show the user the file-level changes against the installed
 copy (for example `git -C src diff --stat c5a2ab9 <new-commit> -- skills/ai-headshot-studio`),
 and replace the directory only after approval. A version not listed in this
 entry has not been reviewed here.
-
 ## Uninstall
-
 ```bash
 dest="$HOME/.claude/skills/ai-headshot-studio"
 python3 "$dest/scripts/uninstall.py" --dry-run
 python3 "$dest/scripts/uninstall.py"
 ```
-
 Read the JSON decision. `disconnected` means this was the last Beatra skill on
 the device: the token was revoked (when `revoked` is `true`) and the files
 `credentials.json`, `installation.json`, `host.json`, `skills.json`,
@@ -180,23 +135,18 @@ another Beatra skill still uses the shared token, which stays.
 `revoke_retry` means the server refused the revocation and nothing changed;
 run it again shortly. The script never deletes the package directory: after
 confirming the path it prints with the user, delete `$dest`.
-
 `uninstall.py` does not remove `~/.beatra/updates/`. When the decision is
 `disconnected` and no other Beatra skill is installed, remove that directory
 and then the empty `~/.beatra`; otherwise leave them. A token that could not
 be revoked expires after 15 days idle and can be revoked at once in the
 Beatra Console under Agents.
-
 ## Best Practices
-
 - ✅ Keep one approval per paid call, per upload set, and per install step.
 - ✅ Report net charged credits from the terminal task, not the estimate.
 - ❌ Do not replace the installed copy with an unreviewed version silently.
 - ❌ Do not print, paste, or move the token out of `~/.beatra/credentials.json`.
 - ❌ Do not retry a paid call with a new request ID after an uncertain response.
-
 ## Limitations
-
 - Requires a Beatra account, network access, Python 3.10+, and prepaid credits.
 - Models, prices, schemas, and availability are controlled by Beatra and its
   upstream model providers and can change; the service is provided as is.
@@ -204,11 +154,8 @@ Beatra Console under Agents.
   human review before publication.
 - This catalog entry reviews only the pinned tree above. A newer version is
   a different review.
-
 ## Security & Safety Notes
-
 `risk: critical` is deliberate.
-
 - **Network.** Every request is HTTPS and refuses redirects. Authorization
   uses `api.beatra.ai` and tool calls go to `mcp.beatra.ai`; an upload is a
   `PUT` of the approved file to the HTTPS address the server returns, without
@@ -284,9 +231,7 @@ Beatra Console under Agents.
 - **Content rights.** Users keep rights in their inputs and receive Beatra's
   rights in outputs; they must hold rights to uploaded media and must not
   create deceptive impersonations.
-
 ## Additional Resources
-
 - [Source tree at the pinned commit](https://github.com/beatra-ai/ai-headshot-generator-skill/tree/c5a2ab9483f81b36b501a16868516f960ec84ede/skills/ai-headshot-studio)
 - [Product page](https://beatra.ai/skills/ai-headshot-studio)
 - [Terms](https://beatra.ai/en/terms) and [privacy policy](https://beatra.ai/en/privacy)

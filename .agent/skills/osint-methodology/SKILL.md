@@ -1,31 +1,26 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "3ba2677cea3859deb70d40dbca56a9df79bf37e82f1683767002b41f184abd41"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: osint-methodology
-description: Comprehensive OSINT methodology for external red-team operations and
-tier: "experimental"
-  authorized attack-surface assessments.
+content_hash: 3ba2677cea3859deb70d40dbca56a9df79bf37e82f1683767002b41f184abd41
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 category: security
+compatibility: Requires explicit written authorization for a target scope plus the
+date_added: 2026-09-20
+description: Comprehensive OSINT methodology for external red-team operations and
+license: MIT
+license_source: "https://github.com/elementalsouls/Claude-BugHunter/blob/main/LICENSE"
+name: osint-methodology
 risk: offensive
-source: https://github.com/elementalsouls/Claude-BugHunter
+source: "https://github.com/elementalsouls/Claude-BugHunter"
 source_repo: elementalsouls/Claude-BugHunter
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/elementalsouls/Claude-BugHunter/blob/main/LICENSE
-compatibility: Requires explicit written authorization for a target scope plus the
+version: 2.3
+---  authorized attack-surface assessments.
   relevant testing tools for this technique. Docs-only; helper scripts and commands
   not bundled.
 sources: community, public_research
-version: 2.3
 triggers:
 - external recon
 - external red team
@@ -85,12 +80,10 @@ triggers:
 - threat actor investigation
 - attribution
 ---
-
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.
 > Misuse of this tool is illegal and strictly prohibited.
-
 > **Mandatory confirmation gate**
 > Before running any command that probes, exploits, changes, persists on, extracts data from, or attempts credential access against a target:
 > 1. Ask the user to state the exact target URL, IP, account, or resource.
@@ -99,20 +92,15 @@ triggers:
 > 4. Wait for explicit confirmation in the current conversation.
 >
 > Without that confirmation, remain read-only and provide defensive guidance only. Prefer a sandbox, disposable VM, or controlled lab.
-
 # OSINT methodology for authorized surface review
-
 ## When to Use
-
 Use for scoped organizational attack-surface research, evidence correlation and
 assessment reports. Defensive inventory and source analysis are valid uses.
 Personal investigations need a legitimate, clearly scoped purpose and privacy
 limits; do not collect private identifiers, credentials or location histories as
 an automatic extension of an infrastructure engagement. Exploitation, phishing
 execution, persistence and account intrusion are outside this methodology.
-
 ## Authorization and collection plan
-
 Record exact assets, approved sources/queries, allowed active techniques, window,
 rate limits, data minimization, retention and stop conditions. The root mandatory
 per-command confirmation gate remains binding; an asserted engagement or a
@@ -120,16 +108,13 @@ per-command confirmation gate remains binding; an asserted engagement or a
 Discovery of a subsidiary, vendor, employee profile or historical origin does not
 expand scope. Use approved engagement accounts and egress; do not rotate personas,
 TLS fingerprints or proxies to evade blocks or platform controls.
-
 Start with approved local inventories and public documentation. Separate passive
 third-party queries from requests to the target: HTTP HEAD, DNS resolution, TLS
 handshakes, screenshots and API calls can all generate traffic/logs and may send
 sensitive query information to the provider. Check cost, terms and authorization.
 Stop at rate limits, WAF challenges, explicit denial or owner contact; document
 and consult the lead before resuming, without switching identity to bypass them.
-
 ## Workflow
-
 1. Define the research question and known seed identities with sources/dates.
 2. Collect only relevant authorized evidence and record acquisition method.
 3. Represent assets and relationships as typed, timestamped observations.
@@ -138,9 +123,7 @@ and consult the lead before resuming, without switching identity to bypass them.
    keywords, email role or a fixed numeric “interest score”.
 6. Draft findings and recommended next steps; submit/contact/publish only when
    specifically authorized. Preserve unresolved leads as hypotheses.
-
 ## Evidence record example
-
 ```json
 {
   "asset_key": "domain:example.org",
@@ -153,15 +136,12 @@ and consult the lead before resuming, without switching identity to bypass them.
   "limitations": ["not evidence of a live service or vulnerability"]
 }
 ```
-
 Confidence attaches to the precise claim. A resolved domain, an HTTP response,
 a matched photo or three copied search results does not confirm ownership,
 attribution, exploitation or a person's identity. Counts of signals are not a
 universal proof rule. Distinguish source independence, direct observation and
 inference; record counterevidence and possible stale/spoofed data.
-
 ## Data handling
-
 Store restricted evidence and redacted working copies separately. Record source,
 UTC time, tool version, full content hash and any truncation or normalization.
 Hashes bind bytes, not truth, legal admissibility or replayability. Do not submit
@@ -170,12 +150,9 @@ models without explicit data-sharing approval. A local model is not automaticall
 private: check logging, telemetry, access and storage. Do not acquire stolen dumps
 or validate found credentials merely to increase confidence; stop and notify via
 the approved owner channel, with redaction.
-
 Read [technical interpretation guidance](references/details.md) before classifying
 identity, cloud, media, blockchain or vulnerability data.
-
 ## Limitations and provenance
-
 Docs-only adaptation of
 [elementalsouls/Claude-BugHunter](https://github.com/elementalsouls/Claude-BugHunter),
 with upstream MIT attribution retained. No scanner engine, corpus, CLI `--deep`

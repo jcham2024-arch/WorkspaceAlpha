@@ -1,39 +1,26 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "5b88b8955bd4a736d3409be4a5407bb2914e581a48503f67decc796acd2ca30a"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 5b88b8955bd4a736d3409be4a5407bb2914e581a48503f67decc796acd2ca30a
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-07-01
+description: Designs event-driven architectures, webhook systems, API chaining flows, ETL pipelines, and integration patterns between services.
+license: MIT
+license_source: "https://github.com/LambdaTest/agent-skills/blob/main/LICENSE"
 name: api-integration
-description: "Designs event-driven architectures, webhook systems, API chaining flows, ETL pipelines, and integration patterns between services."
-tier: "experimental"
 risk: none
-source: https://github.com/LambdaTest/agent-skills/tree/main/api-skill/api-integration-helper
+source: "https://github.com/LambdaTest/agent-skills/tree/main/api-skill/api-integration-helper"
 source_repo: LambdaTest/agent-skills
 source_type: community
-date_added: 2026-07-01
-license: MIT
-license_source: https://github.com/LambdaTest/agent-skills/blob/main/LICENSE
 ---
-
-
 # API Integration Skill
 ## When to Use
-
 Use this skill when you need designs event-driven architectures, webhook systems, API chaining flows, ETL pipelines, and integration patterns between services. Use whenever the user asks about webhooks, event streaming, API composition, connecting two or more APIs, building pipelines, Pub/Sub, Kafka topics, ETL...
-
-
 Design integration patterns, webhook flows, event pipelines, and API composition strategies.
-
 ---
-
 ## Webhook Design
-
 ### Outbound Webhook Endpoint (from your system to 3rd party)
 ```
 POST {subscriber_url}
@@ -44,7 +31,6 @@ Headers:
   X-Webhook-Delivery: <uuid>
   X-Webhook-Timestamp: <unix-epoch>
 ```
-
 **Payload envelope**
 ```json
 {
@@ -54,7 +40,6 @@ Headers:
   "data": { ... }
 }
 ```
-
 **Signature verification** (receiver side):
 ```python
 import hmac, hashlib
@@ -63,7 +48,6 @@ expected = hmac.new(secret.encode(), payload_bytes, hashlib.sha256).hexdigest()
 if not hmac.compare_digest(f"sha256={expected}", request.headers.get("X-Webhook-Signature", "")):
     raise ValueError("Invalid webhook signature")
 ```
-
 ### Inbound Webhook Registration API
 ```
 POST   /api/v1/webhooks           — register subscriber URL + events
@@ -72,24 +56,17 @@ DELETE /api/v1/webhooks/{id}      — unsubscribe
 POST   /api/v1/webhooks/{id}/test — fire test event
 GET    /api/v1/webhooks/{id}/deliveries — delivery history + status
 ```
-
 ---
-
 ## API Chaining / Composition Pattern
-
 ```
 Step 1: POST /auth/token           → get access_token
 Step 2: GET  /api/v1/user/profile  → get user.id (use token from step 1)
 Step 3: POST /api/v1/orders        → create order (use user.id from step 2)
 Step 4: POST /api/v1/payments      → charge (use order.id from step 3)
 ```
-
 Always: handle failures at each step independently, use idempotency keys, implement retry with exponential backoff.
-
 ---
-
 ## Event-Driven Architecture
-
 ### Event Schema (CloudEvents spec)
 ```json
 {
@@ -102,35 +79,27 @@ Always: handle failures at each step independently, use idempotency keys, implem
   "data": { "order_id": "...", "amount": 99.99 }
 }
 ```
-
 ### Topics / Queues design
 | Topic | Producers | Consumers | Retention |
 |-------|-----------|-----------|-----------|
 | `orders.created` | orders-svc | payments-svc, email-svc | 7 days |
 | `payments.completed` | payments-svc | orders-svc, ledger-svc | 30 days |
 | `users.deleted` | users-svc | all services | 90 days |
-
 ---
-
 ## Saga Pattern (Distributed Transaction)
-
 ```
 Choreography saga for order checkout:
 1. orders-svc emits order.created
 2. inventory-svc reserves stock → emits inventory.reserved
 3. payments-svc charges card → emits payment.completed
 4. orders-svc emits order.confirmed
-
 On failure at step 3:
 ← payments-svc emits payment.failed
 ← inventory-svc releases stock (compensating transaction)
 ← orders-svc emits order.cancelled
 ```
-
 ---
-
 ## Outbox Pattern (reliable event publishing)
-
 ```sql
 -- Transactional outbox table
 CREATE TABLE outbox_events (
@@ -145,11 +114,8 @@ CREATE TABLE outbox_events (
 -- Write to DB + outbox in same transaction
 -- Separate publisher polls outbox and sends to message broker
 ```
-
 ---
-
 ## Integration Checklist
-
 - [ ] Idempotency keys on all state-changing calls
 - [ ] Retry with exponential backoff (base 1s, max 60s, jitter)
 - [ ] Circuit breaker (open after 5 failures in 10s)
@@ -157,15 +123,10 @@ CREATE TABLE outbox_events (
 - [ ] Webhook delivery logging + manual replay endpoint
 - [ ] Schema versioning on all events
 - [ ] Correlation IDs on all inter-service calls
-
 ---
-
 ## Handoff
-
 Report the event schemas, delivery/retry policy, idempotency and compensation boundaries, and the checks actually performed. Signature verification also needs the provider's current protocol, bounded input, timestamp/replay protection and an authorized test endpoint. A design is not evidence that an integration or payment ran.
-
 ## Limitations
-
 - Use this skill only when the task clearly matches its upstream source and local project context.
 - Verify commands, generated code, dependencies, credentials, and external service behavior before applying changes.
 - Do not treat examples as a substitute for environment-specific tests, security review, or user approval for destructive or costly actions.

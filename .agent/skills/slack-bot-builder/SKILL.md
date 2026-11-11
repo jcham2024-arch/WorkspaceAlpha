@@ -1,41 +1,28 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "2fe69346a44107674e0386bd2d167ca51211c9a75cb91c7d5641b5a69b559f31"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: slack-bot-builder
+content_hash: 2fe69346a44107674e0386bd2d167ca51211c9a75cb91c7d5641b5a69b559f31
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Build Slack apps using the Bolt framework across Python,
-tier: "experimental"
-  JavaScript, and Java. Covers Block Kit for rich UIs, interactive components,
-  slash commands, event handling, OAuth installation flows, and Workflow Builder
-  integration.
+name: slack-bot-builder
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
-date_added: 2026-02-27
+---  JavaScript, and Java. Covers Block Kit for rich UIs, interactive components,
+  slash commands, event handling, OAuth installation flows, and Workflow Builder
+  integration.
 ---
-
-
 # Slack Bot Builder
-
 Build Slack apps using the Bolt framework across Python, JavaScript, and Java.
 Covers Block Kit for rich UIs, interactive components, slash commands,
 event handling, OAuth installation flows, and Workflow Builder integration.
 Focus on best practices for production-ready Slack apps.
-
 ## Application boundary
-
 The bundled guide is a set of partial Python sketches, not a runnable app across all three advertised languages. Supply missing business functions/stores/imports and verify the pinned Bolt SDK APIs. Authenticate and authorize the acting workspace/user/object before approvals, ticket creation or incident changes; removing a button does not prevent duplicate/concurrent processing. Use durable idempotency and tenant-scoped installation storage. Escape untrusted mrkdwn/mentions and redact tokens, response URLs and private channel data. Sending real messages and enabling OAuth/production integrations require explicit authorization. Socket Mode can support production and multiple connections; choose transport from verified platform/distribution requirements, not the guide's development-only claim. Legacy WorkflowStep examples are historical and need migration to supported custom steps.
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use
 - User mentions or implies: slack bot
 - User mentions or implies: slack app
@@ -46,7 +33,6 @@ Read [the detailed guide](references/detailed-guide.md) before executing this sk
 - User mentions or implies: slack workflow
 - User mentions or implies: slack interactive
 - User mentions or implies: slack oauth
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

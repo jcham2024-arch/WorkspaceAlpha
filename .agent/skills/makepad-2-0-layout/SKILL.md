@@ -1,24 +1,18 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "072178e74b80fd217b1a53e9c78b77c5763ae37fdf7c900f5c85d01a588711c6"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: makepad-2-0-layout
+content_hash: 072178e74b80fd217b1a53e9c78b77c5763ae37fdf7c900f5c85d01a588711c6
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-09-21
 description: Makepad 2.0 guidance for layout; use when building or debugging Makepad UI code.
-tier: "experimental"
+name: makepad-2-0-layout
+risk: unknown
+source: community
 source_repo: zhanghandong/makepad-skills
 source_type: community
-source: community
-date_added: '2026-09-21'
-risk: unknown
 ---
-
 ## Limitations
 - Verify against current Makepad 2.0 docs; upstream APIs change frequently.
 - Do not run bundled scripts without explicit user approval.
@@ -37,7 +31,6 @@ properties (its own size) and Layout properties (how it lays out children).
 ## Walk System (Widget Sizing)
 Walk controls how an individual widget claims space inside its parent.
 ### width / height
-
 | Syntax | Meaning |
 |--------|---------|
 | `width: Fill` | Fill all remaining horizontal space (default) |
@@ -48,30 +41,25 @@ Walk controls how an individual widget claims space inside its parent.
 | `height: Fill` | Fill all remaining vertical space (default) |
 | `height: Fit` | Shrink to fit content |
 | `height: 100` | Fixed 100 pixels |
-
 ```
 use mod.prelude.widgets.*
-
 // Fill: takes all available width
 View{
     width: Fill height: Fit
     flow: Down
     Label{text: "I stretch to fill the width"}
 }
-
 // Fit: shrinks to content
 View{
     width: Fit height: Fit
     padding: 10
     Label{text: "I am only as wide as this text"}
 }
-
 // Fixed: exact pixel size
 View{
     width: 300 height: 200
     Label{text: "I am exactly 300x200 pixels"}
 }
-
 // Constrained Fill: fills but within bounds
 View{
     width: Fill{min: 200 max: 600} height: Fit
@@ -79,18 +67,13 @@ View{
     Label{text: "I fill available space but stay between 200-600px"}
 }
 ```
-
 ### CRITICAL: height: Fit on Containers
-
 **This is the number one layout bug in Makepad.**
-
 The default height is `Fill`. When your output renders inside a `Fit` container,
 `Fill` inside `Fit` creates a circular dependency and resolves to **0 pixels**.
 A symptom can be zero or unexpected height; inspect the actual parent/child constraints rather than assuming every invisible widget has this cause.
-
 **Rule: ALWAYS set `height: Fit` on every View, SolidView, RoundedView, and similar
 container unless the parent has a fixed or Fill height.**
-
 ```
 // CORRECT -- height: Fit makes the container visible
 View{
@@ -98,7 +81,6 @@ View{
     flow: Down padding: 10
     Label{text: "I am visible"}
 }
-
 // WRONG -- defaults to height: Fill, resolves to 0px, invisible
 View{
     width: Fill
@@ -106,7 +88,6 @@ View{
     Label{text: "I am invisible (0px tall)"}
 }
 ```
-
 **Exceptions where height: Fill is acceptable:**
 1. Inside a fixed-height parent:
 ```
@@ -120,33 +101,23 @@ View{
 ```
 2. Inside a `height: Fill` chain that ultimately reaches a known size (e.g., Window body).
 3. A ScrollYView needs a bounded viewport. `height: Fill` inside a known-height parent is one option; an explicit fixed/constrained height is also valid.
-
 ### margin
-
 Margin adds space around the outside of a widget.
-
 ```
 // Uniform margin on all sides
 Label{text: "Hello" margin: 10}
-
 // Selective margin with Inset
 Label{
     text: "Indented"
     margin: Inset{top: 5 bottom: 5 left: 20 right: 20}
 }
-
 // Zero margin (note the trailing dot for float literal)
 Label{text: "Flush" margin: 0.}
 ```
-
 ---
-
 ## Layout System (Child Arrangement)
-
 Layout controls how a container positions its children.
-
 ### flow (Direction)
-
 | Syntax | Meaning | CSS Equivalent |
 |--------|---------|----------------|
 | `flow: Right` | Left-to-right, single line (default) | `flex-direction: row` |
@@ -154,10 +125,8 @@ Layout controls how a container positions its children.
 | `flow: Overlay` | Stack children on top of each other | `position: absolute` stacking |
 | `flow: Flow.Right{wrap: true}` | Left-to-right with wrapping | `flex-wrap: wrap` |
 | `flow: Flow.Down{wrap: true}` | Top-to-bottom with wrapping | column wrap |
-
 ```
 use mod.prelude.widgets.*
-
 // Vertical stack (most common)
 View{
     width: Fill height: Fit
@@ -166,7 +135,6 @@ View{
     Label{text: "Second"}
     Label{text: "Third"}
 }
-
 // Horizontal row
 View{
     width: Fill height: Fit
@@ -175,7 +143,6 @@ View{
     Label{text: "Center"}
     Label{text: "Right"}
 }
-
 // Overlay -- children stacked on top of each other
 View{
     width: Fill height: 200
@@ -188,7 +155,6 @@ View{
         Label{text: "Caption overlay" draw_text.color: #fff}
     }
 }
-
 // Wrapping flow -- like a tag cloud or grid of cards
 View{
     width: Fill height: Fit
@@ -201,11 +167,8 @@ View{
     Label{text: "Tag 4" margin: 4}
 }
 ```
-
 ### spacing
-
 Gap between children. A single number applies uniformly.
-
 ```
 View{
     flow: Down spacing: 12
@@ -214,11 +177,8 @@ View{
     Label{text: "12px gap above me"}
 }
 ```
-
 ### padding
-
 Inner space between the container edge and its children.
-
 ```
 // Uniform padding
 View{
@@ -226,7 +186,6 @@ View{
     padding: 20
     Label{text: "20px padding on all sides"}
 }
-
 // Selective padding with Inset
 View{
     width: Fill height: Fit
@@ -234,14 +193,10 @@ View{
     Label{text: "Different padding per side"}
 }
 ```
-
 ### align (Child Alignment)
-
 Alignment positions children within the remaining space of the container.
 Values range from 0.0 (start) to 1.0 (end) on each axis.
-
 #### Alignment Reference Table
-
 | Shorthand | Equivalent | Description |
 |-----------|-----------|-------------|
 | `Center` | `Align{x: 0.5 y: 0.5}` | Center on both axes |
@@ -252,17 +207,14 @@ Values range from 0.0 (start) to 1.0 (end) on each axis.
 | `Align{x: 0.0 y: 1.0}` | -- | Bottom-left corner |
 | `Align{x: 1.0 y: 1.0}` | -- | Bottom-right corner |
 | `Align{x: 0.5 y: 1.0}` | -- | Bottom center |
-
 ```
 use mod.prelude.widgets.*
-
 // Center everything
 View{
     width: Fill height: 300
     align: Center
     Label{text: "I am centered"}
 }
-
 // Horizontal center only (children flow from top)
 View{
     width: Fill height: Fit
@@ -270,7 +222,6 @@ View{
     align: HCenter
     Label{text: "I am horizontally centered"}
 }
-
 // Vertically center children in a horizontal row
 View{
     width: Fill height: 60
@@ -280,11 +231,8 @@ View{
     Label{text: "Small text" draw_text.text_style.font_size: 9}
 }
 ```
-
 ### clip_x / clip_y
-
 Controls whether overflowing content is clipped.
-
 ```
 // Clip overflow (default behavior)
 View{
@@ -293,7 +241,6 @@ View{
     clip_y: true
     Label{text: "Very long text that will be clipped at the container boundary"}
 }
-
 // Allow overflow to be visible
 View{
     width: 200 height: 100
@@ -302,84 +249,62 @@ View{
     Label{text: "This text can overflow beyond the container"}
 }
 ```
-
 **Important boundary:** `clip_x: false` / `clip_y: false` only allow a local child to
 paint outside its parent. They do NOT turn that child into a true window-level overlay.
 If the UI element is a popup/menu/tooltip that should float independently of the local
 layout tree, use a top-level `Modal`/overlay owner instead of relying on local overflow.
-
 ### Overlay Popups: `walk.abs_pos` vs `margin`
-
 For popup-style positioning inside an overlay (`Modal`, tooltip layer, popup owner),
 prefer `walk.abs_pos` over runtime `margin` tweaks.
-
 - `margin` is layout spacing. It is best for nudging normal flow children.
 - `walk.abs_pos` is an explicit turtle anchor for overlay-style placement.
 - `button.area().clipped_rect(cx)` gives you the trigger's actual screen-space rect,
   including `view_shift` and clipping.
 - For overlay content, compute the popup's absolute screen-space target, then write
   that into `popup.walk.abs_pos = Some(dvec2(x, y))`.
-
 ```rust
 // Sketch: define popup_height from measured content; clamp/flip at viewport edges.
 // Verify the overlay's coordinate space and convert screen coordinates if required.
 let button_rect = button.area().clipped_rect(cx);
 let popup_pos = dvec2(button_rect.pos.x, button_rect.pos.y - popup_height);
-
 if let Some(mut popup) = self.view(cx, ids!(popup)).borrow_mut() {
     popup.walk.abs_pos = Some(popup_pos);
 }
 ```
-
 **Rule of thumb:**
 - Popup inside normal layout tree, only slight overflow needed: local child + `clip_x/clip_y: false`
 - Popup anchored to a button but visually outside the component: top-level overlay + `walk.abs_pos`
-
 **Common mistake:** Using `script_apply_eval!` to push `margin.top` / `margin.left` on
 overlay content and expecting stable popup coordinates. That often produces misleading
 results because you are still negotiating with layout, not explicitly anchoring the popup.
-
 ---
-
 ## Inset Syntax
-
 The `Inset` type is used for both `padding` and `margin`. It supports two forms:
-
 ```
 // Bare number -- uniform on all four sides
 padding: 10
 margin: 5
-
 // Inset struct -- specify individual sides
 padding: Inset{top: 10 bottom: 10 left: 20 right: 20}
 margin: Inset{top: 0 bottom: 8 left: 0 right: 0}
-
 // Zero (use trailing dot for float literal)
 margin: 0.
-
 // You can omit sides you do not need -- they default to 0
 padding: Inset{left: 16 right: 16}
 ```
-
 Both `padding` and `margin` accept the same Inset syntax. Padding is inside the
 container, margin is outside.
-
 ---
-
 ## Scrollable Containers
-
 Makepad provides three scrollable view variants. They inherit all View properties
 and add scrollbar behavior.
-
 | Widget | Scroll Direction | Typical Use |
 |--------|-----------------|-------------|
 | `ScrollYView` | Vertical only | Long lists, page content |
 | `ScrollXView` | Horizontal only | Wide tables, timelines |
 | `ScrollXYView` | Both axes | Maps, canvases, large content |
-
 ```
 use mod.prelude.widgets.*
-
 // Vertical scrolling -- the most common pattern
 // Note: ScrollYView uses height: Fill (not Fit) to define the scroll viewport
 ScrollYView{
@@ -392,7 +317,6 @@ ScrollYView{
     Label{text: "Item 5"}
     Label{text: "Item 6"}
 }
-
 // Horizontal scrolling
 ScrollXView{
     width: Fill height: 60
@@ -403,36 +327,26 @@ ScrollXView{
     Label{text: "Tab 3"}
     Label{text: "Tab 4"}
 }
-
 // Both-axis scrolling
 ScrollXYView{
     width: Fill height: Fill
     Label{text: "Large content that can be scrolled in both directions"}
 }
 ```
-
 **When to use which:**
 - `ScrollYView` -- page body, lists, vertical content. **This is what you need 90% of the time.**
 - `ScrollXView` -- horizontal tab bars, code scrolling, timeline views.
 - `ScrollXYView` -- 2D canvases, maps, spreadsheet-style content.
-
 **Important:** Scrollable views use `height: Fill` (not `height: Fit`) because they
 need a fixed viewport to scroll within. The content inside grows beyond the viewport.
-
 ---
-
 ## Filler (Spacer Widget)
-
 `Filler{}` is equivalent to `View{width: Fill height: Fill}`. It pushes siblings apart.
-
 **Critical rule: Only use Filler between `width: Fit` siblings.**
-
 Do NOT use `Filler{}` next to a `width: Fill` sibling. Both compete for remaining space,
 splitting it 50/50 and clipping text.
-
 ```
 use mod.prelude.widgets.*
-
 // CORRECT: Filler between Fit siblings
 View{
     width: Fill height: Fit
@@ -442,7 +356,6 @@ View{
     Filler{}
     Label{text: "Right side"}
 }
-
 // WRONG: Filler next to a Fill sibling -- text gets clipped
 View{
     width: Fill height: Fit
@@ -451,7 +364,6 @@ View{
     Filler{}
     Label{text: "Tag"}
 }
-
 // CORRECT alternative: width: Fill naturally pushes Fit siblings
 View{
     width: Fill height: Fit
@@ -465,16 +377,11 @@ View{
     Label{text: "Tag"}
 }
 ```
-
 ---
-
 ## Common Layout Patterns
-
 ### Vertical Page Layout
-
 ```
 use mod.prelude.widgets.*
-
 View{
     width: Fill height: Fit
     flow: Down spacing: 16 padding: 20
@@ -484,12 +391,9 @@ View{
     Label{text: "Body content goes here" draw_text.color: #ddd}
 }
 ```
-
 ### Horizontal Toolbar
-
 ```
 use mod.prelude.widgets.*
-
 SolidView{
     width: Fill height: 44
     flow: Right spacing: 8
@@ -503,8 +407,5 @@ SolidView{
     ButtonFlat{text: "Run"}
 }
 ```
-
 ## Extended reference
-
 See [references/extended-guide.md](references/extended-guide.md) for the full upstream document.
-

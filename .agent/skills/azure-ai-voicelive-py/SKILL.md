@@ -1,55 +1,37 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "86955389930effb33c9d9086ca4c502425fb8d680d6b6105b9f5fd6d8a3ce137"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 86955389930effb33c9d9086ca4c502425fb8d680d6b6105b9f5fd6d8a3ce137
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Build real-time voice AI applications with bidirectional WebSocket communication.
 name: azure-ai-voicelive-py
-description: "Build real-time voice AI applications with bidirectional WebSocket communication."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
 ## Bundled upstream support
-
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.
-
 # Azure AI Voice Live SDK
-
 Build real-time voice AI applications with bidirectional WebSocket communication.
-
 ## Installation
-
 ```bash
 pip install azure-ai-voicelive aiohttp azure-identity
 ```
-
 ## Environment Variables
-
 ```bash
 AZURE_COGNITIVE_SERVICES_ENDPOINT=https://<region>.api.cognitive.microsoft.com
 # For API key auth (not recommended for production)
 AZURE_COGNITIVE_SERVICES_KEY=<api-key>
 ```
-
 ## Runtime and privacy boundaries
-
 These snippets are version-sensitive sketches, not complete audio clients. Verify installed SDK/API version, resource endpoint, model availability and token audience together; reference defaults conflict with some explicit scopes below. Close async credentials explicitly, bound session duration/audio memory and cancel+await capture tasks in finally. Audio/transcripts leave the machine for Azure: obtain recording/upload authorization, minimize retention/logs and keep secrets in configured credentials. Validate tool names/JSON schemas and user authorization server-side; generated function calls are requests, not permission.
-
 ## Authentication
-
 **DefaultAzureCredential (preferred)**:
 ```python
 from azure.ai.voicelive.aio import connect
 from azure.identity.aio import DefaultAzureCredential
-
 async with connect(
     endpoint=os.environ["AZURE_COGNITIVE_SERVICES_ENDPOINT"],
     credential=DefaultAzureCredential(),
@@ -58,12 +40,10 @@ async with connect(
 ) as conn:
     ...
 ```
-
 **API Key**:
 ```python
 from azure.ai.voicelive.aio import connect
 from azure.core.credentials import AzureKeyCredential
-
 async with connect(
     endpoint=os.environ["AZURE_COGNITIVE_SERVICES_ENDPOINT"],
     credential=AzureKeyCredential(os.environ["AZURE_COGNITIVE_SERVICES_KEY"]),
@@ -71,15 +51,12 @@ async with connect(
 ) as conn:
     ...
 ```
-
 ## Quick Start
-
 ```python
 import asyncio
 import os
 from azure.ai.voicelive.aio import connect
 from azure.identity.aio import DefaultAzureCredential
-
 async def main():
     async with connect(
         endpoint=os.environ["AZURE_COGNITIVE_SERVICES_ENDPOINT"],
@@ -93,7 +70,6 @@ async def main():
             "modalities": ["text", "audio"],
             "voice": "alloy"
         })
-        
         # Supply a user turn, then explicitly request a response.
         await conn.conversation.item.create(item={"type": "message", "role": "user",
             "content": [{"type": "input_text", "text": "Hello"}]})
@@ -105,16 +81,11 @@ async def main():
                 print(f"Transcript: {event.transcript}")
             elif event.type == "response.done":
                 break
-
 asyncio.run(main())
 ```
-
 ## Core Architecture
-
 ### Connection Resources
-
 The `VoiceLiveConnection` exposes these resources:
-
 | Resource | Purpose | Key Methods |
 |----------|---------|-------------|
 | `conn.session` | Session configuration | `update(session=...)` |
@@ -123,12 +94,9 @@ The `VoiceLiveConnection` exposes these resources:
 | `conn.output_audio_buffer` | Audio output | `clear()` |
 | `conn.conversation` | Conversation state | `item.create()`, `item.delete()`, `item.truncate()` |
 | `conn.transcription_session` | Transcription config | `update(session=...)` |
-
 ## Session Configuration
-
 ```python
 from azure.ai.voicelive.models import RequestSession, FunctionTool
-
 await conn.session.update(session=RequestSession(
     instructions="You are a helpful voice assistant.",
     modalities=["text", "audio"],
@@ -157,23 +125,16 @@ await conn.session.update(session=RequestSession(
     ]
 ))
 ```
-
 ## Audio Streaming
-
 ### Send Audio (Base64 PCM16)
-
 ```python
 import base64
-
 # Read audio chunk (16-bit PCM, 24kHz mono)
 audio_chunk = await read_audio_from_microphone()
 b64_audio = base64.b64encode(audio_chunk).decode()
-
 await conn.input_audio_buffer.append(audio=b64_audio)
 ```
-
 ### Receive Audio
-
 ```python
 async for event in conn:
     if event.type == "response.audio.delta":
@@ -182,9 +143,7 @@ async for event in conn:
     elif event.type == "response.audio.done":
         print("Audio complete")
 ```
-
 ## Event Handling
-
 ```python
 async for event in conn:
     match event.type:
@@ -193,19 +152,16 @@ async for event in conn:
             print(f"Session: {event.session}")
         case "session.updated":
             print("Session updated")
-        
         # Audio input events
         case "input_audio_buffer.speech_started":
             print(f"Speech started at {event.audio_start_ms}ms")
         case "input_audio_buffer.speech_stopped":
             print(f"Speech stopped at {event.audio_end_ms}ms")
-        
         # Transcription events
         case "conversation.item.input_audio_transcription.completed":
             print(f"User said: {event.transcript}")
         case "conversation.item.input_audio_transcription.delta":
             print(f"Partial: {event.delta}")
-        
         # Response events
         case "response.created":
             print(f"Response started: {event.response.id}")
@@ -215,7 +171,6 @@ async for event in conn:
             audio = base64.b64decode(event.delta)
         case "response.done":
             print(f"Response complete: {event.response.status}")
-        
         # Function calls
         case "response.function_call_arguments.done":
             result = handle_function(event.name, event.arguments)
@@ -225,27 +180,20 @@ async for event in conn:
                 "output": json.dumps(result)
             })
             await conn.response.create()
-        
         # Errors
         case "error":
             print(f"Error: {event.error.message}")
 ```
-
 ## Common Patterns
-
 ### Manual Turn Mode (No VAD)
-
 ```python
 await conn.session.update(session={"turn_detection": None})
-
 # Manually control turns
 await conn.input_audio_buffer.append(audio=b64_audio)
 await conn.input_audio_buffer.commit()  # End of user turn
 await conn.response.create()  # Trigger response
 ```
-
 ### Interrupt Handling
-
 ```python
 async for event in conn:
     if event.type == "input_audio_buffer.speech_started":
@@ -253,9 +201,7 @@ async for event in conn:
         await conn.response.cancel()
         await conn.output_audio_buffer.clear()
 ```
-
 ### Conversation History
-
 ```python
 # Add system message
 await conn.conversation.item.create(item={
@@ -263,19 +209,15 @@ await conn.conversation.item.create(item={
     "role": "system",
     "content": [{"type": "input_text", "text": "Be concise."}]
 })
-
 # Add user message
 await conn.conversation.item.create(item={
     "type": "message",
     "role": "user", 
     "content": [{"type": "input_text", "text": "Hello!"}]
 })
-
 await conn.response.create()
 ```
-
 ## Voice Options
-
 | Voice | Description |
 |-------|-------------|
 | `alloy` | Neutral, balanced |
@@ -286,11 +228,8 @@ await conn.response.create()
 | `ash` | Deep, measured |
 | `ballad` | Expressive |
 | `verse` | Storytelling |
-
 Azure voices: Use `AzureStandardVoice`, `AzureCustomVoice`, or `AzurePersonalVoice` models.
-
 ## Audio Formats
-
 | Format | Sample Rate | Use Case |
 |--------|-------------|----------|
 | `pcm16` | 24kHz | Default, high quality |
@@ -298,24 +237,18 @@ Azure voices: Use `AzureStandardVoice`, `AzureCustomVoice`, or `AzurePersonalVoi
 | `pcm16-16000hz` | 16kHz | Voice assistants |
 | `g711_ulaw` | 8kHz | Telephony (US) |
 | `g711_alaw` | 8kHz | Telephony (EU) |
-
 ## Turn Detection Options
-
 ```python
 # Server VAD (default)
 {"type": "server_vad", "threshold": 0.5, "silence_duration_ms": 500}
-
 # Azure Semantic VAD (smarter detection)
 {"type": "azure_semantic_vad"}
 {"type": "azure_semantic_vad_en"}  # English optimized
 {"type": "azure_semantic_vad_multilingual"}
 ```
-
 ## Error Handling
-
 ```python
 from azure.ai.voicelive.aio import ConnectionError, ConnectionClosed
-
 try:
     async with connect(...) as conn:
         async for event in conn:
@@ -326,16 +259,12 @@ except ConnectionClosed as e:
 except ConnectionError as e:
     print(f"Connection error: {e}")
 ```
-
 ## References
-
 - **Detailed API Reference**: See references/api-reference.md
 - **Complete Examples**: See references/examples.md
 - **All Models & Types**: See references/models.md
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

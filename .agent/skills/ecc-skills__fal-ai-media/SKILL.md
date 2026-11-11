@@ -1,42 +1,27 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "35f40388fee9269580cb58b2ca5c2dcc2f18cec636a6e88961969ef82e1ef4ee"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: fal-ai-media
+content_hash: 35f40388fee9269580cb58b2ca5c2dcc2f18cec636a6e88961969ef82e1ef4ee
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: Unified media generation via fal.ai MCP — image, video, and audio. Covers text-to-image (Nano Banana), text/image-to-video (Seedance, Kling, Veo 3), text-to-speech (CSM-1B), and video-to-audio (ThinkSound). Use when the user wants to generate images, videos, or audio with AI.
-tier: "experimental"
-metadata:
-  origin: ECC
+name: fal-ai-media
+origin: ECC
 ---
-
-
 # fal.ai Media Generation
-
 > **Drift-prone skill.** fal.ai model IDs, pricing, inputs, and MCP tool names
 > change quickly. Search or fetch the current model metadata before promising a
 > specific model, parameter, output format, or cost.
-
 Generate images, videos, and audio using fal.ai models via MCP.
-
 ## When to Activate
-
 - User wants to generate images from text prompts
 - Creating videos from text or images
 - Generating speech, music, or sound effects
 - Any media generation task
 - User says "generate image", "create video", "text to speech", "make a thumbnail", or similar
-
 ## MCP Requirement
-
 fal.ai MCP server must be configured. Add to `~/.claude.json`:
-
 ```json
 "fal-ai": {
   "command": "npx",
@@ -44,11 +29,8 @@ fal.ai MCP server must be configured. Add to `~/.claude.json`:
   "env": { "FAL_KEY": "YOUR_FAL_KEY_HERE" }
 }
 ```
-
 Get an API key at [fal.ai](https://fal.ai).
-
 ## MCP Tools
-
 The fal.ai MCP provides these tools:
 - `search` — Find available models by keyword
 - `find` — Get model details and parameters
@@ -59,14 +41,10 @@ The fal.ai MCP provides these tools:
 - `estimate_cost` — Estimate generation cost
 - `models` — List popular models
 - `upload` — Upload files for use as inputs
-
 ---
-
 ## Image Generation
-
 ### Nano Banana 2 (Fast)
 Best for: quick iterations, drafts, text-to-image, image editing.
-
 ```
 generate(
   app_id: "fal-ai/nano-banana-2",
@@ -78,10 +56,8 @@ generate(
   }
 )
 ```
-
 ### Nano Banana Pro (High Fidelity)
 Best for: production images, realism, typography, detailed prompts.
-
 ```
 generate(
   app_id: "fal-ai/nano-banana-pro",
@@ -93,9 +69,7 @@ generate(
   }
 )
 ```
-
 ### Common Image Parameters
-
 | Param | Type | Options | Notes |
 |-------|------|---------|-------|
 | `prompt` | string | required | Describe what you want |
@@ -103,14 +77,11 @@ generate(
 | `num_images` | number | 1-4 | How many to generate |
 | `seed` | number | any integer | Reproducibility |
 | `guidance_scale` | number | 1-20 | How closely to follow the prompt (higher = more literal) |
-
 ### Image Editing
 Use Nano Banana 2 with an input image for inpainting, outpainting, or style transfer:
-
 ```
 # First upload the source image
 upload(file_path: "/path/to/image.png")
-
 # Then generate with image input
 generate(
   app_id: "fal-ai/nano-banana-2",
@@ -121,14 +92,10 @@ generate(
   }
 )
 ```
-
 ---
-
 ## Video Generation
-
 ### Seedance 1.0 Pro (ByteDance)
 Best for: text-to-video, image-to-video with high motion quality.
-
 ```
 generate(
   app_id: "fal-ai/seedance-1-0-pro",
@@ -140,10 +107,8 @@ generate(
   }
 )
 ```
-
 ### Kling Video v3 Pro
 Best for: text/image-to-video with native audio generation.
-
 ```
 generate(
   app_id: "fal-ai/kling-video/v3/pro",
@@ -154,10 +119,8 @@ generate(
   }
 )
 ```
-
 ### Veo 3 (Google DeepMind)
 Best for: video with generated sound, high visual quality.
-
 ```
 generate(
   app_id: "fal-ai/veo-3",
@@ -167,10 +130,8 @@ generate(
   }
 )
 ```
-
 ### Image-to-Video
 Start from an existing image:
-
 ```
 generate(
   app_id: "fal-ai/seedance-1-0-pro",
@@ -181,9 +142,7 @@ generate(
   }
 )
 ```
-
 ### Video Parameters
-
 | Param | Type | Options | Notes |
 |-------|------|---------|-------|
 | `prompt` | string | required | Describe the video |
@@ -191,14 +150,10 @@ generate(
 | `aspect_ratio` | string | `"16:9"`, `"9:16"`, `"1:1"` | Frame ratio |
 | `seed` | number | any integer | Reproducibility |
 | `image_url` | string | URL | Source image for image-to-video |
-
 ---
-
 ## Audio Generation
-
 ### CSM-1B (Conversational Speech)
 Text-to-speech with natural, conversational quality.
-
 ```
 generate(
   app_id: "fal-ai/csm-1b",
@@ -208,10 +163,8 @@ generate(
   }
 )
 ```
-
 ### ThinkSound (Video-to-Audio)
 Generate matching audio from video content.
-
 ```
 generate(
   app_id: "fal-ai/thinksound",
@@ -221,14 +174,11 @@ generate(
   }
 )
 ```
-
 ### ElevenLabs (via API, no MCP)
 For professional voice synthesis, use ElevenLabs directly:
-
 ```python
 import os
 import requests
-
 resp = requests.post(
     "https://api.elevenlabs.io/v1/text-to-speech/<voice_id>",
     headers={
@@ -244,27 +194,19 @@ resp = requests.post(
 with open("output.mp3", "wb") as f:
     f.write(resp.content)
 ```
-
 ### VideoDB Generative Audio
 If VideoDB is configured, use its generative audio:
-
 ```python
 # Voice generation
 audio = coll.generate_voice(text="Your narration here", voice="alloy")
-
 # Music generation
 music = coll.generate_music(prompt="upbeat electronic background music", duration=30)
-
 # Sound effects
 sfx = coll.generate_sound_effect(prompt="thunder crack followed by rain")
 ```
-
 ---
-
 ## Cost Estimation
-
 Before generating, check estimated cost:
-
 ```
 estimate_cost(
   estimate_type: "unit_price",
@@ -275,27 +217,20 @@ estimate_cost(
   }
 )
 ```
-
 ## Model Discovery
-
 Find models for specific tasks:
-
 ```
 search(query: "text to video")
 find(endpoint_ids: ["fal-ai/seedance-1-0-pro"])
 models()
 ```
-
 ## Tips
-
 - Use `seed` for reproducible results when iterating on prompts
 - Start with lower-cost models (Nano Banana 2) for prompt iteration, then switch to Pro for finals
 - For video, keep prompts descriptive but concise — focus on motion and scene
 - Image-to-video produces more controlled results than pure text-to-video
 - Check `estimate_cost` before running expensive video generations
-
 ## Related Skills
-
 - `tasteforge-video` — Offline taste distillation and modality planning. Its
   endpoint candidates and request manifests are reference-only, not submitted
   jobs or saved Fal workflows. A TasteForge handoff does not authorize upload

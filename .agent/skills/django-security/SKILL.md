@@ -1,123 +1,56 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "96f59fe328c44e56d7fe4deb88127a331d2a547ce376c533f5cad1e2acaae587"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: django-security
+content_hash: 96f59fe328c44e56d7fe4deb88127a331d2a547ce376c533f5cad1e2acaae587
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: Django security best practices, authentication, authorization, CSRF protection, SQL injection prevention, XSS prevention, and secure deployment configurations. Use when reviewing Django authentication, authorization, input handling, or deployment settings.
-tier: "experimental"
-metadata:
-  origin: ECC
+name: django-security
+origin: ECC
 ---
-
-
 # Django Security Best Practices
-
 Comprehensive security guidelines for Django applications to protect against common vulnerabilities.
-
 ## When to Activate
-
 - Setting up Django authentication and authorization
 - Implementing user permissions and roles
 - Configuring production security settings
 - Reviewing Django application for security issues
 - Deploying Django applications to production
-
 ## Core Security Settings
-
 ### Production Settings Configuration
-
-
 ## Authentication
-
 ### Custom User Model
-
-
 ### Password Hashing
-
-
 ### Session Management
-
-
 ## Authorization
-
 ### Permissions
-
-
 ### Custom Permissions
-
-
 ### Role-Based Access Control (RBAC)
-
-
 ## SQL Injection Prevention
-
 ### Django ORM Protection
-
-
 ### Extra Security with raw()
-
-
 ## XSS Prevention
-
 ### Template Escaping
-
-
 ### Safe String Handling
-
-
 ### HTTP Headers
-
-
 ## CSRF Protection
-
 ### Default CSRF Protection
-
-
 ### Exempting Views (Use Carefully)
-
-
 ## File Upload Security
-
 ### File Validation
-
-
 For environments where installing libmagic is difficult (e.g., minimal containers),
 use the pure-Python `filetype` package as an alternative:
-
-
 ### Secure File Storage
-
-
 ## API Security
-
 ### Rate Limiting
-
-
 ### Authentication for APIs
-
-
 ## Security Headers
-
 ### Content Security Policy
-
-
 ## Environment Variables
-
 ### Managing Secrets
-
-
 ## Logging Security Events
-
-
 ## Quick Security Checklist
-
 | Check | Description |
 |-------|-------------|
 | `DEBUG = False` | Never run with DEBUG in production |
@@ -132,5 +65,4 @@ use the pure-Python `filetype` package as an alternative:
 | Security headers | CSP, X-Frame-Options, HSTS |
 | Logging | Log security events |
 | Updates | Keep Django and dependencies updated |
-
 Remember: Security is a process, not a product. Regularly review and update your security practices.

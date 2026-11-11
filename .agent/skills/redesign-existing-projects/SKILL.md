@@ -1,63 +1,42 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "5389127b396ecba558e04cf9863f4038bc4a83542b7d1891393c798bee624ae0"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: redesign-existing-projects
-description: "Use when upgrading existing websites or apps by auditing generic UI patterns and applying premium design fixes without rewrites."
-tier: "experimental"
+content_hash: 5389127b396ecba558e04cf9863f4038bc4a83542b7d1891393c798bee624ae0
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: Leonxlnx
 category: frontend
+date_added: 2026-04-17
+description: Use when upgrading existing websites or apps by auditing generic UI patterns and applying premium design fixes without rewrites.
+name: redesign-existing-projects
 risk: safe
 source: community
 source_repo: Leonxlnx/taste-skill
 source_type: community
-date_added: "2026-04-17"
-author: Leonxlnx
-tags: [frontend, redesign, design-audit, ui]
-tools: [claude, cursor, codex, antigravity]
+tags: "[frontend, redesign, design-audit, ui]"
+tools: "[claude, cursor, codex, antigravity]"
 ---
-
 # Redesign Skill
-
 ## When to Use
-
 - Use when the user asks to redesign, restyle, modernize, polish, or improve an existing website or app UI.
 - Use when the task is to audit current frontend code and make targeted visual improvements without changing the product architecture.
 - Use when the design feels generic, AI-generated, poorly spaced, visually flat, or missing responsive, interactive, loading, empty, or error states.
-
 ## Example
-
 **User request:**
-
 > Use @redesign-existing-projects for this task: Use when upgrading existing websites or apps by auditing generic UI patterns and applying premium design fixes without rewrites.
-
 ## Limitations
-
 - This skill upgrades existing UI but does not authorize framework migrations, information-architecture rewrites, or product-scope expansion by default.
 - Preserve working behavior, routing, data flows, accessibility semantics, and tests while making visual changes.
 - Validate redesigned screens in the actual app across supported browsers and viewport sizes before considering the work complete.
-
-
 ## How This Works
-
 When applied to an existing project, follow this sequence:
-
 1. **Scan** — Read the codebase. Identify the framework, styling method (Tailwind, vanilla CSS, styled-components, etc.), and current design patterns.
 2. **Diagnose** — Use the audit as design options, not universal defects. Prioritize evidenced usability/accessibility issues and the user’s brand goals; a familiar font, sidebar or symmetric grid can be appropriate.
 3. **Fix** — Apply targeted upgrades working with the existing stack. Do not rewrite from scratch. Improve what's there.
-
 ## Design Audit
-
 ### Typography
-
 Check for these problems and fix them:
-
 - **Browser default fonts or Inter everywhere.** Replace with a font that has character. Good options: `Geist`, `Outfit`, `Cabinet Grotesk`, `Satoshi`. For editorial/creative projects, pair a serif header with a sans-serif body.
 - **Headlines lack presence.** Increase size for display text, tighten letter-spacing, reduce line-height. Headlines should feel heavy and intentional.
 - **Body text too wide.** Limit paragraph width to roughly 65 characters. Increase line-height for readability.
@@ -66,9 +45,7 @@ Check for these problems and fix them:
 - **Missing letter-spacing adjustments.** Use negative tracking for large headers, positive tracking for small caps or labels.
 - **All-caps subheaders everywhere.** Try lowercase italics, sentence case, or small-caps instead.
 - **Orphaned words.** Single words sitting alone on the last line. Fix with `text-wrap: balance` or `text-wrap: pretty`.
-
 ### Color and Surfaces
-
 - **Pure `#000000` background.** Replace with off-black, dark charcoal, or tinted dark (`#0a0a0a`, `#121212`, or a dark navy).
 - **Oversaturated accent colors.** Keep saturation below 80%. Desaturate accents so they blend with neutrals instead of screaming.
 - **More than one accent color.** Pick one. Remove the rest. Consistency beats variety.
@@ -80,9 +57,7 @@ Check for these problems and fix them:
 - **Inconsistent lighting direction.** Audit all shadows to ensure they suggest a single, consistent light source.
 - **Random dark sections in a light mode page (or vice versa).** A single dark-background section breaking an otherwise light page looks like a copy-paste accident. Either commit to a full dark mode or keep a consistent background tone throughout. If contrast is needed, use a slightly darker shade of the same palette — not a sudden jump to `#111` in the middle of a cream page.
 - **Empty, flat sections with no visual depth.** Sections that are just text on a plain background feel unfinished. Add high-quality background imagery (blurred, overlaid, or masked), subtle patterns, or ambient gradients. Use reliable placeholder sources like `https://picsum.photos/seed/{name}/1920/1080` when real assets are not available. Experiment with background images behind hero sections, feature blocks, or CTAs — even a subtle full-width photo at low opacity adds presence.
-
 ### Layout
-
 - **Everything centered and symmetrical.** Break symmetry with offset margins, mixed aspect ratios, or left-aligned headers over centered content.
 - **Three equal card columns as feature row.** This is the most generic AI layout. Replace with a 2-column zig-zag, asymmetric grid, horizontal scroll, or masonry layout.
 - **Using `height: 100vh` for full-screen sections.** Replace with `min-height: 100dvh` to prevent layout jumping on mobile browsers (iOS Safari viewport bug).
@@ -98,9 +73,7 @@ Check for these problems and fix them:
 - **Feature lists starting at different vertical positions.** In pricing tables or comparison cards, the list of features should start at the same Y position across all columns. Use consistent spacing above the list or fixed-height title/price blocks.
 - **Inconsistent vertical rhythm in side-by-side elements.** When placing cards, columns, or panels next to each other, align shared elements (titles, descriptions, prices, buttons) across all items. Misaligned baselines make the layout look broken.
 - **Mathematical alignment that looks optically wrong.** Centering by the math doesn't always look centered to the eye. Icons next to text, play buttons in circles, or text in buttons often need 1-2px optical adjustments to feel right.
-
 ### Interactivity and States
-
 - **No hover states on buttons.** Add background shift, slight scale, or translate on hover.
 - **No active/pressed feedback.** Add a subtle `scale(0.98)` or `translateY(1px)` on press to simulate a physical click.
 - **Instant transitions with zero duration.** Add smooth transitions (200-300ms) to all interactive elements.
@@ -112,9 +85,7 @@ Check for these problems and fix them:
 - **No indication of current page in navigation.** Style the active nav link differently so users know where they are.
 - **Scroll jumping.** Anchor clicks jump instantly. Add `scroll-behavior: smooth`.
 - **Animations using `top`, `left`, `width`, `height`.** Switch to `transform` and `opacity` for GPU-accelerated, smooth animation.
-
 ### Content
-
 - **Generic names like "John Doe" or "Jane Smith".** Use diverse, realistic-sounding names.
 - **Placeholder metrics/contact details.** Use verified values in production. Keep synthetic demo data clearly labeled, with reserved example contact details; do not fabricate precise claims to look authentic.
 - **Placeholder company names like "Acme Corp", "Nexus", "SmartFlow".** Invent contextual, believable brand names.
@@ -126,9 +97,7 @@ Check for these problems and fix them:
 - **Same avatar image for multiple users.** Use unique assets for every distinct person.
 - **Lorem Ipsum.** Never use placeholder latin text. Write real draft copy.
 - **Title Case On Every Header.** Use sentence case instead.
-
 ### Component Patterns
-
 - **Generic card look (border + shadow + white background).** Remove the border, or use only background color, or use only spacing. Cards should exist only when elevation communicates hierarchy.
 - **Always one filled button + one ghost button.** Add text links or tertiary styles to reduce visual noise.
 - **Pill-shaped "New" and "Beta" badges.** Try square badges, flags, or plain text labels.
@@ -139,17 +108,13 @@ Check for these problems and fix them:
 - **Avatar circles exclusively.** Try squircles or rounded squares for a less generic look.
 - **Light/dark toggle always a sun/moon switch.** Use a dropdown, system preference detection, or integrate it into settings.
 - **Footer link farm with 4 columns.** Simplify. Focus on main navigational paths and legally required links.
-
 ### Iconography
-
 - **Lucide or Feather icons exclusively.** These are the "default" AI icon choice. Use Phosphor, Heroicons, or a custom set for differentiation.
 - **Rocketship for "Launch", shield for "Security".** Replace cliche metaphors with less obvious icons (bolt, fingerprint, spark, vault).
 - **Inconsistent stroke widths across icons.** Audit all icons and standardize to one stroke weight.
 - **Missing favicon.** Always include a branded favicon.
 - **Stock "diverse team" photos.** Use real team photos, candid shots, or a consistent illustration style instead of uncanny stock imagery.
-
 ### Code Quality
-
 - **Div soup.** Use semantic HTML: `<nav>`, `<main>`, `<article>`, `<aside>`, `<section>`.
 - **Inline styles mixed with CSS classes.** Move all styling to the project's styling system.
 - **Hardcoded pixel widths.** Use relative units (`%`, `rem`, `em`, `max-width`) for flexible layouts.
@@ -158,49 +123,37 @@ Check for these problems and fix them:
 - **Commented-out dead code.** Remove all debug artifacts before shipping.
 - **Import hallucinations.** Check that every import actually exists in `package.json` or the project dependencies.
 - **Missing meta tags.** Add proper `<title>`, `description`, `og:image`, and social sharing meta tags.
-
 ### Strategic Omissions (What AI Typically Forgets)
-
 - **No legal links.** Add privacy policy and terms of service links in the footer.
 - **No "back" navigation.** Dead ends in user flows. Every page needs a way back.
 - **No custom 404 page.** Design a helpful, branded "page not found" experience.
 - **No form validation.** Add client-side validation for emails, required fields, and format checks.
 - **No "skip to content" link.** Essential for keyboard users. Add a hidden skip-link.
 - **No cookie consent.** If required by jurisdiction, add a compliant consent banner.
-
 ## Upgrade Techniques
-
 When upgrading a project, pull from these high-impact techniques to replace generic patterns:
-
 ### Typography Upgrades
 - **Variable font animation.** Interpolate weight or width on scroll or hover for text that feels alive.
 - **Outlined-to-fill transitions.** Text starts as a stroke outline and fills with color on scroll entry or interaction.
 - **Text mask reveals.** Large typography acting as a window to video or animated imagery behind it.
-
 ### Layout Upgrades
 - **Broken grid / asymmetry.** Elements that deliberately ignore column structure — overlapping, bleeding off-screen, or offset with calculated randomness.
 - **Whitespace maximization.** Aggressive use of negative space to force focus on a single element.
 - **Parallax card stacks.** Sections that stick and physically stack over each other during scroll.
 - **Split-screen scroll.** Two halves of the screen sliding in opposite directions.
-
 Honor reduced-motion and user scroll preferences, keyboard/focus order, zoom/reflow and actual contrast. Preserve semantic status colors and sufficient text contrast even when aesthetic rules suggest one accent or reduced saturation. Decorative imagery needs empty alt; meaningful images need useful alt. Do not invent testimonials, people or legal-policy text. Remote fonts/images need rights, privacy/performance review and a stable production source; placeholder photos are demo-only.
-
 ### Motion Upgrades
 - **Optional scroll effects.** Prefer native scrolling; inertia/parallax must preserve keyboard, touch, anchors and reduced-motion behavior and be validated before use.
 - **Staggered entry.** Elements cascade in with slight delays, combining Y-axis translation with opacity fade. Never mount everything at once.
 - **Spring physics.** Replace linear easing with spring-based motion for a natural, weighty feel on all interactive elements.
 - **Scroll-driven reveals.** Content entering through expanding masks, wipes, or draw-on SVG paths tied to scroll progress.
-
 ### Surface Upgrades
 - **True glassmorphism.** Go beyond `backdrop-filter: blur`. Add a 1px inner border and a subtle inner shadow to simulate edge refraction.
 - **Spotlight borders.** Card borders that illuminate dynamically under the cursor.
 - **Grain and noise overlays.** A fixed, pointer-events-none overlay with subtle noise to break digital flatness.
 - **Colored, tinted shadows.** Shadows that carry the hue of the background rather than using generic black.
-
 ## Fix Priority
-
 Apply changes in this order for maximum visual impact with minimum risk:
-
 1. **Font swap** — biggest instant improvement, lowest risk
 2. **Color palette cleanup** — remove clashing or oversaturated colors
 3. **Hover and active states** — makes the interface feel alive
@@ -208,9 +161,7 @@ Apply changes in this order for maximum visual impact with minimum risk:
 5. **Replace generic components** — swap cliche patterns for modern alternatives
 6. **Add loading, empty, and error states** — makes it feel finished
 7. **Polish typography scale and spacing** — the premium final touch
-
 ## Rules
-
 - Work with the existing tech stack. Do not migrate frameworks or styling libraries.
 - Do not break existing functionality. Test after every change.
 - Before importing any new library, check the project's dependency file first.

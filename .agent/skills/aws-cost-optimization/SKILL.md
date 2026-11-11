@@ -1,41 +1,30 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "12e601a842212f024f46b5dbe8f3376bc960e697046c47976dfdd679fa6a48b2"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: aws-cost-optimization
-description: Reduce AWS spend with rightsizing, autoscaling, commitment planning,
-tier: "experimental"
-  and storage lifecycle policies. Use when running FinOps reviews, lowering cloud
-  bills, or improving cost-per-request metrics.
+content_hash: 12e601a842212f024f46b5dbe8f3376bc960e697046c47976dfdd679fa6a48b2
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant OS/platform tooling and privileged access where
+date_added: 2026-09-20
+description: Reduce AWS spend with rightsizing, autoscaling, commitment planning,
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: aws-cost-optimization
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant OS/platform tooling and privileged access where
+version: 1.0
+---  and storage lifecycle policies. Use when running FinOps reviews, lowering cloud
+  bills, or improving cost-per-request metrics.
   noted. Docs-only; helper scripts and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # AWS Cost Optimization
-
 Apply practical FinOps controls to reduce AWS spend without sacrificing reliability or performance.
-
 ## When to Use This Skill
-
 - Monthly AWS bill spikes unexpectedly or exceeds budget thresholds
 - Preparing cost reviews with engineering and finance teams
 - Rightsizing EC2, RDS, EKS, or Lambda workloads after load testing
@@ -43,18 +32,13 @@ Apply practical FinOps controls to reduce AWS spend without sacrificing reliabil
 - Setting up automated budget alerts and anomaly detection
 - Cleaning up unused resources (unattached EBS, idle load balancers, old snapshots)
 - Optimizing data transfer costs across regions and AZs
-
 ## Prerequisites
-
 - AWS CLI v2 installed and configured (`aws configure`)
 - IAM permissions: `ce:*`, `budgets:*`, `ec2:Describe*`, `cloudwatch:PutMetricAlarm`, `s3:PutLifecycleConfiguration`
 - Cost Explorer enabled in the AWS billing console (takes 24 hours to populate)
 - Cost allocation tags activated in the Billing console
-
 ## Cost Review Workflow
-
 Start read-only with the confirmed account/profile/regions and least-privilege billing access; the permission list is illustrative, not a role to grant wholesale. Dates, dollar thresholds and identifiers below are examples. Review savings against availability, recovery objectives and retrieval/transition costs. No automatic purchases, resource shutdown, deletion or lifecycle expiry follows from identifying a recommendation. Export the current lifecycle configuration and review the full replacement before applying it; noncurrent-version expiration permanently removes recovery copies.
-
 1. Tag every resource by team, service, environment, and cost center.
 2. Enable Cost Explorer and activate Cost and Usage Reports (CUR) to S3.
 3. Identify top spend drivers by service, account, and tag.
@@ -62,9 +46,7 @@ Start read-only with the confirmed account/profile/regions and least-privilege b
 5. Apply commitment discounts (Savings Plans or RIs) for stable baseline usage.
 6. Set budgets, anomaly alerts, and build KPI dashboards.
 7. Review monthly and iterate.
-
 ## Cost Explorer CLI Commands
-
 ```bash
 # Get cost and usage for the last 30 days grouped by service
 aws ce get-cost-and-usage \
@@ -72,45 +54,37 @@ aws ce get-cost-and-usage \
   --granularity MONTHLY \
   --metrics "BlendedCost" "UnblendedCost" "UsageQuantity" \
   --group-by Type=DIMENSION,Key=SERVICE
-
 # Get cost forecast for the next 30 days
 aws ce get-cost-forecast \
   --time-period Start=2026-03-24,End=2026-04-24 \
   --metric UNBLENDED_COST \
   --granularity MONTHLY
-
 # Get cost grouped by a specific tag (e.g., team)
 aws ce get-cost-and-usage \
   --time-period Start=2026-02-01,End=2026-03-01 \
   --granularity MONTHLY \
   --metrics "UnblendedCost" \
   --group-by Type=TAG,Key=team
-
 # Get rightsizing recommendations for EC2
 aws ce get-rightsizing-recommendation \
   --service "AmazonEC2" \
   --configuration '{"RecommendationTarget":"SAME_INSTANCE_FAMILY","BenefitsConsidered":true}'
-
 # Get Savings Plans purchase recommendation
 aws ce get-savings-plans-purchase-recommendation \
   --savings-plans-type COMPUTE_SP \
   --term-in-years ONE_YEAR \
   --payment-option NO_UPFRONT \
   --lookback-period-in-days SIXTY_DAYS
-
 # Get Savings Plans utilization
 aws ce get-savings-plans-utilization \
   --time-period Start=2026-02-01,End=2026-03-01 \
   --granularity MONTHLY
-
 # Get Reserved Instance utilization
 aws ce get-reservation-utilization \
   --time-period Start=2026-02-01,End=2026-03-01 \
   --granularity MONTHLY
 ```
-
 ## Budget Alerts
-
 ```bash
 # Create a monthly cost budget with email alert at 80% and 100%
 aws budgets create-budget \
@@ -147,10 +121,8 @@ aws budgets create-budget \
       "Subscribers": [{"SubscriptionType": "EMAIL", "Address": "finops@example.com"}]
     }
   ]'
-
 # List all budgets
 aws budgets describe-budgets --account-id 123456789012
-
 # Enable Cost Anomaly Detection monitor for all services
 aws ce create-anomaly-monitor \
   --anomaly-monitor '{
@@ -158,7 +130,6 @@ aws ce create-anomaly-monitor \
     "MonitorType": "DIMENSIONAL",
     "MonitorDimension": "SERVICE"
   }'
-
 # Create anomaly subscription (alert when impact > $50)
 aws ce create-anomaly-subscription \
   --anomaly-subscription '{
@@ -169,9 +140,7 @@ aws ce create-anomaly-subscription \
     "Frequency": "DAILY"
   }'
 ```
-
 ## CloudWatch Cost Alarm
-
 ```bash
 # Create alarm for estimated charges exceeding $4000
 aws cloudwatch put-metric-alarm --region us-east-1 \
@@ -188,31 +157,25 @@ aws cloudwatch put-metric-alarm --region us-east-1 \
   --alarm-actions "arn:aws:sns:us-east-1:123456789012:billing-alerts" \
   --treat-missing-data notBreaching
 ```
-
 ## Find and Clean Unused Resources
-
 ```bash
 # List unattached EBS volumes (wasted storage spend)
 aws ec2 describe-volumes \
   --filters Name=status,Values=available \
   --query "Volumes[].{ID:VolumeId,Size:Size,Created:CreateTime}" \
   --output table
-
 # Find old EBS snapshots (older than 90 days)
 aws ec2 describe-snapshots \
   --owner-ids self \
   --query "Snapshots[?StartTime<='2025-12-24'].{ID:SnapshotId,Size:VolumeSize,Date:StartTime}" \
   --output table
-
 # List unused Elastic IPs (charged when not associated)
 aws ec2 describe-addresses \
   --query "Addresses[?AssociationId==null].{IP:PublicIp,AllocId:AllocationId}" \
   --output table
-
 # Inspect target health (zero healthy targets is not proof a load balancer is unused)
 aws elbv2 describe-target-health \
   --target-group-arn arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/my-tg/abc123
-
 # List RDS instances and their utilization
 aws cloudwatch get-metric-statistics \
   --namespace AWS/RDS \
@@ -223,9 +186,7 @@ aws cloudwatch get-metric-statistics \
   --period 86400 \
   --statistics Average
 ```
-
 ## S3 Lifecycle Cost Optimization
-
 ```bash
 # Apply tiered lifecycle policy to reduce storage costs
 aws s3api put-bucket-lifecycle-configuration \
@@ -255,9 +216,7 @@ aws s3api put-bucket-lifecycle-configuration \
     ]
   }'
 ```
-
 ## Terraform Budget and Alarm Example
-
 ```hcl
 resource "aws_budgets_budget" "monthly" {
   name         = "monthly-total"
@@ -265,7 +224,6 @@ resource "aws_budgets_budget" "monthly" {
   limit_amount = "5000"
   limit_unit   = "USD"
   time_unit    = "MONTHLY"
-
   notification {
     comparison_operator        = "GREATER_THAN"
     threshold                  = 80
@@ -273,7 +231,6 @@ resource "aws_budgets_budget" "monthly" {
     notification_type          = "ACTUAL"
     subscriber_email_addresses = ["finops@example.com"]
   }
-
   notification {
     comparison_operator        = "GREATER_THAN"
     threshold                  = 100
@@ -282,7 +239,6 @@ resource "aws_budgets_budget" "monthly" {
     subscriber_email_addresses = ["finops@example.com"]
   }
 }
-
 resource "aws_cloudwatch_metric_alarm" "billing" {
   alarm_name          = "billing-alarm-4000"
   comparison_operator = "GreaterThanThreshold"
@@ -294,31 +250,25 @@ resource "aws_cloudwatch_metric_alarm" "billing" {
   threshold           = 4000
   alarm_description   = "Billing exceeds $4000"
   alarm_actions       = [aws_sns_topic.billing_alerts.arn]
-
   dimensions = {
     Currency = "USD"
   }
 }
 ```
-
 ## Scheduling Non-Production Shutdowns
-
 ```bash
 # Stop all dev instances tagged Environment=dev (run via EventBridge + Lambda)
 aws ec2 describe-instances \
   --filters "Name=tag:Environment,Values=dev" "Name=instance-state-name,Values=running" \
   --query "Reservations[].Instances[].InstanceId" \
   --output text | xargs -n1 aws ec2 stop-instances --instance-ids
-
 # Scale down dev ECS services to zero at night
 aws ecs update-service \
   --cluster dev-cluster \
   --service dev-api \
   --desired-count 0
 ```
-
 ## Troubleshooting
-
 | Problem | Cause | Fix |
 |---|---|---|
 | Cost Explorer returns empty data | CE not enabled or < 24h old | Enable in Billing console, wait 24h |
@@ -329,17 +279,12 @@ aws ecs update-service \
 | Billing alarm never triggers | Billing metrics only in us-east-1 | Create alarm in us-east-1 region |
 | CUR data missing in S3 | Report not configured or bucket policy wrong | Verify CUR setup in Billing console |
 | Tag-based cost allocation empty | Tags not activated | Activate cost allocation tags in Billing |
-
 ## Related Skills
-
 - aws-ec2 (`aws-ec2`) - EC2 operations, sizing, and Spot instances
 - aws-s3 (`aws-s3`) - S3 storage classes and lifecycle controls
 - aws-rds (`aws-rds`) - RDS instance sizing and reserved instances
 - aws-lambda (`aws-lambda`) - Lambda pricing and concurrency tuning
 - terraform-aws (`terraform-aws`) - Codifying cost guardrails in IaC
-
 ## Limitations
-
 - Infrastructure commands can disrupt services: confirm target host/scope and have backups/snapshots before mutating state.
 - Docs-only import: upstream scripts and templates not bundled.
-

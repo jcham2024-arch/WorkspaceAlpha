@@ -1,51 +1,35 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "1fcf4eba69e6bcead28ce6ee16157555a87248172046ddc49a0b489667e5bbab"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: nx-workspace-patterns
-description: "Configure and optimize Nx monorepo workspaces. Use when setting up Nx, configuring project boundaries, optimizing build caching, or implementing affected commands."
-tier: "experimental"
+content_hash: 1fcf4eba69e6bcead28ce6ee16157555a87248172046ddc49a0b489667e5bbab
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Configure and optimize Nx monorepo workspaces. Use when setting up Nx, configuring project boundaries, optimizing build caching, or implementing affected commands.
+name: CI
 risk: critical
 source: community
-date_added: "2026-02-27"
+tags: "`type:feature,scope:${scope}`,"
 ---
-
-
 # Nx Workspace Patterns
-
 Production patterns for Nx monorepo management.
-
 ## Do not use this skill when
-
 - The task is unrelated to nx workspace patterns
 - You need a different domain or tool outside this scope
-
 ## Instructions
-
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-
 ## Use this skill when
-
 - Setting up new Nx workspaces
 - Configuring project boundaries
 - Optimizing CI with affected commands
 - Implementing remote caching
 - Managing dependencies between projects
 - Migrating to Nx
-
 ## Core Concepts
-
 ### 1. Nx Architecture
-
 ```
 workspace/
 ├── apps/              # Deployable applications
@@ -62,9 +46,7 @@ workspace/
 ├── nx.json            # Nx configuration
 └── workspace.json     # Project configuration
 ```
-
 ### 2. Library Types
-
 | Type | Purpose | Example |
 |------|---------|---------|
 | **feature** | Smart components, business logic | `feature-auth` |
@@ -72,13 +54,9 @@ workspace/
 | **data-access** | API calls, state management | `data-access-users` |
 | **util** | Pure functions, helpers | `util-formatting` |
 | **shell** | App bootstrapping | `shell-web` |
-
 ## Templates
-
 These examples mix legacy and modern Nx configuration. Pin the workspace Nx/plugin versions and validate against installed schemas; do not copy npmScope/tasksRunnerOptions or generator options across versions blindly. Use environment/secret storage for Nx Cloud tokens, never literal committed accessToken fields. Cache only deterministic tasks with complete input/output declarations; E2E against mutable services can require noncached execution. Affected selection depends on a complete dependency graph and correct base/head: full required suites still apply for policy/shared/unknown changes. Migration commands modify manifests/code and need a clean recoverable topic branch and review.
-
 ### Template 1: nx.json Configuration
-
 ```json
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
@@ -152,9 +130,7 @@ These examples mix legacy and modern Nx configuration. Pin the workspace Nx/plug
   }
 }
 ```
-
 ### Template 2: Project Configuration
-
 ```json
 // apps/web/project.json
 {
@@ -224,9 +200,7 @@ These examples mix legacy and modern Nx configuration. Pin the workspace Nx/plug
   }
 }
 ```
-
 ### Template 3: Module Boundary Rules
-
 ```json
 // .eslintrc.json
 {
@@ -292,9 +266,7 @@ These examples mix legacy and modern Nx configuration. Pin the workspace Nx/plug
   ]
 }
 ```
-
 ### Template 4: Custom Generator
-
 ```typescript
 // tools/generators/feature-lib/index.ts
 import {
@@ -306,13 +278,10 @@ import {
   readProjectConfiguration,
 } from '@nx/devkit';
 import { libraryGenerator } from '@nx/react';
-
 interface FeatureLibraryGeneratorSchema {
-  name: string;
   scope: string;
   directory?: string;
 }
-
 export default async function featureLibraryGenerator(
   tree: Tree,
   options: FeatureLibraryGeneratorSchema
@@ -321,23 +290,18 @@ export default async function featureLibraryGenerator(
   const projectDirectory = directory
     ? `${directory}/${name}`
     : `libs/${scope}/feature-${name}`;
-
   // Generate base library
   await libraryGenerator(tree, {
-    name: `feature-${name}`,
     directory: projectDirectory,
-    tags: `type:feature,scope:${scope}`,
     style: 'css',
     skipTsConfig: false,
     skipFormat: true,
     unitTestRunner: 'jest',
     linter: 'eslint',
   });
-
   // Add custom files
   const projectConfig = readProjectConfiguration(tree, `${scope}-feature-${name}`);
   const projectNames = names(name);
-
   generateFiles(
     tree,
     joinPathFragments(__dirname, 'files'),
@@ -348,26 +312,20 @@ export default async function featureLibraryGenerator(
       tmpl: '',
     }
   );
-
   await formatFiles(tree);
 }
 ```
-
 ### Template 5: CI Configuration with Affected
-
 ```yaml
 # .github/workflows/ci.yml
-name: CI
 
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
-
 env:
   NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
-
 jobs:
   main:
     runs-on: ubuntu-latest
@@ -375,33 +333,24 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
-
       - name: Install dependencies
         run: npm ci
-
       - name: Derive SHAs for affected commands
         uses: nrwl/nx-set-shas@v4
-
       - name: Run affected lint
         run: npx nx affected -t lint --parallel=3
-
       - name: Run affected test
         run: npx nx affected -t test --parallel=3 --configuration=ci
-
       - name: Run affected build
         run: npx nx affected -t build --parallel=3
-
       - name: Run affected e2e
         run: npx nx affected -t e2e --parallel=1
 ```
-
 ### Template 6: Remote Caching Setup
-
 ```typescript
 // nx.json with Nx Cloud
 {
@@ -418,7 +367,6 @@ jobs:
   },
   "nxCloudAccessToken": "your-nx-cloud-token"
 }
-
 // Self-hosted cache with S3
 {
   "tasksRunnerOptions": {
@@ -434,51 +382,38 @@ jobs:
   }
 }
 ```
-
 ## Common Commands
-
 ```bash
 # Generate new library
 nx g @nx/react:lib feature-auth --directory=libs/web --tags=type:feature,scope:web
-
 # Run affected tests
 nx affected -t test --base=main
-
 # View dependency graph
 nx graph
-
 # Run specific project
 nx build web --configuration=production
-
 # Reset cache
 nx reset
-
 # Run migrations
 nx migrate latest
 nx migrate --run-migrations
 ```
-
 ## Best Practices
-
 ### Do's
 - **Use tags consistently** - Enforce with module boundaries
 - **Enable caching early** - Significant CI savings
 - **Keep libs focused** - Single responsibility
 - **Use generators** - Ensure consistency
 - **Document boundaries** - Help new developers
-
 ### Don'ts
 - **Don't create circular deps** - Graph should be acyclic
 - **Don't skip affected** - Test only what changed
 - **Don't ignore boundaries** - Tech debt accumulates
 - **Don't over-granularize** - Balance lib count
-
 ## Resources
-
 - [Nx Documentation](https://nx.dev/getting-started/intro)
 - [Module Boundaries](https://nx.dev/core-features/enforce-module-boundaries)
 - [Nx Cloud](https://nx.app/)
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

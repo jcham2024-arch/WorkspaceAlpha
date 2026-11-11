@@ -1,31 +1,21 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "caad0bf475cca96dad284b068d79dfdc776fd911d3773a797ca6924897e7a1f1"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: caad0bf475cca96dad284b068d79dfdc776fd911d3773a797ca6924897e7a1f1
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Best practices for Remotion - Video creation in React
 name: remotion-best-practices
-description: "Best practices for Remotion - Video creation in React"
-tier: "experimental"
 risk: critical
 source: community
-tags: "remotion, video, react, animation, composition"
-date_added: "2026-02-27"
+tags: remotion, video, react, animation, composition
 ---
-
-
 ## When to Use
 Use this skills whenever you are dealing with Remotion code to obtain the domain-specific knowledge.
-
 ## How to use
-
 Read individual rule files for detailed explanations and code examples:
-
 - [rules/3d.md](rules/3d.md) - 3D content in Remotion using Three.js and React Three Fiber
 - [rules/animations.md](rules/animations.md) - Fundamental animation skills for Remotion
 - [rules/assets.md](rules/assets.md) - Importing images, videos, audio, and fonts into Remotion
@@ -54,12 +44,9 @@ Read individual rule files for detailed explanations and code examples:
 - [rules/transitions.md](rules/transitions.md) - Scene transition patterns for Remotion
 - [rules/trimming.md](rules/trimming.md) - Trimming patterns for Remotion - cut the beginning or end of animations
 - [rules/videos.md](rules/videos.md) - Embedding videos in Remotion - trimming, volume, speed, looping, pitch
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## Runtime and data boundaries
-
 Use installed project tooling and lockfile versions; commands using package runners may download code when the CLI is absent. Install only dependencies needed by the agreed task and keep all Remotion packages on the same version. Remote media, font and transcription requests disclose data to their providers; use authorized assets and confirm paid/cloud transcription scope. Examples are partial component snippets unless exported; hooks belong inside React components, not module scope. `using` examples require TypeScript explicit resource management support. Validate rendered frames and audio in the target runtime.

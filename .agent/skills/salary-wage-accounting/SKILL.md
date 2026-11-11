@@ -1,96 +1,65 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "edb5ef6239b9098bf3823be89288205bf0bbdb35db24f3aefa93e38bf7f415a1"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: salary-wage-accounting
-description: 'Payroll register: gross, allowances, TDS and provident fund deductions, net pay, payment date and statutory reconciliation. Use for salary accounting.'
-tier: "experimental"
+content_hash: edb5ef6239b9098bf3823be89288205bf0bbdb35db24f3aefa93e38bf7f415a1
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: WHOISABHISHEKADHIKARI
 category: business
+date_added: 2026-09-26
+description: "'Payroll register: gross, allowances, TDS and provident fund deductions, net pay, payment date and statutory reconciliation. Use for salary accounting.'"
+name: salary-wage-accounting
 risk: safe
 source: self
-source_type: self
-date_added: "2026-09-26"
-author: WHOISABHISHEKADHIKARI
-tags: [sme, accounting, audit, finance, database, csv, notion, sql, payroll]
-tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
+source_type: self
+tags: "[sme, accounting, audit, finance, database, csv, notion, sql, payroll]"
+tools: "[]"
 ---
-
-
 # Salary & Wage Accounting
-
 **What it is:** Payroll booked, paid and reconciled against attendance and statutory liabilities.
-
 ## Overview
-
 Works out the smallest useful **Salary & Wage Accounting** setup for the business in front of it, then
 builds it only when asked. The default output is a short recommendation, not a
 spreadsheet. Artifacts - CSV, SQL DDL, JSON Schema, Notion mapping - are produced on
 request, from one field list so they cannot drift apart.
-
 This skill produces an empty template only. It never holds or processes real salary or
 employee data. Payroll calculation and statutory filing stay with a qualified person -
 this holds what was paid, what was deducted and what is still owed.
-
 Layer: Layer 5: Expense & Payroll. Fits: Growth stage. Table code: n/a.
-
 ## When to Use This Skill
-
 - payroll register
 - salary book
 - wage sheet record
 - payroll liability tracker
-
 Also use it when the user says "payroll booked, paid and reconciled against attendance and statutory liabilities", or describes the same process happening in a
 spreadsheet, a document or someone inboxes.
-
 Do not use it for: payroll calculation, statutory filing, or tax advice. This skill produces
 empty templates only - it never holds or processes real employee or customer data.
-
 ## How It Works
-
 No separate shared execution contract is bundled; follow this file and current host/user instructions. The module-specific rules below define only domain fields, decisions, calculations, and safety constraints.
-
 ### Step 1 - Identify intent
-
 Read the request and pick the intent before asking anything.
-
 - "set up" or "build" or "create" -> the user wants artifacts; go to Step 2.
 - "our process is ..." or "it is in a sheet" -> the user wants to move an existing process; capture it, then Step 2.
 - "is this right" or "review" or "audit" -> the user wants a check, not a build; answer from what they share.
 - "how do I ..." -> advice question; answer directly and offer the build only if it helps.
-
 Ask only if this is the highest-value missing fact; otherwise proceed without an opener:
-
 > **Q:** How many people are on the payroll each month?
-
 ### Step 2 - Ask only what is missing
-
 Treat ambiguous replies as unanswered and ask which explicit option the user means. Record unknown values as `Unknown`; `Unknown` is not zero. A record must not be `Done` when a required check fails.
-
 Skip anything the user already answered, in any earlier message. Ask the rest one at a
 time, and stop as soon as the remaining answers would not change the output.
-
 - **Workforce** - How many employees? / Salaried or hourly? / Where is attendance recorded?
 - **Pay cycle** - When is the run cut? / Who prepares the wage sheet? / Who approves payment?
 - **Deductions** - TDS? / SSF/PF or equivalent? / Any advance recovery or other deductions?
 - **Statutory** - Who deposits and files? / How often is it reconciled? / Is a liability carried?
 - **Outcome** - What do you need? / A payroll record, a liability tracker or both?
-
 Never invent an answer. If the user does not know, record it as unknown and carry on.
-
 ### Step 3 - Hold the internal context
-
 Hold the answers in this shape. It stays internal - it is not shown to the user unless
 they ask, and it never carries a value the user did not give.
-
 ```yaml
 module: salary-wage-accounting
 intent: null            # setup | advice | review | fix | build | convert | export
@@ -105,23 +74,15 @@ requested_outputs: []   # csv | sql | json | notion | xlsx - requested formats o
 confirmed_facts: []     # only what the user actually said
 open_questions: []      # the unanswered ones, in the order worth asking
 ```
-
 ### Step 4 - Recommend the smallest workflow
-
 Build an already requested artifact without asking again. For advice-only requests, give a short recommendation and offer the relevant artifact.
-
 **Recommended approach:** One record per employee per pay run holding the period, the days, the gross, the deductions and the net, and let the payroll package do the calculation.
-
 **Why this one:** The arithmetic belongs in payroll software. This holds what was paid, what was deducted and what is still owed, so a reviewer can check the sheet without redoing it.
-
 **Workflow:** Attendance recorded → Wage sheet prepared → Approved → Paid → Liability carried → Statutory reconciled
-
 ### Step 5 - Build only on request
-
 Once the user asks for it, derive the fields from the confirmed context and emit the
 requested artifacts. For machine-readable text, keep prose outside the data; for files,
 provide a usable link. Report material validation failures or limitations separately.
-
 **A selected Notion output is rendered by `notion-manual-import`, so route the
 Notion step there.** When the user selects Notion, hand that step to
 @notion-manual-import: it holds the CSV, the property
@@ -131,12 +92,10 @@ here and do not improvise the import steps. Manual CSV and mapping outputs need 
 connection. For requested workspace changes, follow the shared contract: verify actual
 tool access and the target before writing. A user saying "connected" is not tool evidence.
 Never ask for a Notion password or token.
-
 ```csv
 Payroll Run,Employee,Employee ID,Department,Period Start,Period End,Attendance Days,Paid Days,Gross Salary/Wages,Allowances,Deductions,TDS,SSF/PF Contribution,Other Deductions,Net Salary/Wages,Payment Date,Payment Mode,Ledger Account,Approval Reference,Payroll Liability Balance,Statutory Reconciliation Status,Source Document,Prepared By,Reviewed By,Status,Notes,Salary Record ID
 PAYRUN-2026-08,Rohit Menon,EMP-0114,Operations,2026-08-01,2026-08-31,26,26,96000.00,8400.00,1600.00,3600.00,7680.00,500.00,91020.00,2026-08-28,Bank Transfer,Salaries & Wages,APR-PR-2026-08,11280.00,Pending,DOC-2026-0470,Sneha Iyer,Ananya Rao,In progress,"Synthetic: base gross excludes allowances; total employee deductions 13380.00. TDS 3600.00 plus employee PF 7680.00 remain undeposited; other deductions already settled.",SAL-ID-0114
 ```
-
 ```sql
 CREATE TABLE salary_wage_accounting (
   payroll_run VARCHAR(255),
@@ -169,10 +128,8 @@ CREATE TABLE salary_wage_accounting (
   created_at TIMESTAMP DEFAULT NOW(),
   updated_at TIMESTAMP DEFAULT NOW()
 );
-
 CREATE INDEX idx_salary_wage_accounting_status ON salary_wage_accounting (status);
 ```
-
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -226,7 +183,6 @@ CREATE INDEX idx_salary_wage_accounting_status ON salary_wage_accounting (status
   ]
 }
 ```
-
 ```markdown
 | CSV column | Notion property | Set after import |
 |---|---|---|
@@ -258,18 +214,12 @@ CREATE INDEX idx_salary_wage_accounting_status ON salary_wage_accounting (status
 | Notes | Text | Leave as Text |
 | Salary Record ID | Text (preserve source ID) | Keep imported IDs as Text; optionally add a separate Unique ID property |
 ```
-
 The rows above are documentation examples only. Emit empty templates unless the user explicitly requests examples. Money stays `currency`, dates stay `date`,
 and anything pointing at another table stays `relation`.
-
 ## Arithmetic and record integrity
-
 The synthetic example uses base gross 96,000 excluding allowances 8,400. Employee deductions are 1,600 + TDS 3,600 + employee PF 7,680 + other 500 = 13,380; net pay = 96,000 + 8,400 - 13,380 = 91,020. The general Deductions field means additional deductions only, not the total; rename it in all outputs if that meaning is unclear. The example assumes TDS and PF remain undeposited (liability 11,280) and other deductions settled. Employer contributions, accruals, partial payments and adjustments require separate fields/allocations; never infer statutory rates or deadlines from these figures.
-
 Confirm jurisdiction, currency, pay-run/employee grain, period ordering and days. A run title repeats per employee; preserve a unique string Salary Record ID and enforce a run/employee key where appropriate. Use SQL NULL / JSON null / empty CSV cells for unknown numeric values, with a documented missing-data state; never zero or a literal Unknown in numeric cells. The Field Reference describes non-null values; schemas above define nullability. Require actual approvals, payment evidence and deposit allocation before Done/Reconciled; a status label alone is not evidence. updated_at requires application or trigger maintenance. Escape formula-leading spreadsheet text while preserving original identifiers separately.
-
 ## Field Reference
-
 | # | Field | Type | SQL | JSON Schema | Notion | CSV example |
 |---:|---|---|---|---|---|---|
 | 1 | Payroll Run | `text` | `VARCHAR(255)` | `string` | Title | `PAYRUN-2026-08` |
@@ -299,44 +249,31 @@ Confirm jurisdiction, currency, pay-run/employee grain, period ordering and days
 | 25 | Status | `select` | `VARCHAR(100)` | `string` | Select (add options after import) | `In progress` |
 | 26 | Notes | `long_text` | `TEXT` | `string` | Text | `Synthetic: base gross excludes allowances; total employee deductions 13380.00. TDS 3600.00 plus employee PF 7680.00 remain undeposited; other deductions already settled.` |
 | 27 | Salary Record ID | `id` | `VARCHAR(255) PRIMARY KEY` | `string` | Text (preserve source ID) | `SAL-ID-0114` |
-
 ## Select Options
-
 **Department**
-
 ```
 Sales | Purchase | Accounts | Payroll | Admin | Finance | Operations
 ```
 **Payment Mode**
-
 ```
 Bank Transfer | Cash | Cheque | Digital Payment
 ```
 **Statutory Reconciliation Status**
-
 ```
 Reconciled | Pending | Variance
 ```
 **Status**
-
 ```
 Not started | In progress | Blocked | Done | Cancelled
 ```
-
 ## Relations
-
 Link fields: `Source Document`
-
 ## Examples
-
 **Prompt**
-
 ```
 Payroll runs on a sheet and at month end we cannot tell what is still owed as PF.
 ```
-
 **Context first** - one question per message, nothing already answered:
-
 > **Q:** How many people on the payroll?
 > **A:** Nine, all salaried.
 >
@@ -345,17 +282,13 @@ Payroll runs on a sheet and at month end we cannot tell what is still owed as PF
 >
 > **Q:** Who deposits the PF and TDS?
 > **A:** Our accountant, monthly.
-
 **Recommended next step** - offered, not built:
-
 > One record per employee per pay run holding the period, the days, the gross, the deductions and the net, and let the payroll package do the calculation.
 >
 > Workflow: Attendance recorded → Wage sheet prepared → Approved → Paid → Liability carried → Statutory reconciled
 >
 > Want the CSV, SQL, JSON Schema and Notion mapping for this?
-
 ## Best Practices
-
 - Build when requested; recommend and offer a build for advice-only requests.
 - One question per message. A batched intake reads as a form and gets guessed at.
 - Keep display names identical across CSV and JSON; document normalized SQL identifiers.
@@ -365,9 +298,7 @@ Payroll runs on a sheet and at month end we cannot tell what is still owed as PF
 - Carry the statutory contribution as a liability until the deposit is actually made.
 - Have a named reviewer sign the run before payment is released.
 - If the user requests an example row, keep it obviously fake so nobody imports it as real data.
-
 ## Limitations
-
 - Empty template only. It does not calculate payroll, compute TDS or PF, or pay anyone.
 - It does not file statutory returns or make deposits, and it gives no payroll or tax advice.
 - Payroll calculation and statutory filing stay with a qualified person. This only holds the
@@ -377,9 +308,7 @@ Payroll runs on a sheet and at month end we cannot tell what is still owed as PF
 - Select options are a starting set. Rename them to match how the business talks.
 - No automation, reminders or sync. Those need the integration layer.
 - Legal, tax and HR review is still required before this drives real decisions.
-
 ## Security & Safety Notes
-
 - Never fill in real names, salaries, bank details, ID numbers or health information.
   Placeholders only.
 - Payroll data is sensitive personal data. Keep it in the payroll system, not in a template.
@@ -392,9 +321,7 @@ Payroll runs on a sheet and at month end we cannot tell what is still owed as PF
   from the conversation or service storage.
 - Pay, disciplinary and grievance decisions need a qualified human reviewer. Never let this
   output drive one on its own.
-
 ## Common Pitfalls
-
 - **Problem:** a static mapping is described as a completed workspace build.
   **Solution:** deliver manual mappings without a connection; claim a live change only
   after the authorized tool operation succeeds.
@@ -411,17 +338,13 @@ Payroll runs on a sheet and at month end we cannot tell what is still owed as PF
   **Solution:** derive all four from the field list in this file, never by hand.
 - **Problem:** Notion import shows every column as Text.
   **Solution:** that is expected. Apply the property mapping table once, after import.
-
 ## Related Skills
-
 - @accounting-audit-system-builder - routes to this skill and the other accounting modules.
 - @expense-accounting - books the salary and wage lines into the expense register.
 - @payment-accounting - records the bank or cash payment that settles the net figure.
 - @tds-booking-payment - carries the salary TDS into the statutory register and return.
 - @source-document-filing - stores the signed wage sheet and the deposit challan.
-
 ## Reusable Prompt
-
 ```
 I want to set up payroll booked, paid and reconciled against attendance and statutory liabilities for my company.
 Ask me one short question at a time, and only about what I have not already told you.

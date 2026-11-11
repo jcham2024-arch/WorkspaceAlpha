@@ -1,32 +1,21 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "0d3896a31ab1fd41501f4fe1d43c9a2b986a5772eb6aa730fe094c1e5a7f5943"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: threejs-materials
+content_hash: 0d3896a31ab1fd41501f4fe1d43c9a2b986a5772eb6aa730fe094c1e5a7f5943
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-03-06
 description: Three.js materials - PBR, basic, phong, shader materials, material properties. Use when styling meshes, working with textures, creating custom shaders, or optimizing material performance.
-tier: "experimental"
+name: threejs-materials
 risk: critical
 source: community
-date_added: "2026-03-06"
 ---
-
-
 # Three.js Materials
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use
 Use this skill when tackling tasks related to its primary domain or functionality as described above.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

@@ -1,45 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "b3e4bbb0e86b52719e04ba404dbffba1edf736afff24f673e966a9dcb9020012"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
+content_hash: b3e4bbb0e86b52719e04ba404dbffba1edf736afff24f673e966a9dcb9020012
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: alirezarezvani
+category: front-end
+date_added: 2026-03-18
+description: Generates high-converting Next.js/React landing pages with Tailwind CSS. Uses PAS, AIDA, and BAB frameworks for optimized copy/components (Heroes, Features, Pricing). Focuses on Core Web Vitals/SEO.
+name: landing-page-generator
+risk: critical
+source: community
+tags: "["nextjs", "react", "tailwind", "landing-page", "marketing", "seo", "cro"]"
+tools: "["claude", "cursor", "gemini"]"
 ---
-name: "landing-page-generator"
-description: "Generates high-converting Next.js/React landing pages with Tailwind CSS. Uses PAS, AIDA, and BAB frameworks for optimized copy/components (Heroes, Features, Pricing). Focuses on Core Web Vitals/SEO."
-tier: "experimental"
-category: "front-end"
-risk: "critical"
-source: "community"
-date_added: "2026-03-18"
-author: "alirezarezvani"
-tags: ["nextjs", "react", "tailwind", "landing-page", "marketing", "seo", "cro"]
-tools: ["claude", "cursor", "gemini"]
----
-
-
 # Landing Page Generator
-
 Generate high-converting landing pages from a product description. Output complete Next.js/React components with multiple section variants, proven copy frameworks, SEO optimization, and performance-first patterns. Not lorem ipsum — actual copy that converts.
-
 **Target:** LCP < 1s · CLS < 0.1 · INP < 200ms
 **Output:** TSX components + Tailwind styles + SEO meta + copy variants
-
 ## When to Use
 - You need to generate a marketing landing page in Next.js or React.
 - The task involves conversion-focused page structure, section variants, Tailwind styling, or SEO-aware copy.
 - You want complete landing-page output from a product description rather than isolated UI fragments.
-
 ## Evidence and implementation limits
-
 No conversion outcome is guaranteed. Framework examples use fictional numbers/customer claims; publish only substantiated metrics, authorized logos/testimonials, actual guarantees and verified pricing. The referenced brand analyzer/UI-system/teardown paths are not bundled; use available reviewed tools or manual analysis. The scaffold is a partial starting point: it does not implement all hero variants, FAQ schema, billing toggles, integrations or a measured performance audit. Verify imports (Button/Image/Accordion/Check), accessibility, routing and actual build/render behavior. Never claim Core Web Vitals passed from source inspection alone.
-
 ## Core Capabilities
-
 - 5 hero section variants (centered, split, gradient, video-bg, minimal)
 - Feature sections (grid, alternating, cards with icons)
 - Pricing tables (2–4 tiers with feature lists and toggle)
@@ -48,13 +34,9 @@ No conversion outcome is guaranteed. Framework examples use fictional numbers/cu
 - CTA sections (banner, full-page, inline)
 - Footer (simple, mega, minimal)
 - 4 design styles with Tailwind class sets
-
 ---
-
 ## Generation Workflow
-
 Follow these steps in order for every landing page request:
-
 1. **Gather inputs** — collect product name, tagline, audience, pain point, key benefit, pricing tiers, design style, and copy framework using the trigger format below. Ask only for missing fields.
 2. **Analyze brand voice** (recommended) — if the user has existing brand content (website copy, blog posts, marketing materials), run it through `marketing-skill/content-production/scripts/brand_voice_analyzer.py` to get a voice profile (formality, tone, perspective). Use the profile to inform design style and copy framework selection:
    - formal + professional → **enterprise** style, **AIDA** framework
@@ -66,11 +48,8 @@ Follow these steps in order for every landing page request:
 5. **Generate sections in order** — Hero → Features → Pricing → FAQ → Testimonials → CTA → Footer. Skip sections not relevant to the product.
 6. **Validate against SEO checklist** — run through every item in the SEO Checklist before outputting final code. Fix any gaps inline.
 7. **Output final components** — deliver complete, copy-paste-ready TSX files with all Tailwind classes, SEO meta, and structured data included.
-
 ---
-
 ## Triggering This Skill
-
 ```
 Product: [name]
 Tagline: [one sentence value prop]
@@ -81,42 +60,29 @@ Pricing tiers: [free/pro/enterprise or describe]
 Design style: dark-saas | clean-minimal | bold-startup | enterprise
 Copy framework: PAS | AIDA | BAB
 ```
-
 ---
-
 ## Design Style Reference
-
 | Style | Background | Accent | Cards | CTA Button |
 |---|---|---|---|---|
 | **Dark SaaS** | `bg-gray-950 text-white` | `violet-500/400` | `bg-gray-900 border border-gray-800` | `bg-violet-600 hover:bg-violet-500` |
 | **Clean Minimal** | `bg-white text-gray-900` | `blue-600` | `bg-gray-50 border border-gray-200 rounded-2xl` | `bg-blue-600 hover:bg-blue-700` |
 | **Bold Startup** | `bg-white text-gray-900` | `orange-500` | `shadow-xl rounded-3xl` | `bg-orange-500 hover:bg-orange-600 text-white` |
 | **Enterprise** | `bg-slate-50 text-slate-900` | `slate-700` | `bg-white border border-slate-200 shadow-sm` | `bg-slate-900 hover:bg-slate-800 text-white` |
-
 > **Bold Startup** headings: add `font-black tracking-tight` to all `<h1>`/`<h2>` elements.
-
 ---
-
 ## Copy Frameworks
-
 **PAS (Problem → Agitate → Solution)**
 - H1: Painful state they're in
 - Sub: What happens if they don't fix it
 - CTA: What you offer
 - *Example — H1:* "Your team wastes 3 hours a day on manual reporting" / *Sub:* "Every hour spent on spreadsheets is an hour not closing deals. Your competitors are already automated." / *CTA:* "Automate your reports in 10 minutes →"
-
 **AIDA (Attention → Interest → Desire → Action)**
 - H1: Bold attention-grabbing statement → Sub: Interesting fact or benefit → Features: Desire-building proof points → CTA: Clear action
-
 **BAB (Before → After → Bridge)**
 - H1: "[Before state] → [After state]" → Sub: "Here's how [product] bridges the gap" → Features: How it works (the bridge)
-
 ---
-
 ## Representative Component: Hero (Centered Gradient — Dark SaaS)
-
 Use this as the structural template for all hero variants. Swap layout classes, gradient direction, and image placement for split, video-bg, and minimal variants.
-
 ```tsx
 export function HeroCentered() {
   return (
@@ -152,33 +118,20 @@ export function HeroCentered() {
   )
 }
 ```
-
 ---
-
 ## Other Section Patterns
-
 ### Feature Section (Alternating)
-
 Map over a `features` array with `{ title, description, image, badge }`. Toggle layout direction with `i % 2 === 1 ? "lg:flex-row-reverse" : ""`. Use `<Image>` with explicit `width`/`height` and `rounded-2xl shadow-xl`. Wrap in `<section className="py-24">` with `max-w-6xl` container.
-
 ### Pricing Table
-
 Map over a `plans` array with `{ name, price, description, features[], cta, highlighted }`. Highlighted plan gets `border-2 border-violet-500 bg-violet-950/50 ring-4 ring-violet-500/20`; others get `border border-gray-800 bg-gray-900`. Render `null` price as "Custom". Use `<Check>` icon per feature row. Layout: `grid gap-8 lg:grid-cols-3`.
-
 ### FAQ with Schema Markup
-
 Inject `FAQPage` JSON-LD via `<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />` inside the section. Map FAQs with `{ q, a }` into shadcn `<Accordion>` with `type="single" collapsible`. Container: `max-w-3xl`.
-
 ### Testimonials, CTA, Footer
-
 - **Testimonials:** Grid (`grid-cols-1 md:grid-cols-3`) or single-quote hero block with avatar, name, role, and quote text.
 - **CTA Banner:** Full-width section with headline, subhead, and two buttons (primary + ghost). Add trust signals (money-back guarantee, logo strip) immediately below.
 - **Footer:** Logo + nav columns + social links + legal. Use `border-t border-gray-800` separator.
-
 ---
-
 ## SEO Checklist
-
 - [ ] `<title>` tag: primary keyword + brand (50–60 chars)
 - [ ] Meta description: benefit + CTA (150–160 chars)
 - [ ] OG image: 1200×630px with product name and tagline
@@ -190,13 +143,9 @@ Inject `FAQPage` JSON-LD via `<script type="application/ld+json" dangerouslySetI
 - [ ] Core Web Vitals: LCP < 1s, CLS < 0.1
 - [ ] Mobile viewport meta tag present
 - [ ] Internal linking to pricing and docs
-
 > **Validation step:** Before outputting final code, verify every checklist item above is satisfied. Fix any gaps inline — do not skip items.
-
 ---
-
 ## Performance Targets
-
 | Metric | Target | Technique |
 |---|---|---|
 | LCP | < 1s | Preload hero image, use `priority` on Next/Image |
@@ -204,25 +153,18 @@ Inject `FAQPage` JSON-LD via `<script type="application/ld+json" dangerouslySetI
 | INP | < 200ms | Defer non-critical JS, use `loading="lazy"` |
 | TTFB | < 200ms | Use ISR or static generation for landing pages |
 | Bundle | < 100KB JS | Audit with `@next/bundle-analyzer` |
-
 ---
-
 ## Common Pitfalls
-
 - Hero image not preloaded — add `priority` prop to first `<Image>`
 - Missing mobile breakpoints — always design mobile-first with `sm:` prefixes
 - CTA copy too vague — "Get started" beats "Learn more"; "Start free trial" beats "Sign up"
 - Pricing page missing trust signals — add money-back guarantee and testimonials near CTA
 - No above-the-fold CTA on mobile — ensure button is visible without scrolling on 375px viewport
-
 ---
-
 ## Related Skills
-
 - **Brand Voice Analyzer** (`marketing-skill/content-production/scripts/brand_voice_analyzer.py`) — Run before generation to establish voice profile and ensure copy consistency
 - **UI Design System** (`product-team/ui-design-system/`) — Generate design tokens from brand color before building the page
 - **Competitive Teardown** (`product-team/competitive-teardown/`) — Competitive positioning informs landing page messaging and differentiation
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

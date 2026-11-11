@@ -1,38 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "d562208ea1cf521aa28260c5f23724891f5af0d6c946e0c81843ceb59303a6cf"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: hunt-shadow-api
-description: Hunt shadow / zombie / undocumented API surface (OWASP API9 Improper
-tier: "experimental"
-  Inventory Management)
+content_hash: d562208ea1cf521aa28260c5f23724891f5af0d6c946e0c81843ceb59303a6cf
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 category: security
+compatibility: Requires explicit written authorization for a target scope plus the
+date_added: 2026-09-20
+description: Hunt shadow / zombie / undocumented API surface (OWASP API9 Improper
+license: MIT
+license_source: "https://github.com/elementalsouls/Claude-BugHunter/blob/main/LICENSE"
+name: hunt-shadow-api
 risk: offensive
-source: https://github.com/elementalsouls/Claude-BugHunter
+source: "https://github.com/elementalsouls/Claude-BugHunter"
 source_repo: elementalsouls/Claude-BugHunter
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/elementalsouls/Claude-BugHunter/blob/main/LICENSE
-compatibility: Requires explicit written authorization for a target scope plus the
+---  Inventory Management)
   relevant testing tools for this technique. Docs-only; helper scripts and commands
   not bundled.
 sources: owasp_api_top10_2023, portswigger_research, public_research
 report_count: 0
 ---
-
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.
 > Misuse of this tool is illegal and strictly prohibited.
-
 > **Mandatory confirmation gate**
 > Before running any command that probes, exploits, changes, persists on, extracts data from, or attempts credential access against a target:
 > 1. Ask the user to state the exact target URL, IP, account, or resource.
@@ -41,16 +34,12 @@ report_count: 0
 > 4. Wait for explicit confirmation in the current conversation.
 >
 > Without that confirmation, remain read-only and provide defensive guidance only. Prefer a sandbox, disposable VM, or controlled lab.
-
 ## OWASP API9 — Improper Inventory Management (Shadow / Zombie APIs)
-
 As an API evolves, old versions and internal/staging routes routinely stay reachable without
 receiving the same security fixes as the current version — because nobody tracks that they
 still exist. The bug is rarely in one endpoint; it's in the **delta** between what an old
 version enforces and what the current version enforces on the same operation.
-
 ### When to use
-
 Trigger when:
 - Versioned paths are visible (`/v1/`, `/v2/`, `/api/2023-01-01/`) or `Accept`/`X-API-Version`
   headers are in play.
@@ -59,47 +48,35 @@ Trigger when:
   that look like an older backend version than the current web app calls.
 - Multiple OpenAPI/Swagger specs are discoverable, or `info.version` in one spec implies others
   exist.
-
 DO NOT use for single-version APIs with no version history — there's nothing to diff; go
 straight to `hunt-api-misconfig` for direct exploitation of the one surface that exists.
-
 ---
-
 ## Stage 1 — Enumerate the Full Version Surface
-
 ```bash
 # Path-based versioning
 for v in v1 v2 v3 v4 beta alpha internal legacy old 2022-01-01 2023-01-01 2024-01-01; do
   curl -s -o /dev/null -w "%{http_code} /api/$v/\n" "https://$TARGET/api/$v/"
 done
-
 # Header-based versioning
 curl -s -H "X-API-Version: 1" https://$TARGET/api/users
 curl -s -H "Accept: application/vnd.company.v1+json" https://$TARGET/api/users
-
 # Subdomain-based versioning
 for sub in api api-v1 api-v2 apiv1 apiv2 legacy-api old-api internal-api staging-api; do
   curl -s -o /dev/null -w "%{http_code} $sub\n" "https://$sub.$TARGET/"
 done
 ```
-
 A `200`/`401`/`403` is a discovery lead, not proof an API version exists: compare a random nonexistent route and inspect content/routing because catch-all pages and gateways can return the same status for every path.
-
 ---
-
 ## Stage 2 — Pull Every Reachable Spec, Not Just the Linked One
-
 ```bash
 for path in openapi.json swagger.json v1/swagger.json v2/swagger.json v3/api-docs \
             api-docs.json swagger/v1/swagger.json .well-known/openapi.json; do
   curl -s -o /dev/null -w "%{http_code} /$path\n" "https://$TARGET/$path"
 done
-
 # Wayback Machine — a DEPRECATED version's spec often stays indexed after the live link is removed
 curl -s "http://web.archive.org/cdx/search/cdx?url=$TARGET/*swagger*&output=json&collapse=urlkey"
 curl -s "http://web.archive.org/cdx/search/cdx?url=$TARGET/*openapi*&output=json&collapse=urlkey"
 ```
-
 When more than one spec resolves (a current one and an archived/old one), diff the endpoint
 inventories directly:
 ```bash
@@ -110,15 +87,11 @@ comm -23 /tmp/v1_paths.txt /tmp/v2_paths.txt   # in v1 only — candidates for "
 For every path in that diff, confirm it's still reachable against the v1 base URL. A route
 documented only in the old spec that still returns something other than `404` is a zombie-
 endpoint candidate — carry it into Stage 3.
-
 ---
-
 ## Stage 3 — Behavioral Diff Between Old and Current Version
-
 For each operation that exists in **both** versions, compare security-relevant behavior, not
 response shape. Response shape differences are Informational; behavioral security regressions
 are the finding.
-
 - **Auth strength.** Does the old version accept no token, an expired token, or a lower-
   privilege token that the current version rejects?
   ```bash
@@ -131,11 +104,8 @@ are the finding.
   chain into whichever injection class the payload targets (`hunt-sqli`, `hunt-idor`, etc.).
 - **Field exposure.** Does the old version's response body include fields — internal IDs, other
   users' data, internal notes, PII — that the current version has since redacted?
-
 ---
-
 ## Stage 4 — Deprecated / Internal Routes Never Referenced by the Current UI
-
 - Grep JS bundles for API calls no visible UI flow triggers (`/internal/`, `/admin/`, `/debug/`,
   `/_internal/`, `/test/`, `/staging/`) — reuse `hunt-source-leak`'s JS-bundle grep patterns for
   this specifically.
@@ -143,11 +113,8 @@ are the finding.
 - Mobile-app endpoint inventories (via `apk-redteam-pipeline` / `ios-redteam-pipeline`) very
   often reference an older backend version than the current web app calls. Treat every
   APK/IPA-sourced endpoint as a version-diff candidate against the live web API.
-
 ---
-
 ## False-Positive Gate
-
 - A version difference alone (different response shape, cosmetic field renaming) is
   Informational. The finding is a **security-relevant regression** — auth, rate-limit, or
   validation that got weaker going backward in version history.
@@ -156,11 +123,8 @@ are the finding.
   under old vs. new logic, not just compare a version string in the response body.
 - A `200` on a path that just serves a static "this API version is deprecated, use v2" message
   is not a finding — confirm the underlying operation still executes.
-
 ---
-
 ## Severity Table
-
 | Finding | Severity |
 |---|---|
 | Old version bypasses auth entirely where current version requires it | Critical |
@@ -168,11 +132,8 @@ are the finding.
 | Old version leaks extra fields (PII, internal IDs) vs. current | Medium–High |
 | Old version accepts payloads the current version now validates/sanitizes | High (chain to the underlying injection class) |
 | Version is reachable but behaviorally identical to current | Informational |
-
 ---
-
 ## Related Skills & Chains
-
 - **`hunt-api-misconfig`** — owns exploitation once a spec or endpoint is in hand (mass
   assignment, JWT attacks, OData, Swagger-chain attacks). This skill hands it a sharper target:
   "here's a zombie endpoint with weaker validation than the current one."
@@ -185,23 +146,16 @@ are the finding.
   older API version; every mobile-sourced endpoint is a version-diff candidate.
 - **`hunt-brute-force`** — a rate-limit regression found here is only a complete finding once
   chained to actual brute-forceable impact (login, OTP, enumeration).
-
 ## When to Use
-
 - You have explicit, written authorization to assess the target in scope, and the task matches this skill's vulnerability class or technique within a bug-bounty or penetration-test engagement.
 - You need the recon, exploitation, or validation workflow described below — executed strictly inside the approved scope.
-
 ## Limitations
-
 - Authorized scope only: the confirmation gate above is mandatory before any probing, exploitation, or credential-access command.
 - Docs-only import: upstream helper scripts, commands, engine, and research assets are not bundled; reinstall tooling from the source repo when needed.
 - Validate every finding (see `triage-validation`) before reporting; report via `report-writing`. Prefer a sandbox, disposable VM, or controlled lab.
-
 ### Example
-
 ```bash
 # Read-only first step; confirm scope before anything active.
 cat scope.txt  # target list from the authorized engagement brief
 ```
-
 > Adapted from [elementalsouls/Claude-BugHunter](https://github.com/elementalsouls/Claude-BugHunter) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: executable helpers, commands, engine, and research assets not bundled.

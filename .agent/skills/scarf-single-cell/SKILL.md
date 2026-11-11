@@ -1,41 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "c12d93edd33cca869ab41c58312f45e48194d4adbbe1c35ea1e00ad76ec06ec0"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: scarf-single-cell
-description: "Analyze single-cell RNA-seq at million-cell scale with Scarf: out-of-core Zarr stores on disk or object storage, provenance-tracked artifacts, audited QC, clustering, markers and donor comparisons."
-tier: "experimental"
+content_hash: c12d93edd33cca869ab41c58312f45e48194d4adbbe1c35ea1e00ad76ec06ec0
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: NygenAnalytics
 category: science
+compatibility: Requires Python 3.12+ and scarf 1.0.0rc17 or newer (pip install "scarf[extra]>=1.0.0rc17"; add the cytebase extra and network access for Cytebase datasets).
+date_added: 2026-10-05
+description: ""Analyze single-cell RNA-seq at million-cell scale with Scarf: out-of-core Zarr stores on disk or object storage, provenance-tracked artifacts, audited QC, clustering, markers and donor comparisons.""
+license: BSD-3-Clause
+license_source: ""https://github.com/NygenAnalytics/scarf/blob/master/LICENSE""
+name: scarf-single-cell
 risk: critical
-source: "https://github.com/NygenAnalytics/scarf/tree/master/skills/scarf-single-cell"
+source: ""https://github.com/NygenAnalytics/scarf/tree/master/skills/scarf-single-cell""
 source_repo: NygenAnalytics/scarf
 source_type: official
-date_added: "2026-10-05"
-author: NygenAnalytics
-license: BSD-3-Clause
-license_source: "https://github.com/NygenAnalytics/scarf/blob/master/LICENSE"
-compatibility: Requires Python 3.12+ and scarf 1.0.0rc17 or newer (pip install "scarf[extra]>=1.0.0rc17"; add the cytebase extra and network access for Cytebase datasets).
-metadata:
-  version: "0.4"
-tags: [single-cell, scrna-seq, bioinformatics, genomics, zarr, out-of-core, python]
-tools: [claude, codex, cursor, gemini]
+tags: "[single-cell, scrna-seq, bioinformatics, genomics, zarr, out-of-core, python]"
+tools: "[claude, codex, cursor, gemini]"
+version: 0.4
 ---
-
-
 # Scarf single-cell analysis
-
 Scarf streams Zarr-backed count matrices in bounded blocks and records every computation as an
 immutable, content-addressed artifact. This skill encodes how to drive core Scarf for single-cell
 RNA analysis: which calls to make, in what order, what evidence to check, and what not to do.
 It does not use or describe `scarf.agent`.
-
 Read this file first. Then open only the reference modules you need (index below). Paths in this
 skill are relative to the skill directory. The maintained copy lives in the Scarf repository at
 <https://github.com/NygenAnalytics/scarf/tree/master/skills/scarf-single-cell>.
@@ -43,9 +33,7 @@ The upstream author reports running recipes on the 10x 5K PBMC documentation dat
 This catalog review did not run Scarf or reproduce those results; timings, counts and observations
 are upstream examples, not performance guarantees or biological thresholds. APIs target the
 prerelease documentation: pin and record the exact tested Scarf version before use.
-
 ## Limitations and execution boundaries
-
 Use only authorized datasets and approved storage/network endpoints. Single-cell genomic and
 donor metadata can identify people: minimize exported fields, avoid identifiers in logs, and
 write private outputs to a new access-restricted directory. Read-only opening does not prevent
@@ -55,15 +43,12 @@ network and storage budgets; preserve the source and never overwrite it. Snippet
 for that approved workspace, not commands to run automatically. Figures and diagnostics cannot
 validate cell identities or clinical conclusions. Content-addressed refs provide lineage within
 the store, not external authenticity, tamper-proof storage or scientific validity.
-
 Use a fresh output directory and exclusive file creation for exports and handoffs; check that
 metadata joins are one-to-one on unique IDs. Escape spreadsheet-formula prefixes in untrusted
 text exported to CSV. Size dense matrices before materializing them; panel size alone does not
 bound memory when cell counts are large. Do not start detached jobs without authorization and
 a reliable process identity, bounded timeout and private, unique log paths.
-
 ## When to Use This Skill
-
 - Use when a task involves a Scarf `.zarr` store, `scarf.DataStore`, `ds.pipeline` or a
   `PipelineRun`.
 - Use when converting H5AD, 10x, MTX or Seurat data into a Scarf store, or opening and mounting a
@@ -74,9 +59,7 @@ a reliable process identity, bounded timeout and private, unique log paths.
 - Use when counts are too large for memory or live on object storage, so they must be streamed
   under an explicit memory budget.
 - Do not use it for `scarf.agent` (the automated agent package), which this skill does not cover.
-
 ## Setup
-
 - Install into the environment you run Python from: `pip install "scarf[extra]>=1.0.0rc17"`, plus
   `scarf[cytebase]` for Cytebase. The explicit pre-release floor matters: a bare `scarf[extra]` resolves
   to the old 0.32 series, whose API this skill does not describe.
@@ -99,9 +82,7 @@ a reliable process identity, bounded timeout and private, unique log paths.
   process. If you launch through a wrapper such as `uv run`, put `timeout` inside it
   (`uv run timeout N python step.py`; the reverse can leave stale `running` records), and track the process by `$!` rather than `pgrep -f`. See
   `references/performance-and-export.md`. Never poll without a time limit.
-
 ## Mental model
-
 - A **DataStore** is one Zarr directory: a shared cell table `ds.cells`, one group per assay
   (`ds.RNA`, feature table `ds.RNA.feats`, counts as cell-major `counts` plus gene-major `countsT`),
   artifacts, and `pipeline/runs`. QC columns are assay-prefixed: `RNA_nCounts`, `RNA_nFeatures`,
@@ -119,9 +100,7 @@ a reliable process identity, bounded timeout and private, unique log paths.
 - Artifact payload rows follow the artifact's **cell selection**, not `ds.cells.N`.
 - A **mount** is a local writable store whose counts stay in a remote source (`matrixSource`).
   Every pass over counts is a network read; artifacts are written locally.
-
 ## Golden rules
-
 1. **Inspect read-only first.** `scarf.DataStore(path, zarr_mode="r")` writes nothing. A writable
    open (the default) prepares new stores and applies `min_features_per_cell` (default 10) to `I`
    permanently. Reopen existing stores and mounts with
@@ -181,11 +160,8 @@ a reliable process identity, bounded timeout and private, unique log paths.
     from `references/gene-blacklists.md` (`params={"hvg": {"blacklist": ...}}` in the pipeline). Add
     the clonotype add-on only on marker evidence. A `blacklist=` string replaces the default
     entirely, and changing it creates new HVG, PCA and graph artifacts.
-
 ## The analysis loop
-
 Work in this order. After each step, write the decision and its evidence to an analysis log.
-
 | Step | Do | Evidence to record | Module |
 |---|---|---|---|
 | 1. Inspect | read-only open, `ds.summary()`, metadata column profile, existing runs; check raw versus corrected counts | cells, assays, mounted or local, count type, metadata roles | `data-access.md`, `quality-control.md` |
@@ -197,34 +173,25 @@ Work in this order. After each step, write the decision and its evidence to an a
 | 7. Annotate | marker tables, canonical panels, gene-set scores | label, markers, negatives, unresolved clusters | `markers-and-annotation.md` |
 | 8. Compare | composition per donor, pseudobulk; only with replicates | what can and cannot be claimed | `integration-and-comparisons.md`, `performance-and-export.md` (pseudobulk export) |
 | 9. Report | figures, tables, handoff JSON, lineage, export | files written, open questions | `plotting.md`, `performance-and-export.md` |
-
 ## Quick start
-
 A complete first pass on an RNA store. Every step after the run reuses the run's artifacts.
-
 ```python
 from pathlib import Path
-
 import matplotlib
-
 matplotlib.use("Agg")  # headless; select the backend before importing scarf
 import numpy as np
 import pandas as pd
 import scarf
-
 scarf.configure_output(level="WARNING", progress=False)
 store = "analysis.zarr"
 out = Path("analysis_out")
 (out / "figures").mkdir(parents=True, exist_ok=True)
-
 ds = scarf.DataStore(store, min_features_per_cell=-1)
-
 # QC: compare candidate filters and audit them before choosing (quality-control.md).
 cells = ds.snapshot_cell_selection("I")
 mad5 = ds.auto_filter_cells(cell_selection=cells, n_mads=5)
 kept = np.asarray(ds.load_artifact(mad5)["values"][:], dtype=bool)
 print(f"MAD 5 keeps {kept.sum()} of {ds.cells.N} cells")
-
 # Baseline run with the chosen policy; freeze design columns you will need later.
 run = ds.pipeline.run(
     label="baseline_mad5",
@@ -233,7 +200,6 @@ run = ds.pipeline.run(
 )
 print(run.status, list(run.keys()))
 (out / "run_report.md").write_text(run.report(format="markdown"))
-
 # Figures and tables.
 umap = ds.plots.embedding(run=run, color_by="clusters", show=False)
 umap.save(out / "figures" / "umap_clusters.png", dpi=150)
@@ -245,11 +211,8 @@ print(markers.groupby("group_id", sort=False).head(5)
 sizes = pd.Series(run.cells.fetch("clusters")).value_counts().sort_index()
 print(sizes.to_dict())
 ```
-
 ## Record the analysis
-
 Keep these in the output directory so another agent or a person can audit and continue:
-
 - `analysis_log.md`: the question, the units, and one entry per step (decision, alternatives
   considered, evidence with numbers, figure paths).
 - `handoff.json`: run label and ID, and the refs you relied on (`ref.to_dict()`; restore with
@@ -258,17 +221,13 @@ Keep these in the output directory so another agent or a person can audit and co
 - `run_report.md` (`run.report(format="markdown")`) and `lineage.md`
   (`ds.lineage({...}).to_markdown()`).
 - Figures saved as PNG, and tables as CSV (markers, cluster sizes, composition, label map).
-
 ## Evaluating against held-out labels
-
 When a dataset ships author annotations, run the whole loop without them. Then add one final
 section that crosstabs your labels against theirs, reports ARI and per-type F1 after harmonizing
 vocabularies, and explains disagreements with marker evidence. Report QC retention per author type
 there too, as an audit of the filter. Never go back and tune parameters to raise agreement. Record
 any changes you make after seeing the comparison as such.
-
 ## Reference modules
-
 | Module | Read when |
 |---|---|
 | `references/data-access.md` | opening, inspecting, converting (H5AD, 10x, MTX, Seurat), Cytebase search, open and mount |
@@ -281,9 +240,7 @@ any changes you make after seeing the comparison as such.
 | `references/plotting.md` | headless figures, run mode versus ref mode, every `ds.plots` method |
 | `references/integration-and-comparisons.md` | study design and units, donors in two arms, composition tests, Harmony and its safety, merging, mapping, condition comparisons |
 | `references/performance-and-export.md` | budgets, long-running steps, streaming, mount repacking, AnnData/H5AD/MTX/CSV and pseudobulk export, subset stores |
-
 ## Troubleshooting
-
 | Symptom | Likely cause | Fix |
 |---|---|---|
 | `Assay 'RNA' is not prepared` on a read-only open | store just written by a converter or `SubsetZarr` | open once writable, then read-only |
@@ -302,9 +259,7 @@ any changes you make after seeing the comparison as such.
 | A wait for a long step never ends | unbounded polling, or the process died | bounded wait that checks the process and the log tail (Setup) |
 | QC bounds look odd or nothing is filtered | counts are corrected or already filtered | check the matrix first; prefer flag-only or gentle filters |
 | `ValueError: None of the s_genes match the assay feature names` from `ds.pipeline.run` | feature names are not gene symbols (Ensembl IDs, synthetic names); matching ignores case, so mouse symbols work | `cell_cycle=False`, or pass lists in the store's naming via `params={"cell_cycle": {"s_genes": [...], "g2m_genes": [...]}}` |
-
 ## Limitations
-
 - Covers core Scarf only. It does not use or describe `scarf.agent`.
 - Needs Python 3.12+ and scarf 1.0.0rc17 or newer, which is a pre-release. A bare `scarf[extra]`
   install resolves to the 0.32 series, whose API differs from what this skill describes.
@@ -321,9 +276,7 @@ any changes you make after seeing the comparison as such.
   over the network on every pass.
 - This catalogue copy leaves out `scripts/inspect_store.py` from the maintained copy; use the
   read-only recipes in the reference modules instead.
-
 ## Security & Safety Notes
-
 - `pip install "scarf[extra]>=1.0.0rc17"` installs a pre-release from PyPI into the active Python
   environment. Ask the user before installing, and prefer a virtual environment.
 - Writable opens and every producer write into the store: artifacts, pipeline runs and, unless
@@ -339,18 +292,14 @@ any changes you make after seeing the comparison as such.
   `SCARF_MEM_BUDGET` and `SCARF_WORKERS` before importing it.
 - Run long steps in the background with a bounded wait that also stops on a `Traceback` or a dead
   process (Setup). Never poll without a time limit.
-
 ## Documentation map
-
 The docs hold the full explanations, online at <https://scarf.readthedocs.io/en/latest/>:
 `quickstart.html`, `tutorials/<step>.html` (one page per step, for example `quality_control`,
 `graph_construction`, `clustering`, `annotation`, `batch_correction`,
 `pseudobulk_and_differential_expression`, `cytebase`), `concepts/` (`provenance`,
 `memory_and_execution`, `benchmarks`), `analysis_with_agents.html` (scientific decision loop, task
 routing, handoff) and `reference/api/<module>.html` (exact signatures).
-
 ## Source and License
-
 Copyright (c) 2026, Nygen Analytics AB. Licensed under the BSD 3-Clause License; the full text is
 in `references/LICENSE.md`. The maintained copy lives in NygenAnalytics/scarf at
 <https://github.com/NygenAnalytics/scarf/tree/master/skills/scarf-single-cell>. This catalogue

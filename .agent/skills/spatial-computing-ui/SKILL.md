@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "1dcd4fd3e36e8a5ea6e660851ee4c980967aa8047a1a1fd4247893c1508ecd4a"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: spatial-computing-ui
+content_hash: 1dcd4fd3e36e8a5ea6e660851ee4c980967aa8047a1a1fd4247893c1508ecd4a
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Spatial Computing UI. Trigger when user wants floating elements, environmental awareness, and Apple Vision Pro style.
-tier: "experimental"
-date_added: "2026-06-17"
+name: spatial-computing-ui
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Spatial Computing UI
-
 > "A step beyond Spatial Design. Fully 3D windows floating in augmented reality."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Z-Space Hierarchy**: Not just drop shadows, but actual 3D distance. Modals float 10px *in front of* the main window.
 2. **Gaze-Based Interaction Cues**: Elements highlight vividly when hovered, anticipating eye-tracking or precise pointer control.
 3. **Glass and Light**: Windows are thick sheets of frosted glass that bend light and cast soft shadows onto the physical environment.
-
 ## Visual DNA
 - **Colors**: Relies entirely on the background environment. Uses purely translucent whites (`rgba(255,255,255,0.x)`) and blacks. 
 - **Typography**: `SF Pro`. Heavy use of varied font weights (Regular, Semibold, Bold) to create hierarchy.
 - **Shapes**: High border radii (`24px`-`32px`). Everything is a rounded rectangle or a perfect circle.
-
 ## Web Implementation
 - Best emulated using CSS 3D transforms to simulate the user's perspective.
 - **CSS Example**:
@@ -50,41 +37,34 @@ body {
   align-items: center;
   height: 100vh;
 }
-
 .spatial-window {
   width: 800px;
   height: 600px;
   border-radius: 32px;
-  
   /* The Glass Material */
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(50px) saturate(200%);
   -webkit-backdrop-filter: blur(50px) saturate(200%);
-  
   /* Specular Highlights */
   border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 
     inset 0 1px 2px rgba(255, 255, 255, 0.8),
     0 30px 60px rgba(0, 0, 0, 0.3);
-    
   /* 3D Positioning */
   transform: translateZ(-100px);
   transform-style: preserve-3d;
 }
-
 .spatial-modal {
   /* Floating in front of the main window */
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%) translateZ(50px);
-  
   background: rgba(255, 255, 255, 0.6); /* More opaque */
   backdrop-filter: blur(30px);
   border-radius: 24px;
   padding: 30px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
-
 .spatial-btn {
   /* Gaze/Hover interaction */
   background: rgba(0,0,0,0.05);
@@ -96,9 +76,7 @@ body {
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI (visionOS Native / iOS emulation)
 ```swift
 struct SpatialComputingView: View {
@@ -109,13 +87,11 @@ struct SpatialComputingView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .ignoresSafeArea()
-            
             // Spatial Window
             VStack(spacing: 24) {
                 Text("Spatial Window")
                     .font(.title).fontWeight(.bold)
                     .foregroundColor(.white)
-                
                 // Gaze-reactive button
                 Button(action: {}) {
                     Text("Focus Me")
@@ -140,7 +116,6 @@ struct SpatialComputingView: View {
             )
             // Environmental shadow
             .shadow(color: .black.opacity(0.3), radius: 40, y: 30)
-            
             // Z-Space Modal simulation (if on iOS)
             // On visionOS, this would be a separate window volume
             Text("Floating Modal")
@@ -156,11 +131,9 @@ struct SpatialComputingView: View {
 ```
 - Use `.ultraThinMaterial` for the base windows and `.thinMaterial` for floating popovers so they feel more opaque as they get closer to the eye.
 - Use `.hoverEffect()` extensively if targeting iPadOS or visionOS.
-
 ### Flutter
 ```dart
 import 'dart:ui';
-
 class SpatialComputingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -170,7 +143,6 @@ class SpatialComputingScreen extends StatelessWidget {
         children: [
           // Simulated Environment
           Image.asset('assets/living-room.jpg', fit: BoxFit.cover),
-          
           Center(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(32),
@@ -216,16 +188,13 @@ class SpatialComputingScreen extends StatelessWidget {
 ```
 - You must wrap `BackdropFilter` inside a `ClipRRect` to give the blurred glass rounded corners.
 - `hoverColor` on `InkWell` simulates the gaze-highlighting.
-
 ### React Native
 ```jsx
 // REQUIRES: @react-native-community/blur
 import { BlurView } from '@react-native-community/blur';
-
 const SpatialComputingScreen = () => {
   return (
     <ImageBackground source={{uri: 'room_bg'}} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      
       {/* Spatial Window */}
       <View style={{
         width: '90%', height: 400,
@@ -241,7 +210,6 @@ const SpatialComputingScreen = () => {
           <Text style={{ color: '#FFF', fontSize: 32, fontWeight: 'bold', marginBottom: 32 }}>
             Spatial Window
           </Text>
-
           {/* Touchable simulating Gaze */}
           <TouchableOpacity style={{
             backgroundColor: 'rgba(0,0,0,0.2)', paddingVertical: 16, paddingHorizontal: 32, borderRadius: 50
@@ -250,14 +218,12 @@ const SpatialComputingScreen = () => {
           </TouchableOpacity>
         </BlurView>
       </View>
-
     </ImageBackground>
   );
 };
 ```
 - The example uses @react-native-community/blur; other native integrations are possible. Choose a supported version and test the target platform.
 - Apply shadows to a wrapper `View`, and put the `BlurView` inside it with `borderRadius` and `borderWidth`.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -265,7 +231,6 @@ fun SpatialComputingScreen() {
     Box(modifier = Modifier.fillMaxSize()) {
         // Environment
         Image(painterResource(R.drawable.living_room), contentDescription = null, contentScale = ContentScale.Crop, modifier = Modifier.fillMaxSize())
-        
         // Spatial Window
         Box(
             modifier = Modifier
@@ -285,7 +250,6 @@ fun SpatialComputingScreen() {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text("Spatial Window", color = Color.White, fontSize = 32.sp, fontWeight = FontWeight.Bold)
                 Spacer(Modifier.height(32.dp))
-                
                 // Button
                 Box(
                     modifier = Modifier
@@ -302,13 +266,10 @@ fun SpatialComputingScreen() {
 ```
 - RenderEffect on this panel filters its own content, not the room behind it. This snippet is a tinted fallback; a backdrop effect requires separately captured background content or a compatible backdrop library.
 - The `border` modifier applies the bright specular rim-light crucial to glass effects.
-
 ## Do's and Don'ts
 - **DO**: Create a distinct visual pop (size increase and shadow depth increase) on hover/focus to simulate the gaze-tracking interaction of Spatial Computing.
 - **DON'T**: Use flat, opaque colors for the main windows. They must be glass.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.
-
 These flat-screen examples simulate spatial styling; they do not implement eye tracking, AR anchoring, environmental lighting or 3D windows. Keep content contrast stable over every background and use actual labeled controls for interaction. Native visionOS windows should use the platform window/material APIs.

@@ -1,50 +1,36 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "2d66b8ed6f19ce6e1abff91ac8402f32f355ba386e7e8f1b7ad1d3c8eb38dafa"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: design-theme-guide
-description: 'Design-token register: colour, typography, spacing and radius tokens with light and dark values, contrast ratio and WCAG level. Use for design system documentation.'
-tier: "experimental"
+content_hash: 2d66b8ed6f19ce6e1abff91ac8402f32f355ba386e7e8f1b7ad1d3c8eb38dafa
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: WHOISABHISHEKADHIKARI
 category: business
+date_added: 2026-09-27
+description: "'Design-token register: colour, typography, spacing and radius tokens with light and dark values, contrast ratio and WCAG level. Use for design system documentation.'"
+name: design-theme-guide
 risk: safe
 source: self
-source_type: self
-date_added: "2026-09-27"
-author: WHOISABHISHEKADHIKARI
-tags: [sme, brand, design-system, design-tokens, theme, colour, typography, spacing, wcag, accessibility, contrast, css, csv, sql, notion]
-tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
+source_type: self
+tags: "[sme, brand, design-system, design-tokens, theme, colour, typography, spacing, wcag, accessibility, contrast, css, csv, sql, notion]"
+tools: "[]"
 ---
-
-
 # Design Theme Guide
-
 **What it is:** the documented value set a business designs against - colour, type, space, radius, motion - with every colour pair contrast-tested and written down.
-
 ## Overview
-
 Works out the smallest useful theme for the business in front of it, then builds it only
 when asked. The default output is a short recommendation, not a token file. The token
 register - CSV, SQL DDL, JSON Schema, Notion mapping - is produced on request, from one
 field list so the four cannot drift apart.
-
 Layer: Layer 2: Brand & Design. Fits: Starter stage. Table code: n/a.
-
 **The rule this table exists to enforce:** a theme is a set of *values*, not a set of
 screens. If a colour, size or spacing value is not a row in the register, it is not part of
 the system, and anything using it is a one-off. `Value` alone is the single source; the
 light and dark variants and the type metrics exist on the same row because they are the
 same token, and a token split across rows drifts within a month.
-
 ## When to Use This Skill
-
 - brand colours, colour palette, theme
 - typography, font pairing, type scale
 - spacing, grid, layout rules
@@ -52,34 +38,22 @@ same token, and a token split across rows drifts within a month.
 - dark mode and light mode variants
 - accessibility of our own colours
 - Figma variables, Style Dictionary, CSS custom properties, `tokens.json`
-
 Do not use it for: designing the logo itself (that is `logo-image-design`), choosing a
 typeface's licence (`logo-image-design` covers rights), or a specific component's behaviour.
-
 ## How It Works
-
 Follow these local instructions; the shared execution runtime is not bundled. The module-specific rules below define only domain fields, decisions, calculations, and safety constraints.
-
 ### Step 1 - Identify intent
-
 Read the request and pick the intent before asking anything.
-
 - "set up" / "build" / "create" -> the user wants the token set; go to Step 2.
 - "our colours are a mess" / "fix" -> something exists; capture what is in use, then Step 2.
 - "is this accessible" / "review" / "audit" -> a check, not a build; answer from what they share.
 - "how do we ..." -> advice question; answer directly and offer the build only if it helps.
-
 Ask only if this is the highest-value missing fact; otherwise proceed without an opener:
-
 > **Q:** What is the business called, and what does one line of it actually do?
-
 ### Step 2 - Ask only what is missing
-
 Treat ambiguous replies as unanswered and ask which explicit option the user means. Record unknown values as `Unknown`; `Unknown` is not zero. A record must not be `Done` when a required check fails.
-
 Skip anything the user already answered, in any earlier message. Ask the rest one at a
 time, and stop as soon as the remaining answers would not change the token set.
-
 - **Identity** - Business name and what it does? / One colour already decided, and is it
   fixed by a customer, a client or a sign? / Any existing logo, colours or documents?
 - **Surface** - Website only, or print and social as well? / Dark mode needed? / Any CMS
@@ -90,12 +64,9 @@ time, and stop as soon as the remaining answers would not change the token set.
   anyone reported low contrast or readability before?
 - **Governance** - Who decides a colour change? / Does the theme need to be handed to an
   external developer or agency?
-
 Never invent an answer. Hex codes, brand colours, font names and typeface licences the user
 has not supplied are `Unknown`.
-
 ### Step 3 - Hold the internal context
-
 ```yaml
 module: design-theme-guide
 intent: null            # set up | fix | review | report | import
@@ -110,33 +81,25 @@ requested_outputs: []   # csv | sql | json | notion | xlsx - requested formats o
 confirmed_facts: []
 open_questions: []
 ```
-
 ### Step 4 - Recommend the smallest workflow
-
 Build an already requested artifact without asking again. For advice-only requests, give a short recommendation and offer the relevant artifact.
-
 **Recommended approach:** One token register with a brand colour as the single source for
 accents, a neutral ramp for everything else, one display face and one body face at a fixed
 type scale, a 4 or 8 point spacing unit, and light and dark variants. Every colour pair
 that carries text gets a measured ratio and a WCAG level in the row itself, so the
 accessibility of the theme is auditable rather than remembered.
-
 **Why this one:** A theme that exists as values is the only thing that makes the website,
 the deck, the letterhead and the social posts look like one business. Screens cannot do
 that, and a theme with no contrast measurement is a theme that fails the first time
 someone chooses a pastel.
-
 **Workflow:** Seed colour chosen → Neutral ramp derived → Semantic colour roles assigned →
 Every text pair contrast-measured → Typeface pair set and type scale fixed → Spacing unit
 and radius set → Light and dark variants recorded → Register approved and versioned →
 Components built from tokens only
-
 ### Step 5 - Build only on request
-
 Once the user asks for it, derive the fields from the confirmed context and emit the
 requested artifacts. For machine-readable text, keep prose outside the data; for files,
 provide a usable link. Report material validation failures or limitations separately.
-
 **A selected Notion output is rendered by `notion-manual-import`, so route the
 Notion step there.** When the user selects Notion, hand that step to
 @notion-manual-import: it holds the CSV, the property
@@ -146,12 +109,10 @@ here and do not improvise the import steps. Manual CSV and mapping outputs need 
 connection. For requested workspace changes, follow the shared contract: verify actual
 tool access and the target before writing. A user saying "connected" is not tool evidence.
 Never ask for a Notion password or token.
-
 ```csv
 Token ID,Token Name,Token Group,Token Type,Value,Unit,Light Mode Value,Dark Mode Value,Contrast Ratio,Contrast Against,WCAG Level,Font Family,Font Size,Font Weight,Line Height,Letter Spacing,Usage Rule,Do Not Use For,Source Reference,Version,Status,Approved By,Last Reviewed,Notes
 TOK-EXAMPLE-001,color.brand.primary,Brand,Color,#1F4FD8,hex,#1F4FD8,#8FB4FF,Unknown,color.surface.page,Unknown,,,,,,Primary action and brand accent,Body text on white surface,WCAG 2.2 SC 1.4.3,1.0,Draft,Unknown,2026-09-27,Example row - replace every value before use.
 ```
-
 ```sql
 -- Engine assumption: PostgreSQL. For another engine use `id BIGINT PRIMARY KEY`
 -- or the engine's auto-increment equivalent and keep the rest portable.
@@ -185,11 +146,9 @@ CREATE TABLE design_token (
   CONSTRAINT token_ratio_range CHECK (contrast_ratio IS NULL OR (contrast_ratio >= 1 AND contrast_ratio <= 21)),
   CONSTRAINT token_wcag_level CHECK (wcag_level IN ('AA','AAA','Fail - do not ship','Not applicable','Unknown'))
 );
-
 CREATE INDEX idx_design_token_status ON design_token (status);
 CREATE INDEX idx_design_token_type ON design_token (token_type);
 ```
-
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -232,7 +191,6 @@ CREATE INDEX idx_design_token_type ON design_token (token_type);
   ]
 }
 ```
-
 ```markdown
 | CSV column | Notion property | Set after import |
 |---|---|---|
@@ -261,11 +219,8 @@ CREATE INDEX idx_design_token_type ON design_token (token_type);
 | Last Reviewed | Date | Convert to Date |
 | Notes | Text | Leave as Text |
 ```
-
 The rows above are documentation examples only. Emit empty templates unless the user explicitly requests examples. Anything measured gets a ratio; anything applicable but unmeasured is `Unknown` with an unset ratio; reserve `Not applicable` for genuinely inapplicable tokens.
-
 ## Field Reference
-
 | # | Field | Type | SQL | JSON Schema | Notion | CSV example |
 |---:|---|---|---|---|---|---|
 | 1 | Token ID | `id` | `BIGINT PRIMARY KEY` | `integer` | Text or Notion auto-ID | `(blank)` |
@@ -292,64 +247,45 @@ The rows above are documentation examples only. Emit empty templates unless the 
 | 22 | Approved By | `text` | `VARCHAR(255)` | `string` | Text | *(blank)* |
 | 23 | Last Reviewed | `date` | `DATE` | `string, format: date` | Date | *(blank)* |
 | 24 | Notes | `long_text` | `TEXT` | `string` | Text | *(blank)* |
-
 ## Select Options
-
 **Token Group**
-
 ```
 Brand | Semantic | Neutral | Typography | Layout | Component
 ```
-
 **Token Type**
-
 ```
 Color | Typography | Spacing | Radius | Shadow | Border | Motion | Breakpoint | Z-Index
 ```
-
 **Unit**
-
 ```
 hex | px | rem | em | ms | s | unitless | count
 ```
-
 **WCAG Level** - the four legal values. `Fail - do not ship` exists so a failing pair is
 recorded and visible, not quietly deleted.
-
 ```
 AA | AAA | Fail - do not ship | Not applicable | Unknown
 ```
-
 **Status**
-
 ```
 Draft | In review | Approved | Deprecated
 ```
-
 ## Relations
-
 None. This table is standalone. Where a colour is measured, `Contrast Against` names
 another token in **the same table by `Token Name`** - that is a lookup on a text field, not
 a database relation, and it resolves in SQL as a self-join:
-
 ```sql
 SELECT a.token_name, a.value, b.value, a.contrast_ratio
 FROM design_token a
 JOIN design_token b ON a.contrast_against = b.token_name
 WHERE a.token_type = 'Color' AND a.status = 'Approved';
 ```
-
 ## Examples
-
 **Prompt**
-
 ```
 We picked a blue from a logo two years ago and nobody knows which one it is. It looks
 fine on the laptop but the founder says people struggle on the website.
 ```
-
 **Context first** - one question per message, nothing already answered:
-
 > **Q:** What is the business called, and what does one line of it actually do?
 > **A:** Example Retail, home and kitchen goods in Example City.
 >
@@ -364,9 +300,7 @@ fine on the laptop but the founder says people struggle on the website.
 >
 > **Q:** Who decides a colour change?
 > **A:** The founder.
-
 **Recommended next step** - offered, not built:
-
 > One token register with that blue as `color.brand.primary`, a neutral ramp derived from
 > it, a light and a dark variant, the type scale, a spacing unit, and a measured contrast
 > ratio on every pair that carries text - the blue on white is the pair most likely to
@@ -377,9 +311,7 @@ fine on the laptop but the founder says people struggle on the website.
 > Register approved and versioned
 >
 > Want the CSV, SQL DDL, JSON Schema and Notion mapping for this?
-
 ## Best Practices
-
 - Build when requested; recommend and offer a build for advice-only requests.
 - One question per message. A batched intake reads as a form and gets guessed at.
 - Measure every text pair. 4.5:1 for body, 3:1 for large text and UI components, per WCAG
@@ -397,9 +329,7 @@ fine on the laptop but the founder says people struggle on the website.
 - Derive all four artifacts from the field list in this file, never by hand.
 - Use `relation` for anything that points at another table, `text` only for free text.
 - If the user requests an example row, keep it obviously fake so nobody imports it as a real token.
-
 ## Limitations
-
 - This is a register of values. It does not draw the screens, and it does not implement
   components.
 - It cannot pick a brand colour for the business. That is a decision, and the skill asks
@@ -419,9 +349,7 @@ fine on the laptop but the founder says people struggle on the website.
   source of truth; wiring it up is a developer task.
 - Accessibility conformance is a legal question in some markets. This table records
   measurements; it does not certify compliance.
-
 ## Security & Safety Notes
-
 - Never invent a hex code, a font name, a licence or a measured ratio. `Unknown` until
   supplied or measured.
 - Never record a ratio the skill did not calculate, and never round a failing ratio up to
@@ -434,9 +362,7 @@ fine on the laptop but the founder says people struggle on the website.
   confidential.
 - Typeface and stock-image licences are the user's responsibility to verify. Flag it, do
   not assume it.
-
 ## Common Pitfalls
-
 - **Problem:** a static mapping is described as a completed workspace build.
   **Solution:** deliver manual mappings without a connection; claim a live change only
   after the authorized tool operation succeeds.
@@ -458,9 +384,7 @@ fine on the laptop but the founder says people struggle on the website.
   **Solution:** derive all four from the field list in this file, never by hand.
 - **Problem:** Notion import shows every column as Text.
   **Solution:** that is expected. Apply the property mapping table once, after import.
-
 ## Related Skills
-
 - @brand-growth-system-builder - routes to this skill and the other 12 brand and growth modules.
 - @logo-image-design - the mark and the image library that sit on top of these tokens.
 - @brand-kit-print-collateral - letterhead, cards and folders rendered from the same tokens.
@@ -470,9 +394,7 @@ fine on the laptop but the founder says people struggle on the website.
 - @free-design-resources - the open systems, token formats and contrast checkers used here.
 - @social-media-setup - per-platform safe areas and the platform's own colour constraints.
 - `website-setup` (if present) / `business-website-setup` - where these tokens get built.
-
 ## Reusable Prompt
-
 ```
 I want a design theme for my business - brand colours, a type scale, spacing and
 light/dark variants, with contrast measured properly.
@@ -481,7 +403,5 @@ Never invent a hex code, a font or a ratio. Then recommend the smallest token se
 fits, and wait for me to ask before you build it.
 When I ask, output CSV, SQL DDL, JSON Schema and a Notion property mapping. Data only.
 ```
-
 ## Pair measurements and schema limits
-
 A single contrast value cannot represent both light/dark variants, multiple surfaces, states and text sizes. Record a separate measured pair/context table with exact foreground/background values, mode, size/weight, opacity/compositing and criterion; leave this row’s ratio unknown until that context is defined. Normal text AA needs 4.5:1; large text AA needs 3:1 under WCAG’s defined large-text criteria, and non-text UI contrast has separate applicability/exceptions. These checks alone do not certify WCAG. Do not replace unmeasured with Not applicable or round a failing ratio up. The former 7.02 example lacked a concrete background value and has been removed as unsupported evidence. SQL BIGINT IDs need a supplied generator/value, and token-name/version uniqueness and joins need enforced keys; timestamp defaults do not update themselves. Human IDs like TOK-EXAMPLE-001 are display references, not integer keys. JSON date format needs a validator configured for assertion; document null/blank/absent conversions consistently. No code generator or Figma/token pipeline is bundled, and invented drift timelines/neutral-step/typeface counts are design heuristics rather than guarantees.

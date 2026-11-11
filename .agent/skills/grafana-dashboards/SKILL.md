@@ -1,53 +1,35 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "49b0e3e1251e676e859dc1e92e1dafe46964a8293238384624aaa1c1ebf344e9"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 49b0e3e1251e676e859dc1e92e1dafe46964a8293238384624aaa1c1ebf344e9
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Create and manage production-ready Grafana dashboards for comprehensive system observability.
 name: grafana-dashboards
-description: "Create and manage production-ready Grafana dashboards for comprehensive system observability."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # Grafana Dashboards
-
 Create and manage production-ready Grafana dashboards for comprehensive system observability.
-
 ## Do not use this skill when
-
 - The task is unrelated to grafana dashboards
 - You need a different domain or tool outside this scope
-
 ## Instructions
-
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
 - If detailed examples are required, open `resources/implementation-playbook.md`.
-
 ## Purpose
-
 Design effective Grafana dashboards for monitoring applications, infrastructure, and business metrics.
-
 ## Use this skill when
-
 - Visualize Prometheus metrics
 - Create custom dashboards
 - Implement SLO dashboards
 - Monitor infrastructure
 - Track business KPIs
-
 ## Dashboard Design Principles
-
 ### 1. Hierarchy of Information
 ```
 ┌─────────────────────────────────────┐
@@ -58,23 +40,17 @@ Design effective Grafana dashboards for monitoring applications, infrastructure,
 │  Detailed Metrics (Tables/Heatmaps) │
 └─────────────────────────────────────┘
 ```
-
 ### 2. RED Method (Services)
 - **Rate** - Requests per second
 - **Errors** - Error rate
 - **Duration** - Latency/response time
-
 ### 3. USE Method (Resources)
 - **Utilization** - % time resource is busy
 - **Saturation** - Queue length/wait time
 - **Errors** - Error count
-
 ## Dashboard Structure
-
 ### API Monitoring Dashboard
-
 The following JSON uses legacy graph panels and embedded alert fields. It illustrates query intent, not a portable current provisioning artifact. Export supported panel JSON from the target Grafana version; configure alert rules separately through its supported alerting interface. Test missing/zero traffic and verify datasource UIDs before deployment.
-
 ```json
 {
   "dashboard": {
@@ -130,11 +106,8 @@ The following JSON uses legacy graph panels and embedded alert fields. It illust
   }
 }
 ```
-
 **Reference:** See [inline example](#api-monitoring-dashboard)
-
 ## Panel Types
-
 ### 1. Stat Panel (Single Value)
 ```json
 {
@@ -166,7 +139,6 @@ The following JSON uses legacy graph panels and embedded alert fields. It illust
   }
 }
 ```
-
 ### 2. Time Series Graph
 ```json
 {
@@ -181,7 +153,6 @@ The following JSON uses legacy graph panels and embedded alert fields. It illust
   ]
 }
 ```
-
 ### 3. Table Panel
 ```json
 {
@@ -208,7 +179,6 @@ The following JSON uses legacy graph panels and embedded alert fields. It illust
   ]
 }
 ```
-
 ### 4. Heatmap
 ```json
 {
@@ -224,9 +194,7 @@ The following JSON uses legacy graph panels and embedded alert fields. It illust
   }
 }
 ```
-
 ## Variables
-
 ### Query Variables
 ```json
 {
@@ -252,14 +220,11 @@ The following JSON uses legacy graph panels and embedded alert fields. It illust
   }
 }
 ```
-
 ### Use Variables in Queries
 ```
 sum(rate(http_requests_total{namespace="$namespace", service=~"$service"}[5m]))
 ```
-
 ## Alerts in Dashboards
-
 ```json
 {
   "alert": {
@@ -289,13 +254,10 @@ sum(rate(http_requests_total{namespace="$namespace", service=~"$service"}[5m]))
   }
 }
 ```
-
 ## Dashboard Provisioning
-
 **dashboards.yml:**
 ```yaml
 apiVersion: 1
-
 providers:
   - name: 'default'
     orgId: 1
@@ -307,11 +269,8 @@ providers:
     options:
       path: /etc/grafana/dashboards
 ```
-
 ## Common Dashboard Patterns
-
 ### Infrastructure Dashboard
-
 **Key Panels:**
 - CPU utilization per node
 - Memory usage per node
@@ -319,11 +278,8 @@ providers:
 - Network traffic
 - Pod count by namespace
 - Node status
-
 **Reference:** See [inline example](#infrastructure-dashboard)
-
 ### Database Dashboard
-
 **Key Panels:**
 - Queries per second
 - Connection pool usage
@@ -332,11 +288,8 @@ providers:
 - Database size
 - Replication lag
 - Slow queries
-
 **Reference:** See [inline example](#database-dashboard)
-
 ### Application Dashboard
-
 **Key Panels:**
 - Request rate
 - Error rate
@@ -344,9 +297,7 @@ providers:
 - Active users/sessions
 - Cache hit rate
 - Queue length
-
 ## Best Practices
-
 1. **Start with templates** (Grafana community dashboards)
 2. **Use consistent naming** for panels and variables
 3. **Group related metrics** in rows
@@ -357,24 +308,18 @@ providers:
 8. **Set meaningful thresholds** for colors
 9. **Use consistent colors** across dashboards
 10. **Test with different time ranges**
-
 ## Dashboard as Code
-
 ### Terraform Provisioning
-
 ```hcl
 resource "grafana_dashboard" "api_monitoring" {
   config_json = file("${path.module}/dashboards/api-monitoring.json")
   folder      = grafana_folder.monitoring.id
 }
-
 resource "grafana_folder" "monitoring" {
   title = "Production Monitoring"
 }
 ```
-
 ### Ansible Provisioning
-
 ```yaml
 - name: Deploy Grafana dashboards
   copy:
@@ -384,19 +329,14 @@ resource "grafana_folder" "monitoring" {
     - "dashboards/*.json"
   notify: restart grafana
 ```
-
 ## Reference Files
-
 - [inline example](#api-monitoring-dashboard) - API monitoring dashboard
 - [inline example](#infrastructure-dashboard) - Infrastructure dashboard
 - [inline example](#database-dashboard) - Database monitoring dashboard
 - `references/dashboard-design.md` - Dashboard design guide
-
 ## Related Skills
-
 - `prometheus-configuration` - For metric collection
 - `slo-implementation` - For SLO dashboards
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

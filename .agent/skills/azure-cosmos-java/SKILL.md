@@ -1,29 +1,19 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "d24f411ecaa201515654e6504c521426aca7305c56d4f5abac6f219703c62831"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-cosmos-java
+content_hash: d24f411ecaa201515654e6504c521426aca7305c56d4f5abac6f219703c62831
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Azure Cosmos DB SDK for Java. NoSQL database operations with global distribution, multi-model support, and reactive patterns.
-tier: "experimental"
+name: azure-cosmos-java
 risk: critical
 source: community
-date_added: '2026-02-27'
 ---
-
-
 # Azure Cosmos DB SDK for Java
-
 Client library for Azure Cosmos DB NoSQL API with global distribution and reactive patterns.
-
 ## Installation
-
 ```xml
 <dependency>
     <groupId>com.azure</groupId>
@@ -31,9 +21,7 @@ Client library for Azure Cosmos DB NoSQL API with global distribution and reacti
     <version>{reviewed_exact_version}</version>
 </dependency>
 ```
-
 Or use Azure SDK BOM:
-
 ```xml
 <dependencyManagement>
     <dependencies>
@@ -46,7 +34,6 @@ Or use Azure SDK BOM:
         </dependency>
     </dependencies>
 </dependencyManagement>
-
 <dependencies>
     <dependency>
         <groupId>com.azure</groupId>
@@ -54,45 +41,33 @@ Or use Azure SDK BOM:
     </dependency>
 </dependencies>
 ```
-
 ## Environment Variables
-
 ```bash
 COSMOS_ENDPOINT=https://<account>.documents.azure.com:443/
 COSMOS_KEY=<your-primary-key>
 ```
-
 ## Authentication
-
 ### Key-based Authentication
-
 ```java
 import com.azure.cosmos.CosmosClient;
 import com.azure.cosmos.CosmosClientBuilder;
-
 CosmosClient client = new CosmosClientBuilder()
     .endpoint(System.getenv("COSMOS_ENDPOINT"))
     .key(System.getenv("COSMOS_KEY"))
     .buildClient();
 ```
-
 ### Async Client
-
 ```java
 import com.azure.cosmos.CosmosAsyncClient;
-
 CosmosAsyncClient asyncClient = new CosmosClientBuilder()
     .endpoint(serviceEndpoint)
     .key(key)
     .buildAsyncClient();
 ```
-
 ### With Customizations
-
 ```java
 import com.azure.cosmos.ConsistencyLevel;
 import java.util.Arrays;
-
 CosmosClient client = new CosmosClientBuilder()
     .endpoint(serviceEndpoint)
     .key(key)
@@ -104,32 +79,24 @@ CosmosClient client = new CosmosClientBuilder()
     .preferredRegions(Arrays.asList("West US", "East US"))
     .buildClient();
 ```
-
 ## Client Hierarchy
-
 | Class | Purpose |
 |-------|---------|
 | `CosmosClient` / `CosmosAsyncClient` | Account-level operations |
 | `CosmosDatabase` / `CosmosAsyncDatabase` | Database operations |
 | `CosmosContainer` / `CosmosAsyncContainer` | Container/item operations |
-
 ## Core Workflow
-
 ### Create Database
-
 ```java
 // Sync
 var dbResponse = client.createDatabaseIfNotExists("myDatabase");
 var database = client.getDatabase(dbResponse.getProperties().getId());
-
 // Async with chaining
 asyncClient.createDatabaseIfNotExists("myDatabase")
     .map(response -> asyncClient.getDatabase(response.getProperties().getId()))
     .subscribe(database -> System.out.println("Created: " + database.getId()));
 ```
-
 ### Create Container
-
 ```java
 asyncClient.createDatabaseIfNotExists("myDatabase")
     .flatMap(dbResponse -> {
@@ -141,16 +108,12 @@ asyncClient.createDatabaseIfNotExists("myDatabase")
     })
     .subscribe(container -> System.out.println("Container: " + container.getId()));
 ```
-
 ### CRUD Operations
-
 ```java
 import com.azure.cosmos.models.PartitionKey;
-
 CosmosAsyncContainer container = asyncClient
     .getDatabase("myDatabase")
     .getContainer("myContainer");
-
 // Create
 container.createItem(new User("1", "John Doe", "john@example.com"))
     .flatMap(response -> {
@@ -179,40 +142,29 @@ container.createItem(new User("1", "John Doe", "john@example.com"))
     })
     .block();
 ```
-
 ### Query Documents
-
 ```java
 import com.azure.cosmos.models.CosmosQueryRequestOptions;
 import com.azure.cosmos.util.CosmosPagedIterable;
-
 CosmosContainer container = client.getDatabase("myDatabase").getContainer("myContainer");
-
 var query = new com.azure.cosmos.models.SqlQuerySpec(
     "SELECT * FROM c WHERE c.status = @status",
     java.util.List.of(new com.azure.cosmos.models.SqlParameter("@status", "active")));
 CosmosQueryRequestOptions options = new CosmosQueryRequestOptions();
-
 CosmosPagedIterable<User> results = container.queryItems(
     query,
     options,
     User.class
 );
-
 results.forEach(user -> System.out.println("User: " + user.getName()));
 ```
-
 ## Key Concepts
-
 ### Partition Keys
-
 Choose a partition key with:
 - High cardinality (many distinct values)
 - Even distribution of data and requests
 - Frequently used in queries
-
 ### Consistency Levels
-
 | Level | Guarantee |
 |-------|-----------|
 | Strong | Linearizability |
@@ -220,18 +172,13 @@ Choose a partition key with:
 | Session | Consistent prefix within session |
 | Consistent Prefix | Reads never see out-of-order writes |
 | Eventual | No ordering guarantee |
-
 ### Request Units (RUs)
-
 All operations consume RUs. Check response headers:
-
 ```java
 CosmosItemResponse<User> response = container.createItem(user);
 System.out.println("RU charge: " + response.getRequestCharge());
 ```
-
 ## Best Practices
-
 1. **Reuse CosmosClient** — Create once, reuse throughout application
 2. **Use async client** for high-throughput scenarios
 3. **Choose partition key carefully** — Affects performance and scalability
@@ -239,19 +186,15 @@ System.out.println("RU charge: " + response.getRequestCharge());
 5. **Configure preferred regions** for geo-distributed applications
 6. **Handle 429 errors** with retry policies (built-in by default)
 7. **Use direct mode** for lowest latency in production
-
 ## Error Handling
-
 ```java
 import com.azure.cosmos.CosmosException;
-
 try {
     container.createItem(item);
 } catch (CosmosException e) {
     System.err.println("Status: " + e.getStatusCode());
     System.err.println("Message: " + e.getMessage());
     System.err.println("Request charge: " + e.getRequestCharge());
-    
     if (e.getStatusCode() == 409) {
         System.err.println("Item already exists");
     } else if (e.getStatusCode() == 429) {
@@ -259,9 +202,7 @@ try {
     }
 }
 ```
-
 ## Reference Links
-
 | Resource | URL |
 |----------|-----|
 | Maven Package | https://central.sonatype.com/artifact/com.azure/azure-cosmos |
@@ -270,13 +211,10 @@ try {
 | Samples | https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples |
 | Performance Guide | https://learn.microsoft.com/azure/cosmos-db/performance-tips-java-sdk-v4-sql |
 | Troubleshooting | https://learn.microsoft.com/azure/cosmos-db/troubleshoot-java-sdk-v4-sql |
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 The CRUD example requires a User model whose serialized partition-key property matches the container path. The shown `new PartitionKey(user.getId())` is valid only when that actual partition-key value equals the ID; otherwise pass the model's true partition-key value. Keep sample writes/deletes in an authorized test container, bound RU costs, and close clients on shutdown. Reactive subscriptions need completion/error handling; do not infer completion from calling `subscribe()`.

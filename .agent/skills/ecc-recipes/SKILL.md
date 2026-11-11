@@ -1,62 +1,41 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "7a38c22241994f4925e3b0350e2f4f86f14895def4a549c00a76ab66c8012475"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: ecc-recipes
-description: Map a described workflow to the right ECC command group with run-order and stop condition, or browse all command-group recipe families read live from the commands directory. Advisory only — never executes. Use when asked which commands run a workflow, the command sequence for a task, or to list ECC pipelines; not for executing the task (route to the command
-tier: "experimental"
-argument-hint: <workflow description | empty=list all>
-origin: community
+content_hash: 7a38c22241994f4925e3b0350e2f4f86f14895def4a549c00a76ab66c8012475
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 author: KyawZinLatt
-metadata:
-  version: "1.0.0"
+description: Map a described workflow to the right ECC command group with run-order and stop condition, or browse all command-group recipe families read live from the commands directory. Advisory only — never executes. Use when asked which commands run a workflow, the command sequence for a task, or to list ECC pipelines; not for executing the task (route to the command
+name: ecc-recipes
+origin: community
+version: 1.0.0
+---argument-hint: <workflow description | empty=list all>
 ---
-
-
 # ECC Recipes
-
 One entry point for "which group of ECC slash-commands runs my workflow, in what
 order, and when do I stop." Also browses every command-group recipe family.
-
 Fills the gap between two existing skills:
-
 - `ecc-guide` — lists commands and where to read docs, but as a flat catalog.
 - `prompt-optimizer` — matches a task to components, but outputs a single prompt,
   not a multi-command group with run-order and stop condition.
-
 This skill adds: **family grouping + run-order + stop condition.**
-
 ## When to Activate
-
 - "Which command group do I run for <workflow>?"
 - "What's the command sequence to build an MVP / fix a defect / refactor?"
 - "Show me all ECC command-group recipes" (catalog mode)
 - "How many workflow pipelines does ECC have?"
 - User invokes `/ecc-recipes` with or without a description.
-
 ### Do Not Use When
-
 - User wants the task done now — route to the actual command, don't describe it.
 - User wants deep docs for ONE command — use `ecc-guide`.
 - User wants a draft prompt rewritten — use `prompt-optimizer`.
-
 ## Core Principle
-
 **Answer from current files, not memory.** The command set changes; never
 hardcode counts or member lists. Read the live `commands/` directory each run,
 then classify into families.
-
 ### Live reads
-
 Resolve the commands directory (first that exists), then list names:
-
 ```bash
 for D in \
   "$HOME"/.claude/plugins/marketplaces/ecc/commands \
@@ -69,15 +48,11 @@ done
 [ -z "${CMD_DIR:-}" ] && { echo "No ECC commands directory found."; return 1; }
 find "$CMD_DIR" -maxdepth 1 -name '*.md' -exec basename {} .md \; | sort
 ```
-
 Optionally read `manifests/install-*.json` if present for richer grouping. Use
 the smallest set of reads needed.
-
 ## Family Classification (by prefix)
-
 Group command names by leading prefix; map known singletons by hand. Families are
 derived live — the table below is the *classification rule*, not a frozen list.
-
 | Family prefix | Recipe meaning | Typical run-order |
 |---|---|---|
 | `orch-*` | gated Research, Plan, TDD, Review, Commit per task type | pick one orch-* by task kind; it runs its own internal phases |
@@ -90,12 +65,9 @@ derived live — the table below is the *classification rule*, not a frozen list
 | `hookify-*` | behavior-hook management | `hookify` then `hookify-list` then `hookify-configure` |
 | `learn` / `instinct-*` / `evolve` / `promote` / `prune` | continuous-learning | `learn` then `instinct-status` then `evolve` then `promote` |
 | singletons | `santa-loop`, `plan`, `plan-prd`, `pr`, `code-review`, `checkpoint`, etc. | standalone or glue between groups |
-
 Any command not matching a prefix rule → list it under **singletons** with its
 one-line description.
-
 ## How It Works
-
 ```
 1. Live-read command names from CMD_DIR.
 2. Classify into families by prefix and a singleton map.
@@ -103,15 +75,11 @@ one-line description.
    If none -> CATALOG MODE.
 4. Advisory only: print the plan. Never run the matched commands.
 ```
-
 ### Catalog mode (no description)
-
 Output the family table: each family, member count, members, one-line meaning,
 typical run-order. End with the total command count and a prompt to describe a
 workflow for a matched recipe.
-
 ### Match mode (description given)
-
 1. Restate the workflow in one sentence.
 2. Pick the best 1-2 families; say WHY in one line each.
 3. **Run-order block** — exact command sequence for the matched family.
@@ -119,15 +87,11 @@ workflow for a matched recipe.
    review-passes, or single-shot). For autonomous loops, warn about subscription
    burn and recommend a backstop bound.
 5. **Where to read** — the `commands/<name>.md` path plus `/ecc-guide <name>`.
-
 ## Output Template (match mode)
-
 ```
 Workflow: <one-sentence restatement>
-
 Best fit: <family> — <why>
 (Alt: <family> — <why>)
-
 Run-order:
   /<cmd1>   # job
   /<cmd2>   # job
@@ -135,27 +99,20 @@ Run-order:
   STOP when: <condition>
   WARNING (autonomous loops only): an unbounded loop burns subscription/credits —
   add a max-iteration or max-cost backstop alongside the completion signal.
-
 Read full docs:
   commands/<cmd1>.md   (or: /ecc-guide <cmd1>)
 ```
-
 ## Examples
-
 **Catalog:** `/ecc-recipes` → prints the family table and total count.
-
 **Match:** `/ecc-recipes plan a whole app upfront then auto-build with adversarial
 review until done` → Best fit: `loop-*` (autonomous) wrapping `gan-*` or
 `santa-loop` (adversarial). Run-order: `plan-prd` then
 `loop-start rfc-dag --mode safe` then monitor `loop-status`; STOP when all units
 pass review N consecutive times (add a max-iteration backstop to bound burn).
-
 **Match:** `/ecc-recipes fix a bug in my Go service` → Best fit: `orch-fix-defect`
 (reproduce, fix, review, commit). Alt: `go-test` then `go-build` then
 `go-review`. STOP: regression test green and review pass.
-
 ## Non-Goals
-
 - Not an executor — advisory only.
 - Not per-command deep docs — that's `ecc-guide`.
 - Not prompt rewriting — that's `prompt-optimizer`.

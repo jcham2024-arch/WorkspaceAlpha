@@ -1,39 +1,27 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "96cb136dd9cce2955c638cbde184f67083bd5769a26d889666c7e1acc7f6a2ac"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 96cb136dd9cce2955c638cbde184f67083bd5769a26d889666c7e1acc7f6a2ac
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-08-25
+description: ""Reverse JavaScript-based custom DSL/VM interpreters and risk-control engines: identify IIFE/switch-based opcode dispatch, extract opcode tables, and capture runtime semantics.""
+license: MIT
+license_source: ""https://github.com/zhaoxuya520/reverse-skill/blob/main/LICENSE""
 name: dsl-vm-reverse
-description: "Reverse JavaScript-based custom DSL/VM interpreters and risk-control engines: identify IIFE/switch-based opcode dispatch, extract opcode tables, and capture runtime semantics."
-tier: "experimental"
 risk: critical
-source: "https://github.com/zhaoxuya520/reverse-skill"
-source_repo: "zhaoxuya520/reverse-skill"
+source: ""https://github.com/zhaoxuya520/reverse-skill""
+source_repo: zhaoxuya520/reverse-skill
 source_type: community
-date_added: "2026-08-25"
-license: "MIT"
-license_source: "https://github.com/zhaoxuya520/reverse-skill/blob/main/LICENSE"
 ---
-
 # 🔄 DSL 自定义虚拟机逆向（DSL VM Reverse Engineering）
 ## When to Use
-
 - A protected web asset runs a custom bytecode VM (risk-control/captcha engines).
 - Recovering opcode semantics from a JS interpreter loop.
-
-
 ## Scope and execution boundary
-
 Use only for authorized local fixtures or specifically scoped assessments. A file selected by a user does not itself prove authorization for live captcha/risk-control bypass. Runtime capture executes untrusted JavaScript; use a dedicated isolated browser/VM without real accounts or external network, not an object named fakeEnv or Node vm as a security boundary. The identifiers, opcode layouts and status codes below describe one case, not a universal protocol.
-
 ## 目录
-
 - [1. 适用范围](#1-适用范围)
 - [2. DSL VM 识别特征](#2-dsl-vm-识别特征)
 - [3. 通用逆向工作流](#3-通用逆向工作流)
@@ -41,13 +29,9 @@ Use only for authorized local fixtures or specifically scoped assessments. A fil
 - [5. 运行时捕获方案](#5-运行时捕获方案)
 - [6. 常见状态码](#6-常见状态码)
 - [7. Skill 自检清单](#7-skill-自检清单)
-
 ---
-
 ## 1. 适用范围
-
 当目标文件符合以下 **任意特征** 时使用本 skill：
-
 | # | 特征 | 说明 |
 |---|------|------|
 | 1 | IIFE 开头 + 大量单字母变量名 | `!function(){var U=void 0,y=parseInt,E0=Function,...}` |
@@ -55,22 +39,16 @@ Use only for authorized local fixtures or specifically scoped assessments. A fil
 | 3 | 大文件（500KB+）但零字节占比 < 1% | 非标准 WASM，纯 JS |
 | 4 | 包含 `C[number]` 常量表引用 | `C[9][xxx]` 函数表/字符串表 |
 | 5 | 单行压缩代码 | 583KB 单行，混淆变量名 |
-
 ### 排除规则
-
 | 条件 | 非本 skill | 转至 |
 |------|-----------|------|
 | 文件以 `\x00asm` 开头 | 标准 WASM 二进制 | `reverse-engineering/languages.md` |
 | 文件以 `Uint8Array([0,97,115,109])` 含 WASM 魔术字 | WASM 嵌入式 | 提取 .wasm 后转 IDA/Ghidra |
 | 标准 Webpack 打包（`function(e,t,n){...}`） | 普通 JS | `js-reverse/` |
 | 零字节占比 > 20% | WASM 二进制 | `reverse-engineering/languages.md` |
-
 ---
-
 ## 2. DSL VM 识别特征
-
 ### 代码特征
-
 ```javascript
 // 特征 1: IIFE 入口，单字母变量映射数字常量
 !function(){
@@ -79,7 +57,6 @@ Use only for authorized local fixtures or specifically scoped assessments. A fil
     // 数字常量映射为变量名，替代原始数字
     ...
 }
-
 // 特征 2: 解释器主循环 DG()
 function DG(C, d, ...) {
     var d = [];  // 数组模拟 WASM stack/locals
@@ -93,57 +70,43 @@ function DG(C, d, ...) {
         }
     }
 }
-
 // 特征 3: 常量表 C[9] 存储函数索引和字符串
 // C[9][0] = ["pc"]      → 函数参数描述
 // C[9][667] = "string"  → 字符串常量
 // C[9][x] = number      → 函数索引
-
 // 特征 4: W(C[index], null, ...) 调用模式
 // W = Function.prototype.call.bind(call)
 // 所有内置函数通过 C[index] 索引调用
-
 // 特征 5: 指令编码格式
 // d[7] = opcode(bit 0-4) | subop(bit 5-9) | operand(bit 10+)
 ```
-
 ### Opcode 编码格式
-
 每条指令编码为 32 位整数：
-
 ```
 bit 0-4:   opcode (0-N)
 bit 5-9:   sub-operation (0-31)
 bit 10-31: operand/立即数
-
 解码:
   aE = d[7] & 31        → opcode
   O  = d[7] >> 5 & 31   → sub-operation
   d[other] = d[7] >> 10  → operand
 ```
-
 ---
-
 ## 3. 通用逆向工作流
-
 ### Phase 1: 文件分类（5 分钟）
-
 ```bash
 # 检查是否为 DSL VM
 python3 << 'EOF'
 with open('target.js', 'rb') as f:
     head = f.read(100)
-
 # 1. 检查 WASM 魔术字
 if head[:4] == b'\x00asm':
     print("标准 WASM 二进制")
     exit()
-
 # 2. 检查零字节占比
 data = open('target.js', 'rb').read()
 zero_pct = data.count(b'\x00') / len(data) * 100 if data else 0
 print(f"零字节占比: {zero_pct:.1f}%")
-
 if zero_pct > 20:
     print("高零字节占比：仍需魔术字和格式验证，不能据此认定 WASM")
 elif head[:2] == b'!f':
@@ -154,32 +117,24 @@ elif head[:2] == b'!f':
         print("普通 JS IIFE")
 EOF
 ```
-
 ### Phase 2: 变量映射表提取（10 分钟）
-
 ```python
 import re
-
 with open('target.js', 'r', errors='replace') as f:
     s = f.read()
-
 # 提取开头 2000 字符的 var X=数字 映射
 mappings = re.findall(r'var\s+(\w+)\s*=\s*(\d+)', s[:2000])
 print('常量映射:')
 for name, val in mappings:
     print(f"  {name:4s} = {int(val):3d} (0x{int(val):02x})")
 ```
-
 ### Phase 3: Opcode 提取与分类（15 分钟）
-
 ```python
 # 1. 提取所有 case
 all_cases = re.findall(r'case\s+(\d+):', s)
 unique = sorted(set(int(c) for c in all_cases))
-
 print(f"总 case: {len(all_cases)} 个")
 print(f"唯一 opcode: {len(unique)} 个: {unique}")
-
 # 2. 分类每个 opcode
 for op in unique:
     idx = s.find(f'case {op}:')
@@ -198,16 +153,12 @@ for op in unique:
         op_type = 'ARITH/STORE'
     print(f"  opcode {op:2d}: {op_type}")
 ```
-
 ### Phase 4: 常量表分析（30 分钟）
-
 ```python
 const_refs = re.findall(r'C\[9\]\[(\d+)\]', s)
 unique_refs = sorted(set(int(x) for x in const_refs))
-
 print(f"C[9] 引用: {len(unique_refs)} 个索引")
 print(f"范围: {min(unique_refs)} - {max(unique_refs)}" if unique_refs else "没有匹配索引")
-
 # 对每个引用分析上下文
 for ref in unique_refs[:20]:
     idx = s.find(f'C[9][{ref}]')
@@ -215,11 +166,8 @@ for ref in unique_refs[:20]:
     clean = ''.join(c if c.isprintable() else ' ' for c in ctx)
     print(f"  C[9][{ref}] → {clean}")
 ```
-
 ### Phase 5: 导出函数追踪（1-2 小时）
-
 导出函数（如 `getToken`）通过以下路径定位：
-
 ```
 1. 找 AWSCInner.register() 或类似注册调用
 2. 确定注册的模块和工厂函数
@@ -230,9 +178,7 @@ for ref in unique_refs[:20]:
    → W(C[函数索引], null, ...)
    → DG() 解释器执行编码后的指令序列
 ```
-
 ### Phase 6: 运行时注入（若纯静态分析不够）
-
 ```javascript
 // 注入最小 AWSC 兼容环境
 const fakeEnv = {
@@ -243,20 +189,14 @@ const fakeEnv = {
         }
     }
 };
-
 // 执行 DSL VM 代码
 dslVmCode();
-
 // 获取导出
 const token = fakeEnv.AWSCInner._modules['fy'].getToken({});
 ```
-
 ---
-
 ## 4. Opcode 提取与分类
-
 ### 参考 opcode 对照表（基于已有案例）
-
 | Opcode | 操作类型 | 特征 |
 |--------|---------|------|
 | 0 | **BRANCH** | `d[7]=xxx` 无条件跳转 |
@@ -285,38 +225,27 @@ const token = fakeEnv.AWSCInner._modules['fy'].getToken({});
 | 23 | **BRANCH** | `try...catch` 安全获取 + 条件跳转 |
 | 24 | **CALL** | `W(C[2],null,8,z,FL)` 多参数函数调用 |
 | 25 | **EXCEPTION** | `try{...}catch(C){...}` 异常捕获 + 跳转 |
-
 ---
-
 ## 5. 运行时捕获方案
-
 ### 方案 A: 本地受控浏览器捕获
-
 对自有测试页面使用可见的调试工具和合成事件，记录与真实用户交互的差异。不把隐藏 webdriver、伪造插件/语言等反检测手段作为默认步骤，也不保证能够通过风控。先验证测试环境隔离，避免收集真实账户 token。
-
 ### 方案 B: Playwright 无头浏览器
-
 ```javascript
 const { chromium } = require('playwright');
-
 async function run() {
     const browser = await chromium.launch();
     const page = await browser.newPage();
-
     // 拦截网络请求
     await page.route('**/api/**', async route => {
         await route.continue();
     });
-
     await page.goto('http://127.0.0.1:8080/fixture'); // dedicated offline test server only
-
     // 等待 DSL VM 初始化
     await page.waitForFunction(() => {
         return window.AWSCInner &&
                window.AWSCInner._modules &&
                window.AWSCInner._modules['fy'];
     });
-
     // 执行操作
     await page.mouse.move(500, 400);
     await page.mouse.down();
@@ -324,15 +253,10 @@ async function run() {
     await page.mouse.up();
 }
 ```
-
 ### 方案 C: 协议层验证的限制
-
 > DSL VM 生成的 token 通常与浏览器上下文强绑定（TLS JA3 指纹、IP、Cookie、请求头等），脱离浏览器后服务端可检测到上下文不匹配。不能据此声称普遍成功率；仅在授权离线测试服务验证，不重放真实会话令牌。
-
 ---
-
 ## 6. 常见状态码
-
 | Code | 含义 | 处理 |
 |------|------|------|
 | 0 | **验证通过** ✅ | 取出 sessionId + sig |
@@ -340,11 +264,8 @@ async function run() {
 | 8778 | **验证失败，需重试** | 重试操作 |
 | 8776 | **操作太快，需重试** | 增加延迟后重试 |
 | 69634 | **通用失败** | 检查参数是否正确 |
-
 ---
-
 ## 7. Skill 自检清单
-
 - [ ] 我是否完成了 DSL VM 识别（IIFE + 单字母变量 + DG() 解释器）？
 - [ ] 我是否提取了变量映射表（`var X=数字`）？
 - [ ] 我是否提取了 opcode 列表并分类？
@@ -353,19 +274,14 @@ async function run() {
 - [ ] 若运行时分析确有必要，是否确认授权、隔离与停止条件；未执行时是否如实标注？
 - [ ] 是否在用户指定的实际案例记录中保存必要证据与限制？
 - [ ] 上游 routing.md 未附带，不假称已更新；记录本次实际使用路径。
-
 ---
-
 ## 路由注册
-
 | 类型 | 路由 |
 |------|------|
 | **目标类型**: WASM / DSL VM / 自定义指令集 | `reverse-engineering/dsl-vm-reverse/SKILL.md` |
 | **用户意图**: "DSL VM / 风控引擎逆向" | 本 skill |
 | **工具链**: Playwright / Selenium CDP | 浏览器注入方案 |
-
 ### 路径交叉
-
 ```
 DSL VM 逆向路径:
   reverse-engineering/dsl-vm-reverse/ → Phase 1-6 工作流
@@ -374,10 +290,7 @@ DSL VM 逆向路径:
   ↓ 若需要分析 API 协议层
   js-reverse/ → Observe→Capture→Rebuild
 ```
-
 ## Limitations
-
 - Custom VMs vary wildly; methodology transfers but specifics do not.
 - Runtime capture requires controlling the execution environment.
-
 > Adapted from [zhaoxuya520/reverse-skill](https://github.com/zhaoxuya520/reverse-skill) (MIT).

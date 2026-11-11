@@ -1,42 +1,27 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "f14a426f555a552c1763a8830e4968eda85a965da602cdafce91f5b350ebc1a2"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: m365-agents-dotnet
+content_hash: f14a426f555a552c1763a8830e4968eda85a965da602cdafce91f5b350ebc1a2
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Microsoft 365 Agents SDK for .NET. Build multichannel agents for Teams/M365/Copilot Studio with ASP.NET Core hosting, AgentApplication routing, and MSAL-based auth.
-tier: "experimental"
+name: m365-agents-dotnet
 risk: critical
 source: community
-date_added: '2026-02-27'
 ---
-
 ## Supporting material availability
-
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
-
 - `<support-root>/references/acceptance-criteria.md`
-
 Ask for the original supporting material or an existing installation before using a step that depends on these paths; this catalog does not identify a verified download source for them. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
-
-
 # Microsoft 365 Agents SDK (.NET)
-
 ## Overview
 Build enterprise agents for Microsoft 365, Teams, and Copilot Studio using the Microsoft.Agents SDK with ASP.NET Core hosting, agent routing, and MSAL-based authentication.
-
 ## Before implementation
 - Use the microsoft-docs MCP to verify the latest APIs for AddAgent, AgentApplication, and authentication options.
 - Confirm package versions in NuGet for the Microsoft.Agents.* packages you plan to use.
-
 ## Installation
-
 ```bash
 dotnet add package Microsoft.Agents.Hosting.AspNetCore
 dotnet add package Microsoft.Agents.Authentication.Msal
@@ -44,11 +29,8 @@ dotnet add package Microsoft.Agents.Storage
 dotnet add package Microsoft.Agents.CopilotStudio.Client
 dotnet add package Microsoft.Identity.Client.Extensions.Msal
 ```
-
 Use placeholders only in committed configuration; supply real secrets through protected providers. The development bypass below must remain loopback-only, never a publicly reachable unauthenticated endpoint. Validate channel/service URLs rather than trusting arbitrary inbound ServiceUrl values. Reuse the MSAL client across requests for meaningful token caching; its reconstruction in the minimal handler loses the in-memory cache. Interactive login belongs in a user-facing native/dev context, not unattended server requests. SampleConnectionSettings and complete project imports are application prerequisites; the inline fragments are not a full buildable project.
-
 ## Configuration (appsettings.json)
-
 ```json
 {
   "TokenValidation": {
@@ -92,9 +74,7 @@ Use placeholders only in committed configuration; supply real secrets through pr
   }
 }
 ```
-
 ## Core Workflow: ASP.NET Core agent host
-
 ```csharp
 using Microsoft.Agents.Builder;
 using Microsoft.Agents.Hosting.AspNetCore;
@@ -103,30 +83,22 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
 var builder = WebApplication.CreateBuilder(args);
-
 builder.Services.AddHttpClient();
 builder.AddAgentApplicationOptions();
 builder.AddAgent<MyAgent>();
 builder.Services.AddSingleton<IStorage, MemoryStorage>();
-
 builder.Services.AddControllers();
 builder.Services.AddAgentAspNetAuthentication(builder.Configuration);
-
 WebApplication app = builder.Build();
-
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapGet("/", () => "Microsoft Agents SDK Sample");
-
 var incomingRoute = app.MapPost("/api/messages",
     async (HttpRequest request, HttpResponse response, IAgentHttpAdapter adapter, IAgent agent, CancellationToken ct) =>
     {
         await adapter.ProcessAsync(request, response, agent, ct);
     });
-
 if (!app.Environment.IsDevelopment())
 {
     incomingRoute.RequireAuthorization();
@@ -135,12 +107,9 @@ else
 {
     app.Urls.Add("http://localhost:3978");
 }
-
 app.Run();
 ```
-
 ## AgentApplication routing
-
 ```csharp
 using Microsoft.Agents.Builder;
 using Microsoft.Agents.Builder.App;
@@ -149,7 +118,6 @@ using Microsoft.Agents.Core.Models;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-
 public sealed class MyAgent : AgentApplication
 {
     public MyAgent(AgentApplicationOptions options) : base(options)
@@ -158,7 +126,6 @@ public sealed class MyAgent : AgentApplication
         OnActivity(ActivityTypes.Message, OnMessageAsync, rank: RouteRank.Last);
         OnTurnError(OnTurnErrorAsync);
     }
-
     private static async Task WelcomeAsync(ITurnContext turnContext, ITurnState turnState, CancellationToken ct)
     {
         foreach (ChannelAccount member in turnContext.Activity.MembersAdded)
@@ -171,14 +138,12 @@ public sealed class MyAgent : AgentApplication
             }
         }
     }
-
     private static async Task OnMessageAsync(ITurnContext turnContext, ITurnState turnState, CancellationToken ct)
     {
         await turnContext.SendActivityAsync(
             MessageFactory.Text($"You said: {turnContext.Activity.Text}"),
             ct);
     }
-
     private static async Task OnTurnErrorAsync(
         ITurnContext turnContext,
         ITurnState turnState,
@@ -186,7 +151,6 @@ public sealed class MyAgent : AgentApplication
         CancellationToken ct)
     {
         await turnState.Conversation.DeleteStateAsync(turnContext, ct);
-
         var endOfConversation = Activity.CreateEndOfConversationActivity();
         endOfConversation.Code = EndOfConversationCodes.Error;
         endOfConversation.Text = "An internal error occurred. Please try again."; // Log details privately with redaction
@@ -194,25 +158,19 @@ public sealed class MyAgent : AgentApplication
     }
 }
 ```
-
 ## Copilot Studio direct-to-engine client
-
 ### DelegatingHandler for token acquisition (interactive flow)
-
 ```csharp
 using System.Net.Http.Headers;
 using Microsoft.Agents.CopilotStudio.Client;
 using Microsoft.Identity.Client;
-
 internal sealed class AddTokenHandler : DelegatingHandler
 {
     private readonly SampleConnectionSettings _settings;
-
     public AddTokenHandler(SampleConnectionSettings settings) : base(new HttpClientHandler())
     {
         _settings = settings;
     }
-
     protected override async Task<HttpResponseMessage> SendAsync(
         HttpRequestMessage request,
         CancellationToken cancellationToken)
@@ -220,14 +178,12 @@ internal sealed class AddTokenHandler : DelegatingHandler
         if (request.Headers.Authorization is null)
         {
             string[] scopes = [CopilotClient.ScopeFromSettings(_settings)];
-
             IPublicClientApplication app = PublicClientApplicationBuilder
                 .Create(_settings.AppClientId)
                 .WithAuthority(AadAuthorityAudience.AzureAdMyOrg)
                 .WithTenantId(_settings.TenantId)
                 .WithRedirectUri("http://localhost")
                 .Build();
-
             AuthenticationResult authResponse;
             try
             {
@@ -238,32 +194,24 @@ internal sealed class AddTokenHandler : DelegatingHandler
             {
                 authResponse = await app.AcquireTokenInteractive(scopes).ExecuteAsync(cancellationToken);
             }
-
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authResponse.AccessToken);
         }
-
         return await base.SendAsync(request, cancellationToken);
     }
 }
 ```
-
 ### Console host with CopilotClient
-
 ```csharp
 using Microsoft.Agents.CopilotStudio.Client;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
 HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);
-
 var settings = new SampleConnectionSettings(
     builder.Configuration.GetSection("CopilotStudioClientSettings"));
-
 builder.Services.AddHttpClient("mcs").ConfigurePrimaryHttpMessageHandler(() =>
 {
     return new AddTokenHandler(settings);
 });
-
 builder.Services
     .AddSingleton(settings)
     .AddTransient<CopilotClient>(sp =>
@@ -271,38 +219,29 @@ builder.Services
         var logger = sp.GetRequiredService<ILoggerFactory>().CreateLogger<CopilotClient>();
         return new CopilotClient(settings, sp.GetRequiredService<IHttpClientFactory>(), logger, "mcs");
     });
-
 IHost host = builder.Build();
 var client = host.Services.GetRequiredService<CopilotClient>();
-
 await foreach (var activity in client.StartConversationAsync(emitStartConversationEvent: true))
 {
     Console.WriteLine(activity.Type);
 }
-
 await foreach (var activity in client.AskQuestionAsync("Hello!", null))
 {
     Console.WriteLine(activity.Type);
 }
 ```
-
 ## Best Practices
-
 1. Use AgentApplication subclasses to centralize routing and error handling.
 2. Use MemoryStorage only for development; use persisted storage in production.
 3. Enable TokenValidation in production and require authorization on /api/messages.
 4. Keep auth secrets in configuration providers (Key Vault, managed identity, env vars).
 5. Reuse HttpClient from IHttpClientFactory and cache MSAL tokens.
 6. Prefer async handlers and pass CancellationToken to SDK calls.
-
 ## Reference Files
-
 | File | Contents |
 | --- | --- |
 | references/acceptance-criteria.md | Import paths, hosting pipeline, Copilot Studio client patterns, anti-patterns |
-
 ## Reference Links
-
 | Resource | URL |
 | --- | --- |
 | Microsoft 365 Agents SDK | https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/ |
@@ -311,17 +250,12 @@ await foreach (var activity in client.AskQuestionAsync("Hello!", null))
 | Auth configuration options | https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/microsoft-authentication-library-configuration-options |
 | Copilot Studio integration | https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/integrate-with-mcs |
 | GitHub samples | https://github.com/microsoft/agents |
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Windows](platforms/windows.md)

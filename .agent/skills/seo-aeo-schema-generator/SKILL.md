@@ -1,25 +1,17 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "f2a9a2193fba87149c59a9e2e878c69d3fe4577230a60d323b4bf34bf9fe8f0e"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: f2a9a2193fba87149c59a9e2e878c69d3fe4577230a60d323b4bf34bf9fe8f0e
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-04-01
+description: Generates and validates implementation-ready JSON-LD structured data for relevant page types and rich-result eligibility.
 name: seo-aeo-schema-generator
-description: "Generates and validates implementation-ready JSON-LD structured data for relevant page types and rich-result eligibility."
-tier: "experimental"
 risk: safe
 source: community
-date_added: "2026-04-01"
 ---
-
-
 # Schema Generator Skill
-
 ## Description
 Activate this skill when the user wants to generate, write,
 or validate structured data markup for any page.
@@ -28,9 +20,7 @@ Trigger phrases include: "generate schema", "create JSON-LD",
 "FAQ schema", "product schema", "article schema",
 "help Google understand my page", "rich results schema",
 "schema generator: [type]", "add schema to [page]".
-
 ---
-
 ## Input Format
 ````json
 {
@@ -97,14 +87,10 @@ Trigger phrases include: "generate schema", "create JSON-LD",
   }
 }
 ````
-
 ---
-
 ## Schema Type Menu
-
 This skill supports the following schema types.
 Multiple types can be requested for a single page:
-
 | Schema Type          | Best For                                    | Potential Search use (not guaranteed)                    |
 |----------------------|---------------------------------------------|-----------------------------------------|
 | `Article`            | Blog posts, pillar pages, news              | Article rich result, Top Stories        |
@@ -117,17 +103,12 @@ Multiple types can be requested for a single page:
 | `Organization`       | Homepage or About page                      | Brand knowledge panel signals           |
 | `WebPage`            | Any page needing basic structured identity  | Enhances page understanding by crawlers |
 | `WebSite`            | Homepage only                               | Site identity; searchbox retired             |
-
 Use only types supported by visible page content. There is no established guarantee that FAQPage or HowTo causes AI extraction. Google retired HowTo rich results in 2023, the sitelinks searchbox in 2024, and FAQ rich results in May 2026. Schema.org validity and Google feature eligibility are separate.
-
 ---
-
 ## Rich Result Eligibility Rules
-
 Google requires specific fields to be present for each
 schema type to qualify for rich results.
 Missing required fields affects the corresponding feature, not all page indexing. Check the current Google feature guide; the tables below are content checklists, not a complete eligibility validator.
-
 ### FAQPage
 | Field          | Status      | Notes                                    |
 |----------------|-------------|------------------------------------------|
@@ -137,10 +118,8 @@ Missing required fields affects the corresponding feature, not all page indexing
 | `acceptedAnswer` | Required  | `Answer` object containing `text`        |
 | Minimum Qs     | Content check | At least one real question and answer; no invented two-question rule |
 | Answer length  | Recommended | Under 300 words per answer               |
-
 ### Article
 Google currently lists recommended, rather than required, Article properties: headline, representative image, publication/modification dates and author identity. Include available truthful values; do not invent a publisher logo or date. Top Stories does not require Article markup.
-
 ### Product
 | Field              | Status      | Notes                                |
 |--------------------|-------------|--------------------------------------|
@@ -152,7 +131,6 @@ Google currently lists recommended, rather than required, Article properties: he
 | `priceCurrency`    | Conditional | Use ISO 4217 for priced offers; verify feature-specific rules |
 | `availability`     | Recommended | Schema.org availability URL          |
 | `aggregateRating`  | Recommended | Unlocks star rating display          |
-
 ### HowTo
 | Field              | Status      | Notes                                |
 |--------------------|-------------|--------------------------------------|
@@ -161,7 +139,6 @@ Google currently lists recommended, rather than required, Article properties: he
 | `text`             | Required    | Instructions for each step           |
 | `totalTime`        | Recommended | ISO 8601 duration                    |
 | `image`            | Recommended | Image per step if available          |
-
 ### BreadcrumbList
 | Field              | Status      | Notes                                |
 |--------------------|-------------|--------------------------------------|
@@ -169,48 +146,33 @@ Google currently lists recommended, rather than required, Article properties: he
 | `position`         | Required    | Integer, starts at 1                 |
 | `name`             | Required    | Breadcrumb label                     |
 | `item`             | Required    | Absolute URL for each crumb          |
-
 ---
-
 ## Output Structure
-
 The skill must always produce output in this exact format:
 ````markdown
 # Schema Markup Output
-
 **Page:** [page title]
 **URL:** [url]
 **Schema Types Generated:** [list all types]
 **Potential Rich Results (eligibility unverified until tested):** [list eligible rich results]
 **Structured Content Types Added:** [list AEO-relevant schema types]
-
 ---
-
 ## Validation Summary
-
 | Schema Type       | Required Fields Complete | Rich Result Eligible | Issues Found |
 |-------------------|--------------------------|----------------------|--------------|
 | [type]            | ✅ / ❌                  | ✅ / ❌              | [n or none]  |
 | [type]            | ✅ / ❌                  | ✅ / ❌              | [n or none]  |
-
 ---
-
 ## Issues Found
-
 [If no issues: ✅ All schema types passed validation.]
-
 **Issue:** [Specific field missing or incorrect]
 **Schema Type:** [type]
 **Severity:** Required / Recommended
 **Fix:** [Exact instruction — what to add or change]
-
 ---
-
 ## JSON-LD Output
-
 Place all script blocks inside the `<head>` of your HTML.
 Use one `<script>` block per schema type.
-
 ### [Schema Type 1]
 ```html
 <script type="application/ld+json">
@@ -221,7 +183,6 @@ Use one `<script>` block per schema type.
 }
 </script>
 ```
-
 ### [Schema Type 2]
 ```html
 <script type="application/ld+json">
@@ -232,11 +193,8 @@ Use one `<script>` block per schema type.
 }
 </script>
 ```
-
 ---
-
 ## Implementation Instructions
-
 1. Copy each `<script>` block above
 2. Paste inside the `<head>` tag of your HTML —
    after the `<title>` tag, before `</head>`
@@ -248,11 +206,8 @@ Use one `<script>` block per schema type.
    https://validator.schema.org
 6. After deploying, request re-indexing in
    Google Search Console
-
 ---
-
 ## Testing Checklist
-
 - [ ] All required fields populated for each schema type
 - [ ] No placeholder text left in any field
 - [ ] All URLs are absolute (https://...) not relative (/page)
@@ -265,11 +220,8 @@ Use one `<script>` block per schema type.
 - [ ] Tested in Google Rich Results Test ✅
 - [ ] Tested in Schema.org Validator ✅
 ````
-
 ---
-
 ## References Folder
-
 The `references/` folder contains illustrative, unvalidated
 JSON-LD templates for all supported schema types.
 The script uses these as base structures and
@@ -287,15 +239,11 @@ references/
 ├── webpage-schema.json
 └── website-schema.json
 ````
-
 Each template contains all required and recommended
 fields with placeholder values in this format:
 `"{{field_name}}"`. No schema_builder.py is bundled. Build typed objects and serialize them; do not use textual substitution. Array/object fields must remain arrays/objects, not quoted JSON strings.
-
 ---
-
 ## Execution Steps
-
 1. Read `page_type` and `schema_types` —
    if `schema_types` is empty, recommend the
    appropriate types based on `page_type` using
@@ -320,20 +268,14 @@ fields with placeholder values in this format:
 10. Write Implementation Instructions
     and Testing Checklist
 11. Populate the selected reference template from supplied page data, validate required fields, and show unresolved placeholders as blocking issues. Use a project-provided schema helper only as a supplementary check; never emit fabricated review, rating, or product claims.
-
 ---
-
 ## Connected Skills
 - Receives output from: `seo-aeo-landing-page-writer`,
   `seo-aeo-blog-writer`, `seo-aeo-content-quality-auditor`,
   `seo-aeo-internal-linking`
 - Feeds output to: orchestrator workflow —
   final step before publish checklist
-
 ## When to Use
-
 Use when adding or validating JSON-LD structured data for a page and the supplied visible content supports the selected schema type.
-
 ## Limitations
-
 - Structured data must match visible, truthful page content; valid JSON-LD does not guarantee rich results, indexing, or display.

@@ -1,92 +1,62 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "9b853faa83dac08c66b3221ac29c1ee6c8a6dfa38a0d7c3e04b8583acd1cc6c8"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: source-document-filing
-description: 'Source document register: document type and number, party, amount, index key, storage location, retention period and verification. Use for document filing.'
-tier: "experimental"
+content_hash: 9b853faa83dac08c66b3221ac29c1ee6c8a6dfa38a0d7c3e04b8583acd1cc6c8
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: WHOISABHISHEKADHIKARI
 category: business
+date_added: 2026-09-26
+description: "'Source document register: document type and number, party, amount, index key, storage location, retention period and verification. Use for document filing.'"
+name: source-document-filing
 risk: safe
 source: self
-source_type: self
-date_added: "2026-09-26"
-author: WHOISABHISHEKADHIKARI
-tags: [sme, accounting, audit, finance, database, csv, notion, sql, filing]
-tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
+source_type: self
+tags: "[sme, accounting, audit, finance, database, csv, notion, sql, filing]"
+tools: "[]"
 ---
-
-
 # Source Document & Filing
-
 **What it is:** Indexed register of every supporting document, linked to the entry it supports.
-
 ## Overview
-
 Works out the smallest useful **Source Document & Filing** setup for the business in front of it, then
 builds it only when asked. The default output is a short recommendation, not a
 spreadsheet. Artifacts - CSV, SQL DDL, JSON Schema, Notion mapping - are produced on
 request, from one field list so they cannot drift apart.
-
 Layer: Layer 2: Document. Fits: Growth stage. Table code: n/a.
-
 ## When to Use This Skill
-
 - source document filing
 - document index register
 - bill and voucher filing tracker
 - supporting document audit trail
-
 Also use it when the user says "indexed register of every supporting document, linked to the entry it supports", or describes the same process happening in a
 spreadsheet, a document or someone inboxes.
-
 Do not use it for: day-to-day bookkeeping, tax filing, or legal advice. This skill produces
 empty templates only - it never holds or processes real employee or customer data.
-
 ## How It Works
-
 The upstream shared execution contract is not bundled; follow the explicit intent, artifact and authorization rules below. The module-specific rules below define only domain fields, decisions, calculations, and safety constraints.
-
 ### Step 1 - Identify intent
-
 Read the request and pick the intent before asking anything.
-
 - "set up" or "build" or "create" -> the user wants artifacts; go to Step 2.
 - "our process is ..." or "it is in a sheet" -> the user wants to move an existing process; capture it, then Step 2.
 - "is this right" or "review" or "audit" -> the user wants a check, not a build; answer from what they share.
 - "how do I ..." -> advice question; answer directly and offer the build only if it helps.
-
 Ask only if this is the highest-value missing fact; otherwise proceed without an opener:
-
 > **Q:** Which document types do you currently file?
-
 ### Step 2 - Ask only what is missing
-
 Treat ambiguous replies as unanswered and ask which explicit option the user means. Record unknown values as `Unknown`; `Unknown` is not zero. A record must not be `Done` when a required check fails.
-
 Skip anything the user already answered, in any earlier message. Ask the rest one at a
 time, and stop as soon as the remaining answers would not change the output.
-
 - **Documents** - Which types? / Purchase, sales, payroll? / How many a month?
 - **Filing** - Physical, digital or both? / How are files named and sorted?
 - **Indexing** - Any index or reference in use? / By period, by party or both?
 - **Retention** - How long to keep? / Any legal retention rules? / Who disposes?
 - **Outcome** - What do you need? / A register, a reindex plan or both?
-
 Never invent an answer. If the user does not know, record it as unknown and carry on.
-
 ### Step 3 - Hold the internal context
-
 Hold the answers in this shape. It stays internal - it is not shown to the user unless
 they ask, and it never carries a value the user did not give.
-
 ```yaml
 module: source-document-filing
 intent: null            # setup | advice | review | fix | build | convert | export
@@ -101,23 +71,15 @@ requested_outputs: []   # csv | sql | json | notion | xlsx - requested formats o
 confirmed_facts: []     # only what the user actually said
 open_questions: []      # the unanswered ones, in the order worth asking
 ```
-
 ### Step 4 - Recommend the smallest workflow
-
 Build an already requested artifact without asking again. For advice-only requests, give a short recommendation and offer the relevant artifact.
-
 **Recommended approach:** One register row per document, with a reference key built as `period/party` (for example `2026/08/BLUEPEAK`) so retrieval is by month and by party, and relation links to the voucher and the transaction it supports.
-
 **Why this one:** Audits and assessments fail on missing support, not on missing entries. A document register with a fixed index key and a link back to the entry is what makes an entry traceable in seconds.
-
 **Workflow:** Document received → Referenced and indexed → Filed → Linked to entry → Verified
-
 ### Step 5 - Build only on request
-
 Once the user asks for it, derive the fields from the confirmed context and emit the
 requested artifacts. For machine-readable text, keep prose outside the data; for files,
 provide a usable link. Report material validation failures or limitations separately.
-
 **A selected Notion output is rendered by `notion-manual-import`, so route the
 Notion step there.** When the user selects Notion, hand that step to
 @notion-manual-import: it holds the CSV, the property
@@ -127,12 +89,10 @@ here and do not improvise the import steps. Manual CSV and mapping outputs need 
 connection. For requested workspace changes, follow the shared contract: verify actual
 tool access and the target before writing. A user saying "connected" is not tool evidence.
 Never ask for a Notion password or token.
-
 ```csv
 Document Reference,Document Type,Document Number,Document Date,Party Name,Party PAN/VAT,Amount,Currency,Tax Amount,TDS Amount,Source Department,Index Key,Storage Location,Retention Period,Linked Voucher,Linked Transaction,Document Availability,Verification Status,Verified By,Verified Date,Notes,Document Filing ID
 DOC-2026-0442,Purchase Invoice,INV-8841,2026-08-14,Bluepeak Supplies,MASKED-TAX-ID,84500.00,INR,15210.00,2112.50,Purchase,2026/08/BLUEPEAK,Rack B / Folder 7,8 years,VCH-2026-0912,PUR-2026-0041,Original on file,In progress,Sneha Iyer,2026-08-15,Challan and PO filed together with the invoice.,FILE-0442
 ```
-
 ```sql
 CREATE TABLE source_document_filing (
   document_reference VARCHAR(255),
@@ -161,7 +121,6 @@ CREATE TABLE source_document_filing (
   updated_at TIMESTAMP DEFAULT NOW()
 );
 ```
-
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -202,7 +161,6 @@ CREATE TABLE source_document_filing (
   ]
 }
 ```
-
 ```markdown
 | CSV column | Notion property | Set after import |
 |---|---|---|
@@ -229,16 +187,11 @@ CREATE TABLE source_document_filing (
 | Notes | Text | Leave as Text |
 | Document Filing ID | Text (preserve source ID) | Keep imported IDs as Text; optionally add a separate Unique ID property |
 ```
-
 The rows above are documentation examples only. Emit empty templates unless the user explicitly requests examples. Money stays `currency`, dates stay `date`,
 and anything pointing at another table stays `relation`.
-
 `period/party` is a filing category, not a unique document key; multiple invoices share it. Preserve a stable source filing ID/reference and distinguish duplicates/versions before relinking records. Never build a filesystem path directly from untrusted party/document text. The8-year retention value is fictional context, not legal guidance: confirm jurisdiction, start event, legal holds, access restrictions and authorized disposal. Do not store signed URLs, credentials or unnecessarily identifying tax numbers in a widely shared register.
-
 Unknown numeric/date values must be absent/null in a draft schema, never the literal string `Unknown` or a fabricated zero/date. The concrete SQL/JSON below describes a complete record: incomplete documents must remain blocked/draft until required facts are verified. `Done` requires actual document checks, verifier identity and verified date; schema presence alone does not verify authenticity. Amount/tax/TDS examples do not establish local rates or whether amount is gross/net.
-
 ## Field Reference
-
 | # | Field | Type | SQL | JSON Schema | Notion | CSV example |
 |---:|---|---|---|---|---|---|
 | 1 | Document Reference | `text` | `VARCHAR(255)` | `string` | Title | `DOC-2026-0442` |
@@ -263,47 +216,33 @@ Unknown numeric/date values must be absent/null in a draft schema, never the lit
 | 20 | Verified Date | `date` | `DATE` | `string, format: date` | Date | `2026-08-15` |
 | 21 | Notes | `long_text` | `TEXT` | `string` | Text | `Challan and PO filed together with the invoice.` |
 | 22 | Document Filing ID | `id` | `VARCHAR(255) PRIMARY KEY` | `string` | Text (preserve source ID) | `FILE-0442` |
-
 ## Select Options
-
 **Document Type**
-
 ```
 Purchase Invoice | Sales Invoice | Purchase Order | Sales Order | Delivery Challan | Receipt | Payment Voucher | Bank Statement | Cheque Record | Expense Bill | Contract/Agreement | Salary Sheet | Wage Sheet | Tax Document | TDS Document | Import Document | Fixed Asset Invoice | Other
 ```
 **Source Department**
-
 ```
 Sales | Purchase | Accounts | Payroll | Admin | Finance
 ```
 **Document Availability**
-
 ```
 Original on file | Copy on file | Awaiting from party | Not available | Duplicate
 ```
 **Verification Status**
-
 ```
 Not started | In progress | Blocked | Done | Cancelled
 ```
-
 ## Relations
-
 Link fields: `Linked Voucher`, `Linked Transaction`
-
 - `Linked Voucher` -> the accounting voucher the document supports.
 - `Linked Transaction` -> the purchase, sales or payment record the document supports.
-
 ## Examples
-
 **Prompt**
-
 ```
 Our accountant keeps asking for supporting documents and nobody can find them.
 ```
-
 **Context first** - one question per message, nothing already answered:
-
 > **Q:** What is filed today?
 > **A:** Invoices and challans, mostly paper.
 >
@@ -312,35 +251,27 @@ Our accountant keeps asking for supporting documents and nobody can find them.
 >
 > **Q:** How long do you keep them?
 > **A:** Eight years, the accountant said.
-
 **Recommended next step** - offered, not built:
-
 > One register row per document, with a reference key built as `period/party` (for example `2026/08/BLUEPEAK`) so retrieval is by month and by party, and relation links to the voucher and the transaction it supports.
 >
 > Workflow: Document received → Referenced and indexed → Filed → Linked to entry → Verified
 >
 > Want the CSV, SQL, JSON Schema and Notion mapping for this?
-
 ## Best Practices
-
 - Build when requested; recommend and offer a build for advice-only requests.
 - One question per message. A batched intake reads as a form and gets guessed at.
 - Keep display names identical across CSV and JSON; document normalized SQL identifiers.
 - Use `relation` for anything that points at another table, `text` only for free text.
 - Money fields are `currency`, never `text`. Dates are `date`, never free text.
 - If the user requests an example row, keep it obviously fake so nobody imports it as real data.
-
 ## Limitations
-
 - Empty template only. It does not compute payroll, tax, leave balances or KPIs.
 - Notion relations need both databases imported before the link column resolves.
 - Select options are a starting set. Rename them to match how the business talks.
 - No automation, reminders or sync. Those need the integration layer.
 - Does not scan, store or digitise documents, and does not set retention policy for the business.
 - Legal, tax and HR review is still required before this drives real decisions.
-
 ## Security & Safety Notes
-
 - Never fill in real names, salaries, medical or banking data. Placeholders only.
 - Label example rows as synthetic, and keep bank details masked.
 - Local reads, generation commands, and validation are part of a requested artifact build.
@@ -351,9 +282,7 @@ Our accountant keeps asking for supporting documents and nobody can find them.
   from the conversation or service storage.
 - Privacy, legal and disciplinary cases need a qualified human reviewer before anything
   is acted on.
-
 ## Common Pitfalls
-
 - **Problem:** a static mapping is described as a completed workspace build.
   **Solution:** deliver manual mappings without a connection; claim a live change only
   after the authorized tool operation succeeds.
@@ -365,17 +294,13 @@ Our accountant keeps asking for supporting documents and nobody can find them.
   **Solution:** derive all four from the field list in this file, never by hand.
 - **Problem:** Notion import shows every column as Text.
   **Solution:** that is expected. Apply the property mapping table once, after import.
-
 ## Related Skills
-
 - @accounting-audit-system-builder - routes to this skill and the other accounting modules.
 - @purchase-accounting - the purchase entries these documents support.
 - [sales-accounting](https://github.com/sickn33/agentic-awesome-skills/blob/main/skills/sales-accounting/SKILL.md) - the sales entries these documents support.
 - @payment-accounting - the payment entries these documents support.
 - @audit-preparation - reads this register to answer evidence requests.
-
 ## Reusable Prompt
-
 ```
 I want to set up an indexed register of every supporting document, linked to the entry it supports for my company.
 Ask me one short question at a time, and only about what I have not already told you.

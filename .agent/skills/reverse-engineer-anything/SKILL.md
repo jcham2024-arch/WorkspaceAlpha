@@ -1,73 +1,50 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "c52ab89e0184dae985144745a7588d4e59a28c87239684c3c129f36bea5d50ac"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: reverse-engineer-anything
+content_hash: c52ab89e0184dae985144745a7588d4e59a28c87239684c3c129f36bea5d50ac
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-10-10
 description: Use REA to investigate shipped apps, binaries, packages, and runtimes; trace features with evidence, compare versions, or guide reconstruction. Skip ordinary source-code analysis.
-tier: "experimental"
+license: MIT
+license_source: ""https://github.com/morluto/rea/blob/main/LICENSE""
+name: reverse-engineer-anything
 risk: critical
-source: "https://github.com/morluto/rea/tree/main/skill-src/reverse-engineer-anything"
-source_repo: "morluto/rea"
+source: ""https://github.com/morluto/rea/tree/main/skill-src/reverse-engineer-anything""
+source_repo: morluto/rea
 source_type: community
-date_added: "2026-10-10"
-license: "MIT"
-license_source: "https://github.com/morluto/rea/blob/main/LICENSE"
-metadata:
-  version: "34"
+version: 34
 ---
-
-
 # REA
-
 ## External tool prerequisite
-
 Use only an already installed tool whose exact version, complete dependency tree and integrity have been reviewed. This skill does not bootstrap tools or activate external plugins. If the prerequisite is missing, stop that executable path and report it; continue with static analysis when possible. A separate installation task must pin immutable artifacts, stage them outside active agent directories with lifecycle scripts disabled, inspect every bundled file and executable entry point (including tests and hooks), and obtain approval before activation or host configuration changes. Do not substitute a same-named workspace script or fetch a moving branch.
-
-
 ## Current upstream location
-
 The active authored skill is at [morluto/rea — reverse-engineer-anything](https://github.com/morluto/rea/tree/main/.agents/skills/reverse-engineer-anything). The `source` frontmatter retains the historical import location to preserve provenance identity; that old path is not a current installation URL. Use the active link for upstream inspection and retain the reviewed local reference bundle. A moving upstream branch is reference material, not approval to install or execute it.
-
 ## When to Use
-
 - Use when a claim depends on a shipped application, binary, package, or requested runtime evidence.
 - Use for decompilation, evidence-backed feature traces, version comparisons, or investigation-guided reconstruction.
 - Skip REA for ordinary source-code analysis of a complete repository.
-
 Use REA when a claim depends on a shipped binary or package, decompilation,
 passive application runtime evidence, or comparison with
 behavior not established by available source. For ordinary analysis of a
 complete source repository, use normal repository tools and do not run REA
 readiness or provider commands.
-
 ## Limitations
-
 - The skill supplies investigation guidance; it does not register the REA MCP server or install analysis engines.
 - Native-analysis availability depends on the selected provider, host, and target format. Hopper is separate licensed software; Ghidra and IDA are bring-your-own.
 - Static analysis does not establish runtime behavior or recover original source code. Report provider-specific coverage, partial results, and unknowns.
 - REA runs analysis locally, but the connected model provider may have separate data-handling policies.
-
 ## Connect only when needed
-
 Installing this skill supplies instructions; it does not register the REA MCP
 server, install analysis engines, or add tools to an already-running agent.
-
 If REA tools are available and their registration is not known to be stale,
 proceed directly to the target. Do not run diagnostics or setup before every
 investigation. Use the connected server's actual tool list and input schemas;
 a skill installed from repository main may describe capabilities absent from
 an older npm release. Keep complete inline Evidence when that server does not
 advertise retained references.
-
 When tools are absent or registration is stale:
-
 1. Diagnose without changing files. For Codex, run
    `rea-agents doctor --client codex --json`. Substitute the current
    supported client: `claude_code`, `claude_desktop`, `codex`, `cursor`,
@@ -93,30 +70,23 @@ When tools are absent or registration is stale:
 4. Restart/reconnect the affected agent. Verify that REA tools actually appear
    in the session, then resume the original investigation. If they remain
    absent, inspect the client's MCP launch error rather than repeating setup.
-
 REA setup never installs or upgrades Node.js, npm, Homebrew, Java, Ghidra, IDA,
 JADX, Binwalk, or Unblob. Use existing prerequisites; do not install unrelated
 software to repair
 MCP registration. For an unsupported client, use manual stdio registration
 with a version-pinned `rea-agents` package or continue through the CLI.
-
 A concrete CLI fallback for an operator-supplied JavaScript tree or ASAR is:
-
 ```bash
 rea-agents analyze-javascript-application /absolute/path/to/app --json
 ```
-
 No MCP registration or native engine is required. Read the returned Evidence,
 graph, limitations, and unknowns with the same care as an MCP result; the CLI
 returns the Evidence record directly. This fallback does not establish that
 MCP is configured. Native CLI tasks still require their selected engine.
-
 ## Route the target first
-
 Choose the first tool from the target the user supplied. Use `open_binary` for
 active-target native or archive workflows; target-free tools take their own
 explicit path or endpoint and do not need it.
-
 - ASAR or extracted JavaScript/Electron tree:
   `analyze_javascript_application`.
 - Archive/package member inventory (ZIP/APK/IPA/MSIX/AppX or DMG):
@@ -158,7 +128,6 @@ explicit path or endpoint and do not need it.
 - Native executable, library, or analysis database: `open_binary`, then
   use focused analysis tools directly; call `binary_overview` when metadata or
   inventory context is useful and available from the selected provider.
-
 For an existing IDA MCP configuration, use `open_binary` with the original
 input binary and `provider_id: "ida"`; do not pass an `.idb` or `.i64` database.
 The legacy attached profile binds the already-open GUI input by SHA-256 and
@@ -170,23 +139,18 @@ Proceed directly to `analyze_function`, pseudocode, or function/string searches
 after opening; IDA does not supply `binary_overview`. Consult session availability
 when composing broader workflows. Modern direct callers and unsupported dossier
 facets remain unknown; live IDA results are not replayed from snapshots.
-
 If the app is missing, ask which app to inspect. Resolve a human-readable app
 name to one clear installed artifact when possible; ask only when matches are
 ambiguous. Never choose an example app on the user's behalf.
-
 In a target-free session, use `open_binary` to bind any archive/package or
 native target whose analysis tool operates on the active target. Do not call an
 unadvertised tool; inspect `binary_session` with `{}` and its
 `result.tool_availability` for availability reasons and remediation. The tool
 list stays complete; availability depends on the operation, target, and host.
-
 ## Work summary-first
-
 Start with the default result and use its inline Evidence and graph context.
 Do not repeat an identical tool call. Make a focused follow-up only when the
 returned result leaves a specific question unanswered.
-
 If MCP reports `resource_constraint` with `details.resource: "transport"`, call
 `inspect_analysis_view` with its reported same-session Evidence reference for a
 summary, one section/module, or a stable page. Use `trace_application_feature`
@@ -194,20 +158,15 @@ once a seed is known, or call `export_evidence_bundle` to write the complete
 session to a selected path. The analysis remains complete in the ledger; avoid
 repeating it merely to request the same oversized response. Complete CLI JSON
 output also streams without a single MCP frame.
-
 Every conclusion must distinguish observations, inferences, and unknowns. Cite
 Evidence IDs, preserve limitations and incomplete coverage, and never imply
 that static analysis observed execution. Runtime requests execute the declared
 target and lifecycle; do not broaden the target or action beyond those fields.
-
 Within the user's requested investigation, call available analysis tools
 directly. REA does not require permission grants or per-call approval flags.
 Follow the declared request scope and the host's actual access requirements.
-
 ## Plan broader investigations
-
 For requests that span multiple features or subsystems, use a staged workflow:
-
 1. Turn the request into a checklist of questions and the evidence each answer
    needs. Resolve target identity and constraints from the conversation and
    workspace before asking for information again.
@@ -233,14 +192,11 @@ For requests that span multiple features or subsystems, use a staged workflow:
 7. Keep a concise finding ledger linking each conclusion to Evidence IDs,
    confidence/evidence type, search boundary, and remaining unknowns. Update
    the shared index or investigation report so later passes can reuse results.
-
 Before finishing, revisit the original checklist. Mark each question as
 answered, partially answered, or unresolved based on its evidence; keep
 bounded negative searches bounded, and do not describe a broad investigation
 as complete while required questions remain open.
-
 ## Read only the relevant guide
-
 - Native binaries, managed assemblies, archives, and extraction:
   [references/native-and-artifacts.md](references/native-and-artifacts.md)
 - ASARs, extracted JavaScript, feature tracing, and version comparison:
@@ -251,9 +207,7 @@ as complete while required questions remain open.
   [references/runtime-observation.md](references/runtime-observation.md)
 - Evidence paging, comparisons, residual unknowns, and verification:
   [references/evidence-workflows.md](references/evidence-workflows.md)
-
 ## Finish the task
-
 Explain findings in plain language and tie them to returned evidence. When the
 user asks to build something, use normal coding tools and separate observed
 behavior from design choices. Close an opened native session with

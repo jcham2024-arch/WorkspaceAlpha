@@ -1,51 +1,34 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "37589ccb4299ef4ec61a87a9f208a2eee200135238a16bdc48115ad53a5aca26"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: turborepo-caching
-description: "Configure Turborepo for efficient monorepo builds with local and remote caching. Use when setting up Turborepo, optimizing build pipelines, or implementing distributed caching."
-tier: "experimental"
+content_hash: 37589ccb4299ef4ec61a87a9f208a2eee200135238a16bdc48115ad53a5aca26
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Configure Turborepo for efficient monorepo builds with local and remote caching. Use when setting up Turborepo, optimizing build pipelines, or implementing distributed caching.
+name: CI
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # Turborepo Caching
-
 Production patterns for Turborepo build optimization.
-
 ## Do not use this skill when
-
 - The task is unrelated to turborepo caching
 - You need a different domain or tool outside this scope
-
 ## Instructions
-
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-
 ## Use this skill when
-
 - Setting up new Turborepo projects
 - Configuring build pipelines
 - Implementing remote caching
 - Optimizing CI/CD performance
 - Migrating from other monorepo tools
 - Debugging cache misses
-
 ## Core Concepts
-
 ### 1. Turborepo Architecture
-
 ```
 Workspace Root/
 ├── apps/
@@ -61,9 +44,7 @@ Workspace Root/
 ├── turbo.json
 └── package.json
 ```
-
 ### 2. Pipeline Concepts
-
 | Concept | Description |
 |---------|-------------|
 | **dependsOn** | Tasks that must complete first |
@@ -71,15 +52,10 @@ Workspace Root/
 | **outputs** | Files to cache |
 | **inputs** | Files that affect cache key |
 | **persistent** | Long-running tasks (dev servers) |
-
 ## Version and cache correctness
-
 The JSON below is Turbo 1.x-style (`pipeline`, matching the illustrative `^1.10.0` dependency); Turbo 2 uses `tasks`. Use the installed version’s schema/migration docs. Explicit `inputs` replace defaults: include `$TURBO_DEFAULT$` or all actual source/config/dependency inputs to avoid stale test/build success. Never cache outputs containing secrets, and do not reuse cached success when required external state is unbound.
-
 ## Templates
-
 ### Template 1: turbo.json Configuration
-
 ```json
 {
   "$schema": "https://turbo.build/schema.json",
@@ -132,9 +108,7 @@ The JSON below is Turbo 1.x-style (`pipeline`, matching the illustrative `^1.10.
   }
 }
 ```
-
 ### Template 2: Package-Specific Pipeline
-
 ```json
 // apps/web/turbo.json
 {
@@ -160,92 +134,66 @@ The JSON below is Turbo 1.x-style (`pipeline`, matching the illustrative `^1.10.
   }
 }
 ```
-
 ### Template 3: Remote Caching with Vercel
-
 ```bash
 # Login to Vercel
 npx turbo login
-
 # Link to Vercel project
 npx turbo link
-
 # Run with remote cache
 turbo build --remote-only
-
 # CI environment variables
 TURBO_TOKEN=your-token
 TURBO_TEAM=your-team
 ```
-
 ```yaml
 # .github/workflows/ci.yml
-name: CI
 
 on:
   push:
     branches: [main]
   pull_request:
-
 env:
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
   TURBO_TEAM: ${{ vars.TURBO_TEAM }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
-
       - name: Install dependencies
         run: npm ci
-
       - name: Build
         run: npx turbo build --filter='...[origin/main]'
-
       - name: Test
         run: npx turbo test --filter='...[origin/main]'
 ```
-
 ### Template 4: Self-Hosted Remote Cache
-
 Use a reviewed server implementing the installed Turbo remote-cache protocol. Require authentication, server-derived tenant authorization, bounded artifact sizes, safe hash/path validation, atomic writes, stream error handling and retention. Do not build a production cache by joining untrusted `teamId`/`hash` values into filesystem paths. Enable supported artifact signing and verify it end-to-end; a shared cache can supply executable build outputs. Keep tokens out of command arguments/logs and do not grant write access to untrusted PRs.
-
 ### Template 5: Filtering and Scoping
-
 ```bash
 # Build specific package
 turbo build --filter=@myorg/web
-
 # Build package and its dependencies
 turbo build --filter=@myorg/web...
-
 # Build package and its dependents
 turbo build --filter=...@myorg/ui
-
 # Build changed packages since main
 turbo build --filter='...[origin/main]'
-
 # Build packages in directory
 turbo build --filter='./apps/*'
-
 # Combine filters
 turbo build --filter=@myorg/web --filter=@myorg/docs
-
 # Exclude package
 turbo build --filter='!@myorg/docs'
-
 # Include dependencies of changed
 turbo build --filter='...[HEAD^1]...'
 ```
-
 ### Template 6: Advanced Pipeline Configuration
-
 ```json
 {
   "$schema": "https://turbo.build/schema.json",
@@ -295,9 +243,7 @@ turbo build --filter='...[HEAD^1]...'
   }
 }
 ```
-
 ### Template 7: Root package.json Setup
-
 ```json
 {
   "name": "my-turborepo",
@@ -325,50 +271,37 @@ turbo build --filter='...[HEAD^1]...'
   "packageManager": "npm@10.0.0"
 }
 ```
-
 ## Debugging Cache
-
 ```bash
 # Dry run to see what would run
 turbo build --dry-run
-
 # Verbose output with hashes
 turbo build --verbosity=2
-
 # Show task graph
 turbo build --graph
-
 # Force no cache
 turbo build --force
-
 # Show cache status
 turbo build --summarize
-
 # Debug specific task
 TURBO_LOG_VERBOSITY=debug turbo build --filter=@myorg/web
 ```
-
 ## Best Practices
-
 ### Do's
 - **Define explicit inputs** - Avoid cache invalidation
 - **Use workspace protocol** - `"@myorg/ui": "workspace:*"`
 - **Enable remote caching** - Share across CI and local
 - **Filter in CI** - Build only affected packages
 - **Cache build outputs** - Not source files
-
 ### Don'ts
 - **Don't cache dev servers** - Use `persistent: true`
 - **Don't include secrets in env** - Use runtime env vars
 - **Don't ignore dependsOn** - Causes race conditions
 - **Don't over-filter** - May miss dependencies
-
 ## Resources
-
 - [Turborepo Documentation](https://turbo.build/repo/docs)
 - [Caching Guide](https://turbo.build/repo/docs/core-concepts/caching)
 - [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

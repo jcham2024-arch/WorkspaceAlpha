@@ -1,96 +1,66 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "7792a8614f887d3c5d086c4893ffe4d464b88242baebc4ee30e7909f0876bbb0"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: petty-cash-management
-description: 'Petty cash register: entry number, date and type, payee and purpose, cash in and out, running balance, cash limit flag, custodian, physical count and variance. Use for petty cash.'
-tier: "experimental"
+content_hash: 7792a8614f887d3c5d086c4893ffe4d464b88242baebc4ee30e7909f0876bbb0
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: WHOISABHISHEKADHIKARI
 category: business
+date_added: 2026-09-26
+description: "'Petty cash register: entry number, date and type, payee and purpose, cash in and out, running balance, cash limit flag, custodian, physical count and variance. Use for petty cash.'"
+name: petty-cash-management
 risk: safe
 source: self
-source_type: self
-date_added: "2026-09-26"
-author: WHOISABHISHEKADHIKARI
-tags: [sme, accounting, audit, finance, database, csv, notion, sql, petty-cash, cash-control]
-tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
+source_type: self
+tags: "[sme, accounting, audit, finance, database, csv, notion, sql, petty-cash, cash-control]"
+tools: "[]"
 ---
-
-
 # Petty Cash Management
-
 **What it is:** Imprest cash, every movement supported, and the physical count reconciled to the register.
-
 ## Overview
-
 Works out the smallest useful **Petty Cash Management** setup for the business in front of it, then
 builds it only when asked. The default output is a short recommendation, not a
 spreadsheet. Artifacts - CSV, SQL DDL, JSON Schema, Notion mapping - are produced on
 request, from one field list so they cannot drift apart.
-
 Layer: Layer 4: Cash. Fits: Starter stage. Table code: n/a.
-
 **The control this table exists to enforce:** two core petty-cash controls are
 a fixed limit and a periodic count. The limit is on the float, not on each payment, and
 every payment carries a supporting document and a voucher. The reconciliation identity is
 fixed and is checked at every count:
-
 ```
 Opening Cash + Receipts and Replenishment - Payments = Closing Cash
 ```
-
 The physical count must equal closing cash. Any difference is recorded as a variance, an
 investigation and a status, not absorbed quietly.
-
 The identity is computed on a `Count` entry row, not on a payment row: `Cash In` and
 `Cash Out` remain zero on the non-posting count row; derive the period's replenishment and payments from movement rows, `Running Cash Balance` is the
 closing balance per the register, and `Physical Count` is the money actually in the box.
-
 ## When to Use This Skill
-
 - petty cash register
 - imprest cash book
 - small cash payments log
 - cash box count sheet
 - petty cash replenishment tracker
-
 Also use it when the user says "imprest cash, every movement supported, and the physical count reconciled to the register", or describes the same process happening in a
 spreadsheet, a document or someone inboxes.
-
 Do not use it for: payroll calculation, tax filing, or legal advice. This skill produces
 empty templates only - it never holds or processes real employee or customer data.
-
 ## How It Works
-
 Follow the shared execution contract. The module-specific rules below define only domain fields, decisions, calculations, and safety constraints.
-
 ### Step 1 - Identify intent
-
 Read the request and pick the intent before asking anything.
-
 - "set up" or "build" or "create" -> the user wants artifacts; go to Step 2.
 - "our process is ..." or "it is in a sheet" -> the user wants to move an existing process; capture it, then Step 2.
 - "is this right" or "review" or "audit" -> the user wants a check, not a build; answer from what they share.
 - "how do I ..." -> advice question; answer directly and offer the build only if it helps.
-
 Ask only if this is the highest-value missing fact; otherwise proceed without an opener:
-
 > **Q:** Who holds your petty cash today, and is there a limit on it?
-
 ### Step 2 - Ask only what is missing
-
 Treat ambiguous replies as unanswered and ask which explicit option the user means. Record unknown values as `Unknown`; `Unknown` is not zero. A record must not be `Done` when a required check fails.
-
 Skip anything the user already answered, in any earlier message. Ask the rest one at a
 time, and stop as soon as the remaining answers would not change the output.
-
 - **Limit** - Float amount agreed? / Reset by replenishment or topped up? / Can it go over?
 - **Custodian** - One named person? / Approver separate from holder? / Left on holiday?
 - **Payments and counting** - What gets paid from it? / Voucher raised each time? /
@@ -98,14 +68,10 @@ time, and stop as soon as the remaining answers would not change the output.
   Last difference?
 - **Current process** - Register today? / Envelope, box or ledger? / What goes missing?
 - **Outcome** - What do you need? / A register, a count sheet or both?
-
 Never invent an answer. If the user does not know, record it as unknown and carry on.
-
 ### Step 3 - Hold the internal context
-
 Hold the answers in this shape. It stays internal - it is not shown to the user unless
 they ask, and it never carries a value the user did not give.
-
 ```yaml
 module: petty-cash-management
 intent: null            # setup | advice | review | fix | build | convert | export
@@ -120,23 +86,15 @@ requested_outputs: []   # csv | sql | json | notion | xlsx - requested formats o
 confirmed_facts: []     # only what the user actually said
 open_questions: []      # the unanswered ones, in the order worth asking
 ```
-
 ### Step 4 - Recommend the smallest workflow
-
 Build an already requested artifact without asking again. For advice-only requests, give a short recommendation and offer the relevant artifact.
-
 **Recommended approach:** One imprest register with a named custodian, a fixed float, a running balance on every entry, a supporting document type on every payment, and a count line that closes the register against the physical money.
-
 **Why this one:** A petty cash float leaks slowly and is only ever caught by counting it. The register without the count is a diary; the count without the register is an argument.
-
 **Workflow:** Voucher and document checked and approved → Payment made → Running balance updated → Replenishment raised separately → Physical count → Variance recorded and investigated
-
 ### Step 5 - Build only on request
-
 Once the user asks for it, derive the fields from the confirmed context and emit the
 requested artifacts. For machine-readable text, keep prose outside the data; for files,
 provide a usable link. Report material validation failures or limitations separately.
-
 **A selected Notion output is rendered by `notion-manual-import`, so route the
 Notion step there.** When the user selects Notion, hand that step to
 @notion-manual-import: it holds the CSV, the property
@@ -146,12 +104,10 @@ here and do not improvise the import steps. Manual CSV and mapping outputs need 
 connection. For requested workspace changes, follow the shared contract: verify actual
 tool access and the target before writing. A user saying "connected" is not tool evidence.
 Never ask for a Notion password or token.
-
 ```csv
 Entry Number,Entry Date,Entry Type,Payee,Purpose,Cash Out,Cash In,Running Cash Balance,Cash Limit,Within Limit,Custodian,Supporting Document,Document Reference,Voucher Number,Approved By,Physical Count Date,Physical Count,Count Variance,Variance Status,Investigation Notes,Ledger Account,Entry Verified,Notes,Petty Cash ID
 PC-2026-0188,2026-08-31,Count,Several payees,Courier and postage paid from the float during August,0.00,0.00,2250.00,10000.00,Yes,Rohit Menon,Bill/Invoice,BILL-4471,VCH-2026-1044,Ananya Rao,2026-08-31,2100.00,150.00,Short,Count 150.00 short of the register; a courier bill of that amount may have been entered but not paid. Under investigation with the approver.,Petty Cash,In progress,Count sheet CNT-2026-08-31 signed by custodian and approver; replenishment drawn from bank on 01 Aug.,
 ```
-
 ```sql
 CREATE TABLE petty_cash_management (
   entry_number VARCHAR(255),
@@ -182,8 +138,6 @@ CREATE TABLE petty_cash_management (
   updated_at TIMESTAMP DEFAULT NOW()
 );
 ```
-
-
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -230,7 +184,6 @@ CREATE TABLE petty_cash_management (
   ]
 }
 ```
-
 ```markdown
 | CSV column | Notion property | Set after import |
 |---|---|---|
@@ -259,11 +212,8 @@ CREATE TABLE petty_cash_management (
 | Notes | Text | Leave as Text |
 | Petty Cash ID | Text (preserve source ID) | Keep imported IDs as Text; optionally add a separate Unique ID property |
 ```
-
 The rows above are documentation examples only. Emit empty templates unless the user explicitly requests examples. Money stays `currency`, dates stay `date`, and anything pointing at another table stays `relation`.
-
 ## Field Reference
-
 | # | Field | Type | SQL | JSON Schema | Notion | CSV example |
 |---:|---|---|---|---|---|---|
 | 1 | Entry Number | `text` | `VARCHAR(255)` | `string` | Text | `PC-2026-0188` |
@@ -290,53 +240,38 @@ The rows above are documentation examples only. Emit empty templates unless the 
 | 22 | Entry Verified | `select` | `VARCHAR(100)` | `string` | Select (add options after import) | `In progress` |
 | 23 | Notes | `long_text` | `TEXT` | `string` | Text | `Count sheet CNT-2026-08-31 signed by custodian and approver; replenishment drawn from bank on 01 Aug.` |
 | 24 | Petty Cash ID | `id` | `SERIAL PRIMARY KEY` | `integer` | Text (preserve source ID) | `(blank)` |
-
 ## Select Options
-
 **Entry Type**
-
 ```
 Payment | Replenishment | Receipt | Count
 ```
 **Within Limit**
-
 ```
 Yes | No
 ```
 **Supporting Document**
-
 ```
 Bill/Invoice | Receipt Note | Wage Sheet | Rent Record | Payment Voucher | Other
 ```
 **Variance Status**
-
 ```
 Not counted | Matched | Short | Over | Under Investigation
 ```
 **Entry Verified**
-
 ```
 Not started | In progress | Blocked | Done | Cancelled
 ```
-
 ## Relations
-
 Link fields: none
-
 `Custodian`, `Payee` and `Document Reference` are free text. The petty cash register is
 deliberately standalone; it is the cash side of `day-book` and the evidence side of
 `expense-accounting`, and both of those reference it rather than the other way round.
-
 ## Examples
-
 **Prompt**
-
 ```
 Petty cash keeps running out before the month ends and we never know by how much.
 ```
-
 **Context first** - one question per message, nothing already answered:
-
 > **Q:** Who holds it, and is there a limit?
 > **A:** Our admin. There is a limit, I think, but nobody checks it.
 >
@@ -345,17 +280,13 @@ Petty cash keeps running out before the month ends and we never know by how much
 >
 > **Q:** Voucher each time?
 > **A:** For most of it. Some are just small.
-
 **Recommended next step** - offered, not built:
-
 > One imprest register with a named custodian, a fixed float, a running balance on every entry, a supporting document type on every payment, and a count line that closes the register against the physical money.
 >
 > Workflow: Voucher and document checked and approved → Payment made → Running balance updated → Replenishment raised separately → Physical count → Variance recorded and investigated
 >
 > Want the CSV, SQL, JSON Schema and Notion mapping for this?
-
 ## Best Practices
-
 - Build when requested; recommend and offer a build for advice-only requests.
 - One question per message. A batched intake reads as a form and gets guessed at.
 - Reconcile on the fixed identity: opening cash + receipts and replenishment - payments =
@@ -374,9 +305,7 @@ Petty cash keeps running out before the month ends and we never know by how much
 - Use `relation` for anything that points at another table, `text` only for free text.
 - Money fields are `currency`, never `text`. Dates are `date`, never free text.
 - If the user requests an example row, keep it obviously fake so nobody imports it as real data.
-
 ## Limitations
-
 - Empty template only. It does not hold, disburse or approve cash, and it does not connect
   to a till or a bank.
 - The count is periodic by design, not optional. A register with no count is a diary, and
@@ -391,9 +320,7 @@ Petty cash keeps running out before the month ends and we never know by how much
 - Select options are a starting set. Rename them to match how the business talks.
 - No automation, reminders or sync. Those need the integration layer.
 - Legal, tax and HR review is still required before this drives real decisions.
-
 ## Security & Safety Notes
-
 - Never fill in real custodian names, salary figures or cash amounts. Placeholders only.
 - Label example rows as synthetic.
 - Petty cash is the highest-risk line in a small business for skimming. Do not paste real
@@ -408,9 +335,7 @@ Petty cash keeps running out before the month ends and we never know by how much
   from the conversation or service storage.
 - Privacy, legal and disciplinary cases need a qualified human reviewer before anything
   is acted on.
-
 ## Common Pitfalls
-
 - **Problem:** a static mapping is described as a completed workspace build.
   **Solution:** deliver manual mappings without a connection; claim a live change only
   after the authorized tool operation succeeds.
@@ -432,9 +357,7 @@ Petty cash keeps running out before the month ends and we never know by how much
   **Solution:** derive all four from the field list in this file, never by hand.
 - **Problem:** Notion import shows every column as Text.
   **Solution:** that is expected. Apply the property mapping table once, after import.
-
 ## Related Skills
-
 - @accounting-audit-system-builder - routes to this skill and the other 15 modules.
 - @day-book - the daily cash book the float is counted into.
 - [payment-accounting](https://github.com/sickn33/agentic-awesome-skills/blob/main/skills/payment-accounting/SKILL.md) - the replenishment, when it is made from bank.
@@ -446,9 +369,7 @@ Petty cash keeps running out before the month ends and we never know by how much
 - @audit-preparation - count sheets and custodian sign-off are audit-trail items.
 - @inventory-stock-reconciliation - the same count-and-investigate discipline applied to stock.
 - @party-ledger-reconciliation - proves payee balances where the float paid a supplier.
-
 ## Reusable Prompt
-
 ```
 I want to set up petty cash management for my company - a fixed imprest float, a named
 custodian, a supporting document on every payment, and a physical count reconciled to the
@@ -457,9 +378,6 @@ Ask me one short question at a time, and only about what I have not already told
 Then recommend the smallest setup that fits, and wait for me to ask before you build it.
 When I ask, output CSV, SQL DDL, JSON Schema and a Notion property mapping. Data only.
 ```
-
 ## Register calculation limits
-
 Count entries are reconciliation snapshots, never additional cash movements: repeating period totals in a posting count row would double-count them. Record opening cash explicitly in configuration or an opening row, and specify the count period and currency. In the synthetic example, opening cash is 2,500, receipts 7,000 and payments 7,250, so closing cash is 2,250; its count row must have zero Cash In and Cash Out. Define Count Variance as register balance minus physical count (positive Short, negative Over). A discrepancy is investigated before an approved correcting transaction, retaining the original audit trail.
-
 The DDL and schema do not enforce arithmetic, select vocabularies, cross-row balance or approvals; `updated_at DEFAULT NOW()` only initializes a value and needs an update mechanism. JSON date formats require format validation. The referenced shared contract/import renderer is not bundled here; verify availability or deliver the inline mapping manually. These templates do not enforce financial controls.

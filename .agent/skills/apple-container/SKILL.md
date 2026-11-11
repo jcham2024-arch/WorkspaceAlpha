@@ -1,41 +1,30 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "3f217547e1624a85f7a7456cd1c64dc81dc614599c6e63fa523a6cd4282c8b40"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: apple-container
-description: "Build, run, and manage OCI/Linux containers as lightweight per-container VMs on Apple-silicon macOS using Apple's open-source container CLI, no Docker daemon required."
-tier: "experimental"
+content_hash: 3f217547e1624a85f7a7456cd1c64dc81dc614599c6e63fa523a6cd4282c8b40
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: sanjay3290
 category: devops
+date_added: 2026-07-09
+description: Build, run, and manage OCI/Linux containers as lightweight per-container VMs on Apple-silicon macOS using Apple's open-source container CLI, no Docker daemon required.
+license: Apache-2.0
+license_source: ""https://github.com/sanjay3290/ai-skills/blob/main/LICENSE""
+name: apple-container
 risk: critical
-source: https://github.com/sanjay3290/ai-skills/tree/main/skills/apple-container
+source: "https://github.com/sanjay3290/ai-skills/tree/main/skills/apple-container"
 source_repo: sanjay3290/ai-skills
 source_type: community
-date_added: "2026-07-09"
-author: sanjay3290
-tags: [macos, containers, oci, apple-silicon]
-tools: [claude, cursor, gemini]
-license: "Apache-2.0"
-license_source: "https://github.com/sanjay3290/ai-skills/blob/main/LICENSE"
+tags: "[macos, containers, oci, apple-silicon]"
+tools: "[claude, cursor, gemini]"
 ---
-
-
 # Apple `container`
-
 > Reference scope: this imported guide mixes release-era and later branch documentation; its `1.0.0+` annotations are not verified introduction versions. Match the installed `container --version` and subcommand `--help` to the same upstream release tag before using flags or defaults. Current branch documentation can describe unreleased behavior. No container runtime was executed for this static review.
-
 ## When to Use
-
 - Use when building, running, or managing OCI/Linux containers on Apple-silicon macOS with Apple's open-source `container` CLI
 - Use when you want lightweight per-container VMs instead of a Docker daemon
 - Use when translating Docker-style workflows (build, run, exec, logs, networking) to Apple's container tooling
-
 Apple's `container` is an open-source CLI for building, running, and managing OCI/Linux
 containers on Apple-silicon Macs. Each container runs inside its own lightweight virtual
 machine (backed by the Containerization framework and the Virtualization API). A shared per-user
@@ -45,14 +34,10 @@ deliberately Docker-like (`container run`, `container build`, and image ops unde
 `container image push`/`pull`), but it is a distinct tool: do not assume Docker command paths,
 flags, defaults, or daemon behavior carry over (e.g. there is no `container images`/`push`/`pull`
 top-level command — image verbs live under `container image`).
-
 ## Safety Gate
-
 Container installation, service startup, image pulls, builds, runs, registry login, pushes,
 and resource cleanup change local or remote state. Keep the exact registry, mounts, ports, privileges and persistence impact within existing task authorization. Clarify missing destructive scope, sensitive mounts, credentials or external exposure before acting; do not ask again for actions already authorized.
-
 ## Requirements
-
 - **Apple silicon only** (M1 or later). Intel Macs are not supported.
 - **macOS 26 (Tahoe) is the officially supported target.** The maintainers do not support
   older macOS and typically will not fix issues that can't be reproduced on 26. The binary
@@ -67,47 +52,37 @@ and resource cleanup change local or remote state. Keep the exact registry, moun
 - Install by downloading the signed `.pkg` installer from the project's GitHub releases
   (`apple/container`) and running it. See `references/concepts.md` for the full
   requirements/compatibility matrix and how the VM-per-container model works.
-
 ## Setup
-
 Install the signed package, then start the background services once:
-
 1. **Download** the latest signed installer `.pkg` from the
    [GitHub releases page](https://github.com/apple/container/releases).
 2. **Double-click** the downloaded package and follow the prompts, entering your admin
    password so it can place files under `/usr/local`. For automated package installation, verify macOS installer syntax and package signature rather than inventing a container subcommand.
 3. **Start the services** and confirm they are healthy:
-
 ```bash
 # Start the container services (container-apiserver + helpers via launchd). On first run it
 # offers to install the default Linux kernel — accept it, or start non-interactively with
 # `--disable-kernel-install` and add a kernel later via `container system kernel set`.
 container system start
-
 # Verify services are healthy
 container system status
 ```
-
 `container system start` must have run before any container/image/build command works — a
 connection/XPC error can indicate stopped services, incompatible components, permissions or launch failures. Inspect `container system status`, installed versions and logs before deciding whether startup or repair is needed. Stop and
 deregister the `launchd` services with `container system stop` (which takes only `-p/--prefix`).
 The startup flags for `container system start` (`-a/--app-root`, `--install-root`, `--log-root`,
 `--enable-kernel-install`/`--disable-kernel-install`, `--timeout`) are in
 `references/configuration.md`.
-
 **Upgrade / downgrade / uninstall** use helper scripts in `/usr/local/bin` (stop first with
 `container system stop`): `update-container.sh` (add `-v <version>` to pin a version), and
 `uninstall-container.sh -d` to remove user data or `-k` to keep it. Full recipes in
 `references/workflows.md`.
-
 ## Command groups at a glance
-
 Invoke everything as `container <group> <subcommand>`. Container-lifecycle verbs (`run`,
 `create`, `start`, `stop`, `exec`, `logs`, `inspect`, `list`/`ls`, `delete`/`rm`, `kill`,
 `stats`) and `build` are top-level; image operations like `push`, `pull`, and `tag` live
 under `container image`. Run `container <group> --help` for exact flags, or read
 `references/commands.md` for the exhaustive matrix.
-
 | Group | What it does | Example |
 |-------|--------------|---------|
 | container lifecycle | Create, start, run, stop, exec, inspect, list, remove containers | `container run --rm -it docker.io/library/alpine sh` |
@@ -119,15 +94,11 @@ under `container image`. Run `container <group> --help` for exact flags, or read
 | volume | Create/list/inspect/remove persistent volumes | `container volume create data` |
 | builder | Manage the builder VM that runs `container build` (start/stop/status) | `container builder status` |
 | machine *(1.0.0+)* | Persistent Linux "machine" environments (added in 1.0.0) | `container machine --help` |
-
 Exact subcommand names, aliases, arguments, and flags for each group live in
 `references/commands.md` — consult it before running an unfamiliar command rather than
 guessing Docker-equivalent syntax.
-
 ## Navigating this skill
-
 Read the reference file that matches the task; do not guess flags or behavior.
-
 - **`references/commands.md`** — exhaustive CLI reference: every command group, subcommand,
   alias, argument, and flag. Read this to construct any concrete `container ...` invocation,
   or to confirm a flag exists before using it.
@@ -142,9 +113,7 @@ Read the reference file that matches the task; do not guess flags or behavior.
 - **`references/workflows.md`** — copy-pasteable task recipes (run an image, build & push,
   wire up local DNS, mount a volume, expose ports) and troubleshooting for common failures.
   Read this first when the user wants to accomplish a concrete end-to-end task.
-
 ## Key rules
-
 - **This is not Docker.** The CLI resembles Docker, but flags, defaults, and daemon behavior
   differ. Verify syntax in `references/commands.md` instead of assuming Docker equivalence.
 - **Check service state when runtime operations need it.** Inspect `container system status`; start stopped services when the task authorizes it. Diagnose other failures rather than repeatedly starting or reinstalling.
@@ -160,9 +129,7 @@ Read the reference file that matches the task; do not guess flags or behavior.
 - **Use fully-qualified image references** when precision matters (e.g.
   `docker.io/library/alpine` rather than bare `alpine`) to avoid ambiguity about the source
   registry.
-
 ## Limitations
-
 - Apple Container requires Apple silicon and has materially different support and networking
   behavior across macOS releases; verify the installed CLI version before relying on a flag.
 - OCI images and registry content are third-party inputs. Inspect and trust the image source
@@ -171,18 +138,11 @@ Read the reference file that matches the task; do not guess flags or behavior.
   privileged settings, registry credentials, and cleanup can expose or destroy data.
 - Stop before uninstalling, pruning, deleting containers, volumes, or images, and require
   task authorization covering the exact destructive scope; obtain clarification when that scope is missing.
-
 ## Operational boundaries
-
 Use trusted pinned images and verify custom kernels, init images and plugin executables before use. Builds execute Dockerfile instructions; build args and printed environments can expose secrets. Use supported secret mounts rather than credential build args. Disable shell tracing when passing credentials, and prefer explicit HTTPS: historical `auto` scheme behavior may choose plaintext even on private networks. HTTP is only for an explicitly authorized disposable local test registry without reusable secrets.
-
 Container machines weaken ordinary container defaults: the image controls init, expanded Linux capabilities, and potentially host home and SSH-agent access. Default examples disable the home mount; verify that flag on the installed release. Read-only home mounts still disclose keys and dotfiles. Agent forwarding allows guest processes to authenticate as the host user; do not forward it for untrusted workloads. Ordinary mounts, socket publishing and `--ssh` need the same explicit scope. VM isolation is not a guarantee against host compromise.
-
 Prefer explicit loopback bindings and inspect actual listeners; do not assume an omitted host address is loopback-only. Before cleanup, inventory exact resources and preserve needed data. Stopping services interrupts other user workloads; builder deletion discards cache. Backup data and consult version-specific migration guidance before downgrading; keeping data with `-k` does not guarantee backward compatibility. Performance and journaling choices require workload/durability measurements, not fastest/safest guarantees.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Linux](platforms/linux.md)
 - [Mac](platforms/mac.md)

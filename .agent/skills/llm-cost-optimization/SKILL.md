@@ -1,54 +1,39 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "becc636e5c701045ce00ef622847ab9ec8ac34c8ad8d3812dbd9a5d53eddb1b4"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: llm-cost-optimization
-description: Reduce LLM API and infrastructure costs through model selection, prompt
-tier: "experimental"
-  caching, batching, caching, quantization, and self-hosting strategies.
+content_hash: becc636e5c701045ce00ef622847ab9ec8ac34c8ad8d3812dbd9a5d53eddb1b4
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+date_added: 2026-09-20
+description: Reduce LLM API and infrastructure costs through model selection, prompt
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: llm-cost-optimization
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+version: 1.0
+---  caching, batching, caching, quantization, and self-hosting strategies.
   CI runners) and authorized access to the target environment. Docs-only; helper scripts
   and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # LLM Cost Optimization
-
 Evaluate LLM cost reductions through caching, model selection, prompt optimization and self-hosting; measure quality and total cost before claiming savings.
-
 ## When to Use This Skill
-
 Use this skill when:
 - LLM API spend is growing faster than revenue
 - You need to attribute AI costs to teams, products, or customers
 - Implementing caching to avoid redundant LLM calls
 - Deciding when to switch from API providers to self-hosted models
 - Optimizing prompt length without sacrificing quality
-
 ## Estimates and cache boundaries
-
 All savings ranges, model IDs and prices below are historical illustrations, not current quotes or guaranteed outcomes. Verify provider pricing, cache-write/read charges, minimum prefixes and batch availability for the chosen model. Use an approved budget/data scope before paid calls or uploads. The semantic cache is a toy: namespace keys by tenant, authorization scope, model/version, system prompt and generation settings, enforce retention and never reuse a similar answer across users or for permission-sensitive/fresh data. Replace blocking Redis KEYS with a bounded index/SCAN or vector query; handle expired entries and zero vectors. The sample is not production-ready.
-
 ## Cost Levers by Impact
-
 | Strategy | Typical Savings | Effort |
 |----------|-----------------|--------|
 | Semantic caching | 20–50% | Low |
@@ -58,20 +43,16 @@ All savings ranges, model IDs and prices below are historical illustrations, not
 | Batching offline workloads | 50% (Batch API) | Medium |
 | Self-hosting 7–8B models | 80–95% at scale | High |
 | Quantization | 30–50% VRAM cost | Medium |
-
 ## Track Costs First
-
 ```python
 # Use LiteLLM's cost tracking (automatic per-model pricing)
 import litellm
-
 response = litellm.completion(
     model="gpt-4o-mini",
     messages=[{"role": "user", "content": "Hello"}],
 )
 cost = litellm.completion_cost(response)
 print(f"Cost: ${cost:.6f}")
-
 # Add custom cost callbacks
 def log_cost(kwargs, completion_response, start_time, end_time):
     cost = kwargs.get("response_cost", 0)
@@ -79,12 +60,9 @@ def log_cost(kwargs, completion_response, start_time, end_time):
     user = kwargs.get("user")
     # Send to your analytics DB
     db.record_cost(user=user, model=model, cost=cost)
-
 litellm.success_callback = [log_cost]
 ```
-
 ## Model Right-Sizing
-
 ```python
 # Route by task complexity — don't use GPT-4o for everything
 def get_model_for_task(task_type: str) -> str:
@@ -98,22 +76,17 @@ def get_model_for_task(task_type: str) -> str:
         "creative_writing":   "claude-opus-4-6",
     }
     return routing.get(task_type, "gpt-4o-mini")
-
 # Cost comparison (per 1M tokens, 2025 approx.)
 # gpt-4o-mini:          input $0.15 / output $0.60
 # gpt-4o:               input $2.50 / output $10.00
 # claude-sonnet-4-6:    input $3.00 / output $15.00
 # llama-3.1-8b (self):  ~$0.05–0.10 all-in (GPU amortized)
 ```
-
 ## Prompt Caching (Provider-Side)
-
 ```python
 # Anthropic — cache long system prompts (saves 90% on cached tokens)
 import anthropic
-
 client = anthropic.Anthropic()
-
 response = client.messages.create(
     model="claude-sonnet-4-6",
     max_tokens=1024,
@@ -132,19 +105,14 @@ response = client.messages.create(
 )
 # Cache creation/read pricing and eligibility vary by model/provider/TTL; measure actual usage.
 print(f"Cache read tokens: {response.usage.cache_read_input_tokens}")
-
 # OpenAI — prompt caching is automatic for repeated prefixes >1024 tokens
 # No code change needed; check usage.prompt_tokens_details.cached_tokens
 ```
-
 ## Batching with OpenAI Batch API (50% Discount)
-
 ```python
 import json
 from openai import OpenAI
-
 client = OpenAI()
-
 # Prepare batch requests
 requests = [
     {
@@ -159,12 +127,10 @@ requests = [
     }
     for i, text in enumerate(texts)
 ]
-
 # Write JSONL file
 with open("batch.jsonl", "w") as f:
     for req in requests:
         f.write(json.dumps(req) + "\n")
-
 # Upload and create batch
 batch_file = client.files.create(file=open("batch.jsonl", "rb"), purpose="batch")
 batch = client.batches.create(
@@ -174,28 +140,22 @@ batch = client.batches.create(
 )
 print(f"Batch ID: {batch.id}")  # poll status with client.batches.retrieve(batch.id)
 ```
-
 ## Semantic Caching
-
 ```python
 import hashlib
 import json
 import redis
 import numpy as np
 from sentence_transformers import SentenceTransformer
-
 r = redis.Redis(host="localhost", port=6379)
 embed_model = SentenceTransformer("BAAI/bge-small-en-v1.5")
-
 SIMILARITY_THRESHOLD = 0.92
 CACHE_TTL = 3600 * 24  # 24 hours
-
 def cached_llm_call(prompt: str, llm_fn) -> str:
     # 1. Exact match (free)
     exact_key = f"exact:{hashlib.sha256(prompt.encode()).hexdigest()}"
     if cached := r.get(exact_key):
         return cached.decode()
-
     # 2. Semantic match
     query_vec = embed_model.encode(prompt)
     cached_keys = r.keys("sem:*")
@@ -206,13 +166,10 @@ def cached_llm_call(prompt: str, llm_fn) -> str:
         )
         if similarity >= SIMILARITY_THRESHOLD:
             return data["response"]
-
     # 3. Cache miss — call LLM
     response = llm_fn(prompt)
-
     # Store exact match
     r.setex(exact_key, CACHE_TTL, response)
-
     # Store semantic embedding
     sem_key = f"sem:{hashlib.sha256(prompt.encode()).hexdigest()}"
     r.setex(sem_key, CACHE_TTL, json.dumps({
@@ -222,18 +179,14 @@ def cached_llm_call(prompt: str, llm_fn) -> str:
     }))
     return response
 ```
-
 ## Prompt Compression
-
 ```python
 # LLMLingua — compress long prompts by 3–20× with minimal quality loss
 from llmlingua import PromptCompressor
-
 compressor = PromptCompressor(
     model_name="microsoft/llmlingua-2-bert-base-multilingual-cased-meetingbank",
     device_map="cpu",
 )
-
 compressed = compressor.compress_prompt(
     long_context,
     ratio=0.5,       # keep 50% of tokens
@@ -243,9 +196,7 @@ print(f"Original: {len(long_context.split())} words")
 print(f"Compressed: {len(compressed['compressed_prompt'].split())} words")
 print(f"Savings: {compressed['saving']}")
 ```
-
 ## Self-Hosting Break-Even Calculator
-
 ```python
 def break_even_analysis(
     monthly_api_spend_usd: float,
@@ -267,18 +218,14 @@ def break_even_analysis(
         "gpu_as_pct_of_api": f"{break_even*100:.0f}%",
         "recommendation": recommendation,
     }
-
 # Example: $5k/month on OpenAI, $2.50/hr A10G
 print(break_even_analysis(5000))
 # → GPU-only cost $1,800/mo = 36% of API spend; add storage, ops, idle capacity and quality costs
 ```
-
 ## Cost Dashboard (Grafana)
-
 ```python
 # Emit cost metrics to Prometheus
 from prometheus_client import Counter, Histogram
-
 llm_cost_total = Counter(
     "llm_cost_usd_total",
     "Total LLM spend in USD",
@@ -289,7 +236,6 @@ llm_tokens_total = Counter(
     "Total tokens used",
     ["model", "token_type"],  # token_type: prompt, completion, cached
 )
-
 def track_call(model, team, task_type, response):
     cost = calculate_cost(model, response.usage)
     llm_cost_total.labels(model=model, team=team, task_type=task_type).inc(cost)
@@ -298,32 +244,23 @@ def track_call(model, team, task_type, response):
     llm_tokens_total.labels(model=model, token_type="completion").inc(
         response.usage.completion_tokens)
 ```
-
 ## Best Practices
-
 - Use `gpt-4o-mini` or `claude-haiku` for 80% of tasks — they're 10–30× cheaper.
 - Enable prompt caching for system prompts >1,024 tokens (Anthropic) or >1,024 tokens (OpenAI).
 - Audit your top 5 prompts by token count — compress or cache them.
 - Set hard budget limits with LiteLLM or Bifrost virtual keys before costs spiral.
 - Compare measured quality, throughput, billable uptime and full operating cost before choosing self-hosting; no monthly-spend threshold alone establishes break-even.
-
 ## Related Skills
-
 - llm-gateway (`llm-gateway`) - Centralized cost control
 - llm-caching (`llm-caching`) - Semantic caching patterns
 - vllm-server (`vllm-server`) - Self-hosted inference
 - agent-observability (`agent-observability`) - Token and cost telemetry
-
 ## Limitations
-
 - Guidance executes against real environments: confirm target, blast radius, and rollback plan before applying anything.
 - Never deploy to production without explicit approval. Docs-only import: upstream scripts and templates not bundled.
-
 ### Example
-
 ```bash
 git status && git diff --stat
 kubectl diff -f manifest.yaml
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.

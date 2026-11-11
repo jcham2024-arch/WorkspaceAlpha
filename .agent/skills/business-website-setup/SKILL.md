@@ -1,52 +1,38 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "7ea78496d5d9303b4ea5b59720faba43ed49a58244a7bb2dc805ccd0378793b6"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: business-website-setup
-description: 'Website page register: URL, title, meta description, search intent, NAP block, schema type, canonical, indexability and Core Web Vitals target. Use for site builds and SEO reviews.'
-tier: "experimental"
+content_hash: 7ea78496d5d9303b4ea5b59720faba43ed49a58244a7bb2dc805ccd0378793b6
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: WHOISABHISHEKADHIKARI
 category: business
+date_added: 2026-09-27
+description: "'Website page register: URL, title, meta description, search intent, NAP block, schema type, canonical, indexability and Core Web Vitals target. Use for site builds and SEO reviews.'"
+name: business-website-setup
 risk: safe
 source: self
-source_type: self
-date_added: "2026-09-27"
-author: WHOISABHISHEKADHIKARI
-tags: [sme, website, seo, page-map, nap, schema, structured-data, core-web-vitals, performance, local-seo, sitemap, csv, sql, notion]
-tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
+source_type: self
+tags: "[sme, website, seo, page-map, nap, schema, structured-data, core-web-vitals, performance, local-seo, sitemap, csv, sql, notion]"
+tools: "[]"
 ---
-
-
 # Business Website Setup
-
 **What it is:** the smallest site plan for a confirmed business goal - the page list, what each page is
 for, which search intent it answers, and the technical and structured-data requirements
 that make it findable.
-
 ## Overview
-
 Works out the smallest useful site for the business in front of it, then builds the plan
 only when asked. The default output is a short recommendation, not a page map. The page
 register - CSV, SQL DDL, JSON Schema, Notion mapping - is produced on request, from one
 field list so the four cannot drift apart.
-
 Layer: Layer 5: Fulfil. Fits: Growth stage. Table code: n/a.
-
 **The rule this table exists to enforce:** a declared purpose helps planning but does not determine rankings and a page with no declared owner is a page that rots. `Primary
 Keyword`, `Search Intent` and `Owner` are therefore required, and the NAP block is a
 per-page field rather than a global assumption - a business with one location and one
 service area genuinely does repeat the NAP on every page, and a multi-location business
 genuinely does not.
-
 ## When to Use This Skill
-
 - build a website, set up a website, website plan
 - page structure, sitemap, site map, information architecture
 - "we have a website but nobody finds us"
@@ -54,37 +40,25 @@ genuinely does not.
 - structured data, schema, LocalBusiness, Service, FAQ
 - Core Web Vitals, page speed, mobile
 - NAP on the website, local signals, Google Search Console
-
 Do not use it for: the ranking asset that is not the website - that is
 `gbp-local-seo-intent`; the design tokens (`design-theme-guide`); off-site citations
 (`seo-directory-backlinks`); or a one-page campaign, which is `linktree-link-hub`.
-
 ## How It Works
-
 Follow the shared execution contract. The module-specific rules below define only domain fields, decisions, calculations, and safety constraints.
-
 ### Step 1 - Identify intent
-
 Read the request and pick the intent before asking anything.
-
 - "build" / "set up" / "we need" -> artifacts wanted; go to Step 2.
 - "we have one already" -> something exists; capture it, then Step 2.
 - "not ranking" / "not found" / "fix" -> capture the current state and the queries, then
   Step 2.
 - "review" / "audit" / "check" -> a check, not a build.
 - "which pages should we have" -> a decision question, not a build.
-
 Ask only if this is the highest-value missing fact; otherwise proceed without an opener:
-
 > **Q:** What is the business called, and what does one line of it actually do?
-
 ### Step 2 - Ask only what is missing
-
 Treat ambiguous replies as unanswered and ask which explicit option the user means. Record unknown values as `Unknown`; `Unknown` is not zero. A record must not be `Done` when a required check fails.
-
 Skip anything already answered. Ask the rest one at a time, and stop as soon as the
 remaining answers would not change the page list.
-
 - **Business** - Name, address, phone, services, service area? / Do customers visit a
   location, or is it a service-area business? / One location or several?
 - **Current** - Is there a site today, and on what - WordPress, Shopify, Wix, Squarespace,
@@ -96,12 +70,9 @@ remaining answers would not change the page list.
   / Is there a team, a location, a process worth showing?
 - **Outcome** - What is the site's job - calls, enquiries, bookings, direct sales, or just
   credibility? / Is there a phone number or WhatsApp that must be reachable in one tap?
-
 Never invent an answer. Services, keywords, addresses, phone numbers, review counts,
 platforms and metrics the user has not supplied are `Unknown`.
-
 ### Step 3 - Hold the internal context
-
 ```yaml
 module: business-website-setup
 intent: null            # set up | fix | review | report | import
@@ -116,31 +87,23 @@ requested_outputs: []
 confirmed_facts: []
 open_questions: []
 ```
-
 ### Step 4 - Recommend the smallest workflow
-
 Build an already requested artifact without asking again. For advice-only requests, give a short recommendation and offer the relevant artifact.
-
 **Recommended approach:** Five to eight pages, one per service and one per place, plus home,
 about, contact and a service-area page. Every service gets its own page with its own
 intent, its own NAP block and `LocalBusiness` or `Service` structured data. Mobile-first,
 fast, one clear call to action per page, and a review widget on the pages that earn trust.
 No blog unless someone will actually write it.
-
 **Why this one:** Separate genuinely distinct service/location intents when there is useful unique content; one page may rank for several related queries. Avoid doorway pages or thin service/location combinations. A blog is the classic SME trap: an unwritten blog is worse than no blog, because
 it signals an abandoned site.
-
 **Workflow:** Services and areas listed → Page map agreed → Primary keyword and intent per
 page → NAP block placed → Structured data added → Titles, descriptions and headings written
 → Mobile and Core Web Vitals verified → Search Console and sitemap connected → Launched and
 submitted
-
 ### Step 5 - Build only on request
-
 Once the user asks for it, derive the fields from the confirmed context and emit the
 requested artifacts. For machine-readable text, keep prose outside the data; for files,
 provide a usable link. Report material validation failures or limitations separately.
-
 **A selected Notion output is rendered by `notion-manual-import`, so route the
 Notion step there.** When the user selects Notion, hand that step to
 @notion-manual-import: it holds the CSV, the property
@@ -150,12 +113,10 @@ here and do not improvise the import steps. Manual CSV and mapping outputs need 
 connection. For requested workspace changes, follow the shared contract: verify actual
 tool access and the target before writing. A user saying "connected" is not tool evidence.
 Never ask for a Notion password or token.
-
 ```csv
 Page ID,Page URL,Page Title,Meta Description,Primary Keyword,Secondary Keywords,Search Intent,H1,NAP Block Present,Schema Type,Canonical URL,Indexable,Sitemap Included,Image Alt Text Rule,Target Device,Core Web Vitals Target,Build Platform,HTTPS,Mobile First,Structured Data Valid,Owner,Review Date,Status,Notes
 ,https://example.com/services/example-service,Example Service | Example Retail,Synthetic description - verify all claims,example service,related query,Transactional,Example Service,false,Service,https://example.com/services/example-service,true,true,Describe informative images; empty alt for decorative images,Responsive,"LCP <=2.5s; INP <=200ms; CLS <=0.1 at p75",Unknown,true,true,false,Unknown,2026-10-27,Planned,Synthetic example - replace before use.
 ```
-
 ```sql
 -- Engine assumption: PostgreSQL. For another engine use the engine's auto-increment
 -- equivalent and keep the rest portable.
@@ -189,11 +150,9 @@ CREATE TABLE website_page (
   CONSTRAINT website_page_intent CHECK (search_intent IN ('Informational','Commercial investigation','Transactional','Navigational','Local intent')),
   CONSTRAINT website_page_status CHECK (status IN ('Planned','In build','In review','Live','Needs update','Retired'))
 );
-
 CREATE INDEX idx_website_page_status ON website_page (status);
 CREATE INDEX idx_website_page_intent ON website_page (search_intent);
 ```
-
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -248,7 +207,6 @@ CREATE INDEX idx_website_page_intent ON website_page (search_intent);
   ]
 }
 ```
-
 ```markdown
 | CSV column | Notion property | Set after import |
 |---|---|---|
@@ -277,12 +235,9 @@ CREATE INDEX idx_website_page_intent ON website_page (search_intent);
 | Status | Select (add options after import) | Convert to Select, add options: "Planned", "In build", "In review", "Live", "Needs update", "Retired" |
 | Notes | Text | Leave as Text |
 ```
-
 The rows above are documentation examples only. Emit empty templates unless the user explicitly requests examples. `Structured Data Valid` is false until a
 validator has actually run - it is never optimistic.
-
 ## Field Reference
-
 | # | Field | Type | SQL | JSON Schema | Notion | CSV example |
 |---:|---|---|---|---|---|---|
 | 1 | Page ID | `id` | `BIGINT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY` | `integer` | Text or Notion auto-ID | `(blank)` |
@@ -309,59 +264,42 @@ validator has actually run - it is never optimistic.
 | 22 | Review Date | `date` | `DATE` | `string, format: date` | Date | *(blank)* |
 | 23 | Status | `select` | `VARCHAR(50)` | `string` | Select | `Planned` |
 | 24 | Notes | `long_text` | `TEXT` | `string` | Text | *(blank)* |
-
 ## Select Options
-
 **Search Intent** - the four standard intents plus a local one. Every page has exactly one,
 and it decides the page's structure, its length and its call to action.
-
 ```
 Informational | Commercial investigation | Transactional | Navigational | Local intent
 ```
-
 **Schema Type** - a starting set, all schema.org. `FAQPage` markup was restricted by
 Google for most commercial sites, so it earns its place only where the questions are real
 and visible on the page.
-
 ```
 LocalBusiness | Service | Organization | BreadcrumbList | FAQPage | Product | Article | WebSite | None
 ```
-
 **Target Device**
-
 ```
 Mobile first | Desktop first | Responsive
 ```
-
 **Status** - `Needs update` is the important one. It is what a page becomes when its
 service, price or staff changes and nobody has updated it.
-
 ```
 Planned | In build | In review | Live | Needs update | Retired
 ```
-
 ## Relations
-
 None standalone. Two natural links worth confirming before making them live:
-
 - `Primary Keyword` and `Search Intent` link to the keyword and intent map in
   `gbp-local-seo-intent`, which is a different table. Confirm whether the business wants
   one keyword map or two before joining them.
 - `Owner` points at the people register in the operational pack, which is not in this
   artifact set. It stays Text here with a note naming the intended target.
-
 ## Examples
-
 **Prompt**
-
 ```
 We want a website. We do about six different services, we have one shop, and the last
 one was made by a nephew on a drag-and-drop builder and has not been touched in four
 years.
 ```
-
 **Context first** - one question per message, nothing already answered:
-
 > **Q:** What is the business called, and what does one line of it actually do?
 > **A:** Example Retail, home and kitchen goods, one shop in Example City.
 >
@@ -376,9 +314,7 @@ years.
 >
 > **Q:** Is there anyone who can publish a page without a developer?
 > **A:** The founder, on the current site.
-
 **Recommended next step** - offered, not built:
-
 > Ten candidate pages - home, six service pages, about, contact and a service-area page; consolidate where intent/content overlap. Each
 > service page answers cost, availability and time-to-serve, because those are the three
 > questions your customers actually ask. One canonical NAP block repeated on every page,
@@ -391,9 +327,7 @@ years.
 > Launched and submitted
 >
 > Want the CSV, SQL DDL, JSON Schema and Notion mapping for this?
-
 ## Best Practices
-
 - Build when requested; recommend and offer a build for advice-only requests.
 - One question per message. A batched intake reads as a form and gets guessed at.
 - One page per service, one primary keyword per page. A page trying to rank for three
@@ -421,9 +355,7 @@ years.
 - Do not build a blog you will not write. A dead blog is an abandoned-site signal.
 - Derive all four artifacts from the field list in this file, never by hand.
 - If the user requests an example row, keep it obviously fake so nobody imports it as a real page.
-
 ## Limitations
-
 - This is a plan. It does not build, host or publish a website, and it cannot run a build
   tool or deploy.
 - It does not do keyword research. `Primary Keyword` records what the business or the
@@ -445,9 +377,7 @@ years.
   before generating either.
 - Accessibility compliance is a legal question in some markets. This table records
   requirements; it does not certify conformance.
-
 ## Security & Safety Notes
-
 - Never invent a domain, a URL, a service, a keyword, a search volume, a metric, a review
   count or a rating. `Unknown` and blank are correct.
 - Never paste a real customer list, a real analytics export or a real Search Console dump
@@ -466,13 +396,9 @@ years.
 - Local reads, generation commands, and validation are part of a requested artifact build.
   External writes, messages, provisioning, and publication require authorization for that
   action and target; existing explicit authorization does not need to be repeated.
-
 ## Common Pitfalls
-
 See the [bundled common-pitfalls reference](references/common-pitfalls.md) for review and troubleshooting guidance.
-
 ## Related Skills
-
 - `brand-growth-system-builder` - routes to this skill and the other 12 brand and growth modules.
 - @gbp-local-seo-intent - the local ranking asset that sits beside the site, sharing the
   same keywords and the same NAP.
@@ -484,9 +410,7 @@ See the [bundled common-pitfalls reference](references/common-pitfalls.md) for r
 - @presentation-deck - the pitch that sells the website build to a stakeholder.
 - @free-design-resources - PageSpeed Insights, Lighthouse, WAVE, Search Console, schema
   validators and the free hosting tiers.
-
 ## Reusable Prompt
-
 ```
 I want to set up a business website that ranks locally and converts - a page map, the
 right page per service, NAP, structured data and speed targets.
@@ -495,9 +419,6 @@ Never invent a keyword, a URL, a metric or a volume. Then recommend the smallest
 set that fits, and wait for me to ask before you build it.
 When I ask, output CSV, SQL DDL, JSON Schema and a Notion property mapping. Data only.
 ```
-
 ### SEO and register limits
-
 Page counts, title/description character targets, one-keyword/one-CTA and repeated NAP wording are planning conventions, not ranking laws. Preserve accurate location details without publishing private home addresses unnecessarily; multi-location does not imply multilingual hreflang. Choose structured data that matches actual content and current rich-result eligibility; Service markup is not a guaranteed Google feature. A successful validator checks syntax/selected rules, not truth, indexing or rankings.
-
 Distinguish unknown/not-tested from false by an explicit review status or Notes; checkbox false must not masquerade as a completed failed test. State lab versus field CWV coverage; missing CrUX data is unavailable, not a pass/fail. SQL/JSON constraints and default/identity/status must be aligned before import, with a real updated_at mechanism. Authorize crawl/request scope, protect analytics/verification secrets and third-party widget data flows. No site build, deployment, test, verification or ranking measurement was run.

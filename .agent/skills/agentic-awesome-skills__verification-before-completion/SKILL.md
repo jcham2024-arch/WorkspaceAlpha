@@ -1,46 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "5c5d60f57cdd9388682a94dd15102ab9a073e7848895b02123bd32dfd5995ce4"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 5c5d60f57cdd9388682a94dd15102ab9a073e7848895b02123bd32dfd5995ce4
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Claiming work is complete without verification is dishonesty, not efficiency. Use when ANY variation of success/completion claims, ANY expression of satisfaction, or ANY positive statement about work state.
 name: verification-before-completion
-description: "Claiming work is complete without verification is dishonesty, not efficiency. Use when ANY variation of success/completion claims, ANY expression of satisfaction, or ANY positive statement about work state."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # Verification Before Completion
-
 ## Overview
-
 Claiming work is complete without verification is dishonesty, not efficiency.
-
 **Core principle:** Evidence before claims, always.
-
 **Violating the letter of this rule is violating the spirit of this rule.**
-
 ## The Iron Law
-
 ```
 NO COMPLETION CLAIMS WITHOUT FRESH VERIFICATION EVIDENCE
 ```
-
 Use evidence bound to the exact current content and environment. A completed earlier run remains valid while its inputs and relevant context are unchanged; rerun invalidated checks rather than repeating expensive suites merely for a new message.
-
 ## The Gate Function
-
 ```
 BEFORE claiming any status or expressing satisfaction:
-
 1. IDENTIFY: What command proves this claim?
 2. RUN: Execute the relevant complete check, or inspect still-valid exact-content evidence; never execute untrusted examples or destructive actions merely to manufacture verification
 3. READ: Full output, check exit code, count failures
@@ -48,12 +31,9 @@ BEFORE claiming any status or expressing satisfaction:
    - If NO: State actual status with evidence
    - If YES: State claim WITH evidence
 5. ONLY THEN: Make the claim
-
 Skip any step = lying, not verifying
 ```
-
 ## Common Failures
-
 | Claim | Requires | Not Sufficient |
 |-------|----------|----------------|
 | Tests pass | Complete check output bound to unchanged current inputs: 0 failures | Stale or mismatched run, "should pass" |
@@ -63,9 +43,7 @@ Skip any step = lying, not verifying
 | Regression test works | Red-green cycle verified | Test passes once |
 | Agent completed | Inspect its deliverable and relevant verification against acceptance criteria | Agent reports "success" or a diff alone |
 | Requirements met | Line-by-line checklist | Tests passing |
-
 ## Red Flags - STOP
-
 - Using "should", "probably", "seems to"
 - Expressing satisfaction before verification ("Great!", "Perfect!", "Done!", etc.)
 - About to commit/push/PR without verification
@@ -74,9 +52,7 @@ Skip any step = lying, not verifying
 - Thinking "just this once"
 - Tired and wanting work over
 - **ANY wording implying success without having run verification**
-
 ## Rationalization Prevention
-
 | Excuse | Reality |
 |--------|---------|
 | "Should work now" | RUN the verification |
@@ -87,48 +63,39 @@ Skip any step = lying, not verifying
 | "I'm tired" | Exhaustion ≠ excuse |
 | "Partial check is enough" | Partial proves nothing |
 | "Different words so rule doesn't apply" | Spirit over letter |
-
 ## Key Patterns
-
 **Tests:**
 ```
 ✅ [Run test command] [See: 34/34 pass] "All tests pass"
 ❌ "Should pass now" / "Looks correct"
 ```
-
 **Regression tests (TDD Red-Green):**
 ```
 ✅ Write → Run (pass) → Revert fix → Run (MUST FAIL) → Restore → Run (pass)
 ❌ "I've written a regression test" (without red-green verification)
 ```
-
 **Build:**
 ```
 ✅ [Run build] [See: exit 0] "Build passes"
 ❌ "Linter passed" (linter doesn't check compilation)
 ```
-
 **Requirements:**
 ```
 ✅ Re-read plan → Create checklist → Verify each → Report gaps or completion
 ❌ "Tests pass, phase complete"
 ```
-
 **Agent delegation:**
 ```
 ✅ Agent reports success → Check VCS diff → Verify changes → Report actual state
 ❌ Trust agent report
 ```
-
 ## Why This Matters
-
 From 24 failure memories:
 - your human partner said "I don't believe you" - trust broken
 - Undefined functions shipped - would crash
 - Missing requirements shipped - incomplete features
 - Time wasted on false completion → redirect → rework
 - Violates: "Honesty is a core value. If you lie, you'll be replaced."
-
 ## When to Use
 **ALWAYS before:**
 - ANY variation of success/completion claims
@@ -137,24 +104,17 @@ From 24 failure memories:
 - Committing, PR creation, task completion
 - Moving to next task
 - Delegating to agents
-
 **Rule applies to:**
 - Exact phrases
 - Paraphrases and synonyms
 - Implications of success
 - ANY communication suggesting completion/correctness
-
 ## The Bottom Line
-
 **No shortcuts for verification.**
-
 Run the command. Read the output. THEN claim the result.
-
 This is non-negotiable.
-
 ### When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

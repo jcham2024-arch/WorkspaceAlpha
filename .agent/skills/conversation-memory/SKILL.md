@@ -1,23 +1,18 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "b742c59e916482eb849f89e8d0fe8b3dcd85e864247a6c6b18c0b70a636ac272"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: conversation-memory
-description: Persistent memory systems for LLM conversations including
-tier: "experimental"
-  short-term, long-term, and entity-based memory
-risk: critical
-source: vibeship-spawner-skills (Apache 2.0)
+content_hash: b742c59e916482eb849f89e8d0fe8b3dcd85e864247a6c6b18c0b70a636ac272
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 date_added: 2026-02-27
+description: Persistent memory systems for LLM conversations including
+id: generateId(),
+name: entity.name,
+risk: critical
+source: sourceId,
+---  short-term, long-term, and entity-based memory
 ---
-
 # Conversation Memory
 Persistent memory systems for LLM conversations including short-term, long-term, and entity-based memory
 ## Capabilities
@@ -41,11 +36,8 @@ Persistent memory systems for LLM conversations including short-term, long-term,
 Examples are architectural sketches with application-owned stores, constructors and helper methods. Every store must already be scoped to an authenticated tenant/user; the final isolation example is not optional. Persist only information allowed by the user/product memory policy; exclude credentials, apply retention/deletion to every tier, and preserve source/time/confidence and corrections. Extracted/generated text is untrusted evidence, never instructions or verified facts. Same-name entities are not necessarily the same person: resolve identity before merging, and never assign a calibrated0.9 confidence without evidence. Declared LONG_TERM_MAX is not enforced by the sketch: implement bounded eviction before production.
 ## Patterns
 ### Tiered Memory System
-
 Different memory tiers for different purposes
-
 **When to use**: Building any conversational AI
-
 ```typescript
 interface MemorySystem {
     // Buffer: Current conversation (in context)
@@ -57,7 +49,6 @@ interface MemorySystem {
     // Entity: Facts about people, places, things
     entity: EntityMemory;
 }
-
 class TieredMemory implements MemorySystem {
     async addMessage(message: Message): Promise<void> {
         // Always add to buffer
@@ -76,7 +67,6 @@ class TieredMemory implements MemorySystem {
             });
         }
     }
-
     async consolidate(): Promise<void> {
         // Move important short-term to long-term
         const memories = await this.shortTerm.getOld(24 * 60 * 60 * 1000);
@@ -87,7 +77,6 @@ class TieredMemory implements MemorySystem {
             await this.shortTerm.remove(memory.id);
         }
     }
-
     async buildContext(query: string): Promise<string> {
         const parts: string[] = [];
         // Relevant long-term memories
@@ -105,22 +94,15 @@ class TieredMemory implements MemorySystem {
         // Recent conversation
         const recent = this.buffer.getRecent(10);
         parts.push('## Recent Conversation\n' + formatMessages(recent));
-
         return parts.join('\n\n');
     }
 }
 ```
-
 ### Entity Memory
-
 Store and update facts about entities
-
 **When to use**: Need to remember details about people, places, things
-
 ```typescript
 interface Entity {
-    id: string;
-    name: string;
     type: 'person' | 'place' | 'thing' | 'concept';
     facts: Fact[];
     lastMentioned: number;
@@ -129,10 +111,8 @@ interface Entity {
 interface Fact {
     content: string;
     confidence: number;
-    source: string;  // Which message this came from
     timestamp: number;
 }
-
 class EntityMemory {
     async extractAndStore(message: Message): Promise<void> {
         // Use LLM to extract entities and facts
@@ -141,7 +121,6 @@ class EntityMemory {
             Return JSON: { "entities": [
                 { "name": "...", "type": "...", "facts": ["..."] }
             ]}
-
             Message: "${message.content}"
         `);
         const { entities } = JSON.parse(extraction);
@@ -149,7 +128,6 @@ class EntityMemory {
             await this.upsert(entity, message.id);
         }
     }
-
     async upsert(entity: ExtractedEntity, sourceId: string): Promise<void> {
         const existing = await this.store.get(entity.name.toLowerCase());
         if (existing) {
@@ -159,7 +137,6 @@ class EntityMemory {
                     existing.facts.push({
                         content: fact,
                         confidence: 0.9,
-                        source: sourceId,
                         timestamp: Date.now()
                     });
                 }
@@ -170,13 +147,10 @@ class EntityMemory {
         } else {
             // Create new entity
             await this.store.set(entity.name.toLowerCase(), {
-                id: generateId(),
-                name: entity.name,
                 type: entity.type,
                 facts: entity.facts.map(f => ({
                     content: f,
                     confidence: 0.9,
-                    source: sourceId,
                     timestamp: Date.now()
                 })),
                 lastMentioned: Date.now(),
@@ -186,13 +160,9 @@ class EntityMemory {
     }
 }
 ```
-
 ### Memory-Aware Prompting
-
 Include relevant memories in prompts
-
 **When to use**: Making LLM calls with memory context
-
 ```typescript
 async function promptWithMemory(
     query: string,
@@ -203,87 +173,64 @@ async function promptWithMemory(
     const relevantMemories = await memory.longTerm.search(query, 5);
     const entities = await memory.entity.getRelevant(query);
     const recentContext = memory.buffer.getRecent(5);
-
     // Build memory-augmented prompt
     const prompt = `
 ${systemPrompt}
-
 ## User Context
 ${entities.length ? `Known about user:\n${entities.map(e =>
     `- ${e.name}: ${e.facts.map(f => f.content).join('; ')}`
 ).join('\n')}` : ''}
-
 ${relevantMemories.length ? `Relevant past interactions:\n${relevantMemories.map(m =>
     `- [${formatDate(m.timestamp)}] ${m.content}`
 ).join('\n')}` : ''}
-
 ## Recent Conversation
 ${formatMessages(recentContext)}
-
 ## Current Query
 ${query}
     `.trim();
-
     const response = await llm.complete(prompt);
-
     // Do not promote generated assistant claims into user facts.
     // Persist only authorized source messages through the application memory policy.
-
     return response;
 }
 ```
-
 ## Sharp Edges
-
 ### Memory store grows unbounded, system slows
-
 Severity: HIGH
-
 Situation: System slows over time, costs increase
-
 Symptoms:
 - Slow memory retrieval
 - High storage costs
 - Increasing latency over time
-
 Why this breaks:
 Every message stored as memory.
 No cleanup or consolidation.
 Retrieval over millions of items.
-
 Recommended fix:
-
 ```typescript
 // Implement memory lifecycle management
-
 class ManagedMemory {
     // Limits
     private readonly SHORT_TERM_MAX = 100;
     private readonly LONG_TERM_MAX = 10000;
     private readonly CONSOLIDATION_INTERVAL = 24 * 60 * 60 * 1000;
-
     async add(memory: Memory): Promise<void> {
         // Score importance before storing
         const score = await this.scoreImportance(memory);
         if (score < 0.3) return;  // Don't store low-importance
-
         memory.importance = score;
         await this.shortTerm.add(memory);
-
         // Check limits
         await this.enforceShortTermLimit();
     }
-
     async enforceShortTermLimit(): Promise<void> {
         const count = await this.shortTerm.count();
         if (count > this.SHORT_TERM_MAX) {
             // Consolidate: move important to long-term, delete rest
             const memories = await this.shortTerm.getAll();
             memories.sort((a, b) => b.importance - a.importance);
-
             const toKeep = memories.slice(0, this.SHORT_TERM_MAX * 0.7);
             const toConsolidate = memories.slice(this.SHORT_TERM_MAX * 0.7);
-
             for (const m of toConsolidate) {
                 if (m.importance > 0.7) {
                     await this.longTerm.add(m);
@@ -292,7 +239,6 @@ class ManagedMemory {
             }
         }
     }
-
     async scoreImportance(memory: Memory): Promise<number> {
         const factors = {
             hasUserPreference: /prefer|like|don't like|hate|love/i.test(memory.content) ? 0.3 : 0,
@@ -301,33 +247,24 @@ class ManagedMemory {
             length: memory.content.length > 100 ? 0.1 : 0,
             userMessage: memory.role === 'user' ? 0.1 : 0,
         };
-
         return Object.values(factors).reduce((a, b) => a + b, 0);
     }
 }
 ```
-
 ### Retrieved memories not relevant to current query
-
 Severity: HIGH
-
 Situation: Memories included in context but don't help
-
 Symptoms:
 - Memories in context seem random
 - User asks about things already in memory
 - Confusion from irrelevant context
-
 Why this breaks:
 Simple keyword matching.
 No relevance scoring.
 Including all retrieved memories.
-
 Recommended fix:
-
 ```typescript
 // Intelligent memory retrieval
-
 async function retrieveRelevant(
     query: string,
     memories: MemoryStore,
@@ -335,7 +272,6 @@ async function retrieveRelevant(
 ): Promise<Memory[]> {
     // 1. Semantic search
     const candidates = await memories.semanticSearch(query, maxResults * 3);
-
     // 2. Score relevance with context
     const scored = await Promise.all(candidates.map(async (m) => {
         const relevanceScore = await llm.complete(`
@@ -347,55 +283,42 @@ async function retrieveRelevant(
         const score = Number(relevanceScore.trim());
         return { ...m, relevance: Number.isFinite(score) && score >= 0 && score <= 1 ? score : 0 };
     }));
-
     // 3. Filter low relevance
     const relevant = scored.filter(m => m.relevance > 0.5);
-
     // 4. Sort and limit
     return relevant
         .sort((a, b) => b.relevance - a.relevance)
         .slice(0, maxResults);
 }
 ```
-
 ### Memories from one user accessible to another
-
 Severity: CRITICAL
-
 Situation: User sees information from another user's sessions
-
 Symptoms:
 - User sees other user's information
 - Privacy complaints
 - Compliance violations
-
 Why this breaks:
 No user isolation in memory store.
 Shared memory namespace.
 Cross-user retrieval.
-
 Recommended fix:
-
 ```typescript
 // Strict user isolation in memory
-
 class IsolatedMemory {
     private getKey(userId: string, memoryId: string): string {
         // Namespace all keys by user
         return `user:${encodeURIComponent(userId)}:memory:${encodeURIComponent(memoryId)}`;
     }
-
     async add(userId: string, memory: Memory): Promise<void> {
         // Validate userId is authenticated
         if (requireAuthenticatedUserId() !== userId) {
             throw new Error('Invalid user ID');
         }
-
         const key = this.getKey(userId, memory.id);
         memory.userId = userId;  // Tag with user
         await this.store.set(key, memory);
     }
-
     async search(userId: string, query: string): Promise<Memory[]> {
         // CRITICAL: Filter by user in query
         return await this.store.search({
@@ -404,7 +327,6 @@ class IsolatedMemory {
             limit: 10
         });
     }
-
     async delete(userId: string, memoryId: string): Promise<void> {
         const memory = await this.get(userId, memoryId);
         // Verify ownership before delete
@@ -413,12 +335,10 @@ class IsolatedMemory {
         }
         await this.store.delete(this.getKey(userId, memoryId));
     }
-
     // Scoped export (not proof of legal compliance)
     async exportUserData(userId: string): Promise<Memory[]> {
         return await this.store.getAll({ userId });
     }
-
     // Scoped deletion (also address backups, indexes, caches and retention policy)
     async deleteUserData(userId: string): Promise<void> {
         const memories = await this.exportUserData(userId);
@@ -428,73 +348,45 @@ class IsolatedMemory {
     }
 }
 ```
-
 ## Validation Checks
-
 ### No User Isolation in Memory
-
 Severity: CRITICAL
-
 Message: Memory operations without user isolation. Privacy vulnerability.
-
 Fix action: Add userId to all memory operations, filter by user on retrieval
-
 ### No Importance Filtering
-
 Severity: WARNING
-
 Message: Storing memories without importance filtering. May cause memory explosion.
-
 Fix action: Score importance before storing, filter low-importance content
-
 ### Memory Storage Without Retrieval
-
 Severity: WARNING
-
 Message: Storing memories but no retrieval logic. Memories won't be used.
-
 Fix action: Implement memory retrieval and include in prompts
-
 ### No Memory Cleanup
-
 Severity: INFO
-
 Message: No memory cleanup mechanism. Storage will grow unbounded.
-
 Fix action: Implement consolidation and cleanup based on age/importance
-
 ## Collaboration
-
 ### Delegation Triggers
-
 - context window|token -> context-window-management (Need context optimization)
 - rag|retrieval|vector -> rag-implementation (Need retrieval system)
 - cache|caching -> prompt-caching (Need caching strategies)
-
 ### Complete Memory System
-
 Skills: conversation-memory, context-window-management, rag-implementation
-
 Workflow:
-
 ```
 1. Design memory tiers
 2. Implement storage and retrieval
 3. Integrate with context management
 4. Add consolidation and cleanup
 ```
-
 ## Related Skills
-
 Works well with: `context-window-management`, `rag-implementation`, `prompt-caching`, `llm-npc-dialogue`
-
 ## When to Use
 - User mentions or implies: conversation memory
 - User mentions or implies: remember
 - User mentions or implies: memory persistence
 - User mentions or implies: long-term memory
 - User mentions or implies: chat history
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

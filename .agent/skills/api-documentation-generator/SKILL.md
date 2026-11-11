@@ -1,46 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "fe435590db4131fceefe88d72058f94c156308f428c9bab17bfd96080e24e756"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: api-documentation-generator
-description: "Generate comprehensive, developer-friendly API documentation from code, including endpoints, parameters, examples, and best practices"
-tier: "experimental"
+content_hash: fe435590db4131fceefe88d72058f94c156308f428c9bab17bfd96080e24e756
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Generate comprehensive, developer-friendly API documentation from code, including endpoints, parameters, examples, and best practices
+name: John Doe
 risk: critical
 source: community
-date_added: "2026-02-27"
+version: 1.0.0
 ---
-
-
 # API Documentation Generator
-
 ## Overview
-
 Automatically generate clear, comprehensive API documentation from your codebase. This skill helps you create professional documentation that includes endpoint descriptions, request/response examples, authentication details, error handling, and usage guidelines.
-
 Perfect for REST APIs, GraphQL APIs, and WebSocket APIs.
-
 ## When to Use This Skill
-
 - Use when you need to document a new API
 - Use when updating existing API documentation
 - Use when your API lacks clear documentation
 - Use when onboarding new developers to your API
 - Use when preparing API documentation for external users
 - Use when creating OpenAPI/Swagger specifications
-
 ## How It Works
-
 ### Step 1: Analyze the API Structure
-
 Bind documentation to the actual source revision, routing/middleware/schema and verified examples. Mark missing or inferred behavior; do not invent rate limits, password policy, token expiry or exhaustive error coverage. Use synthetic data and secret placeholders. Public user creation must not accept an arbitrary client-supplied admin role: omit it unless a separately authorized admin endpoint validates that capability. Generated OpenAPI fragments need complete referenced schemas/responses and spec validation; interactive Try It calls are real operations requiring an approved sandbox.
-
 First, I'll examine your API codebase to understand:
 - Available endpoints and routes
 - HTTP methods (GET, POST, PUT, DELETE, etc.)
@@ -48,36 +33,28 @@ First, I'll examine your API codebase to understand:
 - Response formats and status codes
 - Authentication and authorization requirements
 - Error handling patterns
-
 ### Step 2: Generate Endpoint Documentation
-
 For each endpoint, I'll create documentation including:
-
 **Endpoint Details:**
 - HTTP method and URL path
 - Brief description of what it does
 - Authentication requirements
 - Rate limiting information (if applicable)
-
 **Request Specification:**
 - Path parameters
 - Query parameters
 - Request headers
 - Request body schema (with types and validation rules)
-
 **Response Specification:**
 - Success response (status code + body structure)
 - Error responses (all possible error codes)
 - Response headers
-
 **Code Examples:**
 - cURL command
 - JavaScript/TypeScript (fetch/axios)
 - Python (requests)
 - Other languages as needed
-
 ### Step 3: Add Usage Guidelines
-
 I'll include:
 - Getting started guide
 - Authentication setup
@@ -86,36 +63,25 @@ I'll include:
 - Rate limiting details
 - Pagination patterns
 - Filtering and sorting options
-
 ### Step 4: Document Error Handling
-
 Clear error documentation including:
 - All possible error codes
 - Error message formats
 - Troubleshooting guide
 - Common error scenarios and solutions
-
 ### Step 5: Create Interactive Examples
-
 Where possible, I'll provide:
 - Postman collection
 - OpenAPI/Swagger specification
 - Interactive code examples
 - Sample responses
-
 ## Examples
-
 ### Example 1: REST API Endpoint Documentation
-
 ```markdown
 ## Create User
-
 Creates a new user account.
-
 **Endpoint:** `POST /api/v1/users`
-
 **Authentication:** Required (Bearer token)
-
 **Request Body:**
 \`\`\`json
 {
@@ -125,7 +91,6 @@ Creates a new user account.
   "role": "user"                    // Server-assigned output; do not accept admin from public registration
 }
 \`\`\`
-
 **Success Response (201 Created):**
 \`\`\`json
 {
@@ -137,9 +102,7 @@ Creates a new user account.
   "emailVerified": false
 }
 \`\`\`
-
 **Error Responses:**
-
 - `400 Bad Request` - Invalid input data
   \`\`\`json
   {
@@ -148,7 +111,6 @@ Creates a new user account.
     "field": "email"
   }
   \`\`\`
-
 - `409 Conflict` - Email already exists
   \`\`\`json
   {
@@ -156,9 +118,7 @@ Creates a new user account.
     "message": "An account with this email already exists"
   }
   \`\`\`
-
 - `401 Unauthorized` - Missing or invalid authentication token
-
 **Example Request (cURL):**
 \`\`\`bash
 curl -X POST https://api.example.com/api/v1/users \
@@ -170,7 +130,6 @@ curl -X POST https://api.example.com/api/v1/users \
     "name": "John Doe"
   }'
 \`\`\`
-
 **Example Request (JavaScript):**
 \`\`\`javascript
 const response = await fetch('https://api.example.com/api/v1/users', {
@@ -182,18 +141,14 @@ const response = await fetch('https://api.example.com/api/v1/users', {
   body: JSON.stringify({
     email: 'user@example.com',
     password: 'SecurePass123!',
-    name: 'John Doe'
   })
 });
-
 const user = await response.json();
 console.log(user);
 \`\`\`
-
 **Example Request (Python):**
 \`\`\`python
 import requests
-
 response = requests.post(
     'https://api.example.com/api/v1/users',
     headers={
@@ -206,19 +161,14 @@ response = requests.post(
         'name': 'John Doe'
     }
 )
-
 user = response.json()
 print(user)
 \`\`\`
 ```
-
 ### Example 2: GraphQL API Documentation
-
 ```markdown
 ## User Query
-
 Fetch user information by ID.
-
 **Query:**
 \`\`\`graphql
 query GetUser($id: ID!) {
@@ -236,14 +186,12 @@ query GetUser($id: ID!) {
   }
 }
 \`\`\`
-
 **Variables:**
 \`\`\`json
 {
   "id": "usr_1234567890"
 }
 \`\`\`
-
 **Response:**
 \`\`\`json
 {
@@ -265,7 +213,6 @@ query GetUser($id: ID!) {
   }
 }
 \`\`\`
-
 **Errors:**
 \`\`\`json
 {
@@ -281,18 +228,12 @@ query GetUser($id: ID!) {
 }
 \`\`\`
 ```
-
 ### Example 3: Authentication Documentation
-
 ```markdown
 ## Authentication
-
 All API requests require authentication using Bearer tokens.
-
 ### Getting a Token
-
 **Endpoint:** `POST /api/v1/auth/login`
-
 **Request:**
 \`\`\`json
 {
@@ -300,7 +241,6 @@ All API requests require authentication using Bearer tokens.
   "password": "your-password"
 }
 \`\`\`
-
 **Response:**
 \`\`\`json
 {
@@ -309,21 +249,14 @@ All API requests require authentication using Bearer tokens.
   "refreshToken": "refresh_token_here"
 }
 \`\`\`
-
 ### Using the Token
-
 Include the token in the Authorization header:
-
 \`\`\`
 Authorization: Bearer YOUR_TOKEN
 \`\`\`
-
 ### Token Expiration
-
 Tokens expire after 1 hour. Use the refresh token to get a new access token:
-
 **Endpoint:** `POST /api/v1/auth/refresh`
-
 **Request:**
 \`\`\`json
 {
@@ -331,11 +264,8 @@ Tokens expire after 1 hour. Use the refresh token to get a new access token:
 }
 \`\`\`
 ```
-
 ## Best Practices
-
 ### ✅ Do This
-
 - **Be Consistent** - Use the same format for all endpoints
 - **Include Examples** - Provide working code examples in multiple languages
 - **Document Errors** - List all possible error codes and their meanings
@@ -346,9 +276,7 @@ Tokens expire after 1 hour. Use the refresh token to get a new access token:
 - **Link Related Endpoints** - Help users discover related functionality
 - **Include Rate Limits** - Document any rate limiting policies
 - **Provide Postman Collection** - Make it easy to test your API
-
 ### ❌ Don't Do This
-
 - **Don't Skip Error Cases** - Users need to know what can go wrong
 - **Don't Use Vague Descriptions** - "Gets data" is not helpful
 - **Don't Forget Authentication** - Always document auth requirements
@@ -357,57 +285,44 @@ Tokens expire after 1 hour. Use the refresh token to get a new access token:
 - **Don't Use Outdated Info** - Keep documentation in sync with code
 - **Don't Overcomplicate** - Keep it simple and scannable
 - **Don't Forget Response Headers** - Document important headers
-
 ## Documentation Structure
-
 ### Recommended Sections
-
 1. **Introduction**
    - What the API does
    - Base URL
    - API version
    - Support contact
-
 2. **Authentication**
    - How to authenticate
    - Token management
    - Security best practices
-
 3. **Quick Start**
    - Simple example to get started
    - Common use case walkthrough
-
 4. **Endpoints**
    - Organized by resource
    - Full details for each endpoint
-
 5. **Data Models**
    - Schema definitions
    - Field descriptions
    - Validation rules
-
 6. **Error Handling**
    - Error code reference
    - Error response format
    - Troubleshooting guide
-
 7. **Rate Limiting**
    - Limits and quotas
    - Headers to check
    - Handling rate limit errors
-
 8. **Changelog**
    - API version history
    - Breaking changes
    - Deprecation notices
-
 9. **SDKs and Tools**
    - Official client libraries
    - Postman collection
    - OpenAPI specification
-
 ## Common Pitfalls
-
 ### Problem: Documentation Gets Out of Sync
 **Symptoms:** Examples don't work, parameters are wrong, endpoints return different data
 **Solution:** 
@@ -415,7 +330,6 @@ Tokens expire after 1 hour. Use the refresh token to get a new access token:
 - Use tools like Swagger/OpenAPI
 - Add API tests that validate documentation
 - Review docs with every API change
-
 ### Problem: Missing Error Documentation
 **Symptoms:** Users don't know how to handle errors, support tickets increase
 **Solution:**
@@ -423,7 +337,6 @@ Tokens expire after 1 hour. Use the refresh token to get a new access token:
 - Provide clear error messages
 - Include troubleshooting steps
 - Show example error responses
-
 ### Problem: Examples Don't Work
 **Symptoms:** Users can't get started, frustration increases
 **Solution:**
@@ -431,7 +344,6 @@ Tokens expire after 1 hour. Use the refresh token to get a new access token:
 - Use real, working endpoints
 - Include complete examples (not fragments)
 - Provide a sandbox environment
-
 ### Problem: Unclear Parameter Requirements
 **Symptoms:** Users send invalid requests, validation errors
 **Solution:**
@@ -439,16 +351,13 @@ Tokens expire after 1 hour. Use the refresh token to get a new access token:
 - Document data types and formats
 - Show validation rules
 - Provide example values
-
 ## Tools and Formats
-
 ### OpenAPI/Swagger
 Generate interactive documentation:
 ```yaml
 openapi: 3.0.0
 info:
   title: My API
-  version: 1.0.0
 paths:
   /users:
     post:
@@ -460,7 +369,6 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateUserRequest'
 ```
-
 ### Postman Collection
 Export collection for easy testing:
 ```json
@@ -480,26 +388,19 @@ Export collection for easy testing:
   ]
 }
 ```
-
 ## Related Skills
-
 - `@doc-coauthoring` - For collaborative documentation writing
 - `@copywriting` - For clear, user-friendly descriptions
 - `@test-driven-development` - For ensuring API behavior matches docs
 - `@systematic-debugging` - For troubleshooting API issues
-
 ## Additional Resources
-
 - [OpenAPI Specification](https://swagger.io/specification/)
 - [REST API Best Practices](https://restfulapi.net/)
 - [GraphQL Documentation](https://graphql.org/learn/)
 - [API Design Patterns](https://www.apiguide.com/)
 - [Postman Documentation](https://learning.postman.com/docs/)
-
 ---
-
 **Pro Tip:** Keep your API documentation as close to your code as possible. Use tools that generate docs from code comments to ensure they stay in sync!
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

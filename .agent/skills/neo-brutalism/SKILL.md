@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "d70c073a4342a56cffbd4f5ad1b3a60aea5e37317dc4d8e6a3e68b0df597806b"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: neo-brutalism
+content_hash: d70c073a4342a56cffbd4f5ad1b3a60aea5e37317dc4d8e6a3e68b0df597806b
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Neo-Brutalism. Trigger when user wants thick borders, hard shadows, bright colors, and a playful yet structured look.
-tier: "experimental"
-date_added: "2026-06-17"
+name: neo-brutalism
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Neo-Brutalism
-
 > "Brutalism, but make it pop. Hard lines, stark shadows, and vibrant, unashamed colors."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Hard Drop Shadows**: Solid black shadows with no blur. Usually offset by a few pixels down and to the right.
 2. **Thick Outlines**: Everything has a heavy, solid black border (usually 2px-4px).
 3. **Flat, High-Contrast Colors**: Bright, saturated pastels or primary colors contrasting against pure white or black.
-
 ## Visual DNA
 - **Colors**: Start with an off-white background (like `#FDF8F5`), add stark black borders `#000000`, and use saturated accents like lemon yellow, bright cyan, or coral.
 - **Typography**: Very bold, geometric sans-serifs (e.g., `Space Grotesk`, `Archivo Black`, `Inter Black`).
 - **Shapes**: Sharp rectangles or completely rounded pill shapes, but always with a heavy stroke.
-
 ## Web Implementation
 - The defining feature is the `box-shadow` with `0` blur.
 - **CSS Example**:
@@ -47,12 +34,10 @@ Use this sub-style when the user's request matches the aesthetic described above
   --neo-bg: #F4F4F0;
   --neo-accent: #FF3366;
 }
-
 body {
   background-color: var(--neo-bg);
   font-family: 'Space Grotesk', sans-serif;
 }
-
 .neo-card {
   background-color: #ffffff;
   border: var(--neo-border);
@@ -61,7 +46,6 @@ body {
   padding: 32px;
   transition: transform 0.1s, box-shadow 0.1s;
 }
-
 .neo-btn {
   background-color: var(--neo-accent);
   color: #000;
@@ -73,23 +57,19 @@ body {
   cursor: pointer;
   transition: all 0.1s ease;
 }
-
 .neo-btn:active {
   /* The "press" effect is removing the shadow and moving it down */
   transform: translate(4px, 4px);
   box-shadow: 0px 0px 0px #000000;
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct NeoCard: View {
     @State private var isPressed = false
     let neoBorder: CGFloat = 3
     let neoShadow: CGFloat = 6
-    
     var body: some View {
         Button(action: {}) {
             VStack(alignment: .leading, spacing: 16) {
@@ -127,18 +107,15 @@ struct NeoCard: View {
 - `.shadow(radius: 0)` is the secret. Set an offset (e.g. `x: 6, y: 6`).
 - For interactions, remove the shadow and translate the element by the same offset amounts using `.offset()`.
 - Ensure `.animation(.none)` — Neo-brutalism interactions should be instant, snapping like physical switches.
-
 ### Flutter
 ```dart
 class NeoCard extends StatefulWidget {
   @override
   State<NeoCard> createState() => _NeoCardState();
 }
-
 class _NeoCardState extends State<NeoCard> {
   bool _isPressed = false;
   final double neoOffset = 6.0;
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -182,13 +159,11 @@ class _NeoCardState extends State<NeoCard> {
 ```
 - `blurRadius: 0` inside `BoxShadow` creates the solid block color.
 - Remove the shadow array entirely when `_isPressed` is true, and simultaneously use `Transform.translate` to shift the widget down-right.
-
 ### React Native
 ```jsx
 const NeoCard = () => {
   const [pressed, setPressed] = useState(false);
   const offset = 6;
-
   return (
     <Pressable
       onPressIn={() => setPressed(true)}
@@ -220,14 +195,12 @@ const NeoCard = () => {
 ```
 - **Android Limitation**: Standard `elevation` CANNOT create an unblurred, offset drop shadow. 
 - **Solution**: To make this work on Android, you MUST use the `react-native-drop-shadow` library or fake it by rendering an identical black `<View>` absolutely positioned directly behind the main card.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
 fun NeoCard() {
     var isPressed by remember { mutableStateOf(false) }
     val neoOffset = 6.dp
-    
     // Compose Modifier.shadow() always blurs. 
     // To get a solid hard shadow, we use Modifier.drawBehind.
     Box(
@@ -272,11 +245,9 @@ fun NeoCard() {
 - **Compose Limitation**: Native `Modifier.shadow()` applies ambient blur which breaks the neo-brutalist aesthetic.
 - Use `Modifier.drawBehind { drawRect(...) }` with an offset to manually draw the solid shadow block behind the container.
 - Shift the container using `Modifier.offset` on press, while hiding the shadow layer.
-
 ## Do's and Don'ts
 - **DO**: Use a semantic Button or clickable with role and an interaction source for the pressed state. Gesture-only examples here are visual studies; they do not implement a complete keyboard-accessible action. Keep the action and hit target stable, and reset press state on cancellation.
 - **DON'T**: Use gradients or blurred shadows. The aesthetic relies entirely on flat, sharp vectors.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

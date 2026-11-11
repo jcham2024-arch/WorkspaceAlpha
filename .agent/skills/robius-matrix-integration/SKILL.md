@@ -1,45 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "c22eacd682b8fa6a5720acb362744cfdfb70a42892d85d710d10dc0952d140e8"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: robius-matrix-integration
+content_hash: c22eacd682b8fa6a5720acb362744cfdfb70a42892d85d710d10dc0952d140e8
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-03-06
 description: |
-tier: "experimental"
-  CRITICAL: Use for Matrix SDK integration with Makepad. Triggers on:
+name: robius-matrix-integration
+risk: critical
+source: community
+---  CRITICAL: Use for Matrix SDK integration with Makepad. Triggers on:
   Matrix SDK, sliding sync, MatrixRequest, timeline,
   matrix-sdk, matrix client, robrix, matrix room,
   Matrix 集成, 聊天客户端
-risk: critical
-source: community
-date_added: "2026-03-06"
 ---
-
 ## Supporting material availability
-
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
-
 - `<support-root>/references/matrix-client.md`
 - `<support-root>/references/timeline-handling.md`
 - `<support-root>/references/moly-api-integration.md`
-
 Ask for the original supporting material or an existing installation before using a step that depends on these paths; this catalog does not identify a verified download source for them. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
-
-
 # Robius Matrix SDK Integration Skill
-
 Best practices for integrating external APIs with Makepad applications based on Robrix and Moly codebases.
-
 **Source codebases:**
 - **Robrix**: Matrix SDK integration - sliding sync, timeline subscriptions, real-time updates
 - **Moly**: OpenAI/LLM API integration - SSE streaming, MCP protocol, multi-provider support
-
 ## When to Use
 Use this skill when:
 - Integrating Matrix SDK with Makepad
@@ -47,27 +33,20 @@ Use this skill when:
 - Implementing Matrix features (rooms, timelines, messages)
 - Handling Matrix SDK async operations in UI
 - Keywords: matrix-sdk, matrix client, robrix, matrix timeline, matrix room, sliding sync
-
 ## Overview
-
 Robrix uses the `matrix-sdk` and `matrix-sdk-ui` crates to connect to Matrix homeservers. The key architectural decisions:
-
 1. **Sliding Sync**: Uses native sliding sync for efficient room list updates
 2. **Separate Runtime**: Tokio runtime runs Matrix operations, Makepad handles UI
 3. **Request/Response Pattern**: UI sends requests, receives actions/updates back
 4. **Per-Room Background Tasks**: Each room has dedicated timeline subscriber task
-
 ## MatrixRequest Pattern
-
 ### Request Enum Definition
-
 ```rust
 /// All async requests that can be made to the Matrix worker task
 pub enum MatrixRequest {
     /// Login requests
     Login(LoginRequest),
     Logout { is_desktop: bool },
-
     /// Timeline operations
     PaginateRoomTimeline {
         room_id: OwnedRoomId,
@@ -89,7 +68,6 @@ pub enum MatrixRequest {
         timeline_event_id: TimelineEventItemId,
         reason: Option<String>,
     },
-
     /// Room operations
     JoinRoom { room_id: OwnedRoomId },
     LeaveRoom { room_id: OwnedRoomId },
@@ -98,7 +76,6 @@ pub enum MatrixRequest {
         memberships: RoomMemberships,
         local_only: bool,
     },
-
     /// User operations
     GetUserProfile {
         user_id: OwnedUserId,
@@ -110,7 +87,6 @@ pub enum MatrixRequest {
         room_member: RoomMember,
         room_id: OwnedRoomId,
     },
-
     /// Media operations
     FetchAvatar {
         mxc_uri: OwnedMxcUri,
@@ -122,37 +98,30 @@ pub enum MatrixRequest {
         destination: MediaCacheEntryRef,
         update_sender: Option<crossbeam_channel::Sender<TimelineUpdate>>,
     },
-
     /// Typing/read indicators
     SendTypingNotice { room_id: OwnedRoomId, typing: bool },
     ReadReceipt { room_id: OwnedRoomId, event_id: OwnedEventId },
     FullyReadReceipt { room_id: OwnedRoomId, event_id: OwnedEventId },
-
     /// Reactions
     ToggleReaction {
         room_id: OwnedRoomId,
         timeline_event_id: TimelineEventItemId,
         reaction: String,
     },
-
     /// Subscriptions
     SubscribeToTypingNotices { room_id: OwnedRoomId, subscribe: bool },
     SubscribeToPinnedEvents { room_id: OwnedRoomId, subscribe: bool },
 }
 ```
-
 ### Submit Pattern
-
 ```rust
 static REQUEST_SENDER: Mutex<Option<UnboundedSender<MatrixRequest>>> = Mutex::new(None);
-
 /// Submit request from UI thread to async runtime; surface errors without dropping the draft
 pub fn submit_async_request(req: MatrixRequest) -> Result<(), String> {
     let guard = REQUEST_SENDER.lock().map_err(|_| "request lock poisoned")?;
     let sender = guard.as_ref().ok_or("Matrix worker is not ready")?;
     sender.send(req).map_err(|_| "Matrix worker has stopped".to_owned())
 }
-
 // Usage in UI
 let send_result = submit_async_request(MatrixRequest::SendMessage {
     room_id: room_id.clone(),
@@ -160,9 +129,7 @@ let send_result = submit_async_request(MatrixRequest::SendMessage {
     replied_to: self.reply_to.clone(), // clear draft/reply only after confirmed enqueue
 });
 ```
-
 ## Worker Task Handler
-
 ```rust
 async fn matrix_worker_task(
     mut request_receiver: UnboundedReceiver<MatrixRequest>,
@@ -178,20 +145,17 @@ async fn matrix_worker_task(
                     };
                     (room_info.timeline.clone(), room_info.timeline_update_sender.clone())
                 };
-
                 // Spawn dedicated task for this operation
                 Handle::current().spawn(async move {
                     // Notify UI pagination is starting
                     sender.send(TimelineUpdate::PaginationRunning(direction)).unwrap();
                     SignalToUI::set_ui_signal();
-
                     // Perform pagination
                     let res = if direction == PaginationDirection::Forwards {
                         timeline.paginate_forwards(num_events).await
                     } else {
                         timeline.paginate_backwards(num_events).await
                     };
-
                     // Send result to UI
                     match res {
                         Ok(fully_paginated) => {
@@ -210,10 +174,8 @@ async fn matrix_worker_task(
                     SignalToUI::set_ui_signal();
                 });
             }
-
             MatrixRequest::JoinRoom { room_id } => {
                 let Some(client) = get_client() else { continue };
-
                 Handle::current().spawn(async move {
                     let result_action = if let Some(room) = client.get_room(&room_id) {
                         match room.join().await {
@@ -235,11 +197,8 @@ async fn matrix_worker_task(
     Ok(())
 }
 ```
-
 ## Timeline Updates
-
 ### TimelineUpdate Enum
-
 ```rust
 pub enum TimelineUpdate {
     /// New items added to timeline
@@ -275,9 +234,7 @@ pub enum TimelineUpdate {
     UserPowerLevels(UserPowerLevels),
 }
 ```
-
 ### Per-Room Update Flow
-
 ```rust
 struct JoinedRoomDetails {
     room_id: OwnedRoomId,
@@ -286,7 +243,6 @@ struct JoinedRoomDetails {
     timeline_subscriber_handler_task: JoinHandle<()>,
     typing_notice_subscriber: Option<EventHandlerDropGuard>,
 }
-
 impl Drop for JoinedRoomDetails {
     fn drop(&mut self) {
         // Cleanup background tasks when room closes
@@ -294,7 +250,6 @@ impl Drop for JoinedRoomDetails {
         drop(self.typing_notice_subscriber.take());
     }
 }
-
 // Spawn subscriber for a room
 async fn spawn_timeline_subscriber(
     room_id: OwnedRoomId,
@@ -303,7 +258,6 @@ async fn spawn_timeline_subscriber(
 ) -> JoinHandle<()> {
     tokio::spawn(async move {
         let (items, mut stream) = timeline.subscribe().await;
-
         // Send initial items
         sender.send(TimelineUpdate::NewItems {
             new_items: items,
@@ -311,7 +265,6 @@ async fn spawn_timeline_subscriber(
             is_append: false,
         }).ok();
         SignalToUI::set_ui_signal();
-
         // Listen for updates
         while let Some(diff) = stream.next().await {
             let update = process_timeline_diff(diff);
@@ -321,9 +274,7 @@ async fn spawn_timeline_subscriber(
     })
 }
 ```
-
 ### Handling Updates in UI
-
 ```rust
 impl Widget for RoomScreen {
     fn handle_event(&mut self, cx: &mut Cx, event: &Event, scope: &mut Scope) {
@@ -344,16 +295,12 @@ impl Widget for RoomScreen {
                 }
             }
         }
-
         self.view.handle_event(cx, event, scope);
     }
 }
 ```
-
 ## Room List Updates
-
 ### RoomsListUpdate Enum
-
 ```rust
 pub enum RoomsListUpdate {
     NotLoaded,
@@ -377,19 +324,14 @@ pub enum RoomsListUpdate {
     Status { status: String },
     ScrollToRoom(OwnedRoomId),
 }
-
 static PENDING_ROOM_UPDATES: SegQueue<RoomsListUpdate> = SegQueue::new();
-
 pub fn enqueue_rooms_list_update(update: RoomsListUpdate) {
     PENDING_ROOM_UPDATES.push(update);
     SignalToUI::set_ui_signal();
 }
 ```
-
 ## Client Build Pattern
-
 Version-specific architectural fragments, not a standalone compiling crate: pin compatible Makepad/matrix-sdk versions and resolve all application types/imports. Native sliding sync requires compatible homeserver support. Protect database passphrases and session tokens in the OS credential store; never serialize the passphrase beside the database or include it in logs. Reuse the saved DB/key on restore; creating a new folder each launch loses local continuity. Verify server origin and account/device identity before login, joins, sends or media downloads.
-
 ```rust
 async fn build_client(
     homeserver_url: &str,
@@ -398,7 +340,6 @@ async fn build_client(
     // Generate unique subfolder for this session
     let db_subfolder = format!("db_{}", chrono::Local::now().format("%F_%H_%M_%S_%f"));
     let db_path = data_dir.join(db_subfolder);
-
     // Generate random passphrase for encryption
     let passphrase: String = {
         use rand::{Rng, thread_rng};
@@ -408,7 +349,6 @@ async fn build_client(
             .map(char::from)
             .collect()
     };
-
     let client = Client::builder()
         .server_name_or_homeserver_url(homeserver_url)
         .sqlite_store(&db_path, Some(&passphrase))
@@ -425,13 +365,10 @@ async fn build_client(
         )
         .build()
         .await?;
-
     Ok((client, ClientSessionPersisted { homeserver: homeserver_url.to_string(), db_path, passphrase }))
 }
 ```
-
 ## Best Practices
-
 1. **Bound task concurrency**: Do not block the receiver loop, but use tracked tasks and per-room serialization/cancellation rather than unlimited spawning
 2. **Use crossbeam channels for per-room updates**: More efficient than global queue
 3. **Always call SignalToUI::set_ui_signal()**: After enqueueing any update
@@ -439,9 +376,7 @@ async fn build_client(
 5. **Cleanup on drop**: Abort background tasks when rooms are closed
 6. **Use Cx::post_action for results**: Posted actions are handled in App::handle_actions
 7. **Use SegQueue for high-frequency updates**: Lock-free for room list updates
-
 ## Reference Files
-
 - `references/matrix-client.md` - Matrix client setup and login patterns (Robrix)
 - `references/timeline-handling.md` - Matrix timeline subscription patterns (Robrix)
 - `references/moly-api-integration.md` - Moly API integration patterns
@@ -451,10 +386,8 @@ async fn build_client(
   - Tool approval flow
   - MolyClient for local server
   - BotContext for multi-provider support
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 Remaining channel sends in illustrative workers must be handled as lifecycle events rather than panic paths: report failure or exit the task when the UI receiver closes. Track all spawned operations per session and cancel/join them on logout; aborting the timeline subscription alone does not cancel pending sends or joins. Bound media sizes and queue growth, and keep message content/keys out of diagnostics.

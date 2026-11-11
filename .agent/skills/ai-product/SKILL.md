@@ -1,38 +1,25 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "70d2c29cb4d8deba211948cc8b187cf23b39b4c9b7216567c7a001280f6a7b7a"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 70d2c29cb4d8deba211948cc8b187cf23b39b4c9b7216567c7a001280f6a7b7a
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Design and evaluate LLM product features, retrieval, validated outputs, latency, and cost controls.
 name: ai-product
-description: "Design and evaluate LLM product features, retrieval, validated outputs, latency, and cost controls."
-tier: "experimental"
 risk: safe
 source: vibeship-spawner-skills (Apache 2.0)
-date_added: 2026-02-27
 ---
-
-
 # AI Product Development
-
 Choose AI only when it improves the target user task against an evaluated baseline.
-
 This skill covers LLM integration patterns, RAG architecture, prompt
 engineering that scales, AI UX that users trust, and cost optimization
 that doesn't bankrupt you.
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use
 Use this skill when the request clearly matches the capabilities and patterns described above.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

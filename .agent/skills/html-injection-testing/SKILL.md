@@ -1,29 +1,21 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "999235c1d3ea4bae8f995f591a0094f6663106dc8dd38337a7bc4316b81a5cec"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 999235c1d3ea4bae8f995f591a0094f6663106dc8dd38337a7bc4316b81a5cec
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: zebbern
+date_added: 2026-02-27
+description: Identify and exploit HTML injection vulnerabilities that allow attackers to inject malicious HTML content into web applications. This vulnerability enables attackers to modify page appearance, create phishing pages, and steal user credentials through injected forms.
 name: html-injection-testing
-description: "Identify and exploit HTML injection vulnerabilities that allow attackers to inject malicious HTML content into web applications. This vulnerability enables attackers to modify page appearance, create phishing pages, and steal user credentials through injected forms."
-tier: "experimental"
 risk: offensive
 source: community
-author: zebbern
-date_added: "2026-02-27"
 ---
-
-
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.
 > Misuse of this tool is illegal and strictly prohibited.
-
 > **Mandatory confirmation gate**
 > Before running any command that probes, exploits, changes, persists on, extracts data from, or attempts credential access against a target:
 > 1. Ask the user to state the exact target URL, IP, account, or resource.
@@ -32,48 +24,36 @@ date_added: "2026-02-27"
 > 4. Wait for explicit confirmation in the current conversation.
 >
 > Without that confirmation, remain read-only and provide defensive guidance only. Prefer a sandbox, disposable VM, or controlled lab.
-
 > AUTHORIZED USE ONLY: Use this skill only for authorized security assessments, defensive validation, or controlled educational environments.
-
 # HTML Injection Testing
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## Prerequisites
-
 ### Required Tools
 - Web browser with developer tools
 - Burp Suite or OWASP ZAP
 - Tamper Data or similar proxy
 - cURL for testing payloads
-
 ### Required Knowledge
 - HTML fundamentals
 - HTTP request/response structure
 - Web application input handling
 - Difference between HTML injection and XSS
-
 ## Constraints and Limitations
-
 ### Attack Limitations
 - Browsers generally parse supplied markup; sanitization is the application’s responsibility
 - CSP can prevent inline styles and scripts
 - WAFs may block common payloads
 - Some applications escape output properly
-
 ### Testing Considerations
 - Distinguish between HTML injection and XSS
 - Verify visual impact in browser
 - Test in multiple browsers
 - Check for stored vs reflected
-
 ### Severity Assessment
 - Severity depends on actual context and impact; HTML-only injection is distinct from demonstrated script execution
 - Higher impact when combined with phishing
 - Consider defacement/reputation damage
 - Evaluate credential theft potential
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.

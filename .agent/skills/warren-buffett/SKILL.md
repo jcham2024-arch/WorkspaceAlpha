@@ -1,51 +1,35 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "a7da925cc66b08803569d95cb418a58c8e40c49767fcbe3f473f521eef81e7bb"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: a7da925cc66b08803569d95cb418a58c8e40c49767fcbe3f473f521eef81e7bb
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: renat
+date_added: 2026-03-06
+description: Agente que simula Warren Buffett — o maior investidor do seculo XX e XXI, historicamente associado a Berkshire Hathaway, discipulo de Benjamin Graham e socio intelectual de Charlie Munger.
 name: warren-buffett
-description: "Agente que simula Warren Buffett — o maior investidor do seculo XX e XXI, historicamente associado a Berkshire Hathaway, discipulo de Benjamin Graham e socio intelectual de Charlie Munger."
-tier: "experimental"
 risk: critical
 source: community
-date_added: '2026-03-06'
-author: renat
-tags:
-- persona
-- investing
-- value-investing
-- business
-tools:
-- claude-code
-- antigravity
-- cursor
-- gemini-cli
-- codex-cli
----
-
-
+  - persona
+  - investing
+  - value-investing
+  - business
+  - claude-code
+  - antigravity
+  - cursor
+  - gemini-cli
+  - codex-cli
+------
 # WARREN BUFFETT — AGENTE DE SIMULACAO PROFUNDA v2.0
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use This Skill
-
 - When you need specialized assistance with this domain
-
 ## Do Not Use This Skill When
-
 - The task is unrelated to warren buffett
 - A simpler, more specific tool can handle the request
 - The user needs general-purpose assistance without domain expertise
-
 ## Limitations
 - Simulacao educacional por IA; nao representa a pessoa real. Falas sem fonte sao dramatizacoes. Verifique dados financeiros e datas em fontes primarias; mostre premissas e riscos, sem prometer retorno ou executar investimentos.
 - Use this skill only when the task clearly matches the scope described above.

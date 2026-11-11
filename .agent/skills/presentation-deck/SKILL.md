@@ -1,91 +1,64 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "5124a66f15792476a8c1d56c14e62b1433d3664a4b0ed61484a0ae72e69b378e"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: presentation-deck
-description: 'Build an evidence-linked slide register after context-first intake. Use when an SME needs a presentation deck, speaker notes, or a structured business story.'
-tier: "experimental"
+content_hash: 5124a66f15792476a8c1d56c14e62b1433d3664a4b0ed61484a0ae72e69b378e
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: WHOISABHISHEKADHIKARI
 category: business
+date_added: 2026-09-27
+description: Build an evidence-linked slide register after context-first intake. Use when an SME needs a presentation deck, speaker notes, or a structured business story.
+name: presentation-deck
 risk: safe
 source: self
-source_type: self
-date_added: "2026-09-27"
-author: WHOISABHISHEKADHIKARI
-tags: [sme, presentation, deck, pitch, slides, storytelling, speaker-notes, data-source, brand-kit, csv, sql, notion]
-tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
+source_type: self
+tags: "[sme, presentation, deck, pitch, slides, storytelling, speaker-notes, data-source, brand-kit, csv, sql, notion]"
+tools: "[]"
 ---
-
-
 # Presentation Deck
-
 **What it is:** the content of a business presentation - what each slide says, why it is
 there, what evidence backs it and what the speaker says while it is on screen.
-
 ## Overview
-
 Works out the smallest useful deck for the business in front of it, then builds it only
 when asked. The default output is a short recommendation, not a slide register. The slide
 register - CSV, SQL DDL, JSON Schema, Notion mapping - is produced on request, from one
 field list and check field names, nullability and constraints across the requested formats before delivery.
-
 Layer: Layer 6: Engage. Fits: Growth stage. Table code: n/a.
-
 **The rule this table exists to enforce:** a slide has one job, and the register names that
 job. `Key Message` is a sentence a listener could repeat afterwards, and `Bullets` is at
 most three supporting points - a slide with six bullets and no key message is a document
 being read out. `Data Source` is required for every slide carrying a number, because a
 figure with no source is the single most common way a business loses a room.
-
 **The second rule:** the deck is a derivative of everything else in this pack. The brand
 tokens are in `design-theme-guide`, the proof in `gbp-local-seo-intent`, the offer in
 `business-website-setup`. A deck built before those exist is a deck of opinions.
-
 ## When to Use This Skill
-
 - presentation, deck, slides, pitch, pitch deck
 - "we have to present to a bank", "investor deck", "client pitch"
 - what should our slides say, story structure, narrative
 - sales deck, proposal deck, board update, team briefing
 - speaker notes, timing, rehearsal
 - turning a report into a presentation
-
 Do not use it for: the printed leave-behind (`brand-kit-print-collateral`), a written
 proposal document, a website page, or the brand identity itself
 (`design-theme-guide`, `logo-image-design`).
-
 ## How It Works
-
 Use the self-contained intake and validation steps below. Related SME modules are optional context sources, not mandatory prerequisites. Existing approved brand, evidence and offer documents can supply that context. Confirm the target and write authorization before external workspace edits; never invent missing business facts.
-
 ### Step 1 - Identify intent
-
 Read the request and pick the intent before asking anything.
-
 - "make" / "build" / "we have to present" -> artifacts wanted; go to Step 2.
 - "review" / "check" / "does this work" -> a check, not a build.
 - "help me structure" / "what should I say" -> a decision question; answer, then offer the
   build.
-
 Ask only if this is the highest-value missing fact; otherwise proceed without an opener:
-
 > **Q:** Who is this presentation for, and what do you want them to decide or do
 > afterwards?
-
 ### Step 2 - Ask only what is missing
-
 Treat ambiguous replies as unanswered and ask which explicit option the user means. Record unknown values as `Unknown`; `Unknown` is not zero. A record must not be `Done` when a required check fails.
-
 Skip anything already answered. Ask the rest one at a time, and stop as soon as the
 remaining answers would not change the slide list.
-
 - **Audience** - Who is in the room - customers, a bank, investors, a board, a partner,
   the team? / What do they already believe about the business? / How many people, and how
   long is the slot?
@@ -99,13 +72,10 @@ remaining answers would not change the slide list.
   be in an appendix?
 - **Setup** - Who presents, and is there a second presenter? / Will it be in person, on a
   call, or recorded? / How much rehearsal time is there?
-
 Never invent an answer. Figures, revenue, growth rates, customer names, dates, market
 sizes and outcomes the user has not supplied are `Unknown`. A business case with invented
 projections is worse than no deck.
-
 ### Step 3 - Hold the internal context
-
 ```yaml
 module: presentation-deck
 intent: null            # set up | review | report | import
@@ -120,33 +90,25 @@ requested_outputs: []
 confirmed_facts: []
 open_questions: []
 ```
-
 ### Step 4 - Recommend the smallest workflow
-
 Build an already requested artifact without asking again. For advice-only requests, give a short recommendation and offer the relevant artifact.
-
 **Recommended approach:** Ten slides, one job each, and one slide per answer to the
 audience's real question rather than one per topic. The opening earns attention with
 something true about the customer, the middle is evidence, and the last two are the ask
 and the next step. Anything that would only matter to someone who already agrees goes in an
 appendix. Numbers carry a source on the slide.
-
 **Why this one:** Ten slides is what a 15-minute slot actually holds, and a deck that runs
 over loses the ask at the end - which is the only part anyone acted on. The reason a
 founder's 40-slide deck fails is not length, it is that no single slide changes what the
 listener believes.
-
 **Workflow:** Audience and the ask agreed → Ten jobs listed, one per slide → Evidence
 mapped to each job → Numbers sourced or removed → Speaker notes written as spoken
 sentences → Tokens and layouts applied → Rehearsed to time → Appendix built → One page of
 "if they ask about X" prepared for the five hardest questions
-
 ### Step 5 - Build only on request
-
 Once the user asks for it, derive the fields from the confirmed context and emit the
 requested artifacts. For machine-readable text, keep prose outside the data; for files,
 provide a usable link. Report material validation failures or limitations separately.
-
 **If installed and selected, `notion-manual-import` can render the
 Notion step. Otherwise use the inline mapping as a manual draft and verify the actual workspace schema before import.** When the user selects Notion, hand that step to
 @notion-manual-import: it holds the CSV, the property
@@ -156,12 +118,10 @@ here and do not improvise the import steps. Manual CSV and mapping outputs need 
 connection. For requested workspace changes, follow the shared contract: verify actual
 tool access and the target before writing. A user saying "connected" is not tool evidence.
 Never ask for a Notion password or token.
-
 ```csv
 Slide ID,Slide Number,Section,Slide Title,Key Message,Bullets,Visual,Speaker Notes,Data Source,Duration Minutes,Sensitivity,Audience,Template Layout,Brand Token Applied,Version,Status,Owner,Notes
 ,1,Open,We started from one customer complaint,"Three customers asked the same thing in one month, and we built the service for it","The same request, three times; What we built; Who it is for",One photograph of the real premises,"This is the only slide that needs to be remembered if the rest is forgotten. Say it in a sentence, then stop talking.",Not applicable,1.5,Public,Bank and prospective partner,Title and single image,color.brand.primary on color.surface.page,1.0,Draft,Unknown,Example row - replace every value before use.
 ```
-
 ```sql
 -- Engine assumption: PostgreSQL. For another engine use the engine's auto-increment
 -- equivalent and keep the rest portable.
@@ -189,12 +149,10 @@ CREATE TABLE deck_slide (
   CONSTRAINT deck_slide_number_positive CHECK (slide_number > 0),
   CONSTRAINT deck_slide_duration_non_negative CHECK (duration_minutes IS NULL OR duration_minutes >= 0)
 );
-
 CREATE INDEX idx_deck_slide_status ON deck_slide (status);
 CREATE INDEX idx_deck_slide_section ON deck_slide (section);
 CREATE UNIQUE INDEX idx_deck_slide_number_version ON deck_slide (slide_number, version);
 ```
-
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -237,7 +195,6 @@ CREATE UNIQUE INDEX idx_deck_slide_number_version ON deck_slide (slide_number, v
   ]
 }
 ```
-
 ```markdown
 | CSV column | Notion property | Set after import |
 |---|---|---|
@@ -260,13 +217,10 @@ CREATE UNIQUE INDEX idx_deck_slide_number_version ON deck_slide (slide_number, v
 | Owner | Text | Leave as Text. Who presents it and who builds it may be two people |
 | Notes | Text | Leave as Text |
 ```
-
 The rows above are documentation examples only. Emit empty templates unless the user explicitly requests examples. `Data Source` reads `Not applicable` only on a
 slide that genuinely carries no figure; on any slide with a number it must name where that
 number came from.
-
 ## Field Reference
-
 | # | Field | Type | SQL | JSON Schema | Notion | CSV example |
 |---:|---|---|---|---|---|---|
 | 1 | Slide ID | `id` | `BIGINT PRIMARY KEY` | `integer` | Text or Notion auto-ID | `(blank)` |
@@ -287,49 +241,35 @@ number came from.
 | 16 | Status | `select` | `VARCHAR(50)` | `string` | Select | `Draft` |
 | 17 | Owner | `text` | `VARCHAR(255)` | `string` | Text | `Unknown` |
 | 18 | Notes | `long_text` | `TEXT` | `string` | Text | *(blank)* |
-
 ## Select Options
-
 **Section** - the eight sections a ten-slide business deck divides into. `Ask` is not
 optional: if the deck has no ask slide, the presentation had no purpose.
-
 ```
 Open | Problem | Solution | Evidence | Business | Ask | Next Step | Appendix
 ```
-
 **Visual** - one per slide, and `None` is allowed only for a title or a section break. A
 chart that says nothing is decoration; delete it.
-
 ```
 Photograph | Chart | Table | Diagram | Screenshot | Single figure | Quotation | None
 ```
-
 **Sensitivity** - `Confidential` slides must not go into a version that is emailed to
 everyone, and a redacted public version is a different version, not the same one with a
 slide hidden.
-
 ```
 Public | Internal | Confidential
 ```
-
 **Status** - `Presented` closes the loop, so the register shows what was actually shown
 and when.
-
 ```
 Outline | Draft | In review | Approved | Presented
 ```
-
 ## Relations
-
 None standalone. `Brand Token Applied` names tokens from `design-theme-guide`; confirm
 whether the business wants that joined. `Data Source` may name a table in
 `seo-directory-backlinks` or a metric in an analytics tool - a text reference unless the
 business confirms a live join.
-
 ## The ten-slide structure
-
 The recommended shape. Adapt it, but keep the order of the ask and the next step.
-
 | # | Section | The job | What earns it |
 |---:|---|---|---|
 | 1 | Open | Earn attention with something true | A real customer, a real problem, a real photograph. Not a logo animation |
@@ -342,21 +282,15 @@ The recommended shape. Adapt it, but keep the order of the ask and the next step
 | 8 | Business | Why this business and not another | The differentiator, stated as a fact rather than a claim |
 | 9 | Ask | What is being asked for, and by when | The specific thing - money, a decision, a trial, an introduction - and the date |
 | 10 | Next Step | Exactly what happens next, and who does it | A name, an action, a date. The slide that makes the meeting worth having |
-
 Appendix: anything a technically-minded listener may ask about, so it is available and
 does not derail the ten.
-
 ## Examples
-
 **Prompt**
-
 ```
 Our bank wants a five-minute presentation on Monday. There is an existing 30-slide
 template that has been used for other loans. We have no idea what to put in it.
 ```
-
 **Context first** - one question per message, nothing already answered:
-
 > **Q:** Who is this presentation for, and what do you want them to decide or do
 > afterwards?
 > **A:** Our bank manager. We want the loan approved.
@@ -372,9 +306,7 @@ template that has been used for other loans. We have no idea what to put in it.
 >
 > **Q:** Who is presenting, and how much rehearsal time is there?
 > **A:** The founder, and we have Sunday.
-
 **Recommended next step** - offered, not built:
-
 > Ten slides on the existing template, not twenty. The first earns attention with the
 > 400 customers and a photograph of the shop. Two slides of proof, with the revenue figure
 > in the confidential version and removed from the public one. The ask on slide 9 with the
@@ -387,9 +319,7 @@ template that has been used for other loans. We have no idea what to put in it.
 > Rehearsed to time → Appendix built → Hardest questions prepared
 >
 > Want the CSV, SQL DDL, JSON Schema and Notion mapping for this?
-
 ## Best Practices
-
 - Build when requested; recommend and offer a build for advice-only requests.
 - One question per message. A batched intake reads as a form and gets guessed at.
 - One job per slide, and the job written as a sentence in `Key Message`. If two jobs
@@ -418,9 +348,7 @@ template that has been used for other loans. We have no idea what to put in it.
 - After the meeting, write down what was asked. The next deck is usually a third of the work.
 - Derive all four artifacts from the field list in this file, never by hand.
 - If the user requests an example row, keep it obviously fake so nobody imports it as a real slide.
-
 ## Limitations
-
 - This is a content plan. It does not build slides, attach a template, or open a deck
   application.
 - It has no access to the business's accounts, analytics, CRM or platform, so it cannot
@@ -442,9 +370,7 @@ template that has been used for other loans. We have no idea what to put in it.
   requirements, are jurisdiction specific. Ask what applies; never supply the wording.
 - This skill cannot assess how well the presenter will deliver it. Rehearsal is not a
   content task.
-
 ## Security & Safety Notes
-
 - Never invent a figure, a customer name, a date, a price, a market size, a projection or
   an outcome. `Unknown` and blank are correct.
 - Never paste real financial statements, payroll figures, customer data or bank details
@@ -465,9 +391,7 @@ template that has been used for other loans. We have no idea what to put in it.
 - Local reads, generation commands, and validation are part of a requested artifact build.
   External writes, messages, provisioning, and publication require authorization for that
   action and target; existing explicit authorization does not need to be repeated.
-
 ## Common Pitfalls
-
 - **Problem:** a static mapping is described as a completed workspace build.
   **Solution:** deliver manual mappings without a connection; claim a live change only
   after the authorized tool operation succeeds.
@@ -497,7 +421,4 @@ template that has been used for other loans. We have no idea what to put in it.
   **Solution:** derive all four from the field list in this file, never by hand.
 - **Problem:** Notion import shows every column as Text.
   **Solution:** that is expected. Apply the property mapping table once, after import.
-
-
 See the [Related Skills](references/related-skills.md) reference for the full guidance.
-

@@ -1,37 +1,25 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "6f07c424b59195817a15748215a4083c4070d1116634a395995f88026333247b"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: web-games
+content_hash: 6f07c424b59195817a15748215a4083c4070d1116634a395995f88026333247b
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: >-
-tier: "experimental"
-  Web browser game development. Framework selection (Phaser, PixiJS, Kaplay,
+name: web-games
+risk: none
+source: community
+---  Web browser game development. Framework selection (Phaser, PixiJS, Kaplay,
   Canvas/WebGL, Three.js, Babylon.js), hybrid DOM+canvas, WebGPU, optimization,
   PWA, audio unlock. Use when building HTML5/WebGL/WebGPU games or choosing a
   browser runtime.
-risk: none
-source: community
-date_added: "2026-02-27"
 ---
-
-
 # Web Browser Game Development
-
 > Framework selection and browser-specific principles. For stack choice details see `game-development/engine-selection`.
-
 ---
-
 ## 1. Framework Selection
-
 ### Decision Tree
-
 ```
 What type of game?
 │
@@ -52,9 +40,7 @@ What type of game?
 └── Narrative-first
     └── Ink (inkjs) or Twine export + DOM host
 ```
-
 ### Comparison
-
 | Framework | Type | Best For |
 |-----------|------|----------|
 | **Raw Canvas / WebGL** | 2D / low-level | Small scope, full control |
@@ -63,87 +49,58 @@ What type of game?
 | **PixiJS 8** | 2D renderer | Rendering, custom systems |
 | **Three.js** | 3D renderer | Visualizations, lightweight 3D |
 | **Babylon.js** | 3D engine | Full engine, XR |
-
 ### Hybrid shell + guest
-
 Use when chrome is HTML (menus, inventories, text, dashboards) but bursts of play need a canvas:
-
 1. Mount guest in a container; pass context in.
 2. Run a **local** game loop in the guest.
 3. Return results (score, pass/fail); **destroy** guest (RAF, listeners, GL context as needed).
-
 Do not let the guest own global app routing unless the product *is* a full-screen game.
-
 ---
-
 ## 2. WebGPU Adoption
-
 ### Runtime support
-
 WebGPU support depends on browser version, OS, adapter, driver and secure context; do not infer availability from a browser-name table or a historical global percentage. See [MDN WebGPU](https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API).
-
 ### Decision
-
 - **New GPU-heavy projects**: Use WebGPU with WebGL fallback
 - **Broad legacy / simple 2D**: Start with WebGL or Canvas 2D
 - **Feature detection**: Check `navigator.gpu`, handle a null `requestAdapter()` result, device creation failures and device loss; offer a tested fallback
-
 ---
-
 ## 3. Performance Principles
-
 ### Browser Constraints
-
 | Constraint | Strategy |
 |------------|----------|
 | Local files require user-granted access or selected file input | Respect permissions; bundle public assets |
 | Tab throttling | Pause when hidden (`visibilitychange`) |
 | Mobile data limits | Compress assets |
 | Audio autoplay | Require user interaction |
-
 ### Optimization Priority
-
 1. **Asset compression** - KTX2, Draco, WebP
 2. **Lazy loading** - Load on demand
 3. **Object pooling** - Avoid GC
 4. **Draw call batching** - Reduce state changes
 5. **Web Workers** - Offload heavy computation
-
 ---
-
 ## 4. Asset Strategy
-
 | Type | Format |
 |------|--------|
 | Textures | KTX2 + Basis Universal (or WebP/PNG for simple 2D) |
 | Audio | WebM/Opus (fallback: MP3) |
 | 3D Models | glTF + Draco/Meshopt |
-
 | Phase | Load |
 |-------|------|
 | Startup | Core assets, <2MB |
 | Gameplay | Stream on demand |
 | Background | Prefetch next level |
-
 ---
-
 ## 5. PWA for Games
-
 **Benefits:** offline play, install, fullscreen, optional push.
 **Installation:** requirements vary by browser; use an appropriate web app manifest and secure context. A service worker is useful for offline behavior but is not universally an installation prerequisite. Explicitly implement and test cache/version updates and offline recovery; installation alone does not provide offline gameplay. [Installability guidance](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable).
-
 ---
-
 ## 6. Audio Handling
-
 - Create/resume `AudioContext` on first click/tap
 - Prefer Web Audio API; reuse decoded AudioBuffers, but create a new AudioBufferSourceNode for each playback (source nodes are one-shot); preload common SFX
 - Compress with WebM/Opus when possible
-
 ---
-
 ## 7. Anti-Patterns
-
 | ❌ Don't | ✅ Do |
 |----------|-------|
 | Load all assets upfront | Progressive loading |
@@ -152,17 +109,11 @@ WebGPU support depends on browser version, OS, adapter, driver and secure contex
 | Skip compression | Compress everything |
 | Assume fast connection | Handle slow networks |
 | Leave canvas engines running off-screen | Tear down guests |
-
 ---
-
 > **Remember:** Browser is the most accessible platform. Respect its constraints.
-
 ## When to Use
-
 Use when building HTML5/WebGL/WebGPU games, choosing a browser runtime, or wiring hybrid DOM+canvas guests.
-
 ## Limitations
-
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

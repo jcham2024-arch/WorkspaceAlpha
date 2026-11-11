@@ -1,125 +1,88 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "73f96d66c00f557db96808ff3866ceff6fd09d76eef3a27caa409c8b886a1005"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-storage-queue-py
+content_hash: 73f96d66c00f557db96808ff3866ceff6fd09d76eef3a27caa409c8b886a1005
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Azure Queue Storage SDK for Python. Use for reliable message queuing, task distribution, and asynchronous processing.
-tier: "experimental"
+name: azure-storage-queue-py
 risk: critical
 source: community
-date_added: '2026-02-27'
 ---
-
-
 # Azure Queue Storage SDK for Python
-
 Simple, cost-effective message queuing for asynchronous communication.
-
 ## Installation
-
 ```bash
 pip install azure-storage-queue azure-identity
 ```
-
 ## Environment Variables
-
 ```bash
 AZURE_STORAGE_ACCOUNT_URL=https://<account>.queue.core.windows.net
 ```
-
 ## Authentication
-
 ```python
 from azure.identity import DefaultAzureCredential
 from azure.storage.queue import QueueServiceClient, QueueClient
-
 credential = DefaultAzureCredential()
 account_url = "https://<account>.queue.core.windows.net"
-
 # Service client
 service_client = QueueServiceClient(account_url=account_url, credential=credential)
-
 # Queue client
 queue_client = QueueClient(account_url=account_url, queue_name="myqueue", credential=credential)
 ```
-
 Examples are independent fragments, not a run-all script. Confirm account/queue and whether reads may change visibility; use peek for observational checks. Receiving/deleting/clearing impacts other consumers and needs explicit scope. Bound message count/time/bytes, handle poison messages, and make processing idempotent because delivery can repeat. Do not delete a message until durable processing succeeds; replace placeholder processing before execution. Preserve the latest pop receipt after updates and reconcile ambiguous outcomes before retrying. Close both async clients and credentials in failure paths.
-
 ## Queue Operations
-
 ```python
 # Create queue
 service_client.create_queue("myqueue")
-
 # Get queue client
 queue_client = service_client.get_queue_client("myqueue")
-
 # Delete queue
 service_client.delete_queue("myqueue")
-
 # List queues
 for queue in service_client.list_queues():
     print(queue.name)
 ```
-
 ## Send Messages
-
 ```python
 # Send message (string)
 queue_client.send_message("Hello, Queue!")
-
 # Send with options
 queue_client.send_message(
     content="Delayed message",
     visibility_timeout=60,  # Hidden for 60 seconds
     time_to_live=3600       # Expires in 1 hour
 )
-
 # Send JSON
 import json
 data = {"task": "process", "id": 123}
 queue_client.send_message(json.dumps(data))
 ```
-
 ## Receive Messages
-
 ```python
 # Receive messages (makes them invisible temporarily)
 messages = queue_client.receive_messages(
     messages_per_page=10,
     visibility_timeout=30  # 30 seconds to process
 )
-
 for message in messages:
     print(f"ID: {message.id}")
     # Do not log message payloads.
     print(f"Dequeue count: {message.dequeue_count}")
-    
     # Process message...
-    
     # Delete after processing
     queue_client.delete_message(message)
 ```
-
 ## Peek Messages
-
 ```python
 # Peek without hiding (doesn't affect visibility)
 messages = queue_client.peek_messages(max_messages=5)
-
 for message in messages:
     # Inspect only authorized synthetic content; do not log payloads.
 ```
-
 ## Update Message
-
 ```python
 # Extend visibility or update content
 messages = queue_client.receive_messages()
@@ -129,7 +92,6 @@ for message in messages:
         message,
         visibility_timeout=60
     )
-    
     # Update content and timeout
     queue_client.update_message(
         message,
@@ -137,9 +99,7 @@ for message in messages:
         visibility_timeout=60
     )
 ```
-
 ## Delete Message
-
 ```python
 # Delete after successful processing
 messages = queue_client.receive_messages()
@@ -151,36 +111,27 @@ for message in messages:
         # Message becomes visible again after timeout
         pass
 ```
-
 ## Clear Queue
-
 ```python
 # Delete all messages
 queue_client.clear_messages()
 ```
-
 ## Queue Properties
-
 ```python
 # Get queue properties
 properties = queue_client.get_queue_properties()
 print(f"Approximate message count: {properties.approximate_message_count}")
-
 # Set/get metadata
 queue_client.set_queue_metadata(metadata={"environment": "production"})
 properties = queue_client.get_queue_properties()
 print(properties.metadata)
 ```
-
 ## Async Client
-
 ```python
 from azure.storage.queue.aio import QueueServiceClient, QueueClient
 from azure.identity.aio import DefaultAzureCredential
-
 async def queue_operations():
     credential = DefaultAzureCredential()
-    
     async with QueueClient(
         account_url="https://<account>.queue.core.windows.net",
         queue_name="myqueue",
@@ -188,21 +139,16 @@ async def queue_operations():
     ) as client:
         # Send
         await client.send_message("Async message")
-        
         # Receive
         async for message in client.receive_messages():
             # Inspect only authorized synthetic content; do not log payloads.
             await client.delete_message(message)
-
 import asyncio
 asyncio.run(queue_operations())
 ```
-
 ## Base64 Encoding
-
 ```python
 from azure.storage.queue import QueueClient, BinaryBase64EncodePolicy, BinaryBase64DecodePolicy
-
 # For binary data
 queue_client = QueueClient(
     account_url=account_url,
@@ -211,13 +157,10 @@ queue_client = QueueClient(
     message_encode_policy=BinaryBase64EncodePolicy(),
     message_decode_policy=BinaryBase64DecodePolicy()
 )
-
 # Send bytes
 queue_client.send_message(b"Binary content")
 ```
-
 ## Best Practices
-
 1. **Delete messages after processing** to prevent reprocessing
 2. **Set appropriate visibility timeout** based on processing time
 3. **Handle `dequeue_count`** for poison message detection
@@ -225,10 +168,8 @@ queue_client.send_message(b"Binary content")
 5. **Use `peek_messages`** for monitoring without affecting queue
 6. **Set `time_to_live`** to prevent stale messages
 7. **Consider Service Bus** for advanced features (sessions, topics)
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

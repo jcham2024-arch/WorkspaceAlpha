@@ -1,72 +1,50 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "7530fed2133466473ee11f39fbde6becb6c59ba835d3e132073933db31ab748c"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: devops-deploy
-description: "DevOps e deploy de aplicacoes — Docker, CI/CD com GitHub Actions, AWS Lambda, SAM, Terraform, infraestrutura como codigo e monitoramento."
-tier: "experimental"
+content_hash: 7530fed2133466473ee11f39fbde6becb6c59ba835d3e132073933db31ab748c
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: renat
+date_added: 2026-03-06
+description: DevOps e deploy de aplicacoes — Docker, CI/CD com GitHub Actions, AWS Lambda, SAM, Terraform, infraestrutura como codigo e monitoramento.
+name: Deploy Auri
 risk: critical
 source: community
-date_added: '2026-03-06'
-author: renat
-tags:
-- devops
-- docker
-- ci-cd
-- aws
-- terraform
-- github-actions
-tools:
-- claude-code
-- antigravity
-- cursor
-- gemini-cli
-- codex-cli
----
-
-
+  - devops
+  - docker
+  - ci-cd
+  - aws
+  - terraform
+  - github-actions
+  - claude-code
+  - antigravity
+  - cursor
+  - gemini-cli
+  - codex-cli
+version: 3.9
+------
 # DEVOPS-DEPLOY — Da Ideia para Producao
-
 ## Overview
-
 DevOps e deploy de aplicacoes — Docker, CI/CD com GitHub Actions, AWS Lambda, SAM, Terraform, infraestrutura como codigo e monitoramento. Ativar para: dockerizar aplicacao, configurar pipeline CI/CD, deploy na AWS, Lambda, ECS, configurar GitHub Actions, Terraform, rollback, blue-green deploy, health checks, alertas.
-
 ## When to Use This Skill
-
 - When you need specialized assistance with this domain
-
 ## Do Not Use This Skill When
-
 - The task is unrelated to devops deploy
 - A simpler, more specific tool can handle the request
 - The user needs general-purpose assistance without domain expertise
-
 ## Limites de execucao
-
 Os exemplos alteram infraestrutura paga e podem publicar ou apagar recursos. Confirmar conta, regiao, stack, custos e rollback antes de executar. Notificacoes Telegram exigem autorizacao explicita; retirar esse passo quando nao solicitado. Scripts e arquivos da aplicacao nao estao incluidos; fixar versoes e revisar o plano antes de qualquer deploy sem confirmacao.
-
 ## How It Works
-
 > "Move fast and don't break things." — Engenharia de elite nao e lenta.
 > E rapida e confiavel ao mesmo tempo.
-
 ---
-
 ## Dockerfile Otimizado (Python)
-
 ```dockerfile
 FROM python:3.11-slim AS builder
 WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir --user -r requirements.txt
-
 FROM python:3.11-slim
 WORKDIR /app
 COPY --from=builder /root/.local /root/.local
@@ -77,11 +55,8 @@ EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=3s CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=2)" || exit 1
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
-
 ## Docker Compose (Dev Local)
-
 ```yaml
-version: "3.9"
 services:
   app:
     build: .
@@ -104,18 +79,12 @@ services:
 volumes:
   pgdata:
 ```
-
 ---
-
 ## Sam Template (Serverless)
-
 ```yaml
-
 ## Template.Yaml
-
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-
 Globals:
   Function:
     Timeout: 30
@@ -124,12 +93,10 @@ Globals:
       Variables:
         ANTHROPIC_API_KEY: !Ref AnthropicApiKey
         DYNAMODB_TABLE: !Ref AuriTable
-
 Parameters:
   AnthropicApiKey:
     Type: String
     NoEcho: true
-
 Resources:
   AuriFunction:
     Type: AWS::Serverless::Function
@@ -140,7 +107,6 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref AuriTable
-
   AuriTable:
     Type: AWS::DynamoDB::Table
     Properties:
@@ -156,44 +122,28 @@ Resources:
         AttributeName: ttl
         Enabled: true
 ```
-
 ## Deploy Commands
-
 ```bash
-
 ## Build E Deploy
-
 sam build
 sam deploy --guided  # primeira vez
 sam deploy           # deploys seguintes
-
 ## Deploy Rapido (Sem Confirmacao)
-
 sam deploy --no-confirm-changeset --no-fail-on-empty-changeset
-
 ## Ver Logs Em Tempo Real
-
 sam logs -n AuriFunction --tail
-
 ## Deletar Stack
-
 sam delete
 ```
-
 ---
-
 ## .Github/Workflows/Deploy.Yml
-
 ```yaml
-
-name: Deploy Auri
 
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -204,7 +154,6 @@ jobs:
       - run: pip install -r requirements.txt
       - run: pytest tests/ -v --cov=src --cov-report=xml
       - uses: codecov/codecov-action@v4
-
   security:
     runs-on: ubuntu-latest
     steps:
@@ -212,7 +161,6 @@ jobs:
       - run: pip install bandit safety
       - run: bandit -r src/ -ll
       - run: safety check -r requirements.txt
-
   deploy:
     needs: [test, security]
     if: github.ref == 'refs/heads/main'
@@ -233,18 +181,13 @@ jobs:
             -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
             -d "text=Auri deployed successfully! Commit: ${{ github.sha }}"
 ```
-
 ---
-
 ## Health Check Endpoint
-
 ```python
 from fastapi import FastAPI
 import time, os
-
 app = FastAPI()
 START_TIME = time.time()
-
 @app.get("/health")
 async def health():
     return {
@@ -254,12 +197,9 @@ async def health():
         "environment": os.environ.get("ENV", "production")
     }
 ```
-
 ## Alertas Cloudwatch
-
 ```python
 import boto3
-
 def create_error_alarm(function_name: str, sns_topic_arn: str):
     cw = boto3.client("cloudwatch")
     cw.put_metric_alarm(
@@ -276,11 +216,8 @@ def create_error_alarm(function_name: str, sns_topic_arn: str):
         TreatMissingData="notBreaching"
     )
 ```
-
 ---
-
 ## 5. Checklist De Producao
-
 - [ ] Variaveis de ambiente via Secrets Manager (nunca hardcoded)
 - [ ] Health check endpoint respondendo
 - [ ] Logs estruturados (JSON) com request_id
@@ -291,11 +228,8 @@ def create_error_alarm(function_name: str, sns_topic_arn: str):
 - [ ] CloudWatch alarmes para erros e latencia
 - [ ] Rollback plan documentado
 - [ ] Load test antes do lancamento
-
 ---
-
 ## 6. Comandos
-
 | Comando | Acao |
 |---------|------|
 | `/docker-setup` | Dockeriza a aplicacao |
@@ -304,26 +238,18 @@ def create_error_alarm(function_name: str, sns_topic_arn: str):
 | `/monitoring-setup` | Configura CloudWatch e alertas |
 | `/production-checklist` | Roda checklist pre-lancamento |
 | `/rollback` | Plano de rollback para versao anterior |
-
 ## Best Practices
-
 - Provide clear, specific context about your project and requirements
 - Review all suggestions before applying them to production code
 - Combine with other complementary skills for comprehensive analysis
-
 ## Common Pitfalls
-
 - Using this skill for tasks outside its domain expertise
 - Applying recommendations without understanding your specific context
 - Not providing enough project context for accurate analysis
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Linux](platforms/linux.md)

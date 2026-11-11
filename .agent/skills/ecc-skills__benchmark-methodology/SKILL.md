@@ -1,40 +1,27 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "dd8a5e77d53b739b67dfc6cfc1dc9a51c7eb76a331de2705548e8e9f605444df"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: benchmark-methodology
-description: "Score a scoped competitor set into comparable profile cards: nine weighted dimensions (positioning, voice, visual craft, offer packaging, evidence, enterprise-readiness, thought leadership, pricing, client tension) with 1-5 evidence-anchored rubrics and a tension 2x2 plot. Use when benchmarking or scoring competitors, building a competitive comparison matrix, or grading rival positioning before assembling the report; runs after competitive-platform-analysis and before competitive-report-structure."
-tier: "experimental"
+content_hash: dd8a5e77d53b739b67dfc6cfc1dc9a51c7eb76a331de2705548e8e9f605444df
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+description: ""Score a scoped competitor set into comparable profile cards: nine weighted dimensions (positioning, voice, visual craft, offer packaging, evidence, enterprise-readiness, thought leadership, pricing, client tension) with 1-5 evidence-anchored rubrics and a tension 2x2 plot. Use when benchmarking or scoring competitors, building a competitive comparison matrix, or grading rival positioning before assembling the report; runs after competitive-platform-analysis and before competitive-report-structure.""
 license: MIT
+name: benchmark-methodology
 ---
-
-
 # Benchmark Methodology
-
 Use this skill to turn a scoped competitor set into **comparable, defensible
 scores**. Each competitor is assessed on the same nine dimensions, with
 explicit 1–5 rubrics, then captured in a uniform profile card. Consistency is
 the point: scores are only useful if the same evidence would earn the same
 number for any competitor.
-
 ## When to Activate
-
 - A scoped, tiered competitor set from competitive-platform-analysis is ready to score.
 - Need comparable, evidence-anchored scores across competitors — not gut-feel rankings.
 - Client's strategic tension (the paired axes defining their target white-space) has been established.
 - Preparing to produce profile cards for assembly in competitive-report-structure.
-
 ## Client positioning brief (establish first)
-
 Before scoring, establish the client's positioning brief. It supplies:
-
 - **Strategic tension** — the two axes (e.g., memorability × hireability) whose
   intersection marks the client's target white-space. Dimension 9 is always
   the client's named tension; report both poles separately, never averaged.
@@ -42,20 +29,15 @@ Before scoring, establish the client's positioning brief. It supplies:
   dimensions matter most for the client's positioning argument.
 - **Brand balance** — the intended mix of distinct strategic emphases. Strategic
   recommendations must not break this balance without flagging it.
-
 ## Why these dimensions
-
 The client competes on a **specific tension held across two poles**, not on
 service breadth. The dimensions are weighted to reflect that moat. Two
 dimensions — the tension poles — are scored **separately and never averaged
 together**, because the client's strategic question is precisely whether a rival
 achieves both simultaneously.
-
 ## The nine dimensions (with weights)
-
 Weights guide synthesis emphasis, not a single blended score (avoid a false
 composite — see Bias controls). Sum = 100%.
-
 1. **Positioning clarity & distinctiveness** (18%) — Is the studio's position
    sharp, ownable, and instantly legible? Or generic?
 2. **Brand voice / verbal distinctiveness** (15%) — Does the copy have an
@@ -77,12 +59,9 @@ composite — see Bias controls). Sum = 100%.
    client's positioning brief. Plot both; the gap is the insight. The client's
    target quadrant is the single most important finding: who else is already
    there?
-
 ## Scoring rubric (1–5, applies to dimensions 1–8)
-
 Anchor every score to observable evidence. Generic descriptors below; adapt the
 specifics per dimension but keep the level meaning constant.
-
 - **1 — Absent / generic.** No discernible position or craft; indistinguishable
   from a template. Active liability.
 - **2 — Below par.** Some intent but inconsistent, derivative, or unconvincing.
@@ -93,25 +72,18 @@ specifics per dimension but keep the level meaning constant.
   would notice and cite.
 - **5 — Category-defining.** Best-in-class, ownable, hard to imitate. Sets the
   bar others react to.
-
 ### Tension axes (dimension 9) — score each 1–5
-
 Read the axis labels and their 1/3/5 anchors from the client's positioning
 brief. Example anchors for a memorability × credibility tension:
-
 - **Memorability** — 1: forgotten instantly · 3: recognizable in context ·
   5: unforgettable, talked-about, distinctively owned.
 - **Credibility** — 1: feels risky/amateur · 3: safe, competent,
   unexciting · 5: enterprise-trusted, obvious safe choice.
-
 Plot competitors on the tension 2×2. The client's target quadrant is named in
 the positioning brief. Who else occupies that quadrant is the single most
 important finding of the benchmark.
-
 ## How to collect the data
-
 For each competitor, work the dimensions in this order (cheapest signal first):
-
 1. **Competitor's own site** — positioning, voice, offer packaging, pricing
    posture, named clients, manifesto/POV. Screenshot the homepage + one case
    study.
@@ -125,12 +97,9 @@ For each competitor, work the dimensions in this order (cheapest signal first):
 5. **Portfolio / craft platforms** — craft register (use the showcase native to
    the niche: design boards, showreels, published samples, etc.).
 6. **Content channels** — newsletter/talks/writing → thought-leadership depth.
-
 **What to record per dimension:** the score, one-line justification, and the
 source link/screenshot that earned it. No score without evidence.
-
 ## Bias controls
-
 - **No single composite score.** Report dimension scores and the tension plot
   separately. A weighted average hides the asymmetry that matters.
 - **Asserted vs proven.** Downgrade credibility/evidence scores for
@@ -146,19 +115,15 @@ source link/screenshot that earned it. No score without evidence.
 - **Calibrate across the set, not in isolation.** Before finalizing, re-read
   scores side-by-side — a "4" must mean the same thing for every competitor.
   Adjust outliers.
-
 ## Competitor profile card (output format)
-
 Produce one card per profiled competitor — the atomic unit the report assembles
 from:
-
 ```
 ## <Competitor name>
 - **Profile / Tier:** <positioning stance · specialization · size band> / <Direct | Adjacent | Aspirational>
 - **One-liner:** <how they position themselves, in their words>
 - **Model / size / geography:** <solo|micro|boutique> · <region> · <pricing/engagement model>
 - **Notable clients / evidence:** <named, with proven/asserted tag>
-
 ### Dimension scores
 | Dimension | Score (1–5) | Justification (1 line) | Source |
 |---|---|---|---|
@@ -170,29 +135,22 @@ from:
 | Enterprise-readiness / commercial maturity | | | |
 | Thought leadership / content presence | | | |
 | Pricing transparency & engagement model | | | |
-
 ### Tension plot
 - **[Axis 1 from positioning brief]:** <1–5> — <why>
 - **[Axis 2 from positioning brief]:** <1–5> — <why>
 - **Quadrant:** <high/high | high-1/low-2 | low-1/high-2 | low/low>
-
 ### Read for [client]
 - **Strength to learn from:** <…>
 - **Weakness to exploit / white-space it exposes:** <…>
 - **Threat to [client]:** <…>
 ```
-
 Hand the completed cards plus the tension plot to `competitive-report-structure`.
-
 ## Anti-Patterns
-
 - **Averaging the tension axes.** The two poles of the client's strategic tension must be scored and reported separately. Averaging destroys the insight — the gap between poles is the finding.
 - **Scoring without evidence.** Every score requires a one-line justification and a source link. A score without evidence is an opinion, not a benchmark.
 - **Creating a single composite score.** Report dimension scores individually. A weighted average hides the asymmetric strengths that matter for positioning.
 - **Applying generic rubric anchors without adapting.** The 1–5 anchors must be calibrated to the specific dimension and competitor set. The generic descriptions are a starting point, not a fixed standard.
 - **Running before the competitor set is scoped.** Use competitive-platform-analysis first to produce a tiered, pruned set. Scoring an unscoped list wastes effort on irrelevant competitors.
-
 ## Related Skills
-
 - `competitive-platform-analysis` — the prerequisite; produces the tiered competitor set this skill scores.
 - `competitive-report-structure` — the next step; assembles the scored profile cards into a client-deliverable report.

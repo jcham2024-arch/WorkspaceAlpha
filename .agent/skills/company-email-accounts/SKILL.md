@@ -1,90 +1,61 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "338f0fb551dd4863c828fbcdbeba0f023d93201a79440b97535fe834621e49be"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: company-email-accounts
-description: 'Mailbox and licence register: employee, account type, aliases, groups, tool, licence cost, 2FA and password policy state, and access-review dates. Use for account provisioning.'
-tier: "experimental"
+content_hash: 338f0fb551dd4863c828fbcdbeba0f023d93201a79440b97535fe834621e49be
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: WHOISABHISHEKADHIKARI
 category: business
+date_added: 2026-09-26
+description: "'Mailbox and licence register: employee, account type, aliases, groups, tool, licence cost, 2FA and password policy state, and access-review dates. Use for account provisioning.'"
+name: company-email-accounts
 risk: safe
 source: self
-source_type: self
-date_added: "2026-09-26"
-author: WHOISABHISHEKADHIKARI
-tags: [sme, business, operations, database, csv, notion, sql, onboard]
-tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
+source_type: self
+tags: "[sme, business, operations, database, csv, notion, sql, onboard]"
+tools: "[]"
 ---
-
-
 # Company Email & Accounts
-
 **What it is:** Work email, groups and tool accounts for every person.
-
 ## Overview
-
 Works out the smallest useful **Company Email & Accounts** setup for the business in front of it, then
 builds it only when asked. The default output is a short recommendation, not a
 spreadsheet. Artifacts - CSV, SQL DDL, JSON Schema, Notion mapping - are produced on
 request, from one field list so they cannot drift apart.
-
 Layer: Layer 3: Onboard. Fits: Starter stage. Table code: n/a.
-
 ## When to Use This Skill
-
 - company email accounts
 - work account register
 - google workspace account list
 - tool account tracker
-
 Also use it when the user says "work email, groups and tool accounts for every person", or describes the same process happening in a
 spreadsheet, a document or someone inboxes.
-
 Do not use it for: payroll calculation, tax filing, or legal advice. This skill produces
 empty templates only - it never holds or processes real employee or customer data.
-
 ## How It Works
-
 No shared execution-contract file is bundled; use this file’s bounded template workflow and the current host’s authorization rules. The module-specific rules below define only domain fields, decisions, calculations, and safety constraints.
-
 ### Step 1 - Identify intent
-
 Read the request and pick the intent before asking anything.
-
 - "set up" or "build" or "create" -> the user wants artifacts; go to Step 2.
 - "our process is ..." or "it is in a sheet" -> the user wants to move an existing process; capture it, then Step 2.
 - "is this right" or "review" or "audit" -> the user wants a check, not a build; answer from what they share.
 - "how do I ..." -> advice question; answer directly and offer the build only if it helps.
-
 Ask only if this is the highest-value missing fact; otherwise proceed without an opener:
-
 > **Q:** Which tools need an account per person?
-
 ### Step 2 - Ask only what is missing
-
 Skip anything the user already answered, in any earlier message. Ask the rest one at a
 time, and stop as soon as the remaining answers would not change the output.
-
 - **Tools** - Which systems? / Google Workspace? / Any paid tools?
 - **Accounts** - Who is admin? / Backup admin? / Per user or per device?
 - **Security** - Two-factor required? / Password manager? / Shared logins in use?
 - **Current process** - Where is the list now? / Admin console or nothing? / Orphaned accounts?
 - **Outcome** - What do you need? / An account register, provisioning or removal?
-
 Never invent an answer. If the user does not know, record it as unknown and carry on.
-
 ### Step 3 - Hold the internal context
-
 Hold the answers in this shape. It stays internal - it is not shown to the user unless
 they ask, and it never carries a value the user did not give.
-
 ```yaml
 module: company-email-accounts
 intent: null            # setup | advice | review | fix | build | convert | export
@@ -99,39 +70,28 @@ requested_outputs: []   # csv | sql | json | notion | xlsx - requested formats o
 confirmed_facts: []     # only what the user actually said
 open_questions: []      # the unanswered ones, in the order worth asking
 ```
-
 ### Step 4 - Recommend the smallest workflow
-
 If an artifact was requested, build it after resolving essential missing facts. Otherwise give a short recommendation and offer the relevant artifact.
-
 **Recommended approach:** Build an account register tied to people records, then provision and remove from that one list.
-
 **Why this one:** Account sprawl is a security problem, not an admin problem. A register supports reconciliation but does not itself discover or revoke access, sessions, keys, groups or delegated permissions.
-
 **Workflow:** Joiner → Create accounts → Assign tools → Leave → Remove access → Log
-
 **The one rule that makes this register mean anything:** `Access Removed Date` is empty for as long as the
 account is live, and is set on the day access is actually removed. Never pre-fill it with a planned or
 probable leaver date, because a removal date that was only a forecast is indistinguishable from one that
 happened, and the register is read to answer "does this person still have access". A record that is `Active`
 with a removal date is a contradiction: fix the status or clear the date, never leave both. `Closed` must carry verified removal evidence/date. `Pending Offboarding` remains undated until removal is actually verified; do not mark it complete from a planned leave date.
-
 **Security columns are facts, not targets.** `Two Factor On`, `Recovery Email Set` and `Password Policy Met`
 record what is true now. They are not a to-do list and must never be pre-set to TRUE to close a ticket. When
 one is FALSE, `Status` may be `Active` - the account genuinely exists - and the fix is the review, not a
 reclassification. Never disable a control in order to make a record look compliant.
-
 **Recurring review needs a due date.** `Last Access Review` alone cannot go stale, because it always shows the
 most recent review and never says the next one is late. `Next Review Due` carries the deadline; a review is
 overdue when the due date has passed and `Last Access Review` is still earlier than it. Do not add a `Review
 Frequency` field unless the user states one - the cadence is theirs, not this module's to invent.
-
 ### Step 5 - Build only on request
-
 Once the user asks for it, derive the fields from the confirmed context and emit the
 requested artifacts. For machine-readable text, keep prose outside the data; for files,
 provide a usable link. Report material validation failures or limitations separately.
-
 **A selected Notion output is rendered by `notion-manual-import`, so route the
 Notion step there.** When the user selects Notion, hand that step to
 @notion-manual-import: it holds the CSV, the property
@@ -141,19 +101,15 @@ here and do not improvise the import steps. Manual CSV and mapping outputs need 
 connection. For requested workspace changes, follow the shared contract: verify actual
 tool access and the target before writing. A user saying "connected" is not tool evidence.
 Never ask for a Notion password or token.
-
 For an Excel-compatible CSV, use UTF-8 with a byte order mark so Excel opens the
 text correctly. A CSV is not an `.xlsx` workbook; create `.xlsx` only when the user
 requests a workbook.
 A CSV carries no types, so after it, name the columns
 that need a number, date or currency format applied.
-
 ```csv
 Account Record,Employee Name,Department,Account Type,Work Email,Aliases,Email Groups,Tool or System,Licence Type,Licence Cost,Currency,Created Date,Created By,Two Factor On,Recovery Email Set,Password Policy Met,Last Access Review,Next Review Due,Access Removed Date,Handover To,Status,Notes,Account ID
 ACC-EXAMPLE-001,Example Employee,Delivery,Work Email,employee@example.com,"employee, e.surname","all-staff, delivery-team",Example Mail Service,Per User,1200.00,INR,2026-01-15,Example Requester,TRUE,FALSE,FALSE,2026-02-28,2026-02-28,2026-02-28,Example Successor,Closed,Contract ended 2026-02-28. Access removed and mailbox handed to the Example Successor; licences not reassigned.,ACC-001
-
 ```
-
 ```sql
 CREATE TABLE company_email_accounts (
   account_record VARCHAR(255) NOT NULL UNIQUE,
@@ -188,12 +144,9 @@ CREATE TABLE company_email_accounts (
   CHECK (licence_cost IS NULL OR licence_cost >= 0)
   -- Late reviews are real history: never reject last_access_review > old due date.
   -- Advance next_review_due after completed review under the approved cadence.
-
 );
-
 CREATE INDEX idx_company_email_accounts_status ON company_email_accounts (status);
 ```
-
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -235,7 +188,6 @@ CREATE INDEX idx_company_email_accounts_status ON company_email_accounts (status
   ]
 }
 ```
-
 ```markdown
 | CSV column | Notion property | Set after import |
 |---|---|---|
@@ -263,12 +215,9 @@ CREATE INDEX idx_company_email_accounts_status ON company_email_accounts (status
 | Notes | Text | Leave as Text |
 | Account ID | Text (preserve source ID) | Keep imported IDs as Text; optionally add a separate Unique ID property |
 ```
-
 The rows above are documentation examples only. Emit empty templates unless the user explicitly requests examples. Money stays `currency`, dates stay `date`,
 and anything pointing at another table stays `relation`.
-
 ## Field Reference
-
 | # | Field | Type | SQL | JSON Schema | Notion | CSV example |
 |---:|---|---|---|---|---|---|
 | 1 | Account Record | `text` | `VARCHAR(255) NOT NULL UNIQUE` | `string` | Title | `ACC-EXAMPLE-001` |
@@ -294,45 +243,32 @@ and anything pointing at another table stays `relation`.
 | 21 | Status | `select` | `VARCHAR(100)` | `string` | Select | `Closed` |
 | 22 | Notes | `long_text` | `TEXT` | `string` | Text | `Contract ended 2026-02-28. Access removed and mailbox handed to the Example Successor; licences not reassigned.` |
 | 23 | Account ID | `id` | `VARCHAR(255) PRIMARY KEY` | `string` | Text (preserve source ID) | `ACC-001` |
-
 ## Select Options
-
 **Account Type**
-
 ```
 Work Email | Shared Mailbox | Tool Account | Group Address
 ```
 **Licence Type**
-
 ```
 Per User | Per Team | Shared
 ```
 **Status**
-
 ```
 Active | Suspended | Pending Offboarding | Closed
 ```
-
 ## Relations
-
 Link fields: none
-
 `Email Groups` and `Handover To` are **not** relations. `Email Groups` is a denormalised comma-separated list of
 group addresses, and `Handover To` is a person named inline rather than a foreign key. The directory table that
 owns people is not part of this build, so no Notion `Relation` is created here and inventing a target database is
 forbidden. `Link fields: none` therefore means this table holds no foreign key, not that the register has no
 linkage to people - the linkage is by name, and it will drift from the directory.
-
 ## Examples
-
 **Prompt**
-
 ```
 People leave and their tool logins stay active for months.
 ```
-
 **Context first** - one question per message, nothing already answered:
-
 > **Q:** Which tools?
 > **A:** Google, Slack and the CRM.
 >
@@ -341,35 +277,27 @@ People leave and their tool logins stay active for months.
 >
 > **Q:** How do you track it?
 > **A:** Nowhere.
-
 **Recommended next step** - offered, not built:
-
 > Build an account register tied to people records, then provision and remove from that one list.
 >
 > Workflow: Joiner → Create accounts → Assign tools → Leave → Remove access → Log
 >
 > Want the CSV, SQL, JSON Schema and Notion mapping for this?
-
 ## Best Practices
-
 - Build when requested; recommend and offer a build for advice-only requests.
 - One question per message. A batched intake reads as a form and gets guessed at.
 - Keep display names identical across CSV and JSON; document normalized SQL identifiers.
 - Use `relation` for anything that points at another table, `text` only for free text.
 - Money fields are `currency`, never `text`. Dates are `date`, never free text.
 - If the user requests an example row, keep it obviously fake so nobody imports it as real data.
-
 ## Limitations
-
 - Empty template only. It does not compute payroll, tax, leave balances or KPIs.
 - Notion relations need both databases imported before the link column resolves.
 - Select options are a starting set. Rename them to match how the business talks.
 - No automation, reminders or sync. Those need the integration layer.
 - Does not create or delete accounts. It only records what should exist.
 - Legal, tax and HR review is still required before this drives real decisions.
-
 ## Security & Safety Notes
-
 - Never fill in real names, salaries, medical or banking data. Placeholders only.
 - Label example rows as synthetic, and keep bank details masked.
 - Local reads, generation commands, and validation are part of a requested artifact build.
@@ -380,9 +308,7 @@ People leave and their tool logins stay active for months.
   from the conversation or service storage.
 - Privacy, legal and disciplinary cases need a qualified human reviewer before anything
   is acted on.
-
 ## Common Pitfalls
-
 - **Problem:** a static mapping is described as a completed workspace build.
   **Solution:** deliver manual mappings without a connection; claim a live change only
   after the authorized tool operation succeeds.
@@ -398,25 +324,18 @@ People leave and their tool logins stay active for months.
   **Solution:** `Last Access Review` is a history field and never goes stale on its own. `Next Review Due` is the deadline; compare the two instead of reading the last date as the current state.
 - **Problem:** Notion import shows every column as Text.
   **Solution:** that is expected. Apply the property mapping table once, after import.
-
 ## Related Skills
-
 - [Module Catalog](https://github.com/sickn33/agentic-awesome-skills/blob/main/CATALOG.md) - find the relevant module, then read its skill.
 - @people-directory - the employee master record most modules link to.
 - @notification-reminder-hub - turns due dates in this module into reminders.
-
 ## Reusable Prompt
-
 ```
 I want to set up work email, groups and tool accounts for every person for my company.
 Ask me one short question at a time, and only about what I have not already told you.
 Then recommend the smallest setup that fits, and wait for me to ask before you build it.
 When I ask, output CSV, SQL DDL, JSON Schema, a Notion property mapping or an Excel workbook. Data only.
 ```
-
-
 ## Artifact and review boundaries
-
 One row is one account in one system, not one employee with all systems collapsed.
 Use stable provider/account and employee identifiers when integrating a directory;
 name matching alone can collide/drift. The text account ID above is supplied by the
@@ -425,7 +344,6 @@ Notion checkboxes cannot represent unknown without a separate status/tri-state f
 Record cost billing period/tax/currency before summing; no mixed-currency totals.
 JSON Schema does not enforce cross-field dates/status here; application validation
 must apply the same Closed/removal invariant and actual calendar dates.
-
 Example: an Active account with no removal date is valid; a Pending Offboarding
 account is still unverified access; Closed without a verified removal date is invalid.
 A review completed after a missed deadline must retain the actual late completion,

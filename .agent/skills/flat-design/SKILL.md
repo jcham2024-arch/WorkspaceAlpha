@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "7bb942ff316c437c3300140d090d3fdf8008e02589e51aebe9342f28d3d9fe7b"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: flat-design
+content_hash: 7bb942ff316c437c3300140d090d3fdf8008e02589e51aebe9342f28d3d9fe7b
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for the Flat Design style. Trigger when the user wants no shadows, simple shapes, and bold colors.
-tier: "experimental"
-date_added: "2026-06-17"
+name: flat-design
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Flat Design
-
 > "Digital surfaces should look digital. Embrace the 2D plane."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Zero Depth**: Absolutely no drop shadows, bevels, gradients, or 3D effects. Everything sits on the same z-axis.
 2. **Sharp & Simple Geometries**: Perfect circles, sharp rectangles. No complex organic shapes.
 3. **High Contrast Solid Colors**: Rely on stark contrast between solid blocks of color to delineate space.
-
 ## Visual DNA
 - **Colors**: Pairs well with **Industrial Chic** or **Modern Editorial**. Avoid gradients entirely.
 - **Typography**: Strong, highly legible sans-serifs (e.g., `Roboto`, `Open Sans`). Keep it medium to bold.
 - **Icons**: Solid, monochromatic, glyph-style icons without intricate details.
-
 ## Web Implementation
 - Rely entirely on background colors and borders for structure.
 - **CSS Example**:
@@ -61,9 +48,7 @@ Use this sub-style when the user's request matches the aesthetic described above
   opacity: 0.8; /* Only change opacity or solid color on hover, no lifting */
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct FlatCard: View {
@@ -71,11 +56,9 @@ struct FlatCard: View {
         VStack(alignment: .leading, spacing: 16) {
             Text("Card Title")
                 .font(.system(size: 18, weight: .bold))
-            
             Text("Content without any depth effects.")
                 .font(.system(size: 15))
                 .foregroundColor(.secondary)
-            
             Button(action: {}) {
                 Text("ACTION")
                     .font(.system(size: 14, weight: .bold))
@@ -99,7 +82,6 @@ struct FlatCard: View {
 - Never use `.shadow()` or `.cornerRadius()`. Elements are flat rectangles.
 - Use `.overlay(Rectangle().stroke(...))` for visible borders instead of shadows to delineate space.
 - Hover/tap states should only change `opacity` or swap a solid background color.
-
 ### Flutter
 ```dart
 class FlatCard extends StatelessWidget {
@@ -151,7 +133,6 @@ class FlatCard extends StatelessWidget {
   )
   ```
 - Use `Container` with `BoxDecoration` instead of `Card` widget to avoid default elevation.
-
 ### React Native
 ```jsx
 const FlatCard = () => (
@@ -189,7 +170,6 @@ const FlatCard = () => (
 - Explicitly set `elevation: 0` and remove ALL shadow properties (`shadowColor`, `shadowOffset`, etc.).
 - If using React Native Paper, override the theme: `const theme = { ...DefaultTheme, roundness: 0, }`.
 - Tap feedback should change `backgroundColor` directly, not add glow or lift.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -223,11 +203,9 @@ fun FlatCard() {
 - Override `MaterialTheme` shapes: `shapes = Shapes(small = RectangleShape, medium = RectangleShape, large = RectangleShape)`.
 - Set all elevation to `0.dp` on `Card`, `TopAppBar`, and `FloatingActionButton`.
 - Use `Modifier.border()` instead of elevation to separate UI regions.
-
 ## Do's and Don'ts
 - **DO**: Use solid, contrasting borders to separate overlapping elements.
 - **DON'T**: Use any transparency (rgba) or blur effects.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

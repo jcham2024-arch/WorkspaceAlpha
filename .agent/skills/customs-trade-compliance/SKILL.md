@@ -1,43 +1,30 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "56de8066e0d2c9b661f1ffb8c1c9d41b3db49471f2f637eca09003223a48813c"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: customs-trade-compliance
+content_hash: 56de8066e0d2c9b661f1ffb8c1c9d41b3db49471f2f637eca09003223a48813c
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Codified expertise for customs documentation, tariff classification, duty optimisation, restricted party screening, and regulatory compliance across multiple jurisdictions.
-tier: "experimental"
+name: customs-trade-compliance
 risk: safe
-source: https://github.com/ai-evos/agent-skills
-date_added: '2026-02-27'
+source: "https://github.com/ai-evos/agent-skills"
 ---
-
-
 # Customs & Trade Compliance
-
 ## When to Use
-
 Use to prepare classification, origin, valuation, documentation, screening and
 post-entry review analyses for a specified shipment and jurisdiction. Draft
 broker instructions or questions; do not file entries, certify origin, release
 held goods, pay duties, block property or contact regulators without authority.
-
 ## Establish the Applicable Facts
-
 Obtain the importing/exporting jurisdiction, entry date and procedure, actual
 product specifications and manufacturing history, parties/ownership, end use,
 route, invoices, costs and declared Incoterms version/named place. Record the
 applicable tariff/regulation version and source checked. Separate classification,
 non-preferential origin, preferential origin, export jurisdiction, export-control
 classification and sanctions: an HS code does not decide all six.
-
 ## Workflow
-
 1. **Classification:** Read the current heading text and legal Section/Chapter
    Notes under GRI 1. Apply further GRIs where applicable, including incomplete
    goods/mixtures, specificity, essential character and numerical order. GRI 2(b)
@@ -68,9 +55,7 @@ classification and sanctions: an HS code does not decide all six.
    Have the broker/counsel identify the applicable correction, reconciliation,
    protest, preference or disclosure route. A normal correction is not
    automatically a legally valid prior disclosure.
-
 ## Concrete Corrections to Common Shortcuts
-
 - For US transaction value, international freight/insurance are generally
   excluded subject to documented applicable rules; EU customs value generally
   includes transport/insurance to the place of introduction. Do not reverse
@@ -91,32 +76,24 @@ classification and sanctions: an HS code does not decide all six.
 - Retention is regime-specific: do not apply a universal five-year limit to OFAC
   records, whose general requirement was extended to ten years. Preserve legal
   holds and longer contract/program obligations.
-
 ## Example Output
-
 For a hypothetical CIF invoice, show goods price, separately evidenced freight
 and insurance, any assists/royalties, proposed US and EU adjustments and the
 supporting legal basis. Label the result **draft valuation for broker review**.
 If freight is unsupported or related-party pricing unresolved, list the missing
 records instead of inventing a deduction or declaring the entry ready.
-
 ## Escalation and Deliverable
-
 Return a fact table, dated primary authorities, proposed analysis with alternative
 headings/methods, calculations, missing evidence, deadlines and authorised owner.
 Escalate potential evasion, sanctions matches, forced labour, seizure, ambiguous
 jurisdiction and disclosure decisions to qualified compliance counsel. Preserve
 truthful evidence; do not infer wrongdoing from routing, nationality or price
 alone. Do not promise duty savings, licences, refunds or penalty mitigation.
-
 ## References
-
 - [Decision frameworks and primary sources](references/decision-frameworks.md)
 - [Ten edge cases](references/edge-cases.md)
 - [Draft communication templates](references/communication-templates.md)
-
 ## Limitations
-
 No current tariff, sanctions database or filing integration is bundled. Legal
 rules, rates, product scopes and deadlines change. Verify the actual transaction
 against current official sources and the responsible broker/legal owner; this

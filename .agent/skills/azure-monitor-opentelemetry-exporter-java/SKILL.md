@@ -1,33 +1,22 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "25916e53d175b5f71d13faf74ba9cff5ae387c79965369a8fa91b858b86460fc"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-monitor-opentelemetry-exporter-java
+content_hash: 25916e53d175b5f71d13faf74ba9cff5ae387c79965369a8fa91b858b86460fc
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Azure Monitor OpenTelemetry Exporter for Java. Export OpenTelemetry traces, metrics, and logs to Azure Monitor/Application Insights.
-tier: "experimental"
+name: azure-monitor-opentelemetry-exporter-java
 risk: critical
 source: community
-date_added: '2026-02-27'
 ---
-
-
 # Azure Monitor OpenTelemetry Exporter for Java
-
 > **⚠️ DEPRECATION NOTICE**: This package is deprecated. Migrate to `azure-monitor-opentelemetry-autoconfigure`.
 >
 > See [Migration Guide](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/MIGRATION.md) for detailed instructions.
-
 Export OpenTelemetry telemetry data to Azure Monitor / Application Insights.
-
 ## Installation (Deprecated)
-
 ```xml
 <dependency>
     <groupId>com.azure</groupId>
@@ -35,9 +24,7 @@ Export OpenTelemetry telemetry data to Azure Monitor / Application Insights.
     <version>1.0.0-beta.x</version>
 </dependency>
 ```
-
 ## Recommended: Use Autoconfigure Instead
-
 ```xml
 <dependency>
     <groupId>com.azure</groupId>
@@ -45,54 +32,39 @@ Export OpenTelemetry telemetry data to Azure Monitor / Application Insights.
     <version>REPLACE_WITH_REVIEWED_COMPATIBLE_VERSION</version>
 </dependency>
 ```
-
 ## Environment Variables
-
 ```bash
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=xxx;IngestionEndpoint=https://xxx.in.applicationinsights.azure.com/
 ```
-
 ## Version and telemetry scope
-
 Resolve an actual compatible version from the linked official migration/package docs; placeholder versions are not buildable dependencies. Configuring exporters is not proof every application library is instrumented: verify trace/metric/log export for the pinned integration and do not initialize duplicate SDKs. Redact sensitive attributes/exceptions, use an approved telemetry destination and manage SDK shutdown/flush through the application lifecycle.
-
 ## Basic Setup with Autoconfigure (Recommended)
-
 ### Using Environment Variable
-
 ```java
 import io.opentelemetry.sdk.autoconfigure.AutoConfiguredOpenTelemetrySdk;
 import io.opentelemetry.sdk.autoconfigure.AutoConfiguredOpenTelemetrySdkBuilder;
 import io.opentelemetry.api.OpenTelemetry;
 import com.azure.monitor.opentelemetry.exporter.AzureMonitorExporter;
-
 // Connection string from APPLICATIONINSIGHTS_CONNECTION_STRING env var
 AutoConfiguredOpenTelemetrySdkBuilder sdkBuilder = AutoConfiguredOpenTelemetrySdk.builder();
 AzureMonitorExporter.customize(sdkBuilder);
 OpenTelemetry openTelemetry = sdkBuilder.build().getOpenTelemetrySdk();
 ```
-
 ### With Explicit Connection String
-
 ```java
 AutoConfiguredOpenTelemetrySdkBuilder sdkBuilder = AutoConfiguredOpenTelemetrySdk.builder();
 AzureMonitorExporter.customize(sdkBuilder, "{connection-string}");
 OpenTelemetry openTelemetry = sdkBuilder.build().getOpenTelemetrySdk();
 ```
-
 ## Creating Spans
-
 ```java
 import io.opentelemetry.api.trace.Tracer;
 import io.opentelemetry.api.trace.Span;
 import io.opentelemetry.context.Scope;
-
 // Get tracer
 Tracer tracer = openTelemetry.getTracer("com.example.myapp");
-
 // Create span
 Span span = tracer.spanBuilder("myOperation").startSpan();
-
 try (Scope scope = span.makeCurrent()) {
     // Your application logic
     doWork();
@@ -103,76 +75,59 @@ try (Scope scope = span.makeCurrent()) {
     span.end();
 }
 ```
-
 ## Adding Span Attributes
-
 ```java
 import io.opentelemetry.api.common.AttributeKey;
 import io.opentelemetry.api.common.Attributes;
-
 Span span = tracer.spanBuilder("processOrder")
     .setAttribute("order.id", "12345")
     .setAttribute("customer.tier", "premium")
     .startSpan();
-
 try (Scope scope = span.makeCurrent()) {
     // Add attributes during execution
     span.setAttribute("items.count", 3);
     span.setAttribute("total.amount", 99.99);
-    
     processOrder();
 } finally {
     span.end();
 }
 ```
-
 ## Custom Span Processor
-
 ```java
 import io.opentelemetry.sdk.trace.SpanProcessor;
 import io.opentelemetry.sdk.trace.ReadWriteSpan;
 import io.opentelemetry.sdk.trace.ReadableSpan;
 import io.opentelemetry.context.Context;
-
 private static final AttributeKey<String> CUSTOM_ATTR = AttributeKey.stringKey("custom.attribute");
-
 SpanProcessor customProcessor = new SpanProcessor() {
     @Override
     public void onStart(Context context, ReadWriteSpan span) {
         // Add custom attribute to every span
         span.setAttribute(CUSTOM_ATTR, "customValue");
     }
-
     @Override
     public boolean isStartRequired() {
         return true;
     }
-
     @Override
     public void onEnd(ReadableSpan span) {
         // Post-processing if needed
     }
-
     @Override
     public boolean isEndRequired() {
         return false;
     }
 };
-
 // Register processor
 AutoConfiguredOpenTelemetrySdkBuilder sdkBuilder = AutoConfiguredOpenTelemetrySdk.builder();
 AzureMonitorExporter.customize(sdkBuilder);
-
 sdkBuilder.addTracerProviderCustomizer(
     (sdkTracerProviderBuilder, configProperties) -> 
         sdkTracerProviderBuilder.addSpanProcessor(customProcessor)
 );
-
 OpenTelemetry openTelemetry = sdkBuilder.build().getOpenTelemetrySdk();
 ```
-
 ## Nested Spans
-
 ```java
 public void parentOperation() {
     Span parentSpan = tracer.spanBuilder("parentOperation").startSpan();
@@ -182,7 +137,6 @@ public void parentOperation() {
         parentSpan.end();
     }
 }
-
 public void childOperation() {
     // Automatically links to parent via Context
     Span childSpan = tracer.spanBuilder("childOperation").startSpan();
@@ -193,9 +147,7 @@ public void childOperation() {
     }
 }
 ```
-
 ## Recording Exceptions
-
 ```java
 Span span = tracer.spanBuilder("riskyOperation").startSpan();
 try (Scope scope = span.makeCurrent()) {
@@ -208,41 +160,32 @@ try (Scope scope = span.makeCurrent()) {
     span.end();
 }
 ```
-
 ## Metrics (via OpenTelemetry)
-
 ```java
 import io.opentelemetry.api.metrics.Meter;
 import io.opentelemetry.api.metrics.LongCounter;
 import io.opentelemetry.api.metrics.LongHistogram;
-
 Meter meter = openTelemetry.getMeter("com.example.myapp");
-
 // Counter
 LongCounter requestCounter = meter.counterBuilder("http.requests")
     .setDescription("Total HTTP requests")
     .setUnit("requests")
     .build();
-
 requestCounter.add(1, Attributes.of(
     AttributeKey.stringKey("http.method"), "GET",
     AttributeKey.longKey("http.status_code"), 200L
 ));
-
 // Histogram
 LongHistogram latencyHistogram = meter.histogramBuilder("http.latency")
     .setDescription("Request latency")
     .setUnit("ms")
     .ofLongs()
     .build();
-
 latencyHistogram.record(150, Attributes.of(
     AttributeKey.stringKey("http.route"), "/api/users"
 ));
 ```
-
 ## Key Concepts
-
 | Concept | Description |
 |---------|-------------|
 | Connection String | Application Insights connection string with instrumentation key |
@@ -250,16 +193,12 @@ latencyHistogram.record(150, Attributes.of(
 | Span | Represents a unit of work with timing and attributes |
 | SpanProcessor | Intercepts span lifecycle for customization |
 | Exporter | Sends telemetry to Azure Monitor |
-
 ## Migration to Autoconfigure
-
 The `azure-monitor-opentelemetry-autoconfigure` package provides:
 - Automatic instrumentation of common libraries
 - Simplified configuration
 - Better integration with OpenTelemetry SDK
-
 ### Migration Steps
-
 1. Replace dependency:
    ```xml
    <!-- Remove -->
@@ -267,18 +206,14 @@ The `azure-monitor-opentelemetry-autoconfigure` package provides:
        <groupId>com.azure</groupId>
        <artifactId>azure-monitor-opentelemetry-exporter</artifactId>
    </dependency>
-   
    <!-- Add -->
    <dependency>
        <groupId>com.azure</groupId>
        <artifactId>azure-monitor-opentelemetry-autoconfigure</artifactId>
    </dependency>
    ```
-
 2. Update initialization code per [Migration Guide](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/MIGRATION.md)
-
 ## Best Practices
-
 1. **Use autoconfigure** — Migrate to `azure-monitor-opentelemetry-autoconfigure`
 2. **Set meaningful span names** — Use descriptive operation names
 3. **Add relevant attributes** — Include contextual data for debugging
@@ -286,9 +221,7 @@ The `azure-monitor-opentelemetry-autoconfigure` package provides:
 5. **Use semantic conventions** — Follow OpenTelemetry semantic conventions
 6. **End spans in finally** — Ensure spans are always ended
 7. **Use try-with-resources** — Scope management with try-with-resources pattern
-
 ## Reference Links
-
 | Resource | URL |
 |----------|-----|
 | Maven Package | https://central.sonatype.com/artifact/com.azure/azure-monitor-opentelemetry-exporter |
@@ -297,10 +230,8 @@ The `azure-monitor-opentelemetry-autoconfigure` package provides:
 | Autoconfigure Package | https://central.sonatype.com/artifact/com.azure/azure-monitor-opentelemetry-autoconfigure |
 | OpenTelemetry Java | https://opentelemetry.io/docs/languages/java/ |
 | Application Insights | https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview |
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

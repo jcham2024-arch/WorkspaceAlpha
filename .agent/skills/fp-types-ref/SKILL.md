@@ -1,34 +1,24 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "a19b9ab4af463c02f248c00f025541621995418758e93a84a03b8e428b8c09f1"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: fp-types-ref
+content_hash: a19b9ab4af463c02f248c00f025541621995418758e93a84a03b8e428b8c09f1
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-03-06
 description: Quick reference for fp-ts types. Use when user asks which type to use, needs Option/Either/Task decision help, or wants fp-ts imports.
-tier: "experimental"
+name: fp-types-ref
 risk: safe
 source: community
-date_added: "2026-03-06"
+tags: "[fp-ts, typescript, quick-reference, option, either, task]"
 version: 1.0.0
-tags: [fp-ts, typescript, quick-reference, option, either, task]
 ---
-
-
 # fp-ts Quick Reference
-
 ## When to Use
 - You need help choosing between `Option`, `Either`, `Task`, `TaskEither`, or related fp-ts types.
 - The task is about imports, decision guidance, or selecting the right abstraction for a TypeScript flow.
 - You want a compact reference for common fp-ts type choices and patterns.
-
 ## Which Type Should I Use?
-
 ```
 Is the operation async?
 ├─ NO: Does it involve errors?
@@ -42,13 +32,10 @@ Is the operation async?
         ├─ YES → TaskOption<Value>
         └─ NO → Task<Value>
 ```
-
 ## Common Imports
-
 ```typescript
 // Core
 import { pipe, flow } from 'fp-ts/function'
-
 // Types
 import * as O from 'fp-ts/Option'      // Maybe exists
 import * as E from 'fp-ts/Either'      // Success or failure
@@ -56,9 +43,7 @@ import * as TE from 'fp-ts/TaskEither' // Async + failure
 import * as T from 'fp-ts/Task'        // Lazy async; no typed error channel
 import * as A from 'fp-ts/Array'       // Array utilities
 ```
-
 ## One-Line Patterns
-
 | Need | Code |
 |------|------|
 | Wrap nullable | `O.fromNullable(value)` |
@@ -68,30 +53,23 @@ import * as A from 'fp-ts/Array'       // Array utilities
 | Wrap try/catch | `E.tryCatch(() => risky(), toError)` |
 | Wrap async | `TE.tryCatch(() => fetch(url), toError)` |
 | Run pipe | `pipe(value, fn1, fn2, fn3)` |
-
 ## Pattern Match
-
 ```typescript
 // Option
 pipe(maybe, O.match(
   () => 'nothing',
   (val) => `got ${val}`
 ))
-
 // Either
 pipe(result, E.match(
   (err) => `error: ${err}`,
   (val) => `success: ${val}`
 ))
 ```
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## Reference scope
-
 These are fp-ts 2.x fragments. Supply application variables, types, validators and imports, and check the installed version. `map` does not catch thrown exceptions. `Task` has no typed error channel; an improperly wrapped promise can still reject. Use `tryCatch` at fallible boundaries.
-
 Official API: [fp-ts modules](https://gcanti.github.io/fp-ts/modules/).

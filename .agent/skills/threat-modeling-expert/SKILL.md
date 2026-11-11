@@ -1,29 +1,19 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "c4f8755284190f1cf23a10f760cf808b3ec4ea3ad5adcc83bf7bca61af29912b"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: c4f8755284190f1cf23a10f760cf808b3ec4ea3ad5adcc83bf7bca61af29912b
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Expert in threat modeling methodologies, security architecture review, and risk assessment. Masters STRIDE, PASTA, attack trees, and security requirement extraction. Use PROACTIVELY for security architecture reviews, threat identification, or building secure-by-design systems.
 name: threat-modeling-expert
-description: "Expert in threat modeling methodologies, security architecture review, and risk assessment. Masters STRIDE, PASTA, attack trees, and security requirement extraction. Use PROACTIVELY for security architecture reviews, threat identification, or building secure-by-design systems."
-tier: "experimental"
 risk: safe
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # Threat Modeling Expert
-
 Expert in threat modeling methodologies, security architecture review, and risk assessment. Masters STRIDE, PASTA, attack trees, and security requirement extraction. Use PROACTIVELY for security architecture reviews, threat identification, or building secure-by-design systems.
-
 ## Capabilities
-
 - STRIDE threat analysis
 - Attack tree construction
 - Data flow diagram analysis
@@ -31,9 +21,7 @@ Expert in threat modeling methodologies, security architecture review, and risk 
 - Risk prioritization and scoring
 - Mitigation strategy design
 - Security control mapping
-
 ## Use this skill when
-
 - Designing new systems or features
 - Reviewing architecture for security gaps
 - Preparing for security audits
@@ -41,15 +29,11 @@ Expert in threat modeling methodologies, security architecture review, and risk 
 - Prioritizing security investments
 - Creating security documentation
 - Training teams on security thinking
-
 ## Do not use this skill when
-
 - You lack scope or authorization for security review
 - You need legal or compliance certification
 - You only need automated scanning without human review
-
 ## Instructions
-
 1. Define system scope and trust boundaries
 2. Create data flow diagrams
 3. Identify assets and entry points
@@ -58,14 +42,10 @@ Expert in threat modeling methodologies, security architecture review, and risk 
 6. Score and prioritize threats
 7. Design mitigations
 8. Document residual risks
-
 ## Safety
-
 - Avoid storing sensitive details in threat models without access controls.
 - Keep threat models updated after architecture changes.
-
 ## Best Practices
-
 - Involve developers in threat modeling sessions
 - Focus on data flows, not just components
 - Consider insider threats
@@ -73,13 +53,9 @@ Expert in threat modeling methodologies, security architecture review, and risk 
 - Link threats to security requirements
 - Track mitigations to implementation
 - Review regularly, not just at design time
-
 ## Example
-
 **User request:**
-
 > Design new systems or features.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

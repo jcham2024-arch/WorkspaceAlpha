@@ -1,55 +1,39 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "1c49542ca1f8a99b1519ab5aceaf89b4a267c3a27ed88993dd5bb675a154f1a9"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: postgres-readonly-queries
-description: "Execute safe read-only SQL queries against PostgreSQL databases with multi-connection support and defense-in-depth write protection."
-tier: "experimental"
+content_hash: 1c49542ca1f8a99b1519ab5aceaf89b4a267c3a27ed88993dd5bb675a154f1a9
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: sanjay3290
 category: data
+date_added: 2026-07-09
+description: Execute safe read-only SQL queries against PostgreSQL databases with multi-connection support and defense-in-depth write protection.
+license: Apache-2.0
+license_source: ""https://github.com/sanjay3290/ai-skills/blob/main/LICENSE""
+name: postgres-readonly-queries
 risk: critical
-source: https://github.com/sanjay3290/ai-skills/tree/main/skills/postgres
+source: "https://github.com/sanjay3290/ai-skills/tree/main/skills/postgres"
 source_repo: sanjay3290/ai-skills
 source_type: community
-date_added: "2026-07-09"
-author: sanjay3290
-tags: [postgres, sql, database, read-only]
-tools: [claude, cursor, gemini]
-license: "Apache-2.0"
-license_source: "https://github.com/sanjay3290/ai-skills/blob/main/LICENSE"
+tags: "[postgres, sql, database, read-only]"
+tools: "[claude, cursor, gemini]"
 ---
-
-
 # PostgreSQL Read-Only Query Skill
-
 ## When to Use
-
 - Use when querying PostgreSQL databases and access must stay strictly read-only
 - Use when exploring schemas, tables, and data across multiple configured connections
 - Use when you want defense-in-depth protection against accidental INSERT/UPDATE/DELETE or DDL
-
 Execute safe, read-only queries against configured PostgreSQL databases.
-
 ## Requirements
-
 - Python 3.8+
 - psycopg2-binary: `pip install -r requirements.txt`
-
 ## Setup
-
 Create `connections.json` in the skill directory or `~/.config/claude/postgres-connections.json`.
-
 **Security**: Set file permissions to `600` since it contains credentials:
 ```bash
 chmod 600 connections.json
 ```
-
 ```json
 {
   "databases": [
@@ -66,9 +50,7 @@ chmod 600 connections.json
   ]
 }
 ```
-
 ### Config Fields
-
 | Field | Required | Description |
 |-------|----------|-------------|
 | name | Yes | Identifier for the database (case-insensitive) |
@@ -79,49 +61,37 @@ chmod 600 connections.json
 | user | Yes | Username |
 | password | Yes | Password |
 | sslmode | No | SSL mode: disable, allow, verify-full (default), require, verify-ca, verify-full |
-
 ## Usage
-
 ### List configured databases
 ```bash
 python3 scripts/query.py --list
 ```
-
 ### Query a database
 ```bash
 python3 scripts/query.py --db production --query "SELECT * FROM users LIMIT 10"
 ```
-
 ### List tables
 ```bash
 python3 scripts/query.py --db production --tables
 ```
-
 ### Show schema
 ```bash
 python3 scripts/query.py --db production --schema
 ```
-
 ### Limit results
 ```bash
 python3 scripts/query.py --db production --query "SELECT * FROM orders" --limit 100
 ```
-
 ## Database Selection
-
 Match user intent to database `description`:
-
 | User asks about | Look for description containing |
 |-----------------|--------------------------------|
 | users, accounts | users, accounts, customers |
 | orders, sales | orders, transactions, sales |
 | analytics, metrics | analytics, metrics, reports |
 | logs, events | logs, events, audit |
-
 If unclear, run `--list` and ask user which database.
-
 ## Safety Features
-
 - **Read-only session**: Connection uses PostgreSQL `readonly=True` mode (primary protection)
 - **Query validation**: Conservative keyword/semicolon checks, not a SQL parser or authorization boundary
 - **Single statement**: Multiple statements per query rejected
@@ -130,9 +100,7 @@ If unclear, run `--list` and ask user which database.
 - **Display cap**: At most 10,000 rows printed; the client/server may still buffer or compute a much larger result
 - **Column width cap**: 100 char max per column for readable output
 - **Credential sanitization**: Error messages don't leak passwords
-
 ## Troubleshooting
-
 | Error | Solution |
 |-------|----------|
 | Config not found | Create `connections.json` in skill directory |
@@ -140,21 +108,15 @@ If unclear, run `--list` and ask user which database.
 | Connection timeout | Verify host/port, check firewall/VPN |
 | SSL error | Check certificate hostname, root CA and server TLS configuration; do not disable verification to bypass errors |
 | Permission warning | Run `chmod 600 connections.json` |
-
 ## Exit Codes
-
 - **0**: Success
 - **1**: Error (config missing, auth failed, invalid query, database error)
-
 ## Workflow
-
 1. Run `--list` to show available databases
 2. Match user intent to database description
 3. Run `--tables` or `--schema` to explore structure
 4. Execute query with appropriate LIMIT
-
 ## Limitations
-
 - Read-only protections reduce accidental writes but cannot override database-server policy,
   triggers, extensions, or an over-privileged account. Use a database role with read-only
   permissions as the primary control.
@@ -162,5 +124,4 @@ If unclear, run `--list` and ask user which database.
   database and avoid exporting or sharing results without explicit authorization.
 - The script is not a replacement for backups, auditing, access reviews, or production change
   controls.
-
 Use `bash` only for shell examples and `python3 scripts/query.py` for the inert helper. Keep credential config outside version control, restrict file permissions before adding credentials, and never print values. `--limit` caps displayed rows without rewriting SQL; include a reviewed SQL LIMIT for server-side work where appropriate. Keyword/semicolon checks reject some valid SQL and cannot prevent SELECT function side effects, external calls or all temporary writes. Read-only privileges and a trusted, restricted function environment are essential. `EXPLAIN ANALYZE` actually executes its query. Python buffering and large individual values can still exhaust memory; use a dedicated bounded reporting query.

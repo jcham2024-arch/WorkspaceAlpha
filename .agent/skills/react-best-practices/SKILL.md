@@ -1,27 +1,18 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "c9264a1590008ab19d4ee5bab1a4d8caa6ff48fad91bc4a3e38eb5c0da16f969"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: c9264a1590008ab19d4ee5bab1a4d8caa6ff48fad91bc4a3e38eb5c0da16f969
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Comprehensive performance optimization guide for React and Next.js applications, adapted from Vercel’s published guidance. Use when writing new React components or Next.js pages, implementing data fetching (client or server-side), or reviewing code for performance issues.
 name: react-best-practices
-description: "Comprehensive performance optimization guide for React and Next.js applications, adapted from Vercel’s published guidance. Use when writing new React components or Next.js pages, implementing data fetching (client or server-side), or reviewing code for performance issues."
-tier: "experimental"
 risk: safe
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # React Best Practices (catalog adaptation)
-
 Comprehensive performance optimization guide for React and Next.js applications, adapted from Vercel’s published guidance. Contains 45 rules across 8 categories, prioritized by impact to guide automated refactoring and code generation.
-
 ## When to Use
 Reference these guidelines when:
 - Writing new React components or Next.js pages
@@ -29,9 +20,7 @@ Reference these guidelines when:
 - Reviewing code for performance issues
 - Refactoring existing React/Next.js code
 - Optimizing bundle size or load times
-
 ## Rule Categories by Priority
-
 | Priority | Category | Impact | Prefix |
 |----------|----------|--------|--------|
 | 1 | Eliminating Waterfalls | CRITICAL | `async-` |
@@ -42,40 +31,29 @@ Reference these guidelines when:
 | 6 | Rendering Performance | MEDIUM | `rendering-` |
 | 7 | JavaScript Performance | LOW-MEDIUM | `js-` |
 | 8 | Advanced Patterns | LOW | `advanced-` |
-
 ## Quick Reference
-
 ### 1. Eliminating Waterfalls (CRITICAL)
-
 - `async-defer-await` - Move await into branches where actually used
 - `async-parallel` - Use Promise.all() for independent operations
 - `async-dependencies` - Use better-all for partial dependencies
 - `async-api-routes` - Start promises early, await late in API routes
 - `async-suspense-boundaries` - Use Suspense to stream content
-
 ### 2. Bundle Size Optimization (CRITICAL)
-
 - `bundle-barrel-imports` - Import directly, avoid barrel files
 - `bundle-dynamic-imports` - Use next/dynamic for heavy components
 - `bundle-defer-third-party` - Load analytics/logging after hydration
 - `bundle-conditional` - Load modules only when feature is activated
 - `bundle-preload` - Preload on hover/focus for perceived speed
-
 ### 3. Server-Side Performance (HIGH)
-
 - `server-cache-react` - Use React.cache() for per-request deduplication
 - `server-cache-lru` - Use LRU cache for cross-request caching
 - `server-serialization` - Minimize data passed to client components
 - `server-parallel-fetching` - Restructure components to parallelize fetches
 - `server-after-nonblocking` - Use after() for non-blocking operations
-
 ### 4. Client-Side Data Fetching (MEDIUM-HIGH)
-
 - `client-swr-dedup` - Use SWR for automatic request deduplication
 - `client-event-listeners` - Deduplicate global event listeners
-
 ### 5. Re-render Optimization (MEDIUM)
-
 - `rerender-defer-reads` - Don't subscribe to state only used in callbacks
 - `rerender-memo` - Extract expensive work into memoized components
 - `rerender-dependencies` - Use primitive dependencies in effects
@@ -83,9 +61,7 @@ Reference these guidelines when:
 - `rerender-functional-setstate` - Use functional setState for stable callbacks
 - `rerender-lazy-state-init` - Pass function to useState for expensive values
 - `rerender-transitions` - Use startTransition for non-urgent updates
-
 ### 6. Rendering Performance (MEDIUM)
-
 - `rendering-animate-svg-wrapper` - Animate div wrapper, not SVG element
 - `rendering-content-visibility` - Use content-visibility for long lists
 - `rendering-hoist-jsx` - Extract static JSX outside components
@@ -93,9 +69,7 @@ Reference these guidelines when:
 - `rendering-hydration-no-flicker` - Keep server and first client theme consistent
 - `rendering-activity` - Use Activity component for show/hide
 - `rendering-conditional-render` - Use ternary, not && for conditionals
-
 ### 7. JavaScript Performance (LOW-MEDIUM)
-
 - `js-batch-dom-css` - Group CSS changes via classes or cssText
 - `js-index-maps` - Build Map for repeated lookups
 - `js-cache-property-access` - Cache object properties in loops
@@ -108,36 +82,25 @@ Reference these guidelines when:
 - `js-min-max-loop` - Use loop for min/max instead of sort
 - `js-set-map-lookups` - Use Set/Map for O(1) lookups
 - `js-tosorted-immutable` - Use toSorted() for immutability
-
 ### 8. Advanced Patterns (LOW)
-
 - `advanced-event-handler-refs` - Store event handlers in refs
 - `advanced-use-latest` - useLatest for stable callback refs
-
 ## How to Use
-
 Read individual rule files for detailed explanations and code examples:
-
 ```
 rules/async-parallel.md
 rules/bundle-barrel-imports.md
 rules/_sections.md
 ```
-
 Each rule file contains:
 - Brief explanation of why it matters
 - Incorrect code example with explanation
 - Correct code example with explanation
 - Additional context and references
-
 ## Full Compiled Document
-
 For the complete guide with all rules expanded: `AGENTS.md`
-
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 Examples are sketches, not complete applications. Identify installed React/Next/SWR versions, public package exports and Server/Client module boundaries before editing. Profile a concrete bottleneck and preserve authorization, privacy, accessibility and behavior; impact levels and historical timing numbers are priorities, not guaranteed measurements. Validate one change with the application’s checks before broad refactoring. No deployments or analytics transmission are authorized by this guide.

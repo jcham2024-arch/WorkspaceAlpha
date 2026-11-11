@@ -1,83 +1,61 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "5a189c9215fd58895101029517c2170913348a4c123052c0fe5f7139994eb6b7"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: ai-sre-incident-response
-description: Build AI-focused SRE incident response practices for LLM outages, degraded
-tier: "experimental"
-  quality, runaway cost events, and safety regressions.
+content_hash: 5a189c9215fd58895101029517c2170913348a4c123052c0fe5f7139994eb6b7
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+date_added: 2026-09-20
+description: Build AI-focused SRE incident response practices for LLM outages, degraded
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: ai-sre-incident-response
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+version: 1.0
+---  quality, runaway cost events, and safety regressions.
   CI runners) and authorized access to the target environment. Docs-only; helper scripts
   and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # AI SRE Incident Response
-
 Apply SRE rigor to AI systems where incidents include quality regressions, unsafe outputs, and budget explosions.
-
 ## When to Use This Skill
-
 - An LLM endpoint begins returning degraded or hallucinated answers
 - Token spend spikes beyond budget thresholds
 - A model provider goes down and traffic must fail over
 - Safety guardrails fire at abnormal rates
 - A new model deployment causes latency or accuracy regression
-
 ## Prerequisites
-
 - Prometheus and Alertmanager deployed with scrape targets for AI services
 - Grafana dashboards for golden signals (latency, error rate, cost, quality)
 - On-call rotation configured in PagerDuty, Opsgenie, or equivalent
 - Runbook repository accessible to responders
 - Rollback mechanism for model and prompt versions (GitOps or feature flags)
-
 ## AI Incident Classes
-
 - **Availability incident**: model/provider unavailable, timeout storm.
 - **Quality incident**: answer accuracy or tool success drops below SLO.
 - **Safety incident**: harmful or policy-violating outputs increase.
 - **Cost incident**: unexpected token or provider spend spike.
-
 ## Severity Framework
-
 | Severity | Criteria | Response Time | Notification |
 |----------|----------|---------------|--------------|
 | SEV1 | User-facing outage, compliance risk, data leak | 5 min | Page on-call + incident commander |
 | SEV2 | Major degradation in key flows | 15 min | Page on-call |
 | SEV3 | Limited impact or internal-only issue | 1 hour | Slack alert |
 | SEV4 | Cosmetic or low-priority regression | Next business day | Ticket |
-
 ## Golden Signals for AI Services
-
 - Request success rate
 - Latency (queue + generation + tool execution)
 - Hallucination/groundedness proxy metrics
 - Cost per minute and per tenant
 - Guardrail violation rate
-
 ## Prometheus Alert Rules
-
 The thresholds below are illustrative. Calibrate them to the declared SLO, metric units, tenant budgets and workload; a groundedness proxy is not a verified quality measurement. Counter rates are per second, so the cost-per-minute alert explicitly multiplies by 60.
-
 ```yaml
 # prometheus-ai-alerts.yaml
 groups:
@@ -91,7 +69,6 @@ groups:
         annotations:
           summary: "LLM inference endpoint {{ $labels.instance }} is down"
           runbook_url: "https://runbooks.internal/ai/model-outage"
-
       - alert: HighHallucinationRate
         expr: |
           rate(llm_hallucination_detected_total[10m])
@@ -102,7 +79,6 @@ groups:
         annotations:
           summary: "Hallucination rate above 15% for {{ $labels.model }}"
           runbook_url: "https://runbooks.internal/ai/quality-regression"
-
       - alert: TokenCostExplosion
         expr: |
           60 * sum(rate(llm_token_cost_dollars[5m])) by (tenant)
@@ -113,7 +89,6 @@ groups:
         annotations:
           summary: "Token spend exceeds $0.50/min for tenant {{ $labels.tenant }}"
           runbook_url: "https://runbooks.internal/ai/cost-spike"
-
       - alert: LatencyP95Exceeded
         expr: |
           histogram_quantile(0.95,
@@ -124,7 +99,6 @@ groups:
           severity: sev2
         annotations:
           summary: "LLM p95 latency exceeds 5s for {{ $labels.service }}"
-
       - alert: GuardrailViolationSpike
         expr: |
           rate(llm_guardrail_violations_total[10m])
@@ -135,7 +109,6 @@ groups:
         annotations:
           summary: "Guardrail violations above 5% for {{ $labels.model }}"
           runbook_url: "https://runbooks.internal/ai/safety-incident"
-
       - alert: ModelQualityDrop
         expr: |
           llm_eval_score{metric="groundedness"} < 0.70
@@ -144,7 +117,6 @@ groups:
           severity: sev2
         annotations:
           summary: "Groundedness score dropped below 0.70 for {{ $labels.model }}"
-
       - alert: ProviderErrorRateHigh
         expr: |
           rate(llm_provider_errors_total[5m])
@@ -155,15 +127,11 @@ groups:
         annotations:
           summary: "Provider {{ $labels.provider }} error rate above 10%"
 ```
-
 ## Response Playbooks
-
 ### Model Outage Runbook
-
 ```text
 TRIGGER: ModelEndpointDown fires for > 2 minutes
 RESPONDER: On-call AI platform engineer
-
 1. Acknowledge alert in PagerDuty.
 2. Check provider status page (e.g., status.openai.com).
 3. Verify network connectivity:
@@ -181,13 +149,10 @@ RESPONDER: On-call AI platform engineer
 7. Communicate ETA in #incident-channel.
 8. When resolved, unfreeze and run smoke tests.
 ```
-
 ### Quality Regression Runbook (Hallucination Spike)
-
 ```text
 TRIGGER: HighHallucinationRate or ModelQualityDrop fires
 RESPONDER: On-call AI engineer + ML lead
-
 1. Acknowledge alert. Open incident ticket.
 2. Identify scope:
      - Which model version? Check deployment metadata.
@@ -206,13 +171,10 @@ RESPONDER: On-call AI engineer + ML lead
    No run_evals.py helper is bundled; never describe a production call as offline.
 8. Confirm metrics return to baseline before closing.
 ```
-
 ### Token Cost Explosion Runbook
-
 ```text
 TRIGGER: TokenCostExplosion fires
 RESPONDER: On-call platform engineer
-
 1. Identify top consumers:
      Query: topk(10, sum(rate(llm_token_cost_dollars[15m])) by (tenant, model, route))
 2. Check for runaway loops:
@@ -231,63 +193,49 @@ RESPONDER: On-call platform engineer
 6. Notify affected tenants of temporary limits.
 7. Open postmortem with cost attribution analysis.
 ```
-
 ## Escalation Procedures
-
 ```text
 Level 1 (0-15 min):  On-call AI platform engineer
 Level 2 (15-30 min): AI platform team lead + affected product owner
 Level 3 (30-60 min): Engineering director + security (if safety incident)
 Level 4 (60+ min):   VP Engineering + legal (if compliance/data incident)
-
 Safety incidents always start at Level 2 minimum.
 Provider-side incidents: open support ticket immediately at Level 1.
 ```
-
 ## Detection Queries (PromQL)
-
 ```promql
 # Request success rate by model
 1 - (
   sum(rate(llm_requests_total{status="error"}[5m])) by (model)
   / sum(rate(llm_requests_total[5m])) by (model)
 )
-
 # Cost per successful answer
 sum(rate(llm_token_cost_dollars[5m])) by (route)
 / sum(rate(llm_requests_total{status="success"}[5m])) by (route)
-
 # Hallucination rate trend (1h window, 5m steps)
 rate(llm_hallucination_detected_total[1h])
 / rate(llm_requests_total[1h])
-
 # Latency breakdown by stage
 histogram_quantile(0.95, rate(llm_retrieval_duration_seconds_bucket[5m]))
 histogram_quantile(0.95, rate(llm_generation_duration_seconds_bucket[5m]))
 histogram_quantile(0.95, rate(llm_tool_execution_duration_seconds_bucket[5m]))
-
 # Tenant cost leaderboard
 topk(10, sum(rate(llm_token_cost_dollars[1h])) by (tenant))
 ```
-
 ## Postmortem Requirements
-
 - Timeline with detector and responder timestamps
 - Blast radius by tenant and feature
 - Missed signals and alert tuning actions
 - Concrete hardening tasks with owners and due dates
 - Cost impact (dollars, tokens, affected requests)
 - Customer communication log
-
 ## Postmortem Template
-
 ```markdown
 ## Incident Summary
 - **Severity**: SEVx
 - **Duration**: start_time - end_time (Xh Ym)
 - **Detection**: How was it detected? (alert / customer report / manual)
 - **Impact**: X tenants, Y requests, $Z cost
-
 ## Timeline
 | Time (UTC) | Event |
 |------------|-------|
@@ -296,28 +244,21 @@ topk(10, sum(rate(llm_token_cost_dollars[1h])) by (tenant))
 | HH:MM | Root cause identified |
 | HH:MM | Mitigation applied |
 | HH:MM | Incident resolved |
-
 ## Root Cause
 [Description]
-
 ## Action Items
 | Action | Owner | Due Date | Status |
 |--------|-------|----------|--------|
 | Tune alert threshold | @engineer | YYYY-MM-DD | Open |
 | Add fallback route | @platform | YYYY-MM-DD | Open |
 ```
-
 ## Chaos Engineering for AI Systems
-
 Test drills only in a disposable isolated harness or separately authorized staging environment. Use synthetic inputs and a predeclared fault schedule, bounded duration, costs, recovery and notification policy; never deploy a known-bad model or block a real provider in production to create a drill. Regularly test incident readiness:
-
 - **Provider failover drill**: block provider API at network level, verify fallback activates within SLO.
 - **Model rollback drill**: deploy known-bad model version, verify automated quality gate catches it.
 - **Cost cap drill**: simulate runaway token usage, verify quotas trigger before budget threshold.
 - **Cache failure drill**: disable semantic cache, verify system degrades gracefully.
-
 ## Troubleshooting
-
 | Symptom | Check | Fix |
 |---------|-------|-----|
 | All requests timing out | Provider status page, DNS resolution | Enable fallback provider |
@@ -325,25 +266,18 @@ Test drills only in a disposable isolated harness or separately authorized stagi
 | Sudden cost spike | Per-tenant token usage dashboard | Apply emergency token caps |
 | Guardrail violations spike | Model version, prompt injection logs | Enable stricter input filtering |
 | Intermittent 503 errors | Pod restarts, GPU OOM events | Increase memory limits or reduce batch size |
-
 ## Related Skills
-
 - incident-response (`incident-response`) - Standard incident process and evidence
 - alerting-oncall (`alerting-oncall`) - Paging and escalation policy
 - llm-cost-optimization (`llm-cost-optimization`) - Spend controls and efficiency patterns
 - agent-observability (`agent-observability`) - Instrument requests, traces, and costs
 - rag-observability-evals (`rag-observability-evals`) - RAG quality monitoring
-
 ## Limitations
-
 - Guidance executes against real environments: confirm target, blast radius, and rollback plan before applying anything.
 - Never deploy to production without explicit approval. Docs-only import: upstream scripts and templates not bundled.
-
 ### Example
-
 ```bash
 git status && git diff --stat
 kubectl diff -f manifest.yaml
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.

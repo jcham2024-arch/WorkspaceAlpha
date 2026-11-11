@@ -1,81 +1,58 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "ad0a96e971ddad2211b211eee3fe06595473e4b7461aa97bed5dc7265458be92"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: sops-encryption
-description: Encrypt files and configs with Mozilla SOPS.
-tier: "experimental"
+content_hash: ad0a96e971ddad2211b211eee3fe06595473e4b7461aa97bed5dc7265458be92
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: security
+compatibility: Requires the relevant security tooling (scanners, vault CLIs) and an
+date_added: 2026-09-20
+description: Encrypt files and configs with Mozilla SOPS.
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: myapp-secrets
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant security tooling (scanners, vault CLIs) and an
-  authorized scope for any active assessment. Docs-only; helper scripts and templates
+version: 1.0
+---  authorized scope for any active assessment. Docs-only; helper scripts and templates
   not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # SOPS Encryption
-
 Encrypt secrets in configuration files while keeping structure visible.
-
 ## When to Use This Skill
-
 Use this skill when:
 - Encrypting secrets in Git
 - Implementing GitOps with secrets
 - Managing Kubernetes secrets as code
 - Encrypting configuration files
-
 ## Prerequisites
-
 - SOPS installed
 - KMS access (AWS, GCP, Azure) or PGP key
-
 ## Installation
-
 ```bash
 # macOS
 brew install sops
-
 # Linux
 # Choose a supported release for the actual OS/architecture.
 # Verify publisher signatures/checksums through an independent trusted channel
 # before execution; use an authorized install destination.
 ```
-
 ## Basic Usage
-
 ```bash
 # Encrypt with AWS KMS
 sops --encrypt --kms arn:aws:kms:region:account:key/key-id secrets.yaml > secrets.enc.yaml
-
 # Decrypt only into a private authorized destination; never print plaintext in captured logs
 # Review the installed SOPS output options before decrypting
-
 # Edit encrypted file
 sops secrets.enc.yaml
-
 # Encrypt in place
 sops --encrypt --in-place secrets.yaml
 ```
-
 ## Configuration
-
 ```yaml
 # .sops.yaml
 creation_rules:
@@ -86,15 +63,11 @@ creation_rules:
   - path_regex: .*
     pgp: fingerprint
 ```
-
 ## Kubernetes Integration
-
 ```yaml
 # encrypted secret
 apiVersion: v1
 kind: Secret
-metadata:
-  name: myapp-secrets
 type: Opaque
 stringData:
   password: ENC[AES256_GCM,data:encrypted...]
@@ -102,39 +75,27 @@ sops:
   kms:
     - arn: arn:aws:kms:region:account:key/key-id
 ```
-
 ```bash
 # With ArgoCD
 # Install ksops plugin for ArgoCD to decrypt secrets
 ```
-
 ## Best Practices
-
 - Store .sops.yaml in repository
 - Use different keys per environment
 - Rotate encryption keys regularly
 - Never commit unencrypted secrets
 - Use key aliases for readability
-
 ## Related Skills
-
 - hashicorp-vault (`hashicorp-vault`) - Centralized secrets
 - argocd-gitops (`argocd-gitops`) - GitOps integration
-
 ## Limitations
-
 - Apply guidance only within authorized scope; test destructive steps in non-production first.
 - Docs-only import: upstream scripts and templates not bundled.
-
 ### Example
-
 ```bash
 # Read-only first: inventory before any active step.
 which <tool> && <tool> --help | head -n 20
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.
-
 ## Execution boundaries
-
 Review encryption output before replacing originals. Decrypting to stdout can expose secrets in agent/tool logs. Use synthetic data for validation, restrict output permissions and never commit plaintext. The abbreviated encrypted Kubernetes example is illustrative, not a valid ciphertext to deploy.

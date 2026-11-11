@@ -1,59 +1,40 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "ce02570bc58025c39324002d57eb6877175f69549541f0a7b540a7a84a9d00a4"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-resource-manager-postgresql-dotnet
+content_hash: ce02570bc58025c39324002d57eb6877175f69549541f0a7b540a7a84a9d00a4
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Azure PostgreSQL Flexible Server SDK for .NET. Database management for PostgreSQL Flexible Server deployments.
-tier: "experimental"
+name: azure-resource-manager-postgresql-dotnet
 risk: critical
 source: community
-date_added: '2026-02-27'
 ---
-
-
 # Azure.ResourceManager.PostgreSql (.NET)
-
 Azure Resource Manager SDK for managing PostgreSQL Flexible Server deployments.
-
 ## Installation
-
 ```bash
 dotnet add package Azure.ResourceManager.PostgreSql
 dotnet add package Azure.Identity
 ```
-
 **Example baseline**: SDK v1.2.0 / API 2023-12-01-preview. This is not a current-version assertion; select and pin a supported SDK/API for the target subscription and compile these snippets against it.
-
 > **Note**: This skill focuses on PostgreSQL Flexible Server. Single Server is retired; use Flexible Server and check current regional/version support.
-
 ## Environment Variables
-
 ```bash
 AZURE_SUBSCRIPTION_ID=<your-subscription-id>
 AZURE_RESOURCE_GROUP=<your-resource-group>
 AZURE_POSTGRESQL_SERVER_NAME=<your-postgresql-server>
 ```
-
 ## Authentication
-
 ```csharp
 using Azure.Identity;
 using Azure.ResourceManager;
 using Azure.ResourceManager.PostgreSql;
 using Azure.ResourceManager.PostgreSql.FlexibleServers;
-
 ArmClient client = new ArmClient(new DefaultAzureCredential());
 ```
-
 ## Resource Hierarchy
-
 ```
 Subscription
 └── ResourceGroup
@@ -65,23 +46,16 @@ Subscription
         ├── PostgreSqlFlexibleServerActiveDirectoryAdministrator # Entra ID admin
         └── PostgreSqlFlexibleServerVirtualEndpoint # Read replica endpoints
 ```
-
 ## Core Workflows
-
 These are separate illustrative snippets, not one compilable program. Add imports (`Azure`, `Azure.Core`, resource-group types) as required by the installed SDK. Confirm subscription/resource IDs, cost, availability and rollback before provisioning or resizing; confirm a recoverable backup and exact target before deletion. ARM credentials manage infrastructure; database connections separately need authorized database roles. Refresh Entra tokens for newly opened pooled connections using Npgsql’s password-provider API rather than retaining one token indefinitely.
-
 ### 1. Create PostgreSQL Flexible Server
-
 ```csharp
 using System;
 using Azure.ResourceManager.PostgreSql.FlexibleServers;
 using Azure.ResourceManager.PostgreSql.FlexibleServers.Models;
-
 var subscription = await client.GetDefaultSubscriptionAsync();
 ResourceGroupResource resourceGroup = (await subscription.GetResourceGroupAsync("my-resource-group")).Value;
-
 PostgreSqlFlexibleServerCollection servers = resourceGroup.GetPostgreSqlFlexibleServers();
-
 PostgreSqlFlexibleServerData data = new PostgreSqlFlexibleServerData(AzureLocation.EastUS)
 {
     Sku = new PostgreSqlFlexibleServerSku("Standard_D2ds_v4", PostgreSqlFlexibleServerSkuTier.GeneralPurpose),
@@ -111,40 +85,29 @@ PostgreSqlFlexibleServerData data = new PostgreSqlFlexibleServerData(AzureLocati
         PasswordAuth = PostgreSqlFlexibleServerPasswordAuthEnum.Enabled
     }
 };
-
 ArmOperation<PostgreSqlFlexibleServerResource> operation = await servers
     .CreateOrUpdateAsync(WaitUntil.Completed, "my-postgresql-server", data);
-
 PostgreSqlFlexibleServerResource server = operation.Value;
 Console.WriteLine($"Server created: {server.Data.FullyQualifiedDomainName}");
 ```
-
 ### 2. Create Database
-
 ```csharp
 PostgreSqlFlexibleServerResource server = await resourceGroup
     .GetPostgreSqlFlexibleServerAsync("my-postgresql-server");
-
 PostgreSqlFlexibleServerDatabaseCollection databases = server.GetPostgreSqlFlexibleServerDatabases();
-
 PostgreSqlFlexibleServerDatabaseData dbData = new PostgreSqlFlexibleServerDatabaseData
 {
     Charset = "UTF8",
     Collation = "en_US.utf8"
 };
-
 ArmOperation<PostgreSqlFlexibleServerDatabaseResource> operation = await databases
     .CreateOrUpdateAsync(WaitUntil.Completed, "myappdb", dbData);
-
 PostgreSqlFlexibleServerDatabaseResource database = operation.Value;
 Console.WriteLine($"Database created: {database.Data.Name}");
 ```
-
 ### 3. Configure Firewall Rules
-
 ```csharp
 PostgreSqlFlexibleServerFirewallRuleCollection firewallRules = server.GetPostgreSqlFlexibleServerFirewallRules();
-
 // Public-access firewall rules require the client’s public egress IP, not its private VNet address.
 // Example documentation range only; replace with the approved public egress range.
 PostgreSqlFlexibleServerFirewallRuleData ruleData = new PostgreSqlFlexibleServerFirewallRuleData
@@ -152,10 +115,8 @@ PostgreSqlFlexibleServerFirewallRuleData ruleData = new PostgreSqlFlexibleServer
     StartIPAddress = System.Net.IPAddress.Parse("203.0.113.10"),
     EndIPAddress = System.Net.IPAddress.Parse("203.0.113.10")
 };
-
 ArmOperation<PostgreSqlFlexibleServerFirewallRuleResource> operation = await firewallRules
     .CreateOrUpdateAsync(WaitUntil.Completed, "allow-internal", ruleData);
-
 // OPTIONAL broad exception: 0.0.0.0 allows Azure services from OTHER customers’ subscriptions too.
 // Do not apply without explicit approval; prefer specific egress IPs or private networking.
 PostgreSqlFlexibleServerFirewallRuleData azureServicesRule = new PostgreSqlFlexibleServerFirewallRuleData
@@ -163,29 +124,22 @@ PostgreSqlFlexibleServerFirewallRuleData azureServicesRule = new PostgreSqlFlexi
     StartIPAddress = System.Net.IPAddress.Parse("0.0.0.0"),
     EndIPAddress = System.Net.IPAddress.Parse("0.0.0.0")
 };
-
 await firewallRules.CreateOrUpdateAsync(WaitUntil.Completed, "AllowAllAzureServicesAndResourcesWithinAzureIps", azureServicesRule);
 ```
-
 ### 4. Update Server Configuration
-
 ```csharp
 PostgreSqlFlexibleServerConfigurationCollection configurations = server.GetPostgreSqlFlexibleServerConfigurations();
-
 // Get current configuration
 PostgreSqlFlexibleServerConfigurationResource config = await configurations
     .GetAsync("max_connections");
-
 // Update configuration
 PostgreSqlFlexibleServerConfigurationData configData = new PostgreSqlFlexibleServerConfigurationData
 {
     Value = "500",
     Source = "user-override"
 };
-
 ArmOperation<PostgreSqlFlexibleServerConfigurationResource> operation = await configurations
     .CreateOrUpdateAsync(WaitUntil.Completed, "max_connections", configData);
-
 // Common PostgreSQL configurations to tune
 string[] commonParams = { 
     "max_connections", 
@@ -196,13 +150,10 @@ string[] commonParams = {
     "log_min_duration_statement"
 };
 ```
-
 ### 5. Configure Entra ID Administrator
-
 ```csharp
 PostgreSqlFlexibleServerActiveDirectoryAdministratorCollection admins = 
     server.GetPostgreSqlFlexibleServerActiveDirectoryAdministrators();
-
 PostgreSqlFlexibleServerActiveDirectoryAdministratorData adminData = 
     new PostgreSqlFlexibleServerActiveDirectoryAdministratorData
 {
@@ -210,13 +161,10 @@ PostgreSqlFlexibleServerActiveDirectoryAdministratorData adminData =
     PrincipalName = "aad-admin@contoso.com",
     TenantId = Guid.Parse("<tenant-id>")
 };
-
 ArmOperation<PostgreSqlFlexibleServerActiveDirectoryAdministratorResource> operation = await admins
     .CreateOrUpdateAsync(WaitUntil.Completed, "<entra-object-id>", adminData);
 ```
-
 ### 6. List and Manage Servers
-
 ```csharp
 // List servers in resource group
 await foreach (PostgreSqlFlexibleServerResource server in resourceGroup.GetPostgreSqlFlexibleServers())
@@ -228,16 +176,13 @@ await foreach (PostgreSqlFlexibleServerResource server in resourceGroup.GetPostg
     Console.WriteLine($"  SKU: {server.Data.Sku.Name} ({server.Data.Sku.Tier})");
     Console.WriteLine($"  HA: {server.Data.HighAvailability?.Mode}");
 }
-
 // List databases in server
 await foreach (PostgreSqlFlexibleServerDatabaseResource db in server.GetPostgreSqlFlexibleServerDatabases())
 {
     Console.WriteLine($"Database: {db.Data.Name}");
 }
 ```
-
 ### 7. Backup and Point-in-Time Restore
-
 ```csharp
 // List available backups
 await foreach (PostgreSqlFlexibleServerBackupResource backup in server.GetPostgreSqlFlexibleServerBackups())
@@ -246,7 +191,6 @@ await foreach (PostgreSqlFlexibleServerBackupResource backup in server.GetPostgr
     Console.WriteLine($"  Type: {backup.Data.BackupType}");
     Console.WriteLine($"  Completed: {backup.Data.CompletedOn}");
 }
-
 // Point-in-time restore
 PostgreSqlFlexibleServerData restoreData = new PostgreSqlFlexibleServerData(AzureLocation.EastUS)
 {
@@ -254,13 +198,10 @@ PostgreSqlFlexibleServerData restoreData = new PostgreSqlFlexibleServerData(Azur
     SourceServerResourceId = server.Id,
     PointInTimeUtc = DateTimeOffset.UtcNow.AddHours(-2)
 };
-
 ArmOperation<PostgreSqlFlexibleServerResource> operation = await servers
     .CreateOrUpdateAsync(WaitUntil.Completed, "my-postgresql-restored", restoreData);
 ```
-
 ### 8. Create Read Replica
-
 ```csharp
 PostgreSqlFlexibleServerData replicaData = new PostgreSqlFlexibleServerData(AzureLocation.WestUS)
 {
@@ -268,23 +209,17 @@ PostgreSqlFlexibleServerData replicaData = new PostgreSqlFlexibleServerData(Azur
     SourceServerResourceId = server.Id,
     Sku = new PostgreSqlFlexibleServerSku("Standard_D2ds_v4", PostgreSqlFlexibleServerSkuTier.GeneralPurpose)
 };
-
 ArmOperation<PostgreSqlFlexibleServerResource> operation = await servers
     .CreateOrUpdateAsync(WaitUntil.Completed, "my-postgresql-replica", replicaData);
 ```
-
 ### 9. Stop and Start Server
-
 ```csharp
 PostgreSqlFlexibleServerResource server = await resourceGroup
     .GetPostgreSqlFlexibleServerAsync("my-postgresql-server");
-
 // Stop server (compute billing stops; storage/backup costs and automatic restart limits still apply)
 await server.StopAsync(WaitUntil.Completed);
-
 // Start server
 await server.StartAsync(WaitUntil.Completed);
-
 // Restart server
 await server.RestartAsync(WaitUntil.Completed, new PostgreSqlFlexibleServerRestartParameter
 {
@@ -292,13 +227,10 @@ await server.RestartAsync(WaitUntil.Completed, new PostgreSqlFlexibleServerResta
     FailoverMode = PostgreSqlFlexibleServerFailoverMode.PlannedFailover
 });
 ```
-
 ### 10. Update Server (Scale)
-
 ```csharp
 PostgreSqlFlexibleServerResource server = await resourceGroup
     .GetPostgreSqlFlexibleServerAsync("my-postgresql-server");
-
 PostgreSqlFlexibleServerPatch patch = new PostgreSqlFlexibleServerPatch
 {
     Sku = new PostgreSqlFlexibleServerSku("Standard_D4ds_v4", PostgreSqlFlexibleServerSkuTier.GeneralPurpose),
@@ -308,22 +240,16 @@ PostgreSqlFlexibleServerPatch patch = new PostgreSqlFlexibleServerPatch
         Tier = PostgreSqlStorageTierName.P40
     }
 };
-
 ArmOperation<PostgreSqlFlexibleServerResource> operation = await server
     .UpdateAsync(WaitUntil.Completed, patch);
 ```
-
 ### 11. Delete Server
-
 ```csharp
 PostgreSqlFlexibleServerResource server = await resourceGroup
     .GetPostgreSqlFlexibleServerAsync("my-postgresql-server");
-
 await server.DeleteAsync(WaitUntil.Completed);
 ```
-
 ## Key Types Reference
-
 | Type | Purpose |
 |------|---------|
 | `PostgreSqlFlexibleServerResource` | Flexible Server instance |
@@ -339,17 +265,13 @@ await server.DeleteAsync(WaitUntil.Completed);
 | `PostgreSqlFlexibleServerHighAvailability` | HA configuration |
 | `PostgreSqlFlexibleServerBackupProperties` | Backup settings |
 | `PostgreSqlFlexibleServerAuthConfig` | Authentication settings |
-
 ## SKU Tiers
-
 | Tier | Use Case | SKU Examples |
 |------|----------|--------------|
 | `Burstable` | Dev/test, light workloads | Standard_B1ms, Standard_B2s |
 | `GeneralPurpose` | Production workloads | Standard_D2ds_v4, Standard_D4ds_v4 |
 | `MemoryOptimized` | High memory requirements | Standard_E2ds_v4, Standard_E4ds_v4 |
-
 ## PostgreSQL Versions
-
 | Version | Enum Value |
 |---------|------------|
 | PostgreSQL 11 | `Ver11` |
@@ -358,17 +280,13 @@ await server.DeleteAsync(WaitUntil.Completed);
 | PostgreSQL 14 | `Ver14` |
 | PostgreSQL 15 | `Ver15` |
 | PostgreSQL 16 | `Ver16` |
-
 ## High Availability Modes
-
 | Mode | Description |
 |------|-------------|
 | `Disabled` | No HA (single server) |
 | `SameZone` | HA within same availability zone |
 | `ZoneRedundant` | HA across availability zones |
-
 ## Best Practices
-
 1. **Use Flexible Server** — Single Server is deprecated
 2. **Enable zone-redundant HA** — For production workloads
 3. **Use DefaultAzureCredential** — Prefer over connection strings
@@ -379,12 +297,9 @@ await server.DeleteAsync(WaitUntil.Completed);
 8. **Tune server parameters** — Based on workload characteristics
 9. **Use read replicas** — For read-heavy workloads
 10. **Stop dev/test servers** — Save costs when not in use
-
 ## Error Handling
-
 ```csharp
 using Azure;
-
 try
 {
     ArmOperation<PostgreSqlFlexibleServerResource> operation = await servers
@@ -403,11 +318,8 @@ catch (RequestFailedException ex)
     Console.WriteLine($"Azure error: {ex.Status} - {ex.Message}");
 }
 ```
-
 ## Connection String
-
 After creating the server, connect using:
-
 ```csharp
 // Supply password from a secret provider; never log the resulting connection string.
 // Npgsql connection string
@@ -416,47 +328,36 @@ string connectionString = $"Host={server.Data.FullyQualifiedDomainName};" +
     "Username=pgadmin;" +
      $"Password={Environment.GetEnvironmentVariable("POSTGRES_ADMIN_PASSWORD") ?? throw new InvalidOperationException("Password required")};" +
     "SSL Mode=VerifyFull;";
-
 // With Entra ID token (recommended)
 var credential = new DefaultAzureCredential();
 var token = await credential.GetTokenAsync(
     new TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net/.default" }));
-
 string connectionString = $"Host={server.Data.FullyQualifiedDomainName};" +
     "Database=myappdb;" +
     $"Username=aad-admin@contoso.com;" +
     $"Password={token.Token};" +
     "SSL Mode=VerifyFull;";
 ```
-
 ## Related SDKs
-
 | SDK | Purpose | Install |
 |-----|---------|---------|
 | `Azure.ResourceManager.PostgreSql` | PostgreSQL management (this SDK) | `dotnet add package Azure.ResourceManager.PostgreSql` |
 | `Azure.ResourceManager.MySql` | MySQL management | `dotnet add package Azure.ResourceManager.MySql` |
 | `Npgsql` | PostgreSQL data access | `dotnet add package Npgsql` |
 | `Npgsql.EntityFrameworkCore.PostgreSQL` | EF Core provider | `dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL` |
-
 ## Reference Links
-
 | Resource | URL |
 |----------|-----|
 | NuGet Package | https://www.nuget.org/packages/Azure.ResourceManager.PostgreSql |
 | API Reference | https://learn.microsoft.com/dotnet/api/azure.resourcemanager.postgresql |
 | Product Documentation | https://learn.microsoft.com/azure/postgresql/flexible-server/ |
 | GitHub Source | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/postgresql/Azure.ResourceManager.PostgreSql |
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Windows](platforms/windows.md)

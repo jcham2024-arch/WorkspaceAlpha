@@ -1,45 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "6edeaa727073f5d48d28a71f1c9a8710a54cd5958728ce45e816700874685b0c"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: markstream-vue2-cli
-description: "Integrate markstream-vue2 into Vue CLI or Webpack 4 with export-map-safe CSS, CDN worker fallbacks, and conservative code-block defaults."
-tier: "experimental"
+content_hash: 6edeaa727073f5d48d28a71f1c9a8710a54cd5958728ce45e816700874685b0c
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: Simon-He95
 category: frontend
+date_added: 2026-07-21
+description: Integrate markstream-vue2 into Vue CLI or Webpack 4 with export-map-safe CSS, CDN worker fallbacks, and conservative code-block defaults.
+license: MIT
+license_source: "https://github.com/Simon-He95/markstream-vue/blob/main/license"
+name: markstream-vue2-cli
 risk: critical
-source: https://github.com/Simon-He95/markstream-vue/tree/main/.agents/skills/markstream-vue2-cli
+source: "https://github.com/Simon-He95/markstream-vue/tree/main/.agents/skills/markstream-vue2-cli"
 source_repo: Simon-He95/markstream-vue
 source_type: official
-date_added: "2026-07-21"
-author: Simon-He95
-tags: [vue2, vue-cli, webpack4, markdown, workers]
-tools: [claude, cursor, gemini, codex]
-license: MIT
-license_source: https://github.com/Simon-He95/markstream-vue/blob/main/license
+tags: "[vue2, vue-cli, webpack4, markdown, workers]"
+tools: "[claude, cursor, gemini, codex]"
 ---
-
-
 # Markstream Vue 2 CLI
-
 ## Overview
-
 Handle Vue CLI and Webpack 4 constraints that differ materially from modern Vue 2/Vite setup.
-
 ## When to Use
-
 Use when Vue 2 runs on Vue CLI or Webpack 4 and package export maps or Vite worker imports are unavailable.
-
 ## Workflow
-
 Inspect the existing package manager, installed package version and project conventions. A requested scoped integration already authorizes routine source/dependency edits; seek approval only for a material scope expansion or unresolved beta/alpha adoption decision.
-
 1. Confirm Vue 2 plus Vue CLI/Webpack 4.
 2. Install `markstream-vue2` and only requested peers.
 3. Import `markstream-vue2/dist/index.css`, because legacy tooling may not understand the CSS export map.
@@ -47,21 +33,17 @@ Inspect the existing package manager, installed package version and project conv
 5. Prefer `stream-markdown` code blocks over fragile Monaco worker wiring.
 6. Keep `content` with smooth streaming for chat; set `final` and disable pacing/cursor for completed history.
 7. Keep HTML safe and Mermaid strict; validate the actual legacy build.
-
 ## Example
-
 ```vue
 <script>
 import MarkdownRender from 'markstream-vue2'
 // Legacy Webpack may not resolve the package CSS export map.
 import 'markstream-vue2/dist/index.css'
-
 export default {
   components: { MarkdownRender },
   data: () => ({ content: '# Answer', done: false }),
 }
 </script>
-
 <template>
   <MarkdownRender
     :content="content"
@@ -70,17 +52,11 @@ export default {
   />
 </template>
 ```
-
 ## Limitations
-
 - CDN workers require network access and compatible content-security policy.
 - Monaco-style worker setups are intentionally not covered.
 - Vue 2.6 may also require `@vue/composition-api`.
-
 ## Security & Safety Notes
-
 Do not introduce CDN workers without reviewing CSP, network policy, and dependency trust. Preserve safe rendering defaults.
-
 Verify props, export paths and peer ranges against the installed package, not a mutable upstream main. Test partial and completed streams, malformed/untrusted Markdown, links and image URLs, cancellation and reduced motion. Safe HTML and strict diagrams reduce exposure but do not alone enforce URL/network privacy or application component permissions.
-
 Vue 2 is end-of-life; preserve a requested legacy integration and document its maintenance/support decision rather than silently upgrading the whole application. Prefer reviewed locally bundled workers over mutable CDN code where feasible.

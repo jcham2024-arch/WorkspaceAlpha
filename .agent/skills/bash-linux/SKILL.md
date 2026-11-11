@@ -1,46 +1,30 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "920d0a2d22202ae8866031239de1d42cce13a26d59ea2895c9ed8149b296974c"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 920d0a2d22202ae8866031239de1d42cce13a26d59ea2895c9ed8149b296974c
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Bash/Linux terminal patterns. Critical commands, piping, error handling, scripting. Use when working on macOS or Linux systems.
 name: bash-linux
-description: "Bash/Linux terminal patterns. Critical commands, piping, error handling, scripting. Use when working on macOS or Linux systems."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # Bash Linux Patterns
-
 > Essential patterns for Bash on Linux/macOS.
-
 ---
-
 ## 1. Operator Syntax
-
 ### Chaining Commands
-
 | Operator | Meaning | Example |
 |----------|---------|---------|
 | `;` | Run sequentially | `cmd1; cmd2` |
 | `&&` | Run if previous succeeded | `npm install && npm run dev` |
 | `\|\|` | Run if previous failed | `npm test \|\| echo "Tests failed"` |
 | `\|` | Pipe output | `ls \| grep ".js"` |
-
 ---
-
 ## 2. File Operations
-
 ### Essential Commands
-
 | Task | Command |
 |------|---------|
 | List all | `ls -la` |
@@ -52,11 +36,8 @@ date_added: "2026-02-27"
 | Search in files | `grep -r "pattern" --include="*.js"` |
 | File size | `du -sh *` |
 | Disk usage | `df -h` |
-
 ---
-
 ## 3. Process Management
-
 | Task | Command |
 |------|---------|
 | List processes | `ps aux` |
@@ -67,13 +48,9 @@ date_added: "2026-02-27"
 | Background | `npm run dev &` |
 | Jobs | `jobs -l` |
 | Bring to front | `fg %1` |
-
 ---
-
 ## 4. Text Processing
-
 ### Core Tools
-
 | Tool | Purpose | Example |
 |------|---------|---------|
 | `grep` | Search | `grep -rn "TODO" src/` |
@@ -83,11 +60,8 @@ date_added: "2026-02-27"
 | `sort` | Sort lines | `sort -u file.txt` |
 | `uniq` | Unique lines | `sort file.txt \| uniq -c` |
 | `wc` | Count | `wc -l file.txt` |
-
 ---
-
 ## 5. Environment Variables
-
 | Task | Command |
 |------|---------|
 | View all | `env` or `printenv` |
@@ -95,11 +69,8 @@ date_added: "2026-02-27"
 | Set temporary | `export VAR="value"` |
 | Set in script | `VAR="value" command` |
 | Add to PATH | `export PATH="$PATH:/new/path"` |
-
 ---
-
 ## 6. Network
-
 | Task | Command |
 |------|---------|
 | Download | `curl -O https://example.com/file` |
@@ -107,75 +78,54 @@ date_added: "2026-02-27"
 | POST JSON | `curl -X POST -H "Content-Type: application/json" -d '{"key":"value"}' URL` |
 | Check port | `nc -zv localhost 3000` |
 | Network info | `ifconfig` or `ip addr` |
-
 ---
-
 ## 7. Script Template
-
 ```bash
 #!/bin/bash
 set -euo pipefail  # Exit on error, undefined var, pipe fail
-
 # Colors (optional)
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
-
 # Script directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
 # Functions
 log_info() { echo -e "${GREEN}[INFO]${NC} $1"; }
 log_error() { echo -e "${RED}[ERROR]${NC} $1" >&2; }
-
 # Main
 main() {
     log_info "Starting..."
     # Your logic here
     log_info "Done!"
 }
-
 main "$@"
 ```
-
 ---
-
 ## 8. Common Patterns
-
 ### Check if command exists
-
 ```bash
 if command -v node &> /dev/null; then
     echo "Node is installed"
 fi
 ```
-
 ### Default variable value
-
 ```bash
 NAME=${1:-"default_value"}
 ```
-
 ### Read file line by line
-
 ```bash
 while IFS= read -r line; do
     echo "$line"
 done < file.txt
 ```
-
 ### Loop over files
-
 ```bash
 for file in *.js; do
     echo "Processing $file"
 done
 ```
-
 ---
-
 ## 9. Differences from PowerShell
-
 | Task | PowerShell | Bash |
 |------|------------|------|
 | List files | `Get-ChildItem` | `ls -la` |
@@ -184,22 +134,16 @@ done
 | String concat | `"$a$b"` | `"$a$b"` (same) |
 | Null check | `if ($x)` | `if [ -n "$x" ]` |
 | Pipeline | Object-based | Text-based |
-
 ---
-
 ## 10. Error Handling
-
 ### Set options
-
 ```bash
 set -e          # Exit on error
 set -u          # Exit on undefined variable
 set -o pipefail # Exit on pipe failure
 set -x          # Debug only with non-secret inputs; prints expanded arguments
 ```
-
 ### Trap for cleanup
-
 ```bash
 cleanup() {
     echo "Cleaning up..."
@@ -207,22 +151,15 @@ cleanup() {
 }
 trap cleanup EXIT
 ```
-
 ---
-
 > **Remember:** Bash is text-based. Use `&&` for success chains and quote variables. `set -e` has conditional/pipeline exceptions; explicitly check consequential operations and never infer complete safety from shell flags.
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Linux](platforms/linux.md)
 - [Mac](platforms/mac.md)

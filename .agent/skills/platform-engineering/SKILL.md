@@ -1,82 +1,57 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "eed415227dfe956c5cb7b8fc7a8e58ed582c88d3338651337994531f79c0aa58"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: platform-engineering
-description: Build internal developer platforms (IDPs) with self-service infrastructure,
-tier: "experimental"
-  golden paths, and developer portals using Backstage, Crossplane, and score.
+content_hash: eed415227dfe956c5cb7b8fc7a8e58ed582c88d3338651337994531f79c0aa58
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+date_added: 2026-09-20
+description: Build internal developer platforms (IDPs) with self-service infrastructure,
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: orders-db
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: Secret
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+version: 1.0
+---  golden paths, and developer portals using Backstage, Crossplane, and score.
   CI runners) and authorized access to the target environment. Docs-only; helper scripts
   and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # Platform Engineering
-
 Platform engineering is the discipline of building and maintaining internal developer platforms (IDPs) that enable self-service capabilities for software engineering teams. The goal is to reduce cognitive load, standardize infrastructure provisioning, and accelerate delivery while maintaining governance and security guardrails.
-
 ---
-
 ## Deployment boundaries
-
 Pin and review tool, chart, provider and template versions before installation. Localhost Backstage config is development-only: production requires TLS, authentication, permission policy, secret management and restricted proxy/RBAC. Portal forms do not authorize cloud changes; enforce tenancy, costs and production approval at the API/controller. Examples are integration sketches, not a tested platform.
-
 ## 2. Backstage Setup
-
 [Backstage](https://backstage.io) is the leading open-source developer portal framework, originally created at Spotify.
-
 ### Installation
-
 ```bash
 # Prerequisites: supported Node/Yarn versions required by the pinned Backstage release
 npx @backstage/create-app@latest
-
 # Follow the prompts -- name your app, e.g., "internal-platform"
 cd internal-platform
-
 # Start the development server
 yarn dev
 ```
-
 ### Production Docker Build
-
 Use the Dockerfile generated for your pinned Backstage release and its documented
 build flow. The backend build emits `skeleton.tar.gz` and `bundle.tar.gz`; copying
 `dist/` without extracting them does not produce a runnable backend. See
 [Backstage Docker deployment](https://backstage.io/docs/deployment/docker/).
 Use a supported Node version, non-root runtime and scoped build context; validate
 the generated image before deploying it.
-
-
 ### Core app-config.yaml
-
 ```yaml
 # app-config.yaml
 app:
   title: Internal Developer Platform
   baseUrl: http://localhost:3000
-
 organization:
-  name: MyOrg
 
 backend:
   baseUrl: http://localhost:7007
@@ -89,12 +64,10 @@ backend:
       port: ${POSTGRES_PORT}
       user: ${POSTGRES_USER}
       password: ${POSTGRES_PASSWORD}
-
 integrations:
   github:
     - host: github.com
       token: ${GITHUB_TOKEN}
-
 catalog:
   import:
     entityFilename: catalog-info.yaml
@@ -107,65 +80,45 @@ catalog:
     - type: url
       target: https://github.com/myorg/backstage-templates/blob/main/all-templates.yaml
 ```
-
 ---
-
 ## 3. Crossplane for Self-Service Infrastructure
-
 Crossplane extends Kubernetes to provision and manage cloud infrastructure through declarative YAML.
-
 ### Install Crossplane
-
 ```bash
 # Add the Crossplane Helm repo
 helm repo add crossplane-stable https://charts.crossplane.io/stable
 helm repo update
-
 # Install Crossplane into its own namespace
 helm install crossplane crossplane-stable/crossplane \
   --namespace crossplane-system \
   --create-namespace
-
 # Install the AWS provider
 kubectl apply -f - <<EOF
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
-metadata:
-  name: provider-aws
 spec:
   package: xpkg.upbound.io/upbound/provider-family-aws:v1.1.0
 EOF
-
 # Configure AWS credentials
 kubectl create secret generic aws-creds \
   -n crossplane-system \
   --from-file=creds=./aws-credentials.txt
-
 kubectl apply -f - <<EOF
 apiVersion: aws.upbound.io/v1beta1
 kind: ProviderConfig
-metadata:
-  name: default
 spec:
   credentials:
-    source: Secret
     secretRef:
       namespace: crossplane-system
-      name: aws-creds
       key: creds
 EOF
 ```
-
 ### CompositeResourceDefinition (XRD)
-
 This defines a new platform API that developers consume without knowing the underlying cloud resources.
-
 ```yaml
 # xrd-application-database.yaml
 apiVersion: apiextensions.crossplane.io/v1
 kind: CompositeResourceDefinition
-metadata:
-  name: xapplicationdatabases.platform.myorg.io
 spec:
   group: platform.myorg.io
   names:
@@ -210,17 +163,12 @@ spec:
                   required:
                     - environment
 ```
-
 ### Composition (AWS RDS)
-
 Legacy Crossplane 1.x Resources-mode sketch, not a current deployable composition. Pin compatible CRDs/providers and migrate to Pipeline mode for current deployments. The family provider alone does not install the RDS service provider; verify installed kinds. Complete required RDS credentials/username, providerConfigRef and final-snapshot settings against the exact CRD. The illustrative secret resource is not connected to the RDS connection secret and does not deliver credentials. The postgres default version is invalid for mysql; constrain supported engine/version pairs. Add claim selector/composition selection, RBAC, quotas and tenancy policy.
-
 ```yaml
 # composition-aws-database.yaml
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
-metadata:
-  name: applicationdatabase-aws
   labels:
     provider: aws
 spec:
@@ -285,15 +233,11 @@ spec:
               string:
                 fmt: "platform/%s/db-credentials"
 ```
-
 ### Developer Claim (what devs actually write)
-
 ```yaml
 # my-app-database.yaml
 apiVersion: platform.myorg.io/v1alpha1
 kind: ApplicationDatabase
-metadata:
-  name: orders-db
   namespace: team-commerce
 spec:
   parameters:
@@ -303,12 +247,8 @@ spec:
     instanceSize: medium
     environment: staging
 ```
-
 ---
-
-
 ## Contents
-
 - [4. Golden Paths](references/details.md)
 - [5. Service Catalog](references/details.md)
 - [6. Developer Portal -- Backstage Plugins](references/details.md)
@@ -317,32 +257,22 @@ spec:
 - [9. Platform Metrics](references/details.md)
 - [10. Governance -- Policy Enforcement](references/details.md)
 - [Summary](references/details.md)
-
 ## When to Use
-
 Adopt platform engineering practices when your organization experiences:
-
 - **Cognitive overload on dev teams** -- developers spend more time on infrastructure wiring than writing business logic.
 - **Inconsistent environments** -- every team provisions infrastructure differently, causing drift and outages.
 - **Slow onboarding** -- new engineers take weeks to get a working development environment.
 - **Repeated toil** -- the same Terraform/Helm/CI boilerplate is copy-pasted across dozens of repos.
 - **Compliance bottlenecks** -- security and ops reviews gate every deployment, slowing release cadence.
 - **Scale inflection points** -- you have 5+ teams and shared infrastructure concerns (networking, observability, secrets).
-
 Platform engineering is NOT about replacing ops with a portal. It is about encoding organizational standards into reusable, self-service abstractions that dev teams consume through golden paths.
-
 ---
-
 ## Limitations
-
 - Guidance executes against real environments: confirm target, blast radius, and rollback plan before applying anything.
 - Never deploy to production without explicit approval. Docs-only import: upstream scripts and templates not bundled.
-
 ### Example
-
 ```bash
 git status && git diff --stat
 kubectl diff -f manifest.yaml
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.

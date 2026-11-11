@@ -1,48 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "eda5d7ac14261eb38fa01cb57e0dfe28b7f712d39fd1daa0d152aa0923d2aedd"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: eda5d7ac14261eb38fa01cb57e0dfe28b7f712d39fd1daa0d152aa0923d2aedd
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Build and deploy the same feature consistently across web, mobile, and desktop platforms using API-first architecture and parallel implementation strategies.
 name: multi-platform-apps-multi-platform
-description: "Build and deploy the same feature consistently across web, mobile, and desktop platforms using API-first architecture and parallel implementation strategies."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # Multi-Platform Feature Development Workflow
-
 Build and deploy the same feature consistently across web, mobile, and desktop platforms using API-first architecture and parallel implementation strategies.
-
 [Extended thinking: This workflow orchestrates multiple specialized agents to ensure feature parity across platforms while maintaining platform-specific optimizations. The coordination strategy emphasizes shared contracts and parallel development with regular synchronization points. By establishing API contracts and data models upfront, teams can work independently while ensuring consistency. The workflow benefits include faster time-to-market, reduced integration issues, and maintainable cross-platform codebases.]
-
 ## Use this skill when
-
 - Working on multi-platform feature development workflow tasks or workflows
 - Needing guidance, best practices, or checklists for multi-platform feature development workflow
-
 ## Do not use this skill when
-
 - The task is unrelated to multi-platform feature development workflow
 - You need a different domain or tool outside this scope
-
 ## Instructions
-
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
 - If detailed examples are required, open `resources/implementation-playbook.md`.
-
 ## Phase 1: Architecture and API Design (Sequential)
-
 ### 1. Define Feature Requirements and API Contracts
 - Use Task tool with subagent_type="backend-architect"
 - Prompt: "Design the API contract for feature: $ARGUMENTS. Create OpenAPI 3.1 specification with:
@@ -55,7 +38,6 @@ Build and deploy the same feature consistently across web, mobile, and desktop p
   - Error response formats and codes
   Define shared data models that all platforms will consume."
 - Expected output: Complete API specification, data models, and integration guidelines
-
 ### 2. Design System and UI/UX Consistency
 - Use Task tool with subagent_type="ui-ux-designer"
 - Prompt: "Create cross-platform design system for feature using API spec: [previous output]. Include:
@@ -68,7 +50,6 @@ Build and deploy the same feature consistently across web, mobile, and desktop p
   - Animation and transition guidelines"
 - Context from previous: API endpoints, data structures, authentication flows
 - Expected output: Design system documentation, component library specs, platform guidelines
-
 ### 3. Shared Business Logic Architecture
 - Use Task tool with subagent_type="comprehensive-review::architect-review"
 - Prompt: "Design shared business logic architecture for cross-platform feature. Define:
@@ -81,9 +62,7 @@ Build and deploy the same feature consistently across web, mobile, and desktop p
   Consider Kotlin Multiplatform for mobile or TypeScript for web/desktop sharing."
 - Context from previous: API contracts, data models, UI requirements
 - Expected output: Shared code architecture, platform abstraction layers, implementation guide
-
 ## Phase 2: Parallel Platform Implementation
-
 ### 4a. Web Implementation (React/Next.js)
 - Use Task tool with subagent_type="frontend-developer"
 - Prompt: "Implement web version of feature using:
@@ -98,7 +77,6 @@ Build and deploy the same feature consistently across web, mobile, and desktop p
   Follow shared business logic: [architecture doc]"
 - Context from previous: API contracts, design system, shared logic patterns
 - Expected output: Complete web implementation with tests
-
 ### 4b. iOS Implementation (SwiftUI)
 - Use Task tool with subagent_type="ios-developer"
 - Prompt: "Implement iOS version using:
@@ -113,7 +91,6 @@ Build and deploy the same feature consistently across web, mobile, and desktop p
   Follow shared patterns: [architecture doc]"
 - Context from previous: API contracts, iOS design guidelines, shared models
 - Expected output: Native iOS implementation with unit/UI tests
-
 ### 4c. Android Implementation (Kotlin/Compose)
 - Use Task tool with subagent_type="mobile-developer"
 - Prompt: "Implement Android version using:
@@ -128,7 +105,6 @@ Build and deploy the same feature consistently across web, mobile, and desktop p
   Follow shared logic: [architecture doc]"
 - Context from previous: API contracts, Material Design specs, shared patterns
 - Expected output: Native Android implementation with tests
-
 ### 4d. Desktop Implementation (Optional - Electron/Tauri)
 - Use Task tool with subagent_type="frontend-mobile-development::frontend-developer"
 - Prompt: "Implement desktop version using Tauri 2.0 or Electron with:
@@ -142,9 +118,7 @@ Build and deploy the same feature consistently across web, mobile, and desktop p
   Reuse web components: [web implementation]"
 - Context from previous: Web implementation, desktop-specific requirements
 - Expected output: Desktop application with platform packages
-
 ## Phase 3: Integration and Validation
-
 ### 5. API Documentation and Testing
 - Use Task tool with subagent_type="documentation-generation::api-documenter"
 - Prompt: "Create comprehensive API documentation including:
@@ -160,7 +134,6 @@ Build and deploy the same feature consistently across web, mobile, and desktop p
   Test all endpoints with platform implementations."
 - Context from previous: Implemented platforms, API usage patterns
 - Expected output: Complete API documentation portal, test results
-
 ### 6. Cross-Platform Testing and Feature Parity
 - Use Task tool with subagent_type="unit-testing::test-automator"
 - Prompt: "Validate feature parity across all platforms:
@@ -175,7 +148,6 @@ Build and deploy the same feature consistently across web, mobile, and desktop p
   Create test report with any platform discrepancies."
 - Context from previous: All platform implementations, API documentation
 - Expected output: Test report, parity matrix, performance metrics
-
 ### 7. Platform-Specific Optimizations
 - Use Task tool with subagent_type="application-performance::performance-engineer"
 - Prompt: "Optimize each platform implementation:
@@ -188,17 +160,13 @@ Build and deploy the same feature consistently across web, mobile, and desktop p
   Document optimization techniques and trade-offs."
 - Context from previous: Test results, performance metrics
 - Expected output: Optimized implementations, performance improvements
-
 ## Configuration Options
-
 - **--platforms**: Specify target platforms (web,ios,android,desktop)
 - **--api-first**: Generate API before UI implementation (default: true)
 - **--shared-code**: Use Kotlin Multiplatform or similar (default: evaluate)
 - **--design-system**: Use existing or create new (default: create)
 - **--testing-strategy**: Unit, integration, e2e (default: all)
-
 ## Success Criteria
-
 - API contract defined and validated before implementation
 - All platforms pass the agreed observable behavior matrix; document intentional differences
 - Performance metrics meet platform-specific standards
@@ -207,22 +175,15 @@ Build and deploy the same feature consistently across web, mobile, and desktop p
 - Documentation complete for all platforms
 - Measure code reuse only where useful; do not sacrifice native behavior to reach an arbitrary percentage
 - User experience optimized for each platform's conventions
-
 ## Platform-Specific Considerations
-
 **Web**: PWA capabilities, SEO optimization, browser compatibility
 **iOS**: App Store guidelines, TestFlight distribution, iOS-specific features
 **Android**: Play Store requirements, Android App Bundles, device fragmentation
 **Desktop**: Code signing, auto-updates, OS-specific installers
-
 Initial feature specification: $ARGUMENTS
-
 ## Example
-
 **User request:**
-
 > Build and deploy the same feature consistently across web, mobile, and desktop platforms using API-first architecture and parallel implementation strategies.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

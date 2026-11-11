@@ -1,87 +1,57 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "d4bf3620b9c94ed9a7176c073a53d4daf2c26cb64faa049f3f02cc8050155268"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: technical-tutorials
+content_hash: d4bf3620b9c94ed9a7176c073a53d4daf2c26cb64faa049f3f02cc8050155268
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-07-01
 description: When the user wants to create step-by-step technical tutorials, quickstarts, or code walkthroughs. Trigger phrases include "tutorial," "quickstart," "getting started guide," "walkthrough," "step by step," "how to guide," "hands-on guide," or "code tutorial."
-tier: "experimental"
+license: MIT
+license_source: "https://github.com/jonathimer/devmarketing-skills/blob/main/LICENSE"
+name: technical-tutorials
 risk: critical
-source: https://github.com/jonathimer/devmarketing-skills/tree/main/skills/technical-tutorials
+source: "https://github.com/jonathimer/devmarketing-skills/tree/main/skills/technical-tutorials"
 source_repo: jonathimer/devmarketing-skills
 source_type: community
-date_added: 2026-07-01
-license: MIT
-license_source: https://github.com/jonathimer/devmarketing-skills/blob/main/LICENSE
 ---
-
-
 # Technical Tutorials
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use
-
 Use this skill when you need to create step-by-step technical tutorials, quickstarts, or code walkthroughs. Trigger phrases include "tutorial," "quickstart," "getting started guide," "walkthrough," "step by step," "how to guide," "hands-on guide," or "code tutorial.".
-
-
 This skill helps you create step-by-step tutorials that actually work. Covers prerequisite handling, progressive complexity, troubleshooting sections, and creating those satisfying "it works!" moments.
-
 ---
-
 ## Prerequisites Handling
-
 ### The Prerequisites Section
-
 Be explicit. Don't make developers guess what they need.
-
 ```markdown
 ## Prerequisites
-
 Before starting, make sure you have:
-
 | Requirement | Version | Check Command |
 |-------------|---------|---------------|
 | Node.js | supported project LTS, verified for this tutorial | `node --version` |
 | npm | 9+ | `npm --version` |
 | Git | Any | `git --version` |
-
 You should also be comfortable with:
 - Basic JavaScript (variables, functions, async/await)
 - Command line basics (cd, mkdir, running commands)
 - REST API concepts (HTTP methods, JSON)
-
 **New to any of these?** Check out [link to prerequisite tutorial].
 ```
-
 ### Environment Setup Section
-
 Make setup foolproof:
-
 ```markdown
 ## Setting Up Your Environment
-
 ### 1. Create Project Directory
-
 \`\`\`bash
 mkdir my-awesome-project
 cd my-awesome-project
 \`\`\`
-
 ### 2. Initialize the Project
-
 \`\`\`bash
 npm init -y
 \`\`\`
-
 You should see output like:
 \`\`\`json
 {
@@ -90,26 +60,18 @@ You should see output like:
   ...
 }
 \`\`\`
-
 ### 3. Install Dependencies
-
 \`\`\`bash
 npm install express dotenv
 \`\`\`
-
 ### 4. Verify Installation
-
 \`\`\`bash
 node -e "require('express'); console.log('Express installed!')"
 \`\`\`
-
 Expected output: `Express installed!`
 ```
-
 ---
-
 ## Limitations
-
 - Use this skill only when the task clearly matches its upstream source and local project context.
 - Verify commands, generated code, dependencies, credentials, and external service behavior before applying changes.
 - Do not treat examples as a substitute for environment-specific tests, security review, or user approval for destructive or costly actions.

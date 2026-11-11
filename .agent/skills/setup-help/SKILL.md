@@ -1,51 +1,36 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "83c4b3d6105eede1aeea9ad86b81912d174b896c41337d17cddae53668636bb6"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: setup-help
-description: "Walk a user through setup or installation one step at a time with the remaining steps visible."
-tier: "experimental"
+content_hash: 83c4b3d6105eede1aeea9ad86b81912d174b896c41337d17cddae53668636bb6
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: davidondrej
 category: productivity
+date_added: 2026-07-07
+description: Walk a user through setup or installation one step at a time with the remaining steps visible.
+license: MIT
+license_source: ""https://github.com/davidondrej/skills/blob/main/LICENSE""
+name: setup-help
 risk: safe
 source: community
 source_repo: davidondrej/skills
 source_type: community
-date_added: "2026-07-07"
-author: davidondrej
-tags: [setup, onboarding, installation]
-tools: [claude, codex]
-license: "MIT"
-license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
-disable-model-invocation: true
+tags: "[setup, onboarding, installation]"
+tools: "[claude, codex]"
+---disable-model-invocation: true
 ---
-
-
 # setup-help
-
 ## When to Use
-
 - Use when the user asks to set up, install, configure, or get something working step by step.
 - Use when the setup has multiple steps and benefits from one-at-a-time guidance.
-
 Guide the user through any setup, one step at a time, in the user's requested language.
-
 ## Response format (every single response)
-
 1. **Current step** — ONE atomic action. A single click, field, or command — not a checklist. 1–2 lines max. If it needs sub-steps, it's too big: split it and push the rest into "Still remaining". Use the user's requested language.
 2. A `----` divider.
 3. **Still remaining** — a numbered list of the setup steps left after this one. Max 8 items, ever.
-
 Repeat this format for every response until setup is done.
-
 ## Rules
-
 - Before the first step, build a complete canonical checklist from the user's outline, repo/docs, current screen, and any discovered prerequisites.
 - The **Still remaining** list must never exceed 8 items — more is overwhelming. Track ALL unfinished checklist items internally; if more than 8 remain, show the nearest steps individually and merge the later ones into broader phase-level items so the list stays at 8 or fewer. Never silently drop a required step from internal tracking.
 - If a new required step is discovered mid-setup, add it to **Still remaining** immediately in the correct order.
@@ -55,14 +40,9 @@ Repeat this format for every response until setup is done.
 - After the user finishes a step, move the next "remaining" item up to "Current step".
 - Update the "Still remaining" list each time as steps get done.
 - When nothing remains, say setup is complete instead of showing the list.
-
 ## Example
-
 **User request:**
-
 > Use @setup-help for this task: Walk a user through setup or installation one step at a time with the remaining steps visible.
-
 ## Limitations
-
 - Adapted from `davidondrej/skills`; verify local paths, tools, credentials, and agent features before acting.
 - For commands, remote access, scheduling, browser automation, or file-changing workflows, get explicit user approval and confirm the target environment first.

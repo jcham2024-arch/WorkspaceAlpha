@@ -1,56 +1,40 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "66e8d15afe1c4dd444f21d4f6cd7b89ce08af74b11aef74242ca79b4670d373d"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: "engineering-skills"
-description: "Find which engineering skill fits a task: architecture, frontend, backend, QA, DevOps, security, AI/ML, data, cloud. Use whenever the user is unsure which skill to use; load only that one."
-tier: "experimental"
+content_hash: 66e8d15afe1c4dd444f21d4f6cd7b89ce08af74b11aef74242ca79b4670d373d
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: Alireza Rezvani
+description: ""Find which engineering skill fits a task: architecture, frontend, backend, QA, DevOps, security, AI/ML, data, cloud. Use whenever the user is unsure which skill to use; load only that one.""
 license: MIT
-metadata:
-  version: 2.9.0
-  author: Alireza Rezvani
-  tags:
-    - engineering
-    - frontend
-    - backend
-    - devops
-    - security
-    - ai-ml
-    - data-engineering
-  agents:
+name: engineering-skills
+  - engineering
+  - frontend
+  - backend
+  - devops
+  - security
+  - ai-ml
+  - data-engineering
+version: 2.9.0
+---  agents:
     - claude-code
     - codex-cli
     - openclaw
 ---
-
-
 # Engineering Team Skills
-
 32 production-ready engineering skills organized into core engineering, security, AI/ML/Data, and specialized tools.
-
 ## Quick Start
-
 ### Claude Code
 ```
 /read engineering-team/skills/senior-fullstack/SKILL.md
 ```
-
 ### Codex CLI
 ```bash
 npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team
 ```
-
 ## Skills Overview
-
 ### Core Engineering (13 skills)
-
 | Skill | Folder | Focus |
 |-------|--------|-------|
 | Senior Architect | `senior-architect/` | System design, architecture patterns |
@@ -66,9 +50,7 @@ npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team
 | MS365 Tenant Manager | `ms365-tenant-manager/` | Microsoft 365 administration |
 | TDD Guide | `tdd-guide/` | Test-driven development workflows |
 | Tech Stack Evaluator | `tech-stack-evaluator/` | Technology comparison, TCO analysis |
-
 ### AI/ML/Data (5 skills)
-
 | Skill | Folder | Focus |
 |-------|--------|-------|
 | Senior Data Scientist | `senior-data-scientist/` | Statistical modeling, experimentation |
@@ -76,9 +58,7 @@ npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team
 | Senior ML Engineer | `senior-ml-engineer/` | Model deployment, MLOps, LLM integration |
 | Senior Prompt Engineer | `senior-prompt-engineer/` | Prompt optimization, RAG, agents |
 | Senior Computer Vision | `senior-computer-vision/` | Object detection, segmentation |
-
 ### Specialized Tools (5 skills)
-
 | Skill | Folder | Focus |
 |-------|--------|-------|
 | Playwright Pro | `playwright-pro/` | E2E testing (9 sub-skills) |
@@ -86,19 +66,13 @@ npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team
 | Stripe Integration | `stripe-integration-expert/` | Payment integration, webhooks |
 | Incident Commander | `incident-commander/` | Incident response workflows |
 | Email Template Builder | `email-template-builder/` | HTML email generation |
-
 ## Python Tools
-
 30+ scripts, all stdlib-only. Run directly:
-
 ```bash
 python3 <skill>/scripts/<tool>.py --help
 ```
-
 No pip install needed. Scripts include embedded samples for demo mode.
-
 ## Rules
-
 - Load only the specific skill SKILL.md you need — don't bulk-load all 32
 - Use Python tools for analysis and scaffolding, not manual judgment
 - Check CLAUDE.md for tool usage examples and workflows

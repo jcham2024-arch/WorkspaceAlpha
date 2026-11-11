@@ -1,63 +1,42 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "0993959594d5971ee3e1b0fd70056a8f13474bac2114bf0819f3c2cde8b878b7"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 0993959594d5971ee3e1b0fd70056a8f13474bac2114bf0819f3c2cde8b878b7
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Disk usage is {{ $value }}%
 name: prometheus-configuration
-description: "Complete guide to Prometheus setup, metric collection, scrape configuration, and recording rules."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
+version: 3.8
 ---
-
 ## Supporting material availability
-
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
-
 - `<support-root>/assets/prometheus.yml.template`
 - `<support-root>/references/scrape-configs.md`
 - `<support-root>/references/recording-rules.md`
 - `<support-root>/scripts/validate-prometheus.sh`
-
 Ask for the original supporting material or an existing installation before using a step that depends on these paths; this catalog does not identify a verified download source for them. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
-
-
 # Prometheus Configuration
-
 Complete guide to Prometheus setup, metric collection, scrape configuration, and recording rules.
-
 ## Do not use this skill when
-
 - The task is unrelated to prometheus configuration
 - You need a different domain or tool outside this scope
-
 ## Instructions
-
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-
 ## Purpose
-
 Configure Prometheus for comprehensive metric collection, alerting, and monitoring of infrastructure and applications.
-
 ## Use this skill when
-
 - Set up Prometheus monitoring
 - Configure metric scraping
 - Create recording rules
 - Design alert rules
 - Implement service discovery
-
 ## Prometheus Architecture
-
 ```
 ┌──────────────┐
 │ Applications │ ← Instrumented with client libraries
@@ -73,17 +52,12 @@ Configure Prometheus for comprehensive metric collection, alerting, and monitori
        ├─→ Grafana (visualization)
        └─→ Long-term storage (Thanos/Cortex)
 ```
-
 Pin and inspect chart/image versions and values before installing. The Helm PVC fragment also needs a suitable StorageClass and capacity; verify rendered manifests. The Compose example lacks Alertmanager, exporters, Kubernetes API credentials/RBAC, TLS files and rule mounts referenced by the full configuration: provide those explicitly or remove unused jobs. Keep monitoring APIs private and protect labels/config responses from exposing tenant data or secrets. Bound metric label cardinality and validate rules with promtool; thresholds are illustrative, not universal SLOs. An absent error series may require a deliberate zero-fill strategy and zero traffic should not become an assumed healthy percentage.
-
 ## Installation
-
 ### Kubernetes with Helm
-
 ```bash
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo update
-
 helm install prometheus prometheus-community/kube-prometheus-stack \
   --namespace monitoring \
   --create-namespace \
@@ -91,11 +65,8 @@ helm install prometheus prometheus-community/kube-prometheus-stack \
   --set prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.accessModes[0]=ReadWriteOnce \
   --set prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.resources.requests.storage=50Gi
 ```
-
 ### Docker Compose
-
 ```yaml
-version: '3.8'
 services:
   prometheus:
     image: prom/prometheus:latest
@@ -108,13 +79,10 @@ services:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
       - '--storage.tsdb.retention.time=30d'
-
 volumes:
   prometheus-data:
 ```
-
 ## Configuration File
-
 **prometheus.yml:**
 ```yaml
 global:
@@ -123,25 +91,21 @@ global:
   external_labels:
     cluster: 'production'
     region: 'us-west-2'
-
 # Alertmanager configuration
 alerting:
   alertmanagers:
     - static_configs:
         - targets:
           - alertmanager:9093
-
 # Load rules files
 rule_files:
   - /etc/prometheus/rules/*.yml
-
 # Scrape configurations
 scrape_configs:
   # Prometheus itself
   - job_name: 'prometheus'
     static_configs:
       - targets: ['localhost:9090']
-
   # Node exporters
   - job_name: 'node-exporter'
     static_configs:
@@ -154,7 +118,6 @@ scrape_configs:
         target_label: instance
         regex: '([^:]+)(:[0-9]+)?'
         replacement: '${1}'
-
   # Kubernetes pods with annotations
   - job_name: 'kubernetes-pods'
     kubernetes_sd_configs:
@@ -178,7 +141,6 @@ scrape_configs:
       - source_labels: [__meta_kubernetes_pod_name]
         action: replace
         target_label: pod
-
   # Application metrics
   - job_name: 'my-app'
     static_configs:
@@ -192,13 +154,9 @@ scrape_configs:
       cert_file: /etc/prometheus/client.crt
       key_file: /etc/prometheus/client.key
 ```
-
 **Reference:** See `assets/prometheus.yml.template`
-
 ## Scrape Configurations
-
 ### Static Targets
-
 ```yaml
 scrape_configs:
   - job_name: 'static-targets'
@@ -208,9 +166,7 @@ scrape_configs:
           env: 'production'
           region: 'us-west-2'
 ```
-
 ### File-based Service Discovery
-
 ```yaml
 scrape_configs:
   - job_name: 'file-sd'
@@ -220,7 +176,6 @@ scrape_configs:
         - /etc/prometheus/targets/*.yml
         refresh_interval: 5m
 ```
-
 **targets/production.json:**
 ```json
 [
@@ -233,9 +188,7 @@ scrape_configs:
   }
 ]
 ```
-
 ### Kubernetes Service Discovery
-
 ```yaml
 scrape_configs:
   - job_name: 'kubernetes-services'
@@ -254,13 +207,9 @@ scrape_configs:
         target_label: __metrics_path__
         regex: (.+)
 ```
-
 **Reference:** See `references/scrape-configs.md`
-
 ## Recording Rules
-
 Create pre-computed metrics for frequently queried expressions:
-
 ```yaml
 # /etc/prometheus/rules/recording_rules.yml
 groups:
@@ -270,22 +219,18 @@ groups:
       # HTTP request rate per service
       - record: job:http_requests:rate5m
         expr: sum by (job) (rate(http_requests_total[5m]))
-
       # Error rate percentage
       - record: job:http_requests_errors:rate5m
         expr: sum by (job) (rate(http_requests_total{status=~"5.."}[5m]))
-
       - record: job:http_requests_error_rate:percentage
         expr: |
           (job:http_requests_errors:rate5m / job:http_requests:rate5m) * 100
-
       # P95 latency
       - record: job:http_request_duration:p95
         expr: |
           histogram_quantile(0.95,
             sum by (job, le) (rate(http_request_duration_seconds_bucket[5m]))
           )
-
   - name: resource_metrics
     interval: 30s
     rules:
@@ -293,22 +238,17 @@ groups:
       - record: instance:node_cpu:utilization
         expr: |
           100 - (avg by (instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)
-
       # Memory utilization percentage
       - record: instance:node_memory:utilization
         expr: |
           100 - ((node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) * 100)
-
       # Disk usage percentage
       - record: instance:node_disk:utilization
         expr: |
           100 - ((node_filesystem_avail_bytes / node_filesystem_size_bytes) * 100)
 ```
-
 **Reference:** See `references/recording-rules.md`
-
 ## Alert Rules
-
 ```yaml
 # /etc/prometheus/rules/alert_rules.yml
 groups:
@@ -322,7 +262,6 @@ groups:
           severity: critical
         annotations:
           summary: "Service {{ $labels.instance }} is down"
-          description: "{{ $labels.job }} has been down for more than 1 minute"
 
       - alert: HighErrorRate
         expr: job:http_requests_error_rate:percentage > 5
@@ -331,7 +270,6 @@ groups:
           severity: warning
         annotations:
           summary: "High error rate for {{ $labels.job }}"
-          description: "Error rate is {{ $value }}% (threshold: 5%)"
 
       - alert: HighLatency
         expr: job:http_request_duration:p95 > 1
@@ -340,7 +278,6 @@ groups:
           severity: warning
         annotations:
           summary: "High latency for {{ $labels.job }}"
-          description: "P95 latency is {{ $value }}s (threshold: 1s)"
 
   - name: resources
     interval: 1m
@@ -352,7 +289,6 @@ groups:
           severity: warning
         annotations:
           summary: "High CPU usage on {{ $labels.instance }}"
-          description: "CPU usage is {{ $value }}%"
 
       - alert: HighMemoryUsage
         expr: instance:node_memory:utilization > 85
@@ -361,7 +297,6 @@ groups:
           severity: warning
         annotations:
           summary: "High memory usage on {{ $labels.instance }}"
-          description: "Memory usage is {{ $value }}%"
 
       - alert: DiskSpaceLow
         expr: instance:node_disk:utilization > 90
@@ -370,26 +305,18 @@ groups:
           severity: critical
         annotations:
           summary: "Low disk space on {{ $labels.instance }}"
-          description: "Disk usage is {{ $value }}%"
 ```
-
 ## Validation
-
 ```bash
 # Validate configuration
 promtool check config prometheus.yml
-
 # Validate rules
 promtool check rules /etc/prometheus/rules/*.yml
-
 # Test query
 promtool query instant http://localhost:9090 'up'
 ```
-
 **Reference:** See `scripts/validate-prometheus.sh`
-
 ## Best Practices
-
 1. **Use consistent naming** for metrics (prefix_name_unit)
 2. **Set appropriate scrape intervals** (15-60s typical)
 3. **Use recording rules** for expensive queries
@@ -400,37 +327,28 @@ promtool query instant http://localhost:9090 'up'
 8. **Implement federation** for large deployments
 9. **Use Thanos/Cortex** for long-term storage
 10. **Document custom metrics**
-
 ## Troubleshooting
-
 **Check scrape targets:**
 ```bash
 curl http://localhost:9090/api/v1/targets
 ```
-
 **Check configuration:**
 ```bash
 curl http://localhost:9090/api/v1/status/config
 ```
-
 **Test query:**
 ```bash
 curl 'http://localhost:9090/api/v1/query?query=up'
 ```
-
 ## Reference Files
-
 - `assets/prometheus.yml.template` - Complete configuration template
 - `references/scrape-configs.md` - Scrape configuration patterns
 - `references/recording-rules.md` - Recording rule examples
 - `scripts/validate-prometheus.sh` - Validation script
-
 ## Related Skills
-
 - `grafana-dashboards` - For visualization
 - `slo-implementation` - For SLO monitoring
 - `distributed-tracing` - For request tracing
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

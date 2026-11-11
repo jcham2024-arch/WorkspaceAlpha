@@ -1,52 +1,37 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "a5db48a693c61f17114dee48f30ab42b2ae03ac290e83893f9105ef196b9221b"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: aws-cloudtrail
-description: Configure AWS CloudTrail for audit logging. Set up organization trails
-tier: "experimental"
-  and event analysis. Use when auditing AWS activity.
+content_hash: a5db48a693c61f17114dee48f30ab42b2ae03ac290e83893f9105ef196b9221b
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: security
+compatibility: Checklist and framework guidance; no privileged tooling required. Apply
+date_added: 2026-09-20
+description: Configure AWS CloudTrail for audit logging. Set up organization trails
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: aws-cloudtrail
 risk: safe
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Checklist and framework guidance; no privileged tooling required. Apply
+version: 1.0
+---  and event analysis. Use when auditing AWS activity.
   controls through your own change process.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # AWS CloudTrail
-
 Audit AWS account activity with CloudTrail for compliance, security investigation, and operational troubleshooting.
-
 ## When to Use
-
 - Enabling organization-wide audit logging across all AWS accounts
 - Investigating security incidents or unauthorized API activity
 - Meeting compliance requirements for SOC 2, HIPAA, PCI DSS, or FedRAMP
 - Setting up automated alerting on sensitive AWS API calls
 - Querying historical AWS activity for forensic analysis
-
 ## Prerequisites and Change Scope
-
 Verify the AWS identity, partition, region and organization management/delegated-administrator permissions before mutation. All names, account IDs and ARNs below are synthetic placeholders; choose a globally unique owned bucket. Have a working KMS key policy permitting the selected CloudTrail trail and authorized readers, an existing CloudWatch log group and scoped role/trust policy before passing their ARNs. The snippets do not provision those dependencies. Review paid data-event/Lake/Athena scope and retention costs first. Export existing policies/selectors/lifecycle settings and merge intended changes; put-* operations can replace existing configuration. Never apply expiration to audit evidence under a legal hold.
-
 ## Create an Organization Trail
-
 ```bash
 # Create the S3 bucket for log storage
 aws s3api create-bucket \
@@ -127,11 +112,8 @@ aws cloudtrail create-trail \
 # Start logging
 aws cloudtrail start-logging --name org-audit-trail
 ```
-
 The organization prefix must use the real organization ID and the trail ARN must use the management account ID. Log-file validation detects changes; it does not prevent deletion. Versioning alone is not immutable retention. Validate Object Lock/legal-hold design separately where required.
-
 ## Event Selectors for Management and Data Events
-
 ```bash
 # Configure advanced event selectors for granular control
 aws cloudtrail put-event-selectors \
@@ -171,9 +153,7 @@ aws cloudtrail put-event-selectors \
     }
   ]'
 ```
-
 ## CloudWatch Alerts for Sensitive Activity
-
 ```bash
 # Create metric filter for unauthorized API calls
 aws logs put-metric-filter \
@@ -232,9 +212,7 @@ aws logs put-metric-filter \
   --metric-transformations \
     metricName=SecurityGroupChanges,metricNamespace=CloudTrailMetrics,metricValue=1
 ```
-
 ## Athena Queries for CloudTrail Analysis
-
 ```sql
 -- Create Athena table for CloudTrail logs
 CREATE EXTERNAL TABLE IF NOT EXISTS cloudtrail_logs (
@@ -324,13 +302,9 @@ WHERE eventSource = 'kms.amazonaws.com'
   AND eventTime > date_format(date_add('day', -7, current_date), '%Y-%m-%dT%H:%i:%sZ')
 ORDER BY eventTime DESC;
 ```
-
 For production query volumes, register/project all intended partitions and constrain region/year/month/day to prune scan cost; eventTime alone does not prune these partitions. This DDL covers one organization/account prefix, not every member account. Values such as AWS service names or IPv6 addresses need an explicit policy when classifying unusual source IPs.
-
 ## CloudTrail Lake (Existing Eligible Customers Only)
-
 CloudTrail Lake closed to new customers on May 31, 2026. Verify existing eligibility and organization/account event-store coverage before using this optional example; new customers should choose a supported CloudWatch or S3/Athena design. Trails remain supported. See [AWS availability change](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html).
-
 ```bash
 # Create an event data store for long-term queryable storage
 aws cloudtrail create-event-data-store \
@@ -347,7 +321,6 @@ aws cloudtrail create-event-data-store \
     }
   ]'
 ```
-
 ```sql
 -- CloudTrail Lake SQL queries (run in console or via StartQuery API)
 -- Investigate a specific user's activity
@@ -365,25 +338,19 @@ WHERE eventTime > '2024-01-01 00:00:00'
 GROUP BY recipientAccountId, userIdentity.arn
 ORDER BY event_count DESC;
 ```
-
 ## Validate Trail Integrity
-
 ```bash
 # Validate log file integrity for a date range
 aws cloudtrail validate-logs \
   --trail-arn arn:aws:cloudtrail:us-east-1:123456789012:trail/org-audit-trail \
   --start-time "2024-01-01T00:00:00Z" \
   --end-time "2024-01-31T23:59:59Z"
-
 # Check trail status
 aws cloudtrail get-trail-status --name org-audit-trail
-
 # Describe the trail configuration
 aws cloudtrail describe-trails --trail-name-list org-audit-trail
 ```
-
 ## Terraform Configuration
-
 ```hcl
 resource "aws_cloudtrail" "org_trail" {
   name                          = "org-audit-trail"
@@ -395,7 +362,6 @@ resource "aws_cloudtrail" "org_trail" {
   cloud_watch_logs_group_arn    = "${aws_cloudwatch_log_group.cloudtrail.arn}:*"
   cloud_watch_logs_role_arn     = aws_iam_role.cloudtrail_cw.arn
   include_global_service_events = true
-
   advanced_event_selector {
     name = "AllManagementEvents"
     field_selector {
@@ -403,7 +369,6 @@ resource "aws_cloudtrail" "org_trail" {
       equals = ["Management"]
     }
   }
-
   advanced_event_selector {
     name = "SensitiveS3DataEvents"
     field_selector {
@@ -419,18 +384,14 @@ resource "aws_cloudtrail" "org_trail" {
       starts_with = ["arn:aws:s3:::sensitive-data-bucket/"]
     }
   }
-
   tags = {
     Environment = "production"
     Compliance  = "soc2,hipaa"
   }
 }
 ```
-
 The Terraform fragment references externally defined bucket/key/log-role resources and policies; it is not standalone. Plan and inspect changes before applying. For an organization-wide rollout, verify representative member-account/region delivery and CloudWatch access as well as the management account. A metric filter without an alarm does not notify anyone; the example only creates two alarms and the remaining checklist alarms must be implemented and tested separately.
-
 ## Setup Checklist
-
 ```yaml
 cloudtrail_checklist:
   trail_configuration:
@@ -440,7 +401,6 @@ cloudtrail_checklist:
     - "KMS encryption configured with dedicated key"
     - "CloudWatch Logs integration active"
     - "S3 bucket policy restricts access to CloudTrail service only"
-
   s3_bucket_hardening:
     - "Public access blocked"
     - "Versioning enabled"
@@ -448,7 +408,6 @@ cloudtrail_checklist:
     - "Lifecycle policy set for retention and archival"
     - "Access logging enabled on the bucket itself"
     - "Object Lock enabled for WORM compliance (if required)"
-
   monitoring_and_alerting:
     - "Metric filters for unauthorized API calls"
     - "Alarm on root account usage"
@@ -457,26 +416,20 @@ cloudtrail_checklist:
     - "Alarm on security group and NACL changes"
     - "Alarm on CloudTrail configuration changes"
     - "Alarm on S3 bucket policy changes"
-
   analysis:
     - "Athena table created for ad-hoc queries"
     - "CloudTrail Lake event data store for long-term queries"
     - "Regular review of high-risk API patterns"
     - "Automated reports for compliance evidence"
-
   operational:
     - "Trail status health check automated"
     - "Log delivery latency monitored"
     - "Log file validation run periodically"
     - "SNS notification for trail configuration changes"
 ```
-
 ## Verification
-
 After the authorized change, inspect get-trail-status for delivery errors and delivered object/digest timestamps. Use a harmless authorized management event in a test account, find its event ID in S3 and the selected query system, and test alarm routing without disclosing sensitive log bodies. Retain the before/after configuration and unresolved regions/accounts. Compliance tags and a green trail status do not establish complete event coverage or certification.
-
 ## Best Practices
-
 - Enable organization-wide trails from the management account for full coverage
 - Always enable log file validation to detect tampering
 - Encrypt logs with a customer-managed KMS key and restrict key usage
@@ -487,16 +440,11 @@ After the authorized change, inspect get-trail-status for delivery errors and de
 - Monitor the trail itself (delivery errors, configuration changes) as a meta-control
 - Validate log integrity periodically as part of compliance evidence collection
 - Restrict access to the CloudTrail S3 bucket and KMS key with least-privilege IAM policies
-
 ## Limitations
-
 - Guidance and checklists only; not legal advice and not a substitute for a qualified auditor.
 - Docs-only import: upstream templates and scripts not bundled.
-
 ### Example
-
 ```markdown
 Map this skill's control checklist to our current evidence and list gaps.
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.

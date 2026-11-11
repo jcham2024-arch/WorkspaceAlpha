@@ -1,26 +1,19 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "7b1961560b0ca4db085a6b3ad26487388deb0a8b2ddb44a4df5d7a9151f4fcfb"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 7b1961560b0ca4db085a6b3ad26487388deb0a8b2ddb44a4df5d7a9151f4fcfb
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Master major dependency version upgrades, compatibility analysis, staged upgrade strategies, and comprehensive testing approaches.
 name: dependency-upgrade
-description: "Master major dependency version upgrades, compatibility analysis, staged upgrade strategies, and comprehensive testing approaches."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
+version: 2
 ---
-
 ## Supporting material availability
-
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
-
 - `<support-root>/references/semver.md`
 - `<support-root>/references/compatibility-matrix.md`
 - `<support-root>/references/staged-upgrades.md`
@@ -28,27 +21,17 @@ This catalog copy contains the inline guidance below, but does not include the f
 - `<support-root>/assets/upgrade-checklist.md`
 - `<support-root>/assets/compatibility-matrix.csv`
 - `<support-root>/scripts/audit-dependencies.sh`
-
 Ask for the original supporting material or an existing installation before using a step that depends on these paths; this catalog does not identify a verified download source for them. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
-
-
 # Dependency Upgrade
-
 Master major dependency version upgrades, compatibility analysis, staged upgrade strategies, and comprehensive testing approaches.
-
 ## Do not use this skill when
-
 - The task is unrelated to dependency upgrade
 - You need a different domain or tool outside this scope
-
 ## Instructions
-
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-
 ## Use this skill when
-
 - Upgrading major framework versions
 - Updating security-vulnerable dependencies
 - Modernizing legacy dependencies
@@ -56,57 +39,43 @@ Master major dependency version upgrades, compatibility analysis, staged upgrade
 - Planning incremental upgrade paths
 - Testing compatibility matrices
 - Automating dependency updates
-
 ## Semantic Versioning Review
-
 ```
 MAJOR.MINOR.PATCH (e.g., 2.3.1)
-
 MAJOR: Breaking changes
 MINOR: New features, backward compatible
 PATCH: Bug fixes, backward compatible
-
 ^2.3.1 = >=2.3.1 <3.0.0 (minor updates)
 ~2.3.1 = >=2.3.1 <2.4.0 (patch updates)
 2.3.1 = exact version
 ```
-
 Separate inspection from mutation: npm audit fix/dedupe, yarn dedupe and ncu -u change dependency state. Pin and review codemods/CLI packages before running; the changelog-parser/react-codeshift command shapes below are illustrative and must be checked against the actual official tool, not assumed runnable. Regex migration is not syntax-aware and can corrupt strings/comments/imports; use reviewed AST transforms and inspect every diff. SemVer promises do not prove compatibility and caret rules differ below 1.0. Select exact targets from release notes/peer requirements instead of latest. --force/--legacy-peer-deps bypass protections rather than resolve incompatibility. A matching React version or DOM snapshot is not full runtime/visual verification. Do not overwrite an existing UPGRADE_PLAN.md or enable automerge implicitly.
-
 ## Dependency Analysis
-
 ### Audit Dependencies
 ```bash
 # npm
 npm outdated
 npm audit
 npm audit fix
-
 # yarn
 yarn outdated
 yarn audit
-
 # Check for major updates
 npx npm-check-updates
 npx npm-check-updates -u  # Update package.json
 ```
-
 ### Analyze Dependency Tree
 ```bash
 # See why a package is installed
 npm ls package-name
 yarn why package-name
-
 # Find duplicate packages
 npm dedupe
 yarn dedupe
-
 # Visualize dependencies
 npx madge --image graph.png src/
 ```
-
 ## Compatibility Matrix
-
 ```javascript
 // compatibility-matrix.js
 const compatibilityMatrix = {
@@ -128,22 +97,17 @@ const compatibilityMatrix = {
     }
   }
 };
-
 function checkCompatibility(packages) {
   // Validate package versions against matrix
 }
 ```
-
 ## Staged Upgrade Strategy
-
 ### Phase 1: Planning
 ```bash
 # 1. Identify current versions
 npm list --depth=0
-
 # 2. Check for breaking changes
 # Read CHANGELOG.md and MIGRATION.md
-
 # 3. Create upgrade plan
 echo "Upgrade order:
 1. TypeScript
@@ -152,30 +116,22 @@ echo "Upgrade order:
 4. Testing libraries
 5. Build tools" > UPGRADE_PLAN.md
 ```
-
 ### Phase 2: Incremental Updates
 ```bash
 # Don't upgrade everything at once!
-
 # Step 1: Update TypeScript
 npm install typescript@latest
-
 # Test
 npm run test
 npm run build
-
 # Step 2: Update React (one major version at a time)
 npm install react@17 react-dom@17
-
 # Test again
 npm run test
-
 # Step 3: Continue with other packages
 npm install react-router-dom@6
-
 # And so on...
 ```
-
 ### Phase 3: Validation
 ```javascript
 // tests/compatibility.test.js
@@ -183,77 +139,61 @@ describe('Dependency Compatibility', () => {
   it('should have compatible React versions', () => {
     const reactVersion = require('react/package.json').version;
     const reactDomVersion = require('react-dom/package.json').version;
-
     expect(reactVersion).toBe(reactDomVersion);
   });
-
   it('should not have peer dependency warnings', () => {
     // Run npm ls and check for warnings
   });
 });
 ```
-
 ## Breaking Change Handling
-
 ### Identifying Breaking Changes
 ```bash
 # Use changelog parsers
 npx changelog-parser react 16.0.0 17.0.0
-
 # Or manually check
 curl https://raw.githubusercontent.com/facebook/react/main/CHANGELOG.md
 ```
-
 ### Codemod for Automated Fixes
 ```bash
 # React upgrade codemods
 npx react-codeshift <transform> <path>
-
 # Example: Update lifecycle methods
 npx react-codeshift \
   --parser tsx \
   --transform react-codeshift/transforms/rename-unsafe-lifecycles.js \
   src/
 ```
-
 ### Custom Migration Script
 ```javascript
 // migration-script.js
 const fs = require('fs');
 const glob = require('glob');
-
 glob('src/**/*.tsx', (err, files) => {
   files.forEach(file => {
     let content = fs.readFileSync(file, 'utf8');
-
     // Replace old API with new API
     content = content.replace(
       /componentWillMount/g,
       'UNSAFE_componentWillMount'
     );
-
     // Update imports
     content = content.replace(
       /import { Component } from 'react'/g,
       "import React, { Component } from 'react'"
     );
-
     fs.writeFileSync(file, content);
   });
 });
 ```
-
 ## Testing Strategy
-
 ### Unit Tests
 ```javascript
 // Ensure tests pass before and after upgrade
 npm run test
-
 // Update test utilities if needed
 npm install @testing-library/react@latest
 ```
-
 ### Integration Tests
 ```javascript
 // tests/integration/app.test.js
@@ -261,7 +201,6 @@ describe('App Integration', () => {
   it('should render without crashing', () => {
     render(<App />);
   });
-
   it('should handle navigation', () => {
     const { getByText } = render(<App />);
     fireEvent.click(getByText('Navigate'));
@@ -269,7 +208,6 @@ describe('App Integration', () => {
   });
 });
 ```
-
 ### Visual Regression Tests
 ```javascript
 // visual-regression.test.js
@@ -280,7 +218,6 @@ describe('Visual Regression', () => {
   });
 });
 ```
-
 ### E2E Tests
 ```javascript
 // cypress/e2e/app.cy.js
@@ -294,9 +231,7 @@ describe('E2E Tests', () => {
   });
 });
 ```
-
 ## Automated Dependency Updates
-
 ### Renovate Configuration
 ```json
 // renovate.json
@@ -317,11 +252,9 @@ describe('E2E Tests', () => {
   "timezone": "America/New_York"
 }
 ```
-
 ### Dependabot Configuration
 ```yaml
 # .github/dependabot.yml
-version: 2
 updates:
   - package-ecosystem: "npm"
     directory: "/"
@@ -334,9 +267,7 @@ updates:
       prefix: "chore"
       include: "scope"
 ```
-
 ## Rollback Plan
-
 ```bash
 # Work on a topic branch with a clean or separately preserved starting state.
 # Record the original full commit SHA and lockfile before changing dependencies.
@@ -344,40 +275,31 @@ updates:
 # Review and revert only task-owned manifest/lockfile changes when appropriate,
 # then use npm ci to restore the recorded lockfile; never delete the branch or others' work.
 ```
-
 ## Common Upgrade Patterns
-
 ### Lock File Management
 ```bash
 # npm
 npm install --package-lock-only  # Update lock file only
 npm ci  # Clean install from lock file
-
 # yarn
 yarn install --frozen-lockfile  # CI mode
 yarn upgrade-interactive  # Interactive upgrades
 ```
-
 ### Peer Dependency Resolution
 ```bash
 # npm 7+: strict peer dependencies
 npm install --legacy-peer-deps  # Ignore peer deps
-
 # npm 8+: override peer dependencies
 npm install --force
 ```
-
 ### Workspace Upgrades
 ```bash
 # Update all workspace packages
 npm install --workspaces
-
 # Update specific workspace
 npm install package@latest --workspace=packages/app
 ```
-
 ## Resources
-
 - **references/semver.md**: Semantic versioning guide
 - **references/compatibility-matrix.md**: Common compatibility issues
 - **references/staged-upgrades.md**: Incremental upgrade strategies
@@ -385,9 +307,7 @@ npm install package@latest --workspace=packages/app
 - **assets/upgrade-checklist.md**: Step-by-step checklist
 - **assets/compatibility-matrix.csv**: Version compatibility table
 - **scripts/audit-dependencies.sh**: Dependency audit script
-
 ## Best Practices
-
 1. **Read Changelogs**: Understand what changed
 2. **Upgrade Incrementally**: One major version at a time
 3. **Test Thoroughly**: Unit, integration, E2E tests
@@ -396,9 +316,7 @@ npm install package@latest --workspace=packages/app
 6. **Automate Updates**: Use Renovate or Dependabot
 7. **Monitor**: Watch for runtime errors post-upgrade
 8. **Document**: Keep upgrade notes
-
 ## Upgrade Checklist
-
 ```markdown
 Pre-Upgrade:
 - [ ] Review current dependency versions
@@ -406,7 +324,6 @@ Pre-Upgrade:
 - [ ] Create feature branch
 - [ ] Backup current state (git tag)
 - [ ] Run full test suite (baseline)
-
 During Upgrade:
 - [ ] Upgrade one dependency at a time
 - [ ] Update peer dependencies
@@ -414,7 +331,6 @@ During Upgrade:
 - [ ] Update tests if needed
 - [ ] Run test suite after each upgrade
 - [ ] Check bundle size impact
-
 Post-Upgrade:
 - [ ] Full regression testing
 - [ ] Performance testing
@@ -423,9 +339,7 @@ Post-Upgrade:
 - [ ] Monitor for errors
 - [ ] Deploy to production
 ```
-
 ## Common Pitfalls
-
 - Upgrading all dependencies at once
 - Not testing after each upgrade
 - Ignoring peer dependency warnings
@@ -433,7 +347,6 @@ Post-Upgrade:
 - Not reading breaking change notes
 - Skipping major versions
 - Not having rollback plan
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

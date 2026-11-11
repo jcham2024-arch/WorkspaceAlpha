@@ -1,24 +1,18 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "a975bd9a158f370e5c650a5b05cbf6c2dec5da1003e13faa4aa02596bf0d42e9"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: cv-generator
-description: "Generate professional, ATS-optimized CVs for FlowCV, Canva, Google Docs, or Word. Handles multi-source merging, JD targeting, seniority adaptation, and humanized rewriting. Outputs paste-ready text with an ATS flaw report and improvement suggestions."
-tier: "experimental"
+content_hash: a975bd9a158f370e5c650a5b05cbf6c2dec5da1003e13faa4aa02596bf0d42e9
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: WHOISABHISHEKADHIKARI
 category: content
+date_added: 2026-06-06
+description: Generate professional, ATS-optimized CVs for FlowCV, Canva, Google Docs, or Word. Handles multi-source merging, JD targeting, seniority adaptation, and humanized rewriting. Outputs paste-ready text with an ATS flaw report and improvement suggestions.
+name: cv-generator
 risk: safe
 source: community
-date_added: "2026-06-06"
-author: "WHOISABHISHEKADHIKARI"
-user-invokable: true
-tags:
+---user-invokable: true
   - cv
   - resume
   - ats
@@ -26,30 +20,20 @@ tags:
   - job-application
   - career-change
 ---
-
-
 # CV Generator Skill — FlowCV / Canva Edition
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use
-
 Use this skill when you need to:
 - Generate a professional, ATS-optimized CV from multiple sources (LinkedIn, GitHub, Portfolio).
 - Tailor an existing CV for a specific Job Description (JD).
 - Improve the language, metrics, and structure of a draft resume.
 - Prepare a paste-ready version of your CV for tools like FlowCV or Canva.
-
 Turns raw profile data into a polished, ATS-ready CV. Outputs a paste-ready plain-text
 version formatted for FlowCV, Canva, Google Docs, or Word — with a flaw report and
 missing-info checklist.
-
 ---
-
 ## Limitations
-
 - **No hallucination.** Never invent a title, company, date, degree, cert, skill, metric, or award.
 - **No fake metrics.** If the user says "we grew a lot", ask for specifics — never insert a percentage.
 - **Respect source truth.** "Junior Developer" stays "Junior Developer" — suggest a reframe if needed; never silently change it.
@@ -58,5 +42,4 @@ missing-info checklist.
 - **Privacy.** Omit unnecessary home address, IDs, DOB, marital status and religion. A country convention alone is not a requirement; include sensitive details only with the user's informed choice and verified need.
 - **No keyword stuffing.** Adding skills the user does not have is fraud. Flag gaps; never fabricate.
 - **OCR warning.** Only when OCR was actually used, disclose it and flag uncertain extraction for verification.
-
 ---

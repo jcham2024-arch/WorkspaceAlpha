@@ -1,50 +1,36 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "2eb6e7b075a3933773a538a2761bcae8166ecb92f15c58fb9a3e24d68a375cdd"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: soc2-compliance
-description: Implement SOC 2 Trust Services Criteria. Configure security, availability,
-tier: "experimental"
-  and processing integrity controls. Use when preparing for a SOC 2 examination.
+content_hash: 2eb6e7b075a3933773a538a2761bcae8166ecb92f15c58fb9a3e24d68a375cdd
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: security
+compatibility: Checklist and framework guidance; no privileged tooling required. Apply
+date_added: 2026-09-20
+description: Implement SOC 2 Trust Services Criteria. Configure security, availability,
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: SOC2 Compliance Checks
 risk: safe
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Checklist and framework guidance; no privileged tooling required. Apply
+version: 1.0
+---  and processing integrity controls. Use when preparing for a SOC 2 examination.
   controls through your own change process.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # SOC 2 Compliance
-
 Implement SOC 2 Trust Services Criteria controls, evidence collection, and continuous compliance monitoring for Type I and Type II audits.
-
 ## When to Use
-
 - Preparing for a SOC 2 Type I or Type II audit
 - Mapping existing controls to Trust Services Criteria
 - Automating evidence collection for auditor requests
 - Building continuous compliance monitoring into CI/CD
 - Onboarding new services and ensuring SOC 2 control coverage
-
 SOC 2 is an independent CPA examination/report, not a product certification. Type I addresses design at a specified date; Type II also addresses operation over a period. Agree system boundaries, applicable categories, criteria and evidence period with the auditor. This abbreviated mapping omits criteria and is not a complete authoritative checklist.
-
 ## Trust Services Criteria Detailed Checklist
-
 ```yaml
 security_common_criteria:
   CC1_control_environment:
@@ -59,7 +45,6 @@ security_common_criteria:
       - Job descriptions with security responsibilities
       - Board meeting minutes discussing security
       - Background check policy and records
-
   CC2_communication:
     CC2.1: "Entity obtains or generates relevant quality information"
     CC2.2: "Entity internally communicates information including objectives and responsibilities"
@@ -69,7 +54,6 @@ security_common_criteria:
       - Internal security newsletters or updates
       - Customer-facing security documentation
       - Status page and incident communication records
-
   CC3_risk_assessment:
     CC3.1: "Entity specifies objectives clearly to identify and assess risks"
     CC3.2: "Entity identifies risks to achievement of objectives"
@@ -80,7 +64,6 @@ security_common_criteria:
       - Risk register with ratings and treatment plans
       - Fraud risk assessment documentation
       - Change management records
-
   CC4_monitoring:
     CC4.1: "Entity selects, develops, and performs ongoing/separate evaluations"
     CC4.2: "Entity evaluates and communicates internal control deficiencies"
@@ -89,7 +72,6 @@ security_common_criteria:
       - Internal audit reports
       - Vulnerability scan results
       - Penetration test reports
-
   CC5_control_activities:
     CC5.1: "Entity selects and develops control activities to mitigate risks"
     CC5.2: "Entity selects and develops technology-based controls"
@@ -99,7 +81,6 @@ security_common_criteria:
       - Access control procedures
       - Change management procedures
       - Encryption standards documentation
-
   CC6_logical_access:
     CC6.1: "Logical access security over protected information assets"
     CC6.2: "Prior to access, users are registered and authorized"
@@ -114,7 +95,6 @@ security_common_criteria:
       - Firewall and WAF configurations
       - TLS/encryption configurations
       - Endpoint protection deployment records
-
   CC7_system_operations:
     CC7.1: "Detect anomalies and potential security incidents"
     CC7.2: "Monitor system components for anomalies"
@@ -126,7 +106,6 @@ security_common_criteria:
       - Monitoring configuration (CloudWatch, Datadog, etc.)
       - Incident response plan
       - Incident tickets and post-mortems
-
   CC8_change_management:
     CC8.1: "Entity authorizes, designs, develops, configures, documents, tests, approves, and implements changes"
     evidence:
@@ -134,7 +113,6 @@ security_common_criteria:
       - Pull request approval requirements
       - CI/CD pipeline configurations
       - Deployment records with approvals
-
   CC9_risk_mitigation:
     CC9.1: "Entity identifies, selects, and develops risk mitigation activities"
     CC9.2: "Entity assesses and manages risks associated with vendors"
@@ -143,7 +121,6 @@ security_common_criteria:
       - Vendor assessment records
       - Business associate agreements
       - Insurance certificates
-
 availability_criteria:
   A1.1: "System processing capacity and availability are maintained"
   A1.2: "Environmental protections and recovery measures"
@@ -154,7 +131,6 @@ availability_criteria:
     - Disaster recovery plan
     - DR test results
     - Backup verification records
-
 processing_integrity_criteria:
   PI1.1: "Entity obtains or generates, uses, and communicates quality information"
   evidence:
@@ -162,7 +138,6 @@ processing_integrity_criteria:
     - Data processing accuracy checks
     - Error handling and retry logic documentation
     - Output reconciliation records
-
 confidentiality_criteria:
   C1.1: "Entity identifies and maintains confidential information"
   C1.2: "Entity disposes of confidential information"
@@ -171,7 +146,6 @@ confidentiality_criteria:
     - Encryption configurations
     - Data retention and destruction policies
     - Secure disposal records
-
 privacy_criteria:
   P1-P8: "Privacy notice, choice, collection, use, disclosure, access, quality, monitoring"
   evidence:
@@ -180,9 +154,7 @@ privacy_criteria:
     - Data processing inventory
     - DSAR handling procedures
 ```
-
 ## Tool Mappings for Control Evidence
-
 ```yaml
 control_to_tool_mapping:
   CC6.1_logical_access:
@@ -203,9 +175,7 @@ control_to_tool_mapping:
       - User status report
       - MFA enrollment report
       - Application assignment report
-
   CC7.2_monitoring:
-    tools:
       - CloudWatch / Azure Monitor / Cloud Monitoring dashboards
       - Datadog / New Relic / Grafana alert configurations
       - SIEM (Splunk, Elastic, Sentinel) saved searches
@@ -214,9 +184,7 @@ control_to_tool_mapping:
       - Dashboard screenshots with date stamps
       - Alert rule configuration exports
       - Incident response records from ticketing system
-
   CC8.1_change_management:
-    tools:
       - GitHub/GitLab PR merge requirements
       - CI/CD pipeline configurations (GitHub Actions, Jenkins)
       - Terraform plan outputs
@@ -226,97 +194,74 @@ control_to_tool_mapping:
       - Deployment audit trail
       - Change advisory board meeting notes (if applicable)
 ```
-
 ## Evidence Collection Automation
-
 ```bash
 #!/usr/bin/env bash
 # collect-soc2-evidence.sh - Automated SOC 2 evidence collection
 # Run monthly or before audit requests in the approved accounts/regions only.
 set -euo pipefail
 umask 077
-
 EVIDENCE_DIR="./soc2-evidence/$(date +%Y-%m)"
 mkdir -p "$EVIDENCE_DIR"
-
 echo "=== CC6.1 - Logical Access Evidence ==="
-
 # AWS IAM credential report
 aws iam generate-credential-report
 sleep 10
 aws iam get-credential-report --output text --query Content | \
   base64 -d > "$EVIDENCE_DIR/aws-iam-credential-report.csv"
-
 # AWS IAM Access Analyzer findings
 aws accessanalyzer list-findings \
   --analyzer-arn "arn:aws:access-analyzer:us-east-1:123456789012:analyzer/org-analyzer" \
   --filter '{"status": {"eq": ["ACTIVE"]}}' \
   > "$EVIDENCE_DIR/access-analyzer-findings.json"
-
 # MFA enforcement status
 aws iam list-users --query 'Users[*].UserName' --output text | \
   tr '\t' '\n' | while read -r user; do
     mfa=$(aws iam list-mfa-devices --user-name "$user" --query 'MFADevices[0].SerialNumber' --output text)
     echo "$user,$mfa"
   done > "$EVIDENCE_DIR/mfa-status.csv"
-
 # GitHub organization membership only; this endpoint does not establish member/admin roles.
 # Collect authorized per-member membership-role evidence separately; never default unknown roles to member.
 gh api orgs/YOUR_ORG/members --paginate --jq '.[] | [.login] | @csv' \
   > "$EVIDENCE_DIR/github-org-members.csv"
-
 # GitHub branch protection rules
 for repo in $(gh repo list YOUR_ORG --json name -q '.[].name'); do
   gh api repos/YOUR_ORG/$repo/branches/main/protection \
     > "$EVIDENCE_DIR/branch-protection-$repo.json"
 done
-
 echo "=== CC7.2 - Monitoring Evidence ==="
-
 # CloudTrail status
 aws cloudtrail get-trail-status --name org-audit-trail \
   > "$EVIDENCE_DIR/cloudtrail-status.json"
-
 # Active CloudWatch alarms
 aws cloudwatch describe-alarms --state-value ALARM \
   > "$EVIDENCE_DIR/active-alarms.json"
-
 # GuardDuty findings summary
 aws guardduty list-findings --detector-id DETECTOR_ID \
   --finding-criteria '{"criterion":{"severity":{"gte":4}}}' \
   > "$EVIDENCE_DIR/guardduty-findings.json"
-
 echo "=== CC8.1 - Change Management Evidence ==="
-
 # Recent deployments (GitHub Actions)
 gh run list --repo YOUR_ORG/YOUR_REPO --limit 50 --json conclusion,createdAt,displayTitle,headBranch \
   > "$EVIDENCE_DIR/recent-deployments.json"
-
 # Pull requests merged in audit period
 gh pr list --repo YOUR_ORG/YOUR_REPO --state merged --limit 100 \
   --json number,title,author,mergedBy,mergedAt,reviews \
   > "$EVIDENCE_DIR/merged-prs.json"
-
 echo "=== A1 - Availability Evidence ==="
-
 # Backup status
 aws rds describe-db-snapshots --db-instance-identifier prod-db \
   --query 'DBSnapshots | sort_by(@, &SnapshotCreateTime) | [-5:]' \
   > "$EVIDENCE_DIR/rds-backup-snapshots.json"
-
 # S3 replication status
 aws s3api get-bucket-replication --bucket prod-data-bucket \
   > "$EVIDENCE_DIR/s3-replication-config.json"
-
 echo "Evidence collected in $EVIDENCE_DIR"
 tar -czf "$EVIDENCE_DIR.tar.gz" "$EVIDENCE_DIR"
 echo "Archive: $EVIDENCE_DIR.tar.gz"
 ```
-
 The examples collect partial evidence, not proof of compliance. Preserve command failures as gaps, use bounded readiness retries for IAM credential-report generation instead of assuming a fixed sleep succeeds, and record collection time/account/region/tool version. API limits and audit-period filters must be expanded for the full population; `--limit 100` and the latest five backups are samples. Do not infer IAM Identity Center MFA, access-key usage, root security, GuardDuty coverage or actual backup restorability from these snippets. Evidence contains sensitive identity/security data: encrypt storage and transfer, restrict auditor access, and follow agreed retention.
-
 ## Audit Preparation Timeline
-
 ```yaml
 audit_prep_timeline:
   12_months_before:
@@ -324,34 +269,29 @@ audit_prep_timeline:
     - Perform gap assessment against TSC criteria
     - Remediate identified control gaps
     - Begin formal evidence collection cadence
-
   6_months_before:
     - Conduct internal readiness assessment
     - Verify all controls are operating effectively
     - Complete risk assessment and update risk register
     - Ensure vendor assessments are current
     - Test disaster recovery procedures
-
   3_months_before:
     - Run automated evidence collection and verify completeness
     - Conduct access review and remediate findings
     - Review and update all policies and procedures
     - Perform vulnerability scan and penetration test
     - Confirm all training records are current
-
   1_month_before:
     - Prepare evidence request list responses
     - Organize evidence into auditor-friendly structure
     - Brief key personnel on audit interviews
     - Verify monitoring dashboards show healthy state
     - Confirm incident response records are complete
-
   during_audit:
     - Designate audit liaison for request management
     - Provide timely evidence and clarifications
     - Track open auditor questions
     - Escalate issues to control owners promptly
-
   after_audit:
     - Review draft report and provide management response
     - Create remediation plan for any exceptions
@@ -359,17 +299,13 @@ audit_prep_timeline:
     - Update controls and processes based on findings
     - Begin next audit period evidence collection
 ```
-
 ## Continuous Compliance Monitoring
-
 ```yaml
 # GitHub Actions workflow for continuous SOC 2 checks
-name: SOC2 Compliance Checks
 on:
   schedule:
     - cron: '0 6 * * 1'  # Weekly on Monday
   workflow_dispatch:
-
 jobs:
   access-review:
     runs-on: ubuntu-latest
@@ -401,20 +337,16 @@ jobs:
           if missing_mfa:
               raise SystemExit(1)
           PYTHON
-
       - name: Verify CloudTrail is logging
         run: |
           STATUS=$(aws cloudtrail get-trail-status --name org-audit-trail --query 'IsLogging' --output text)
           [ "$STATUS" = "True" ] || (echo "::error::CloudTrail logging stopped" && exit 1)
-
       - name: Check GuardDuty is enabled
         run: |
           DETECTOR=$(aws guardduty list-detectors --query 'DetectorIds[0]' --output text)
           [ "$DETECTOR" != "None" ] || (echo "::error::GuardDuty not enabled" && exit 1)
 ```
-
 ## Best Practices
-
 - Start with a gap assessment to understand current control maturity before engaging an auditor
 - Automate evidence collection to reduce the burden of auditor requests and ensure consistency
 - Map each control to a specific tool, owner, and evidence artifact for traceability
@@ -425,18 +357,12 @@ jobs:
 - Train all employees on their role in maintaining SOC 2 controls
 - Use the audit preparation timeline to avoid last-minute scrambling
 - Treat each auditor exception as an improvement opportunity rather than a failure
-
 ## Limitations
-
 - Guidance and checklists only; not legal advice and not a substitute for a qualified auditor.
 - Docs-only import: upstream templates and scripts not bundled.
-
 ### Example
-
 ```markdown
 Map this skill's control checklist to our current evidence and list gaps.
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.
-
 Credential report dates/sentinels and aggregate counts need account-level review; federated identities and access keys require separate controls. Credentials configure through approved OIDC, and only aggregate output belongs in public CI logs. The snippet uses boto3-decoded report bytes with a bounded readiness wait and a real CSV parser; it does not execute decoded content.

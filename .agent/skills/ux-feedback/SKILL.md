@@ -1,51 +1,34 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "a34a26084fd00e1681f90465a089c679c9c3d7624cf87463cc7c9ba0f1d38739"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: ux-feedback
+content_hash: a34a26084fd00e1681f90465a089c679c9c3d7624cf87463cc7c9ba0f1d38739
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-07-01
 description: Add appropriate user feedback states (loading, success, error, empty) to a component or page
-tier: "experimental"
+license: MIT
+license_source: "https://github.com/bitjaru/styleseed/blob/main/LICENSE"
+name: ux-feedback
 risk: critical
-source: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-feedback
+source: "https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-feedback"
 source_repo: bitjaru/styleseed
 source_type: community
-date_added: 2026-07-01
-license: MIT
-license_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE
 ---
-
-
 # UX Feedback States Generator
 ## When to Use
-
 Use this skill when you need add appropriate user feedback states (loading, success, error, empty) to a component or page.
-
-
 ## When NOT to use
-
 - For only the words inside a state → use `/ss-copy`
 - For accessibility issues in existing states → use `/ss-a11y`
 - For brand-new component creation → use `/ss-component`
 - For analytics or error-logging plumbing — UI presentation only
-
 Target: **$ARGUMENTS**
-
 ## Instructions
-
 1. Read the target file and identify all data-dependent areas.
-
 2. Read the design language reference:
    - If present in the target project, `DESIGN-LANGUAGE.md` sections on Loading States (Skeleton), Empty States, Error States. This reference is not bundled; otherwise use the project’s existing components and tokens.
-
 3. For each data-dependent area, implement ALL 4 states:
-
 ### State 1: Loading (Skeleton)
 ```tsx
 // Skeleton must match the final layout shape
@@ -64,7 +47,6 @@ Rules:
 - Use `animate-pulse` (1.5s cycle)
 - Match skeleton shapes to real content dimensions
 - Never use spinners inside cards
-
 ### State 2: Empty (Zero Data)
 ```tsx
 <EmptyState
@@ -80,7 +62,6 @@ Rules:
 - Title: 14px, `text-text-secondary`
 - Always suggest a next action
 - Zero values show as "0" (don't hide or dash)
-
 ### State 3: Error (Load Failed)
 ```tsx
 <div className="flex flex-col items-center justify-center py-8 text-center">
@@ -94,12 +75,10 @@ Rules:
 - Full page failure: full-screen EmptyState with retry
 - Error message: plain language, blame the system
 - Offer retry only when retrying is safe; otherwise provide an accurate recovery action.
-
 ### State 4: Success (Action Feedback)
 ```tsx
 // Toast notification for action confirmations
 toast("Changes saved")
-
 // With undo for destructive actions
 // Only offer Undo when handleUndo genuinely restores the deleted item.
 toast("Item deleted", { action: { label: "Undo", onClick: handleUndo } })
@@ -109,7 +88,6 @@ Rules:
 - Action toast (with undo): do not make a short-lived toast the only way to recover; provide a persistent recovery path or adjustable timing.
 - Toast position: above BottomNav
 - One toast at a time (new replaces old)
-
 4. Implementation pattern:
 ```tsx
 function DataCard({ data, isLoading, error, refetch }) {
@@ -119,11 +97,8 @@ function DataCard({ data, isLoading, error, refetch }) {
   return <DataCardContent data={data} />
 }
 ```
-
 5. Check `prefers-reduced-motion` — disable `animate-pulse` when reduced motion is preferred.
-
 ## Limitations
-
 - Use this skill only when the task clearly matches its upstream source and local project context.
 - Verify commands, generated code, dependencies, credentials, and external service behavior before applying changes.
 - Do not treat examples as a substitute for environment-specific tests, security review, or user approval for destructive or costly actions.

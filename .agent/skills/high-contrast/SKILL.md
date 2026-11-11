@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "2ff6fe418b2300c0122a8e34b3068ceeb02a7c0d79b368ee0a514cda020581eb"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: high-contrast
+content_hash: 2ff6fe418b2300c0122a8e34b3068ceeb02a7c0d79b368ee0a514cda020581eb
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for High Contrast Design. Trigger when user wants accessibility-focused design, extreme legibility, or stark visual impact.
-tier: "experimental"
-date_added: "2026-06-17"
+name: high-contrast
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # High Contrast Design
-
 > "Stark visual contrast. Accessibility still requires semantic, interaction and user testing."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Measure Relevant Contrast**: WCAG AAA text contrast is at least 7:1 for normal text and 4.5:1 for large text. Non-text controls have distinct criteria; high contrast alone does not establish AAA conformance.
 2. **Clear Boundaries**: Interactive elements have highly visible borders and focus states.
 3. **No Ambiguity**: Avoid subtle greys, low-opacity text, or purely decorative elements that distract from the core content.
-
 ## Visual DNA
 - **Colors**: **Industrial Chic** (Black and White) or **Modern Editorial**. Often uses a single, highly luminous accent color (like pure Yellow `#FFFF00` or Cyan `#00FFFF`) against black.
 - **Typography**: Highly legible, robust sans-serifs (`Atkinson Hyperlegible`, `Inter`, `Roboto`). Large base font sizes (18px+).
 - **Styling**: Solid 2px borders around cards and buttons. Avoid drop shadows as they reduce edge clarity.
-
 ## Web Implementation
 - Focus heavily on focus states (`:focus-visible`) and clear active states.
 - **CSS Example**:
@@ -47,21 +34,18 @@ Use this sub-style when the user's request matches the aesthetic described above
   --hc-accent: #0000FF; /* Pure blue */
   --hc-focus: #FF00FF; /* High visibility focus ring */
 }
-
 body {
   background-color: var(--hc-bg);
   color: var(--hc-text);
   font-family: 'Atkinson Hyperlegible', sans-serif;
   font-size: 18px; /* Larger default */
 }
-
 .hc-card {
   background-color: #ffffff;
   border: 3px solid #000000; /* Unmissable boundary */
   padding: 32px;
   border-radius: 8px;
 }
-
 .hc-btn {
   background-color: var(--hc-accent);
   color: #ffffff;
@@ -72,22 +56,18 @@ body {
   font-size: 1.1rem;
   cursor: pointer;
 }
-
 /* Crucial for high contrast / accessibility */
 .hc-btn:focus-visible, a:focus-visible {
   outline: 4px solid var(--hc-focus);
   outline-offset: 4px;
 }
-
 a {
   color: var(--hc-accent);
   text-decoration: underline;
   text-decoration-thickness: 2px;
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct HighContrastView: View {
@@ -99,7 +79,6 @@ struct HighContrastView: View {
                     .font(.custom("Atkinson Hyperlegible", size: 24))
                     .fontWeight(.bold)
                     .foregroundColor(.black)
-                
                 Text("Content is king. Borders are stark. Contrast ratios exceed 7:1.")
                     .font(.custom("Atkinson Hyperlegible", size: 18))
                     .foregroundColor(.black)
@@ -110,7 +89,6 @@ struct HighContrastView: View {
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(Color.black, lineWidth: 3)
             )
-            
             // High Contrast Action Button
             Button(action: {}) {
                 Text("CONFIRM ACTION")
@@ -132,7 +110,6 @@ struct HighContrastView: View {
 - Rely on thick `.stroke(Color.black, lineWidth: 3)` overlays.
 - Ensure text is pure `.black` on pure `.white`. Do not use `.secondary` colors if they drop below a 7:1 contrast ratio.
 - Use fonts specifically designed for legibility, like Atkinson Hyperlegible.
-
 ### Flutter
 ```dart
 class HighContrastScreen extends StatelessWidget {
@@ -167,7 +144,6 @@ class HighContrastScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 32),
-              
               // High Contrast Button
               ElevatedButton(
                 onPressed: () {},
@@ -191,13 +167,11 @@ class HighContrastScreen extends StatelessWidget {
 ```
 - Disable `elevation` on buttons; shadows blur the edges and reduce contrast.
 - Use `Border.all(color: Colors.black, width: 3)` on containers to explicitly define spatial boundaries for users with low vision.
-
 ### React Native
 ```jsx
 const HighContrastScreen = () => {
   return (
     <View style={{ flex: 1, backgroundColor: '#FFFFFF', padding: 24, justifyContent: 'center' }}>
-      
       {/* High Contrast Card */}
       <View style={{
         backgroundColor: '#FFFFFF',
@@ -214,7 +188,6 @@ const HighContrastScreen = () => {
           Content is king. Borders are stark. Contrast ratios exceed 7:1.
         </Text>
       </View>
-
       {/* High Contrast Button */}
       <TouchableOpacity style={{
         backgroundColor: '#0000FF',
@@ -227,14 +200,12 @@ const HighContrastScreen = () => {
           CONFIRM ACTION
         </Text>
       </TouchableOpacity>
-      
     </View>
   );
 };
 ```
 - In React Native, accessibility relies heavily on high contrast. Ensure `borderWidth: 3` and explicit pure `#000000` text colors.
 - Make sure to use accessible `<TouchableOpacity>` areas (a target area of at least 48×48 logical units where required by the platform; target size is not padding).
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -269,9 +240,7 @@ fun HighContrastScreen() {
                 )
             }
         }
-        
         Spacer(Modifier.height(32.dp))
-        
         // High Contrast Button
         Button(
             onClick = { },
@@ -290,11 +259,9 @@ fun HighContrastScreen() {
 ```
 - Use `Modifier.border(3.dp, Color.Black)` around containers.
 - Disable button elevations (`elevation = null`) to keep the design perfectly flat and sharp.
-
 ## Do's and Don'ts
 - **DO**: Run your colors through a contrast checker. If it's below 7:1, adjust it.
 - **DON'T**: Rely on color alone to convey meaning (e.g., don't just make an error state red; make it red AND add an error icon AND bold the text).
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

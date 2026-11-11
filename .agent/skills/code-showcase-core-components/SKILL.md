@@ -1,53 +1,35 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "f451d41be0577e16f35bffaa7b64ed3d7cddc2566877087bb767d9b8dbe151c5"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: code-showcase-core-components
+content_hash: f451d41be0577e16f35bffaa7b64ed3d7cddc2566877087bb767d9b8dbe151c5
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-07-01
 description: Core component library and design system patterns. Use when building UI, using design tokens, or working with the component library.
-tier: "experimental"
+license: MIT
+license_source: "https://github.com/ChrisWiles/claude-code-showcase/blob/main/LICENSE"
+name: code-showcase-core-components
 risk: none
-source: https://github.com/ChrisWiles/claude-code-showcase/tree/main/.claude/skills/core-components
+source: "https://github.com/ChrisWiles/claude-code-showcase/tree/main/.claude/skills/core-components"
 source_repo: ChrisWiles/claude-code-showcase
 source_type: community
-date_added: 2026-07-01
-license: MIT
-license_source: https://github.com/ChrisWiles/claude-code-showcase/blob/main/LICENSE
 ---
-
-
 # Core Components
 ## When to Use
-
 Use this skill when you need core component library and design system patterns. Use when building UI, using design tokens, or working with the component library.
-
-
 This entry describes the upstream project's component API/token names, not a bundled component library or universal React Native API. Verify actual exports, tokens and props in the target repository before using snippets. CardProps/variantStyles, handlers and imported components are illustrative dependencies; token use alone does not prove contrast, labeling or behavior.
-
 ## Design System Overview
-
 Use components from your core library instead of raw platform components. This ensures consistent styling and behavior.
-
 ## Design Tokens
-
 **NEVER hard-code values. Always use design tokens.**
-
 ### Spacing Tokens
-
 ```tsx
 // CORRECT - Use tokens
 <Box padding="$4" marginBottom="$2" />
-
 // WRONG - Hard-coded values
 <Box padding={16} marginBottom={8} />
 ```
-
 | Token | Value |
 |-------|-------|
 | `$1` | 4px |
@@ -56,19 +38,15 @@ Use components from your core library instead of raw platform components. This e
 | `$4` | 16px |
 | `$6` | 24px |
 | `$8` | 32px |
-
 ### Color Tokens
-
 ```tsx
 // CORRECT - Semantic tokens
 <Text color="$textPrimary" />
 <Box backgroundColor="$backgroundSecondary" />
-
 // WRONG - Hard-coded colors
 <Text color="#333333" />
 <Box backgroundColor="rgb(245, 245, 245)" />
 ```
-
 | Semantic Token | Use For |
 |----------------|---------|
 | `$textPrimary` | Main text |
@@ -77,13 +55,10 @@ Use components from your core library instead of raw platform components. This e
 | `$primary500` | Brand/accent color |
 | `$statusError` | Error states |
 | `$statusSuccess` | Success states |
-
 ### Typography Tokens
-
 ```tsx
 <Text fontSize="$lg" fontWeight="$semibold" />
 ```
-
 | Token | Size |
 |-------|------|
 | `$xs` | 12px |
@@ -92,13 +67,9 @@ Use components from your core library instead of raw platform components. This e
 | `$lg` | 18px |
 | `$xl` | 20px |
 | `$2xl` | 24px |
-
 ## Core Components
-
 ### Box
-
 Base layout component with token support:
-
 ```tsx
 <Box
   padding="$4"
@@ -108,27 +79,20 @@ Base layout component with token support:
   {children}
 </Box>
 ```
-
 ### HStack / VStack
-
 Horizontal and vertical flex layouts:
-
 ```tsx
 <HStack gap="$3" alignItems="center">
   <Icon name="user" />
   <Text>Username</Text>
 </HStack>
-
 <VStack gap="$4" padding="$4">
   <Heading>Title</Heading>
   <Text>Content</Text>
 </VStack>
 ```
-
 ### Text
-
 Typography with token support:
-
 ```tsx
 <Text
   fontSize="$lg"
@@ -138,11 +102,8 @@ Typography with token support:
   Hello World
 </Text>
 ```
-
 ### Button
-
 Interactive button with variants:
-
 ```tsx
 <Button
   onPress={handlePress}
@@ -154,18 +115,14 @@ Interactive button with variants:
   Click Me
 </Button>
 ```
-
 | Variant | Use For |
 |---------|---------|
 | `solid` | Primary actions |
 | `outline` | Secondary actions |
 | `ghost` | Tertiary/subtle actions |
 | `link` | Inline actions |
-
 ### Input
-
 Form input with validation:
-
 ```tsx
 <Input
   value={value}
@@ -175,11 +132,8 @@ Form input with validation:
   label="Field Name"
 />
 ```
-
 ### Card
-
 Content container:
-
 ```tsx
 <Card padding="$4" gap="$3">
   <CardHeader>
@@ -190,11 +144,8 @@ Content container:
   </CardBody>
 </Card>
 ```
-
 ## Layout Patterns
-
 ### Screen Layout
-
 ```tsx
 const MyScreen = () => (
   <Screen>
@@ -205,9 +156,7 @@ const MyScreen = () => (
   </Screen>
 );
 ```
-
 ### Form Layout
-
 ```tsx
 <VStack gap="$4" padding="$4">
   <Input label="Name" {...nameProps} />
@@ -215,9 +164,7 @@ const MyScreen = () => (
   <Button isLoading={loading}>Submit</Button>
 </VStack>
 ```
-
 ### List Item Layout
-
 ```tsx
 <HStack
   padding="$4"
@@ -234,42 +181,29 @@ const MyScreen = () => (
   <Icon name="chevron-right" color="$textTertiary" />
 </HStack>
 ```
-
 ## Anti-Patterns
-
 ```tsx
 // WRONG - Hard-coded values
 <View style={{ padding: 16, backgroundColor: '#fff' }}>
-
 // CORRECT - Design tokens
 <Box padding="$4" backgroundColor="$backgroundPrimary">
-
-
 // WRONG - Raw platform components
 import { View, Text } from 'react-native';
-
 // CORRECT - Core components
 import { Box, Text } from 'components/core';
-
-
 // WRONG - Inline styles
 <Text style={{ fontSize: 18, fontWeight: '600' }}>
-
 // CORRECT - Token props
 <Text fontSize="$lg" fontWeight="$semibold">
 ```
-
 ## Component Props Pattern
-
 When creating components, use token-based props:
-
 ```tsx
 interface CardProps {
   padding?: '$2' | '$4' | '$6';
   variant?: 'elevated' | 'outlined' | 'filled';
   children: React.ReactNode;
 }
-
 const Card = ({ padding = '$4', variant = 'elevated', children }: CardProps) => (
   <Box
     padding={padding}
@@ -281,15 +215,11 @@ const Card = ({ padding = '$4', variant = 'elevated', children }: CardProps) => 
   </Box>
 );
 ```
-
 ## Integration with Other Skills
-
 - **react-ui-patterns**: Use core components for UI states
 - **testing-patterns**: Mock core components in tests
 - **storybook**: Document component variants
-
 ## Limitations
-
 - Use this skill only when the task clearly matches its upstream source and local project context.
 - Verify commands, generated code, dependencies, credentials, and external service behavior before applying changes.
 - Do not treat examples as a substitute for environment-specific tests, security review, or user approval for destructive or costly actions.

@@ -1,57 +1,40 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "bf9d4b68d9e9e65f38d7ab59897124176cf3bbd41b97e1fc8a4437fbf14bcde8"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-ai-agents-persistent-dotnet
-description: Azure AI Agents Persistent SDK for .NET. Low-level SDK for creating and managing AI agents with threads, messages, runs, and tools.
-tier: "experimental"
+content_hash: bf9d4b68d9e9e65f38d7ab59897124176cf3bbd41b97e1fc8a4437fbf14bcde8
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: ""Gets the current weather at a location.","
+name: ""Search Agent","
 risk: critical
 source: community
-date_added: '2026-02-27'
+tools: "[new AzureAISearchToolDefinition()],"
 ---
-
-
 # Azure.AI.Agents.Persistent (.NET)
-
 Low-level SDK for creating and managing persistent AI agents with threads, messages, runs, and tools.
-
 ## Installation
-
 ```bash
 dotnet add package Azure.AI.Agents.Persistent --prerelease
 dotnet add package Azure.Identity
 ```
-
 **Current Versions**: Stable v1.1.0, Preview v1.2.0-beta.8
-
 ## Environment Variables
-
 ```bash
 PROJECT_ENDPOINT=https://<resource>.services.ai.azure.com/api/projects/<project>
 MODEL_DEPLOYMENT_NAME=gpt-4o-mini
 AZURE_BING_CONNECTION_ID=<bing-connection-resource-id>
 AZURE_AI_SEARCH_CONNECTION_ID=<search-connection-resource-id>
 ```
-
 ## Authentication
-
 ```csharp
 using Azure.AI.Agents.Persistent;
 using Azure.Identity;
-
 var projectEndpoint = Environment.GetEnvironmentVariable("PROJECT_ENDPOINT");
 PersistentAgentsClient client = new(projectEndpoint, new DefaultAzureCredential());
 ```
-
 ## Client Hierarchy
-
 ```
 PersistentAgentsClient
 ├── Administration  → Agent CRUD operations
@@ -61,30 +44,20 @@ PersistentAgentsClient
 ├── Files           → File upload/download
 └── VectorStores    → Vector store management
 ```
-
 ## Core Workflow
-
 Pin compatible package versions and verify the linked SDK signatures; fragments use project-defined helper functions and are not a complete application. Confirm endpoint/deployment, authorized tool actions, upload scope and budget before runs. Use a finite cancellation deadline for polling/streaming and distinguish completed, failed, cancelled, expired and requires-action states before reading a final answer. Validate/allowlist each function name and typed argument set before execution; never execute raw model arguments as code or SQL. Delete only resources created by the current run in a finally block, preserving needed evidence.
-
 ### 1. Create Agent
-
 ```csharp
 var modelDeploymentName = Environment.GetEnvironmentVariable("MODEL_DEPLOYMENT_NAME");
-
 PersistentAgent agent = await client.Administration.CreateAgentAsync(
     model: modelDeploymentName,
-    name: "Math Tutor",
     instructions: "You are a personal math tutor. Write and run code to answer math questions.",
-    tools: [new CodeInterpreterToolDefinition()]
 );
 ```
-
 ### 2. Create Thread and Message
-
 ```csharp
 // Create thread
 PersistentAgentThread thread = await client.Threads.CreateThreadAsync();
-
 // Create message
 await client.Messages.CreateMessageAsync(
     thread.Id,
@@ -92,9 +65,7 @@ await client.Messages.CreateMessageAsync(
     "I need to solve the equation `3x + 11 = 14`. Can you help me?"
 );
 ```
-
 ### 3. Run Agent (Polling)
-
 ```csharp
 // Create run
 ThreadRun run = await client.Runs.CreateRunAsync(
@@ -102,7 +73,6 @@ ThreadRun run = await client.Runs.CreateRunAsync(
     agent.Id,
     additionalInstructions: "Please address the user as Jane Doe."
 );
-
 // Poll for completion
 do
 {
@@ -110,7 +80,6 @@ do
     run = await client.Runs.GetRunAsync(thread.Id, run.Id);
 }
 while (run.Status == RunStatus.Queued || run.Status == RunStatus.InProgress);
-
 // Retrieve messages
 await foreach (PersistentThreadMessage message in client.Messages.GetMessagesAsync(
     threadId: thread.Id, 
@@ -124,15 +93,12 @@ await foreach (PersistentThreadMessage message in client.Messages.GetMessagesAsy
     }
 }
 ```
-
 ### 4. Streaming Response
-
 ```csharp
 AsyncCollectionResult<StreamingUpdate> stream = client.Runs.CreateRunStreamingAsync(
     thread.Id, 
     agent.Id
 );
-
 await foreach (StreamingUpdate update in stream)
 {
     if (update.UpdateKind == StreamingUpdateReason.RunCreated)
@@ -149,14 +115,10 @@ await foreach (StreamingUpdate update in stream)
     }
 }
 ```
-
 ### 5. Function Calling
-
 ```csharp
 // Define function tool
 FunctionToolDefinition weatherTool = new(
-    name: "getCurrentWeather",
-    description: "Gets the current weather at a location.",
     parameters: BinaryData.FromObjectAsJson(new
     {
         Type = "object",
@@ -168,21 +130,16 @@ FunctionToolDefinition weatherTool = new(
         Required = new[] { "location" }
     }, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase })
 );
-
 // Create agent with function
 PersistentAgent agent = await client.Administration.CreateAgentAsync(
     model: modelDeploymentName,
-    name: "Weather Bot",
     instructions: "You are a weather bot.",
-    tools: [weatherTool]
 );
-
 // Handle function calls during polling
 do
 {
     await Task.Delay(500);
     run = await client.Runs.GetRunAsync(thread.Id, run.Id);
-
     if (run.Status == RunStatus.RequiresAction 
         && run.RequiredAction is SubmitToolOutputsAction submitAction)
     {
@@ -201,57 +158,41 @@ do
 }
 while (run.Status == RunStatus.Queued || run.Status == RunStatus.InProgress);
 ```
-
 ### 6. File Search with Vector Store
-
 ```csharp
 // Upload file
 PersistentAgentFileInfo file = await client.Files.UploadFileAsync(
     filePath: "document.txt",
     purpose: PersistentAgentFilePurpose.Agents
 );
-
 // Create vector store
 PersistentAgentsVectorStore vectorStore = await client.VectorStores.CreateVectorStoreAsync(
     fileIds: [file.Id],
-    name: "my_vector_store"
 );
-
 // Create file search resource
 FileSearchToolResource fileSearchResource = new();
 fileSearchResource.VectorStoreIds.Add(vectorStore.Id);
-
 // Create agent with file search
 PersistentAgent agent = await client.Administration.CreateAgentAsync(
     model: modelDeploymentName,
-    name: "Document Assistant",
     instructions: "You help users find information in documents.",
-    tools: [new FileSearchToolDefinition()],
     toolResources: new ToolResources { FileSearch = fileSearchResource }
 );
 ```
-
 ### 7. Bing Grounding
-
 ```csharp
 var bingConnectionId = Environment.GetEnvironmentVariable("AZURE_BING_CONNECTION_ID");
-
 BingGroundingToolDefinition bingTool = new(
     new BingGroundingSearchToolParameters(
         [new BingGroundingSearchConfiguration(bingConnectionId)]
     )
 );
-
 PersistentAgent agent = await client.Administration.CreateAgentAsync(
     model: modelDeploymentName,
-    name: "Search Agent",
     instructions: "Use Bing to answer questions about current events.",
-    tools: [bingTool]
 );
 ```
-
 ### 8. Azure AI Search
-
 ```csharp
 AzureAISearchToolResource searchResource = new(
     connectionId: searchConnectionId,
@@ -260,27 +201,20 @@ AzureAISearchToolResource searchResource = new(
     filter: "category eq 'documentation'",
     queryType: AzureAISearchQueryType.Simple
 );
-
 PersistentAgent agent = await client.Administration.CreateAgentAsync(
     model: modelDeploymentName,
-    name: "Search Agent",
     instructions: "Search the documentation index to answer questions.",
-    tools: [new AzureAISearchToolDefinition()],
     toolResources: new ToolResources { AzureAISearch = searchResource }
 );
 ```
-
 ### 9. Cleanup
-
 ```csharp
 await client.Threads.DeleteThreadAsync(thread.Id);
 await client.Administration.DeleteAgentAsync(agent.Id);
 await client.VectorStores.DeleteVectorStoreAsync(vectorStore.Id);
 await client.Files.DeleteFileAsync(file.Id);
 ```
-
 ## Available Tools
-
 | Tool | Class | Purpose |
 |------|-------|---------|
 | Code Interpreter | `CodeInterpreterToolDefinition` | Execute Python code, generate visualizations |
@@ -293,9 +227,7 @@ await client.Files.DeleteFileAsync(file.Id);
 | MCP | `MCPToolDefinition` | Model Context Protocol tools |
 | SharePoint | `SharepointToolDefinition` | Access SharePoint content |
 | Microsoft Fabric | `MicrosoftFabricToolDefinition` | Access Fabric data |
-
 ## Streaming Update Types
-
 | Update Type | Description |
 |-------------|-------------|
 | `StreamingUpdateReason.RunCreated` | Run started |
@@ -304,9 +236,7 @@ await client.Files.DeleteFileAsync(file.Id);
 | `StreamingUpdateReason.RunFailed` | Run errored |
 | `MessageContentUpdate` | Text content chunk |
 | `RunStepUpdate` | Step status change |
-
 ## Key Types Reference
-
 | Type | Purpose |
 |------|---------|
 | `PersistentAgentsClient` | Main entry point |
@@ -317,9 +247,7 @@ await client.Files.DeleteFileAsync(file.Id);
 | `RunStatus` | Queued, InProgress, RequiresAction, Completed, Failed |
 | `ToolResources` | Combined tool resources |
 | `ToolOutput` | Function call response |
-
 ## Best Practices
-
 1. **Reuse SDK clients** according to the installed SDK lifetime guidance; do not assume every client implements IDisposable
 2. **Poll with appropriate delays** — 500ms recommended between status checks
 3. **Clean up resources** — Delete threads and agents when done
@@ -327,12 +255,9 @@ await client.Files.DeleteFileAsync(file.Id);
 5. **Use streaming for real-time UX** — Better user experience than polling
 6. **Store IDs not objects** — Reference agents/threads by ID
 7. **Use async methods** — All operations should be async
-
 ## Error Handling
-
 ```csharp
 using Azure;
-
 try
 {
     var agent = await client.Administration.CreateAgentAsync(...);
@@ -346,33 +271,24 @@ catch (RequestFailedException ex)
     Console.WriteLine($"Error: {ex.Status} - {ex.ErrorCode}: {ex.Message}");
 }
 ```
-
 ## Related SDKs
-
 | SDK | Purpose | Install |
 |-----|---------|---------|
 | `Azure.AI.Agents.Persistent` | Low-level agents (this SDK) | `dotnet add package Azure.AI.Agents.Persistent` |
 | `Azure.AI.Projects` | High-level project client | `dotnet add package Azure.AI.Projects` |
-
 ## Reference Links
-
 | Resource | URL |
 |----------|-----|
 | NuGet Package | https://www.nuget.org/packages/Azure.AI.Agents.Persistent |
 | API Reference | https://learn.microsoft.com/dotnet/api/azure.ai.agents.persistent |
 | GitHub Source | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai/Azure.AI.Agents.Persistent |
 | Samples | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai/Azure.AI.Agents.Persistent/samples |
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Windows](platforms/windows.md)

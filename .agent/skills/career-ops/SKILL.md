@@ -1,27 +1,22 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "20adfae8cc21f72a76e1c1766921f83db475dda5a6536bc6a1ef4bdc652456a1"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: career-ops
-description: 'Open-source AI job search agent for AI coding CLIs: evaluate offers,
-tier: "experimental"
-  scan portals, tailor CVs, track applications, prep interviews. Invoke per mode.'
+content_hash: 20adfae8cc21f72a76e1c1766921f83db475dda5a6536bc6a1ef4bdc652456a1
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 category: productivity
+compatibility: Docs-only; the upstream Node runtime helpers are not bundled. Portal
+date_added: 2026-09-20
+description: "'Open-source AI job search agent for AI coding CLIs: evaluate offers,"
+license: MIT
+license_source: "https://github.com/career-ops-hq/career-ops/blob/main/LICENSE"
+name: career-ops
 risk: safe
-source: https://github.com/career-ops-hq/career-ops
+source: "https://github.com/career-ops-hq/career-ops"
 source_repo: career-ops-hq/career-ops
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/career-ops-hq/career-ops/blob/main/LICENSE
-compatibility: Docs-only; the upstream Node runtime helpers are not bundled. Portal
+---  scan portals, tailor CVs, track applications, prep interviews. Invoke per mode.'
   scans need network access and the user's own credentials; never submit applications
   without explicit approval.
 arguments: mode
@@ -33,20 +28,12 @@ argument-hint: '[scan | discover | deep | pdf | text | latex | latex-tex | cover
   | interview/practice | interview/debrief | interview-redflag | patterns | offer-prep
   | titles | upskill | followup | reply-watch | outcome | update]'
 ---
-
-
 # career-ops: open-source AI job search agent
-
 career-ops is a multi-CLI AI job search agent. The routing below is shared across supported agent CLIs even when the invocation surface differs.
-
 ## Project Root Resolution
-
 This catalog ships a **docs-only** router. Do not require the upstream `modes/`, `config/`, or `data/` tree. Use the routing table and discovery menu below. For the full Node runtime (PDF, portal scans, Playwright), clone [career-ops-hq/career-ops](https://github.com/career-ops-hq/career-ops).
-
 ## Mode Routing
-
 Determine the mode from `$mode`:
-
 | Input | Mode |
 |-------|------|
 | (empty / no args) | `discovery` -- Show command menu |
@@ -89,34 +76,20 @@ Determine the mode from `$mode`:
 | `interview-redflag` | `interview-redflag` |
 | `update` | `update` |
 | `cover` | `cover` |
-
 **Auto-pipeline detection:** If `$mode` is not a known sub-command AND contains JD text (keywords: "responsibilities", "requirements", "qualifications", "about the role", "we're looking for", company name + role) or a URL to a JD, execute `auto-pipeline`.
-
 If `$mode` is not a sub-command AND doesn't look like a JD, show discovery.
-
 ---
-
 ## Output Language Directive
-
 Before executing any mode, read `config/profile.yml` if it exists and resolve:
-
 - `language.output` → ISO language code for human-facing output. Default: `en`.
 - `language.modes_dir` → optional market-mode directory. This controls market vocabulary and local evaluation rules only.
-
 Inject this directive after loading the mode instructions and before producing any user-visible content:
-
 > Write all human-facing output in `{language.output}` regardless of the language of these instructions or of the job description. This includes reports, tracker notes, PDFs, cover letters, outreach, interview prep, form answers, and summaries. If `language.modes_dir` supplies market-specific vocabulary, keep the market logic but explain terms in `{language.output}` when needed.
-
 `language.output` is authoritative for prose. `modes_dir` is market context; it must not force the prose language.
-
 ---
-
 ## Discovery Mode (no arguments)
-
 If your CLI supports `/career-ops`, show this menu. In Codex, surface the same options in plain text and map the requested mode the same way.
-
 Concrete equivalents for Codex prompt-driven sessions:
-
 ```text
 /career-ops {JD}           ↔ "Evaluate this JD with career-ops auto-pipeline: {JD or URL}"
 /career-ops scan           ↔ "Run the career-ops scan mode and summarize new matches."
@@ -125,12 +98,9 @@ Concrete equivalents for Codex prompt-driven sessions:
 /career-ops email          ↔ "Run the career-ops email mode for the latest evaluated role."
 /career-ops tracker        ↔ "Run the career-ops tracker mode and summarize the current statuses."
 ```
-
 Show this menu:
-
 ```
 career-ops -- AI Job Search Agent
-
 Available commands:
   /career-ops {JD}      → AUTO-PIPELINE: evaluate + report + PDF + tracker (paste text or URL)
   /career-ops pipeline  → Process pending URLs from inbox (data/pipeline.md)
@@ -168,35 +138,22 @@ Available commands:
   /career-ops followup  → Follow-up cadence tracker: flag overdue, generate drafts
   /career-ops outcome   → Record application outcome & archive artifacts
   /career-ops update    → Update career-ops system files with diff preview + compat check
-
 Inbox: add URLs to data/pipeline.md → /career-ops pipeline
 Or paste a JD directly to run the full pipeline.
 ```
-
 ---
-
 ## Evidence and automation limits
-
 Do not infer skills/employment/credentials from profile links without evidence and user confirmation. Tailoring may rephrase truthful experience, not invent qualifications. The menu’s PDF, portal scan, batch, zero-token and watch modes describe upstream capabilities, not tools included here; report unavailable runtime-dependent modes honestly. Monitoring/scheduling and sending/submitting require the host’s supported authorized workflow. User language preferences supersede a stale profile file.
-
 ## Context Loading by Mode
-
 Docs-only bundle: do not read `modes/*.md` from disk. Follow the routing table and mode summaries in this skill using general agent capabilities.
-
 ## When to Use
-
 - The user pastes a job URL or description, asks to scan portals, tailor a CV, track applications, prep for interviews, or run another career-ops mode.
-
 ## Limitations
-
 - Docs-only import: the upstream runtime helpers are not bundled, so modes that depend on them need the user's own installation.
 - Portal scans are read-only; never submit applications, send outreach, or share personal data without explicit per-action approval.
 - Job-market advice is general information, not professional career counseling.
-
 ### Example
-
 ```markdown
 Evaluate this job description against my profile and list matched and missing requirements.
 ```
-
 > Adapted from [career-ops-hq/career-ops](https://github.com/career-ops-hq/career-ops) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: upstream runtime helpers not bundled.

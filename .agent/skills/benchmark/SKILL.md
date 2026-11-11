@@ -1,39 +1,25 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "576246702781cb52640406007c86486a860572b9cebd8b4bdf9de74d4ed58c38"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: benchmark
+content_hash: 576246702781cb52640406007c86486a860572b9cebd8b4bdf9de74d4ed58c38
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: Measure performance baselines and detect regressions across browser Core Web Vitals (LCP, INP, CLS, page weight), API endpoint latency percentiles, and build/test feedback times, with before/after comparison stored in git-tracked .ecc/benchmarks JSON. Use when checking page speed, responding to 'it feels slow' reports, verifying launch performance targets, or comparing stack alternatives.
-tier: "experimental"
 license: MIT
-metadata:
-  origin: ECC
+name: benchmark
+origin: ECC
 ---
-
-
 # Benchmark — Performance Baseline & Regression Detection
-
 ## When to Use
-
 - Before and after a PR to measure performance impact
 - Setting up performance baselines for a project
 - When users report "it feels slow"
 - Before a launch — ensure you meet performance targets
 - Comparing your stack against alternatives
-
 ## How It Works
-
 ### Mode 1: Page Performance
-
 Measures real browser metrics via browser MCP:
-
 ```
 1. Navigate to each target URL
 2. Measure Core Web Vitals:
@@ -51,11 +37,8 @@ Measures real browser metrics via browser MCP:
 4. Count network requests
 5. Check for render-blocking resources
 ```
-
 ### Mode 2: API Performance
-
 Benchmarks API endpoints:
-
 ```
 1. Hit each endpoint 100 times
 2. Measure: p50, p95, p99 latency
@@ -63,11 +46,8 @@ Benchmarks API endpoints:
 4. Test under load: 10 concurrent requests
 5. Compare against SLA targets
 ```
-
 ### Mode 3: Build Performance
-
 Measures development feedback loop:
-
 ```
 1. Cold build time
 2. Hot reload time (HMR)
@@ -76,17 +56,13 @@ Measures development feedback loop:
 5. Lint time
 6. Docker build time
 ```
-
 ### Mode 4: Before/After Comparison
-
 Run before and after a change to measure impact:
-
 ```
 /benchmark baseline    # saves current metrics
 # ... make changes ...
 /benchmark compare     # compares against baseline
 ```
-
 Output:
 ```
 | Metric | Before | After | Delta | Verdict |
@@ -95,13 +71,9 @@ Output:
 | Bundle | 180KB | 175KB | -5KB | ✓ BETTER |
 | Build | 12s | 14s | +2s | WARNING: WARN |
 ```
-
 ## Output
-
 Stores baselines in `.ecc/benchmarks/` as JSON. Git-tracked so the team shares baselines.
-
 ## Integration
-
 - CI: run `/benchmark compare` on every PR
 - Pair with `/canary-watch` for post-deploy monitoring
 - Pair with `/browser-qa` for full pre-ship checklist

@@ -1,58 +1,42 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "e871b15ef9ab01e253d6e6c4063b21eb5b3a097dcc7c8e040469d6562654674f"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: sast-scanning
+content_hash: e871b15ef9ab01e253d6e6c4063b21eb5b3a097dcc7c8e040469d6562654674f
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
+category: ""/language:${{ matrix.language }}""
+compatibility: Requires the relevant security tooling (scanners, vault CLIs) and an
+date_added: 2026-09-20
 description: Perform static application security testing with tools like Semgrep,
-tier: "experimental"
-  CodeQL, and SonarQube.
-category: security
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: CodeQL Analysis
 risk: safe
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant security tooling (scanners, vault CLIs) and an
+version: 3.8
+---  CodeQL, and SonarQube.
   authorized scope for any active assessment. Docs-only; helper scripts and templates
   not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # SAST Scanning
-
 Identify security vulnerabilities in source code through static analysis.
-
 ## When to Use This Skill
-
 Use this skill when:
 - Implementing secure SDLC practices
 - Adding security gates to CI/CD
 - Automating code security reviews
 - Finding vulnerabilities before deployment
 - Meeting compliance requirements
-
 ## Prerequisites
-
 Pin supported scanner/action versions (never use moving @master in production); verify custom-rule/query APIs against that release. The CodeQL class-style query is historical and must be migrated/tested before use. CodeQL availability/licensing depends on repository and product plan. Scanners may download rules, execute builds or upload private source/results: inspect those effects and credentials before scanning untrusted code. A clean SAST result is not a security certification; report language/path/rule coverage and errors.
-
 - Source code access
 - CI/CD pipeline
 - SAST tool installation
-
 ## Tool Comparison
-
 | Tool | License | Languages | Best For |
 |------|---------|-----------|----------|
 | Semgrep | OSS/Commercial | 30+ | Custom rules, speed |
@@ -60,41 +44,30 @@ Pin supported scanner/action versions (never use moving @master in production); 
 | SonarQube | OSS/Commercial | 25+ | Quality + Security |
 | Bandit | OSS | Python | Python projects |
 | Brakeman | OSS | Ruby | Rails apps |
-
 ## Semgrep
-
 ### Installation
-
 ```bash
 # Install via pip
 pip install semgrep
-
 # Or via Homebrew
 brew install semgrep
 ```
-
 ### Basic Usage
-
 ```bash
 # Run with default rules
 semgrep --config auto .
-
 # Run specific rulesets
 semgrep --config p/security-audit .
 semgrep --config p/owasp-top-ten .
 semgrep --config p/ci .
-
 # Scan specific languages
 semgrep --config p/python .
 semgrep --config p/javascript .
-
 # Output formats
 semgrep --config auto --json -o results.json .
 semgrep --config auto --sarif -o results.sarif .
 ```
-
 ### Custom Rules
-
 ```yaml
 # .semgrep/custom-rules.yaml
 rules:
@@ -107,10 +80,8 @@ rules:
     message: Hardcoded password detected
     severity: ERROR
     languages: [python, javascript, java]
-    metadata:
       cwe: "CWE-798"
       owasp: "A3:2017"
-
   - id: sql-injection
     patterns:
       - pattern: |
@@ -119,9 +90,7 @@ rules:
     message: Potential SQL injection
     severity: ERROR
     languages: [python]
-    metadata:
       cwe: "CWE-89"
-
   - id: insecure-random
     pattern: random.random()
     message: Use secrets module for security-sensitive randomness
@@ -129,18 +98,14 @@ rules:
     languages: [python]
     # Do not auto-fix: random.random returns a float, token_hex returns text.
 ```
-
 ### CI Configuration
-
 ```yaml
 # .github/workflows/semgrep.yml
-name: Semgrep
 
 on:
   push:
     branches: [main]
   pull_request:
-
 jobs:
   semgrep:
     runs-on: ubuntu-latest
@@ -148,20 +113,15 @@ jobs:
       image: returntocorp/semgrep
     steps:
       - uses: actions/checkout@v4
-
       - name: Run Semgrep
         run: semgrep ci
         env:
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
 ```
-
 ## CodeQL
-
 ### Setup
-
 ```yaml
 # .github/workflows/codeql.yml
-name: CodeQL Analysis
 
 on:
   push:
@@ -170,7 +130,6 @@ on:
     branches: [main]
   schedule:
     - cron: '0 0 * * 0'
-
 jobs:
   analyze:
     runs-on: ubuntu-latest
@@ -178,31 +137,23 @@ jobs:
       security-events: write
       actions: read
       contents: read
-
     strategy:
       matrix:
         language: ['javascript', 'python']
-
     steps:
       - uses: actions/checkout@v4
-
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
           languages: ${{ matrix.language }}
           queries: +security-and-quality
-
       - name: Autobuild
         uses: github/codeql-action/autobuild@v3
-
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
         with:
-          category: "/language:${{ matrix.language }}"
 ```
-
 ### Custom Queries
-
 ```ql
 // queries/sql-injection.ql
 /**
@@ -215,24 +166,18 @@ jobs:
  * @id py/sql-injection
  * @tags security
  */
-
 import python
 import semmle.python.dataflow.new.DataFlow
 import semmle.python.dataflow.new.TaintTracking
 import semmle.python.security.dataflow.SqlInjectionQuery
-
 from SqlInjectionConfiguration config, DataFlow::PathNode source, DataFlow::PathNode sink
 where config.hasFlowPath(source, sink)
 select sink.getNode(), source, sink, "SQL injection from $@.", source.getNode(), "user input"
 ```
-
 ## SonarQube
-
 ### Docker Setup
-
 ```yaml
 # docker-compose.yml
-version: '3.8'
 
 services:
   sonarqube:
@@ -248,7 +193,6 @@ services:
       - sonarqube_logs:/opt/sonarqube/logs
     depends_on:
       - db
-
   db:
     image: postgres:15
     environment:
@@ -257,33 +201,25 @@ services:
       - POSTGRES_DB=sonar
     volumes:
       - postgresql_data:/var/lib/postgresql/data
-
 volumes:
   sonarqube_data:
   sonarqube_logs:
   postgresql_data:
 ```
-
 ### Scanner Configuration
-
 ```properties
 # sonar-project.properties
 sonar.projectKey=myproject
 sonar.projectName=My Project
 sonar.projectVersion=1.0
-
 sonar.sources=src
 sonar.tests=tests
 sonar.exclusions=**/node_modules/**,**/vendor/**
-
 sonar.language=py
 sonar.python.coverage.reportPaths=coverage.xml
-
 sonar.qualitygate.wait=true
 ```
-
 ### CI Integration
-
 ```yaml
 # GitHub Actions
 - name: SonarQube Scan
@@ -291,45 +227,34 @@ sonar.qualitygate.wait=true
   env:
     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-
 - name: Quality Gate
   uses: sonarsource/sonarqube-quality-gate-action@master
   timeout-minutes: 5
   env:
     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 ```
-
 ## Language-Specific Tools
-
 ### Python (Bandit)
-
 ```bash
 # Install
 pip install bandit
-
 # Run scan
 bandit -r src/ -f json -o bandit-report.json
-
 # With configuration
 bandit -r src/ -c bandit.yaml
 ```
-
 ```yaml
 # bandit.yaml
 skips: []  # add only reviewed, scoped suppressions with rationale
 exclude_dirs: ['tests', 'venv']
-
 assert_used:
   skips: ['*_test.py', '*_tests.py']
 ```
-
 ### JavaScript (ESLint Security)
-
 ```bash
 # Install
 npm install eslint eslint-plugin-security --save-dev
 ```
-
 ```javascript
 // .eslintrc.js
 module.exports = {
@@ -346,24 +271,17 @@ module.exports = {
   }
 };
 ```
-
 ### Ruby (Brakeman)
-
 ```bash
 # Install
 gem install brakeman
-
 # Run scan
 brakeman -o brakeman-report.json -f json
-
 # CI configuration
 brakeman -o report.html  # preserve failure exit codes in a blocking gate
 ```
-
 ## Quality Gates
-
 ### SonarQube Quality Gate
-
 ```json
 {
   "name": "Security Gate",
@@ -386,27 +304,19 @@ brakeman -o report.html  # preserve failure exit codes in a blocking gate
   ]
 }
 ```
-
 ### Custom Gate Script
-
 A gate must validate the selected scanner’s actual JSON/SARIF schema, scan completion, parse errors and findings severities before deciding pass/fail. Missing/malformed output or a failed scanner is an error, never zero findings. Semgrep ERROR/WARNING/INFO are rule severities, not automatically CVSS critical/high. Use the tool’s documented CI exit behavior or a tested schema-specific adapter; do not apply a generic `.severity == "critical"` query to arbitrary results.
-
 ## Common Issues
-
 ### Issue: Too Many False Positives
 **Problem**: Alerts on safe code patterns
 **Solution**: Tune rules, add suppressions, use baseline
-
 ### Issue: Slow Scans
 **Problem**: SAST taking too long in CI
 **Solution**: Incremental scanning, parallel execution, exclude test files
-
 ### Issue: Missing Coverage
 **Problem**: Vulnerabilities not detected
 **Solution**: Add custom rules, combine multiple tools
-
 ## Best Practices
-
 - Run on every PR/commit
 - Establish baseline for existing code
 - Prioritize by severity and exploitability
@@ -415,23 +325,16 @@ A gate must validate the selected scanner’s actual JSON/SARIF schema, scan com
 - Track trends over time
 - Document false positive suppressions
 - Combine with DAST for comprehensive coverage
-
 ## Related Skills
-
 - dast-scanning (`dast-scanning`) - Dynamic testing
 - dependency-scanning (`dependency-scanning`) - Dependency vulnerabilities
 - github-actions (`github-actions`) - CI integration
-
 ## Limitations
-
 - Apply guidance only within authorized scope; test destructive steps in non-production first.
 - Docs-only import: upstream scripts and templates not bundled.
-
 ### Example
-
 ```bash
 # Read-only first: inventory before any active step.
 which <tool> && <tool> --help | head -n 20
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.

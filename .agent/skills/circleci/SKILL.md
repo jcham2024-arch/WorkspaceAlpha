@@ -1,75 +1,54 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "4cce02282393f0c9a2403bea93c666fea6d2a564e9cc8b0308d2e0a04fa8d79b"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: circleci
-description: Configure CircleCI workflows and orbs for continuous integration and
-tier: "experimental"
-  deployment.
+content_hash: 4cce02282393f0c9a2403bea93c666fea6d2a564e9cc8b0308d2e0a04fa8d79b
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+date_added: 2026-09-20
+description: Configure CircleCI workflows and orbs for continuous integration and
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: Run tests
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+version: 20.10.24
+---  deployment.
   CI runners) and authorized access to the target environment. Docs-only; helper scripts
   and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # CircleCI
-
 Build, test, and deploy applications using CircleCI's cloud-native CI/CD platform.
-
 ## When to Use This Skill
-
 Use this skill when:
 - Setting up CI/CD pipelines with CircleCI
 - Using orbs for reusable configuration
 - Optimizing build times with caching and parallelism
 - Configuring CircleCI workflows and approvals
 - Managing CircleCI contexts and secrets
-
 ## Prerequisites
-
 - CircleCI account connected to repository
 - Project enabled in CircleCI dashboard
 - Basic YAML understanding
-
 ## CI trust and example scope
-
 Fragments below are separate examples and often omit required executor/install/report setup; validate the combined configuration with the installed CircleCI schema and inspect expanded orbs. Pin reviewed orb/image versions compatible with current runners. Restrict secret contexts/deploy jobs to trusted branches and approved identities; an approval job must depend on the actual build artifact producer as well as tests. Do not allow untrusted PRs to poison privileged caches/workspaces. Protect/redact logs and artifacts and state tests not run when timing/report data is missing.
-
 ## Configuration File
-
 Create `.circleci/config.yml`:
-
 ```yaml
-version: 2.1
 
 orbs:
   node: circleci/node@5.2
   docker: circleci/docker@2.4
-
 executors:
   default:
     docker:
       - image: cimg/node:20.10
     working_directory: ~/project
-
 jobs:
   build:
     executor: default
@@ -78,13 +57,11 @@ jobs:
       - node/install-packages:
           pkg-manager: npm
       - run:
-          name: Build application
           command: npm run build
       - persist_to_workspace:
           root: .
           paths:
             - dist
-
   test:
     executor: default
     steps:
@@ -92,9 +69,7 @@ jobs:
       - node/install-packages:
           pkg-manager: npm
       - run:
-          name: Run tests
           command: npm test
-
   deploy:
     executor: default
     steps:
@@ -102,9 +77,7 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-          name: Deploy
           command: ./deploy.sh
-
 workflows:
   build-test-deploy:
     jobs:
@@ -119,11 +92,8 @@ workflows:
             branches:
               only: main
 ```
-
 ## Executors
-
 ### Docker Executor
-
 ```yaml
 executors:
   node:
@@ -135,9 +105,7 @@ executors:
           POSTGRES_DB: testdb
     working_directory: ~/app
 ```
-
 ### Machine Executor
-
 ```yaml
 executors:
   linux-machine:
@@ -145,9 +113,7 @@ executors:
       image: ubuntu-2204:current
     resource_class: large
 ```
-
 ### macOS Executor
-
 ```yaml
 executors:
   macos:
@@ -155,11 +121,8 @@ executors:
       xcode: "15.0.0"
     resource_class: macos.m1.medium.gen1
 ```
-
 ## Caching
-
 ### Dependency Caching
-
 ```yaml
 jobs:
   build:
@@ -175,9 +138,7 @@ jobs:
           paths:
             - node_modules
 ```
-
 ### Multi-Key Caching
-
 ```yaml
 - restore_cache:
     keys:
@@ -186,11 +147,8 @@ jobs:
       - v1-main-
       - v1-
 ```
-
 ## Workspaces
-
 ### Persist Data
-
 ```yaml
 jobs:
   build:
@@ -202,18 +160,14 @@ jobs:
           paths:
             - dist
             - node_modules
-
   deploy:
     steps:
       - attach_workspace:
           at: ~/project
       - run: ./deploy.sh
 ```
-
 ## Parallelism
-
 ### Test Splitting
-
 ```yaml
 jobs:
   test:
@@ -221,18 +175,14 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Run tests
           command: |
             TESTFILES=$(circleci tests glob "test/**/*.test.js" | circleci tests split --split-by=timings)
             npm test -- $TESTFILES
       - store_test_results:
           path: test-results
 ```
-
 ## Workflows
-
 ### Sequential Jobs
-
 ```yaml
 workflows:
   pipeline:
@@ -245,9 +195,7 @@ workflows:
           requires:
             - test
 ```
-
 ### Parallel Jobs
-
 ```yaml
 workflows:
   pipeline:
@@ -264,9 +212,7 @@ workflows:
             - test-unit
             - test-integration
 ```
-
 ### Manual Approval
-
 ```yaml
 workflows:
   deploy-prod:
@@ -282,9 +228,7 @@ workflows:
           requires:
             - hold
 ```
-
 ### Scheduled Workflows
-
 ```yaml
 workflows:
   nightly:
@@ -299,9 +243,7 @@ workflows:
       - build
       - test
 ```
-
 ### Branch Filtering
-
 ```yaml
 workflows:
   build-deploy:
@@ -316,21 +258,15 @@ workflows:
           filters:
             branches:
               only: main
-            tags:
               only: /^v.*/
 ```
-
 ## Orbs
-
 ### Using Orbs
-
 ```yaml
-version: 2.1
 
 orbs:
   aws-cli: circleci/aws-cli@4.1
   kubernetes: circleci/kubernetes@1.3
-
 jobs:
   deploy:
     executor: aws-cli/default
@@ -341,9 +277,7 @@ jobs:
       - kubernetes/install-kubectl
       - run: kubectl apply -f k8s/
 ```
-
 ### Common Orbs
-
 ```yaml
 orbs:
   node: circleci/node@5.2              # Node.js
@@ -355,21 +289,16 @@ orbs:
   kubernetes: circleci/kubernetes@1.3  # K8s deploy
   slack: circleci/slack@4.12           # Notifications
 ```
-
 ## Docker Builds
-
 ```yaml
-version: 2.1
 
 orbs:
   docker: circleci/docker@2.4
-
 jobs:
   build-and-push:
     executor: docker/docker
     steps:
       - setup_remote_docker:
-          version: 20.10.24
       - checkout
       - docker/check
       - docker/build:
@@ -379,15 +308,10 @@ jobs:
           image: myorg/myapp
           tag: $CIRCLE_SHA1
 ```
-
 ## Environment Variables
-
 ### Project Variables
-
 Set in CircleCI Project Settings > Environment Variables
-
 ### Contexts
-
 ```yaml
 workflows:
   deploy:
@@ -397,29 +321,23 @@ workflows:
       - deploy-production:
           context: production-secrets
 ```
-
 ### Using Variables
-
 ```yaml
 jobs:
   deploy:
     steps:
       - run:
-          name: Deploy
           command: |
             aws s3 sync dist/ s3://$S3_BUCKET
           environment:
             AWS_DEFAULT_REGION: us-east-1
 ```
-
 ## Artifacts and Test Results
-
 ```yaml
 jobs:
   test:
     steps:
       - run:
-          name: Run tests
           command: npm test -- --coverage
       - store_test_results:
           path: test-results
@@ -427,9 +345,7 @@ jobs:
           path: coverage
           destination: coverage-report
 ```
-
 ## Resource Classes
-
 ```yaml
 jobs:
   build:
@@ -439,30 +355,23 @@ jobs:
     steps:
       - checkout
       - run: npm run build
-
 # Available classes:
 # small: 1 vCPU, 2GB RAM
 # medium: 2 vCPU, 4GB RAM (default)
 # large: 4 vCPU, 8GB RAM
 # xlarge: 8 vCPU, 16GB RAM
 ```
-
 ## Common Issues
-
 ### Issue: Cache Not Restoring
 **Problem**: Cache misses on every build
 **Solution**: Verify cache key format, ensure checksum file hasn't changed
-
 ### Issue: Workspace Attach Fails
 **Problem**: Cannot find persisted workspace
 **Solution**: Ensure persist_to_workspace job completed, check paths
-
 ### Issue: Docker Layer Caching
 **Problem**: Docker builds are slow
 **Solution**: Enable Docker Layer Caching in project settings (paid feature)
-
 ## Best Practices
-
 - Use orbs for common tasks
 - Implement aggressive caching strategies
 - Use workspaces for sharing data between jobs
@@ -470,23 +379,16 @@ jobs:
 - Use contexts for environment-specific secrets
 - Define reusable executors
 - Store test results for insights
-
 ## Related Skills
-
 - github-actions (`github-actions`) - GitHub CI/CD
 - docker-management (`docker-management`) - Container builds
 - aws-ecs-fargate (`aws-ecs-fargate`) - ECS deployments
-
 ## Limitations
-
 - Guidance executes against real environments: confirm target, blast radius, and rollback plan before applying anything.
 - Never deploy to production without explicit approval. Docs-only import: upstream scripts and templates not bundled.
-
 ### Example
-
 ```bash
 git status && git diff --stat
 kubectl diff -f manifest.yaml
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.

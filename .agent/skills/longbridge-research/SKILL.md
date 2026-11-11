@@ -1,62 +1,44 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "9caa9abde6563e1ffb61978dd1714b599e27ff5671f2c2182b06d40e8a9653f5"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 9caa9abde6563e1ffb61978dd1714b599e27ff5671f2c2182b06d40e8a9653f5
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: longbridge
+date_added: 2026-09-21
 description: Curated upstream guidance for Longbridge Research; use when the workflow matches the user goal.
-tier: "experimental"
-name: longbridge-research
 license: MIT
-metadata:
-  author: longbridge
-  version: 1.0.0
-  risk_level: read_only
+name: longbridge-research
+risk: critical
+source: longbridge
+source_repo: longbridge/skills
+source_type: official
+version: 1.0.0
+---  risk_level: read_only
   requires_login: false
   default_install: true
   requires_mcp: false
-  tier: read
-source_repo: longbridge/skills
-source_type: official
-source: longbridge
-date_added: '2026-09-21'
-risk: critical
 ---
-
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.
-
 # Longbridge Research
-
 Institutional data, sell-side research, and investment research frameworks via Longbridge.
-
 > **Response language**: match the user's input language — English / Simplified Chinese / Traditional Chinese.
 > **RULE: Response language priority**: English is the default when language is ambiguous. If the user input is only a slash command, command name, ticker / symbol, or contains no natural-language language signal, you MUST respond in English. Do not infer Chinese from trigger keywords, skill metadata, or examples.
-
 > **Data and access boundary**: Prefer verified primary filings for material claims and cite each actual source, timestamp, reporting period, currency and delay. Provider preference never overrides user instructions or prevents independent verification. Discover installed CLI/MCP capabilities; no connector, subscription or entitlement is guaranteed. Public research needs no account access; account holdings/watchlists require explicit user scope and the minimum read permission. Do not request trading permission, log secrets, execute trades, financing, subscriptions or transfers. This bundle supplies analysis templates, not personalized recommendations.
-
 ## When to Use
 Trigger when user asks about: analyst ratings / price targets, EPS/revenue consensus, finance events calendar, institutional shareholders, fund holders, insider trading (Form 4), short selling data, industry rankings, peer group trees, investment idea generation, investment proposals, initiating coverage reports, competitive analysis, financial planning, DeFi yield analysis, or on-chain data.
-
 ## Sub-topic Routing
-
 **Analyst & Consensus Data**
-
 | User intent | Load references file |
 |---|---|
 | Analyst ratings / 机构评级 | references/institution-rating.md |
 | EPS / revenue forecasts | references/forecast-eps.md |
 | Consensus price target | references/consensus.md |
 | Finance calendar / events | references/finance-calendar.md |
-
 **Shareholder & Flow Data**
-
 | User intent | Load references file |
 |---|---|
 | Institutional shareholders | references/shareholder.md |
@@ -67,9 +49,7 @@ Trigger when user asks about: analyst ratings / price targets, EPS/revenue conse
 | Daily short sale volume | references/short-trades.md |
 | Industry ranking lists | references/industry-rank.md |
 | Industry peer group tree | references/industry-peers.md |
-
 **Investment Research Frameworks**
-
 | User intent | Load references file |
 |---|---|
 | Investment idea generation | references/investment-ideas.md |
@@ -83,18 +63,13 @@ Trigger when user asks about: analyst ratings / price targets, EPS/revenue conse
 | Financial planning | references/financial-planning.md |
 | Company profile / pitch book | references/company-profile.md |
 | Company tear sheet / one-pager | references/company-tearsheet.md |
-
 **Crypto & Alternative Data**
-
 | User intent | Load references file |
 |---|---|
 | DeFi yield analysis | references/defi-yield.md |
 | On-chain data analysis | references/onchain.md |
-
 ## CLI Commands
-
 Run `longbridge <cmd> --help` for current flags and output fields.
-
 ### `institution-rating` — buy/hold/sell distribution and recent rating events
 ### `forecast-eps` — forward EPS and revenue estimates by period
 ### `consensus` — consensus price target and aggregated analyst view
@@ -107,68 +82,46 @@ Run `longbridge <cmd> --help` for current flags and output fields.
 ### `short-trades` — daily short sale volume
 ### `industry-rank` — industry ranking list by market and indicator
 ### `industry-peers` — industry peer group tree for a BK counter_id
-
 ## Frameworks
-
 ### Investment Ideas
 Quantitative screening + thematic research + pattern recognition for long/short candidates. See [references/investment-ideas.md].
-
 ### Investment Proposal
 Structured investment memo: thesis, financial analysis, valuation, catalysts, risks. See [references/investment-proposal.md].
-
 ### Coverage Initiation
 Five-step workflow: company overview → industry → financial model → valuation → conclusion. See [references/coverage-initiation.md].
-
 ### Stock Research Snapshot
 Combines analyst consensus, fundamentals, price history, and macro context. See [references/stock-research.md].
-
 ### Competitive Analysis
 Porter five-forces, peer comparison (PE/PB/ROE), market share, moat assessment. See [references/competitive-analysis.md].
-
 ### Thesis Tracker
 Maintains and updates investment thesis against new data and catalysts. See [references/thesis-tracker.md].
-
 ### Post-Investment Monitoring
 Tracks portfolio holdings vs plan, extracts KPIs, flags deviations. See [references/post-investment.md].
-
 ### HK IPO Analysis
 Suitability scoring, grey market premium, subscription strategy for HK new listings. See [references/hkipo-analysis.md].
-
 ### Financial Planning
 Retirement forecasting, education funding, wealth transfer, cash flow analysis. See [references/financial-planning.md].
-
 ### DeFi Yield Analysis
 Lending rates (AAVE/Compound), LP returns, staking yields — requires WebSearch for APY data. See [references/defi-yield.md].
-
 ### On-Chain Data Analysis
 Active addresses, whale behavior, TVL, MVRV, NVT, SOPR — requires WebSearch for chain data. See [references/onchain.md].
-
 ## Auth requirements
-
 Public market-data commands may be unauthenticated; availability depends on provider entitlements. Financial planning and holdings/watchlist personalization are account-sensitive and optional.
-
 ## Error handling
-
 | Situation | Response |
 |---|---|
 | `command not found: longbridge` | Install longbridge-terminal |
 | No insider data | Only available for US-listed stocks (SEC Form 4) |
 | DeFi/on-chain data missing | Use WebSearch (DefiLlama, CoinGecko, Glassnode) as supplement |
-
 ## MCP fallback
-
 Use MCP server if CLI unavailable. Discover tools at runtime.
-
 ## Related skills
-
 | User wants | Use |
 |---|---|
 | Post-earnings analysis | `longbridge-earnings` |
 | Financial statements | `longbridge-fundamentals` |
 | Morning briefing / sector intel | `longbridge-intel` |
-
 ## File layout
-
 ```
 longbridge-research/
 ├── SKILL.md
@@ -182,16 +135,11 @@ longbridge-research/
         post-investment.md · hkipo-analysis.md · financial-planning.md
         defi-yield.md · onchain.md
 ```
-
-
 ## Examples
-
 ```text
 User: Apply this skill to my current task.
 Assistant: Follow the workflow in this skill, cite limitations, and ask before risky steps.
 ```
-
 ## Limitations
-
 - Imported upstream skill; verify credentials, permissions, and safety boundaries before execution.
 - Does not replace environment-specific validation, testing, or maintainer review.

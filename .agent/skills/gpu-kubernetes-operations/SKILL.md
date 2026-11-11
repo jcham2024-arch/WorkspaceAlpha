@@ -1,66 +1,48 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "a1432bd592ca533ce950062e43a60ac2200ff0cde0a2b5d2c861977bc7964d9c"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: gpu-kubernetes-operations
-description: Operate GPU-backed Kubernetes clusters for AI inference and training
-tier: "experimental"
-  with scheduling, autoscaling, node health, MIG partitioning, and cost controls.
+content_hash: a1432bd592ca533ce950062e43a60ac2200ff0cde0a2b5d2c861977bc7964d9c
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant OS/platform tooling and privileged access where
+date_added: 2026-09-20
+description: Operate GPU-backed Kubernetes clusters for AI inference and training
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: cluster-autoscaler-config
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant OS/platform tooling and privileged access where
+version: v1
+---  with scheduling, autoscaling, node health, MIG partitioning, and cost controls.
   noted. Docs-only; helper scripts and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # GPU Kubernetes Operations
-
 Run resilient and cost-efficient GPU clusters for production AI workloads.
-
 ## When to Use This Skill
-
 - Setting up GPU node pools in Kubernetes for AI inference or training
 - Configuring NVIDIA device plugin and GPU operator
 - Implementing MIG partitioning to share GPUs across workloads
 - Building GPU-aware autoscaling policies
 - Monitoring GPU health with DCGM and Prometheus
 - Troubleshooting GPU scheduling, driver, or OOM issues
-
 All versions, profiles and metrics below are historical examples. Verify the current GPU/driver/CUDA/Kubernetes/operator compatibility matrix and exact supported MIG profiles. MIG reconfiguration, drains and driver changes disrupt workloads: require authorized maintenance scope, capacity and tested recovery. Time-slicing shares execution without MIG-style memory/fault isolation and does not multiply physical capacity.
-
 ## Prerequisites
-
 - Kubernetes 1.28+ cluster with GPU-capable nodes
 - NVIDIA GPUs (A10, L4, A100, H100, or similar)
 - NVIDIA drivers installed on nodes (535+ recommended)
 - Helm 3 for operator and plugin installation
 - Prometheus stack for metrics collection
-
 ## NVIDIA GPU Operator Installation
-
 The GPU Operator automates driver, toolkit, device plugin, and DCGM deployment.
-
 ```bash
 # Add NVIDIA Helm repo
 helm repo add nvidia https://helm.ngc.nvidia.com/nvidia
 helm repo update
-
 # Install GPU Operator
 helm install gpu-operator nvidia/gpu-operator \
   --namespace gpu-operator \
@@ -72,31 +54,22 @@ helm install gpu-operator nvidia/gpu-operator \
   --set migManager.enabled=true \
   --set nodeStatusExporter.enabled=true \
   --version v24.3.0
-
 # Verify installation
 kubectl get pods -n gpu-operator
 kubectl get nodes -o json | jq '.items[].status.allocatable["nvidia.com/gpu"]'
 ```
-
 ## NVIDIA Device Plugin (Standalone)
-
 If not using the GPU Operator, deploy the device plugin directly.
-
 ```yaml
 # nvidia-device-plugin.yaml
 apiVersion: apps/v1
 kind: DaemonSet
-metadata:
-  name: nvidia-device-plugin
   namespace: kube-system
 spec:
   selector:
     matchLabels:
-      name: nvidia-device-plugin
   template:
-    metadata:
       labels:
-        name: nvidia-device-plugin
     spec:
       tolerations:
         - key: nvidia.com/gpu
@@ -123,21 +96,15 @@ spec:
           hostPath:
             path: /var/lib/kubelet/device-plugins
 ```
-
 ## MIG (Multi-Instance GPU) Partitioning
-
 MIG allows a single A100 or H100 to be split into isolated GPU instances.
-
 ```yaml
 # mig-config.yaml - ConfigMap for MIG Manager
 apiVersion: v1
 kind: ConfigMap
-metadata:
-  name: mig-parted-config
   namespace: gpu-operator
 data:
   config.yaml: |
-    version: v1
     mig-configs:
       # 7 small instances for inference microservices
       all-1g.10gb:
@@ -145,14 +112,12 @@ data:
           mig-enabled: true
           mig-devices:
             "1g.10gb": 7
-
       # 3 medium instances for mid-size models
       all-2g.20gb:
         - devices: all
           mig-enabled: true
           mig-devices:
             "2g.20gb": 3
-
       # Mixed: 1 large + 2 small
       mixed-inference:
         - devices: all
@@ -160,32 +125,24 @@ data:
           mig-devices:
             "3g.40gb": 1
             "1g.10gb": 4
-
       # Full GPU for training (no partitioning)
       all-disabled:
         - devices: all
           mig-enabled: false
 ```
-
 ```bash
 # Apply MIG profile to a node
 kubectl label nodes gpu-node-01 nvidia.com/mig.config=all-1g.10gb --overwrite
-
 # Verify MIG instances
 kubectl exec -it nvidia-device-plugin-xxxxx -n kube-system -- nvidia-smi mig -lgi
-
 # Check available MIG resources
 kubectl get nodes gpu-node-01 -o json | jq '.status.allocatable | with_entries(select(.key | startswith("nvidia.com")))'
 ```
-
 ### Requesting MIG Slices in Pods
-
 ```yaml
 # pod-with-mig.yaml
 apiVersion: v1
 kind: Pod
-metadata:
-  name: inference-small
 spec:
   containers:
     - name: model
@@ -198,21 +155,15 @@ spec:
       # For large slice:
       # nvidia.com/mig-3g.40gb: 1
 ```
-
 ## GPU Time-Slicing
-
 For GPUs that do not support MIG (A10, L4), use time-slicing to share a GPU.
-
 ```yaml
 # time-slicing-config.yaml
 apiVersion: v1
 kind: ConfigMap
-metadata:
-  name: time-slicing-config
   namespace: gpu-operator
 data:
   any: |-
-    version: v1
     flags:
       migStrategy: none
     sharing:
@@ -223,26 +174,20 @@ data:
           - name: nvidia.com/gpu
             replicas: 4
 ```
-
 ```bash
 # Apply time-slicing config
 kubectl patch clusterpolicy/cluster-policy \
   --type merge \
   -p '{"spec":{"devicePlugin":{"config":{"name":"time-slicing-config","default":"any"}}}}'
-
 # After applying, each physical GPU appears as 4 virtual GPUs
 kubectl get nodes -o json | jq '.items[].status.allocatable["nvidia.com/gpu"]'
 # Output: "4" per physical GPU
 ```
-
 ## DCGM Monitoring
-
 ```yaml
 # dcgm-servicemonitor.yaml
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
-metadata:
-  name: dcgm-exporter
   namespace: gpu-operator
   labels:
     release: prometheus
@@ -255,9 +200,7 @@ spec:
       interval: 15s
       path: /metrics
 ```
-
 ### Key DCGM Metrics and Alert Rules
-
 ```yaml
 # gpu-alerts.yaml
 groups:
@@ -270,7 +213,6 @@ groups:
           severity: warning
         annotations:
           summary: "GPU {{ $labels.gpu }} temperature above 85C on {{ $labels.node }}"
-
       - alert: GPUMemoryPressure
         expr: (DCGM_FI_DEV_FB_USED / (DCGM_FI_DEV_FB_USED + DCGM_FI_DEV_FB_FREE)) > 0.90
         for: 5m
@@ -278,21 +220,18 @@ groups:
           severity: warning
         annotations:
           summary: "GPU memory above 90% on {{ $labels.node }} GPU {{ $labels.gpu }}"
-
       - alert: GPUECCErrors
         expr: increase(DCGM_FI_DEV_ECC_DBE_VOL_TOTAL[1h]) > 0
         labels:
           severity: critical
         annotations:
           summary: "Double-bit ECC errors detected on {{ $labels.node }} GPU {{ $labels.gpu }}"
-
       - alert: GPUXidErrors
         expr: DCGM_FI_DEV_XID_ERRORS != 0
         labels:
           severity: warning
         annotations:
           summary: "Xid error on {{ $labels.node }} GPU {{ $labels.gpu }}: {{ $labels.xid }}"
-
       - alert: GPULowUtilization
         expr: DCGM_FI_DEV_GPU_UTIL < 10 and on(pod) kube_pod_status_phase{phase="Running"} == 1
         for: 30m
@@ -300,7 +239,6 @@ groups:
           severity: info
         annotations:
           summary: "GPU underutilized on {{ $labels.node }} - consider rightsizing"
-
       - alert: GPUDriverMismatch
         expr: count(count by (driver_version)(DCGM_FI_DRIVER_VERSION)) > 1
         labels:
@@ -308,14 +246,11 @@ groups:
         annotations:
           summary: "Multiple GPU driver versions detected across cluster"
 ```
-
 ## GPU Node Pool Configuration
-
 ```yaml
 # gpu-nodepool.yaml
 apiVersion: v1
 kind: Node
-metadata:
   labels:
     gpu-type: a100
     gpu-memory: "80gb"
@@ -330,8 +265,6 @@ spec:
 # Inference deployment with GPU scheduling
 apiVersion: apps/v1
 kind: Deployment
-metadata:
-  name: llm-inference
   namespace: ai-serving
 spec:
   replicas: 3
@@ -339,7 +272,6 @@ spec:
     matchLabels:
       app: llm-inference
   template:
-    metadata:
       labels:
         app: llm-inference
     spec:
@@ -372,37 +304,29 @@ spec:
               memory: "64Gi"
           # Let the device plugin/runtime inject assigned GPU visibility.
 ```
-
 ## GPU Autoscaling
-
 The HPA requires an installed custom-metrics adapter and correctly mapped per-pod metrics. The autoscaler ConfigMap is conceptual input, not a universally consumed API; wire supported flags/settings through the installed distribution. Node snippets illustrate labels/taints on existing named nodes, not provisionable GPU capacity. Validate every metric name/label/type against actual exporter output; do not infer counters from names.
-
 ```yaml
 # gpu-hpa.yaml
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
-metadata:
-  name: llm-inference-hpa
   namespace: ai-serving
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: llm-inference
   minReplicas: 2
   maxReplicas: 8
   metrics:
     - type: Pods
       pods:
         metric:
-          name: DCGM_FI_DEV_GPU_UTIL
         target:
           type: AverageValue
           averageValue: "75"
     - type: Pods
       pods:
         metric:
-          name: inference_queue_depth
         target:
           type: AverageValue
           averageValue: "10"
@@ -423,8 +347,6 @@ spec:
 # Cluster Autoscaler config for GPU node pools
 apiVersion: v1
 kind: ConfigMap
-metadata:
-  name: cluster-autoscaler-config
   namespace: kube-system
 data:
   config: |
@@ -439,24 +361,18 @@ data:
         max: 16
         gpu: nvidia.com/gpu
 ```
-
 ## Scheduling Patterns
-
 - Use node affinity by GPU type (A10/L4/A100/H100).
 - Separate latency-critical inference from batch training.
 - Pin model replicas with anti-affinity for availability.
 - Reserve headroom for failover and rolling updates.
-
 ## Cost Optimization
-
 - Prefer MIG slices for smaller inference services.
 - Schedule batch jobs in off-peak windows.
 - Route low-priority traffic to cheaper model tiers.
 - Use spot/preemptible instances for training workloads.
 - Monitor GPU utilization and rightsize deployments.
-
 ## Troubleshooting
-
 | Symptom | Check | Fix |
 |---------|-------|-----|
 | Pod stuck in Pending | `kubectl describe pod` for GPU resource events | Verify node has allocatable GPUs, check taints/tolerations |
@@ -466,22 +382,15 @@ data:
 | GPU not detected | Device plugin pod logs | Restart device plugin, check NVIDIA container toolkit |
 | Time-slicing not working | ConfigMap applied but no extra GPUs | Restart device plugin pods after config change |
 | ECC errors increasing | `nvidia-smi -q -d ECC` | Schedule node drain and hardware replacement |
-
 ## Related Skills
-
 - llm-inference-scaling (`llm-inference-scaling`) - Autoscale inference workloads
 - model-serving-kubernetes (`model-serving-kubernetes`) - Production model serving patterns
 - gpu-server-management (`gpu-server-management`) - Host-level GPU management fundamentals
 - multi-tenant-llm-hosting (`multi-tenant-llm-hosting`) - Multi-tenant GPU sharing
 - llm-cost-optimization (`llm-cost-optimization`) - Cost optimization strategies
-
 ## Limitations
-
 - Infrastructure commands can disrupt services: confirm target host/scope and have backups/snapshots before mutating state.
 - Docs-only import: upstream scripts and templates not bundled.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Linux](platforms/linux.md)

@@ -1,29 +1,19 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "7ae611f09b3ee705d01ee33c711cd669d5ddca1d10cf72aab3e99a39f19c0798"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 7ae611f09b3ee705d01ee33c711cd669d5ddca1d10cf72aab3e99a39f19c0798
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Master defensive Bash programming techniques for production-grade scripts. Use when writing robust shell scripts, CI/CD pipelines, or system utilities requiring fault tolerance and safety.
 name: bash-defensive-patterns
-description: "Master defensive Bash programming techniques for production-grade scripts. Use when writing robust shell scripts, CI/CD pipelines, or system utilities requiring fault tolerance and safety."
-tier: "experimental"
 risk: safe
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # Bash Defensive Patterns
-
 Comprehensive guidance for writing production-ready Bash scripts using defensive programming techniques, error handling, and safety best practices to prevent common pitfalls and ensure reliability.
-
 ## Use this skill when
-
 - Writing production automation scripts
 - Building CI/CD pipeline scripts
 - Creating system administration utilities
@@ -32,42 +22,29 @@ Comprehensive guidance for writing production-ready Bash scripts using defensive
 - Building maintainable shell script libraries
 - Implementing comprehensive logging and monitoring
 - Creating scripts that must work across different platforms
-
 ## Do not use this skill when
-
 - You need a single ad-hoc shell command, not a script
 - The target environment requires strict POSIX sh only
 - The task is unrelated to shell scripting or automation
-
 ## Instructions
-
 1. Confirm the target shell, OS, and execution environment.
 2. Enable strict mode and safe defaults from the start.
 3. Validate inputs, quote variables, and handle files safely.
 4. Add logging, error traps, and basic tests.
 5. Require explicit user approval before running destructive, irreversible, or high-impact operations.
-
 ## Safety
-
 - Require explicit user approval and confirmation before running destructive, irreversible, or high-impact operations.
 - Confirm the exact target before deleting resources or applying irreversible changes; ordinary requested edits remain within the user's authorized scope.
 - Provide dry-run flags and preview changes before executing modifying actions.
 - Do not run scripts or commands as root or with elevated privileges unless strictly authorized and necessary.
-
 Refer to `resources/implementation-playbook.md` for detailed patterns, checklists, and templates.
-
 ## Resources
-
 - `resources/implementation-playbook.md` for detailed patterns, checklists, and templates.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Does not authorize destructive or production operations outside the user's explicit scope.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Linux](platforms/linux.md)

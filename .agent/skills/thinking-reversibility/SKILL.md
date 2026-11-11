@@ -1,41 +1,27 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "8b09a745e9f7c45fe9f08b62628944f5770f70b4d9cd9c838cc13a16b45b300f"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: thinking-reversibility
+content_hash: 8b09a745e9f7c45fe9f08b62628944f5770f70b4d9cd9c838cc13a16b45b300f
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: Before heavy deliberation, classify the decision as cheap or costly to undo; decide two-way doors fast and stage one-way doors to preserve options.
-tier: "experimental"
-disable-model-invocation: true
+name: thinking-reversibility
+---disable-model-invocation: true
 ---
-
-
 # Reversibility
-
 Core rule: match process depth to undo cost. Most decisions are cheaper to reverse than they look; irreversible ones deserve deliberation and staged commitment.
-
 ## When to Use
-
 - Uncertain how much analysis a decision deserves (tech, process, product, org)
 - Tempted to committee a low-blast-radius choice, or to rush a high-lock-in one
 - Can redesign the move (pilot, flag, abstraction, time-box) to lower undo cost
 - High-stakes choice where acting vs waiting have asymmetric recovery profiles
-
 ## When NOT to Use
-
 - Already classified this session—decide at matched depth; do not re-label forever
 - Trivial two-way calls (names, local refactors) where deciding is cheaper than classifying
 - Externally forced move with no optionality (hard deadline, contract, regulation)
 - Correctness gates (security, data integrity) that need the right answer, not speed theater
-
 ## Procedure
-
 1. **Name the decision and undo path.** State what would be committed and the concrete reverse move (rollback, migrate back, revoke, re-hire, re-contract).
 2. **Score reversibility.** Assess technical effort, time, money, reputation, dependents, and learning lost if reversed. Classify:
    - **Type 2:** undo in days, low cost → decide fast
@@ -47,9 +33,7 @@ Core rule: match process depth to undo cost. Most decisions are cheaper to rever
    - Rule: recoverable acting downside + permanent inaction loss → staged commit over indefinite delay; catastrophic or third-party harm → refuse or redesign first
 4. **Option-preserving redesign.** Prefer pilots, feature flags, interfaces, versioning, time-boxed vendor terms, or strangler slices that convert Type 1 surface into Type 2 experiments. Deliberate only the residual irreversible core.
 5. **Match process and commit.** Type 2: pick a reasonable option, ship, monitor. Type 1: document assumptions, argue the opposing case, surface to owner if stakes require it. Stop once class and commitment depth are set—do not re-analyze without new undo-cost evidence.
-
 ## Output
-
 ```text
 Decision: …
 Undo path: …
@@ -60,9 +44,7 @@ Staging / option-preserving move: …
 Process depth: decide-now | pilot | full deliberation
 Commitment: …
 ```
-
 ## Verification
-
 - **Falsify:** If "we can always change later" has no concrete undo path and cost, treat as more irreversible until proven otherwise.
 - **Stop:** After class and process depth are set, further taxonomy is waste—execute the matched process.
 - **Over-application guard:** Do not slow trivial Type 2 work with matrices. Do not use "two-way door" to skip verification on irreversible data, security, or public commitments.

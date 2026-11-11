@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "232a1c36a72414cf945ce7a0f39e1e0552408db6d227448aded3f63aea554b2c"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: material-design
+content_hash: 232a1c36a72414cf945ce7a0f39e1e0552408db6d227448aded3f63aea554b2c
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Material Design. Trigger when user wants Google's aesthetic, elevation, motion, and consistent components.
-tier: "experimental"
-date_added: "2026-06-17"
+name: material-design
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Material Design
-
 > "Digital paper and ink. Interfaces built on the physical properties of stacked material."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Z-Axis Elevation**: Everything exists on a specific layer. Shadows communicate hierarchy and state.
 2. **Meaningful Motion**: Animations are continuous, guiding the user's focus from one state to the next (e.g., ripple effects, shared element transitions).
 3. **Structured Layout**: Strict adherence to an 8dp baseline grid and specific component anatomies (cards, FABs, app bars).
-
 ## Visual DNA
 - **Colors**: Works excellently with **Desert Mirage** or **Minimalist Slate**. Utilize primary, secondary, surface, and error semantic mapping.
 - **Typography**: `Roboto` or `Google Sans` (or equivalent clean geometric sans). Choose one Material generation: M2 uses H1–H6 and related roles; M3 uses display, headline, title, body and label roles. Do not mix the scales.
 - **Shapes**: Moderately rounded corners (4px to 16px).
-
 ## Web Implementation
 - Do not reinvent the wheel: mimic standard Material elevations.
 - **CSS Example**:
@@ -51,7 +38,6 @@ Use this sub-style when the user's request matches the aesthetic described above
               0 1px 5px 0 rgba(0,0,0,0.12);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .material-btn {
   text-transform: uppercase;
   font-weight: 500;
@@ -65,9 +51,7 @@ Use this sub-style when the user's request matches the aesthetic described above
   /* Ripple effect is usually handled via JS, but structure is key */
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct MaterialCard: View {
@@ -95,7 +79,6 @@ struct MaterialCard: View {
         .shadow(color: Color.black.opacity(0.08), radius: 2, x: 0, y: 2)
     }
 }
-
 // Material FAB
 struct MaterialFAB: View {
     var body: some View {
@@ -115,7 +98,6 @@ struct MaterialFAB: View {
 - Emulate Material elevation levels by stacking multiple `.shadow()` modifiers at different blur/offset values.
 - Use `.cornerRadius(8...16)` — Material Design 3 uses more rounded shapes than M2.
 - Animate shadow changes using `.animation(.easeInOut(duration: 0.28))` — Material uses 280ms transitions.
-
 ### Flutter
 ```dart
 // Flutter IS Material Design — use it natively
@@ -176,11 +158,9 @@ class MaterialScreen extends StatelessWidget {
 - Map the universal palette via `colorSchemeSeed` or manually build a `ColorScheme`.
 - Use the Material type scale via `Theme.of(context).textTheme`.
 - Ripple effects come free with `InkWell` and `ElevatedButton`.
-
 ### React Native
 ```jsx
 import { Provider as PaperProvider, MD3LightTheme as DefaultTheme, Card, Button, Text } from 'react-native-paper';
-
 const materialTheme = {
   ...DefaultTheme,
   roundness: 8,
@@ -191,7 +171,6 @@ const materialTheme = {
     background: '#FFFBFE',
   },
 };
-
 const MaterialScreen = () => (
   <PaperProvider theme={materialTheme}>
     <ScrollView style={{ flex: 1, padding: 16 }}>
@@ -204,7 +183,6 @@ const MaterialScreen = () => (
           <Button mode="text" onPress={() => {}}>ACTION</Button>
         </Card.Actions>
       </Card>
-
       {/* Filled button — Material M3 style */}
       <Button
         mode="contained"
@@ -222,7 +200,6 @@ const MaterialScreen = () => (
 - Configure the theme to map your universal palettes to Material semantic colors.
 - Use `Card` (with `elevation` prop), `Button` (with `mode` prop), and `TextInput` for correct Material behavior.
 - Core Pressable needs its `android_ripple` configured; for themed feedback use `react-native-paper`'s `TouchableRipple`.
-
 ### Jetpack Compose
 ```kotlin
 // Jetpack Compose IS Material Design — use it natively
@@ -277,11 +254,9 @@ fun MaterialScreen() {
 - Map the universal palette into `lightColorScheme()` or `darkColorScheme()`.
 - Use `MaterialTheme.typography` for the complete type scale.
 - Motion uses `animateFloatAsState` with Material easing: `FastOutSlowInEasing` (equivalent to `cubic-bezier(0.4, 0.0, 0.2, 1)`).
-
 ## Do's and Don'ts
 - **DO**: Use the standard Material easing curves for animations (`cubic-bezier(0.4, 0.0, 0.2, 1)`).
 - **DON'T**: Mix overlapping shadows arbitrarily. Elements should clearly sit 'above' or 'below' others.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

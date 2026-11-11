@@ -1,50 +1,32 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "c90495ee9cef0f79292c5f33203d7eb2623d84979dac7592662945bfaada1bda"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: c90495ee9cef0f79292c5f33203d7eb2623d84979dac7592662945bfaada1bda
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Automate Basecamp project management, to-dos, messages, people, and to-do list organization via Rube MCP (Composio). Always search tools first for current schemas.
 name: basecamp-automation
-description: "Automate Basecamp project management, to-dos, messages, people, and to-do list organization via Rube MCP (Composio). Always search tools first for current schemas."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # Basecamp Automation via Rube MCP
-
 Automate Basecamp operations including project management, to-do list creation, task management, message board posting, people management, and to-do group organization through Composio's Basecamp toolkit.
-
 ## Prerequisites
-
 - Rube MCP must be connected (RUBE_SEARCH_TOOLS available)
 - Active Basecamp connection via `RUBE_MANAGE_CONNECTIONS` with toolkit `basecamp`
 - Always call `RUBE_SEARCH_TOOLS` first to get current tool schemas
-
 ## Setup
-
 Use an existing approved Rube connection and supported host authentication flow; adding an endpoint alone does not establish account access.
-
 1. Verify Rube MCP is available by confirming `RUBE_SEARCH_TOOLS` responds
 2. Call `RUBE_MANAGE_CONNECTIONS` with toolkit `basecamp`
 3. If connection is not ACTIVE, follow the returned auth link to complete Basecamp OAuth
 4. Confirm connection status shows ACTIVE before running any workflows
-
 Historical slugs/types/defaults below need current schema verification. Verify account, project/dock IDs and approved audience before writes. Messages and notifications need explicit action scope; draft requests must stay drafts. Access grants, invitations and revocations require exact target scope. Reconcile an uncertain create before trying an alternative tool to avoid duplicate posts/tasks.
-
 ## Core Workflows
-
 ### 1. Manage To-Do Lists and Tasks
-
 **When to use**: User wants to create to-do lists, add tasks, or organize work within a Basecamp project
-
 **Tool sequence**:
 1. `BASECAMP_GET_PROJECTS` - List projects to find the target bucket_id [Prerequisite]
 2. `BASECAMP_GET_BUCKETS_TODOSETS` - Get the to-do set within a project [Prerequisite]
@@ -54,13 +36,11 @@ Historical slugs/types/defaults below need current schema verification. Verify a
 6. `BASECAMP_POST_BUCKETS_TODOLISTS_TODOS` - Create a to-do item in a to-do list [Required for task creation]
 7. `BASECAMP_CREATE_TODO` - Alternative tool for creating individual to-dos [Alternative]
 8. `BASECAMP_GET_BUCKETS_TODOLISTS_TODOS` - List to-dos within a to-do list [Optional]
-
 **Key parameters for creating to-do lists**:
 - `bucket_id`: Integer project/bucket ID (from GET_PROJECTS)
 - `todoset_id`: Integer to-do set ID (from GET_BUCKETS_TODOSETS)
 - `name`: Title of the to-do list (required)
 - `description`: HTML-formatted description (supports Rich text)
-
 **Key parameters for creating to-dos**:
 - `bucket_id`: Integer project/bucket ID
 - `todolist_id`: Integer to-do list ID
@@ -71,18 +51,14 @@ Historical slugs/types/defaults below need current schema verification. Verify a
 - `starts_on`: Start date in `YYYY-MM-DD` format
 - `notify`: Boolean to notify assignees (defaults to false)
 - `completion_subscriber_ids`: Person IDs notified upon completion
-
 **Pitfalls**:
 - A project (bucket) can contain multiple to-do sets; selecting the wrong `todoset_id` creates lists in the wrong section
 - Always check existing to-do lists before creating to avoid near-duplicate names
 - Success payloads include user-facing URLs (`app_url`, `app_todos_url`); prefer returning these over raw IDs
 - All IDs (`bucket_id`, `todoset_id`, `todolist_id`) are integers, not strings
 - Descriptions support HTML formatting only, not Markdown
-
 ### 2. Post and Manage Messages
-
 **When to use**: User wants to post messages to a project message board or update existing messages
-
 **Tool sequence**:
 1. `BASECAMP_GET_PROJECTS` - Find the target project and bucket_id [Prerequisite]
 2. `BASECAMP_GET_MESSAGE_BOARD` - Get the message board ID for the project [Prerequisite]
@@ -90,7 +66,6 @@ Historical slugs/types/defaults below need current schema verification. Verify a
 4. `BASECAMP_POST_BUCKETS_MESSAGE_BOARDS_MESSAGES` - Alternative message creation tool [Fallback]
 5. `BASECAMP_GET_MESSAGE` - Read a specific message by ID [Optional]
 6. `BASECAMP_PUT_BUCKETS_MESSAGES` - Update an existing message [Optional]
-
 **Key parameters**:
 - `bucket_id`: Integer project/bucket ID
 - `message_board_id`: Integer message board ID (from GET_MESSAGE_BOARD)
@@ -99,7 +74,6 @@ Historical slugs/types/defaults below need current schema verification. Verify a
 - `status`: Set to `"active"` to publish immediately
 - `category_id`: Message type classification (optional)
 - `subscriptions`: Array of person IDs to notify; omit to notify all project members
-
 **Pitfalls**:
 - If draft creation is unsupported, preserve a local draft and report the limitation; never switch to active publication to bypass an error
 - `bucket_id` and `message_board_id` must belong to the same project; mismatches fail or misroute
@@ -107,35 +81,27 @@ Historical slugs/types/defaults below need current schema verification. Verify a
 - Updates via `PUT_BUCKETS_MESSAGES` replace the entire body -- include the full corrected content, not just a diff
 - Prefer `app_url` from the response for user-facing confirmation links
 - Both `CREATE_MESSAGE` and `POST_BUCKETS_MESSAGE_BOARDS_MESSAGES` do the same thing; select the discovered supported tool; do not repeat a timed-out/uncertain create using a fallback
-
 ### 3. Manage People and Access
-
 **When to use**: User wants to list people, manage project access, or add new users
-
 **Tool sequence**:
 1. `BASECAMP_GET_PEOPLE` - List all people visible to the current user [Required]
 2. `BASECAMP_GET_PROJECTS` - Find the target project [Prerequisite]
 3. `BASECAMP_LIST_PROJECT_PEOPLE` - List people on a specific project [Required]
 4. `BASECAMP_GET_PROJECTS_PEOPLE` - Alternative to list project members [Alternative]
 5. `BASECAMP_PUT_PROJECTS_PEOPLE_USERS` - Grant or revoke project access [Required for access changes]
-
 **Key parameters for PUT_PROJECTS_PEOPLE_USERS**:
 - `project_id`: Integer project ID
 - `grant`: Array of integer person IDs to add to the project
 - `revoke`: Array of integer person IDs to remove from the project
 - `create`: Array of objects with `name`, `email_address`, and optional `company_name`, `title` for new users
 - At least one of `grant`, `revoke`, or `create` must be provided
-
 **Pitfalls**:
 - Person IDs are integers; always resolve names to IDs via GET_PEOPLE first
 - `project_id` for people management is the same as `bucket_id` for other operations
 - `LIST_PROJECT_PEOPLE` and `GET_PROJECTS_PEOPLE` are near-identical; use either
 - Creating users via `create` also grants them project access in one step
-
 ### 4. Organize To-Dos with Groups
-
 **When to use**: User wants to organize to-dos within a list into color-coded groups
-
 **Tool sequence**:
 1. `BASECAMP_GET_PROJECTS` - Find the target project [Prerequisite]
 2. `BASECAMP_GET_BUCKETS_TODOLISTS` - Get the to-do list details [Prerequisite]
@@ -143,39 +109,30 @@ Historical slugs/types/defaults below need current schema verification. Verify a
 4. `BASECAMP_GET_BUCKETS_TODOLISTS_GROUPS` - Alternative group listing [Alternative]
 5. `BASECAMP_POST_BUCKETS_TODOLISTS_GROUPS` - Create a new group in a to-do list [Required]
 6. `BASECAMP_CREATE_TODOLIST_GROUP` - Alternative group creation tool [Alternative]
-
 **Key parameters**:
 - `bucket_id`: Integer project/bucket ID
 - `todolist_id`: Integer to-do list ID
 - `name`: Group title (required)
 - `color`: Visual color identifier -- one of: `white`, `red`, `orange`, `yellow`, `green`, `blue`, `aqua`, `purple`, `gray`, `pink`, `brown`
 - `status`: Filter for listing -- `"archived"` or `"trashed"` (omit for active groups)
-
 **Pitfalls**:
 - `POST_BUCKETS_TODOLISTS_GROUPS` and `CREATE_TODOLIST_GROUP` are near-identical; use either
 - Color values must be from the fixed palette; arbitrary hex/rgb values are not supported
 - Groups are sub-sections within a to-do list, not standalone entities
-
 ### 5. Browse and Inspect Projects
-
 **When to use**: User wants to list projects, get project details, or explore project structure
-
 **Tool sequence**:
 1. `BASECAMP_GET_PROJECTS` - List all active projects [Required]
 2. `BASECAMP_GET_PROJECT` - Get comprehensive details for a specific project [Optional]
 3. `BASECAMP_GET_PROJECTS_BY_PROJECT_ID` - Alternative project detail retrieval [Alternative]
-
 **Key parameters**:
 - `status`: Filter by `"archived"` or `"trashed"`; omit for active projects
 - `project_id`: Integer project ID for detailed retrieval
-
 **Pitfalls**:
 - Projects are sorted by most recently created first
 - The response includes a `dock` array with tools (todoset, message_board, etc.) and their IDs
 - Use the dock tool IDs to find `todoset_id`, `message_board_id`, etc. for downstream operations
-
 ## Common Patterns
-
 ### ID Resolution
 Basecamp uses a hierarchical ID structure. Always resolve top-down:
 - **Project (bucket_id)**: `BASECAMP_GET_PROJECTS` -- find by name, capture the `id`
@@ -184,45 +141,35 @@ Basecamp uses a hierarchical ID structure. Always resolve top-down:
 - **To-do list (todolist_id)**: `BASECAMP_GET_BUCKETS_TODOSETS_TODOLISTS`
 - **People (person_id)**: `BASECAMP_GET_PEOPLE` or `BASECAMP_LIST_PROJECT_PEOPLE`
 - Note: `bucket_id` and `project_id` refer to the same entity in different contexts
-
 ### Pagination
 Basecamp uses page-based pagination on list endpoints:
 - Response headers or body may indicate more pages available
 - `GET_PROJECTS`, `GET_BUCKETS_TODOSETS_TODOLISTS`, and list endpoints return paginated results
 - Continue fetching until no more results are returned
-
 ### Content Formatting
 - All rich text fields use HTML, not Markdown
 - Wrap content in `<div>` tags; use `<strong>`, `<em>`, `<ul>`, `<ol>`, `<li>`, `<a>` etc.
 - Example: `<div><strong>Important:</strong> Complete by Friday</div>`
-
 ## Known Pitfalls
-
 ### ID Formats
 - All Basecamp IDs are integers, not strings or UUIDs
 - `bucket_id` = `project_id` (same entity, different parameter names across tools)
 - To-do set IDs, to-do list IDs, and message board IDs are found in the project's `dock` array
 - Person IDs are integers; resolve names via `GET_PEOPLE` before operations
-
 ### Status Field
 - Do not substitute active publication for a requested draft; inspect the current schema
 - Project/to-do list status filters: `"archived"`, `"trashed"`, or omit for active
-
 ### Content Format
 - HTML only, never Markdown
 - Updates replace the entire body, not a partial diff
 - Invalid HTML tags may be silently stripped
-
 ### Rate Limits
 - Basecamp API has rate limits; space out rapid sequential requests
 - Large projects with many to-dos should be paginated carefully
-
 ### URL Handling
 - Prefer `app_url` from API responses for user-facing links
 - Do not reconstruct Basecamp URLs manually from IDs
-
 ## Quick Reference
-
 | Task | Tool Slug | Key Params |
 |------|-----------|------------|
 | List projects | `BASECAMP_GET_PROJECTS` | `status` |
@@ -246,16 +193,11 @@ Basecamp uses page-based pagination on list endpoints:
 | List all people | `BASECAMP_GET_PEOPLE` | (none) |
 | List project people | `BASECAMP_LIST_PROJECT_PEOPLE` | `project_id` |
 | Manage access | `BASECAMP_PUT_PROJECTS_PEOPLE_USERS` | `project_id`, `grant`, `revoke`, `create` |
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Example
-
 **User request:**
-
 > Automate Basecamp project management, to-dos, messages, people, and to-do list organization via Rube MCP (Composio).
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

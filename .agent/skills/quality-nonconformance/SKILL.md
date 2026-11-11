@@ -1,31 +1,20 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "1a6eac205914e6d3a9c2b45fca424246822bb4d887cec4d354ad8154c9e9d7e8"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: quality-nonconformance
+content_hash: 1a6eac205914e6d3a9c2b45fca424246822bb4d887cec4d354ad8154c9e9d7e8
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Operational guidance for quality control, non-conformance investigation, root cause analysis, corrective action, and supplier quality management in regulated manufacturing.
-tier: "experimental"
+name: quality-nonconformance
 risk: critical
-source: https://github.com/ai-evos/agent-skills
-date_added: '2026-02-27'
+source: "https://github.com/ai-evos/agent-skills"
 ---
-
-
 # Quality and Non-Conformance Management
-
 ## When to Use
-
 Use to investigate defects or process deviations, prepare NCR/MRB records, root-cause analysis, corrective/preventive actions, SPC interpretation, incoming inspection and supplier quality reviews in manufacturing.
-
 ## Workflow
-
 1. Confirm the product, process, jurisdiction, standard edition, applicable customer requirements, current approved specification/control plan and the user's requested output. Do not claim personal professional experience or certifications.
 2. Put safety and required containment first through the authorized site procedure. Identify suspect product across incoming stock, WIP, finished goods and shipped units. Emergency actions and reporting clocks do not wait for a complete root-cause investigation.
 3. Record facts: part/revision, lot/serial, quantities inspected/failed/suspect, discovery time, requirement, actual measurement, units, instrument and calibration status. Preserve originals and distinguish observations from hypotheses. Unknown quantities are not zero; no signature, approval, completed action or test result may be invented.
@@ -35,25 +24,16 @@ Use to investigate defects or process deviations, prepare NCR/MRB records, root-
 7. Propose risk-based CAPA initiation, actions and effectiveness criteria under the actual QMS. Separate correction/containment from systemic corrective action and implementation evidence from effectiveness evidence. Choose exposure, sample size, duration and uncertainty to detect recurrence; there is no universal 90-day/three-lot closure rule or guarantee from zero observed failures.
 8. Prepare controlled drafts, not official records or autonomous actions. Sending notifications, filing regulatory reports, changing QMS/ERP/ASL status, accepting concessions, releasing product, ordering tests, spending or issuing debits requires direct authorization within existing delegated authority.
 9. Handoff verified facts, evidence references, unresolved scope, current containment, statutory/customer deadlines, owners, approved decisions, next checkpoints and limitations. Keep patient, employee, customer and proprietary manufacturing data access-restricted and minimal.
-
 ## Regulatory and statistical checks
-
 For US medical devices, FDA's [QMSR](https://www.fda.gov/medical-devices/postmarket-requirements-devices/quality-management-system-regulation-qmsr) became effective 2 February 2026, incorporating ISO 13485:2016 into revised Part 820. Legacy QSR clause numbers such as 820.90/.100/.198 must not be presented as current requirements. Check current rules, product scope and historical record dates. Drug CGMP, device MDR/corrections/removals, automotive and aerospace requirements are distinct and need their own applicability assessment.
-
 Use approved versions of licensed standards and actual customer requirements. Do not reproduce guessed acceptance tables or label sampling “AQL 0” as a guarantee of no defects. General inspection levels I/II/III are separate from normal/tightened/reduced schemes. See the decision reference for plan controls and SPC interpretation.
-
 ## Examples
-
 - Field failure after passing inspection: open a factual complaint investigation and reporting assessment; examine use conditions and test coverage without assuming misuse or a design root cause.
 - Calibration issue affecting shipped lots: preserve as-found/as-left data, bound affected production and measurement uncertainty, then propose qualified impact assessment and containment.
 - CAPA recurrence: link the previous action and new evidence, reassess cause and effectiveness under controlled QMS procedures; do not erase history or close records to improve a dashboard.
-
 ## References
-
 - [Decision frameworks](references/decision-frameworks.md)
 - [Edge cases](references/edge-cases.md)
 - [Communication templates](references/communication-templates.md)
-
 ## Limitations
-
 This skill supports investigation and drafting. It cannot certify compliance, determine clinical safety, act as MRB/design authority, establish a recall obligation or approve production. Statistical conclusions require suitable data and methods; templates do not replace current approved procedures or qualified regulatory/engineering assessment.

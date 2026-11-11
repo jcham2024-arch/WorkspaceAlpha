@@ -1,46 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "43ce67f30d19f26015b8238d1a496fd1a1dd0e6d884d97eed265190f6b1d2d81"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: ui-a11y
+content_hash: 43ce67f30d19f26015b8238d1a496fd1a1dd0e6d884d97eed265190f6b1d2d81
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-07-01
 description: Audit a component or page for accessibility issues and fix them
-tier: "experimental"
+license: MIT
+license_source: "https://github.com/bitjaru/styleseed/blob/main/LICENSE"
+name: ui-a11y
 risk: critical
-source: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-a11y
+source: "https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-a11y"
 source_repo: bitjaru/styleseed
 source_type: community
-date_added: 2026-07-01
-license: MIT
-license_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE
 ---
-
-
 # Accessibility Audit
 ## When to Use
-
 Use this skill when you need audit a component or page for accessibility issues and fix them.
-
-
 ## When NOT to use
-
 - For general design system compliance review → use `/ss-review`
 - For Nielsen UX heuristics → use `/ss-audit`
 - For non-StyleSeed code (no `data-slot`, no semantic tokens) — assumes StyleSeed conventions
 - For runtime testing — this is a static code audit, not a screen-reader simulation
-
 Target: **$ARGUMENTS**
-
 ## Audit Criteria
-
 ### WCAG 2.2 AA Compliance
-
 #### 1. Perceivable
 - **Color contrast**: Text must meet 4.5:1 (normal) or 3:1 (large/bold text)
   - Check `text-muted-foreground` (#717182) on `bg-background` (#FFFFFF) = 4.6:1 (passes)
@@ -49,7 +34,6 @@ Target: **$ARGUMENTS**
 - **Non-text contrast**: UI controls/graphics must meet 3:1
 - **Text alternatives**: All `<img>` need `alt`, icons need `aria-label` when meaningful
 - **Color independence**: Don't convey info by color alone (add icons/text)
-
 #### 2. Operable
 - **Pointer targets**: WCAG 2.2 AA SC 2.5.8 requires 24x24 CSS pixels or an applicable spacing/other exception. A 36px button is not automatically a failure.
   - Prefer 44x44px (`min-h-11 min-w-11`) as a usability target; SC 2.5.5 uses that size at AAA with exceptions.
@@ -66,19 +50,15 @@ Target: **$ARGUMENTS**
     }
   }
   ```
-
 #### 3. Understandable
 - **Labels**: Form inputs must have visible labels or `aria-label`
 - **Error messages**: Form errors must be programmatically associated (`aria-describedby`)
 - **Language**: `<html lang="en">` (or appropriate language code for your project)
-
 #### 4. Robust
 - **Semantic HTML**: Use appropriate elements (`<button>`, `<nav>`, `<main>`, `<header>`)
 - **ARIA**: Radix primitives can supply accessible behavior, but composition still needs verified names, state, focus and keyboard handling.
 - **Roles**: Prefer native controls; a role alone does not implement keyboard interaction or accessible state.
-
 ## Design System Token Reference
-
 | Token | Minimum Contrast | Note |
 |-------|-----------------|------|
 | `--foreground` | 7:1+ | Body text — verify with your skin |
@@ -87,21 +67,14 @@ Target: **$ARGUMENTS**
 | `--destructive` | 4.5:1+ | Error — verify with your skin |
 | `--success` | 3:1+ | Large text/icons only — verify with your skin |
 | `--warning` | 4.5:1+ | Warning text — some skins need a darker variant |
-
 ## Output
-
 1. **Issues found**: List with severity (Critical/Major/Minor)
 2. **Auto-fixes**: Apply fixes directly where possible
 3. **Manual review needed**: Flag items that need human judgment
-
 ## Example
-
 **User request:**
-
 > Audit a component or page for accessibility issues and fix them.
-
 ## Limitations
-
 - Use this skill only when the task clearly matches its upstream source and local project context.
 - Verify commands, generated code, dependencies, credentials, and external service behavior before applying changes.
 - Do not treat examples as a substitute for environment-specific tests, security review, or user approval for destructive or costly actions.

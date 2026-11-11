@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "47bfae2269aee7ac4505cfd9403ad883781e40d883648f02afcc90770090e861"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: aurora-ui
+content_hash: 47bfae2269aee7ac4505cfd9403ad883781e40d883648f02afcc90770090e861
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Aurora UI. Trigger when user wants gradient glows, color blobs, and atmospheric lighting effects.
-tier: "experimental"
-date_added: "2026-06-17"
+name: aurora-ui
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Aurora UI
-
 > "Ethereal, shifting lights. Like the Northern Lights trapped beneath a pane of frosted glass."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Blurred Color Orbs**: Large, out-of-focus, highly saturated color blobs floating in the background.
 2. **Glassy Overlays**: Foreground elements are often semi-transparent (glassmorphism) to let the aurora effect shine through.
 3. **Fluid Motion**: The background color orbs should slowly drift, expand, and contract.
-
 ## Visual DNA
 - **Colors**: Requires dark, deep backgrounds with vibrant, luminous accents. **Midnight Luxury** or **Yacht Club** (modified to dark mode) work well, injecting bright cyan, magenta, or lime green as the glowing orbs.
 - **Typography**: Thin, elegant sans-serifs or sophisticated serif fonts. High contrast white text.
 - **Layout**: Keep foreground UI elements minimal to let the background remain the star.
-
 ## Web Implementation
 - Best achieved with absolute-positioned, heavily blurred `div`s behind the main content.
 - **CSS Example**:
@@ -46,7 +33,6 @@ body {
   overflow-x: hidden;
   position: relative;
 }
-
 /* The Glowing Orb */
 .aurora-blob {
   position: absolute;
@@ -58,20 +44,17 @@ body {
   z-index: -1;
   animation: float 20s infinite ease-in-out alternate;
 }
-
 .aurora-blob.blue {
   background: radial-gradient(circle, rgba(92,107,115,0.8) 0%, rgba(0,0,0,0) 70%);
   top: 20%;
   left: 60%;
   animation-delay: -5s;
 }
-
 @keyframes float {
   0% { transform: translate(0, 0) scale(1); }
   50% { transform: translate(-50px, 100px) scale(1.2); }
   100% { transform: translate(100px, -50px) scale(0.9); }
 }
-
 /* Foreground content should be glassmorphic */
 .aurora-card {
   background: rgba(255,255,255,0.03);
@@ -80,32 +63,26 @@ body {
   border-radius: 24px;
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct AuroraView: View {
     @State private var animate = false
-    
     var body: some View {
         ZStack {
             // Dark background
             Color.black.ignoresSafeArea()
-            
             // Animated Orbs
             Circle()
                 .fill(Color(red: 0.71, green: 0.60, blue: 0.37)) // #B59A5F
                 .blur(radius: 80)
                 .frame(width: 300, height: 300)
                 .offset(x: animate ? -50 : 50, y: animate ? -100 : 0)
-            
             Circle()
                 .fill(Color(red: 0.36, green: 0.42, blue: 0.45)) // #5C6B73
                 .blur(radius: 80)
                 .frame(width: 300, height: 300)
                 .offset(x: animate ? 100 : -50, y: animate ? 100 : -50)
-            
             // Glassy Foreground content
             VStack {
                 Text("Aurora Interface")
@@ -126,31 +103,25 @@ struct AuroraView: View {
 - Use `Circle().blur(radius: 80...120)` in a `ZStack` underneath the main content.
 - Animate the `.offset()` with a very long `duration (10-20 seconds)`.
 - Use `.background(.ultraThinMaterial)` on foreground containers to let the colored light bleed through nicely.
-
 ### Flutter
 ```dart
 import 'dart:ui';
-
 class AuroraView extends StatefulWidget {
   @override
   State<AuroraView> createState() => _AuroraViewState();
 }
-
 class _AuroraViewState extends State<AuroraView> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-
   @override
   void initState() {
     super.initState();
     _controller = AnimationController(vsync: this, duration: const Duration(seconds: 10))..repeat(reverse: true);
   }
-
   @override
   void dispose() {
     _controller.dispose();
     super.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -205,15 +176,12 @@ class _AuroraViewState extends State<AuroraView> with SingleTickerProviderStateM
 ```
 - A massive full-screen `BackdropFilter` over moving solid circles is often more performant than blurring each circle individually.
 - Layer a second, weaker `BackdropFilter` for the actual foreground glassmorphism panels.
-
 ### React Native
 ```jsx
 // Requires @react-native-community/blur
 import { BlurView } from '@react-native-community/blur';
-
 const AuroraView = () => {
   const anim = useRef(new Animated.Value(0)).current;
-
   useEffect(() => {
     const loop = Animated.loop(
       Animated.sequence([
@@ -224,9 +192,7 @@ const AuroraView = () => {
     loop.start();
     return () => loop.stop();
   }, [anim]);
-
   const translateY = anim.interpolate({ inputRange: [0, 1], outputRange: [0, 100] });
-
   return (
     <View style={{ flex: 1, backgroundColor: '#000' }}>
       {/* Orb — note: React Native struggles with massive live blurs, 
@@ -241,7 +207,6 @@ const AuroraView = () => {
           transform: [{ translateY }]
         }}
       />
-
       {/* Glass Foreground */}
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <BlurView blurType="dark" blurAmount={20} style={{ padding: 32, borderRadius: 24 }}>
@@ -256,7 +221,6 @@ const AuroraView = () => {
 ```
 - **Performance Warning**: Do NOT use `BlurView` with huge amounts for moving background orbs on React Native — it will lag terribly, especially on Android.
 - **Best Practice**: Create large, already-blurred PNG images in Figma/Photoshop and animate those using `Animated.Image`.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -270,11 +234,9 @@ fun AuroraView() {
             repeatMode = RepeatMode.Reverse
         )
     )
-
     Box(modifier = Modifier
         .fillMaxSize()
         .background(Color.Black)) {
-        
         // Blurred Orb
         Box(
             modifier = Modifier
@@ -283,7 +245,6 @@ fun AuroraView() {
                 .blur(80.dp) // API 31+ only!
                 .background(Color(0xFFB59A5F), CircleShape)
         )
-        
         // Pre-API 31 fallback: use a radial gradient instead of blur
         Box(
             modifier = Modifier
@@ -295,7 +256,6 @@ fun AuroraView() {
                     )
                 )
         )
-
         // Glass panel
         Card(
             modifier = Modifier.align(Alignment.Center).padding(32.dp),
@@ -311,11 +271,9 @@ fun AuroraView() {
 ```
 - `Modifier.blur()` is only fully supported on Android 12 (API 31+).
 - **Critical Fallback**: For older devices, use `Brush.radialGradient` fading from color to `Color.Transparent` to fake the glowing orb effect without needing expensive blur calculations.
-
 ## Do's and Don'ts
 - **DO**: Ensure the foreground text remains legible. If a bright orb floats behind white text, the text will vanish. Use glassy panels to guarantee contrast.
 - **DON'T**: Use sharp gradients. Everything in the background must be heavily blurred and diffuse.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "a159a4406aeeadffc91d64bbb3a8a467208e0043bee16d47242b7b3541776ab3"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: widget-based-design
+content_hash: a159a4406aeeadffc91d64bbb3a8a467208e0043bee16d47242b7b3541776ab3
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Widget-Based Design. Trigger when user wants modular blocks, iOS Home Screen aesthetics, and customizable mini-apps.
-tier: "experimental"
-date_added: "2026-06-17"
+name: widget-based-design
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Widget-Based Design
-
 > "Miniature applications. Small, highly functional blocks of UI designed to be rearranged."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Strict Aspect Ratios**: Widgets usually follow strict sizes (1x1 square, 2x1 rectangle, 2x2 large square).
 2. **Glanceability**: Widgets show the most important piece of data instantly. Deep interaction usually requires opening the full app.
 3. **Corner Radius Match**: The inner content's border radius should perfectly nest within the widget's outer border radius.
-
 ## Visual DNA
 - **Colors**: Widgets often use bright, solid color backgrounds or full-bleed photos to differentiate themselves.
 - **Typography**: Large, bold numbers (like a clock or weather temp) paired with tiny sub-labels.
 - **Layout**: Similar to Bento UI, but specifically focused on functional app-lets rather than just content layout.
-
 ## Web Implementation
 - **CSS Example**:
 ```css
@@ -47,7 +34,6 @@ Use this sub-style when the user's request matches the aesthetic described above
   gap: 16px;
   padding: 32px;
 }
-
 .widget {
   background-color: #ffffff;
   border-radius: 24px; /* Classic iOS widget radius */
@@ -59,12 +45,10 @@ Use this sub-style when the user's request matches the aesthetic described above
   overflow: hidden;
   position: relative;
 }
-
 /* Specific Sizes */
 .widget-small { grid-column: span 1; grid-row: span 1; }
 .widget-medium { grid-column: span 2; grid-row: span 1; }
 .widget-large { grid-column: span 2; grid-row: span 2; }
-
 /* Weather Widget Example */
 .widget.weather {
   background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
@@ -73,25 +57,20 @@ Use this sub-style when the user's request matches the aesthetic described above
 .weather-temp { font-size: 3rem; font-weight: 300; }
 .weather-icon { position: absolute; top: 16px; right: 16px; font-size: 2rem; }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct WidgetDesignView: View {
     let columns = [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)]
-    
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 16) {
                 // One column: LazyVGrid does not span WeatherWidget across two columns.
                 WeatherWidget()
                     .frame(height: 160) // Base unit height
-                
                 // 1x1 Widget
                 Text("Fitness") // Replace with a defined widget component.
                     .frame(height: 160)
-                
                 // 1x1 Widget
                 Text("Music") // Replace with a defined widget component.
                     .frame(height: 160)
@@ -101,17 +80,14 @@ struct WidgetDesignView: View {
         .background(Color(white: 0.95))
     }
 }
-
 struct WeatherWidget: View {
     var body: some View {
         ZStack(alignment: .topTrailing) {
             LinearGradient(colors: [Color(hex: "4facfe"), Color(hex: "00f2fe")], startPoint: .topLeading, endPoint: .bottomTrailing)
-            
             Image(systemName: "cloud.sun.fill")
                 .foregroundColor(Color(red: 0.07, green: 0.19, blue: 0.23))
                 .font(.system(size: 40))
                 .padding()
-            
             VStack(alignment: .leading) {
                 Spacer()
                 Text("72°")
@@ -131,7 +107,6 @@ struct WeatherWidget: View {
 ```
 - SwiftUI is perfect for this. The `LazyVGrid` handles the layout, and `cornerRadius(24)` matches Apple's default widget styling perfectly.
 - Use `ZStack` as the root of the widget to easily overlay content on top of complex gradients or images.
-
 ### Flutter
 ```dart
 class WidgetDesignScreen extends StatelessWidget {
@@ -155,7 +130,6 @@ class WidgetDesignScreen extends StatelessWidget {
       ),
     );
   }
-
   Widget _buildWeatherWidget() {
     return Container(
       decoration: BoxDecoration(
@@ -189,30 +163,25 @@ class WidgetDesignScreen extends StatelessWidget {
 ```
 - A `Stack` inside a `Container` with `BorderRadius.circular(24)` is the blueprint for every widget.
 - Standard `GridView` is too rigid for mixed 2x1 and 1x1 widgets. Use the `flutter_staggered_grid_view` package for production apps.
-
 ### React Native
 ```jsx
 const WidgetDesignScreen = () => {
   return (
     <ScrollView style={{ flex: 1, backgroundColor: '#F2F2F2' }} contentContainerStyle={{ padding: 24 }}>
       <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', gap: 16 }}>
-        
         {/* 2x1 Widget (Full width minus padding) */}
         <View style={[styles.widget, { width: '100%' }]}>
           <LinearGradient colors={['#4facfe', '#00f2fe']} style={styles.widgetBg} />
           <Text style={styles.temp}>72°</Text>
           <Text style={styles.sub}>San Francisco</Text>
         </View>
-
         {/* 1x1 Widgets (Half width minus half gap) */}
         <View style={[styles.widget, { width: '47%' }]}><Text>Fitness</Text></View>
         <View style={[styles.widget, { width: '47%' }]}><Text>Music</Text></View>
-
       </View>
     </ScrollView>
   );
 };
-
 const styles = StyleSheet.create({
   widget: {
     height: 160, // Fixed height forces square/rectangular aspect ratios
@@ -233,7 +202,6 @@ const styles = StyleSheet.create({
 ```
 - In React Native, `flexWrap: 'wrap'` combined with percentage widths (e.g., `47%` for 2 columns with a gap) is the cleanest way to build a responsive widget layout.
 - If using `LinearGradient` from `expo-linear-gradient` or `react-native-linear-gradient`, apply `StyleSheet.absoluteFillObject` so it sits behind the text.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -253,7 +221,6 @@ fun WidgetDesignScreen() {
         item { Box(Modifier.height(160.dp).background(Color.White, RoundedCornerShape(24.dp))) }
     }
 }
-
 @Composable
 fun WeatherWidget(modifier: Modifier = Modifier) {
     Box(
@@ -265,7 +232,6 @@ fun WeatherWidget(modifier: Modifier = Modifier) {
     ) {
         // Icon
         Icon(Icons.Filled.Cloud, contentDescription = null, tint = Color(0xFF12313A), modifier = Modifier.align(Alignment.TopEnd).size(40.dp))
-        
         // Data
         Column(modifier = Modifier.align(Alignment.BottomStart)) {
             Text("72°", fontSize = 48.sp, fontWeight = FontWeight.Light, color = Color(0xFF12313A))
@@ -276,13 +242,10 @@ fun WeatherWidget(modifier: Modifier = Modifier) {
 ```
 - `LazyVerticalGrid` with `GridCells.Fixed(2)` and `GridItemSpan` perfectly recreate iOS widget grids.
 - `RoundedCornerShape(24.dp)` is essential to sell the look.
-
 ## Do's and Don'ts
 - **DO**: Use full-bleed background colors to make different widgets stand out.
 - **DON'T**: Put complex forms or scrollable lists inside a 1x1 widget.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.
-
 These in-app widget studies do not implement WidgetKit or Android home-screen widget lifecycles. Fixed heights do not guarantee square shapes or room for enlarged text. Preserve content-driven sizing, use dark text over the bright weather gradient and keep a separate unclipped wrapper for shadows.

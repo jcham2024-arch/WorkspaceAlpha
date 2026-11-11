@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "f194427f4a8dc0aaf113664d32b115c2e8331741aac31fa2354be62df160e48a"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: f194427f4a8dc0aaf113664d32b115c2e8331741aac31fa2354be62df160e48a
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
+description: "{"
 name: card-based-design
-description: Web and App implementation guide for Card-Based Design. Trigger when user wants information cards, Pinterest-style layouts, and bite-sized content containers.
-tier: "experimental"
-date_added: "2026-06-17"
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Card-Based Design
-
 > "Bite-sized consumption. Encapsulating discrete pieces of information into distinct visual containers."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Encapsulation**: Every card is self-contained. It has an image, a title, a short description, and usually an action (like a button or a 'like' icon).
 2. **Responsive Flow**: Cards easily reflow on different screen sizes (from a 4-column grid on desktop to a single column on mobile).
 3. **Clear Boundaries**: Cards must visually pop off the background.
-
 ## Visual DNA
 - **Colors**: Very flexible. The background should be slightly darker or distinct from the card color. **Sophisticated Neutral** works well for a premium feel.
 - **Typography**: Clear hierarchy within the card (Header, Subheader, Body).
 - **Styling**: Standard `border-radius: 8px` and a medium drop shadow.
-
 ## Web Implementation
 - CSS Grid with `auto-fit` or a Masonry layout.
 - **CSS Example**:
@@ -45,14 +32,12 @@ body {
   background-color: #f0f2f5; /* Standard app background */
   padding: 40px;
 }
-
 .card-grid {
   display: grid;
   /* Auto-responsive magic */
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
   gap: 24px;
 }
-
 .card {
   background: #ffffff;
   border-radius: 12px;
@@ -62,24 +47,20 @@ body {
   display: flex;
   flex-direction: column;
 }
-
 .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0,0,0,0.12);
 }
-
 .card-image {
   width: 100%;
   height: 200px;
   object-fit: cover;
   border-bottom: 1px solid #eee;
 }
-
 .card-content {
   padding: 20px;
   flex-grow: 1; /* Pushes footer to the bottom */
 }
-
 .card-footer {
   padding: 16px 20px;
   border-top: 1px solid #eee;
@@ -87,9 +68,7 @@ body {
   justify-content: space-between;
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct ContentCard: View {
@@ -99,7 +78,6 @@ struct ContentCard: View {
             Rectangle()
                 .fill(Color.gray.opacity(0.2))
                 .frame(height: 160)
-            
             // Content Area
             VStack(alignment: .leading, spacing: 8) {
                 Text("Card Title")
@@ -117,13 +95,11 @@ struct ContentCard: View {
         .shadow(color: Color.black.opacity(0.08), radius: 12, x: 0, y: 4)
     }
 }
-
 // In your view:
 // LazyVGrid(columns: [GridItem(.adaptive(minimum: 160), spacing: 16)]) { ... }
 ```
 - `VStack` inside a background with `.cornerRadius` and `.shadow` is the standard.
 - Use `LazyVGrid` with `.adaptive(minimum: 160)` to automatically create a multi-column card grid that flows perfectly on iPad or iPhone.
-
 ### Flutter
 ```dart
 class ContentCard extends StatelessWidget {
@@ -170,7 +146,6 @@ class ContentCard extends StatelessWidget {
 ```
 - The native `Card` widget does almost all the heavy lifting.
 - **Critical fix**: You must set `clipBehavior: Clip.antiAlias` on the `Card`, otherwise the top corners of your images will peek outside the border radius.
-
 ### React Native
 ```jsx
 const ContentCard = () => {
@@ -186,7 +161,6 @@ const ContentCard = () => {
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   card: {
     backgroundColor: '#FFF',
@@ -211,7 +185,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginBottom: 8,
   },
-  description: {
     color: '#666',
   }
 });
@@ -220,7 +193,6 @@ const styles = StyleSheet.create({
 - Separate the outer shadow wrapper from an inner rounded clipping wrapper. Preserve visible focus and avoid nesting independent controls inside a whole-card button.
 - `elevation: 4` provides the drop shadow on Android, while the `shadow*` props handle iOS.
 - For a Pinterest/Masonry style (columns of different heights), you must use a third-party library like `react-native-masonry-list`, as `FlatList` cannot do varying row heights in columns.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -240,7 +212,6 @@ fun ContentCard() {
                     .height(160.dp)
                     .background(Color.LightGray)
             )
-            
             // Content Area
             Column(modifier = Modifier.padding(16.dp)) {
                 Text(
@@ -264,11 +235,9 @@ fun ContentCard() {
 ```
 - `ElevatedCard` is the perfect Material 3 component for this. It handles clipping and shadows automatically.
 - Use `GridCells.Adaptive(minSize = 160.dp)` in a `LazyVerticalGrid` to achieve an auto-flowing grid identical to CSS Grid `auto-fit`.
-
 ## Do's and Don'ts
 - **DO**: Make the entire card clickable, not just the title or image.
 - **DON'T**: Put too much text in a card. If the user has to scroll *within* a card, the card is too big.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

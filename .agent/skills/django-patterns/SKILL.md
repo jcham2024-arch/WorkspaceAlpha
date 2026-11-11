@@ -1,38 +1,24 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "c0a8f963c24ee86df6471dad95f57bc8676287406fa7b48a3da7b18baa768d33"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: django-patterns
+content_hash: c0a8f963c24ee86df6471dad95f57bc8676287406fa7b48a3da7b18baa768d33
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: Django architecture patterns, REST API design with DRF, ORM best practices, caching, signals, middleware, and production-grade Django apps. Use when building or reviewing Django apps, DRF APIs, ORM queries, or caching.
-tier: "experimental"
-metadata:
-  origin: ECC
+name: django-patterns
+origin: ECC
 ---
-
-
 # Django Development Patterns
-
 Production-grade Django architecture patterns for scalable, maintainable applications.
-
 ## When to Activate
-
 - Building Django web applications
 - Designing Django REST Framework APIs
 - Working with Django ORM and models
 - Setting up Django project structure
 - Implementing caching, signals, middleware
-
 ## Project Structure
-
 ### Recommended Layout
-
 ```
 myproject/
 ├── config/
@@ -62,72 +48,30 @@ myproject/
     └── products/
         └── ...
 ```
-
 ### Split Settings Pattern
-
-
 ## Model Design Patterns
-
 ### Model Best Practices
-
-
 ### QuerySet Best Practices
-
-
 ### Manager Methods
-
-
 ## Django REST Framework Patterns
-
 ### Serializer Patterns
-
-
 ### ViewSet Patterns
-
-
 ### Custom Actions
-
-
 ## Service Layer Pattern
-
-
 ## Caching Strategies
-
 ### View-Level Caching
-
-
 ### Template Fragment Caching
-
-
 ### Low-Level Caching
-
-
 ### QuerySet Caching
-
-
 ## Signals
-
 ### Signal Patterns
-
-
 ## Middleware
-
 ### Custom Middleware
-
-
 ## Performance Optimization
-
 ### N+1 Query Prevention
-
-
 ### Database Indexing
-
-
 ### Bulk Operations
-
-
 ## Quick Reference
-
 | Pattern | Description |
 |---------|-------------|
 | Split settings | Separate dev/prod/test settings |
@@ -140,5 +84,4 @@ myproject/
 | Cache first | Cache expensive operations |
 | Signals | Event-driven actions |
 | Middleware | Request/response processing |
-
 Remember: Django provides many shortcuts, but for production applications, structure and organization matter more than concise code. Build for maintainability.

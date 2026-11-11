@@ -1,46 +1,32 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "7f94848d02e90f9eca595d52e819060db5e78802f6023199efc4f6aace215e78"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: remotion-interactivity
+content_hash: 7f94848d02e90f9eca595d52e819060db5e78802f6023199efc4f6aace215e78
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-09-21
 description: Structure Remotion markup for interactivity
-tier: "experimental"
-version: 4.0.526
+name: remotion-interactivity
+risk: unknown
+source: remotion-dev
 source_repo: remotion-dev/skills
 source_type: official
-source: remotion-dev
-date_added: '2026-09-21'
-risk: unknown
+version: 4.0.526
 ---
-
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.
-
 By writing Remotion markup in a specific way, the Remotion Studio is able to recognize the structure of the code and makes it interactive:
-
 - Allowing items to be selected by clicking on them
 - Allowing drag+drop, resizing and rotation
 - Editing the CSS styles
 - Making keyframes and easing values editable
-
 If the markup is too complex for the Studio to make it interactive, then the values become grayed out.
-
 ## Version and snippet scope
-
 Use the installed Remotion version matching these Studio features; examples omit imports and application helpers. `calculateMetadata` must be a function, not a Promise returned from an async `useMemo` factory. Supply static fallback width/height on Composition as required by its props, then return dynamic overrides. Inspect the actual Studio edit diff before saving over source. See [calculateMetadata](https://www.remotion.dev/docs/calculate-metadata).
-
 ## Make an HTML element interactive using `Interactive`
-
 Every HTML and SVG element (except `<Img>`, it already is interactive) such as `<div>` can be turned interactive using `Interactive`:
-
 ```tsx title="Interactive elements"
 <Interactive.Div
   name="Greeting card"
@@ -49,27 +35,19 @@ Every HTML and SVG element (except `<Img>`, it already is interactive) such as `
   Hello
 </Interactive.Div>
 ```
-
 This allows styles and keyframes to be set in the Studio. Be sensible, if a component has many elements, the timeline might get messy.
-
 ## Prefer inline text
-
 If text is fixed and only used once, write it directly inside the interactive element instead of extracting it into a constant.
-
 ```tsx title="Inline text"
 // 👍 Fixed copy stays editable
 <Interactive.Div name="Title">
   Remotion Best Practices
 </Interactive.Div>
 ```
-
 Use a prop or variable only when the text is dynamic or reused.
-
 ## Give interactive elements a descriptive name
-
 Add a `name` prop to elements to make them easily identifyable.
 Avoid computed names, hardcode them.
-
 ```tsx title="Interactive names"
 <>
   <Interactive.Div name="Hero title" style={{fontSize: 80}}>
@@ -82,11 +60,8 @@ Avoid computed names, hardcode them.
   </Sequence>
 </>
 ```
-
 ## Keep all CSS styles inline
-
 The best way is to just pass a plain object to `style` - no referring to constants, no object spreading, no math.
-
 ```tsx title="Interactive example"
 <Interactive.Div
   style={{
@@ -97,14 +72,12 @@ The best way is to just pass a plain object to `style` - no referring to constan
   Hello World!
 </Interactive.Div>
 ```
-
 ```tsx title="❌ Bad for interactivity"
 const baseStyle = useMemo(() => {
   return {
     fontSize: 12 // ❌ Non-inline styles are not supported
   }
 }, []);
-
 <Interactive.Div
   style={{
     ...baseStyle, // ❌ Spreading is not supported
@@ -115,17 +88,12 @@ const baseStyle = useMemo(() => {
   Hello World!
 </Interactive.Div>
 ```
-
 ## Animate using `interpolate()`
-
 Write animations as inline `interpolate()` calls on the property that changes.  
 The output range, easing, extrapolation and `output` property should use hardcoded values.
-
 The input range may additionally use `durationInFrames`, `fps`, `width` and `height` destructured directly from `useVideoConfig()`. Bare identifiers such as `durationInFrames`, multiplication with a number such as `2 * fps` or `fps * 2`, and subtraction of a number such as `durationInFrames - 1` are supported.
-
 ```tsx title="Inline values"
 const {fps, durationInFrames} = useVideoConfig();
-
 // 👍 Inline values can be standardized and keyframed
 <Interactive.Div
   name="Product card"
@@ -157,10 +125,8 @@ const {fps, durationInFrames} = useVideoConfig();
   }}
 />
 ```
-
 ```tsx title="❌ Bad interactivity"
 const translateY = interpolate(frame, [0, 30], [0, 120]); // ❌ Math should be directly in the markup
-
 <Interactive.Div
   name="Product card"
   style={{
@@ -170,25 +136,18 @@ const translateY = interpolate(frame, [0, 30], [0, 120]); // ❌ Math should be 
   }}
 />
 ```
-
 ## Use `scale`, `translate`, `rotate` CSS properties
-
 Avoid the `transform` CSS property.  
 If possible, use `scale`, `rotate` and `translate` instead because only they are interactively editable.
-
 ## Keep composition metadata inline
-
 When scaffolding a composition, keep `width`, `height`, `fps`, `durationInFrames` and `defaultProps` inline and make no type assertions.
-
 The Props editor can save visual edits back to your code when `defaultProps` is an inline object literal on `<Composition>` or `<Still>`.
-
 ```tsx
 // 👍 Static values are in <Composition>, dynamic values are in calculateMetadata()
 const calculateMetadata = async () => {
   const dimensions = await getDimensions(); // application-supplied helper
   return {width: dimensions.width, height: dimensions.height};
 };
-
 <Composition
   id="my-video"
   component={MyComponent}
@@ -198,14 +157,12 @@ const calculateMetadata = async () => {
   defaultProps={{title: 'Hello', color: '#0b84ff'}}
 />
 ```
-
 ```tsx title="Negative examples"
 const defaultProps = {title: 'Hello', color: '#0b84ff'}; // ❌ Don't extract defaultProps, must be inline
 const calculateMetadata = useMemo(() => {
   // ❌ Unnecessary because no calculation is being done,
   return {durationInFrames: 150, fps: 30, width: 1920, height: 1080};
 });
-
 <Composition
   id="my-video"
   component={MyComponent}
@@ -215,14 +172,10 @@ const calculateMetadata = useMemo(() => {
   } as Props} // ❌ Don't have type assertions, instead type MyComponent correctly
 />
 ```
-
 Use only `calculateMetadata()` for the part of the metadata that is dynamic.
-
 ## Effects should be inline too
-
 The effects array should not be computed.  
 The same rules for setting keyframes as `interpolate()` apply too here: All values should also be hardcoded: Input range, output range, easing, extrapolation, `output` property.
-
 ```tsx title="Effects"
 // 👍 Parameters are inline and the array shape is stable
 <CanvasImage
@@ -240,10 +193,8 @@ The same rules for setting keyframes as `interpolate()` apply too here: All valu
     }),
   ]}
 />
-
 const center = [0.5, 0.5] as const;
 const rotation = frame * 1.5;
-
 <CanvasImage
   src={src}
   width={1280}
@@ -258,29 +209,18 @@ const rotation = frame * 1.5;
   ] : []}
 />
 ```
-
 Render separate elements if one version should have effects and another should not.
-
 ## Making your own component interactive
-
 When using `Interactive.withSchema()`, include `Interactive.baseSchema` in the schema so standard timeline controls such as trimming and visibility remain available.
-
 To make a custom userland component interactive, use:
 [Make a component interactive](https://www.remotion.dev/docs/studio/make-component-interactive.md)
-
 ## Video editing
-
 If a Remotion component mainly consists of video and audio clips, see Video editing for best practices on how to structure Remotion markup so the clips are interactively editable in the timeline.
-
-
 ## Examples
-
 ```text
 User: Apply this skill to my current task.
 Assistant: Follow the workflow in this skill, cite limitations, and ask before risky steps.
 ```
-
 ## Limitations
-
 - Imported upstream skill; verify credentials, permissions, and safety boundaries before execution.
 - Does not replace environment-specific validation, testing, or maintainer review.

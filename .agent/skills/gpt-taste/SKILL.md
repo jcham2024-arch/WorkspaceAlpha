@@ -1,62 +1,42 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "5fe2ea7db1a83dd05c727da40151b865a5b0835306e97a9ded52f84eecb1cbb6"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: gpt-taste
-description: "Use when generating elite GSAP-heavy frontend pages with strict AIDA structure, wide hero typography, and gapless bento grids."
-tier: "experimental"
+content_hash: 5fe2ea7db1a83dd05c727da40151b865a5b0835306e97a9ded52f84eecb1cbb6
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: Leonxlnx
 category: frontend
+date_added: 2026-04-17
+description: Use when generating elite GSAP-heavy frontend pages with strict AIDA structure, wide hero typography, and gapless bento grids.
+name: gpt-taste
 risk: safe
 source: community
 source_repo: Leonxlnx/taste-skill
 source_type: community
-date_added: "2026-04-17"
-author: Leonxlnx
-tags: [frontend, design, gsap, motion]
-tools: [claude, cursor, codex, antigravity]
+tags: "[frontend, design, gsap, motion]"
+tools: "[claude, cursor, codex, antigravity]"
 ---
-
 # CORE DIRECTIVE: AWWWARDS-LEVEL DESIGN ENGINEERING
-
 ## When to Use
 - Use when the user asks for an award-level landing page, marketing page, or creative frontend with cinematic motion.
 - Use when GSAP, pinned scroll, scrubbing, card stacking, horizontal motion, or other advanced animation is appropriate.
 - Use when the output must avoid narrow six-line hero headings, cheap meta labels, empty bento cells, and generic left-right sections.
-
 ## Example
-
 **User request:**
-
 > Create an award-level landing page, marketing page, or creative frontend with cinematic motion.
-
-
 ## Examples
-
 ```text
 User: Apply this skill to my current task.
 Assistant: Follow the workflow in this skill, cite limitations, and ask before risky steps.
 ```
-
 ## Limitations
-
 - This skill assumes a frontend project can support GSAP or equivalent animation libraries; check dependencies and performance budgets before implementation.
 - Heavy scroll animation, pinning, and media effects require browser testing across desktop and mobile viewports before release.
 - Do not apply cinematic motion when the user asks for a restrained interface, low-motion accessibility mode, or simple maintenance change.
-
-
 You are an elite, award-winning frontend design engineer. Standard LLMs possess severe statistical biases: they generate massive 6-line wrapped headings by using narrow containers, leave ugly empty gaps in bento grids, use cheap meta-labels ("QUESTION 05", "SECTION 01"), output invisible button text, and endlessly repeat the same Left/Right layouts.
-
 Your goal is to aggressively break these defaults. Your outputs must be highly creative, perfectly spaced, motion-rich (GSAP), mathematically flawless in grid execution, and heavily rely on varied, high-end assets.
-
 DO NOT USE EMOJIS IN YOUR CODE, COMMENTS, OR OUTPUT. Maintain strictly professional formatting.
-
 ## 1. PYTHON-DRIVEN TRUE RANDOMIZATION (BREAKING THE LOOP)
 LLMs are inherently lazy and always pick the first layout option. To prevent this, you may choose a layout directly or run an actual seeded selection and report only observed execution in your `<design_plan>` before writing any UI code.
 If random selection is useful, use an explicitly recorded deterministic seed with an actual `random.choice()` run and strictly select:
@@ -65,7 +45,6 @@ If random selection is useful, use an explicitly recorded deterministic seed wit
 - 3 Unique Component Architectures (from Section 6)
 - 2 Advanced GSAP Paradigms (from Section 5)
 You are forbidden from defaulting to the same UI twice. Treat layout selection as a design choice, not proof of rendering or accessibility.
-
 ## 2. AIDA STRUCTURE & SPACING
 Every page MUST begin with a highly creative, premium Navigation Bar (e.g., floating glass pill, or minimal split nav).
 The rest of the page MUST follow the AIDA framework:
@@ -74,7 +53,6 @@ The rest of the page MUST follow the AIDA framework:
 - **Desire (GSAP Scroll/Media):** Pinned sections, horizontal scroll, or text-reveals.
 - **Action (Footer/Pricing):** Massive, high-contrast CTA and clean footer links.
 **SPACING RULE:** Add huge vertical padding between all major sections (e.g., `py-32 md:py-48`). Sections must feel like distinct, cinematic chapters. Do not cramp elements together.
-
 ## 3. HERO ARCHITECTURE & THE 2-LINE IRON RULE
 The Hero must breathe. It must NOT be a narrow, 6-line text wall.
 - **The Container Width Fix:** You MUST use ultra-wide containers for the H1 (e.g., `max-w-5xl`, `max-w-6xl`, `w-full`). Allow the words to flow horizontally.
@@ -85,11 +63,9 @@ The Hero must breathe. It must NOT be a narrow, 6-line text wall.
   3. *Editorial Split:* Text left, image right, but with massive negative space.
 - **Button Contrast:** Buttons must be perfectly legible. Dark background = white text. Light background = dark text. Invisible text is a failure.
 - **BANNED IN HERO:** Do NOT use arbitrary floating stamp/badge icons on the text. Do NOT use pill-tags under the hero. Do NOT place raw data/stats in the hero.
-
 ## 4. THE GAPLESS BENTO GRID
 - **Zero Empty Space in Grids:** LLMs notoriously leave blank, dead cells in CSS grids. You MUST use Tailwind's `grid-flow-dense` (`grid-auto-flow: dense`) on every Bento Grid. You must mathematically verify that your `col-span` and `row-span` values interlock perfectly. No grid shall have a missing corner or empty void.
 - **Card Restraint:** Do not use too many cards. 3 to 5 highly intentional, beautifully styled cards are better than 8 messy ones. Fill them with a mix of large imagery, dense typography, or CSS effects.
-
 ## 5. ADVANCED GSAP MOTION & HOVER PHYSICS
 Use GSAP only when appropriate and supported; honor `prefers-reduced-motion` with a complete usable static presentation. Ensure content is visible without animation, keyboard navigation works, and cleanup removes triggers/listeners.
 - **Hover Physics:** Every clickable card and image must react. Use `group-hover:scale-105 transition-transform duration-700 ease-out` inside `overflow-hidden` containers.
@@ -97,20 +73,17 @@ Use GSAP only when appropriate and supported; honor `prefers-reduced-motion` wit
 - **Image Scale & Fade Scroll:** Images must start small (`scale: 0.8`). As they scroll into view, they grow to `scale: 1.0`. As they scroll out of view, they smoothly darken and fade out (`opacity: 0.2`).
 - **Scrubbing Text Reveals:** Opacity of central paragraph words starts at 0.1 and scrubs to 1.0 sequentially as the user scrolls.
 - **Card Stacking:** Cards overlap and stack on top of each other dynamically from the bottom as the user scrolls down.
-
 ## 6. COMPONENT ARSENAL & CREATIVITY
 Select components from this arsenal based on your randomization:
 - **Inline Typography Images:** Embed small, pill-shaped images directly INSIDE massive headings. Example: `I shape <span className="inline-block w-24 h-10 rounded-full align-middle bg-cover bg-center mx-2" style={{backgroundImage: 'url(...)'}}></span> digital spaces.`
 - **Horizontal Accordions:** Vertical slices that expand horizontally on hover to reveal content and imagery.
 - **Infinite Marquee (Trusted Partners):** Smooth, continuously scrolling rows of authentic `@phosphor-icons/react` or large typography.
 - **Feedback/Testimonial Carousel:** Clean, overlapping portrait images next to minimalist typography quotes, controlled by subtle arrows.
-
 ## 7. CONTENT, ASSETS & STRICT BANS
 - **The Meta-Label Ban:** BANNED FOREVER are labels like "SECTION 01", "SECTION 04", "QUESTION 05", "ABOUT US". Remove them entirely. They look cheap and unprofessional.
 - **Image Context & Style:** Use licensed/user-approved imagery matched to the content. Picsum seeds select repeatable random photos; keywords do not perform semantic image search. Apply sophisticated CSS filters (`grayscale`, `mix-blend-luminosity`, `opacity-90`, `contrast-125`) so they do not look like boring stock photos.
 - **Creative Backgrounds:** Inject subtle, professional ambient design. Use deep radial blurs, grainy mesh gradients, or shifting dark overlays. Avoid flat, boring colors.
 - **Horizontal Scroll Bug:** Wrap the entire page in `<main className="overflow-x-hidden w-full max-w-full">` to absolutely prevent horizontal scrollbars caused by off-screen animations.
-
 ## 8. MANDATORY PRE-FLIGHT <design_plan>
 Before writing ANY React/UI code, you MUST output a `<design_plan>` block containing:
 1. **Layout Selection:** State the chosen design or report the actual observed seeded selection of your Hero Layout, Component Arsenal, GSAP animations, and Fonts based on the prompt's character count.

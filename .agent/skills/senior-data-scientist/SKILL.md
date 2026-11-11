@@ -1,32 +1,20 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "f2b39268496b38823cfe1beae7f7cf5dc57a9e1096c0deebbd6a0342242198f4"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
+content_hash: f2b39268496b38823cfe1beae7f7cf5dc57a9e1096c0deebbd6a0342242198f4
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+description: ""Design experiments and analyze tabular data: A/B tests, causal inference, feature engineering, model evaluation. Use whenever the user asks how to set up or read an A/B test, whether a change caused a lift, which features to build, or how good a model is.""
+name: senior-data-scientist
 ---
-name: "senior-data-scientist"
-description: "Design experiments and analyze tabular data: A/B tests, causal inference, feature engineering, model evaluation. Use whenever the user asks how to set up or read an A/B test, whether a change caused a lift, which features to build, or how good a model is."
-tier: "experimental"
----
-
-
 # Senior Data Scientist
-
 World-class senior data scientist skill for production-grade AI/ML/Data systems.
-
 ## Core Workflows
-
 ### 1. Design an A/B Test
-
 ```python
 import numpy as np
 from scipy import stats
-
 def calculate_sample_size(baseline_rate, mde, alpha=0.05, power=0.8):
     """
     Calculate required sample size per variant.
@@ -40,7 +28,6 @@ def calculate_sample_size(baseline_rate, mde, alpha=0.05, power=0.8):
     z_beta = stats.norm.ppf(power)
     n = ((z_alpha + z_beta) / effect_size) ** 2
     return int(np.ceil(n))
-
 def analyze_experiment(control, treatment, alpha=0.05):
     """
     Run two-proportion z-test and return structured results.
@@ -60,7 +47,6 @@ def analyze_experiment(control, treatment, alpha=0.05):
         "significant": p_value < alpha,
         "ci_95": (ci_low, ci_high),
     }
-
 # --- Experiment checklist ---
 # 1. Define ONE primary metric and pre-register secondary metrics.
 # 2. Calculate sample size BEFORE starting: calculate_sample_size(0.10, 0.05)
@@ -70,9 +56,7 @@ def analyze_experiment(control, treatment, alpha=0.05):
 # 6. Analyze with analyze_experiment() and report lift + CI, not just p-value.
 # 7. Apply Bonferroni correction if testing multiple metrics: alpha / n_metrics
 ```
-
 ### 2. Build a Feature Engineering Pipeline
-
 ```python
 import pandas as pd
 import numpy as np
@@ -80,7 +64,6 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer
-
 def build_feature_pipeline(numeric_cols, categorical_cols, date_cols=None):
     """
     Returns a fitted-ready ColumnTransformer for structured tabular data.
@@ -98,7 +81,6 @@ def build_feature_pipeline(numeric_cols, categorical_cols, date_cols=None):
         ("cat", categorical_pipeline, categorical_cols),
     ]
     return ColumnTransformer(transformers, remainder="drop")
-
 def add_time_features(df, date_col):
     """Extract cyclical and lag features from a datetime column."""
     df = df.copy()
@@ -109,7 +91,6 @@ def add_time_features(df, date_col):
     df["month_cos"] = np.cos(2 * np.pi * df[date_col].dt.month / 12)
     df["is_weekend"] = (df[date_col].dt.dayofweek >= 5).astype(int)
     return df
-
 # --- Feature engineering checklist ---
 # 1. Never fit transformers on the full dataset — fit on train, transform test.
 # 2. Log-transform right-skewed numeric features before scaling.
@@ -117,20 +98,16 @@ def add_time_features(df, date_col):
 # 4. Generate lag/rolling features BEFORE the train/test split to avoid leakage.
 # 5. Document each feature's business meaning alongside its code.
 ```
-
 ### 3. Train, Evaluate, and Select a Prediction Model
-
 ```python
 from sklearn.model_selection import StratifiedKFold, cross_validate
 from sklearn.metrics import make_scorer, roc_auc_score, average_precision_score
 import xgboost as xgb
 import mlflow
-
 SCORERS = {
     "roc_auc":  make_scorer(roc_auc_score, needs_proba=True),
     "avg_prec": make_scorer(average_precision_score, needs_proba=True),
 }
-
 def evaluate_model(model, X, y, cv=5):
     """
     Cross-validate and return mean ± std for each scorer.
@@ -150,7 +127,6 @@ def evaluate_model(model, X, y, cv=5):
         train_mean = cv_results[f"train_{metric}"].mean()
         summary[metric]["overfit_gap"] = train_mean - test_scores.mean()
     return summary
-
 def train_and_log(model, X_train, y_train, X_test, y_test, run_name):
     """Train model and log all artefacts to MLflow."""
     with mlflow.start_run(run_name=run_name):
@@ -164,7 +140,6 @@ def train_and_log(model, X_train, y_train, X_test, y_test, run_name):
         mlflow.log_metrics(metrics)
         mlflow.sklearn.log_model(model, "model")
         return metrics
-
 # --- Model evaluation checklist ---
 # 1. Always report AUC-PR alongside AUC-ROC for imbalanced datasets.
 # 2. Check overfit_gap > 0.05 as a warning sign of overfitting.
@@ -173,12 +148,9 @@ def train_and_log(model, X_train, y_train, X_test, y_test, run_name):
 # 5. Run a baseline (e.g. DummyClassifier) and verify the model beats it.
 # 6. Log every run to MLflow — never rely on notebook output for comparison.
 ```
-
 ### 4. Causal Inference: Difference-in-Differences
-
 ```python
 import statsmodels.formula.api as smf
-
 def diff_in_diff(df, outcome, treatment_col, post_col, controls=None):
     """
     Estimate ATT via OLS DiD with optional covariates.
@@ -198,7 +170,6 @@ def diff_in_diff(df, outcome, treatment_col, post_col, controls=None):
         "ci_95":   result.conf_int().loc[interaction].tolist(),
         "summary": result.summary(),
     }
-
 # --- Causal inference checklist ---
 # 1. Validate parallel trends in pre-period before trusting DiD estimates.
 # 2. Use HC3 robust standard errors to handle heteroskedasticity.
@@ -206,20 +177,15 @@ def diff_in_diff(df, outcome, treatment_col, post_col, controls=None):
 # 4. Consider propensity score matching if groups differ at baseline.
 # 5. Report the ATT with confidence interval, not just statistical significance.
 ```
-
 ## Reference Documentation
-
 - **Statistical Methods:** `references/statistical_methods_advanced.md`
 - **Experiment Design Frameworks:** `references/experiment_design_frameworks.md`
 - **Feature Engineering Patterns:** `references/feature_engineering_patterns.md`
-
 ## Common Commands
-
 ```bash
 # Testing & linting
 python -m pytest tests/ -v --cov=src/
 python -m black src/ && python -m pylint src/
-
 # Bundled pipeline scaffolds (stdlib runners — extend the process() body with project logic)
 python3 scripts/experiment_designer.py --input experiment_spec.json --output experiment_design.json
 python3 scripts/feature_engineering_pipeline.py --input raw_features.json --output features.json

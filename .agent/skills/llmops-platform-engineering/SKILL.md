@@ -1,120 +1,91 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "8131a5c80d979ef691c9e384f195d496164663c6c32dcd73b854fbce65c95a04"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: llmops-platform-engineering
-description: Build production LLMOps platforms with CI/CD, model promotion workflows,
-tier: "experimental"
-  evaluation gates, rollback, and governance across cloud and self-hosted inference.
+content_hash: 8131a5c80d979ef691c9e384f195d496164663c6c32dcd73b854fbce65c95a04
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+date_added: 2026-09-20
+description: Must not regress more than 2% vs current production
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: gpu_utilization_percent
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+version: 2025-01
+---  evaluation gates, rollback, and governance across cloud and self-hosted inference.
   CI runners) and authorized access to the target environment. Docs-only; helper scripts
   and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # LLMOps Platform Engineering
-
 Design and operate an internal LLM platform that supports rapid experimentation without compromising reliability, cost, or compliance.
-
 ## When to Use This Skill
-
 - Building an internal platform for teams to deploy and manage LLM-powered features
 - Designing CI/CD pipelines that include model evaluation gates
 - Setting up A/B testing infrastructure for model versions
 - Creating Kubernetes-based model serving infrastructure
 - Establishing governance workflows for model promotion
-
 ## Prerequisites
-
 - Kubernetes cluster with GPU node pools (or cloud inference API access)
 - Container registry (Harbor, ECR, GCR, or ACR)
 - CI/CD system (GitHub Actions, GitLab CI, or Argo Workflows)
 - Observability stack (Prometheus + Grafana + OpenTelemetry)
 - Model registry (MLflow or custom metadata store)
-
 ## Outcomes
-
 - Standardized path from experiment to production
 - Safe model rollout with quality and safety gates
 - Repeatable infra modules for inference, vector DB, and observability
 - Clear ownership model across platform, app, and security teams
-
 ## Reference Architecture
-
 1. **Control Plane**: model registry, prompt/version catalog, policy checks, eval pipeline.
 2. **Data Plane**: inference gateway, vector database, cache, feature store.
 3. **Ops Plane**: telemetry, alerting, SLO dashboards, cost analytics.
 4. **Security Plane**: IAM boundaries, secret rotation, content filters, audit logs.
-
 ## Model Promotion Pipeline
-
 ```yaml
 # .github/workflows/model-promotion.yaml
-name: Model Promotion Pipeline
 on:
   workflow_dispatch:
     inputs:
       model_name:
-        description: "Model identifier"
         required: true
       model_version:
-        description: "Model version to promote"
         required: true
       target_env:
-        description: "Target environment"
         required: true
         type: choice
         options: [staging, production]
-
 env:
   MODEL_NAME: ${{ inputs.model_name }}
   MODEL_VERSION: ${{ inputs.model_version }}
   TARGET_ENV: ${{ inputs.target_env }}
-
 jobs:
   evaluate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Validate model identifiers
         shell: bash
         run: |
           [[ "$MODEL_NAME" =~ ^[a-z0-9][a-z0-9.-]*$ ]]
           [[ "$MODEL_VERSION" =~ ^[A-Za-z0-9_][A-Za-z0-9_.-]*$ ]]
-
       - name: Run quality evaluation suite
         run: |
           python -m evals.run \
             --model "${MODEL_NAME}:${MODEL_VERSION}" \
             --suite quality \
             --output results/quality.json
-
       - name: Run safety evaluation suite
         run: |
           python -m evals.run \
             --model "${MODEL_NAME}:${MODEL_VERSION}" \
             --suite safety \
             --output results/safety.json
-
       - name: Run latency benchmark
         run: |
           python -m evals.benchmark \
@@ -122,31 +93,25 @@ jobs:
             --concurrent-users 50 \
             --duration 300 \
             --output results/latency.json
-
       - name: Gate check - quality
         run: |
           python -m evals.gate_check \
             --results results/quality.json \
             --threshold-file thresholds/quality.yaml
-
       - name: Gate check - safety
         run: |
           python -m evals.gate_check \
             --results results/safety.json \
             --threshold-file thresholds/safety.yaml
-
       - name: Gate check - latency
         run: |
           python -m evals.gate_check \
             --results results/latency.json \
             --threshold-file thresholds/latency.yaml
-
       - name: Upload eval evidence
         uses: actions/upload-artifact@v4
         with:
-          name: eval-results-${{ inputs.model_version }}
           path: results/
-
   approve:
     needs: evaluate
     runs-on: ubuntu-latest
@@ -158,19 +123,16 @@ jobs:
           echo "Model: ${MODEL_NAME}:${MODEL_VERSION}"
           echo "Target: ${TARGET_ENV}"
           echo "Time: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-
   deploy:
     needs: approve
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Deploy canary
         run: |
           kubectl set image deployment/${MODEL_NAME}-canary \
             model=${MODEL_NAME}:${MODEL_VERSION} \
             -n ai-${TARGET_ENV}
-
       - name: Wait for canary validation (15 min)
         run: |
           python -m canary.validate \
@@ -179,7 +141,6 @@ jobs:
             --duration 900 \
             --quality-threshold 0.85 \
             --error-rate-threshold 0.02
-
       - name: Promote to full rollout
         run: |
           kubectl set image deployment/${MODEL_NAME} \
@@ -188,11 +149,8 @@ jobs:
           kubectl rollout status deployment/${MODEL_NAME} \
             -n ai-${TARGET_ENV} --timeout=300s
 ```
-
 The `evals`, `canary`, thresholds, registry, cluster authentication and protected environment approval rules are application-owned prerequisites, not bundled implementations. Require configured production reviewers; a job named approve does not itself require human approval. Record the evaluated immutable image digest and deploy that same digest; the tag-based snippets are illustrative.
-
 ## Evaluation Gate Thresholds
-
 ```yaml
 # thresholds/quality.yaml
 gates:
@@ -212,7 +170,6 @@ gates:
     metric: quality_delta_vs_baseline
     min: -0.02
     comparison: gte
-    description: "Must not regress more than 2% vs current production"
 
 # thresholds/latency.yaml
 gates:
@@ -233,15 +190,11 @@ gates:
     min: 50
     comparison: gte
 ```
-
 ## A/B Testing Configuration
-
 ```yaml
 # ab-test-config.yaml
 apiVersion: gateway.ai/v1
 kind: ABTest
-metadata:
-  name: model-comparison-q1
   namespace: ai-production
 spec:
   duration: 7d
@@ -272,22 +225,16 @@ spec:
     strategy: sticky_user
     hash_key: user_id
 ```
-
 `gateway.ai/v1` is an illustrative custom resource; it requires your own installed CRD/controller. Model IDs are placeholders, not available provider snapshots.
-
 ## Kubernetes Model Serving Deployment
-
 ```yaml
 # model-serving-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
-metadata:
-  name: llm-inference
   namespace: ai-production
   labels:
     app: llm-inference
     model: local-open-weights
-    version: "2025-01"
 spec:
   replicas: 3
   strategy:
@@ -299,7 +246,6 @@ spec:
     matchLabels:
       app: llm-inference
   template:
-    metadata:
       labels:
         app: llm-inference
         model: local-open-weights
@@ -325,7 +271,6 @@ spec:
             - "--gpu-memory-utilization=0.90"
           ports:
             - containerPort: 8000
-              name: inference
           resources:
             requests:
               cpu: "4"
@@ -359,7 +304,6 @@ spec:
             claimName: model-weights-pvc
         - name: config
           configMap:
-            name: vllm-config
       tolerations:
         - key: nvidia.com/gpu
           operator: Exists
@@ -369,8 +313,6 @@ spec:
 ---
 apiVersion: v1
 kind: Service
-metadata:
-  name: llm-inference
   namespace: ai-production
 spec:
   selector:
@@ -382,28 +324,23 @@ spec:
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
-metadata:
-  name: llm-inference-hpa
   namespace: ai-production
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: llm-inference
   minReplicas: 2
   maxReplicas: 10
   metrics:
     - type: Pods
       pods:
         metric:
-          name: llm_queue_depth
         target:
           type: AverageValue
           averageValue: "5"
     - type: Pods
       pods:
         metric:
-          name: gpu_utilization_percent
         target:
           type: AverageValue
           averageValue: "75"
@@ -421,11 +358,8 @@ spec:
           value: 1
           periodSeconds: 300
 ```
-
 The deployment serves locally available open model weights, not proprietary hosted models. Provision the PVC and ConfigMap, choose a tested serving image, and install a custom-metrics adapter for the HPA metrics. Metrics use the inference port in this example.
-
 ## CI/CD Design for AI Services
-
 - Build immutable containers with pinned dependencies and model hashes.
 - Use environment promotion: `dev -> stage -> prod`.
 - Fail deployment if:
@@ -433,9 +367,7 @@ The deployment serves locally available open model weights, not proprietary host
   - safety tests exceed risk threshold,
   - p95 latency exceeds SLO budget.
 - Store deployment evidence for audits (commit SHA, eval report, approver).
-
 ## Operational SLOs
-
 | Signal | Target | Measurement Window |
 |--------|--------|--------------------|
 | Availability | 99.9% | 30-day rolling |
@@ -443,16 +375,12 @@ The deployment serves locally available open model weights, not proprietary host
 | Cost per request | < $0.05 | 1-hour average |
 | Task success rate | > 90% | 24-hour rolling |
 | Groundedness | > 85% | 24-hour rolling |
-
 ## Platform Guardrails
-
 - Enforce tenant quotas and model allow-lists.
 - Require structured output contracts for automation paths.
 - Default to low-risk model settings for critical workflows.
 - Disable unconstrained tool execution in production.
-
 ## Tooling Stack (Example)
-
 | Layer | Tools |
 |-------|-------|
 | Orchestration | Argo Workflows, GitHub Actions, Airflow |
@@ -462,9 +390,7 @@ The deployment serves locally available open model weights, not proprietary host
 | Policy | OPA/Rego for deployment and runtime checks |
 | Evaluation | RAGAS, custom eval harness, Promptfoo |
 | Serving | vLLM, TGI, Triton Inference Server |
-
 ## Troubleshooting
-
 | Issue | Diagnosis | Resolution |
 |-------|-----------|------------|
 | Canary fails quality gate | Compare eval results with baseline | Adjust model config or revert version |
@@ -472,25 +398,18 @@ The deployment serves locally available open model weights, not proprietary host
 | A/B test shows no significant difference | Verify traffic split and sample size | Extend test duration or increase treatment weight |
 | Model cold start too slow | Large model weight download | Use pre-cached PVCs or init containers |
 | Eval pipeline flaky | Non-deterministic model outputs | Set temperature=0 for evals, increase sample size |
-
 ## Related Skills
-
 - ai-pipeline-orchestration (`ai-pipeline-orchestration`) - Orchestrate ingestion and inference workflows
 - agent-evals (`agent-evals`) - Build evaluation gates for releases
 - llm-gateway (`llm-gateway`) - Route and control LLM traffic
 - model-registry-governance (`model-registry-governance`) - Model lifecycle and approval workflows
 - ai-sre-incident-response (`ai-sre-incident-response`) - AI-specific incident response
-
 ## Limitations
-
 - Guidance executes against real environments: confirm target, blast radius, and rollback plan before applying anything.
 - Never deploy to production without explicit approval. Docs-only import: upstream scripts and templates not bundled.
-
 ### Example
-
 ```bash
 git status && git diff --stat
 kubectl diff -f manifest.yaml
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.

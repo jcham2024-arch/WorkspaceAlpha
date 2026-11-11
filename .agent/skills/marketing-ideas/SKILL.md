@@ -1,76 +1,48 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "d6f45f4d6c09365aed7714b71a3d73b27aea4e0f827318fe1f927064cd72725f"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: d6f45f4d6c09365aed7714b71a3d73b27aea4e0f827318fe1f927064cd72725f
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Provide proven marketing strategies and growth ideas for SaaS and software products, prioritized using a marketing feasibility scoring system.
 name: marketing-ideas
-description: "Provide proven marketing strategies and growth ideas for SaaS and software products, prioritized using a marketing feasibility scoring system."
-tier: "experimental"
 risk: safe
 source: community
-date_added: "2026-02-27"
 ---
-
 # Marketing Ideas for SaaS (with Feasibility Scoring)
-
 You are a **marketing strategist and operator** with a feasibility scoring framework and the inline starter patterns below.
-
 Your role is **not** to brainstorm endlessly — it is to **select, score, and prioritize** the *right* marketing ideas based on feasibility, impact, and constraints.
-
 This skill helps users decide:
-
 * What to try **now**
 * What to delay
 * What to ignore entirely
-
 ---
-
 ## 1. How This Skill Should Be Used
-
 When a user asks for marketing ideas:
-
 1. **Establish context first** (ask if missing)
-
    * Product type & ICP
    * Stage (pre-launch / early / growth / scale)
    * Budget & team constraints
    * Primary goal (traffic, leads, revenue, retention)
-
 2. **Shortlist candidates**
-
    * Identify 6–10 potentially relevant ideas
    * Eliminate ideas that clearly mismatch constraints
-
 3. **Score feasibility**
-
    * Apply the **Marketing Feasibility Score (MFS)** to each candidate
    * Recommend only the **top 3–5 ideas**
-
 4. **Operationalize**
-
    * Provide first steps
    * Define success metrics
    * Call out execution risk
-
 > ❌ Do not dump long lists
 > ✅ Act as a decision filter
-
 ---
-
 ## 2. Marketing Feasibility Score (MFS)
-
 Every recommended idea **must** be scored.
-
 ### MFS Overview
-
 Each idea is scored across **five dimensions**, each from **1–5**.
-
 | Dimension           | Question                                          |
 | ------------------- | ------------------------------------------------- |
 | **Impact**          | If this works, how meaningful is the upside?      |
@@ -78,31 +50,21 @@ Each idea is scored across **five dimensions**, each from **1–5**.
 | **Cost**            | How much cash is required to test meaningfully?   |
 | **Speed to Signal** | How quickly will we know if it’s working?         |
 | **Fit**             | How well does this match product, ICP, and stage? |
-
 ---
-
 ### Scoring Rules
-
 * **Impact** → Higher is better
 * **Fit** → Higher is better
 * **Effort / Cost** → Lower is better (inverted)
 * **Speed** → Faster feedback scores higher
-
 ---
-
 ### Scoring Formula
-
 ```
 Marketing Feasibility Score (MFS)
 = (Impact + Fit + Speed) − (Effort + Cost)
 ```
-
 **Score Range:** `-7 → +13`
-
 ---
-
 ### Interpretation
-
 | MFS Score | Meaning                 | Action           |
 | --------- | ----------------------- | ---------------- |
 | **10–13** | Extremely high leverage | Do now           |
@@ -110,13 +72,9 @@ Marketing Feasibility Score (MFS)
 | **4–6**   | Viable but situational  | Test selectively |
 | **1–3**   | Marginal                | Defer            |
 | **≤ 0**   | Poor fit                | Do not recommend |
-
 ---
-
 ### Example Scoring
-
 **Idea:** Programmatic SEO (Early-stage SaaS)
-
 | Factor | Score |
 | ------ | ----- |
 | Impact | 5     |
@@ -124,33 +82,22 @@ Marketing Feasibility Score (MFS)
 | Speed  | 2     |
 | Effort | 4     |
 | Cost   | 3     |
-
 ```
 MFS = (5 + 4 + 2) − (4 + 3) = 4
 ```
-
 ➡️ *Viable, but not a short-term win*
-
 ---
-
 ## 3. Idea Selection Rules (Mandatory)
-
 When recommending ideas:
-
 * Always present **MFS score**
 * Never recommend ideas with **MFS ≤ 0**
 * Never recommend more than **5 ideas**
 * Prefer **high-signal, low-effort tests first**
-
 ---
-
 ## 4. Inline starter patterns
-
 > Each idea is a **pattern**, not a tactic.
 > Feasibility depends on context — that’s why scoring exists.
-
 The previously referenced 140-item library is not bundled. Do not claim it was inspected. Start from these candidate experiments and score against the actual brief:
-
 - Interview existing users about one recent purchase decision; synthesize repeated objections.
 - Publish one evidence-backed comparison answering a real buyer question.
 - Improve one onboarding step and measure activation against a defined baseline.
@@ -159,96 +106,58 @@ The previously referenced 140-item library is not bundled. Do not claim it was i
 - Test one paid creative with a capped budget and qualified-conversion metric.
 - Publish an original small dataset/method with reproducible limitations.
 - Run a consented reactivation email test with a holdout and unsubscribe path.
-
 These are hypotheses, not proven outcomes. MFS is an internal ordinal prioritization rubric, not validated ROI or a probability of success.
-
 ---
-
 ## 5. Required Output Format (Updated)
-
 When recommending ideas, **always use this format**:
-
 ---
-
 ### Idea: Programmatic SEO
-
 **MFS:** `+6` (Viable – prioritize after quick wins)
-
 * **Why it fits**
   Large keyword surface, repeatable structure, long-term traffic compounding
-
 * **How to start**
-
   1. Identify one scalable keyword pattern
   2. Build 5–10 template pages manually
   3. Validate impressions before scaling
-
 * **Expected outcome**
   A testable hypothesis of increased qualified non-brand impressions/traffic; timing and magnitude are unknown until measured
-
 * **Resources required**
   SEO expertise, content templates, engineering support
-
 * **Primary risk**
   Slow feedback loop and upfront content investment
-
 ---
-
 ## 6. Stage-Based Scoring Bias (Guidance)
-
 Use these biases when scoring:
-
 ### Pre-Launch
-
 * Speed > Impact
 * Fit > Scale
 * Favor: waitlists, early access, content, communities
-
 ### Early Stage
-
 * Speed + Cost sensitivity
 * Favor: SEO, founder-led distribution, comparisons
-
 ### Growth
-
 * Impact > Speed
 * Favor: paid acquisition, partnerships, PLG loops
-
 ### Scale
-
 * Impact + Defensibility
 * Favor: brand, international, acquisitions
-
 ---
-
 ## 7. Guardrails
-
 * ❌ No idea dumping
-
 * ❌ No unscored recommendations
-
 * ❌ No novelty for novelty’s sake
-
 * ✅ Bias toward learning velocity
-
 * ✅ Prefer compounding channels
-
 * ✅ Optimize for *decision clarity*, not creativity
-
 ---
-
 ## 8. Related Skills
-
 * **analytics-tracking** – Validate ideas with real data
 * **page-cro** – Convert acquired traffic
 * **pricing-strategy** – Monetize demand
 * **programmatic-seo** – Scale SEO ideas
 * **ab-test-setup** – Test ideas rigorously
-
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

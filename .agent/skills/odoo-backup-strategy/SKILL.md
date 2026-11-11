@@ -1,46 +1,30 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "e2f31baa6cf23f201c34bdbfefb3f82a436c82c6b7e6e5addb2a1fcccdc958f4"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: e2f31baa6cf23f201c34bdbfefb3f82a436c82c6b7e6e5addb2a1fcccdc958f4
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-03-04
+description: ""Complete Odoo backup and restore strategy: database dumps, filestore backup, automated scheduling, cloud storage upload, and tested restore procedures.""
 name: odoo-backup-strategy
-description: "Complete Odoo backup and restore strategy: database dumps, filestore backup, automated scheduling, cloud storage upload, and tested restore procedures."
-tier: "experimental"
 risk: critical
-source: "self"
-date_added: "2026-03-04"
+source: self
 ---
-
-
 # Odoo Backup Strategy
-
 ## Overview
-
 A complete Odoo backup must include both the **PostgreSQL database** and the **filestore** (attachments, images). This skill covers manual and automated backup procedures, offsite storage, and the correct restore sequence to bring a down Odoo instance back online.
-
 ## When to Use This Skill
-
 - Setting up a backup strategy for a production Odoo instance.
 - Automating daily backups with shell scripts and cron.
 - Restoring Odoo after a server failure or data corruption event.
 - Diagnosing a failed backup or corrupt restore.
-
 ## How It Works
-
 1. **Activate**: Mention `@odoo-backup-strategy` and describe your server environment.
 2. **Generate**: Receive a complete backup script tailored to your setup.
 3. **Restore**: Get step-by-step restore instructions for any failure scenario.
-
 ## Examples
-
 ### Example 1: Manual Database + Filestore Backup
-
 ```bash
 #!/bin/bash
 # backup_odoo.sh
@@ -48,45 +32,33 @@ set -euo pipefail
 umask 077
 # Quiesce Odoo and all writers for this whole dump+archive interval,
 # or use a storage/database snapshot procedure proven consistent.
-
 DATE=$(date +%Y%m%d_%H%M%S)
 DB_NAME="odoo"
 DB_USER="odoo"
 FILESTORE_PATH="/var/lib/odoo/.local/share/Odoo/filestore/$DB_NAME"
 BACKUP_DIR="/backups/odoo"
-
 mkdir -p "$BACKUP_DIR"
-
 # Step 1: Dump the database
 pg_dump -U "$DB_USER" -Fc "$DB_NAME" > "$BACKUP_DIR/db_$DATE.dump"
-
 # Step 2: Archive the filestore
 tar -czf "$BACKUP_DIR/filestore_$DATE.tar.gz" -C "$FILESTORE_PATH" .
-
 echo "✅ Backup complete: db_$DATE.dump + filestore_$DATE.tar.gz"
 ```
-
 ### Example 2: Automate with Cron (daily at 2 AM)
-
 ```bash
 # Run: crontab -e
 # Add this line:
 0 2 * * * /opt/scripts/backup_odoo.sh >> /var/log/odoo_backup.log 2>&1
 ```
-
 ### Example 3: Upload to S3 (after backup)
-
 ```bash
 # Add to backup script after tar command:
 aws s3 cp "$BACKUP_DIR/db_$DATE.dump"        s3://my-odoo-backups/db/
 aws s3 cp "$BACKUP_DIR/filestore_$DATE.tar.gz" s3://my-odoo-backups/filestore/
-
 # Apply a separate retention policy only after upload verification and a
 # successful restore test; do not delete the last known recoverable backup.
 ```
-
 ### Example 4: Full Restore Procedure
-
 ```bash
 set -euo pipefail
 umask 077
@@ -106,9 +78,7 @@ tar -xzf filestore_YYYYMMDD_HHMMSS.tar.gz -C "$RESTORE_FILESTORE"
 # Verify login, recent records and attachments. Only plan production cutover
 # after this succeeds and the owner approves downtime and rollback.
 ```
-
 ## Best Practices
-
 - ✅ **Do:** Test restores monthly in a staging environment — a backup you've never restored is not a backup.
 - ✅ **Do:** Follow the **3-2-1 rule**: 3 copies, 2 different media types, 1 offsite copy (e.g., S3 or a remote server).
 - ✅ **Do:** Back up **immediately before every Odoo upgrade** — this is your rollback point.
@@ -116,12 +86,9 @@ tar -xzf filestore_YYYYMMDD_HHMMSS.tar.gz -C "$RESTORE_FILESTORE"
 - ❌ **Don't:** Back up only the database without the filestore — all attachments and images will be missing after a restore.
 - ❌ **Don't:** Store backups on the same disk or same server as Odoo — a disk or server failure destroys both.
 - ❌ **Don't:** Run `pg_restore --clean` against a non-existent database — always create the database first.
-
 ## Limitations
-
 - Does not cover **Odoo.sh built-in backups** — Odoo.sh has its own backup system accessible from the dashboard.
 - This script assumes a **single-database** Odoo setup. Multi-database instances require looping over all databases.
 - Filestore path may differ between installations (Docker volume vs. bare-metal). Always verify the path with `odoo-bin shell` before running a restore.
 - Large filestores (100GB+) may require incremental backup tools like `rsync` or `restic` rather than full `tar.gz` archives.
-
 Backup archives contain sensitive records and attachments. Encrypt offsite copies, restrict credentials and access, and retain Odoo configuration, custom addons, dependency versions and encryption keys securely alongside the recovery plan. Confirm available space and alert on job failure; a database dump and live filestore archive taken at different states may be inconsistent.

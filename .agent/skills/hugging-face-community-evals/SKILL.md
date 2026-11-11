@@ -1,41 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "5e006c3d69d441182d604f4aa9ee3e8caaf25f2fb51300b2c777dabf7581eb29"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 5e006c3d69d441182d604f4aa9ee3e8caaf25f2fb51300b2c777dabf7581eb29
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-07-01
+description: Run evaluations for Hugging Face Hub models using inspect-ai and lighteval on local hardware. Use for backend selection, local GPU evals, and choosing between vLLM / Transformers / accelerate.
+license: Apache-2.0
+license_source: "https://github.com/huggingface/skills/blob/main/LICENSE"
 name: hugging-face-community-evals
-description: "Run evaluations for Hugging Face Hub models using inspect-ai and lighteval on local hardware. Use for backend selection, local GPU evals, and choosing between vLLM / Transformers / accelerate."
-tier: "experimental"
 risk: critical
-source: https://github.com/huggingface/skills/tree/main/skills/huggingface-community-evals
+source: "https://github.com/huggingface/skills/tree/main/skills/huggingface-community-evals"
 source_repo: huggingface/skills
 source_type: official
-date_added: 2026-07-01
-license: Apache-2.0
-license_source: https://github.com/huggingface/skills/blob/main/LICENSE
 ---
-
-
 # Overview
 ## When to Use
-
 Use this skill when you need run evaluations for Hugging Face Hub models using inspect-ai and lighteval on local hardware. Use for backend selection, local GPU evals, and choosing between vLLM / Transformers / accelerate. Not for HF Jobs orchestration, model-card PRs, .eval_results publication, or community-evals...
-
-
 This skill is for **running evaluations against models on the Hugging Face Hub on local hardware**.
-
 It covers:
 - `inspect-ai` with local inference
 - `lighteval` with local inference
 - choosing between `vllm`, Hugging Face Transformers, and `accelerate`
 - smoke tests, task selection, and backend fallback strategy
-
 It does **not** cover:
 - Hugging Face Jobs orchestration
 - model-card or `model-index` edits
@@ -43,42 +31,30 @@ It does **not** cover:
 - Artificial Analysis imports
 - `.eval_results` generation or publishing
 - PR creation or community-evals automation
-
 If the user wants to **run the same eval remotely on Hugging Face Jobs**, hand off to the `hugging-face-jobs` skill and pass it one of the local scripts in this skill.
-
 If publication is requested, stop after producing local results; ask for the actual reviewed community-evals checkout. `~/code/community-evals` is not bundled or guaranteed to exist.
-
 > All paths below are relative to the directory containing this `SKILL.md`.
-
 # When To Use Which Script
-
 | Use case | Script |
 |---|---|
 | Local `inspect-ai` eval on a Hub model via inference providers | `scripts/inspect_eval_uv.py` |
 | Local GPU eval with `inspect-ai` using `vllm` or Transformers | `scripts/inspect_vllm_uv.py` |
 | Local GPU eval with `lighteval` using `vllm` or `accelerate` | `scripts/lighteval_vllm_uv.py` |
 | Extra command patterns | `examples/USAGE_EXAMPLES.md` |
-
 # Prerequisites
-
 The bundled lighteval wrapper is disabled pending a release-specific CLI migration: its generic version range mixes incompatible APIs. Use official documentation for a pinned release instead. Inspect examples also require matching installed provider/task versions. Provider-backed runs send prompts externally and may incur charges; agree on recipient, sample limit and budget first. For reproducibility record dependency/model/dataset revisions and generation settings. Never enable remote model code automatically; review a pinned revision and isolate it. Generated-code tasks need enforced sandbox containment; `local` is not isolation.
-
 - Prefer `uv run` for local execution.
 - Set `HF_TOKEN` for gated/private models.
 - For local GPU runs, verify GPU access before starting:
-
 ```bash
 uv --version
 printenv HF_TOKEN >/dev/null
 nvidia-smi
 ```
-
 If `nvidia-smi` is unavailable, either:
 - use `scripts/inspect_eval_uv.py` for lighter provider-backed evaluation, or
 - hand off to the `hugging-face-jobs` skill if the user wants remote compute.
-
 # Core Workflow
-
 1. Choose the evaluation framework.
    - Use `inspect-ai` when you want explicit task control and inspect-native flows.
    - Use `lighteval` when the benchmark is naturally expressed as a lighteval task string, especially leaderboard-style tasks.
@@ -90,40 +66,29 @@ If `nvidia-smi` is unavailable, either:
    - `lighteval`: add `--max-samples 10`.
 4. Scale up only after the smoke test passes.
 5. If the user wants remote execution, hand off to `hugging-face-jobs` with the same script + args.
-
 # Quick Start
-
 ## Option A: locally orchestrated Inspect with remote Inference Providers
-
 Best when the model is already supported by Hugging Face Inference Providers and you want the lowest local setup overhead.
-
 ```bash
 uv run scripts/inspect_eval_uv.py \
   --model meta-llama/Llama-3.2-1B \
   --task mmlu \
   --limit 20
 ```
-
 Use this path when:
 - you want a quick local smoke test
 - you do not need direct GPU control
 - the task already exists in `inspect-evals`
-
 ## Option B: inspect-ai on Local GPU
-
 Best when you need to load the Hub model directly, use `vllm`, or fall back to Transformers for unsupported architectures.
-
 Local GPU:
-
 ```bash
 uv run scripts/inspect_vllm_uv.py \
   --model meta-llama/Llama-3.2-1B \
   --task gsm8k \
   --limit 20
 ```
-
 Transformers fallback:
-
 ```bash
 uv run scripts/inspect_vllm_uv.py \
   --model microsoft/phi-2 \
@@ -132,13 +97,9 @@ uv run scripts/inspect_vllm_uv.py \
   --trust-remote-code \
   --limit 20
 ```
-
 ## Option C: lighteval on Local GPU
-
 Best when the task is naturally expressed as a `lighteval` task string, especially Open LLM Leaderboard style benchmarks.
-
 Local GPU:
-
 ```bash
 uv run scripts/lighteval_vllm_uv.py \
   --model meta-llama/Llama-3.2-3B-Instruct \
@@ -146,9 +107,7 @@ uv run scripts/lighteval_vllm_uv.py \
   --max-samples 20 \
   --use-chat-template
 ```
-
 `accelerate` fallback:
-
 ```bash
 uv run scripts/lighteval_vllm_uv.py \
   --model microsoft/phi-2 \
@@ -157,22 +116,16 @@ uv run scripts/lighteval_vllm_uv.py \
   --trust-remote-code \
   --max-samples 20
 ```
-
 # Remote Execution Boundary
-
 This skill intentionally stops at **local execution and backend selection**.
-
 If the user wants to:
 - run these scripts on Hugging Face Jobs
 - pick remote hardware
 - pass secrets to remote jobs
 - schedule recurring runs
 - inspect / cancel / monitor jobs
-
 then switch to the **`hugging-face-jobs`** skill and pass it one of these scripts plus the chosen arguments.
-
 # Task Selection
-
 `inspect-ai` examples:
 - `mmlu`
 - `gsm8k`
@@ -181,35 +134,26 @@ then switch to the **`hugging-face-jobs`** skill and pass it one of these script
 - `truthfulqa`
 - `winogrande`
 - `humaneval`
-
 `lighteval` task strings use `suite|task|num_fewshot`:
 - `leaderboard|mmlu|5`
 - `leaderboard|gsm8k|5`
 - `leaderboard|arc_challenge|25`
 - `lighteval|hellaswag|0`
-
 Multiple `lighteval` tasks can be comma-separated in `--tasks`.
-
 # Backend Selection
-
 - Prefer `inspect_vllm_uv.py --backend vllm` for fast GPU inference on supported architectures.
 - Use `inspect_vllm_uv.py --backend hf` when `vllm` does not support the model.
 - Prefer `lighteval_vllm_uv.py --backend vllm` for throughput on supported models.
 - Use `lighteval_vllm_uv.py --backend accelerate` as the compatibility fallback.
 - Use `inspect_eval_uv.py` when Inference Providers already cover the model and you do not need direct GPU control.
-
 # Hardware Guidance
-
 | Model size | Suggested local hardware |
 |---|---|
 | `< 3B` | consumer GPU / Apple Silicon / small dev GPU |
 | `3B - 13B` | stronger local GPU |
 | `13B+` | high-memory local GPU or hand off to `hugging-face-jobs` |
-
 For smoke tests, prefer cheaper local runs plus `--limit` or `--max-samples`.
-
 # Troubleshooting
-
 - CUDA or vLLM OOM:
   - reduce `--batch-size`
   - reduce `--gpu-memory-utilization`
@@ -222,17 +166,13 @@ For smoke tests, prefer cheaper local runs plus `--limit` or `--max-samples`.
   - verify `HF_TOKEN`
 - Custom model code required:
   - inspect the pinned model code and obtain execution authorization before enabling `--trust-remote-code`; otherwise choose a compatible model
-
 # Examples
-
 See:
 - `examples/USAGE_EXAMPLES.md` for local command patterns
 - `scripts/inspect_eval_uv.py`
 - `scripts/inspect_vllm_uv.py`
 - `scripts/lighteval_vllm_uv.py`
-
 ## Limitations
-
 - Use this skill only when the task clearly matches its upstream product or API scope.
 - Verify commands, API behavior, pricing, quotas, credentials, and deployment effects against current official documentation before making changes.
 - Do not treat generated examples as a substitute for environment-specific tests, security review, or user approval for destructive or costly actions.

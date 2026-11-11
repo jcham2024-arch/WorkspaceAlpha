@@ -1,58 +1,40 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "d978ab30729fc521748e7bf7ca6e23f5a17f1d4497aaa0d2ef154baa695e5ea6"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-mgmt-apicenter-py
+content_hash: d978ab30729fc521748e7bf7ca6e23f5a17f1d4497aaa0d2ef154baa695e5ea6
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Azure API Center Management SDK for Python. Use for managing API inventory, metadata, and governance across your organization.
-tier: "experimental"
+name: azure-mgmt-apicenter-py
 risk: critical
 source: community
-date_added: '2026-02-27'
 ---
-
-
 # Azure API Center Management SDK for Python
-
 Manage API inventory, metadata, and governance in Azure API Center.
-
 ## Installation
-
 ```bash
 pip install azure-mgmt-apicenter
 pip install azure-identity
 ```
-
 ## Environment Variables
-
 ```bash
 AZURE_SUBSCRIPTION_ID=your-subscription-id
 ```
-
 ## Authentication
-
 ```python
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.apicenter import ApiCenterMgmtClient
 import os
-
 client = ApiCenterMgmtClient(
     credential=DefaultAzureCredential(),
     subscription_id=os.environ["AZURE_SUBSCRIPTION_ID"]
 )
 ```
-
 ## Create API Center
-
 ```python
 from azure.mgmt.apicenter.models import Service
-
 api_center = client.services.create_or_update(
     resource_group_name="my-resource-group",
     service_name="my-api-center",
@@ -61,24 +43,17 @@ api_center = client.services.create_or_update(
         tags={"environment": "production"}
     )
 )
-
 print(f"Created API Center: {api_center.name}")
 ```
-
 ## List API Centers
-
 ```python
 api_centers = client.services.list_by_subscription()
-
 for api_center in api_centers:
     print(f"{api_center.name} - {api_center.location}")
 ```
-
 ## Register an API
-
 ```python
 from azure.mgmt.apicenter.models import Api, ApiKind, LifecycleStage
-
 api = client.apis.create_or_update(
     resource_group_name="my-resource-group",
     service_name="my-api-center",
@@ -93,15 +68,11 @@ api = client.apis.create_or_update(
         contacts=[{"name": "API Team", "email": "api-team@example.com"}]
     )
 )
-
 print(f"Registered API: {api.title}")
 ```
-
 ## Create API Version
-
 ```python
 from azure.mgmt.apicenter.models import ApiVersion, LifecycleStage
-
 version = client.api_versions.create_or_update(
     resource_group_name="my-resource-group",
     service_name="my-api-center",
@@ -113,15 +84,11 @@ version = client.api_versions.create_or_update(
         lifecycle_stage=LifecycleStage.PRODUCTION
     )
 )
-
 print(f"Created version: {version.title}")
 ```
-
 ## Add API Definition
-
 ```python
 from azure.mgmt.apicenter.models import ApiDefinition
-
 definition = client.api_definitions.create_or_update(
     resource_group_name="my-resource-group",
     service_name="my-api-center",
@@ -135,12 +102,9 @@ definition = client.api_definitions.create_or_update(
     )
 )
 ```
-
 ## Import API Specification
-
 ```python
 from azure.mgmt.apicenter.models import ApiSpecImportRequest, ApiSpecImportSourceFormat
-
 # Import from inline content
 client.api_definitions.import_specification(
     resource_group_name="my-resource-group",
@@ -155,25 +119,19 @@ client.api_definitions.import_specification(
     )
 )
 ```
-
 ## List APIs
-
 ```python
 apis = client.apis.list(
     resource_group_name="my-resource-group",
     service_name="my-api-center",
     workspace_name="default"
 )
-
 for api in apis:
     print(f"{api.name}: {api.title} ({api.kind})")
 ```
-
 ## Create Environment
-
 ```python
 from azure.mgmt.apicenter.models import Environment, EnvironmentKind
-
 environment = client.environments.create_or_update(
     resource_group_name="my-resource-group",
     service_name="my-api-center",
@@ -187,12 +145,9 @@ environment = client.environments.create_or_update(
     )
 )
 ```
-
 ## Create Deployment
-
 ```python
 from azure.mgmt.apicenter.models import Deployment, DeploymentState
-
 deployment = client.deployments.create_or_update(
     resource_group_name="my-resource-group",
     service_name="my-api-center",
@@ -209,12 +164,9 @@ deployment = client.deployments.create_or_update(
     )
 )
 ```
-
 ## Define Custom Metadata
-
 ```python
 from azure.mgmt.apicenter.models import MetadataSchema
-
 metadata = client.metadata_schemas.create_or_update(
     resource_group_name="my-resource-group",
     service_name="my-api-center",
@@ -224,15 +176,11 @@ metadata = client.metadata_schemas.create_or_update(
     )
 )
 ```
-
 ## Client Types
-
 | Client | Purpose |
 |--------|---------|
 | `ApiCenterMgmtClient` | Main client for all operations |
-
 ## Operations
-
 | Operation Group | Purpose |
 |----------------|---------|
 | `services` | API Center service management |
@@ -243,19 +191,15 @@ metadata = client.metadata_schemas.create_or_update(
 | `deployments` | Deployment tracking |
 | `environments` | Environment management |
 | `metadata_schemas` | Custom metadata definitions |
-
 ## Best Practices
-
 1. **Use workspaces** to organize APIs by team or domain
 2. **Define metadata schemas** for consistent governance
 3. **Track deployments** to understand where APIs are running
 4. **Import specifications** to enable API analysis and linting
 5. **Use lifecycle stages** to track API maturity
 6. **Add contacts** for API ownership and support
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

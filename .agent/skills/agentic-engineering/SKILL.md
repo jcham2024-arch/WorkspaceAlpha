@@ -1,73 +1,48 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "2fd121ab1faa9c0286f56716cca91678d9585a8ea7b565a6ea02be5d5e8eb23e"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: agentic-engineering
+content_hash: 2fd121ab1faa9c0286f56716cca91678d9585a8ea7b565a6ea02be5d5e8eb23e
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: Operate as an agentic engineer using eval-first execution, decomposition, and cost-aware model routing. Use when planning or executing engineering work that agents will carry out end to end.
-tier: "experimental"
-metadata:
-  origin: ECC
+name: agentic-engineering
+origin: ECC
 ---
-
-
 # Agentic Engineering
-
 Use this skill for engineering workflows where AI agents perform most implementation work and humans enforce quality and risk controls.
-
 ## Operating Principles
-
 1. Define completion criteria before execution.
 2. Decompose work into agent-sized units.
 3. Route model tiers by task complexity.
 4. Measure with evals and regression checks.
-
 ## Eval-First Loop
-
 1. Define capability eval and regression eval.
 2. Run baseline and capture failure signatures.
 3. Execute implementation.
 4. Re-run evals and compare deltas.
-
 ## Task Decomposition
-
 Apply the 15-minute unit rule:
 - each unit should be independently verifiable
 - each unit should have a single dominant risk
 - each unit should expose a clear done condition
-
 ## Model Routing
-
 - Haiku: classification, boilerplate transforms, narrow edits
 - Sonnet: implementation and refactors
 - Opus: architecture, root-cause analysis, multi-file invariants
-
 ## Session Strategy
-
 - Continue session for closely-coupled units.
 - Start fresh session after major phase transitions.
 - Compact after milestone completion, not during active debugging.
-
 ## Review Focus for AI-Generated Code
-
 Prioritize:
 - invariants and edge cases
 - error boundaries
 - security and auth assumptions
 - hidden coupling and rollout risk
-
 Do not waste review cycles on style-only disagreements when automated format/lint already enforce style.
-
 ## Interpret Tool Results Before Comparing Data
-
 For document reads and processing loops, check three boundaries in order:
-
 1. Check the tool/transport envelope for an error or an indeterminate outcome.
 2. Decode the response and check operation status using that tool's documented
    contract. An outer success flag or a present payload does not establish that
@@ -76,52 +51,42 @@ For document reads and processing loops, check three boundaries in order:
    field. Missing or unrecognized status stays unknown.
 3. Only after confirmed operation success, validate the document shape and compare
    its fields. An operation failure is not a document identity mismatch.
-
 Keep the operation name, request/correlation ID when available, relevant status
 and error details, and the original response needed for diagnosis. Redact secrets
 and private document data before logging or sharing. Do not reconstruct missing
 responses from a later response's shape.
-
 ### Portable Classification Example
-
 The adapter below uses an **illustrative read-tool contract**, not an MCP schema:
 `isError` is a required boolean; when false, `result.ok` is a required operation
 status. A successful read returns `result.document` with a string `id`; a failed
 read may carry `result.error`. Replace this adapter with the actual tool's
 contract, including its documented decoding and document validation rules.
-
 ```javascript
 function decodeRead(response) {
   if (!response || typeof response.isError !== 'boolean') {
     return { kind: 'unknown_response' };
   }
   if (response.isError) return { kind: 'tool_error' };
-
   const result = response.result;
   if (result?.ok === false) {
     return { kind: 'operation_error', error: result.error };
   }
   if (result?.ok !== true) return { kind: 'unknown_response' };
-
   const document = result.document;
   if (!document || typeof document.id !== 'string') {
     return { kind: 'invalid_document' };
   }
   return { kind: 'document', document };
 }
-
 function inspectRead(response, expectedId, decode = decodeRead) {
   const outcome = decode(response);
   if (outcome.kind !== 'document') return outcome;
-
   return outcome.document.id === expectedId
     ? { kind: 'match', document: outcome.document }
     : { kind: 'field_mismatch', actualId: outcome.document.id, expectedId };
 }
 ```
-
 Synthetic evaluation cases (not a reproduction of any historical incident):
-
 | Input under this illustrative contract | Expected classification |
 | --- | --- |
 | `isError: true` | `tool_error`; no field comparison |
@@ -130,7 +95,6 @@ Synthetic evaluation cases (not a reproduction of any historical incident):
 | Confirmed success, missing document or non-string ID | `invalid_document`; no field comparison |
 | Confirmed success, valid document with expected ID | `match` |
 | Confirmed success, valid document with a different ID | `field_mismatch` |
-
 Classification does not authorize a write or retry. Temporary maintenance remains
 an operation failure with its own evidence; follow the tool's documented recovery
 policy. A documented service-wide maintenance failure should stop a batch rather
@@ -140,14 +104,11 @@ preserve that uncertainty
 and reconcile using a documented status/read-back mechanism before considering a
 retry. Never infer that a write failed, repeat it, or overwrite a document solely
 because a read failed or a returned field differs.
-
 ## Cost Discipline
-
 Track per task:
 - model
 - token estimate
 - retries
 - wall-clock time
 - success/failure
-
 Escalate model tier only when lower tier fails with a clear reasoning gap.

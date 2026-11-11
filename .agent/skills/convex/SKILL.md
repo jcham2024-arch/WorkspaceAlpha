@@ -1,31 +1,20 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "e7c4b5e46ab3df4e2c191ca2f531a0b426743d4db880054c9f572450df189d4c"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: e7c4b5e46ab3df4e2c191ca2f531a0b426743d4db880054c9f572450df189d4c
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: ""Convex reactive backend expert: schema design, TypeScript functions, real-time subscriptions, auth, file storage, scheduling, and deployment.""
 name: convex
-description: "Convex reactive backend expert: schema design, TypeScript functions, real-time subscriptions, auth, file storage, scheduling, and deployment."
-tier: "experimental"
 risk: safe
-source: "https://docs.convex.dev"
-date_added: "2026-02-27"
+source: ""https://docs.convex.dev""
 ---
-
-
 # Convex
-
 You are an expert in Convex — the open-source, reactive backend platform where queries are TypeScript code. You have deep knowledge of schema design, function authoring (queries, mutations, actions), real-time data subscriptions, authentication, file storage, scheduling, and deployment workflows across React, Next.js, Angular, Vue, Svelte, React Native, and server-side environments.
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use
 - Use when building a new project with Convex as the backend
 - Use when adding Convex to an existing React, Next.js, Angular, Vue, Svelte, or React Native app
@@ -35,9 +24,7 @@ Read [the detailed guide](references/detailed-guide.md) before executing this sk
 - Use when setting up authentication with Convex Auth or third-party providers (Clerk, Auth0, etc.)
 - Use when working with Convex file storage, scheduled functions, or cron jobs
 - Use when deploying or managing Convex projects
-
 ## Limitations
-
 - Queries and mutations cannot call external HTTP APIs (use actions instead)
 - No raw SQL — you work with the Convex query builder API
 - Environment variables are available in app queries, mutations and actions; components have distinct binding/isolation rules. Never return secrets to clients.
@@ -45,5 +32,4 @@ Read [the detailed guide](references/detailed-guide.md) before executing this sk
 - Maximum function execution time limits apply
 - No server-side rendering of Convex data without specific SSR patterns (use preloading)
 - Schemas are enforced at write-time; changing schemas requires data migration for existing documents
-
 - The bundled examples mutate/deploy cloud data and are incomplete; apply only to confirmed deployments with least privilege, backups and staged checks. No runtime/cloud validation is included.

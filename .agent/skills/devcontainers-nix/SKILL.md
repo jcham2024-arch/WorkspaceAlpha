@@ -1,56 +1,40 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "d50d2b1aec9b4ed1bf81ea162cda55d677cda130d7ae7f60a947698fe10594ee"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: devcontainers-nix
-description: Create reproducible development environments with Dev Containers, Nix
-tier: "experimental"
-  flakes, and Devbox for consistent toolchains across teams.
+content_hash: d50d2b1aec9b4ed1bf81ea162cda55d677cda130d7ae7f60a947698fe10594ee
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+date_added: 2026-09-20
+description: Create reproducible development environments with Dev Containers, Nix
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: my-project
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+version: 1.0
+---  flakes, and Devbox for consistent toolchains across teams.
   CI runners) and authorized access to the target environment. Docs-only; helper scripts
   and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # Dev Containers & Nix Environments
-
 Reproducible, portable development environments that eliminate environment drift.
-
 ## When to Use This Skill
-
 Use this skill when:
 - Onboarding new developers (zero-to-productive in minutes)
 - Standardizing toolchains across a team
 - Eliminating "works on my machine" problems
 - Setting up CI environments that match local dev
 - Creating ephemeral, disposable dev environments
-
 ## Environment execution boundaries
-
 Devcontainer features, lifecycle hooks, Nix shell hooks, direnv and dependency installers execute code; inspect the complete configuration, locked inputs and source before activation. Do not run moving downloaded installers or accept a hash mismatch by deleting/recreating state; verify publisher/version and integrity first. Avoid privileged Docker-in-Docker and host sockets for untrusted repositories. Never pass production credentials into a development environment by default. Offline operation needs every dependency/artifact already available locally; a lockfile alone is insufficient. `nix build/run` need corresponding outputs, which the devShell-only example does not define.
-
 ## Dev Containers
-
 ### Basic Configuration
-
 ```json
 // .devcontainer/devcontainer.json
 {
@@ -78,9 +62,7 @@ Devcontainer features, lifecycle hooks, Nix shell hooks, direnv and dependency i
   }
 }
 ```
-
 ### Docker Compose Dev Container
-
 ```json
 // .devcontainer/devcontainer.json
 {
@@ -92,7 +74,6 @@ Devcontainer features, lifecycle hooks, Nix shell hooks, direnv and dependency i
   "postCreateCommand": "npm install && npx prisma migrate dev"
 }
 ```
-
 ```yaml
 # .devcontainer/docker-compose.yml
 services:
@@ -104,7 +85,6 @@ services:
       - ..:/workspace:cached
     command: sleep infinity
     depends_on: [db, redis]
-
   db:
     image: postgres:16
     environment:
@@ -115,22 +95,17 @@ services:
       - pgdata:/var/lib/postgresql/data
     ports:
       - "127.0.0.1:5432:5432"
-
   redis:
     image: redis:7-alpine
     ports:
       - "127.0.0.1:6379:6379"
-
 volumes:
   pgdata:
 ```
-
 ### Custom Dockerfile
-
 ```dockerfile
 # .devcontainer/Dockerfile
 FROM mcr.microsoft.com/devcontainers/base:ubuntu-22.04
-
 # System dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -139,33 +114,26 @@ RUN apt-get update && apt-get install -y \
     jq \
     unzip \
     && rm -rf /var/lib/apt/lists/*
-
 # Install project-specific tools
 RUN curl -fsSL https://get.opentofu.org/install-opentofu.sh -o /tmp/install-opentofu.sh \
     && sh /tmp/install-opentofu.sh -s -- --install-method standalone \
     && rm /tmp/install-opentofu.sh
 RUN curl -LO "https://dl.k8s.io/release/$(curl -sL https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" \
     && install kubectl /usr/local/bin/
-
 # Non-root user setup
 USER vscode
 WORKDIR /workspace
 ```
-
 ## Nix Flakes
-
 ### Basic Flake
-
 ```nix
 # flake.nix
 {
   description = "Project development environment";
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
-
   outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
       let
@@ -179,7 +147,6 @@ WORKDIR /workspace
             go_1_22
             rustc
             cargo
-
             # Tools
             docker-compose
             kubectl
@@ -188,12 +155,10 @@ WORKDIR /workspace
             awscli2
             jq
             yq-go
-
             # Databases
             postgresql_16
             redis
           ];
-
           shellHook = ''
             echo "Dev environment loaded"
             export PROJECT_ROOT=$(pwd)
@@ -204,54 +169,39 @@ WORKDIR /workspace
     );
 }
 ```
-
 ```bash
 # Enter the dev shell
 nix develop
-
 # Or run a single command
 nix develop --command bash -c "node --version && go version"
-
 # Build and run
 nix build
 nix run
 ```
-
 ### Pin Dependencies
-
 ```bash
 # Lock flake inputs for reproducibility
 nix flake lock
 nix flake update  # Update all inputs
-
 # Update a specific input
 nix flake lock --update-input nixpkgs
 ```
-
 ## Devbox (Nix Made Simple)
-
 Devbox wraps Nix with a friendlier interface:
-
 ```bash
 # Install Devbox
 curl -fsSL https://get.jetify.com/devbox -o /tmp/install-devbox.sh && sh /tmp/install-devbox.sh && rm /tmp/install-devbox.sh
-
 # Initialize project
 devbox init
-
 # Add packages
 devbox add nodejs@20 python@3.12 postgresql@16
 devbox add go@1.22 kubectl helm
-
 # Enter shell
 devbox shell
-
 # Run commands without entering shell
 devbox run node --version
 ```
-
 ### devbox.json Configuration
-
 ```json
 {
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/main/.schema/devbox.schema.json",
@@ -286,49 +236,35 @@ devbox run node --version
   }
 }
 ```
-
 ```bash
 # Run project scripts
 devbox run dev
 devbox run test
 devbox run db:start
-
 # Generate direnv integration (auto-activate on cd)
 devbox generate direnv
-
 # Generate Dockerfile from devbox config
 devbox generate dockerfile
 ```
-
 ### Devbox + direnv (Auto-Activate)
-
 ```bash
 # Install direnv
 devbox add direnv
-
 # Generate .envrc
 devbox generate direnv
-
 # Allow direnv
 direnv allow
 ```
-
 ```bash
 # .envrc (auto-generated)
 eval "$(devbox generate direnv --print-envrc)"
 ```
-
 Now `cd`-ing into the project automatically loads the environment.
-
 ## CI/CD Integration
-
 ### GitHub Actions with Devbox
-
 ```yaml
 # .github/workflows/ci.yml
-name: CI
 on: [push, pull_request]
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -340,13 +276,9 @@ jobs:
       - run: devbox run test
       - run: devbox run lint
 ```
-
 ### GitHub Actions with Nix
-
 ```yaml
-name: CI
 on: [push, pull_request]
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -357,13 +289,10 @@ jobs:
           nix_path: nixpkgs=channel:nixos-unstable
       - uses: cachix/cachix-action@v14
         with:
-          name: my-project
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
       - run: nix develop --command bash -c "npm ci && npm test"
 ```
-
 ### GitHub Codespaces
-
 ```json
 // .devcontainer/devcontainer.json — works in Codespaces
 {
@@ -379,9 +308,7 @@ jobs:
   }
 }
 ```
-
 ## Comparison
-
 | Feature | Dev Containers | Nix Flakes | Devbox |
 |---------|---------------|------------|--------|
 | Learning curve | Low | High | Low |
@@ -391,18 +318,14 @@ jobs:
 | CI integration | Docker-based | Nix actions | Devbox action |
 | Offline support | Limited | Full | Full |
 | macOS/Linux/Win | All | macOS/Linux | macOS/Linux |
-
 ## Best Practices
-
 - Pin all tool versions explicitly — never use `latest`
 - Commit lock files (`flake.lock`, `devbox.lock`, etc.)
 - Use direnv for automatic environment activation
 - Cache Nix store in CI (Cachix or GitHub cache)
 - Document setup in README: `devbox shell` or `nix develop`
 - Keep dev environment close to production (same Node/Python versions)
-
 ## Troubleshooting
-
 | Issue | Solution |
 |-------|---------|
 | Nix build slow first time | Use binary cache (Cachix), `nix develop` caches after first run |
@@ -410,23 +333,16 @@ jobs:
 | Package not in Nixpkgs | Search at search.nixos.org, or use `fetchFromGitHub` overlay |
 | Devbox hash mismatch | Run `devbox update`, delete `.devbox/` and re-init |
 | direnv not activating | Run `direnv allow`, check shell hook is installed |
-
 ## Related Skills
-
 - docker-management (`docker-management`) — Container image optimization
 - github-actions (`github-actions`) — CI/CD pipeline setup
 - linux-administration (`linux-administration`) — System-level tooling
-
 ## Limitations
-
 - Guidance executes against real environments: confirm target, blast radius, and rollback plan before applying anything.
 - Never deploy to production without explicit approval. Docs-only import: upstream scripts and templates not bundled.
-
 ### Example
-
 ```bash
 git status && git diff --stat
 kubectl diff -f manifest.yaml
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.

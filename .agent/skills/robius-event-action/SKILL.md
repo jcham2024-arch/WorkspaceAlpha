@@ -1,45 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "b01c1d52008aab5c6b7805deb517b2ebaa824b7c4c898396fd496811f162c64b"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: robius-event-action
+content_hash: b01c1d52008aab5c6b7805deb517b2ebaa824b7c4c898396fd496811f162c64b
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-03-06
 description: |
-tier: "experimental"
-  CRITICAL: Use for Robius event and action patterns. Triggers on:
+name: robius-event-action
+risk: critical
+source: community
+---  CRITICAL: Use for Robius event and action patterns. Triggers on:
   custom action, MatchEvent, post_action, cx.widget_action,
   handle_actions, DefaultNone, widget action, event handling,
   事件处理, 自定义动作
-risk: critical
-source: community
-date_added: "2026-03-06"
 ---
-
 ## Supporting material availability
-
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
-
 - `<support-root>/references/action-patterns.md`
 - `<support-root>/references/event-handling.md`
 - `<support-root>/references/moly-action-patterns.md`
-
 Ask for the original supporting material or an existing installation before using a step that depends on these paths; this catalog does not identify a verified download source for them. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
-
-
 # Robius Event and Action Patterns Skill
-
 Best practices for event handling and action patterns in Makepad applications based on Robrix and Moly codebases.
-
 **Source codebases:**
 - **Robrix**: Matrix chat client - MessageAction, RoomsListAction, AppStateAction
 - **Moly**: AI chat application - StoreAction, ChatAction, NavigationAction, Timer patterns
-
 ## When to Use
 Use this skill when:
 - Implementing custom actions in Makepad
@@ -47,14 +33,10 @@ Use this skill when:
 - Centralizing action handling in App
 - Widget-to-widget communication
 - Keywords: makepad action, makepad event, widget action, handle_actions, cx.widget_action
-
 ## Custom Action Pattern
-
 ### Defining Domain-Specific Actions
-
 ```rust
 use makepad_widgets::*;
-
 /// Actions emitted by the Message widget
 #[derive(Clone, DefaultNone, Debug)]
 pub enum MessageAction {
@@ -71,7 +53,6 @@ pub enum MessageAction {
     /// Required default variant
     None,
 }
-
 /// Data associated with a message action
 #[derive(Clone, Debug)]
 pub struct MessageDetails {
@@ -81,14 +62,11 @@ pub struct MessageDetails {
     pub sender_id: OwnedUserId,
 }
 ```
-
 ### Emitting Actions from Widgets
-
 ```rust
 impl Widget for Message {
     fn handle_event(&mut self, cx: &mut Cx, event: &Event, scope: &mut Scope) {
         self.view.handle_event(cx, event, scope);
-
         let area = self.view.area();
         match event.hits(cx, area) {
             Hit::FingerDown(_fe) => {
@@ -119,18 +97,14 @@ impl Widget for Message {
     }
 }
 ```
-
 ## Centralized Action Handling in App
-
 ### Using MatchEvent Trait
-
 ```rust
 impl MatchEvent for App {
     fn handle_startup(&mut self, cx: &mut Cx) {
         // Called once on app startup
         self.initialize(cx);
     }
-
     fn handle_actions(&mut self, cx: &mut Cx, actions: &Actions) {
         for action in actions {
             // Pattern 1: Direct downcast for non-widget actions
@@ -146,7 +120,6 @@ impl MatchEvent for App {
                 }
                 continue;  // Action handled
             }
-
             // Pattern 2: Widget action cast
             if let MessageAction::OpenContextMenu { details, abs_pos } =
                 action.as_widget_action().cast()
@@ -154,7 +127,6 @@ impl MatchEvent for App {
                 self.show_context_menu(cx, details, abs_pos);
                 continue;
             }
-
             // Pattern 3: Match on downcast_ref for enum variants
             match action.downcast_ref() {
                 Some(AppStateAction::RoomFocused(room)) => {
@@ -167,7 +139,6 @@ impl MatchEvent for App {
                 }
                 _ => {}
             }
-
             // Pattern 4: Modal actions
             match action.downcast_ref() {
                 Some(ModalAction::Open { kind }) => {
@@ -185,25 +156,19 @@ impl MatchEvent for App {
         }
     }
 }
-
 impl AppMain for App {
     fn handle_event(&mut self, cx: &mut Cx, event: &Event) {
         // Forward to MatchEvent
         self.match_event(cx, event);
-
         // Pass events to widget tree
         let scope = &mut Scope::with_data(&mut self.app_state);
         self.ui.handle_event(cx, event, scope);
     }
 }
 ```
-
 ## Action Types
-
 ### Widget Actions (UI Thread)
-
 Emitted by widgets, handled in the same frame:
-
 ```rust
 // Emitting
 cx.widget_action(
@@ -211,13 +176,11 @@ cx.widget_action(
     &scope.path,
     MyAction::Something,
 );
-
 // Handling (two patterns)
 // Pattern A: Direct cast for widget actions
 if let MyAction::Something = action.as_widget_action().cast() {
     // handle...
 }
-
 // Pattern B: With widget UID matching
 if let Some(uid) = action.as_widget_action().widget_uid() {
     if uid == my_expected_uid {
@@ -227,40 +190,29 @@ if let Some(uid) = action.as_widget_action().widget_uid() {
     }
 }
 ```
-
 ### Posted Actions (From Async)
-
 Posted from async tasks, received in next event cycle:
-
 ```rust
 // In async task
 Cx::post_action(DataFetchedAction { data });
 SignalToUI::set_ui_signal();  // Wake UI thread
-
 // Handling in App (NOT widget actions)
 if let Some(action) = action.downcast_ref::<DataFetchedAction>() {
     self.process_data(&action.data);
 }
 ```
-
 ### Global Actions
-
 For app-wide state changes:
-
 ```rust
 // Using cx.action() for global actions
 cx.action(NavigationAction::GoBack);
-
 // Handling
 if let Some(NavigationAction::GoBack) = action.downcast_ref() {
     self.navigate_back(cx);
 }
 ```
-
 ## Event Handling Patterns
-
 ### Hit Testing
-
 ```rust
 impl Widget for MyWidget {
     fn handle_event(&mut self, cx: &mut Cx, event: &Event, scope: &mut Scope) {
@@ -297,9 +249,7 @@ impl Widget for MyWidget {
     }
 }
 ```
-
 ### Keyboard Events
-
 ```rust
 fn handle_event(&mut self, cx: &mut Cx, event: &Event, scope: &mut Scope) {
     if let Event::KeyDown(ke) = event {
@@ -318,11 +268,8 @@ fn handle_event(&mut self, cx: &mut Cx, event: &Event, scope: &mut Scope) {
     }
 }
 ```
-
 ### Signal Events
-
 For handling async updates:
-
 ```rust
 fn handle_event(&mut self, cx: &mut Cx, event: &Event, scope: &mut Scope) {
     if let Event::Signal = event {
@@ -333,11 +280,8 @@ fn handle_event(&mut self, cx: &mut Cx, event: &Event, scope: &mut Scope) {
     }
 }
 ```
-
 ## Action Chaining Pattern
-
 Widget emits action → Parent catches and re-emits with more context:
-
 ```rust
 // In child widget
 cx.widget_action(
@@ -345,7 +289,6 @@ cx.widget_action(
     &scope.path,
     ItemAction::Selected(item_id),
 );
-
 // In parent widget's handle_event
 if let ItemAction::Selected(item_id) = action.as_widget_action().cast() {
     // Add context and forward to App
@@ -359,9 +302,7 @@ if let ItemAction::Selected(item_id) = action.as_widget_action().cast() {
     );
 }
 ```
-
 ## Best Practices
-
 1. **Use `DefaultNone` derive**: All action enums must have a `None` variant
 2. **Use `continue` after handling**: Prevents unnecessary processing
 3. **Downcast pattern for async actions**: Posted actions are not widget actions
@@ -369,9 +310,7 @@ if let ItemAction::Selected(item_id) = action.as_widget_action().cast() {
 5. **Always call `SignalToUI::set_ui_signal()`**: After posting actions from async
 6. **Centralize in App::handle_actions**: Keep action handling in one place
 7. **Use descriptive action names**: `MessageAction::Reply` not `MessageAction::Action1`
-
 ## Reference Files
-
 - `references/action-patterns.md` - Additional action patterns (Robrix)
 - `references/event-handling.md` - Event handling reference (Robrix)
 - `references/moly-action-patterns.md` - Moly-specific patterns
@@ -381,7 +320,6 @@ if let ItemAction::Selected(item_id) = action.as_widget_action().cast() {
   - External link handling
   - Platform-conditional actions (#[cfg])
   - UiRunner event handling
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

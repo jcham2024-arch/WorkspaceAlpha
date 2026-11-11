@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "701170ac25472c95cacfa002ca63bd4279b0822a4a3ce2d91036fad897d93a32"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: vibrant-maximalism
+content_hash: 701170ac25472c95cacfa002ca63bd4279b0822a4a3ce2d91036fad897d93a32
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Vibrant Maximalism. Trigger when user wants rich colors, dense layouts, extreme sensory input, and "more is more".
-tier: "experimental"
-date_added: "2026-06-17"
+name: vibrant-maximalism
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Vibrant Maximalism
-
 > "More is more. An explosion of color, pattern, and typography."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Sensory Overload**: Every pixel is doing something. Patterns on top of gradients on top of photos.
 2. **Clashing Colors**: Forget the standard rules of color harmony. Pair neon green with hot pink, or bright orange with electric blue.
 3. **Multiple Fonts**: Mix 3 or 4 completely different typefaces in the same layout.
-
 ## Visual DNA
 - **Colors**: All of them. Highly saturated, unmuted hues. No calm neutrals allowed.
 - **Typography**: A chaotic mix. A massive serif headline, a bubble-letter subhead, and a monospace body text.
 - **Visuals**: Stickers, repeating patterns, emojis, 3D renders, and marquee scrolling text.
-
 ## Web Implementation
 - **CSS Example**:
 ```css
@@ -50,7 +37,6 @@ body {
   color: #000;
   overflow-x: hidden;
 }
-
 .max-headline {
   font-family: 'Anton', sans-serif;
   font-size: 8rem;
@@ -64,7 +50,6 @@ body {
     12px 12px 0px #FF00FF;
   transform: rotate(-3deg);
 }
-
 .max-sticker {
   position: absolute;
   background: #000;
@@ -81,9 +66,7 @@ body {
   border: 4px dashed #FF00FF;
   animation: spin 10s linear infinite;
 }
-
 @keyframes spin { 100% { transform: rotate(360deg); } }
-
 .max-card {
   background: rgba(255, 255, 255, 0.9);
   border: 5px solid #000;
@@ -92,9 +75,7 @@ body {
   border-radius: 0 40px 0 40px; /* Weird asymmetrical corners */
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct VibrantMaximalismView: View {
@@ -103,17 +84,14 @@ struct VibrantMaximalismView: View {
             ZStack {
                 // Chaotic Layered Background
                 Color(hex: "FFFF00").ignoresSafeArea() // Pure Yellow
-                
                 Circle()
                     .fill(RadialGradient(colors: [Color(hex: "FF00FF"), .clear], center: .center, startRadius: 0, endRadius: 200))
                     .frame(width: 400, height: 400)
                     .offset(x: -100, y: -200)
-                
                 Circle()
                     .fill(RadialGradient(colors: [Color(hex: "00FFFF"), .clear], center: .center, startRadius: 0, endRadius: 200))
                     .frame(width: 400, height: 400)
                     .offset(x: 150, y: 200)
-                
                 // Content
                 VStack(spacing: 40) {
                     Text("OVERLOAD")
@@ -122,7 +100,6 @@ struct VibrantMaximalismView: View {
                         .shadow(color: .black, radius: 0, x: 4, y: 4)
                         .shadow(color: Color(hex: "00FFFF"), radius: 0, x: 8, y: 8)
                         .rotationEffect(.degrees(-3))
-                    
                     // Weird shaped card
                     VStack {
                         Text("More is more.")
@@ -144,7 +121,6 @@ struct VibrantMaximalismView: View {
 ```
 - Layer multiple `RadialGradient`s in a `ZStack` behind the content to create the complex, clashing color blobs.
 - Use multiple hard drop shadows (radius 0, but large X/Y offsets) in clashing colors to build the loud text effect.
-
 ### Flutter
 ```dart
 class VibrantMaximalismScreen extends StatelessWidget {
@@ -166,7 +142,6 @@ class VibrantMaximalismScreen extends StatelessWidget {
               ),
             ),
           ),
-          
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -185,7 +160,6 @@ class VibrantMaximalismScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 40),
-                
                 // Weird asymmetrical card
                 Container(
                   padding: const EdgeInsets.all(40),
@@ -208,18 +182,14 @@ class VibrantMaximalismScreen extends StatelessWidget {
 ```
 - Flutter's `Stack` with `Positioned` widgets lets you throw clashing radial gradients anywhere on the screen easily.
 - Apply `BorderRadius.only` to create bizarre, asymmetrical containers that break typical UI norms.
-
 ### React Native
 ```jsx
 const VibrantMaximalismScreen = () => {
   return (
     <ScrollView style={{ flex: 1, backgroundColor: '#FFFF00' }}>
-      
       {/* Emulating radial blobs in RN usually requires SVG or ImageBackground. For simplicity, we use absolute views here */}
       <View style={{ position: 'absolute', top: -50, left: -50, width: 300, height: 300, borderRadius: 150, backgroundColor: '#FF00FF', opacity: 0.5 /* Solid blob fallback; blur support depends on RN architecture and OS. */ }} />
-
       <View style={{ padding: 40, alignItems: 'center', marginTop: 100 }}>
-        
         {/* Loud Text */}
         <Text style={{
           fontFamily: 'Anton-Regular', fontSize: 64, color: '#FF0000',
@@ -228,7 +198,6 @@ const VibrantMaximalismScreen = () => {
         }}>
           OVERLOAD
         </Text>
-
         {/* Asymmetrical Card */}
         <View style={{
           marginTop: 60, padding: 40, backgroundColor: 'rgba(255,255,255,0.9)',
@@ -238,7 +207,6 @@ const VibrantMaximalismScreen = () => {
         }}>
           <Text style={{ fontFamily: 'monospace', fontSize: 24, fontWeight: '900' }}>More is more.</Text>
         </View>
-
       </View>
     </ScrollView>
   );
@@ -246,17 +214,14 @@ const VibrantMaximalismScreen = () => {
 ```
 - Use `textShadowRadius: 0` to create hard, offset, brutalist-style text shadows in clashing colors (e.g. Red text with a Cyan hard shadow).
 - Apply `transform: [{ rotate: '-3deg' }]` to break alignment intentionally.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
 fun VibrantMaximalismScreen() {
     Box(modifier = Modifier.fillMaxSize().background(Color(0xFFFFFF00))) {
-        
         // Emulated Radial Gradients
         Box(modifier = Modifier.offset(x = (-100).dp, y = (-100).dp).size(400.dp).background(Brush.radialGradient(listOf(Color(0xFFFF00FF), Color.Transparent))))
         Box(modifier = Modifier.offset(x = 100.dp, y = 300.dp).size(400.dp).background(Brush.radialGradient(listOf(Color(0xFF00FFFF), Color.Transparent))))
-        
         Column(
             modifier = Modifier.fillMaxSize().padding(40.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -273,9 +238,7 @@ fun VibrantMaximalismScreen() {
                     shadow = Shadow(color = Color(0xFF00FFFF), offset = Offset(16f, 16f), blurRadius = 0f)
                 )
             )
-            
             Spacer(Modifier.height(60.dp))
-            
             // Asymmetrical Card
             Box(
                 modifier = Modifier
@@ -296,11 +259,9 @@ fun VibrantMaximalismScreen() {
 ```
 - `Brush.radialGradient` works perfectly for dropping color blobs into the background.
 - Compose's default `shadow` modifier blurs edges. To get a hard, brutalist shadow in Compose, render an identical shape offset behind the main shape with a solid color.
-
 ## Do's and Don'ts
 - **DO**: Break the grid. Let elements overlap awkwardly.
 - **DON'T**: Let decoration obscure essential copy, focus or actions. Use calm reading surfaces where needed and keep optional motion pausable with reduced-motion support.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

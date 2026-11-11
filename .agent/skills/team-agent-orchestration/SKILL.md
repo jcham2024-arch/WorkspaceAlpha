@@ -1,47 +1,30 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "2c1b7d919aed38b0ac385bbdbb730088a9aa0a0969e042b650b39633eae07b52"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 2c1b7d919aed38b0ac385bbdbb730088a9aa0a0969e042b650b39633eae07b52
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+description: ""Run team-based orchestration for agent squads: work items with owners and scope, agent Kanban state, branch isolation, control pane visibility, and merge gates. Use when coordinating multiple agents in parallel across branches or worktrees — multi-agent fan-out, agent Kanban, squad coordination, or merging agent output into one product.""
 name: team-agent-orchestration
-description: "Run team-based orchestration for agent squads: work items with owners and scope, agent Kanban state, branch isolation, control pane visibility, and merge gates. Use when coordinating multiple agents in parallel across branches or worktrees — multi-agent fan-out, agent Kanban, squad coordination, or merging agent output into one product."
-tier: "experimental"
-metadata:
-  origin: ECC
+origin: ECC
 ---
-
-
 # Team Agent Orchestration
-
 Use this skill when agents are being managed like a team rather than a single assistant. The purpose is to make team-based orchestration reliable: clear work items, explicit ownership, agent Kanban state, branch isolation, control pane visibility, and merge gates.
-
 ## When To Activate
-
 - The task spans multiple agents, tools, harnesses, branches, or worktrees.
 - The user mentions team orchestration, agent Kanban, squad, conductor, control pane, manager, desktop app, Zellij, tmux, Hermes, Devin, Codex, Claude Code, or multi-agent work.
 - A project needs shared workflow state across people and agents.
 - Existing agent fan-out is producing output but not mergeable product.
-
 ## Operating Model
-
 Treat every agent as a teammate with a narrow contract:
-
 - **Owner**: the person or agent accountable for the work item.
 - **Scope**: files, branch, tool surface, and forbidden areas.
 - **State**: backlog, ready, running, review, blocked, merged, or archived.
 - **Evidence**: tests, screenshots, logs, review notes, or eval reports.
 - **Merge gate**: the exact condition that allows integration.
-
 ## Agent Kanban
-
 Use agent Kanban when work must be visible across sessions.
-
 | Column | Meaning | Exit Criteria |
 | --- | --- | --- |
 | Backlog | Candidate work item, not yet shaped | Acceptance criteria written |
@@ -51,9 +34,7 @@ Use agent Kanban when work must be visible across sessions.
 | Blocked | Needs external input or failed gate | Blocker has owner and next action |
 | Merged | Integrated into mainline | PR merged or local main updated |
 | Archived | No longer relevant | Reason recorded |
-
 Each card should fit this schema:
-
 ```json
 {
   "id": "agent-card-001",
@@ -71,9 +52,7 @@ Each card should fit this schema:
   "handoff": "path/to/handoff.md"
 }
 ```
-
 ## Team-Based Orchestration Flow
-
 1. **Shape the board**: convert fuzzy ambition into work items with owners and merge gates.
 2. **Pick execution mode**: single-agent, dynamic workflow mode, dmux/tmux, worktree fan-out, or external desktop orchestrator.
 3. **Assign boundaries**: one owner per card, clear file scope, and no overlapping writes without an integrator.
@@ -81,41 +60,29 @@ Each card should fit this schema:
 5. **Review in sequence**: tests first, then diff review, then security/risk checks, then content/product polish.
 6. **Merge deliberately**: one integrator resolves conflicts and updates the control pane or status artifact.
 7. **Extract reusable skill**: if the card pattern repeats, promote it into `skills/`.
-
 ## Control Pane Requirements
-
 A useful control pane for team orchestration should show:
-
 - Active work items and their agent Kanban state.
 - Owner, harness, branch, worktree, and last heartbeat.
 - Links to handoff artifacts, tests, screenshots, and PRs.
 - Blockers grouped by owner and unblock action.
 - Merge readiness by gate, not vibes.
 - Reusable workflow candidates that should become shared skills.
-
 Do not add more automation until the operator can answer: who owns this, what changed, what gate failed, and what can safely merge?
-
 ## Dynamic Workflow Compatibility
-
 When a card needs dynamic workflow mode:
-
 - Put the task-local harness under the card owner.
 - Store inputs and outputs on the card.
 - Require an eval before moving from Running to Review.
 - Promote the harness to a shared skill only after repeat use.
-
 ## Failure Modes To Watch
-
 - **Agent soup**: many agents running, no owner or merge gate.
 - **Invisible work**: useful output exists only in a chat transcript.
 - **Board theater**: a Kanban board exists but cards have no acceptance criteria.
 - **Overlapping writes**: parallel agents edit the same files without worktrees.
 - **No product artifact**: the process produces docs but no runnable or publishable surface.
-
 ## Output Standard
-
 Finish each orchestration pass with:
-
 - Board/card changes.
 - Merged or pending branches.
 - Tests and eval evidence.

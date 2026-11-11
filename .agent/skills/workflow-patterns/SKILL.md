@@ -1,29 +1,19 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "b4178e1df1b469b4e9734f41f906e2755fd81d18161e5aec90a1dba4873d0be6"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: workflow-patterns
+content_hash: b4178e1df1b469b4e9734f41f906e2755fd81d18161e5aec90a1dba4873d0be6
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Use this skill when implementing tasks according to Conductor's TDD workflow, handling phase checkpoints, managing git commits for tasks, or understanding the verification protocol.
-tier: "experimental"
+name: workflow-patterns
 risk: safe
 source: community
-date_added: '2026-02-27'
 ---
-
-
 # Workflow Patterns
-
 Guide for implementing tasks using Conductor's TDD workflow, managing phase checkpoints, handling git commits, and executing the verification protocol that ensures quality throughout implementation.
-
 ## Use this skill when
-
 - Implementing tasks from a track's plan.md
 - Following TDD red-green-refactor cycle
 - Completing phase checkpoints
@@ -31,23 +21,16 @@ Guide for implementing tasks using Conductor's TDD workflow, managing phase chec
 - Understanding quality assurance gates
 - Handling verification protocols
 - Recording progress in plan files
-
 ## Do not use this skill when
-
 - The task is unrelated to workflow patterns
 - You need a different domain or tool outside this scope
-
 ## Instructions
-
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
 - If detailed examples are required, open `resources/implementation-playbook.md`.
-
 ## Resources
-
 - `resources/implementation-playbook.md` for detailed patterns and examples.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

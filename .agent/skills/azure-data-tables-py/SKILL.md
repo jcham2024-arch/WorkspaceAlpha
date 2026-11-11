@@ -1,94 +1,63 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "bf294c62fe3b308a6319a2b02cb1690a42bfe0a14aeb38562ba8710117c412ca"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-data-tables-py
+content_hash: bf294c62fe3b308a6319a2b02cb1690a42bfe0a14aeb38562ba8710117c412ca
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Azure Tables SDK for Python (Storage and Cosmos DB). Use for NoSQL key-value storage, entity CRUD, and batch operations.
-tier: "experimental"
+name: azure-data-tables-py
 risk: critical
 source: community
-date_added: '2026-02-27'
 ---
-
-
 # Azure Tables SDK for Python
-
 NoSQL key-value store for structured data (Azure Storage Tables or Cosmos DB Table API).
-
 ## Installation
-
 ```bash
 pip install azure-data-tables azure-identity
 ```
-
 ## Environment Variables
-
 ```bash
 # Azure Storage Tables
 AZURE_STORAGE_ACCOUNT_URL=https://<account>.table.core.windows.net
-
 # Cosmos DB Table API
 COSMOS_TABLE_ENDPOINT=https://<account>.table.cosmos.azure.com
 ```
-
 ## Authentication
-
 ```python
 from azure.identity import DefaultAzureCredential
 from azure.data.tables import TableServiceClient, TableClient
-
 credential = DefaultAzureCredential()
 endpoint = "https://<account>.table.core.windows.net"
-
 # Service client (manage tables)
 service_client = TableServiceClient(endpoint=endpoint, credential=credential)
-
 # Table client (work with entities)
 table_client = TableClient(endpoint=endpoint, table_name="mytable", credential=credential)
 ```
-
 ## Client Types
-
 | Client | Purpose |
 |--------|---------|
 | `TableServiceClient` | Create/delete tables, list tables |
 | `TableClient` | Entity CRUD, queries |
-
 These are independent fragments. Confirm account/table/partition/row and exact write/delete scope; protect existing entities, use ETags/match conditions for concurrent changes and reconcile timeouts before retries. Storage Table and Cosmos Table authentication/feature/transaction limits differ; verify the selected endpoint rather than assuming one identity configuration fits both. Bound queries/pages/bytes and do not log entity contents. Close async credentials as well as clients on failure. Currency double examples are illustrative; choose exact asset units for money.
-
 ## Table Operations
-
 ```python
 # Create table
 service_client.create_table("mytable")
-
 # Create if not exists
 service_client.create_table_if_not_exists("mytable")
-
 # Delete table
 service_client.delete_table("mytable")
-
 # List tables
 for table in service_client.list_tables():
     print(table.name)
-
 # Get table client
 table_client = service_client.get_table_client("mytable")
 ```
-
 ## Entity Operations
-
 **Important**: Every entity requires `PartitionKey` and `RowKey` (together form unique ID).
-
 ### Create Entity
-
 ```python
 entity = {
     "PartitionKey": "sales",
@@ -98,17 +67,13 @@ entity = {
     "price": 9.99,
     "shipped": False
 }
-
 # Create (fails if exists)
 table_client.create_entity(entity=entity)
-
 # Upsert explicitly replaces; omitted mode defaults can merge instead.
 from azure.data.tables import UpdateMode
 table_client.upsert_entity(entity=entity, mode=UpdateMode.REPLACE)
 ```
-
 ### Get Entity
-
 ```python
 # Get by key (fastest)
 entity = table_client.get_entity(
@@ -117,14 +82,11 @@ entity = table_client.get_entity(
 )
 print(f"Product: {entity['product']}")
 ```
-
 ### Update Entity
-
 ```python
 # Replace entire entity
 entity["quantity"] = 10
 table_client.update_entity(entity=entity, mode="replace")
-
 # Merge (update specific fields only)
 update = {
     "PartitionKey": "sales",
@@ -133,20 +95,15 @@ update = {
 }
 table_client.update_entity(entity=update, mode="merge")
 ```
-
 ### Delete Entity
-
 ```python
 table_client.delete_entity(
     partition_key="sales",
     row_key="order-001"
 )
 ```
-
 ## Query Entities
-
 ### Query Within Partition
-
 ```python
 # Query by partition (efficient)
 entities = table_client.query_entities(
@@ -155,66 +112,51 @@ entities = table_client.query_entities(
 for entity in entities:
     print(entity["RowKey"])  # Do not dump property payloads
 ```
-
 ### Query with Filters
-
 ```python
 # Filter by properties
 entities = table_client.query_entities(
     query_filter="PartitionKey eq 'sales' and quantity gt 3"
 )
-
 # With parameters (safer)
 entities = table_client.query_entities(
     query_filter="PartitionKey eq @pk and price lt @max_price",
     parameters={"pk": "sales", "max_price": 50.0}
 )
 ```
-
 ### Select Specific Properties
-
 ```python
 entities = table_client.query_entities(
     query_filter="PartitionKey eq 'sales'",
     select=["RowKey", "product", "price"]
 )
 ```
-
 ### List All Entities
-
 ```python
 # List all (cross-partition - use sparingly)
 for entity in table_client.list_entities():
     print(entity["RowKey"])  # Do not dump property payloads
 ```
-
 ## Batch Operations
-
 ```python
 from azure.data.tables import TableTransactionError
-
 # Batch operations (same partition only!)
 operations = [
     ("create", {"PartitionKey": "batch", "RowKey": "1", "data": "first"}),
     ("create", {"PartitionKey": "batch", "RowKey": "2", "data": "second"}),
     ("upsert", {"PartitionKey": "batch", "RowKey": "3", "data": "third"}),
 ]
-
 try:
     table_client.submit_transaction(operations)
 except TableTransactionError as e:
     print(f"Transaction failed: {e}")
 ```
-
 ## Async Client
-
 ```python
 from azure.data.tables.aio import TableServiceClient, TableClient
 from azure.identity.aio import DefaultAzureCredential
-
 async def table_operations():
     credential = DefaultAzureCredential()
-    
     async with TableClient(
         endpoint="https://<account>.table.core.windows.net",
         table_name="mytable",
@@ -226,17 +168,13 @@ async def table_operations():
             "RowKey": "1",
             "data": "test"
         })
-        
         # Query
         async for entity in client.query_entities("PartitionKey eq 'async'"):
             print(entity["RowKey"])  # Do not dump property payloads
-
 import asyncio
 asyncio.run(table_operations())
 ```
-
 ## Data Types
-
 | Python Type | Table Storage Type |
 |-------------|-------------------|
 | `str` | String |
@@ -246,9 +184,7 @@ asyncio.run(table_operations())
 | `datetime` | DateTime |
 | `bytes` | Binary |
 | `UUID` | Guid |
-
 ## Best Practices
-
 1. **Design partition keys** for query patterns and even distribution
 2. **Query within partitions** whenever possible (cross-partition is expensive)
 3. **Use batch operations** for multiple entities in same partition
@@ -256,10 +192,8 @@ asyncio.run(table_operations())
 5. **Use parameterized queries** to prevent injection
 6. **Keep entities small** — max 1MB per entity
 7. **Use async client** for high-throughput scenarios
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

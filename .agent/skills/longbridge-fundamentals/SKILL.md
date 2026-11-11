@@ -1,45 +1,30 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "b75f79c6b3e99886f1b1d1ff30a55f75ab3e69819530115878e97e1e46b4b86d"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: b75f79c6b3e99886f1b1d1ff30a55f75ab3e69819530115878e97e1e46b4b86d
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-07-01
+description: Financial statements, business segments, dividends, valuation multiples (PE/PB/PS), industry comparison, operating data, corporate actions, company and executive profiles, cross-stock comparison, and valuation ranking via Longbridge.
+license: MIT
+license_source: "https://github.com/longbridge/skills/blob/main/LICENSE"
 name: longbridge-fundamentals
-description: "Financial statements, business segments, dividends, valuation multiples (PE/PB/PS), industry comparison, operating data, corporate actions, company and executive profiles, cross-stock comparison, and valuation ranking via Longbridge."
-tier: "experimental"
 risk: critical
-source: https://github.com/longbridge/skills/tree/main/skills/longbridge-fundamentals
+source: "https://github.com/longbridge/skills/tree/main/skills/longbridge-fundamentals"
 source_repo: longbridge/skills
 source_type: official
-date_added: 2026-07-01
-license: MIT
-license_source: https://github.com/longbridge/skills/blob/main/LICENSE
 ---
-
 ## Bundled upstream support
-
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.
-
 # Longbridge Fundamentals
-
 Financial data, valuation, and company information for HK / US / A-share / Singapore via Longbridge.
-
 > **Response language**: match the user's input language — English / Simplified Chinese / Traditional Chinese.
 > **RULE: Response language priority**: English is the default when language is ambiguous. If the user input is only a slash command, command name, ticker / symbol, or contains no natural-language language signal, you MUST respond in English. Do not infer Chinese from trigger keywords, skill metadata, or examples.
-
 > **Research boundary**: read-only, sourced analysis. Verify provider capabilities/entitlements and primary filings; user instructions govern source choice. Cite actual sources, retrieval time, reporting period, currency and estimate status. Do not request trading access or execute account operations. Never expose secrets or raw sensitive errors. Templates and thresholds are illustrative, not validated trading signals.
-
 ## When to use
-
 Trigger when user asks about: financial statements (income/balance sheet/cash flow), business segments, dividends, valuation multiples, industry valuation comparison, operating reviews (HK stocks), corporate actions, company overview, executives, stock comparison, valuation ranking, DCF analysis, value investing screens, behavioral finance concepts, or **main business analysis** (what a company does, business model, revenue structure, segment breakdown, growth rate, industry ranking, market position).
-
 ## Sub-topic Routing
-
 | User intent | Load references file |
 |---|---|
 | Financial statements / 三表 | references/financial-report.md |
@@ -63,11 +48,8 @@ Trigger when user asks about: financial statements (income/balance sheet/cash fl
 | Low-PE/PB value screen | references/value-screen.md |
 | Small-cap growth / 专精特新 | references/smallcap-growth.md |
 | Main business analysis / 主营业务分析 | references/main-business-analysis.md |
-
 ## CLI Commands
-
 Run `longbridge <cmd> --help` for current flags and output fields.
-
 ### `financial-report` — income statement, balance sheet, cash flow
 ### `financial-statement` — detailed financial statement with period selection
 ### `business-segments` — revenue breakdown by business segment
@@ -81,53 +63,36 @@ Run `longbridge <cmd> --help` for current flags and output fields.
 ### `executive` — key personnel and executives
 ### `valuation-rank` — valuation percentile rank within industry
 ### `compare` — multi-stock comparison matrix (PE/PB/ROE/revenue growth)
-
 ## Frameworks
-
 ### DCF Valuation
 Historical FCF, WACC, terminal value, intrinsic value vs current price. See [references/dcf.md](references/dcf.md).
-
 ### Valuation Methodology
 PE-Band, PB-ROE, EV-EBITDA, DDM, SOTP frameworks. See [references/valuation-methodology.md](references/valuation-methodology.md).
-
 ### Behavioral Finance
 Overreaction/underreaction, disposition effect, anchoring, herding — momentum/reversal signals. See [references/behavioral-finance.md](references/behavioral-finance.md).
-
 ### Value Screen
 Low PE/PB + high ROE + dividend yield screening for undervalued stocks. See [references/value-screen.md](references/value-screen.md).
-
 ### Small-Cap Growth (专精特新)
 Market cap < 10B, revenue growth > 30%, ROE > 15%, low institutional ownership. See [references/smallcap-growth.md](references/smallcap-growth.md).
-
 ### Main Business Analysis (主营业务分析)
 Revenue structure, segment breakdown, growth attribution (CR1/CR3/HHI), industry ranking, and competitive positioning. See [references/main-business-analysis.md](references/main-business-analysis.md).
-
 ## Auth requirements
-
 These are intended public-data workflows; actual access and coverage depend on provider version and entitlements.
-
 ## Error handling
-
 | Situation | Response |
 |---|---|
 | `command not found: longbridge` | Install longbridge-terminal |
 | No data returned | Verify symbol and market; HK `operating` only works for HK stocks |
 | Other stderr | Surface a redacted error summary |
-
 ## MCP fallback
-
 Use MCP server if CLI unavailable. Discover tools at runtime.
-
 ## Related skills
-
 | User wants | Use |
 |---|---|
 | Analyst ratings / consensus | `longbridge-research` |
 | Portfolio P&L / account | `longbridge-portfolio` |
 | Post-earnings analysis | `longbridge-earnings` |
-
 ## File layout
-
 ```
 longbridge-fundamentals/
 ├── SKILL.md
@@ -139,11 +104,8 @@ longbridge-fundamentals/
     ├── dcf.md · valuation-methodology.md · behavioral-finance.md
     └── value-screen.md · smallcap-growth.md · main-business-analysis.md
 ```
-
 ## Limitations
-
 - Use this skill only when the task clearly matches its upstream source and local project context.
 - Treat all market, trading, instrument, account, or portfolio examples as technical API examples only, not financial advice or a recommendation to trade.
-
 - Verify commands, generated code, dependencies, credentials, and external service behavior before applying changes.
 - Do not treat examples as a substitute for environment-specific tests, security review, or user approval for destructive or costly actions.

@@ -1,27 +1,17 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "bd37f34dfe223684b2b63ccc80a9dacb8d755735c98ed918512d7d605edc66ce"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: nasiko-control-plane
+content_hash: bd37f34dfe223684b2b63ccc80a9dacb8d755735c98ed918512d7d605edc66ce
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: Manage the experimental Nasiko CLI lifecycle through ECC — read-only status checks, consent-gated install of the pinned qualified version with dry-run preview, and ownership-checked uninstall, under explicit telemetry and secrets boundaries. Use when the user asks to install, inspect, or remove the Nasiko CLI or check whether it is present.
-tier: "experimental"
+name: nasiko-control-plane
 ---
-
-
 # Nasiko CLI Lifecycle Bridge
-
 Use this skill when a user explicitly asks ECC to install, inspect, or remove
 the qualified Nasiko CLI. This skill does not operate a Nasiko control plane.
-
 ## Safety contract
-
 - Begin with `ecc nasiko status --json`. Status is read-only.
 - Installation always requires explicit user consent and `--yes`.
 - Install only an ECC-qualified pinned version, currently `v0.1.0`.
@@ -39,20 +29,15 @@ the qualified Nasiko CLI. This skill does not operate a Nasiko control plane.
   install metadata, or ECC state.
 - Nasiko telemetry and any sharing with Nasiko or Ito must be opt-in and
   separately disclosed. Installation is not telemetry consent.
-
 ## Lifecycle boundary
-
 The initial ECC bridge supports qualified installation, read-only status, and
 ownership-checked uninstall. Use the canonical Nasiko CLI directly for connection, authentication,
 launch, deployment, or shutdown until those verbs have their own verified ECC
 contracts. Do not guess CLI verbs.
-
 Installing the CLI does not prove that a control-plane server is running, an
 agent is governed, routing or ACLs work, observability is complete, telemetry
 was enabled, or Ito compute is connected. Report each state separately.
-
 ## Failure behavior
-
 - If the platform, architecture, version, manifest, digest, archive, binary, or
   destination fails validation, stop without executing the artifact.
 - Do not fall back to `latest`.

@@ -1,38 +1,28 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "8452f50a95ddaa67d05422a97ff175eae0dd104b41806042caa6487f0567e7c0"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: music-generation-studio
-description: "Install and use the official AI Music Generator package, pinned by digest, for paid hosted work on the Beatra service."
-tier: "experimental"
+content_hash: 8452f50a95ddaa67d05422a97ff175eae0dd104b41806042caa6487f0567e7c0
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: beatra-ai
 category: media
+date_added: 2026-09-18
+description: Install and use the official AI Music Generator package, pinned by digest, for paid hosted work on the Beatra service.
+license: MIT-0
+license_source: ""https://github.com/beatra-ai/ai-music-generator-skill/blob/98e8aa2f079867eb682b09048e555e224879f55f/LICENSE""
+name: music-generation-studio
 risk: critical
 source: community
 source_repo: beatra-ai/ai-music-generator-skill
 source_type: official
-date_added: "2026-09-18"
-author: beatra-ai
-tags: [music-generation, text-to-music, mcp, paid-api, beatra]
-tools: [claude, codex, cursor, gemini]
-license: "MIT-0"
-license_source: "https://github.com/beatra-ai/ai-music-generator-skill/blob/98e8aa2f079867eb682b09048e555e224879f55f/LICENSE"
+tags: "[music-generation, text-to-music, mcp, paid-api, beatra]"
+tools: "[claude, codex, cursor, gemini]"
 ---
-
-
 # AI Music Generator Skill
-
 ## Overview
-
 Turn a theme, lyrics, or reference audio into songs, instrumentals, and soundtracks, from inside Claude Code, Codex, or OpenClaw. The work is produced on the hosted, paid Beatra service
 (`mcp.beatra.ai`).
-
 This catalog entry is a **reviewed pointer, not the executable package**. It
 contains no client code and performs no Beatra operation by itself. The package
 it points to bundles three standard-library Python scripts that make network
@@ -40,30 +30,22 @@ calls and store a credential. It has no self-updater: it never downloads
 code and never changes its own files. Read
 [Install](#install-pinned-verified-approved-twice) and
 [Security & Safety Notes](#security--safety-notes) before activating it.
-
 | Pinned identity | Value |
 | --- | --- |
 | Package | `music-generation-studio` `0.2.6` |
 | Source commit | [`beatra-ai/ai-music-generator-skill@98e8aa2`](https://github.com/beatra-ai/ai-music-generator-skill/tree/98e8aa2f079867eb682b09048e555e224879f55f/skills/music-generation-studio) (full SHA `98e8aa2f079867eb682b09048e555e224879f55f`) |
 | Package tree | `9bb0de079ba92943e118601c5cf592602a1bdc31` (Git tree ID of `skills/music-generation-studio` at that commit) |
 | License | MIT No Attribution (MIT-0) |
-
 The pinned tree holds regular files only (no symlinks, no executable bits, no
 binaries). Confirm that with the inspect commands below.
-
 ## When to Use This Skill
-
 - Use when the user explicitly wants AI Music Generator audio produced on Beatra and accepts that it is paid.
 - Use when they have agreed to send lyrics, themes, or reference audio to a third party.
 - Do not use for local DAW work or when no paid render was approved.
-
 ## Install (pinned, verified, approved twice)
-
 ### Step 1: Fetch the pinned tree into a review directory
-
 Explain that this fetches an external package from `github.com`, then ask
 for approval. Only after approval:
-
 ```bash
 set -e
 umask 077
@@ -73,21 +55,16 @@ git clone --quiet --filter=blob:none --no-checkout https://github.com/beatra-ai/
 git -C src checkout --quiet 98e8aa2f079867eb682b09048e555e224879f55f -- skills/music-generation-studio
 test "$(git -C src rev-parse '98e8aa2f079867eb682b09048e555e224879f55f:skills/music-generation-studio')" = '9bb0de079ba92943e118601c5cf592602a1bdc31' && echo TREE-OK
 ```
-
 Stop if the last command does not print `TREE-OK`. The expected commit and
 tree IDs come from this catalog entry, not from the package or its website,
 and Git addresses every fetched object by its hash.
-
 ### Step 2: Inspect before activation
-
 ```bash
 git -C src ls-tree -r 98e8aa2f079867eb682b09048e555e224879f55f -- skills/music-generation-studio | awk '$1 != "100644"'  # expect no output
 grep -n -E 'maybe_auto_update|download_update|_apply_update' src/skills/music-generation-studio/scripts/mcp_client.py  # expect no output
 ```
-
 The first check lists any symlink, executable, or submodule entry; the second
 finds the entry points of the self-updater that earlier versions shipped.
-
 Report to the user what the review found: `SKILL.md`, `manifest.json`,
 `install-source.json` (the one-line marker `{"schema_version":1,"source":"github"}`),
 the bundled Markdown references, and `scripts/authorize.py`,
@@ -95,35 +72,24 @@ the bundled Markdown references, and `scripts/authorize.py`,
 library only, no dependency installation, no lifecycle hooks). Summarize the
 network, credential, local-state, telemetry, and version-notice behavior
 listed under [Security & Safety Notes](#security--safety-notes).
-
 The manifest and pattern scans above are only inventory aids. Before activation, read every file in the pinned tree, including each script, reference and hook, and inspect all dependency and network behavior. Do not claim source review from grep output. If complete review cannot be performed, stop before copying or executing; ask for a separate review rather than treating a digest as evidence of safety.
-
 ### Step 3: Copy in
-
 Ask for a **second, separate** approval, because this changes agent
 configuration. Then copy the reviewed tree to the host's skills directory
 (Claude Code shown; use the equivalent path for other hosts):
-
 ```bash
 dest="$HOME/.claude/skills/music-generation-studio"
 test ! -e "$dest" && test ! -L "$dest" || { echo "destination exists; stop and ask the user"; exit 1; }
 cp -R "src/skills/music-generation-studio" "$dest"
 ```
-
 There is no update switch to turn off in this version.
-
 ### Step 4: Authorize as its own decision
-
 Authorization opens a browser sign-in and stores a bearer token. Ask first.
-
 ```bash
 python3 "$dest/scripts/authorize.py"
 ```
-
 Start a new agent session if the host discovers skills only at startup.
-
 ## How It Works
-
 1. Read the installed package's `SKILL.md` and its references; they define the
    routes, payload shapes, and review loop.
 2. Use free, non-billable discovery first (`beatra.models.list`, task list) to
@@ -135,44 +101,33 @@ Start a new agent session if the host discovers skills only at startup.
    once with a stable `client_request_id` and poll the returned task.
 5. Report the delivered artifact and `billing.net_charged_credits`, review the
    result with the user, and ask again before any further paid stage.
-
 ## Examples
-
 ### Free connection check (non-billable)
-
 ```bash
 python3 "$HOME/.claude/skills/music-generation-studio/scripts/mcp_client.py" verify
 ```
-
 ### One approved paid call
-
 After the user approved the cost card for this exact payload, submit once with
 a stable request id using the tool name from the installed `SKILL.md`. If the
 response is lost, retry only with the same `client_request_id` and identical
 arguments; never submit a replacement while the task is running.
-
 ## Update
-
 This pinned version cannot update itself: it has no code that downloads or
 replaces package files. `update` only reports what the store or tool that
 installed the copy offers; for a copy installed by the steps above it finds
 no such record and says to update the way you installed it. See the version
 notice under [Security & Safety Notes](#security--safety-notes).
-
 To move to a newer version, repeat Steps 1 to 3 for that commit in a new
 review directory, show the user the file-level changes against the installed
 copy (for example `git -C src diff --stat 98e8aa2 <new-commit> -- skills/music-generation-studio`),
 and replace the directory only after approval. A version not listed in this
 entry has not been reviewed here.
-
 ## Uninstall
-
 ```bash
 dest="$HOME/.claude/skills/music-generation-studio"
 python3 "$dest/scripts/uninstall.py" --dry-run
 python3 "$dest/scripts/uninstall.py"
 ```
-
 Read the JSON decision. `disconnected` means this was the last Beatra skill on
 the device: the token was revoked (when `revoked` is `true`) and the files
 `credentials.json`, `installation.json`, `host.json`, `skills.json`,
@@ -182,23 +137,18 @@ another Beatra skill still uses the shared token, which stays.
 `revoke_retry` means the server refused the revocation and nothing changed;
 run it again shortly. The script never deletes the package directory: after
 confirming the path it prints with the user, delete `$dest`.
-
 `uninstall.py` does not remove `~/.beatra/updates/`. When the decision is
 `disconnected` and no other Beatra skill is installed, remove that directory
 and then the empty `~/.beatra`; otherwise leave them. A token that could not
 be revoked expires after 15 days idle and can be revoked at once in the
 Beatra Console under Agents.
-
 ## Best Practices
-
 - ✅ Keep one approval per paid call, per upload set, and per install step.
 - ✅ Report net charged credits from the terminal task, not the estimate.
 - ❌ Do not replace the installed copy with an unreviewed version silently.
 - ❌ Do not print, paste, or move the token out of `~/.beatra/credentials.json`.
 - ❌ Do not retry a paid call with a new request ID after an uncertain response.
-
 ## Limitations
-
 - Requires a Beatra account, network access, Python 3.10+, and prepaid credits.
 - Models, prices, schemas, and availability are controlled by Beatra and its
   upstream model providers and can change; the service is provided as is.
@@ -206,11 +156,8 @@ Beatra Console under Agents.
   human review before publication.
 - This catalog entry reviews only the pinned tree above. A newer version is
   a different review.
-
 ## Security & Safety Notes
-
 `risk: critical` is deliberate.
-
 - **Network.** Every request is HTTPS and refuses redirects. Authorization
   uses `api.beatra.ai` and tool calls go to `mcp.beatra.ai`; an upload is a
   `PUT` of the approved file to the HTTPS address the server returns, without
@@ -285,9 +232,7 @@ Beatra Console under Agents.
 - **Content rights.** Users keep rights in their inputs and receive Beatra's
   rights in outputs; they must hold rights to uploaded media and must not
   create deceptive impersonations.
-
 ## Additional Resources
-
 - [Source tree at the pinned commit](https://github.com/beatra-ai/ai-music-generator-skill/tree/98e8aa2f079867eb682b09048e555e224879f55f/skills/music-generation-studio)
 - [Product page](https://beatra.ai/skills/music-generation-studio)
 - [Terms](https://beatra.ai/en/terms) and [privacy policy](https://beatra.ai/en/privacy)

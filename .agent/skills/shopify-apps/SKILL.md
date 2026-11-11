@@ -1,41 +1,27 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "a002dbf0d79fa006c83d397ac875df04142aab88684d3eec9ea28fc9ba559a3d"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: shopify-apps
+content_hash: a002dbf0d79fa006c83d397ac875df04142aab88684d3eec9ea28fc9ba559a3d
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Expert patterns for Shopify app development including Remix/React
-tier: "experimental"
-  Router apps, embedded apps with App Bridge, webhook handling, GraphQL Admin
-  API, Polaris components, billing, and app extensions.
+name: shopify-apps
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
-date_added: 2026-02-27
+---  Router apps, embedded apps with App Bridge, webhook handling, GraphQL Admin
+  API, Polaris components, billing, and app extensions.
 ---
-
-
 # Shopify Apps
-
 Expert patterns for Shopify app development including Remix/React Router apps,
 embedded apps with App Bridge, webhook handling, GraphQL Admin API,
 Polaris components, billing, and app extensions.
-
 <!-- Modified 2026-10-23: deployment and tenant/privacy boundaries; Apache-2.0 retained. -->
-
 ## Integration limits
-
 Use the authorized development store/app, minimum scopes and protected-customer-data approvals; accessScopes does not prove protected-data approval. These legacy Remix/2024 API snippets are incomplete and require current generated SDK/template/schema validation. Test billing with explicit test mode and require merchant approval; production deploy/config/scopes/subscriptions and notification sends need task authority. Never log access tokens or customer payloads. Store tenant identity from verified sessions/webhooks and enforce it for every resource operation. No app/runtime was executed in this review.
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use
 - User mentions or implies: shopify app
 - User mentions or implies: shopify
@@ -43,7 +29,6 @@ Read [the detailed guide](references/detailed-guide.md) before executing this sk
 - User mentions or implies: polaris
 - User mentions or implies: app bridge
 - User mentions or implies: shopify webhook
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

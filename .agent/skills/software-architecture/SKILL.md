@@ -1,40 +1,26 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "4a354ecb024da88f393191229f7ac9745c3e3ed7306205d3430d4dd8f188223f"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 4a354ecb024da88f393191229f7ac9745c3e3ed7306205d3430d4dd8f188223f
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Guide for quality focused software architecture. This skill should be used when users want to write code, design architecture, analyze code, in any case that relates to software development.
 name: software-architecture
-description: "Guide for quality focused software architecture. This skill should be used when users want to write code, design architecture, analyze code, in any case that relates to software development."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # Software Architecture Development Skill
-
 This skill provides guidance for quality focused software development and architecture. It is based on Clean Architecture and Domain Driven Design principles.
-
 ## Code Style Rules
-
 ### General Principles
-
 - **Early return pattern**: Always use early returns when possible, over nested conditions for better readability
 - Avoid code duplication through creation of reusable functions and modules
 - Decompose long (more than 80 lines of code) components and functions into multiple smaller components and functions. If they cannot be used anywhere else, keep it in the same file. But if file longer than 200 lines of code, it should be split into multiple files.
 - Use arrow functions instead of function declarations when possible
-
 ### Best Practices
-
 #### Library-First Approach
-
 - **ALWAYS search for existing solutions before writing custom code**
   - Check npm for existing libraries that solve the problem
   - Evaluate existing services/SaaS solutions
@@ -46,9 +32,7 @@ This skill provides guidance for quality focused software development and archit
   - When external dependencies would be overkill
   - Security-sensitive code requiring full control
   - When existing solutions don't meet requirements after thorough evaluation
-
 #### Architecture and Design
-
 - **Clean Architecture & DDD Principles:**
   - Follow domain-driven design and ubiquitous language
   - Separate domain entities from infrastructure concerns
@@ -64,9 +48,7 @@ This skill provides guidance for quality focused software development and archit
   - Keep database queries out of controllers
   - Maintain clear boundaries between contexts
   - Ensure proper separation of responsibilities
-
 #### Anti-Patterns to Avoid
-
 - **NIH (Not Invented Here) Syndrome:**
   - Don't build custom auth when Auth0/Supabase exists
   - Don't write custom state management instead of using Redux/Zustand
@@ -80,24 +62,17 @@ This skill provides guidance for quality focused software development and archit
   - `helpers/misc.js` as a dumping ground
   - `common/shared.js` with unclear purpose
 - Remember: Every line of custom code is a liability that needs maintenance, testing, and documentation
-
 #### Code Quality
-
 - Proper error handling with typed catch blocks
 - Break down complex logic into smaller, reusable functions
 - Avoid deep nesting (max 3 levels)
 - Keep functions focused and under 50 lines when possible
 - Keep files focused and under 200 lines of code when possible
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Example
-
 **User request:**
-
 > Use @software-architecture for this task: Guide for quality focused software architecture.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

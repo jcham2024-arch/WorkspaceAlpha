@@ -1,48 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "fdb82976bbe43af1d9f916522209cd426230435d5ba85193ed617804ff475abf"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: fdb82976bbe43af1d9f916522209cd426230435d5ba85193ed617804ff475abf
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Comprehensive frameworks for analyzing competition, identifying differentiation opportunities, and developing winning market positioning strategies.
 name: competitive-landscape
-description: "Comprehensive frameworks for analyzing competition, identifying differentiation opportunities, and developing winning market positioning strategies."
-tier: "experimental"
 risk: safe
 source: community
-date_added: '2026-02-27'
 ---
-
-
 # Competitive Landscape Analysis
-
 Comprehensive frameworks for analyzing competition, identifying differentiation opportunities, and developing winning market positioning strategies.
-
 ## Use this skill when
-
 - Working on competitive landscape analysis tasks or workflows
 - Needing guidance, best practices, or checklists for competitive landscape analysis
-
 ## Do not use this skill when
-
 - The task is unrelated to competitive landscape analysis
 - You need a different domain or tool outside this scope
-
 ## Instructions
-
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
 - If detailed examples are required, open `resources/implementation-playbook.md`.
-
 ## Resources
-
 - `resources/implementation-playbook.md` for detailed patterns and examples.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

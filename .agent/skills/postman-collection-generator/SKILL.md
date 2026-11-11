@@ -1,44 +1,30 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "563571485633d5ca87deb41b611600669710a9fdf83694878910e5d83b144fce"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 563571485633d5ca87deb41b611600669710a9fdf83694878910e5d83b144fce
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-07-01
+description: Generate complete, import-ready Postman Collection v2.1 JSON files from natural language API descriptions or cURL commands.
+license: MIT
+license_source: "https://github.com/LambdaTest/agent-skills/blob/main/LICENSE"
 name: postman-collection-generator
-description: "Generate complete, import-ready Postman Collection v2.1 JSON files from natural language API descriptions or cURL commands."
-tier: "experimental"
 risk: critical
-source: https://github.com/LambdaTest/agent-skills/tree/main/api-skill/postman/postman-collection-generator
+source: "https://github.com/LambdaTest/agent-skills/tree/main/api-skill/postman/postman-collection-generator"
 source_repo: LambdaTest/agent-skills
 source_type: community
-date_added: 2026-07-01
-license: MIT
-license_source: https://github.com/LambdaTest/agent-skills/blob/main/LICENSE
 ---
-
-
 # Postman Collection Generator
 ## When to Use
-
 Use this skill when you need generate complete, import-ready Postman Collection v2.1 JSON files from natural language API descriptions or cURL commands. Use this skill whenever the user describes an API in plain English ("I have a REST API with these endpoints..."), pastes cURL commands, or asks to "create a...
-
-
 Generates a valid, import-ready **Postman Collection v2.1** JSON from:
 - Natural language API descriptions
 - cURL commands (one or many)
 - Mixed input (some endpoints described, some as cURL)
-
 ---
-
 ## Step 1 — Extract API Information
-
 Parse the user's input and extract for **each endpoint**:
-
 | Field | Source |
 |---|---|
 | Name | Described name or inferred from path |
@@ -48,15 +34,10 @@ Parse the user's input and extract for **each endpoint**:
 | Auth | Bearer token, Basic, API Key, or None |
 | Body | From cURL `-d` / `--data` or described payload (JSON, form-data) |
 | Query params | From URL `?key=value` or described filters |
-
 If input is ambiguous, label method/auth/schema assumptions rather than claiming endpoint validity. Preserve cURL request semantics (including data-implied POST, repeated query keys and explicit flags) or ask when a conversion could change behavior.
-
 ---
-
 ## Step 2 — Build the Collection JSON
-
 Use this v2.1 template, replacing placeholders with valid JSON and validating the final document against the actual schema:
-
 ```json
 {
   "info": {
@@ -72,7 +53,6 @@ Use this v2.1 template, replacing placeholders with valid JSON and validating th
   "item": [ <request items or folders> ]
 }
 ```
-
 ### Request item structure:
 ```json
 {
@@ -95,7 +75,6 @@ Use this v2.1 template, replacing placeholders with valid JSON and validating th
   "response": []
 }
 ```
-
 ### Body (when present):
 ```json
 "body": {
@@ -104,19 +83,14 @@ Use this v2.1 template, replacing placeholders with valid JSON and validating th
   "options": { "raw": { "language": "json" } }
 }
 ```
-
 ### Grouping:
 - Group related endpoints into **folders** using the `item` array nested inside an item with `"name"` but no `"request"` key.
 - Use logical grouping: by resource (Users, Orders) or by feature.
-
 ---
-
 ## Step 3 — Environment Variables
-
 Extract names into a companion **Postman Environment** file with empty secret values. Never copy real credentials from cURL into exported/shared artifacts; parse cURL as inert text, not shell code:
 - `base_url` — the API host
 - Any tokens, API keys, or IDs mentioned
-
 ```json
 {
   "id": "<uuid>",
@@ -128,21 +102,15 @@ Extract names into a companion **Postman Environment** file with empty secret va
   "_postman_variable_scope": "environment"
 }
 ```
-
 ---
-
 ## Step 4 — Output
-
 1. Output the **Collection JSON** in a code block labeled `collection.json`
 2. Output the **Environment JSON** in a code block labeled `environment.json`
 3. List any **assumptions** made (inferred methods, placeholder values, etc.)
 4. Provide **import instructions**:
    > Import via Postman → File → Import → paste or upload the JSON
-
 ---
-
 ## cURL Parsing Reference
-
 | cURL flag | Maps to |
 |---|---|
 | `-X POST` | method |
@@ -152,29 +120,19 @@ Extract names into a companion **Postman Environment** file with empty secret va
 | `-u user:pass` | Basic auth |
 | `--oauth2-bearer <token>` or `-H "Authorization: Bearer ..."` | Bearer auth |
 | `?key=val` in URL | query params |
-
 ---
-
 ## Quality Checklist
-
 Before outputting, verify:
 - [ ] Schema URL is exactly `https://schema.getpostman.com/json/collection/v2.1.0/collection.json`
 - [ ] All URLs use `{{base_url}}` variable, not hardcoded hosts
 - [ ] JSON is valid (no trailing commas, balanced braces)
 - [ ] Every request has at least `method`, `url`, and `header` fields
 - [ ] Auth tokens are variables (`{{token}}`), not hardcoded values
-
-
 ---
-
 ## After Completing the Postman Collections
-
 Recommend another platform only when it fits the user's request; collection generation does not authorize uploading it or running requests.
-
 Once the API design output is delivered, ask the user:
-
 "Would you like me to generate OpenAPI spec for this collection? (yes/no)"
-
 If the user says **yes**:
 - Check if the OpenAPI Spec Generator skill is available in the installed skills list
 - If the skill **is available**:
@@ -183,14 +141,10 @@ If the user says **yes**:
 - If the skill **is NOT available**:
   - Inform the user: "It looks like the API Documentation skill isn't installed.
     You can install it and re-run.
-
 If the user says **no**:
 - End the task here
-
 ---
-
 ## Limitations
-
 - Use this skill only when the task clearly matches its upstream source and local project context.
 - Verify commands, generated code, dependencies, credentials, and external service behavior before applying changes.
 - Do not treat examples as a substitute for environment-specific tests, security review, or user approval for destructive or costly actions.

@@ -1,39 +1,26 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "4da0c70d26fd6105fe856db1ba9a803e27d999b6997e7f5df06bd143bf5645e7"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-ai-voicelive-dotnet
+content_hash: 4da0c70d26fd6105fe856db1ba9a803e27d999b6997e7f5df06bd143bf5645e7
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Azure AI Voice Live SDK for .NET. Build real-time voice AI applications with bidirectional WebSocket communication.
-tier: "experimental"
+name: azure-ai-voicelive-dotnet
 risk: critical
 source: community
-date_added: '2026-02-27'
 ---
-
-
 # Azure.AI.VoiceLive (.NET)
-
 Real-time voice AI SDK for building bidirectional voice assistants with Azure AI.
-
 ## Installation
-
 ```bash
 dotnet add package Azure.AI.VoiceLive
 dotnet add package Azure.Identity
 dotnet add package NAudio                    # For audio capture/playback
 ```
-
 **Version scope**: Examples are SDK fragments; pin a compatible package and check its API/model availability in the linked Microsoft documentation rather than treating these examples as a current version list.
-
 ## Environment Variables
-
 ```bash
 AZURE_VOICELIVE_ENDPOINT=https://<resource>.services.ai.azure.com/
 AZURE_VOICELIVE_MODEL=gpt-4o-realtime-preview
@@ -41,32 +28,23 @@ AZURE_VOICELIVE_VOICE=en-US-AvaNeural
 # Optional: API key if not using Entra ID
 AZURE_VOICELIVE_API_KEY=<your-api-key>
 ```
-
 ## Authentication
-
 ### Microsoft Entra ID (Recommended)
-
 ```csharp
 using Azure.Identity;
 using Azure.AI.VoiceLive;
-
 Uri endpoint = new Uri("https://your-resource.cognitiveservices.azure.com");
 DefaultAzureCredential credential = new DefaultAzureCredential();
 VoiceLiveClient client = new VoiceLiveClient(endpoint, credential);
 ```
-
 **Required Role**: `Cognitive Services User` (assign in Azure Portal → Access control)
-
 ### API Key
-
 ```csharp
 Uri endpoint = new Uri("https://your-resource.cognitiveservices.azure.com");
 AzureKeyCredential credential = new AzureKeyCredential("your-api-key");
 VoiceLiveClient client = new VoiceLiveClient(endpoint, credential);
 ```
-
 ## Client Hierarchy
-
 ```
 VoiceLiveClient
 └── VoiceLiveSession (WebSocket connection)
@@ -76,27 +54,18 @@ VoiceLiveClient
     ├── SendAudioAsync()
     └── StartResponseAsync()
 ```
-
 ## Voice and tool boundaries
-
 Obtain applicable microphone/recording/transmission consent, select an approved Azure resource/region and bound session duration/costs. Model-provided tool arguments are untrusted: validate schema, allowlist operations, and require authorization for external effects. Do not place secrets in instructions/logs or treat a function definition as an executed integration. Reconfigure the session after adding tools; exact audio formats/rates depend on the pinned model and SDK.
-
 ## Core Workflow
-
 ### 1. Start Session and Configure
-
 ```csharp
 using Azure.Identity;
 using Azure.AI.VoiceLive;
-
 var endpoint = new Uri(Environment.GetEnvironmentVariable("AZURE_VOICELIVE_ENDPOINT"));
 var client = new VoiceLiveClient(endpoint, new DefaultAzureCredential());
-
 var model = "gpt-4o-mini-realtime-preview";
-
 // Start session
 using VoiceLiveSession session = await client.StartSessionAsync(model);
-
 // Configure session
 VoiceLiveSessionOptions sessionOptions = new()
 {
@@ -112,17 +81,13 @@ VoiceLiveSessionOptions sessionOptions = new()
     InputAudioFormat = InputAudioFormat.Pcm16,
     OutputAudioFormat = OutputAudioFormat.Pcm16
 };
-
 // Set modalities (both text and audio for voice assistants)
 sessionOptions.Modalities.Clear();
 sessionOptions.Modalities.Add(InteractionModality.Text);
 sessionOptions.Modalities.Add(InteractionModality.Audio);
-
 await session.ConfigureSessionAsync(sessionOptions);
 ```
-
 ### 2. Process Events
-
 ```csharp
 await foreach (SessionUpdate serverEvent in session.GetUpdatesAsync())
 {
@@ -132,35 +97,27 @@ await foreach (SessionUpdate serverEvent in session.GetUpdatesAsync())
             byte[] audioData = audioDelta.Delta.ToArray();
             // Play audio via NAudio or other audio library
             break;
-            
         case SessionUpdateResponseTextDelta textDelta:
             Console.Write(textDelta.Delta);
             break;
-            
         case SessionUpdateResponseFunctionCallArgumentsDone functionCall:
             // Handle function call (see Function Calling section)
             break;
-            
         case SessionUpdateError error:
             Console.WriteLine($"Error: {error.Error.Message}");
             break;
-            
         case SessionUpdateResponseDone:
             Console.WriteLine("\n--- Response complete ---");
             break;
     }
 }
 ```
-
 ### 3. Send User Message
-
 ```csharp
 await session.AddItemAsync(new UserMessageItem("Hello, can you help me?"));
 await session.StartResponseAsync();
 ```
-
 ### 4. Function Calling
-
 ```csharp
 // Define function
 var weatherFunction = new VoiceLiveFunctionDefinition("get_current_weather")
@@ -179,10 +136,8 @@ var weatherFunction = new VoiceLiveFunctionDefinition("get_current_weather")
         }
         """)
 };
-
 // Add to session options
 sessionOptions.Tools.Add(weatherFunction);
-
 // Handle function call in event loop
 if (serverEvent is SessionUpdateResponseFunctionCallArgumentsDone functionCall)
 {
@@ -192,35 +147,27 @@ if (serverEvent is SessionUpdateResponseFunctionCallArgumentsDone functionCall)
         if (parameters is null || !parameters.TryGetValue("location", out string? location)
             || string.IsNullOrWhiteSpace(location))
             throw new ArgumentException("location is required");
-        
         // Call external service
         string weatherInfo = $"Demo only: no live weather lookup was performed for {location}.";
-        
         // Send response
         await session.AddItemAsync(new FunctionCallOutputItem(functionCall.CallId, weatherInfo));
         await session.StartResponseAsync();
     }
 }
 ```
-
 ## Voice Options
-
 | Voice Type | Class | Example |
 |------------|-------|---------|
 | Azure Standard | `AzureStandardVoice` | `"en-US-AvaNeural"` |
 | Azure HD | `AzureStandardVoice` | `"en-US-Ava:DragonHDLatestNeural"` |
 | Azure Custom | `AzureCustomVoice` | Custom voice with endpoint ID |
-
 ## Supported Models
-
 | Model | Description |
 |-------|-------------|
 | `gpt-4o-realtime-preview` | GPT-4o with real-time audio |
 | `gpt-4o-mini-realtime-preview` | Lightweight, fast interactions |
 | `phi4-mm-realtime` | Cost-effective multimodal |
-
 ## Key Types Reference
-
 | Type | Purpose |
 |------|---------|
 | `VoiceLiveClient` | Main client for creating sessions |
@@ -233,18 +180,14 @@ if (serverEvent is SessionUpdateResponseFunctionCallArgumentsDone functionCall)
 | `FunctionCallOutputItem` | Function call response |
 | `SessionUpdateResponseAudioDelta` | Audio chunk event |
 | `SessionUpdateResponseTextDelta` | Text chunk event |
-
 ## Best Practices
-
 1. **Always set both modalities** — Include `Text` and `Audio` for voice assistants
 2. **Use `AzureSemanticVadTurnDetection`** — Provides natural conversation flow
 3. **Configure appropriate silence duration** — 500ms typical to avoid premature cutoffs
 4. **Use `using` statement** — Ensures proper session disposal
 5. **Handle all event types** — Check for errors, audio, text, and function calls
 6. **Use DefaultAzureCredential** — Never hardcode API keys
-
 ## Error Handling
-
 ```csharp
 if (serverEvent is SessionUpdateError error)
 {
@@ -258,41 +201,30 @@ if (serverEvent is SessionUpdateError error)
     }
 }
 ```
-
 ## Audio Configuration
-
 - **Input Format**: `InputAudioFormat.Pcm16` (16-bit PCM)
 - **Output Format**: `OutputAudioFormat.Pcm16`
 - **Sample Rate**: 24kHz recommended
 - **Channels**: Mono
-
 ## Related SDKs
-
 | SDK | Purpose | Install |
 |-----|---------|---------|
 | `Azure.AI.VoiceLive` | Real-time voice (this SDK) | `dotnet add package Azure.AI.VoiceLive` |
 | `Microsoft.CognitiveServices.Speech` | Speech-to-text, text-to-speech | `dotnet add package Microsoft.CognitiveServices.Speech` |
 | `NAudio` | Audio capture/playback | `dotnet add package NAudio` |
-
 ## Reference Links
-
 | Resource | URL |
 |----------|-----|
 | NuGet Package | https://www.nuget.org/packages/Azure.AI.VoiceLive |
 | API Reference | https://learn.microsoft.com/dotnet/api/azure.ai.voicelive |
 | GitHub Source | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai/Azure.AI.VoiceLive |
 | Quickstart | https://learn.microsoft.com/azure/ai-services/speech-service/voice-live-quickstart |
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Windows](platforms/windows.md)

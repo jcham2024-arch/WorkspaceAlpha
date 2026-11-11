@@ -1,81 +1,55 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "f147979f74627bc7d6ca34dc271cf33858b355d09b8de5c912304c4f184b606e"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-ai-vision-imageanalysis-py
+content_hash: f147979f74627bc7d6ca34dc271cf33858b355d09b8de5c912304c4f184b606e
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Azure AI Vision Image Analysis SDK for captions, tags, objects, OCR, people detection, and smart cropping. Use for computer vision and image understanding tasks.
-tier: "experimental"
+name: azure-ai-vision-imageanalysis-py
 risk: critical
 source: community
-date_added: '2026-02-27'
 ---
-
-
 # Azure AI Vision Image Analysis SDK for Python
-
 Client library for Azure AI Vision 4.0 image analysis including captions, tags, objects, OCR, and more.
-
 ## Installation
-
 ```bash
 pip install azure-ai-vision-imageanalysis
 ```
-
 ## Environment Variables
-
 ```bash
 VISION_ENDPOINT=https://<resource>.cognitiveservices.azure.com
 VISION_KEY=<your-api-key>  # If using API key
 ```
-
 ## Authentication
-
 ### API Key
-
 ```python
 import os
 from azure.ai.vision.imageanalysis import ImageAnalysisClient
 from azure.core.credentials import AzureKeyCredential
-
 endpoint = os.environ["VISION_ENDPOINT"]
 key = os.environ["VISION_KEY"]
-
 client = ImageAnalysisClient(
     endpoint=endpoint,
     credential=AzureKeyCredential(key)
 )
 ```
-
 ### Entra ID (Recommended)
-
 ```python
 from azure.ai.vision.imageanalysis import ImageAnalysisClient
 from azure.identity import DefaultAzureCredential
-
 client = ImageAnalysisClient(
     endpoint=os.environ["VISION_ENDPOINT"],
     credential=DefaultAzureCredential()
 )
 ```
-
 ## Data and inference boundary
-
 Calls disclose supplied images or URLs to Azure. Confirm rights and privacy scope, region, service availability and current supported features. OCR/captions can be wrong; people detection does not identify people or establish age, identity, consent or sensitive traits. Review output before consequential use and avoid logging private OCR text.
-
 ## Analyze Image from URL
-
 ```python
 from azure.ai.vision.imageanalysis.models import VisualFeatures
-
 image_url = "https://example.com/image.jpg"
-
 result = client.analyze_from_url(
     image_url=image_url,
     visual_features=[
@@ -91,69 +65,54 @@ result = client.analyze_from_url(
     language="en"
 )
 ```
-
 ## Analyze Image from File
-
 ```python
 with open("image.jpg", "rb") as f:
     image_data = f.read()
-
 result = client.analyze(
     image_data=image_data,
     visual_features=[VisualFeatures.CAPTION, VisualFeatures.TAGS]
 )
 ```
-
 ## Image Caption
-
 ```python
 result = client.analyze_from_url(
     image_url=image_url,
     visual_features=[VisualFeatures.CAPTION],
     gender_neutral_caption=True
 )
-
 if result.caption:
     print(f"Caption: {result.caption.text}")
     print(f"Confidence: {result.caption.confidence:.2f}")
 ```
-
 ## Dense Captions (Multiple Regions)
-
 ```python
 result = client.analyze_from_url(
     image_url=image_url,
     visual_features=[VisualFeatures.DENSE_CAPTIONS]
 )
-
 if result.dense_captions:
     for caption in result.dense_captions.list:
         print(f"Caption: {caption.text}")
         print(f"  Confidence: {caption.confidence:.2f}")
         print(f"  Bounding box: {caption.bounding_box}")
 ```
-
 ## Tags
-
 ```python
 result = client.analyze_from_url(
     image_url=image_url,
     visual_features=[VisualFeatures.TAGS]
 )
-
 if result.tags:
     for tag in result.tags.list:
         print(f"Tag: {tag.name} (confidence: {tag.confidence:.2f})")
 ```
-
 ## Object Detection
-
 ```python
 result = client.analyze_from_url(
     image_url=image_url,
     visual_features=[VisualFeatures.OBJECTS]
 )
-
 if result.objects:
     for obj in result.objects.list:
         print(f"Object: {obj.tags[0].name}")
@@ -161,34 +120,27 @@ if result.objects:
         box = obj.bounding_box
         print(f"  Bounding box: x={box.x}, y={box.y}, w={box.width}, h={box.height}")
 ```
-
 ## OCR (Text Extraction)
-
 ```python
 result = client.analyze_from_url(
     image_url=image_url,
     visual_features=[VisualFeatures.READ]
 )
-
 if result.read:
     for block in result.read.blocks:
         for line in block.lines:
             print(f"Line: {line.text}")
             print(f"  Bounding polygon: {line.bounding_polygon}")
-            
             # Word-level details
             for word in line.words:
                 print(f"  Word: {word.text} (confidence: {word.confidence:.2f})")
 ```
-
 ## People Detection
-
 ```python
 result = client.analyze_from_url(
     image_url=image_url,
     visual_features=[VisualFeatures.PEOPLE]
 )
-
 if result.people:
     for person in result.people.list:
         print(f"Person detected:")
@@ -196,29 +148,23 @@ if result.people:
         box = person.bounding_box
         print(f"  Bounding box: x={box.x}, y={box.y}, w={box.width}, h={box.height}")
 ```
-
 ## Smart Cropping
-
 ```python
 result = client.analyze_from_url(
     image_url=image_url,
     visual_features=[VisualFeatures.SMART_CROPS],
     smart_crops_aspect_ratios=[0.9, 1.33, 1.78]  # Portrait, 4:3, 16:9
 )
-
 if result.smart_crops:
     for crop in result.smart_crops.list:
         print(f"Aspect ratio: {crop.aspect_ratio}")
         box = crop.bounding_box
         print(f"  Crop region: x={box.x}, y={box.y}, w={box.width}, h={box.height}")
 ```
-
 ## Async Client
-
 ```python
 from azure.ai.vision.imageanalysis.aio import ImageAnalysisClient
 from azure.identity.aio import DefaultAzureCredential
-
 async def analyze_image():
     async with ImageAnalysisClient(
         endpoint=endpoint,
@@ -231,9 +177,7 @@ async def analyze_image():
         if result.caption:
             print(result.caption.text)
 ```
-
 ## Visual Features
-
 | Feature | Description |
 |---------|-------------|
 | `CAPTION` | Single sentence describing the image |
@@ -243,12 +187,9 @@ async def analyze_image():
 | `READ` | OCR text extraction |
 | `PEOPLE` | People detection with bounding boxes |
 | `SMART_CROPS` | Suggested crop regions for thumbnails |
-
 ## Error Handling
-
 ```python
 from azure.core.exceptions import HttpResponseError
-
 try:
     result = client.analyze_from_url(
         image_url=image_url,
@@ -259,15 +200,11 @@ except HttpResponseError as e:
     print(f"Reason: {e.reason}")
     print(f"Message: {e.error.message}")
 ```
-
 ## Image Requirements
-
 - Formats: JPEG, PNG, GIF, BMP, WEBP, ICO, TIFF, MPO
 - Max size: 20 MB
 - Dimensions: 50x50 to 16000x16000 pixels
-
 ## Best Practices
-
 1. **Select only needed features** to optimize latency and cost
 2. **Use async client** for high-throughput scenarios
 3. **Handle HttpResponseError** for invalid images or auth issues
@@ -275,10 +212,8 @@ except HttpResponseError as e:
 5. **Specify language** for localized captions
 6. **Use smart_crops_aspect_ratios** matching your thumbnail requirements
 7. **Cache results** when analyzing the same image multiple times
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

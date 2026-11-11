@@ -1,40 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "58591bf05a7b9373475434674af15b43977e2d47391c8c1e7dffc95d6d6313aa"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: aws-vpc
-description: Design and implement VPCs and networking. Configure subnets, route tables,
-tier: "experimental"
-  and security groups. Use when setting up AWS network infrastructure.
+content_hash: 58591bf05a7b9373475434674af15b43977e2d47391c8c1e7dffc95d6d6313aa
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant OS/platform tooling and privileged access where
+date_added: 2026-09-20
+description: Design and implement VPCs and networking. Configure subnets, route tables,
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: aws-vpc
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant OS/platform tooling and privileged access where
+version: 1.0
+---  and security groups. Use when setting up AWS network infrastructure.
   noted. Docs-only; helper scripts and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # AWS VPC
-
 Design and manage Virtual Private Cloud networking for production AWS environments with proper subnet isolation, routing, and security.
-
 ## When to Use This Skill
-
 - Building a new VPC for production, staging, or development
 - Setting up public/private subnet architecture across multiple AZs
 - Configuring NAT Gateways for private subnet internet access
@@ -42,18 +31,13 @@ Design and manage Virtual Private Cloud networking for production AWS environmen
 - Setting up VPC peering or Transit Gateway for multi-VPC connectivity
 - Implementing VPC endpoints for private access to AWS services
 - Troubleshooting connectivity issues between resources
-
 ## Prerequisites
-
 - AWS CLI v2 installed and configured
 - IAM permissions scoped to the needed VPC actions/resources and approved account/region
 - CIDR range planning completed (avoid overlaps with on-premises or other VPCs)
 - For VPC peering: access to both VPCs (same or different accounts)
-
 ## Network Architecture
-
 Diagram address counts are total addresses; AWS reserves five per subnet, so a /24 normally has251 assignable addresses. Confirm account/region, AZ availability, nonoverlapping CIDRs, routing and approved cost before creation. CLI examples create twoAZs; the Terraform example creates three. Inspect existing resources and plan rollback rather than rerunning non-idempotent create commands. VPC/subnet tags do not enforce isolation: explicitly associate data subnets with local-only route tables and verify no inherited default route. New security groups allow all outbound by default; scope egress to actual dependencies.
-
 ```
 VPC (10.0.0.0/16) - 65,536 IPs
 ├── Public Subnets (internet-facing via IGW)
@@ -73,20 +57,16 @@ VPC (10.0.0.0/16) - 65,536 IPs
 ├── Route Tables (public, private, data)
 └── VPC Flow Logs → CloudWatch / S3
 ```
-
 ## Create a VPC with CLI
-
 ```bash
 # Create the VPC
 VPC_ID=$(aws ec2 create-vpc \
   --cidr-block 10.0.0.0/16 \
   --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=production-vpc},{Key=Environment,Value=production}]' \
   --query 'Vpc.VpcId' --output text)
-
 # Enable DNS support and hostnames
 aws ec2 modify-vpc-attribute --vpc-id $VPC_ID --enable-dns-support '{"Value":true}'
 aws ec2 modify-vpc-attribute --vpc-id $VPC_ID --enable-dns-hostnames '{"Value":true}'
-
 # Create public subnets
 PUB_SUB_A=$(aws ec2 create-subnet \
   --vpc-id $VPC_ID \
@@ -94,18 +74,15 @@ PUB_SUB_A=$(aws ec2 create-subnet \
   --availability-zone us-east-1a \
   --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=public-a},{Key=Tier,Value=public}]' \
   --query 'Subnet.SubnetId' --output text)
-
 PUB_SUB_B=$(aws ec2 create-subnet \
   --vpc-id $VPC_ID \
   --cidr-block 10.0.2.0/24 \
   --availability-zone us-east-1b \
   --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=public-b},{Key=Tier,Value=public}]' \
   --query 'Subnet.SubnetId' --output text)
-
 # Enable auto-assign public IP on public subnets
 aws ec2 modify-subnet-attribute --subnet-id $PUB_SUB_A --map-public-ip-on-launch
 aws ec2 modify-subnet-attribute --subnet-id $PUB_SUB_B --map-public-ip-on-launch
-
 # Create private subnets
 PRIV_SUB_A=$(aws ec2 create-subnet \
   --vpc-id $VPC_ID \
@@ -113,14 +90,12 @@ PRIV_SUB_A=$(aws ec2 create-subnet \
   --availability-zone us-east-1a \
   --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=private-a},{Key=Tier,Value=private}]' \
   --query 'Subnet.SubnetId' --output text)
-
 PRIV_SUB_B=$(aws ec2 create-subnet \
   --vpc-id $VPC_ID \
   --cidr-block 10.0.12.0/24 \
   --availability-zone us-east-1b \
   --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=private-b},{Key=Tier,Value=private}]' \
   --query 'Subnet.SubnetId' --output text)
-
 # Create data subnets (isolated)
 DATA_SUB_A=$(aws ec2 create-subnet \
   --vpc-id $VPC_ID \
@@ -128,7 +103,6 @@ DATA_SUB_A=$(aws ec2 create-subnet \
   --availability-zone us-east-1a \
   --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=data-a},{Key=Tier,Value=data}]' \
   --query 'Subnet.SubnetId' --output text)
-
 DATA_SUB_B=$(aws ec2 create-subnet \
   --vpc-id $VPC_ID \
   --cidr-block 10.0.22.0/24 \
@@ -136,16 +110,13 @@ DATA_SUB_B=$(aws ec2 create-subnet \
   --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=data-b},{Key=Tier,Value=data}]' \
   --query 'Subnet.SubnetId' --output text)
 ```
-
 ## Internet Gateway and NAT Gateway
-
 ```bash
 # Create and attach Internet Gateway
 IGW_ID=$(aws ec2 create-internet-gateway \
   --tag-specifications 'ResourceType=internet-gateway,Tags=[{Key=Name,Value=production-igw}]' \
   --query 'InternetGateway.InternetGatewayId' --output text)
 aws ec2 attach-internet-gateway --vpc-id $VPC_ID --internet-gateway-id $IGW_ID
-
 # Create public route table
 PUB_RT=$(aws ec2 create-route-table \
   --vpc-id $VPC_ID \
@@ -154,27 +125,22 @@ PUB_RT=$(aws ec2 create-route-table \
 aws ec2 create-route --route-table-id $PUB_RT --destination-cidr-block 0.0.0.0/0 --gateway-id $IGW_ID
 aws ec2 associate-route-table --route-table-id $PUB_RT --subnet-id $PUB_SUB_A
 aws ec2 associate-route-table --route-table-id $PUB_RT --subnet-id $PUB_SUB_B
-
 # Allocate Elastic IPs for NAT Gateways (one per AZ for HA)
 EIP_A=$(aws ec2 allocate-address --domain vpc --query 'AllocationId' --output text)
 EIP_B=$(aws ec2 allocate-address --domain vpc --query 'AllocationId' --output text)
-
 # Create NAT Gateways in public subnets
 NAT_A=$(aws ec2 create-nat-gateway \
   --subnet-id $PUB_SUB_A \
   --allocation-id $EIP_A \
   --tag-specifications 'ResourceType=natgateway,Tags=[{Key=Name,Value=nat-a}]' \
   --query 'NatGateway.NatGatewayId' --output text)
-
 NAT_B=$(aws ec2 create-nat-gateway \
   --subnet-id $PUB_SUB_B \
   --allocation-id $EIP_B \
   --tag-specifications 'ResourceType=natgateway,Tags=[{Key=Name,Value=nat-b}]' \
   --query 'NatGateway.NatGatewayId' --output text)
-
 # Wait for NAT Gateways
 aws ec2 wait nat-gateway-available --nat-gateway-ids $NAT_A $NAT_B
-
 # Create private route tables (one per AZ for HA NAT)
 PRIV_RT_A=$(aws ec2 create-route-table \
   --vpc-id $VPC_ID \
@@ -182,7 +148,6 @@ PRIV_RT_A=$(aws ec2 create-route-table \
   --query 'RouteTable.RouteTableId' --output text)
 aws ec2 create-route --route-table-id $PRIV_RT_A --destination-cidr-block 0.0.0.0/0 --nat-gateway-id $NAT_A
 aws ec2 associate-route-table --route-table-id $PRIV_RT_A --subnet-id $PRIV_SUB_A
-
 PRIV_RT_B=$(aws ec2 create-route-table \
   --vpc-id $VPC_ID \
   --tag-specifications 'ResourceType=route-table,Tags=[{Key=Name,Value=private-rt-b}]' \
@@ -190,9 +155,7 @@ PRIV_RT_B=$(aws ec2 create-route-table \
 aws ec2 create-route --route-table-id $PRIV_RT_B --destination-cidr-block 0.0.0.0/0 --nat-gateway-id $NAT_B
 aws ec2 associate-route-table --route-table-id $PRIV_RT_B --subnet-id $PRIV_SUB_B
 ```
-
 ## Security Groups
-
 ```bash
 # ALB security group (public-facing)
 ALB_SG=$(aws ec2 create-security-group \
@@ -202,7 +165,6 @@ ALB_SG=$(aws ec2 create-security-group \
   --query 'GroupId' --output text)
 aws ec2 authorize-security-group-ingress --group-id $ALB_SG --protocol tcp --port 443 --cidr 0.0.0.0/0
 aws ec2 authorize-security-group-ingress --group-id $ALB_SG --protocol tcp --port 80 --cidr 0.0.0.0/0
-
 # Application security group (only from ALB)
 APP_SG=$(aws ec2 create-security-group \
   --group-name app-sg \
@@ -214,7 +176,6 @@ aws ec2 authorize-security-group-ingress \
   --protocol tcp \
   --port 8080 \
   --source-group $ALB_SG
-
 # Database security group (only from app tier)
 DB_SG=$(aws ec2 create-security-group \
   --group-name db-sg \
@@ -226,16 +187,13 @@ aws ec2 authorize-security-group-ingress \
   --protocol tcp \
   --port 5432 \
   --source-group $APP_SG
-
 # List all security groups in the VPC
 aws ec2 describe-security-groups \
   --filters "Name=vpc-id,Values=$VPC_ID" \
   --query "SecurityGroups[].{Name:GroupName,ID:GroupId,Description:Description}" \
   --output table
 ```
-
 ## VPC Endpoints (Private Access to AWS Services)
-
 ```bash
 # Gateway endpoint for S3 (free, route-table based)
 aws ec2 create-vpc-endpoint \
@@ -243,18 +201,15 @@ aws ec2 create-vpc-endpoint \
   --service-name com.amazonaws.us-east-1.s3 \
   --route-table-ids $PRIV_RT_A $PRIV_RT_B \
   --tag-specifications 'ResourceType=vpc-endpoint,Tags=[{Key=Name,Value=s3-endpoint}]'
-
 # Gateway endpoint for DynamoDB (free)
 aws ec2 create-vpc-endpoint \
   --vpc-id $VPC_ID \
   --service-name com.amazonaws.us-east-1.dynamodb \
   --route-table-ids $PRIV_RT_A $PRIV_RT_B
-
 # Create a dedicated endpoint SG: app must reach endpoint443, not app-SG8080 ingress.
 ENDPOINT_SG=$(aws ec2 create-security-group --group-name secrets-endpoint-sg \
   --description "Secrets Manager endpoint TLS" --vpc-id "$VPC_ID" --query GroupId --output text)
 aws ec2 authorize-security-group-ingress --group-id "$ENDPOINT_SG" --protocol tcp --port 443 --source-group "$APP_SG"
-
 # Interface endpoint for Secrets Manager (ENI-based, has hourly cost)
 aws ec2 create-vpc-endpoint \
   --vpc-id $VPC_ID \
@@ -265,9 +220,7 @@ aws ec2 create-vpc-endpoint \
   --private-dns-enabled \
   --tag-specifications 'ResourceType=vpc-endpoint,Tags=[{Key=Name,Value=secretsmanager-endpoint}]'
 ```
-
 ## VPC Flow Logs
-
 ```bash
 # Enable VPC flow logs to CloudWatch
 aws ec2 create-flow-log \
@@ -279,7 +232,6 @@ aws ec2 create-flow-log \
   --deliver-logs-permission-arn arn:aws:iam::123456789012:role/VPCFlowLogRole \
   --max-aggregation-interval 60 \
   --tag-specifications 'ResourceType=vpc-flow-log,Tags=[{Key=Name,Value=production-flow-log}]'
-
 # Enable VPC flow logs to S3 (cheaper for long-term storage)
 aws ec2 create-flow-log \
   --resource-type VPC \
@@ -289,9 +241,7 @@ aws ec2 create-flow-log \
   --log-destination arn:aws:s3:::my-flow-logs-bucket/vpc-logs/ \
   --max-aggregation-interval 60
 ```
-
 ## VPC Peering
-
 ```bash
 # Request peering connection
 PEERING_ID=$(aws ec2 create-vpc-peering-connection \
@@ -301,77 +251,63 @@ PEERING_ID=$(aws ec2 create-vpc-peering-connection \
   --peer-region us-west-2 \
   --tag-specifications 'ResourceType=vpc-peering-connection,Tags=[{Key=Name,Value=prod-to-shared}]' \
   --query 'VpcPeeringConnection.VpcPeeringConnectionId' --output text)
-
 # Accept peering (from the accepter account/region)
 aws ec2 accept-vpc-peering-connection --vpc-peering-connection-id $PEERING_ID
-
 # Add routes in both VPCs
 aws ec2 create-route --route-table-id rtb-requester --destination-cidr-block 10.1.0.0/16 --vpc-peering-connection-id $PEERING_ID
 aws ec2 create-route --route-table-id rtb-accepter --destination-cidr-block 10.0.0.0/16 --vpc-peering-connection-id $PEERING_ID
 ```
-
 ## Terraform VPC Module
-
 ```hcl
 resource "aws_vpc" "main" {
   cidr_block           = "10.0.0.0/16"
   enable_dns_support   = true
   enable_dns_hostnames = true
-
   tags = {
     Name        = "production-vpc"
     Environment = "production"
   }
 }
-
 resource "aws_subnet" "public" {
   count                   = 3
   vpc_id                  = aws_vpc.main.id
   cidr_block              = cidrsubnet(aws_vpc.main.cidr_block, 8, count.index + 1)
   availability_zone       = data.aws_availability_zones.available.names[count.index]
   map_public_ip_on_launch = true
-
   tags = {
     Name = "public-${data.aws_availability_zones.available.names[count.index]}"
     Tier = "public"
   }
 }
-
 resource "aws_subnet" "private" {
   count             = 3
   vpc_id            = aws_vpc.main.id
   cidr_block        = cidrsubnet(aws_vpc.main.cidr_block, 8, count.index + 11)
   availability_zone = data.aws_availability_zones.available.names[count.index]
-
   tags = {
     Name = "private-${data.aws_availability_zones.available.names[count.index]}"
     Tier = "private"
   }
 }
-
 resource "aws_subnet" "data" {
   count             = 3
   vpc_id            = aws_vpc.main.id
   cidr_block        = cidrsubnet(aws_vpc.main.cidr_block, 8, count.index + 21)
   availability_zone = data.aws_availability_zones.available.names[count.index]
-
   tags = {
     Name = "data-${data.aws_availability_zones.available.names[count.index]}"
     Tier = "data"
   }
 }
-
 resource "aws_internet_gateway" "main" {
   vpc_id = aws_vpc.main.id
   tags   = { Name = "production-igw" }
 }
-
 resource "aws_eip" "nat" {
   count  = 3
   domain = "vpc"
   tags   = { Name = "nat-eip-${count.index}" }
 }
-
 resource "aws_nat_gateway" "main" {
   count         = 3
   allocation_id = aws_eip.nat[count.index].id
@@ -379,7 +315,6 @@ resource "aws_nat_gateway" "main" {
   tags          = { Name = "nat-${count.index}" }
   depends_on    = [aws_internet_gateway.main]
 }
-
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.main.id
   route {
@@ -388,13 +323,11 @@ resource "aws_route_table" "public" {
   }
   tags = { Name = "public-rt" }
 }
-
 resource "aws_route_table_association" "public" {
   count          = 3
   subnet_id      = aws_subnet.public[count.index].id
   route_table_id = aws_route_table.public.id
 }
-
 resource "aws_route_table" "private" {
   count  = 3
   vpc_id = aws_vpc.main.id
@@ -404,20 +337,17 @@ resource "aws_route_table" "private" {
   }
   tags = { Name = "private-rt-${count.index}" }
 }
-
 resource "aws_route_table_association" "private" {
   count          = 3
   subnet_id      = aws_subnet.private[count.index].id
   route_table_id = aws_route_table.private[count.index].id
 }
-
 resource "aws_vpc_endpoint" "s3" {
   vpc_id       = aws_vpc.main.id
   service_name = "com.amazonaws.${data.aws_region.current.name}.s3"
   route_table_ids = aws_route_table.private[*].id
   tags = { Name = "s3-endpoint" }
 }
-
 resource "aws_flow_log" "main" {
   vpc_id                 = aws_vpc.main.id
   traffic_type           = "ALL"
@@ -426,11 +356,8 @@ resource "aws_flow_log" "main" {
   max_aggregation_interval = 60
 }
 ```
-
 The Terraform fragment also needs provider constraints, `aws_availability_zones`/`aws_region` data sources, flow-log bucket policy/retention and explicit isolated data route associations; it is not a standalone module. An S3 gateway endpoint has no endpoint hourly fee, but storage/request/transfer charges can still apply. Peering is non-transitive and needs explicit accepter account/region credentials, security rules and DNS options; it does not permit using a peer’s NAT/IGW. More NAT gateways can reduce cross-AZ traffic but increase hourly cost: evaluate both instead of claiming automatic savings.
-
 ## Troubleshooting
-
 | Problem | Cause | Fix |
 |---|---|---|
 | Cannot reach internet from private subnet | NAT Gateway route missing | Add 0.0.0.0/0 route to NAT GW in private route table |
@@ -442,17 +369,12 @@ The Terraform fragment also needs provider constraints, `aws_availability_zones`
 | DNS resolution failing | DNS hostnames not enabled on VPC | Enable `enableDnsHostnames` on VPC |
 | NAT Gateway charges high | All AZs routing through one NAT | Deploy NAT GW per AZ with separate route tables |
 | Cross-AZ data transfer costs | Resources in different AZs communicating | Co-locate tightly coupled services in same AZ |
-
 ## Related Skills
-
 - aws-ec2 (`aws-ec2`) - Instances deployed in VPC subnets
 - aws-ecs-fargate (`aws-ecs-fargate`) - ECS tasks in VPC networking
 - aws-rds (`aws-rds`) - Database subnet groups
 - terraform-aws (`terraform-aws`) - IaC for VPC infrastructure
 - firewall-config (`firewall-config`) - Network security controls
-
 ## Limitations
-
 - Infrastructure commands can disrupt services: confirm target host/scope and have backups/snapshots before mutating state.
 - Docs-only import: upstream scripts and templates not bundled.
-

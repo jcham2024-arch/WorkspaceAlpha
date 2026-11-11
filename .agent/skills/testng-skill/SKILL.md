@@ -1,71 +1,50 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "4281310cc54a3b09f68785a406d92df5175bbe1bd014d56d1225ff652afeecdf"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 4281310cc54a3b09f68785a406d92df5175bbe1bd014d56d1225ff652afeecdf
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-07-01
+description: "'Generates TestNG tests in Java with groups, data providers, parallel execution, XML suite configuration, and listeners. Use when user mentions "TestNG", "@DataProvider", "testng.xml", "groups". Triggers on: "TestNG", "@DataProvider", "testng.xml", "TestNG suite", "parallel tests Java".'"
+license: MIT
+license_source: "https://github.com/LambdaTest/agent-skills/blob/main/LICENSE"
 name: testng-skill
-description: 'Generates TestNG tests in Java with groups, data providers, parallel execution, XML suite configuration, and listeners. Use when user mentions "TestNG", "@DataProvider", "testng.xml", "groups". Triggers on: "TestNG", "@DataProvider", "testng.xml", "TestNG suite", "parallel tests Java".'
-tier: "experimental"
 risk: critical
-source: https://github.com/LambdaTest/agent-skills/tree/main/testng-skill
+source: "https://github.com/LambdaTest/agent-skills/tree/main/testng-skill"
 source_repo: LambdaTest/agent-skills
 source_type: community
-date_added: 2026-07-01
-license: MIT
-license_source: https://github.com/LambdaTest/agent-skills/blob/main/LICENSE
 ---
-
-
 # TestNG Testing Skill
 ## When to Use
-
 Use this skill when you need generates TestNG tests in Java with groups, data providers, parallel execution, XML suite configuration, and listeners. Use when user mentions "TestNG", "@DataProvider", "testng.xml", "groups". Triggers on: "TestNG", "@DataProvider", "testng.xml", "TestNG suite", "parallel tests Java".
-
-
 Examples are separate fragments: supply loginService/dashboard and the project AuthenticationException, import org.testng.asserts.SoftAssert and listener interfaces as needed. The three parallel suite lines are alternatives, not one valid XML document. Maven suite-property/report locations depend on the actual Surefire configuration; inspect pom.xml rather than assuming these commands configure it. Isolate test users/data and per-thread browser/service state before parallel execution, and close only resources created by the test. The listed reference/playbook.md is absent from this catalog copy.
-
 ## Core Patterns
-
 ### Basic Test with Groups
-
 ```java
 package tests;
-
 import org.testng.annotations.*;
 import org.testng.Assert;
-
 public class LoginTest {
     @BeforeMethod
     public void setUp() { /* setup */ }
-
     @Test(groups = "smoke")
     public void testLoginSuccess() {
         Assert.assertTrue(loginService.login("user@test.com", "password123"));
     }
-
     @Test(groups = "regression", dependsOnMethods = "testLoginSuccess")
     public void testAccessDashboard() {
         Assert.assertNotNull(dashboard.getContent());
     }
-
     @Test(expectedExceptions = AuthenticationException.class)
     public void testLoginInvalidPassword() {
         loginService.login("user@test.com", "wrong");
     }
-
     @AfterMethod
     public void tearDown() { /* cleanup */ }
 }
 ```
-
 ### Data Providers
-
 ```java
 @DataProvider(name = "loginData")
 public Object[][] loginData() {
@@ -75,15 +54,12 @@ public Object[][] loginData() {
         {"invalid@test.com", "wrong", false},
     };
 }
-
 @Test(dataProvider = "loginData")
 public void testLogin(String email, String password, boolean expected) {
     Assert.assertEquals(loginService.login(email, password), expected);
 }
 ```
-
 ### TestNG XML Suite
-
 ```xml
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Regression" parallel="tests" thread-count="5">
@@ -97,17 +73,13 @@ public void testLogin(String email, String password, boolean expected) {
   </test>
 </suite>
 ```
-
 ### Parallel Execution
-
 ```xml
 <suite parallel="methods" thread-count="5">   <!-- Method level -->
 <suite parallel="classes" thread-count="5">    <!-- Class level -->
 <suite parallel="tests" thread-count="5">      <!-- Test level -->
 ```
-
 ### Soft Assertions
-
 ```java
 SoftAssert soft = new SoftAssert();
 soft.assertEquals(user.getName(), "Alice");
@@ -115,9 +87,7 @@ soft.assertEquals(user.getAge(), 25);
 soft.assertTrue(user.isActive());
 soft.assertAll();  // Reports all failures at once
 ```
-
 ### Listeners
-
 ```java
 public class TestListener implements ITestListener {
     @Override public void onTestFailure(ITestResult result) {
@@ -125,37 +95,28 @@ public class TestListener implements ITestListener {
         // Take screenshot, log, etc.
     }
 }
-
 @Listeners(TestListener.class)
 public class LoginTest { /* ... */ }
 ```
-
 ### Lifecycle Annotations
-
 ```
 @BeforeSuite → @BeforeTest → @BeforeClass → @BeforeMethod → @Test → @AfterMethod → @AfterClass → @AfterTest → @AfterSuite
 ```
-
 ### Anti-Patterns
-
 | Bad | Good | Why |
 |-----|------|-----|
 | `dependsOnMethods` everywhere | Independent tests | Cascading failures |
 | No groups | `@Test(groups = "smoke")` | Can't run subsets |
 | Hard-coded test data | `@DataProvider` | Reusable |
 | Priority ordering | Independent tests | Fragile |
-
 ## Quick Reference
-
 | Task | Command |
 |------|---------|
 | Run suite | `mvn test -DsuiteXmlFile=testng.xml` |
 | Run group | `mvn test -Dgroups=smoke` |
 | Run class | `mvn test -Dtest=LoginTest` |
 | Reports | `test-output/index.html` |
-
 ## Deep Patterns → `reference/playbook.md`
-
 | § | Section | Lines |
 |---|---------|-------|
 | 1 | Project Setup & Configuration | Maven + Surefire config |
@@ -171,9 +132,7 @@ public class LoginTest { /* ... */ }
 | 11 | CI/CD Integration | GitHub Actions, Jenkins |
 | 12 | Debugging Quick-Reference | 12 common problems |
 | 13 | Best Practices Checklist | 14 items |
-
 ## Limitations
-
 - Use this skill only when the task clearly matches its upstream source and local project context.
 - Verify commands, generated code, dependencies, credentials, and external service behavior before applying changes.
 - Do not treat examples as a substitute for environment-specific tests, security review, or user approval for destructive or costly actions.

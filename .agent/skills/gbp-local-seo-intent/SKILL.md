@@ -1,54 +1,39 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "193f48d5f4a8983fbaebaad19406f529ab02f84eaf69dc61681bd6de35688ff3"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: gbp-local-seo-intent
-description: 'Google Business Profile register: element, primary and supporting keywords, search intent, landing page, post dates, review rating and reply status, visibility and status. Use for local SEO.'
-tier: "experimental"
+content_hash: 193f48d5f4a8983fbaebaad19406f529ab02f84eaf69dc61681bd6de35688ff3
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: WHOISABHISHEKADHIKARI
 category: business
+date_added: 2026-09-27
+description: "'Google Business Profile register: element, primary and supporting keywords, search intent, landing page, post dates, review rating and reply status, visibility and status. Use for local SEO.'"
+name: gbp-local-seo-intent
 risk: safe
 source: self
-source_type: self
-date_added: "2026-09-27"
-author: WHOISABHISHEKADHIKARI
-tags: [sme, gbp, google-business-profile, local-seo, local-pack, map-pack, intent, categories, services, reviews, posts, photos, attributes, csv, sql, notion]
-tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
+source_type: self
+tags: "[sme, gbp, google-business-profile, local-seo, local-pack, map-pack, intent, categories, services, reviews, posts, photos, attributes, csv, sql, notion]"
+tools: "[]"
 ---
-
-
 # GBP & Local SEO Intent
-
 **What it is:** the Google Business Profile taken from claimed to complete, with the search-intent map behind it - which query means what, which one the profile should answer, and what proves the answer is right.
-
 ## Overview
-
 Works out the smallest useful profile for the business in front of it, then builds it only
 when asked. The default output is a short recommendation, not a profile. The GBP register -
 CSV, SQL DDL, JSON Schema, Notion mapping - is produced on request, from one field list so
 the four cannot drift apart.
-
 Layer: Layer 3: Acquire. Fits: Starter stage. Table code: n/a.
-
 **The rule this table exists to enforce:** five different things are recorded in one place
 and must not be confused - the profile itself, the services, the posts, the reviews, and
 the questions. A `Row Type` discriminator keeps them apart, because a profile update and a
 review reply are different actions with different owners, and merging them turns the
 register into a log nothing can be filtered out of.
-
 **The second rule:** local rank is relevance, distance and prominence. A profile controls
 relevance directly and prominence partly. Nobody can buy a better local rank, and this skill
 never suggests otherwise.
-
 ## When to Use This Skill
-
 - Google Business Profile, Google My Business, GMB, GBP
 - map pack, local pack, local SEO, "near me" searches
 - "we do not appear on Google Maps"
@@ -57,36 +42,24 @@ never suggests otherwise.
 - reviews, review replies, review strategy
 - Bing Places, Apple Business Connect, and the other map surfaces
 - local keyword and intent research
-
 Do not use it for: the website's own page structure (`business-website-setup`), off-site
 directory citations (`seo-directory-backlinks`), or paid advertising - which buys clicks,
 not rank.
-
 ## How It Works
-
 Follow the shared execution contract. The module-specific rules below define only domain fields, decisions, calculations, and safety constraints.
-
 ### Step 1 - Identify intent
-
 Read the request and pick the intent before asking anything.
-
 - "set up" / "claim" / "we do not have one" -> artifacts wanted; go to Step 2.
 - "we have one, it is not showing" -> something exists; capture the current state, then
   Step 2.
 - "review" / "audit" / "what is wrong with it" -> a check, not a build.
 - "which keywords" / "why do we not rank" -> an intent question, not a build.
-
 Ask only if this is the highest-value missing fact; otherwise proceed without an opener:
-
 > **Q:** What is the business called, and what does one line of it actually do?
-
 ### Step 2 - Ask only what is missing
-
 Treat ambiguous replies as unanswered and ask which explicit option the user means. Record unknown values as `Unknown`; `Unknown` is not zero. A record must not be `Done` when a required check fails.
-
 Skip anything already answered. Ask the rest one at a time, and stop as soon as the
 remaining answers would not change the profile spec.
-
 - **Location** - Can customers visit a physical address, or is it a service-area business?
   / One location or several? / City, country, and the exact address as it should print?
 - **What it does** - The full service list, in the words customers would use? / What does
@@ -97,13 +70,10 @@ remaining answers would not change the profile spec.
   process, stock or equipment worth showing? / Any seasonal or by-appointment behaviour?
 - **Engagement** - Who reviews replies, and how fast? / Is anyone being asked for a
   review, and by what method? / Is there time to post weekly?
-
 Never invent an answer. Address, phone, categories, services, review counts, ratings,
 keywords, opening hours and metrics the user has not supplied are `Unknown`. A review count
 is a measurement, never an estimate.
-
 ### Step 3 - Hold the internal context
-
 ```yaml
 module: gbp-local-seo-intent
 intent: null            # set up | fix | review | report | import
@@ -118,34 +88,26 @@ requested_outputs: []
 confirmed_facts: []
 open_questions: []
 ```
-
 ### Step 4 - Recommend the smallest workflow
-
 Build an already requested artifact without asking again. For advice-only requests, give a short recommendation and offer the relevant artifact.
-
 **Recommended approach:** One verified profile with the most specific accurate primary
 category, up to secondary categories that are genuinely true, a service list in the words
 customers use, the business description written plainly with the service area named, and
 opening hours including special hours. Choose a sustainable posting cadence and a neutral process for asking genuine customers for honest reviews, with useful replies; no weekly quota guarantees ranking. Photographs of the real premises, added
 monthly. Every field mirrored onto Bing Places and Apple Business Connect, and the intent
 map written down so the same terms are used on the website.
-
 **Why this one:** The profile is the strongest asset a local business owns, and completeness
 beats cleverness. Complete accurate information and authentic reviews can help visibility; weekly posts do not guarantee outperforming competitors. And the intent map is what stops the
 website, the profile and the directories using three different words for the same service.
-
 **Workflow:** Address type confirmed → Primary category chosen as the most specific true
 one → Secondary categories added → Services listed in customer words → Description written
 and services named → Photos added of the real premises → Bing and Apple mirrored → Weekly
 post scheduled → Review request process running → Replies written within the week →
 Intent map shared with the website and the directories
-
 ### Step 5 - Build only on request
-
 Once the user asks for it, derive the fields from the confirmed context and emit the
 requested artifacts. For machine-readable text, keep prose outside the data; for files,
 provide a usable link. Report material validation failures or limitations separately.
-
 **A selected Notion output is rendered by `notion-manual-import`, so route the
 Notion step there.** When the user selects Notion, hand that step to
 @notion-manual-import: it holds the CSV, the property
@@ -155,12 +117,10 @@ here and do not improvise the import steps. Manual CSV and mapping outputs need 
 connection. For requested workspace changes, follow the shared contract: verify actual
 tool access and the target before writing. A user saying "connected" is not tool evidence.
 Never ask for a Notion password or token.
-
 ```csv
 Row ID,Row Type,GBP Element,Value,Primary Keyword,Supporting Keywords,Search Intent,Landing Page URL,Media Attached,Post Type,Call To Action,Publish Date,Expiry Date,Review Rating,Review Date,Review Reply Status,Reviewer Response,Category Role,Visibility,Action Type,Data Quality Status,Verified,Owner,Review Date Check,Status,Notes
 ,Profile,Business description,"Example Retail is a home and kitchen goods shop in Example City selling cookware, storage and small appliances, with same-day local delivery across Example City and the surrounding area. Walk in for advice, order online, or call the shop.",example retail example city,"home and kitchen goods shop; small appliance shop",Local intent,https://example.com/,None,None,None,,, , ,Not applicable,Not applicable,Not applicable,Public,Set up,Incomplete,false,Unknown,2026-10-27,Planned,"Example row - replace every value before use."
 ```
-
 ```sql
 -- Engine assumption: PostgreSQL. For another engine use the engine's auto-increment
 -- equivalent and keep the rest portable.
@@ -199,12 +159,10 @@ CREATE TABLE gbp_record (
   CONSTRAINT gbp_category_role CHECK (category_role IN ('Primary','Secondary','Not applicable')),
   CONSTRAINT gbp_expiry_after_publish CHECK (expiry_date IS NULL OR publish_date IS NULL OR expiry_date >= publish_date)
 );
-
 CREATE INDEX idx_gbp_record_row_type ON gbp_record (row_type);
 CREATE INDEX idx_gbp_record_status ON gbp_record (status);
 CREATE INDEX idx_gbp_record_reply ON gbp_record (review_reply_status);
 ```
-
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -254,7 +212,6 @@ CREATE INDEX idx_gbp_record_reply ON gbp_record (review_reply_status);
   ]
 }
 ```
-
 ```markdown
 | CSV column | Notion property | Set after import |
 |---|---|---|
@@ -285,13 +242,10 @@ CREATE INDEX idx_gbp_record_reply ON gbp_record (review_reply_status);
 | Status | Select (add options after import) | Convert to Select, add options: "Planned", "In progress", "Live", "Needs update", "Retired" |
 | Notes | Text | Leave as Text |
 ```
-
 The rows above are documentation examples only. Emit empty templates unless the user explicitly requests examples. `Verified` is false until verification completes
 and `Review Rating` stays blank when no review applies - a real rating is
 always a measurement the business supplied.
-
 ## Field Reference
-
 | # | Field | Type | SQL | JSON Schema | Notion | CSV example |
 |---:|---|---|---|---|---|---|
 | 1 | Row ID | `id` | `BIGINT PRIMARY KEY` | `integer` | Text or Notion auto-ID | `(blank)` |
@@ -320,98 +274,68 @@ always a measurement the business supplied.
 | 24 | Review Date Check | `date` | `DATE` | `string, format: date` | Date | *(blank)* |
 | 25 | Status | `select` | `VARCHAR(50)` | `string` | Select | `Planned` |
 | 26 | Notes | `long_text` | `TEXT` | `string` | Text | *(blank)* |
-
 SQL defaults set insert timestamps only; maintain `updated_at` explicitly. Verification may be unknown (SQL NULL / omitted JSON), not always confirmed false. Store platform, location ID, source and observation date when combining Google/Bing/Apple records; they do not share identical fields or policies. The example is synthetic and not an approval record.
-
 ## Select Options
-
 **Row Type** - the discriminator. Nine kinds of thing live in this table and they are
 filtered on this column constantly. A review is not a post, and a service is not a profile
 field.
-
 ```
 Profile | Service | Category | Attribute | Post | Review | Question | Photo | Product
 ```
-
 **Search Intent** - the same four intents as the website, plus local. A local pack
 appearance is a `Local intent` result; everything else on the profile supports it.
-
 ```
 Informational | Commercial investigation | Transactional | Navigational | Local intent
 ```
-
 **Media Attached** - posts with an image outperform text-only posts consistently.
-
 ```
 None | Photo | Photo set | Video
 ```
-
 **Post Type** - Verify current post formats, date requirements and display/archival behavior; offers and events may have date ranges. Do not promise permanent visibility.
-
 ```
 None | Update | Offer | Event | Product
 ```
-
 **Call To Action** - Google supplies a fixed list. Use one of these, not a custom phrase, so
 the button renders.
-
 ```
 None | Learn more | Call now | Book | Get offer | Sign up | Shop | Order
 ```
-
 **Review Reply Status** - the field that turns a review into a task. `Reply overdue` is
 what makes the cadence visible.
-
 ```
 Not applicable | Replied | Reply pending | Reply overdue
 ```
-
 **Category Role** - primary is the single most important setting on the whole profile.
-
 ```
 Primary | Secondary | Not applicable
 ```
-
 **Action Type** - what the row exists to make happen.
-
 ```
 None | Set up | Edit | Reply | Request | Verify | Mirror | Suspend | Escalate
 ```
-
 **Data Quality Status**
-
 ```
 Complete | Incomplete | Needs Review | Blocked
 ```
-
 **Status**
-
 ```
 Planned | In progress | Live | Needs update | Retired
 ```
-
 ## Relations
-
 None standalone. Worth confirming with the business:
-
 - `Landing Page URL` points at a page in `business-website-setup`. Confirm whether the
   business wants the two joined before it is made live; the URL text is the reliable key
   until they are.
 - `Owner` points at the people register in the operational pack, which is not in this
   artifact set. It stays Text with a note naming the intended target.
-
 ## Examples
-
 **Prompt**
-
 ```
 We are not showing up on Google Maps at all. Our competitors in the same street show up
 for everything. I made a profile a year ago and gave up when verification asked for a
 video of the shopfront.
 ```
-
 **Context first** - one question per message, nothing already answered:
-
 > **Q:** What is the business called, and what does one line of it actually do?
 > **A:** Example Retail, home and kitchen goods.
 >
@@ -426,9 +350,7 @@ video of the shopfront.
 >
 > **Q:** Is anyone asking customers for reviews at the moment?
 > **A:** We put a card on the counter. Nothing has come of it.
-
 **Recommended next step** - offered, not built:
-
 > Verify authorized management first; unverified listings may already appear on Maps/Search. Then the most specific true primary category, the
 > services in the words customers use, a plain description that names the delivery area,
 > and the same data mirrored to Bing Places and Apple Business Connect. Then the two things
@@ -441,12 +363,8 @@ video of the shopfront.
 > → Replies written within the week → Intent map shared with the website
 >
 > Want the CSV, SQL DDL, JSON Schema and Notion mapping for this?
-
-
 See the [Best Practices](references/best-practices.md) reference for the full guidance.
-
 ## Limitations
-
 - This is a plan and a register. It does not create, claim, verify or edit a profile, and it
   calls no Google APIs.
 - It cannot see the current profile, its categories, its ranking, its review count or its
@@ -469,7 +387,4 @@ See the [Best Practices](references/best-practices.md) reference for the full gu
   a naming convention. That is a larger build than this table and needs confirming first.
 - "Competitors show up for everything" usually means a more complete profile, more reviews
   and closer proximity - not that they did something the business cannot do.
-
-
 See the [Security & Safety Notes](references/security-safety-notes.md) reference for the full guidance.
-

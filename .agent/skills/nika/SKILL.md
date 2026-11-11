@@ -1,55 +1,43 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "785f47ab1c10120eb117ec91ddf50f1d65770875f7e20ce5cbc20bc71f3e8267"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 785f47ab1c10120eb117ec91ddf50f1d65770875f7e20ce5cbc20bc71f3e8267
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: Thibaut Melen (@ThibautMelen) · SuperNovae Studio (github.com/supernovae-st)
+category: autonomous-ai-agents
+date_added: 2026-07-12
+description: Runs repeatable AI work as checked, budgeted workflow files.
+homepage: "https://nika.sh"
+license: MIT
+license_source: "https://github.com/supernovae-st/nika-agents/blob/main/LICENSE"
 name: nika
-description: "Runs repeatable AI work as checked, budgeted workflow files."
-tier: "experimental"
+platforms: "[linux, macos]"
 risk: critical
-source: https://github.com/supernovae-st/nika-agents/tree/main/skills/nika
-date_added: "2026-07-12"
+source: "https://github.com/supernovae-st/nika-agents/tree/main/skills/nika"
 source_repo: supernovae-st/nika-agents
 source_type: community
+tags: "[Workflow, Automation, Deterministic, Cost-Control, Audit, Local-First, MCP]"
 version: 1.1.0
-author: Thibaut Melen (@ThibautMelen) · SuperNovae Studio (github.com/supernovae-st)
-license: MIT
-license_source: https://github.com/supernovae-st/nika-agents/blob/main/LICENSE
-platforms: [linux, macos]
-prerequisites:
+---prerequisites:
   commands: [nika]
-metadata:
   hermes:
-    tags: [Workflow, Automation, Deterministic, Cost-Control, Audit, Local-First, MCP]
-    category: autonomous-ai-agents
     related_skills: [opencode, claude-code, codex]
-    homepage: https://nika.sh
     requires_toolsets: [terminal]
 ---
-
-
 # Nika Skill
-
 Use [Nika](https://nika.sh) as a deterministic workflow worker orchestrated by
 the Hermes `terminal` tool. Nika is an open-source (AGPL) Rust engine that captures
 a repeatable AI task as a plain-text `*.nika.yaml` file, audits it **before a
 single token is spent** (plan, cost floor, secret flows, types), executes it
 against local or cloud providers (Ollama/llama.cpp/vLLM included), and records
 a tamper-evident trace.
-
 Division of labor: **Hermes orchestrates · Nika captures repeatable work as a
 checkable file and runs it with receipts.** Nika is NOT another coding agent —
 for autonomous coding, use the `opencode` skill. Delegate to Nika when the
 work should be *repeatable, budgeted, and auditable*.
-
 ## When to Use
-
 - The user asks to run, check, or author a `*.nika.yaml` workflow
 - A task will be repeated (daily digest, triage, ETL, report, multi-step LLM
   pipeline) — capture it as a workflow instead of re-prompting
@@ -58,15 +46,11 @@ work should be *repeatable, budgeted, and auditable*.
 - A pipeline mixes models/providers (local + cloud) or mixes LLM steps with
   shell/HTTP/file steps
 - The user wants a run they can replay, verify, or reproduce later
-
 ### When NOT to use
-
 - One-off questions or single tool calls — just answer or use a tool
 - Autonomous code implementation/refactoring/PR review — use the `opencode` skill
 - Interactive back-and-forth tasks — workflows are non-interactive by design
-
 ## Prerequisites
-
 - Nika installed: `brew install supernovae-st/tap/nika` — other install
   paths (script, manual download) are documented at https://nika.sh: installing
   is a human step, not something this skill runs
@@ -75,73 +59,51 @@ work should be *repeatable, budgeted, and auditable*.
   `--model ollama/...` (local) run without any API key
 - Cloud providers read standard env vars from the shell;
   `terminal(command="nika doctor")` diagnoses and prints exact fix commands
-
 Confirm the installed Nika version and its actual CLI schema; the 0.98/0.99 examples and provider/model IDs below are historical, not verified current API promises. Hermes terminal/process wrappers are host-specific pseudocode. A mock model does not make arbitrary workflows offline: shell, fetch and MCP tasks can still access networks or mutate files. Inspect every task/tool argument and secret/data destination before mock or real execution, and restrict scope/credentials. Workflows with model calls are repeatable definitions, not deterministic outputs. Budget protection can overshoot and does not cover arbitrary tool-side charges. Redact traces before sharing; a valid hash chain does not authenticate the truth or completeness of recorded events. The skill MIT notice and engine AGPL claim refer to distinct artifacts and must be verified independently before redistribution.
-
 ## How to Run
-
 Prove the toolchain offline first (no key, no network):
-
 ```
 terminal(command="nika examples run 01-hello --model mock/echo")
 ```
-
 Run a real workflow — local model first:
-
 ```
 terminal(command="nika run flow.nika.yaml --model ollama/qwen3.5:4b", workdir="~/project")
 ```
-
 Cloud model with a hard budget (always set one for paid models):
-
 ```
 terminal(command="nika run flow.nika.yaml --model mistral/mistral-small-latest --max-cost-usd 0.25", workdir="~/project")
 ```
-
 Pass workflow variables:
-
 ```
 terminal(command="nika run report.nika.yaml --var city=Paris --var days=7 --max-cost-usd 0.50", workdir="~/project")
 ```
-
 Long runs: launch in background and poll — do not block the turn:
-
 ```
 terminal(command="nika run long.nika.yaml --max-cost-usd 1.00", workdir="~/project", background=true)
 process(action="poll", session_id="<id>")
 process(action="log", session_id="<id>")
 ```
-
 ### The check-before-run law
-
 Never run a workflow you have not checked. `nika check` is a static pre-flight
 (no tokens spent, no network): plan shape, cost floor, secret-flow analysis,
 type checks, tool args.
-
 ```
 terminal(command="nika check flow.nika.yaml --json", workdir="~/project")
 ```
-
 Findings carry `NIKA-XXXX` codes that explain themselves via
 `nika explain NIKA-XXXX`. Exit 0 means the implemented static checks passed; it is not permission or proof that execution is safe. Fix findings before
 running — never suppress them.
-
 ### Authoring a workflow
-
 Turn a repeated task into a file. List templates, then instantiate:
-
 ```
 terminal(command="nika new --from '?'")
 terminal(command="nika new flow.nika.yaml --from chain", workdir="~/project")
 ```
-
 `--from` also accepts plain-words intent. Edit the skeleton (`vars:`,
 `tasks:`, `outputs:`), then **check it**. `nika explain flow.nika.yaml`
 narrates what it will do, the waves, the cost floor, and what it touches —
 before anything runs.
-
 The artifact you are producing looks like this (checks clean on 0.98):
-
 ```yaml
 nika: v1
 workflow: daily-brief
@@ -160,12 +122,9 @@ tasks:
 outputs:
   brief: ${{ tasks.brief.output }}
 ```
-
 One file, plain YAML: tasks, an explicit dependency, a bounded model step,
 a declared output. That file is what gets checked, run, diffed and reused.
-
 ### Cost honesty
-
 - When the workflow prices above the budget, `--max-cost-usd` refuses to
   start (exit 2, zero tokens) — and since 0.99 the pre-start floor prices
   the EFFECTIVE model, `--model` override included
@@ -178,24 +137,18 @@ a declared output. That file is what gets checked, run, diffed and reused.
   runs with no budget protection; prefer cataloged ids (`nika catalog`)
 - Report the cost line from the final run card (the summary block `nika
   run` prints last — status, cost, trace path) back to the user verbatim
-
 ### Receipts and verification
-
 Every run writes a trace under `.nika/traces/` — the run card prints the
 trace path on its `trace:` line. Both commands take that path (bare
 invocations are a usage error):
-
 ```
 terminal(command="nika trace show .nika/traces/<run>.ndjson", workdir="~/project")
 terminal(command="nika trace verify .nika/traces/<run>.ndjson", workdir="~/project")
 ```
-
 `trace verify` checks the tamper-evidence hash chain: exit 0 intact · 2
 broken · 3 pre-chain. Also useful: `nika trace outputs` · `nika trace flow` ·
 `nika trace reproduce` · `nika trace export` (OTLP lines).
-
 ### Optional: MCP oracle tools
-
 Nika also ships a read-only MCP oracle (`nika mcp`) exposing validation and
 learning tools (`nika_check`, `nika_explain`, `nika_schema`, `nika_examples`,
 `nika_template`, `nika_canon`, `nika_catalog`, `nika_tools`). If the user
@@ -205,9 +158,7 @@ editing the client's own configuration is the user's step, never this
 skill's. Without the oracle, everything above still works over the terminal;
 running workflows stays there regardless, where the budget flags and traces
 live.
-
 ## Quick Reference
-
 | Command | Use |
 |---------|-----|
 | `nika welcome` | What Nika is + what this machine has (offline, exit 0) |
@@ -219,9 +170,7 @@ live.
 | `nika trace show/verify/outputs/flow <trace>` | Receipts after a run (path from the run card's `trace:` line) |
 | `nika doctor` | Diagnose env/keys — prints exact fixes |
 | `nika catalog` | Provider/model ids + required env vars |
-
 ## Procedure
-
 1. Verify readiness: `terminal(command="nika --version")`; install per
    Prerequisites if missing.
 2. If the task is new, scaffold: `nika new <file> --from <template>`.
@@ -235,9 +184,7 @@ live.
 7. After the run: `nika trace show <trace>` + `nika trace verify <trace>`
    (path from the run card); report outputs, actual cost, and the verify
    verdict to the user.
-
 ### Rules
-
 1. NEVER run an unchecked workflow — `nika check` first, every time.
 2. ALWAYS pass `--max-cost-usd` when the model is a paid cloud model.
 3. Prefer local models (`ollama/...`) or `mock/echo` for drafts; escalate to
@@ -248,9 +195,7 @@ live.
    they are diffable and reusable.
 6. If a run fails, read `nika explain <NIKA-code>` before retrying — do not
    blind-retry.
-
 ## Pitfalls
-
 - `nika run` renders live on a TTY; when piped (Hermes terminal), output can
   stay quiet until completion — for anything long, prefer `background=true` +
   poll, then read `nika trace show <trace>` for the final card.
@@ -262,9 +207,7 @@ live.
   custom endpoint model.
 - Workflow `outputs:` are not resolved on a budget stop — per-task values
   live in the trace (`nika trace outputs`).
-
 ## Limitations
-
 - Static checks reduce risk but cannot prove that remote content, shell steps,
   provider behavior, or generated outputs are safe or correct.
 - Cost caps are not reliable for uncataloged paid models and a parallel wave
@@ -272,14 +215,10 @@ live.
   paid runs and report the actual ledger result.
 - Trace verification proves integrity of the recorded chain, not correctness
   of the workflow or truth of its outputs.
-
 ## Verification
-
 Smoke test (offline, zero keys):
-
 ```
 terminal(command="nika examples run 01-hello --model mock/echo")
 ```
-
 Success criteria: run completes exit 0 with a final run card · `nika check`
 exits 0 before any real run · `nika trace verify` exits 0 after the run.

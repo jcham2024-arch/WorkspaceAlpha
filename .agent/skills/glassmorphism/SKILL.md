@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "1b8dbada74fd2f40b65060342793b31723b63271ac36a954f02003558a726408"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: glassmorphism
+content_hash: 1b8dbada74fd2f40b65060342793b31723b63271ac36a954f02003558a726408
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Glassmorphism. Trigger when user wants a frosted glass effect, blurred backgrounds, transparency, or a sleek MacOS-like feel.
-tier: "experimental"
-date_added: "2026-06-17"
+name: glassmorphism
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Glassmorphism
-
 > "Looking through a frosted window. Interfaces that blend seamlessly with vibrant backgrounds."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Background Blur (Backdrop Filter)**: The defining characteristic. Elements blur whatever is underneath them.
 2. **Semi-transparent White/Dark Backgrounds**: Panels use rgba() colors to let the background shine through.
 3. **Subtle Light Borders**: A 1px semi-transparent white (or light) border to simulate the glass edge catching the light.
-
 ## Visual DNA
 - **Colors**: Requires a vibrant or textured background to work (e.g., gradients, abstract meshes, or photos). Works beautifully over **Yacht Club** or **Earth-Grounded Elegance** if there is underlying visual texture.
 - **Typography**: Clean, geometric sans-serifs. High contrast text (pure white or pure black) is required for legibility against the glass.
 - **Shadows**: Soft, subtle drop shadows to detach the glass pane from the background.
-
 ## Web Implementation
 - Rely heavily on `backdrop-filter: blur()`.
 - **CSS Example**:
@@ -45,24 +32,18 @@ body {
   /* Requires a complex background to see the glass effect */
   background: #203040 url('abstract-mesh.jpg') center / cover no-repeat;
 }
-
 .glass-panel {
   background: rgba(255, 255, 255, 0.15); /* Light glass */
   /* OR background: rgba(0, 0, 0, 0.25); for Dark glass */
-
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-
   border: 1px solid rgba(255, 255, 255, 0.3); /* The glass edge */
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-
   padding: 32px;
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct GlassCard: View {
@@ -75,7 +56,6 @@ struct GlassCard: View {
                 endPoint: .bottomTrailing
             )
             .ignoresSafeArea()
-
             // Glass panel
             VStack(alignment: .leading, spacing: 16) {
                 Text("Glass Panel")
@@ -84,7 +64,6 @@ struct GlassCard: View {
                 Text("Content floating on frosted glass.")
                     .font(.system(size: 15))
                     .foregroundColor(.white.opacity(0.8))
-
                 Button(action: {}) {
                     Text("Continue")
                         .font(.system(size: 15, weight: .semibold))
@@ -111,7 +90,6 @@ struct GlassCard: View {
 - Use `.ultraThinMaterial`, `.thinMaterial`, `.regularMaterial`, `.thickMaterial` — Apple built glassmorphism natively.
 - Add `.overlay(RoundedRectangle().stroke(.white.opacity(0.3)))` for the light edge catch.
 - Glass only works if there's a vibrant background visible behind it.
-
 ### Flutter
 ```dart
 class GlassCard extends StatelessWidget {
@@ -177,11 +155,9 @@ class GlassCard extends StatelessWidget {
 - **Critical**: `BackdropFilter` MUST be wrapped in `ClipRRect` — without clipping, the blur applies to the entire screen.
 - Use `ImageFilter.blur(sigmaX: 10...20, sigmaY: 10...20)` for the frosted effect.
 - Set the container color to `Colors.white.withOpacity(0.1...0.2)` — too opaque kills the glass look.
-
 ### React Native
 ```jsx
 import { BlurView } from '@react-native-community/blur';
-
 const GlassCard = () => (
   <View style={{ flex: 1 }}>
     {/* Vibrant background */}
@@ -189,7 +165,6 @@ const GlassCard = () => (
       colors={['#9B59B6', '#3498DB', '#1ABC9C']}
       style={StyleSheet.absoluteFill}
     />
-
     {/* Glass panel */}
     <View style={{
       margin: 24,
@@ -228,7 +203,6 @@ const GlassCard = () => (
 - Wrap the `BlurView` parent in a `View` with `overflow: 'hidden'` and `borderRadius` to clip the blur.
 - Use `blurType: 'light'` for light glass, `'dark'` for dark glass, `'chromeMaterial'` for iOS Chrome effect.
 - **Android limitation**: `BlurView` performance varies on Android. Test thoroughly.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -243,7 +217,6 @@ fun GlassCard() {
                 end = Offset.Infinite,
             ))
         )
-
         // Glass panel — Compose lacks native backdrop-filter,
         // so use a semi-transparent surface with blur via Modifier.blur()
         Card(
@@ -274,17 +247,12 @@ fun GlassCard() {
 - **Compose limitation**: True `backdrop-filter` blur doesn't exist natively. Use `Modifier.blur()` (API 31+) on the background, `RenderEffect.createBlurEffect()` also requires API 31 and is not a lower-API fallback. Use an opaque/tinted surface on unsupported devices.
 - Use the `haze` library (`dev.chrisbanes.haze`) for proper glassmorphism in Compose — check the chosen Haze version documentation for its source/effect APIs rather than assuming historical modifier names remain current.
 - Without native blur, fallback to `Color.White.copy(alpha = 0.15f)` with a strong `border` to simulate the glass edge.
-
 ## Do's and Don'ts
 - **DO**: Ensure there is enough contrast between text and the blurred background. Accessibility is often a challenge with this style.
 - **DON'T**: Use Glassmorphism on a solid white or solid black background—the effect will be completely invisible.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Mac](platforms/mac.md)

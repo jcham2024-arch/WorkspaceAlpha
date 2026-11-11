@@ -1,40 +1,26 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "a4b1ccaa462f486f976305c67ee41ec58f46df41c1efb490013f96e7009c6e47"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: a4b1ccaa462f486f976305c67ee41ec58f46df41c1efb490013f96e7009c6e47
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Build production-ready ReactFlow applications with hierarchical navigation, performance optimization, and advanced state management.
 name: react-flow-architect
-description: "Build production-ready ReactFlow applications with hierarchical navigation, performance optimization, and advanced state management."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # ReactFlow Architect
-
 Build production-ready ReactFlow applications with hierarchical navigation, performance optimization, and advanced state management.
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## Minimal Controlled Graph Example
-
 Target React Flow v12 (`@xyflow/react`); use matching docs for older reactflow v11 projects. This is a starting component, not an implementation of hierarchy/history/persistence.
-
 ```tsx
 import { ReactFlow, useNodesState, useEdgesState, addEdge, type Connection } from '@xyflow/react';
 import { useCallback } from 'react';
 import '@xyflow/react/dist/style.css';
-
 const initialNodes = [
   { id: '1', position: { x: 0, y: 0 }, data: { label: 'Start' } },
   { id: '2', position: { x: 250, y: 0 }, data: { label: 'Next' } },
@@ -50,12 +36,9 @@ export default function InteractiveGraph() {
   </div>;
 }
 ```
-
 Install the reviewed compatible package version in the host project and run its typecheck/browser checks. Hooks such as useReactFlow need a ReactFlowProvider ancestor outside the component invoking them; the minimal example avoids that hook. No compile or browser execution is asserted here.
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

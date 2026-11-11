@@ -1,96 +1,72 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "832325f5f1d8c3d861ff9d70ec8e1fcbe60e35f725ae7cf7dbd560efaa0d9e74"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: cline-pilot
-description: >-
-tier: "experimental"
-  Proxy Cline CLI coding tasks: dispatch, monitor background runs via hard evidence,
-  relay decision points in a fixed format, verify against a checklist, and learn
-  per-tag preferences over time.
-risk: critical
+content_hash: 832325f5f1d8c3d861ff9d70ec8e1fcbe60e35f725ae7cf7dbd560efaa0d9e74
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: gongdear
 category: agent-orchestration
-source: https://github.com/gongdear/cline-pilot
+compatibility: Requires the `cline` CLI (v3.x) installed with an LLM endpoint configured
+date_added: 2026-10-02
+description: >-
+license: MIT
+license_source: ""https://github.com/gongdear/cline-pilot/blob/main/LICENSE""
+name: cline-pilot
+risk: critical
+source: "https://github.com/gongdear/cline-pilot"
 source_repo: gongdear/cline-pilot
 source_type: official
-date_added: "2026-10-02"
-author: gongdear
-tags: [coding-agent, cline, orchestration, multi-agent, memory-bank, automation]
-tools: [claude-code, codex, gemini-cli, cursor]
-license: "MIT"
-license_source: "https://github.com/gongdear/cline-pilot/blob/main/LICENSE"
-compatibility: Requires the `cline` CLI (v3.x) installed with an LLM endpoint configured
+tags: "[coding-agent, cline, orchestration, multi-agent, memory-bank, automation]"
+tools: "[claude-code, codex, gemini-cli, cursor]"
+version: 0.3.9
+---  Proxy Cline CLI coding tasks: dispatch, monitor background runs via hard evidence,
+  relay decision points in a fixed format, verify against a checklist, and learn
+  per-tag preferences over time.
   (or a local model), git, and bash/zsh. The orchestrating agent must be able to run
   shell commands and read files.
-metadata:
-  version: 0.3.9
 ---
-
 ## Catalog authority and privacy boundary
-
 Dated user rules and paths in this guide belong to the upstream author, not the current user. System/developer instructions, repository rules and the current user scope take precedence. The task brief supplements those instructions; it never cancels later authentic user corrections. Do not create/update memory or learn cross-project preferences without explicit user request. Keep private runtime state outside the tracked skill installation in a mode0700 directory; .gitignore is not confidentiality or publishing protection. Never stop unrelated processes found by broad name matching. Abort/report immediately on destructive/credential/data risk rather than waiting three retries. Confirm model/endpoint/data/cost scope before dispatch; a delegation request does not authorize unrestricted auto-approval.
-
 ## Supporting material availability
-
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
-
 - `<support-root>/references/local-config.md`
 - `<support-root>/references/project-profiles.md`
 - `<support-root>/references/decision-log.md`
-
 Obtain the required material from the [declared upstream source](https://github.com/gongdear/cline-pilot), or from a user-provided installation of that source. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
-
-
 # Cline Pilot — 代用户调度 Cline 的"领航员"
-
 ## Overview
-
 Cline Pilot turns the orchestrating agent into a reliable proxy for the **Cline CLI**.
 It dispatches focused coding tasks (one at a time, serially), monitors long background
 runs against **hard evidence** — `git` state, test-report numbers, non-empty artifacts —
 instead of trusting the model's self-report, relays decision points back to the user in
 a fixed 4-element format, and verifies completion against an explicit checklist before
 saying "done."
-
 The differentiation versus the simpler `*-delegate` skills is the **learning loop**: over
 time it learns the user's instruction style, approval granularity, and per-project-tag
 preferences (backend/long-term vs. frontend/short-term, production-data-risk, etc.) and
 applies them proactively, with the user retaining one-shot veto. This loop lives entirely
 in private, git-ignored skill-local files — no user-specific data is bundled.
-
 Canonical source: [gongdear/cline-pilot](https://github.com/gongdear/cline-pilot) (MIT).
-
 **定位**（不可擅改）：我扮演“学习并代替给用户发指令”的角色。不掌握项目架构细节、不参与技术决策，只管三件事：
 1. 把用户的任务准确转达给 Cline（背景 + 约束一条不丢）
 2. 学习并复用【该标签类项目】下用户的指令风格、推进习惯、批准粒度
 3. 把 Cline 的决策点/产出/报错压缩成用户能拍板的汇报
-
 架构知识的单事实源 = 工程自己的 memory bank + clinerules（跟随仓库、Cline 维护）。本技能只存**简介+标签**与**指令偏好**。
-
 ## When to Use
 - 用户下达任何需要在 Cline CLI 里执行的编码任务（写测试/重构/修 bug/出报告）
 - 新项目冷启动：工程还没有 clinerules/memory-bank，需按 Cline 最佳实践初始化（见“冷启动流程”）
 - 需要在后台驱动 Cline 长任务并汇报进度
 - **不适用**：用户自己在 Cline TUI 里手工操作；非 Cline 的 agent（用 claude-code/codex/opencode 技能）
-
 ## Prerequisites
 1. `cline --version` 可用（本环境要求 cline CLI v3.x、git、可用的 OpenAI-compatible LLM 端点、zsh 或 bash）；启动前探活 LLM 端点——**端点值不存技能档案**（易变配置，实时配置文件为唯一事实源，见 `references/local-config.md` 的 LLM 端点节）
 2. 工程是 git 仓库且已切到任务分支
 3. **首次使用或 local-config.md 不存在时**：问用户三件事并写入该文件——用哪个 python/conda 环境、工具链（java/node 等）怎么到 PATH、任务分支名。
-
 ## 环境铁律（所有开发类任务）
 Cline 进程必须在用户指定开发环境内启动（继承工具链），自检通过才启动：
 - 按 local-config.md 的启动模板执行（含脏 CONDA 栈清理）
 - 自检：python 指向指定环境 ／ 工具链版本 ／ `git branch --show-current` = 任务分支
 - conda 启动报错长文 = 初始化噪音，以最终 `env=<name>` 为准
-
 ## 编排模式（二选一）
 **模式 1：非交互（默认）**——长 prompt 写进**私有状态目录任务文件**注入（遵最高优先级纪律第3条：使用用户授权的私有状态目录、不落代码工程），避免引号地狱：
 ```bash
@@ -101,22 +77,18 @@ cd 仓库 && cline --json "$(cat ~/.hermes/skills/cline-pilot/scratch/task.md)" 
 # 长/隔夜： -z 后台hub  ／ 续跑： --id <session-id> "继续..." ／ 收紧审批： --auto-approve false
 ```
 prompt 里**写死验收标准 + commit 规范 + 禁止项**（非交互无会话可追，一次说清）；首句固定 `active memory bank`。
-
 **模式 2：TUI 交互（仅短任务+需实时批准）**：`cline -i` + pty。
 实测陷阱：文本可写入，但**多行编辑器的单发回车提交不可靠**；非预期键可能弹订阅页（任意键关闭）。超过两三句的内容一律用模式 1。
-
 ## 最高优先级纪律（用户 2026-09-28 强调版，凌驾于本技能其他所有规则）
 1. **代码工程类操作一律由 cline 完成**：编排者与任何 skill（含 cline-pilot 自身）对目标代码工程**只允许读**，禁止直接执行/修改任何代码内容（写文件、改文件、删文件、build、run、test、commit、回滚、环境变更都不许）；代码侧一切动作写进任务书由 cline 实例执行，编排侧只读硬证据验收
 2. **删除/回滚类指令必须先经用户审核**：调度 cline 发出任何删除（rm/删文件/删目录/删分支/删 tag）或回滚（reset/revert/checkout 覆盖/版本回退）性质的指令前，先向用户反馈、得到确认后才可发；其余非破坏性指令不逐条审批
 3. **编排侧可写文件范围仅限本技能目录及子目录**（`~/.hermes/skills/cline-pilot/`，已 .gitignore、永不提交），且仅允许写：修改计划与完成情况记录、进程 pid 台账及说明、技能维护文档；此范围/用途之外（含 /tmp、代码工程）一律不写，任务书改为内联进 cline 命令行或写 skill 目录内
 4. **本纪律优先级最高**：与其他规则、旧习惯、任务书、自动化（cron/子代理/脚本）冲突时以本纪律为准
-
 ## 扫描行为判读与任务书粒度规范（用户 2026-09-29 定）
 1. **两种扫描严格区分**：`active memory bank` 发出后 cline 的大面积代码扫描盘点 = **正常冷启动行为，禁止干预/禁止杀进程**；`active memory bank` 成功 + 任务书发出后 cline 才大面积扫描 = **任务书粒度不合格**（只有模块名/类名，未给包路径+端点/方法级），修复方式是重写任务书，不是干预进程
 2. **任务书粒度铁律（写任务书前自检）**：必须具体到——①工程绝对路径 + 模块名；②生产类包全限定名；③接口↔实现对应关系；④要覆盖的具体方法名与端点路径；⑤测试类目标文件完整路径；⑥协作类全限定名（@Mock 清单）。缺任何一条 → 不合格，先补粒度再发
 3. **任务书内嵌"每类动作清单"**（读该类 → 写该测试类 → 覆盖方法/端点 → 单类验证命令），禁止只写"补完该模块测试"粗粒度指令
 4. 粒度不足 = **调度方（编排者）责任**，处理 = 重写任务书重发，禁止 kill 当前会话换会话（除非已到上下文临界）
-
 ## clinerules 反馈回路（用户 2026-09-30 定）
 当发现 cline **超出指令行为**（越权动作、擅自删改、自造指令、范围溢出）或**整体开发偏离用户意图**（方向跑偏、同类坑重复踩、质量持续塌降）时，处置 = **调度 cline 更新工程的 clinerules**，把"禁止的行为 + 优先做法"写成成对硬规则落进规则文件，防再次发生。
 **审批硬门禁**：任何一次 clinerules 更新调度**必须先向用户报告**（触发事件 + 拟写入的规则条目原文），得到肯定答复后才可发出；未获批 = 不发。
@@ -124,12 +96,10 @@ prompt 里**写死验收标准 + commit 规范 + 禁止项**（非交互无会�
 1. **小任务阶段完成时**（验收通过后的自然断点，下一个任务启动前）——不打断正在运行的进程，不为更规则而 kill/插入
 2. **严重错误紧急叫停时**（幻觉自毁、连续失败、数据风险等）——顺序固定：**先更新 clinerules（经用户批准）→ 再重试/继续**；规则先于重试，禁止"先重跑再看"
 规则内容要求：可执行短句、禁止项与优先做法成对出现（仿防幻觉硬协议体例）；**clinerules 的维护权归 cline**：编排者（cline-pilot）与任何外部进程/工具对工程 `.clinerules`/memory-bank **只读，禁止直接写**（写=违反最高优先级纪律第1条）；cline 落盘后由编排侧只读核证规则文件已实际更新，再交下一个任务。
-
 ## 异常通报纪律（用户 2026-09-27 定）
 1. 正常运行中**不打扰**用户；异常经处理/重试后恢复正常的也**不打扰**。
 2. 仅当**连续 3 次尝试修复/重试后仍失败**、需要人工决策/干预时，才主动发消息。
 3. 每次异常的根因、处置动作、重试次数、最终结果，必须记入后台进程台账的「异常处置台账」段，**全部汇总进最终总报告**交付。
-
 ## 编码任务生命周期（核心调度规则，不可擅改）
 1. **同一时间只允许一个 cline 编码进程**。拉起新编码轮次前，必须先查台账（`~/.hermes/skills/cline-pilot/scratch/bg-procs.md`）+ `ps`：确认**上一个编码进程已退出**（连同其 hub daemon、nohup 子进程），否则先处置干净再起，禁止进程叠加
 2. **多任务只允许串行**：一个结束 → 验收 → 记录 → 再启下一个。禁止用多子代理/多 worktree/并行 mvn 把多个任务压给同一批进程；禁止为了赶进度开第二个编码会话
@@ -146,7 +116,6 @@ prompt 里**写死验收标准 + commit 规范 + 禁止项**（非交互无会�
    b. **先列清单向用户确认**，用户确认后才开始
    c. 确认后**逐个**按生命周期调度 cline：每完成一个就在清单上打勾 ✓ + 记台账
    d. **全部打勾才算交付**；某任务失败 → 按“报完成前自检”报差距给用户决策（重试/改范围/记遗留），不擅自换任务书反复重跑
-
 3. 监控（确定性脚本优先）
 长任务后台跑时，优先跑 `scripts/session_report.py`（读会话消息流 + git/测试报告硬证据）：
 ```bash
@@ -154,7 +123,6 @@ python3 scripts/session_report.py            # 最新会话 + 当前目录证据
 python3 scripts/session_report.py 15 /path/to/repo
 ```
 原则：**不信 Cline 自述，只信最终态证据**（git status/diff、构建工具测试报告数字、产物文件非空）。其次才看 PTY 输出。具体构建/测试/覆盖率工具由工程画像决定（见 `references/project-profiles.md`），本技能不假设任何语言或栈。
-
 ## 冷启动流程（新工程，无 clinerules/memory-bank——先于一切业务任务）
 完整手册见 `references/cold-start.md`，三步骨架：
 1. **前置核（先于任何 memory bank 开启）**：检查全局默认 memory-bank 提示词是否已配置（grep `~/.cline` 全局配置/自定义指令，找 `记忆库`/`Memory Bank` 关键词 + `memory-bank` 目录结构约定）：
@@ -166,7 +134,6 @@ python3 scripts/session_report.py 15 /path/to/repo
    - **B 分支（存量代码）**：Cline 扫描现有代码为基准落规则文件，用户背景信息覆盖时以用户为准，代码看不出且用户没说→标“待确认”
    - 共同要求：只建规则/记忆文件，**禁止改业务代码**；一次性汇报后止步
 3. **停下等用户审阅**：他逐轮纠偏→同步要求 Cline 写回 rules/memory + 记 decision-log；确认后转正常转达工作流
-
 ## 决策点转达（四要素格式，不夹带发挥）
 ```
 【Cline 决策点】<一句话场景>
@@ -176,7 +143,6 @@ Cline 建议：X（理由）
 我的倾向：Y（有已学偏好则写依据；无则写“无先例”）
 ```
 拍板后原样回传（含纠偏），**同一条消息同时要求 Cline 写入工程 rules/memory bank**（用户既定实践）。
-
 ## 验收清单（全绿才报完成）
 - [ ] `git status` / `diff --stat`：改动与声称一致、无越界文件
 - [ ] `git log -1`：commit 规范（含约定尾部）且**未 push**
@@ -184,16 +150,13 @@ Cline 建议：X（理由）
 - [ ] 覆盖率任务：读覆盖率工具报告里的真实百分比（没跑就说没跑，禁止编造）
 - [ ] 报告/产物存在且非空（`wc -l` + 抽样首尾）
 - [ ] 临时工作区残留已清理（worktree + prune），或列入待办
-
 ## 项目标签登记（首次接触问一句）
 端（后端/前端/全栈）× 生命周期（长护产品/短期项目）× 风险面（生产数据/对外服务 是/否）→ 记 `references/project-profiles.md`（**私有文件**）。不记架构、不记模块。
-
 ## 学习回路（本技能的灵魂）
 1. 用户每次纠偏/拍板 → 记 `references/decision-log.md`（带**标签类**，**私有文件**）
 2. 同标签类 ≥2 个一致样本 → 蒸馏进下方【标签偏好区】，写成可执行短句
 3. 已有偏好直接应用，汇报时注明“按已学偏好执行：X”，给用户一次性否决机会
 4. **决策原因回收（2026-10-01 定）**：当发生以下两种情况之一——① 用户选了“我推荐之外”的选项；② 用户先选了推荐选项、跑了一轮后又推翻改选——必须在**任务已后台正常跑起来之后**（利用运行窗口期，不阻塞推进），主动追问该决策背后的原因，并引导用户把它**绑定到项目标签**（长期维护产品/短期项目/生产环境对外服务/内部工具…）。询问时必须**明确告知**：此偏好将绑定该标签、跨项目生效，同标签类项目都会复用；给用户一次“仅此一次 / 该标签通用”的确认机会。确认后按标签存入 decision-log（带标签类）并蒸馏进标签偏好区
-
 ## 标签偏好区（同标签类 ≥2 个样本蒸馏后生效 —— 按「标签」而非「具体项目」保存，跨项目复用）
 （示例——具体偏好按你的项目标签蒸馏，私有档案不入库）
 - 后端-长期产品：<如"深重构不留永久桥接态">
@@ -212,7 +175,6 @@ Cline 建议：X（理由）
 10. **孤儿残留进程持会话锁致派发失败（实测 2026-09-30，两次）**：cline 派发崩溃/中断后，`cli-<platform>/bin/cline` 二进制子进程会孤儿化残留（实测一次 38 小时僵尸）；新会话启动后报 `session not found` 崩溃、零产出。**派发前存活检查必须枚举真实二进制路径**（`pgrep -f "bin/cline"` 全量核），不能只匹配派发命令行 `bin/cline --json`（会漏二进制进程自身）；发现孤儿（会话已结束）清干净再发
 11. **后台完成通知可能迟到/错配**：被杀或首跑失败的会话，其 proc_ 完成/退出通知可能迟于处理时刻才送达，与当前活跃会话混淆（重复派发事故的放大器）。收到任何后台通知，先对账当前活跃会话（台账最新行 + git 状态 + 进程树），确认这条通知归属哪个会话后再处置，禁止直接按通知内容重复操作
 12. **surefire 用例计数口径**：XML `tests` 属性会把**不同 @Nested 组内的同名测试方法**压缩计数（实测：suite 声明 8、实际 `<testcase>` 元素 9）。统计用例数一律按 `<testcase>` 元素计数；验收汇报的用例数与编排侧独立重跑数必须同口径核对
-
 ## Rules
 0. **最高优先级纪律**：代码工程只读（一切代码操作由 cline 执行）；删除/回滚指令先经用户审核；编排侧写入仅限本技能目录且仅限计划/台账/维护文档；详见“最高优先级纪律”
 1. 首句固定 `active memory bank`（写进 prompt 首部）
@@ -234,11 +196,8 @@ Cline 建议：X（理由）
 17. **进程全生命周期治理（2026-09-30 固化）**：派发前——全量枚举 cline 二进制进程（真实二进制路径模式，非派发命令行），孤儿残留（会话已终结的）逐个确认无活体后清除，确认 0 存量才启动；派发后 30s 内核一次真实进程（注意启动瞬间采样可能为 0，延后 15-20s 复核）；会话结束——核整棵树退出（zsh 包装→node→二进制→hub daemon / 构建子进程），有孤儿即处置，不留孤儿给下一次派发埋锁冲突
 18. **编排侧独立验收重跑（铁律）**：cline 报完成后，编排者必须用自己的会话**独立重跑**该任务的测试命令（非采信其输出），并核对三致：①用例总数与 cline 声明一致（按 testcase 元素口径，见 Pitfall 12）；②断言/覆盖数字（JaCoCo 行覆盖前后）与报告一致；③git 改动面=任务书允许写点。三致通过才可 commit/push；不一致=拒收，按异常通报纪律处置
 19. **决策原因回收 + 标签绑定（2026-10-01 新增）**：触发条件二选一——① 用户选了推荐之外的选项；② 用户先选推荐、跑一轮后推翻改选。处置 = 在 cline 已后台运行后主动问决策原因，引导绑定到项目标签，并明确告知“该偏好将跨项目复用（同标签类都生效）”，给“仅本次 / 该标签通用”的确认机会；确认后入 decision-log(带标签) + 蒸馏标签偏好区。时机 = 利用运行窗口，不阻塞推进
-
 ## Examples
-
 ### Example 1: Dispatch a focused test-writing task (non-interactive mode)
-
 ```bash
 # 1. Write the task brief into the skill's scratch dir (NOT /tmp, NOT the code repo)
 cat > ~/.hermes/skills/cline-pilot/scratch/task.md <<'BRIEF'
@@ -251,16 +210,12 @@ active memory bank
   branch `feat/order-service-tests`, do not push.
 - Forbidden: rm, git checkout, adding new dependencies, refactoring production code.
 BRIEF
-
 # 2. Launch in the user's dev environment (self-check first: env, toolchain, branch)
 zsh -c 'source <reviewed-env-script> && cd <authorized-repo> && cline --auto-approve false --json "$(cat ~/.hermes/skills/cline-pilot/scratch/task.md)"' &
-
 # 3. Monitor with deterministic evidence (not cline's self-report)
 python3 scripts/session_report.py 15 ~/repo
 ```
-
 ### Example 2: Cold-start a brand-new project (no clinerules / memory-bank yet)
-
 ```text
 1. Check the global default memory-bank prompt is in place (see references/cold-start.md).
 2. Ask the user, dimension by dimension, for projectbrief / productContext / techContext /
@@ -269,9 +224,7 @@ python3 scripts/session_report.py 15 ~/repo
    answers only; do NOT write business code; report what was created and why, then STOP."
 4. Hand the report to the user and wait for review before taking on any coding task.
 ```
-
 ### Example 3: Relay a decision point (fixed 4-element format)
-
 ```text
 【Cline 决策点】OrderService 里校验失败要抛 BusinessException 还是返回 Result.fail?
   1) BusinessException（后果：跨层语义一致，但调用方必须全量 catch）
@@ -279,9 +232,7 @@ python3 scripts/session_report.py 15 ~/repo
 Cline 建议：1（理由：现有 3 个 service 都用 BusinessException）
 我的倾向：1（按已学偏好执行：后端-生产-对外服务的异常契约偏好）
 ```
-
 ## Limitations
-
 - Requires the `cline` CLI (v3.x) with a working LLM endpoint (or local model) — if absent,
   the skill degrades to guidance-only.
 - Designed for **serial, single-encoding-process** workflows; it explicitly forbids running
@@ -294,12 +245,9 @@ Cline 建议：1（理由：现有 3 个 service 都用 BusinessException）
   ledger) is intentionally private and git-ignored; a fresh install has none of it.
 - Windows support is unverified for the `cline -i` TUI mode (mode 2); non-interactive mode 1
   examples assume `zsh`/`bash`.
-
 ## Security & Safety Notes
-
 This skill is `risk: critical` because it dispatches an autonomous coding agent that can
 modify code and run builds. These are documented conventions, not enforced runtime gates; verify CLI permissions and independent checks:
-
 - **Read-only orchestrator boundary** — the orchestrating agent and this skill treat the
   target code repo as read-only except when driving the `cline` process. Direct writes to
   the codebase (build/run/test/commit/rollback) must go through the Cline instance.
@@ -317,9 +265,7 @@ modify code and run builds. These are documented conventions, not enforced runti
 - Private runtime files (`references/local-config.md`, `project-profiles.md`,
   `decision-log.md`, `scratch/`) are git-ignored upstream and re-asserted here by the
   skill's own `.gitignore`, reducing accidental Git inclusion; forced staging, packaging or sync can still publish them.
-
 ## Related Skills
-
 - `@cline-delegate` — Simpler, single-turn Cline CLI delegation with a bundled relay
   script; use it for a one-off task. Prefer `cline-pilot` when you need serial
   multi-task queues, learning across runs, and process-lifecycle governance.

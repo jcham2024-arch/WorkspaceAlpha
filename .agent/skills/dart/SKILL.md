@@ -1,29 +1,20 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "a1122b7d0b0e2102df91a46d1452dca1a681c2bf453fdc75d18ce63e6a41ee53"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: a1122b7d0b0e2102df91a46d1452dca1a681c2bf453fdc75d18ce63e6a41ee53
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-16
+description: Language-specific super-code guidelines for dart.
 name: dart
-description: "Language-specific super-code guidelines for dart."
-tier: "experimental"
 risk: safe
 source: community
-date_added: "2026-06-16"
 ---
-
 # Dart: Idiomatic Efficiency Reference
-
 Apply only within the requested scope and current project conventions. Preserve behavior, ownership, error handling, accessibility and security; examples are independent fragments, not equivalent rewrites in every context. Verify language/library versions and run relevant checks. Required tests and user-facing progress/results take precedence over brevity rules. Do not install dependencies or delete files merely to follow these examples.
-
 ## When to Use
 - Use this skill when the task matches this description: Language-specific super-code guidelines for dart.
-
 ## Table of Contents
 1. [Null Safety](#nulls)
 2. [Collections & Iteration](#collections)
@@ -32,11 +23,8 @@ Apply only within the requested scope and current project conventions. Preserve 
 5. [Error Handling](#errors)
 6. [Flutter-Specific Patterns](#flutter)
 7. [Anti-patterns specific to Dart](#antipatterns)
-
 ---
-
 ## 1. Null Safety {#nulls}
-
 ```dart
 // ❌ Manual null check
 String display;
@@ -45,80 +33,65 @@ if (user.name != null) {
 } else {
   display = 'Unknown';
 }
-
 // ✅
 final display = user.name ?? 'Unknown';
 ```
-
 ```dart
 // ❌ Nested null checks
 if (user != null && user.address != null && user.address!.city != null) {
   print(user.address!.city!);
 }
-
 // ✅
 final city = user?.address?.city;
 if (city != null) print(city);
 ```
-
 ```dart
 // ❌ Late field when nullable is correct
 late String name; // crashes if accessed before assignment
-
 // ✅ — use late only when you guarantee initialization before access
 String? name; // honestly nullable
 // late is fine for: late final _controller = TextEditingController();
 ```
-
 ```dart
 // ❌ Bang operator (!) everywhere
 final name = user.name!;
 final city = user.address!.city!;
-
 // ✅ — promote through null checks
 final name = user.name;
 if (name == null) return;
 // name is now non-null (promoted)
 ```
-
 ---
-
 ## 2. Collections & Iteration {#collections}
-
 ```dart
 // ❌ Imperative accumulation
 final result = <String>[];
 for (final item in items) {
   if (item.isActive) result.add(item.name.toUpperCase());
 }
-
 // ✅
 final result = items
     .where((i) => i.isActive)
     .map((i) => i.name.toUpperCase())
     .toList();
 ```
-
 ```dart
 // ❌ Manual map construction
 final map = <String, List<Item>>{};
 for (final item in items) {
   map.putIfAbsent(item.category, () => []).add(item);
 }
-
 // ✅ (using collection-if/for in a different way — but groupBy isn't built-in)
 // The loop above is actually idiomatic Dart. Use package:collection for groupBy:
 import 'package:collection/collection.dart';
 final map = groupBy(items, (Item i) => i.category);
 ```
-
 ```dart
 // ❌ Building list with add() calls
 final widgets = <Widget>[];
 widgets.add(Header());
 if (showSubtitle) widgets.add(Subtitle());
 widgets.add(Body());
-
 // ✅ — collection-if
 final widgets = [
   Header(),
@@ -126,21 +99,16 @@ final widgets = [
   Body(),
 ];
 ```
-
 ```dart
 // ❌ Spreading manually
 final all = <int>[];
 all.addAll(listA);
 all.addAll(listB);
-
 // ✅
 final all = [...listA, ...listB];
 ```
-
 ---
-
 ## 3. Classes & Records {#classes}
-
 ```dart
 // ❌ Manual data class boilerplate
 class Point {
@@ -150,7 +118,6 @@ class Point {
   @override int get hashCode => ...
   @override String toString() => 'Point($x, $y)';
 }
-
 // ✅ (Dart 3.0+)
 typedef Point = ({int x, int y});
 // or for named class semantics:
@@ -160,7 +127,6 @@ class Point {
 }
 // Use package:equatable or Dart records for equality
 ```
-
 ```dart
 // ❌ Verbose constructor
 class User {
@@ -168,7 +134,6 @@ class User {
   final int age;
   User(String name, int age) : name = name, age = age;
 }
-
 // ✅ — initializing formals
 class User {
   final String name;
@@ -176,7 +141,6 @@ class User {
   const User(this.name, this.age);
 }
 ```
-
 ```dart
 // ❌ Mutable fields on an immutable object
 class Config {
@@ -184,7 +148,6 @@ class Config {
   int port;
   Config(this.host, this.port);
 }
-
 // ✅
 class Config {
   final String host;
@@ -192,31 +155,25 @@ class Config {
   const Config(this.host, this.port);
 }
 ```
-
 ```dart
 // ❌ Switch on type with if-else chain
 if (shape is Circle) {
   return (shape as Circle).radius * pi;
 } else if (shape is Rectangle) { ... }
-
 // ✅ (Dart 3.0+)
 return switch (shape) {
   Circle(:final radius) => radius * radius * pi,
   Rectangle(:final width, :final height) => width * height,
 };
 ```
-
 ---
-
 ## 4. Async/Await & Streams {#async}
-
 ```dart
 // ❌ .then() chains
 fetchUser()
     .then((user) => fetchPosts(user))
     .then((posts) => display(posts))
     .catchError((e) => log(e));
-
 // ✅
 try {
   final user = await fetchUser();
@@ -226,18 +183,15 @@ try {
   log(e);
 }
 ```
-
 ```dart
 // ❌ Sequential await for independent work
 final a = await fetchA();
 final b = await fetchB();
-
 // ✅
 final results = await Future.wait([fetchA(), fetchB()]);
 // or with typed destructuring:
 final (a, b) = await (fetchA(), fetchB()).wait; // Dart 3.3+ record Future.wait extension
 ```
-
 ```dart
 // ❌ StreamBuilder doing too much in build
 StreamBuilder(
@@ -249,19 +203,14 @@ StreamBuilder(
     // 50 lines of widget tree...
   },
 )
-
 // ✅ — extract widget, or use listen + setState for simple cases
 ```
-
 ---
-
 ## 5. Error Handling {#errors}
-
 ```dart
 // ❌ Catching Exception (too broad)
 try { process(); }
 on Exception catch (e) { print(e); }
-
 // ✅ — catch specific types
 try {
   process();
@@ -271,58 +220,45 @@ try {
   throw AppException('Network error', cause: e);
 }
 ```
-
 ```dart
 // ❌ Returning null for errors
 Future<User?> fetchUser() async {
   try { return await api.getUser(); }
   catch (_) { return null; } // caller doesn't know why
 }
-
 // ✅ — let exceptions propagate, or use sealed Result type
 sealed class Result<T> {}
 class Success<T> extends Result<T> { final T value; Success(this.value); }
 class Failure<T> extends Result<T> { final Object error; Failure(this.error); }
 ```
-
 ---
-
 ## 6. Flutter-Specific Patterns {#flutter}
-
 ```dart
 // ❌ Rebuilding entire tree on state change
 setState(() {
   // changes a single value, but the build() method builds 200 widgets
 });
-
 // ✅ — extract subtrees into separate widgets or use ValueListenableBuilder
 ValueListenableBuilder<int>(
   valueListenable: counter,
   builder: (_, value, __) => Text('$value'),
 )
 ```
-
 ```dart
 // ❌ const-able widget without const
 Container(color: Colors.blue)
-
 // ✅
 const ColoredBox(color: Colors.blue)
 // Mark constructors const when possible; use `const` keyword at call site
 ```
-
 ```dart
 // ❌ Navigator.push with MaterialPageRoute everywhere
 Navigator.push(context, MaterialPageRoute(builder: (_) => DetailPage()));
-
 // ✅ — named routes or GoRouter
 context.push('/detail'); // GoRouter; preserves push/back-stack intent
 ```
-
 ---
-
 ## 7. Anti-patterns specific to Dart {#antipatterns}
-
 | Anti-pattern | Preferred |
 |---|---|
 | `!` (bang) operator liberally | null checks and promotion |
@@ -336,9 +272,6 @@ context.push('/detail'); // GoRouter; preserves push/back-stack intent
 | String-based routing | typed routing (GoRouter) |
 | `late` as escape hatch | nullable types or proper initialization |
 | `Future.delayed` for debounce | `Timer` or proper debounce utility |
-
-
-
 ## Limitations
 - These are language-specific guidelines and do not cover overall architectural decisions.
 - Over-compression might reduce readability; apply judgement.

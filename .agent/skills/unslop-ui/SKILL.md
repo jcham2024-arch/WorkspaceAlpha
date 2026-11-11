@@ -1,66 +1,42 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "0cdb94e8fe8a551c1ab9d83e2800a4b29d6cc8385a04c7072811ea69e531a5c7"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 0cdb94e8fe8a551c1ab9d83e2800a4b29d6cc8385a04c7072811ea69e531a5c7
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: Damir Sokolovsky
+date_added: 2026-11-01
+description: Audit and redesign AI-generated interfaces with product-specific visual direction, structured design passes, and optional snapshots or story video.
+license: CC-BY-4.0
+license_source: "https://github.com/heydamir/unslop/blob/a6f121eee5f29c2f74976b75456feae8b66afb3a/LICENSE"
 name: unslop-ui
-description: "Audit and redesign AI-generated interfaces with product-specific visual direction, structured design passes, and optional snapshots or story video."
-tier: "experimental"
 risk: critical
 source: community
 source_repo: heydamir/unslop
 source_type: community
-date_added: "2026-11-01"
-author: Damir Sokolovsky
-license: CC-BY-4.0
-license_source: https://github.com/heydamir/unslop/blob/a6f121eee5f29c2f74976b75456feae8b66afb3a/LICENSE
-metadata:
-  author: Damir Sokolovsky
-  x: https://x.com/heydamir
+---  x: https://x.com/heydamir
   site: https://heydamir.design/unslop
 ---
-
-
 # Unslop UI
-
 Adapted by AAS from [heydamir/unslop](https://github.com/heydamir/unslop) at commit `a6f121eee5f29c2f74976b75456feae8b66afb3a`. Includes the upstream responsive-image snapshot fix: freeze each image’s browser-selected `currentSrc` before removing responsive markup. Renamed to avoid a collision with the writing skill `unslop`; the story script uses a unique temporary directory, restricts its local file server to the story directory, and refuses to overwrite output; the snapshot script also refuses to overwrite output. See LICENSE.
-
 ## When to Use
-
 Use for a requested visual audit or redesign of an existing interface. Use the separate `unslop` skill for prose.
-
 ## Limitations and safety
-
 Screenshots and page snapshots load site scripts, may access external sites and write files; use authorized pages and fresh output paths. Render only trusted story HTML: its scripts can access files served from the story directory and make network requests. Generated images may send prompts to external services and incur costs. Video rendering requires Playwright and ffmpeg. Verify functionality and accessibility in the target project; design guidance is subjective.
-
 unslop was created by Damir Sokolovsky ([@heydamir](https://x.com/heydamir)), who started the Unslopping series on X. It is licensed under CC BY 4.0, so keep this credit in any copy or adaptation.
-
 Vibecoded UI fails in the same predictable ways. Every surface glows, every label has an emoji, spacing is whatever the model typed that day, and the copy shouts. Unslopping fixes the craft and keeps the product. The features, content and order of sections stay. What changes is that every size, color, word and image becomes deliberate.
-
 Removing slop is only half the job. A screen that is clean but could belong to any product is the next template. Every run ends with a screen that only this product could have.
-
 The difference between slop and craft is where the richness goes. Slop spreads color and effects over the chrome, the backgrounds, buttons, borders and labels. Craft keeps the chrome quiet and puts the richness into one or two moments of content that people remember, like a rendered object, a beautiful chart or an image from the product's world.
-
 Work like a designer doing a redline pass, one layer at a time, across the whole screen.
-
 ## What good looks like
-
 - **One bright element.** Each screen has one polished thing that carries the color and the craft, a rendered object, a painted scene or a rich chart. Everything around it is quiet, so it reads instantly.
 - **Quiet chrome.** Navigation, buttons and text use the tinted neutrals and one accent. Nothing glows, nothing competes with the bright element.
 - **A clear idea.** You can say in one sentence what the visual shows and why it belongs to this product.
 - **Text on calm space.** The headline sits on a part of the image or layout that was left empty for it, short and specific, with one primary and one secondary action and nothing stacked under them.
 - **Real product, real material.** Previews look like the real app with plausible data, and objects look like real things with weight, light and shadow.
-
 Which visual styles tend to work, and which fail, is in [references/visuals.md](references/visuals.md). Finished examples to learn from are in [references/refs.md](references/refs.md), and code treatments like drawing an image in glyphs are in [references/effects.md](references/effects.md).
-
 ## Run it
-
 1. **Look at the screen.** Find the files that render it. If you can run the app or open the file in a browser and take a screenshot, do it, so you judge what people see and not only the code.
    - Only a link to a live site, no code? Save the page with `node <skill folder>/scripts/snapshot.mjs <url> unslop/original.html` and work on a copy of that file. Add `--dark` or `--light` to match the theme the user sees. It also saves `original.live.png`, a screenshot of the live page, so render the saved copy and compare the two before you start. Animated backgrounds drawn by scripts do not survive, so describe them in the audit from the live page.
    - Only a screenshot? Rebuild the screen as one static HTML file first, matching it closely, and treat that as the original.
@@ -75,27 +51,18 @@ Which visual styles tend to work, and which fail, is in [references/visuals.md](
 6. **Check.** Run the checklist at the end of this file, render again and compare with the audit list. Anything still on the list gets fixed.
 7. **Report** the direction, a few lines per pass about what changed, and any image prompt you wrote.
 8. **Record, when asked or when the user wants something to share.** Build the story file and render the video described in [Story video](#story-video). If the user asks for it at the start, write each pass into the story file as you go.
-
 Keep a run quick. Render the screen to check it at most three times. When you generate an image, start it right after the direction is confirmed and keep doing the first passes while it runs, instead of waiting for it.
-
 Exact values for every pass live in [references/tokens.md](references/tokens.md).
-
 ## Direction
-
 Before touching anything, write five short lines. Derive them from what the page says the product does and who it is for. Never from what is trending.
-
 - **Product.** What it does and for whom, in one plain sentence.
 - **Character.** Two or three concrete words, like `calm, exact, a little warm` or `fast, technical, playful`. Words like clean, modern, sleek, minimal and premium are not allowed, because they describe every template.
 - **World.** The place or material the product naturally belongs to. A note app lives near paper and ink, a monitoring tool near instruments and night shifts, a travel app near maps and window light. This world sets the tint of the neutrals, the accent and the visual.
 - **Moments.** One or two places where the screen gets rich color, material and detail, chosen from what the product shows. A rendered card or device inside the preview, a chart whose colors each mean a series, an object from the world placed next to the content. Write what they are.
 - **Signature.** One small detail only this product would have, used consistently. A live status dot for a monitoring tool, keycaps for a developer tool, hand drawn underlines for a teaching app, a route line for a delivery app. One detail, not five.
-
 The examples here only show the shape of an answer. Derive yours from the product in front of you, even when an example happens to fit.
-
 If the product already has a real brand, like a logo file, a color or a typeface that is not slop, keep it and build the direction around it. A violet to blue gradient, sparkles and glow are slop even when they sit in the logo, so they do not count as brand unless the user says they do.
-
 ## 1. Spacing
-
 - Everything sits on a 4px grid. Margins, paddings, gaps and fixed heights are multiples of 4, so 28 or 104 are fine even though they are not in the token list. A 2px step is fine for nudges inside small controls, and an odd value that exactly centers something stays.
 - Same thing, same size. All rows in a list share one height and one gap, all cards in a row share one padding.
 - Space shows grouping. Space inside a group is smaller than space between groups, so a list reads as one block and sections read as separate ones.
@@ -103,9 +70,7 @@ If the product already has a real brand, like a logo file, a color or a typeface
 - Padding follows density. Compact panels and sidebars around 16, cards 20 to 24, page edges 24 to 32.
 - Navigation is the densest part of an app. Rows are 32 to 36 tall with 2 to 4 between them, icons in one column, labels on one line. A section label sits closer to its own items than to the section above it, like 24 above and 8 below. Measure the sidebar after the pass, it is where spacing breaks most often.
 - Remove one-off values that break the rhythm, like `mt-[13px]` or `py-[11px]`, and replace them with steps from the scale.
-
 ## 2. Color
-
 - Build from one neutral ramp, tinted toward the world from the direction. Pick graphite, warm or ink from the tokens, or tint your own the same way. Background, raised surfaces, borders and text all come from that ramp.
 - In apps and dashboards the backgrounds, surfaces, borders and text stay neutral, the graphite ramp or something just as grey. People look at them for hours and the content has to carry the color. A screen whose background reads as orange, brown, blue or green has gone too far. The world shows in the accent, the charts and the moments, not in the surfaces. Landing pages can tint their surfaces further toward the world.
 - Three text roles, primary, secondary and muted. Not ten slightly different lavenders.
@@ -119,17 +84,13 @@ If the product already has a real brand, like a logo file, a color or a typeface
 - Borders are quiet hairlines, the text color of the ramp at 6 to 10% opacity.
 - On dark themes depth comes from surface steps and hairlines, not from shadows. A window or object floating over an image may keep a soft neutral shadow. On light themes shadows are neutral, soft and small.
 - A gradient is allowed only as a small tone shift inside one neutral, like an active row going from #2b2b2b to #1f1f1f. Never from one hue to another.
-
 ## 3. Icons
-
 - Every emoji used as an icon or as decoration in a label becomes a line icon from one set. Use the set the project already has, otherwise lucide.
 - One size and one stroke everywhere, 16 or 18px with a 1.5 stroke.
 - Icons take the color of their text role, usually secondary or muted. They never get their own colors.
 - The icon box has the same width in every row and the gap to the label is fixed, 8 or 10, so labels align.
 - Drop icons that add nothing, like an emoji in every card title or before every section label. Categories that need color get a small status dot.
-
 ## 4. Copy
-
 - Headlines say what the product does for whom, in plain words, so they could not fit another product. Use the facts already on the page and do not invent new ones.
 - No exclamation marks in interface text, and never `!!`.
 - No greeting headlines like `Welcome back, Damir! 👋`. The title names the context, like the page name or the period, for example `October 2026`.
@@ -140,9 +101,7 @@ If the product already has a real brand, like a logo file, a color or a typeface
 - Claims that cannot be checked, like `Loved by 10,000+ teams` or `10x faster`, become quiet and specific if the user confirms they are real, and are removed otherwise. Ask, and list them in the report.
 - Mock data looks real, with plausible numbers and names, never `[X]` or `123,456`.
 - Badges like `PRO`, `New ✨` or `Beta 🚀` go away unless the product really needs them, and then they are quiet text.
-
 ## 5. Type
-
 - Choose type for the character in the direction, from the families in the tokens. Keep the project's font when it is part of a real brand. A default like Inter that nobody chose may be swapped when another family fits the character better. One family for the interface, plus at most one partner from any row of the tokens, a mono for figures and meta or a display face for large headlines.
 - A few sizes from a scale and two weights, 400 and 500, with 600 at most for rare emphasis. No 700 to 900 headings, no gradient text.
 - Hierarchy comes from size and color, not from weight.
@@ -150,9 +109,7 @@ If the product already has a real brand, like a logo file, a color or a typeface
 - Small text never gets negative letter spacing. Readability on small text means bigger, a bit bolder or slightly looser. Tight tracking is only for large display text.
 - Numbers use `tabular-nums` and one format across the screen. If one figure is `$48,210`, the next is not `$124,860.40`.
 - No italic for emphasis.
-
 ## 6. Layout
-
 - Keep the sections and their order. Inside a section, alignment and proportions may change when that makes the screen clearer.
 - Apps and dashboards keep real app proportions. The shell fills the viewport, a sidebar of 240 to 280 and fluid content, usually capped around 1440 to 1600 wide, and the page is as long as its content, with more sections below the first screen. Never shrink an app into a narrow centered column. If the original was drawn as a small window on a backdrop, keep it visibly a window, with its frame and backdrop, and still give it desktop proportions inside.
 - The strongest landing hero is a scene. One generated image fills the hero from edge to edge, its subject sits on one side, and the headline sits on the calm empty part of the same image, with the product view rising from the bottom edge. Look at the hero in the references to see it.
@@ -164,9 +121,7 @@ If the product already has a real brand, like a logo file, a color or a typeface
 - Navigation stays quiet. Logo, the existing links, one button. Log in is a quiet text link next to it, not a second button. A floating pill header is not required. On small screens the links collapse into one menu button.
 - Compose the first screen as a whole. The hero fills the viewport height without a dead empty band. If the content is shorter, center it or let the product view start low and run past the bottom edge, so the page invites a scroll.
 - On small screens everything stacks in reading order, the headline drops to the mobile size from the tokens and the visual comes after the actions. A dense preview gets simpler on mobile, with fewer rows and columns, instead of being zoomed down. No text in it goes below 11px.
-
 ## 7. Details
-
 - Nested radius. An inner radius equals the outer radius minus the padding between them, never less than 4. Controls 8 to 10, cards 12 to 16, panels 14 to 20. Not everything is a pill.
 - Counts and meta become quiet text, often mono and muted, instead of glowing pills.
 - Keyboard shortcuts become small keycaps.
@@ -180,9 +135,7 @@ If the product already has a real brand, like a logo file, a color or a typeface
 - Hover and focus states exist and stay inside the palette. A visible focus ring for keyboard users.
 - The logo is the product name in the main family, plus a simple mark if there is one. No gradient wordmark and no sparkle tile.
 - The signature detail from the direction appears where it belongs and nowhere else.
-
 ## 8. Visuals
-
 - Decorative filler goes. Glossy blobs, orbs, nebulas, floating cubes, glowing grids, holographic brains and robots say nothing about the product.
 - A landing hero gets a visual that shows something true.
 - Dashboards and app screens almost never need generated images. Their moments come from the product itself: a chart drawn with care, figures set beautifully, real content like product photos or avatars, a status that feels alive. A physical thing the product deals with, like a payment card in a finance app, is usually better built in code with real materials, a soft gradient, a chip, a number.
@@ -193,28 +146,21 @@ If the product already has a real brand, like a logo file, a color or a typeface
 - Before this pass, look at the references in [references/refs.md](references/refs.md). Take qualities from them, like composition, light, restraint and how the moment is placed, never their subject or layout.
 - Rendered objects and scenes come from an image generation tool when you have one. If you do not, build what you can in code, write the prompts for the rest and leave empty slots of the right size.
 - How to pick the subject, the prompt recipe and how to place the image are in [references/visuals.md](references/visuals.md). Read it before this pass.
-
 ## 9. Motion
-
 - Remove motion that loops for no reason, like `animate-pulse` or `animate-ping` on things that are not live, shimmer on headings, breathing glows, floating elements and parallax.
 - Remove `transition-all`, bouncy springs, `hover:scale` on cards and anything that moves more than a few pixels on hover.
 - Keep motion that explains something. A hover is a quick color or surface change, a press is a tiny scale down, a menu fades and rises a few pixels from where it opens, a changed number tweens.
 - Transition color, background, border, opacity and transform, and name them, like `transition-colors` or `transition-[transform,opacity]` in Tailwind, instead of a catch all. Never animate width, height, top, left, margins or large blurs, they stutter on weak devices.
 - One easing curve and a few durations across the screen, from the tokens. Short for feedback, a little longer for things that enter.
 - At most one entrance on load, a short fade and rise for the main content with a small stagger. Not every card flying in from a different side.
-
 ## Story video
-
 A short video where the screen unslops itself step by step, with red redlines on the slop. Look at [refs/story-dashboard-frames.webp](references/refs/story-dashboard-frames.webp) before you build it, eight frames from it in order. That video went viral, and this is how it works:
-
 - **Nothing is swapped, everything morphs.** One page, and each step only changes CSS, so padding, gaps, sizes, colors, radii and shadows tween from the old value to the new one in place. You see the spacing open up, the purple drain out, the corners soften.
 - **A wave.** Elements start a few dozen milliseconds apart from the top left down, so a change runs across the screen instead of everything flipping at once.
 - **Text rolls.** Copy that changes blurs out, and the new words rise in letter by letter.
 - **Redlines first.** The slop gets red selection boxes with tags, a spacing step shows red measurements that turn white once fixed, a details step outlines corners with their radius.
 - **Close and short.** Square, cropped close on the part that changes most, so it reads on a phone, and about 10 seconds.
-
 It adds a few minutes, so make it only when the user wants it.
-
 1. **One story file.** Build `unslop-story/story.html`, a standalone copy of the original screen with its styles in the file. Keep the original rules as they are, they are step 0.
 2. **Steps.** Three to five, merging passes so each one changes something you can see, like `Spacing`, `Color and icons`, `Type and copy`, `Details`. A new chart or visual goes into the last step. List them in the head as `<meta name="unslop-steps" content="Spacing, Color and icons, Type and copy, Details">`. A name containing Spacing shows spacing measurements, one containing Details shows corner outlines.
 3. **Each step is CSS on top.** Write the changes of step 1 under `.s1`, step 2 under `.s2` and so on, like `.s1 .card { padding: 24px }` or `.s2 body { background-color: #141415 }`. The classes add up, so step 3 still has the rules of steps 1 and 2. Change values, never structure, so the browser can tween them.
@@ -234,17 +180,13 @@ It adds a few minutes, so make it only when the user wants it.
 7. **Camera.** `<meta name="unslop-frame" content="0 0 960">` sets which part of the page fills the frame, as x, y and width in page pixels. Point x and y at the screen's own top left corner, so the frame starts with the page background around it, and crop close on where the most visible change happens, usually the sidebar or headline and the first cards.
 8. **Render.** `node <skill folder>/scripts/story.mjs unslop-story/story.html unslop-story.mp4`, square by default, `--wide` for 16:9. It needs Playwright and ffmpeg, so if either is missing, tell the user the one command that installs it. To watch it live first, run it with `--play` instead of the output path, and it loops in a browser window until closed. Pull a few frames with ffmpeg and look at them before you hand it over. Checking the story file and the video does not count toward the render limit of a run.
 9. **The story file is a presentation piece.** The clean result still ships as normal code in the project's own stack, without `.s` classes or story attributes. Every video carries a small `unslop by @heydamir` credit, as the license asks.
-
 ## Do not
-
 - Do not rename the product, even when the name has AI in it. Keep a real logo as it is. When the logo itself is slop, like an emoji or a sparkle in a gradient tile, redraw it flat: the wordmark alone in the new type, or a simple glyph from the product's idea in one solid color. Never a glossy or gradient ball, a glow or a gradient tile, those read as AI at first sight.
 - Do not change what the product is. Keep its features, content and the order of sections unless the user asks for more. Placeholder content that means nothing may be replaced with content that does.
 - Do not replace removed decoration with new decoration, and do not swap one trend for another like glass, grain, noise, neon or bento grids.
 - Do not invent features, claims or data.
 - Do not fall back to the same look for every product. The direction decides the palette tint, type and visual, not habit.
-
 ## Checklist
-
 - [ ] The direction is written and every pass follows it
 - [ ] Every spacing value is on the 4px scale and equal things have equal sizes
 - [ ] Icons, labels and numbers each sit in one aligned column

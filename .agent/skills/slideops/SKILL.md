@@ -1,56 +1,42 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "3625c5c926764f1b19ad7a20204c24d39ff3521d0301f2166e011c4d5af2af1d"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: slideops
-description: "Turn a repository into a cited HTML slide deck and detect the day it drifts from the code. Citations record file, lines, and hash; a stdlib check reports CURRENT, MOVED, or CHANGED."
-tier: "experimental"
+content_hash: 3625c5c926764f1b19ad7a20204c24d39ff3521d0301f2166e011c4d5af2af1d
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: glukicov
 category: content
+date_added: 2026-08-31
+description: Turn a repository into a cited HTML slide deck and detect the day it drifts from the code. Citations record file, lines, and hash; a stdlib check reports CURRENT, MOVED, or CHANGED.
+license: MIT
+license_source: ""https://github.com/glukicov/slideops/blob/main/LICENSE""
+name: slideops
 risk: critical
 source: community
 source_repo: glukicov/slideops
 source_type: community
-date_added: "2026-08-31"
-author: glukicov
-tags: [slides, presentations, documentation, docs-as-code, drift-detection, citations, html]
-tools: [claude-code, codex-cli, copilot, opencode]
-license: "MIT"
-license_source: "https://github.com/glukicov/slideops/blob/main/LICENSE"
+tags: "[slides, presentations, documentation, docs-as-code, drift-detection, citations, html]"
+tools: "[claude-code, codex-cli, copilot, opencode]"
 ---
-
 ## Bundled upstream support
-
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.
-
 # SlideOps: slides from a repo, that tell you when they go stale
-
 > **Catalog copy, frozen at v1.0.0.** The canonical source is
 > [glukicov/slideops](https://github.com/glukicov/slideops), which also carries the deck
 > template, the two citation scripts, the reference docs, and the companion
 > `slides-to-pdf` skill. For upstream updates consult that repository; this catalog bundles the support files listed in UPSTREAM-NOTICE.md.
-
 ## Overview
-
 SlideOps has two jobs, and the second one is the point. **Build**: turn a repository into
 an HTML slide deck whose factual claims are grounded in reviewed code, not from a
 model's impression of the code. **Keep in sync**: report drift of cited text later; semantic accuracy still requires review.
-
 The mechanism joining them is a citation. Every quoted snippet records the file, the line
 range, and a hash of those source lines at build time, and the deck records the commit it
 was built from. "Are these slides still accurate?" becomes a command instead of a
 re-read: a standard-library Python script diffs each citation against the current code
 and reports `CURRENT`, `MOVED`, `CHANGED`, or `MISSING`. No model, no network, no tokens,
 milliseconds to run.
-
 ## When to Use This Skill
-
 - Use when the user asks for slides, a slide deck, or a presentation about a code
   repository, one of its subsystems, a feature, or its recent changes: "make slides",
   "overview deck", "team update slides", "HTML slides for this repo".
@@ -61,15 +47,10 @@ milliseconds to run.
   agent hook: "fail the build when the deck stops matching the code".
 - Do **not** use for slide decks about anything other than a codebase (a sales deck, a
   lecture); the citation mechanism assumes a git repository as the source of truth.
-
 ## How It Works
-
 ### Step 1: Inspect the bundled source
-
 This tree includes the HTML template, citation scripts and three references at paths relative to this SKILL.md; no upstream install is required to inspect them. The companion `slides-to-pdf`, `themes.md`, `style-guide.md` and `freshness.md` are not bundled. Use an already reviewed installed browser/rendering tool when needed; missing external tools need a separately scoped setup, not a moving installer fallback.
-
 ### Step 2: Build a deck
-
 The skill walks a fixed pipeline: a two-minute repo scan, one compact intake (topic,
 audience, length, theme, scope, extras), an outline checkpoint before any HTML is
 written, then slide-by-slide construction from a verified template. Every snippet is
@@ -77,67 +58,48 @@ cited as it is written. Run the citation script from inside the repository being
 presented, via its installed path (an agent resolves `scripts/` against the skill's own
 directory automatically; the paths below are for running it yourself after
 `install.sh`):
-
 ```bash
 python3 ~/.agents/skills/slideops/scripts/cite.py app/main.py:40-58 --repo . --snippet   # prints data-src + data-sha256
 python3 ~/.agents/skills/slideops/scripts/cite.py --stamp deck.html --repo .             # stamps the build commit
 ```
-
 `--repo` always points at the repository the deck is about, never at the SlideOps
 checkout.
-
 Every slide is then rendered with headless Chrome and visually verified before the deck
 is considered done.
-
 ### Step 3: Check it later, for free
-
 From inside the repository being presented, same path convention as Step 2:
-
 ```bash
 python3 ~/.agents/skills/slideops/scripts/check.py docs/slides/ --repo .
 ```
-
 Real output, from the demo deck that ships with the skill:
-
 ```text
 Deck: skill-demo.html
 Built: commit=179bbdb date=2026-08-28 repo=slideops
-
   slide   9  THEMING        skills/slideops/assets/template.html:22-45    CURRENT
   slide  14  MERMAID        skills/slideops/references/diagrams.md:55-59  CURRENT
-
 2 current, 0 stale, 2 cited in total.
 ```
-
 `MOVED` means the hashed source block still exists elsewhere; review surrounding context before deciding whether prose remains true.
 `CHANGED` means the quoted code was edited (read the diff, decide whether the slide's
 claim survived). `MISSING` means the file is gone (the slide is probably obsolete). The
 `--json` flag emits a citation repair brief per stale citation, so an agent can fix
 drift without re-reading the repository.
-
 ## Examples
-
 ### Example 1: New deck
-
 ```text
 User: make slides about this repo
 Agent: [scans repo, proposes 3-4 concrete topics with a "why now" each,
         asks one compact intake, shows an outline, then builds and
         visually verifies a cited HTML deck at docs/slides/]
 ```
-
 ### Example 2: Freshness check in CI
-
 ```bash
 python3 tools/slideops-check.py docs/slides/ --repo . --exit-zero   # report-only PR annotation
 ```
-
 The canonical repo's `references/automation.md` has the PR-check workflow, advisory hook
 variants, and a delegated-refresh recipe. `check.py` is one dependency-free file, meant
 to be vendored into the deck's own repo.
-
 ## Best Practices
-
 - ✅ Cite with `cite.py`, never by hand: a hand-computed hash silently reports `CHANGED`
   months later and nobody can tell whether the code moved or the build was sloppy.
 - ✅ Repair a drifted deck; do not rebuild it. Fix only the slides whose citations went
@@ -148,9 +110,7 @@ to be vendored into the deck's own repo.
   reports "No citations found in this deck".
 - ❌ Do not block every commit on the check. Report-only on pull requests first; a docs
   gate on the fast path trains people to pass `--no-verify`.
-
 ## Limitations
-
 - Needs a headless Chrome or Chromium binary (Playwright cache or system install) for
   the visual verification pass, and Python 3 for the citation scripts.
 - The bundled template has no external assets; generated decks are offline only after all images/fonts/SVGs are embedded and remote references checked. Optional tooling setup and
@@ -158,9 +118,7 @@ to be vendored into the deck's own repo.
 - The check verifies quoted snippets against the code; it cannot verify prose claims
   that cite nothing.
 - Drift detection assumes the deck and the code share a git repository.
-
 ## Security & Safety Notes
-
 - Ask before cloning the upstream repository, running `install.sh`, creating skill
   symlinks in the user's home directory, downloading an optional `npx` package, or
   writing deck output. Show the exact pinned commit and destination paths first, and
@@ -176,9 +134,7 @@ to be vendored into the deck's own repo.
 - Citation hashes normalize decoded text lines and use a 12-hex prefix; they are drift indicators, not cryptographic authenticity, byte-identity or semantic proof. Empty/unverified citations must not pass a strict freshness gate.
 - File writes are limited to the deck output folder (default `docs/slides/`) plus its
   companion README.
-
 ## Common Pitfalls
-
 - **Problem:** `check.py` on an exported PDF reports no citations.
   **Solution:** Run it against the HTML deck; the PDF is a derived artifact from the
   companion `slides-to-pdf` skill.
@@ -188,9 +144,7 @@ to be vendored into the deck's own repo.
 - **Problem:** Chrome is not found on the verification step.
   **Solution:** The canonical repo's `references/verification.md` has the cross-platform
   discovery recipe (Playwright cache first, then system installs).
-
 ## Related Skills
-
 - `slides-to-pdf` (same canonical repo): screenshots every slide at 2x, prints a
   page-per-slide PDF, and verifies the result by rendering the PDF back to images.
 - `@2slides-ppt-generator`: API-driven deck generation from text or documents; use it

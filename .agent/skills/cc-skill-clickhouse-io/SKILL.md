@@ -1,46 +1,30 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "8263061f13fe49c46184b4d24de60664e1a0032aaa982d1279025ba4fe85eb2f"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 8263061f13fe49c46184b4d24de60664e1a0032aaa982d1279025ba4fe85eb2f
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: ClickHouse database patterns, query optimization, analytics, and data engineering best practices for high-performance analytical workloads.
 name: cc-skill-clickhouse-io
-description: "ClickHouse database patterns, query optimization, analytics, and data engineering best practices for high-performance analytical workloads."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # ClickHouse Analytics Patterns
-
 ClickHouse-specific patterns for high-performance analytics and data engineering.
-
 ## Overview
-
 ClickHouse is a column-oriented database management system (DBMS) for online analytical processing (OLAP). It's optimized for fast analytical queries on large datasets.
-
 **Key Features:**
 - Column-oriented storage
 - Data compression
 - Parallel query execution
 - Distributed queries
 - Real-time analytics
-
 ## Correctness and measurement boundaries
-
 The tables/queries are independent schema sketches, not one runnable application. Validate column/aggregate-state types and units together. ReplacingMergeTree deduplicates equal full sorting keys eventually within compatible partitions; including timestamp in ORDER BY does not deduplicate arbitrary repeated event IDs, and background merges are not a read-time correctness guarantee. Predicate textual order alone does not prove index efficiency; inspect plans/read_rows/read_bytes. The retention subquery below groups by activity day, so its per-day MIN is not a true signup cohort; use a verified signup source or windowed user minimum before retention reporting. A simple event-count funnel is not an ordered unique-user/session conversion funnel. Protect query logs and scope DDL/ingestion.
-
 ## Table Design Patterns
-
 ### MergeTree Engine (Most Common)
-
 ```sql
 CREATE TABLE markets_analytics (
     date Date,
@@ -56,9 +40,7 @@ PARTITION BY toYYYYMM(date)
 ORDER BY (date, market_id)
 SETTINGS index_granularity = 8192;
 ```
-
 ### ReplacingMergeTree (Deduplication)
-
 ```sql
 -- For data that may have duplicates (e.g., from multiple sources)
 CREATE TABLE user_events (
@@ -72,9 +54,7 @@ PARTITION BY toYYYYMM(timestamp)
 ORDER BY (user_id, event_id, timestamp)
 PRIMARY KEY (user_id, event_id);
 ```
-
 ### AggregatingMergeTree (Pre-aggregation)
-
 ```sql
 -- For maintaining aggregated metrics
 CREATE TABLE market_stats_hourly (
@@ -86,7 +66,6 @@ CREATE TABLE market_stats_hourly (
 ) ENGINE = AggregatingMergeTree()
 PARTITION BY toYYYYMM(hour)
 ORDER BY (hour, market_id);
-
 -- Query aggregated data
 SELECT
     hour,
@@ -99,11 +78,8 @@ WHERE hour >= toStartOfHour(now() - INTERVAL 24 HOUR)
 GROUP BY hour, market_id
 ORDER BY hour DESC;
 ```
-
 ## Query Optimization Patterns
-
 ### Efficient Filtering
-
 ```sql
 -- ✅ GOOD: Use indexed columns first
 SELECT *
@@ -113,7 +89,6 @@ WHERE date >= '2025-01-01'
   AND volume > 1000
 ORDER BY date DESC
 LIMIT 100;
-
 -- ❌ BAD: Filter on non-indexed columns first
 SELECT *
 FROM markets_analytics
@@ -121,9 +96,7 @@ WHERE volume > 1000
   AND market_name LIKE '%election%'
   AND date >= '2025-01-01';
 ```
-
 ### Aggregations
-
 ```sql
 -- ✅ GOOD: Use ClickHouse-specific aggregation functions
 SELECT
@@ -137,7 +110,6 @@ FROM trades
 WHERE created_at >= today() - INTERVAL 7 DAY
 GROUP BY day, market_id
 ORDER BY day DESC, total_volume DESC;
-
 -- ✅ Use quantile for percentiles (more efficient than percentile)
 SELECT
     quantile(0.50)(trade_size) AS median,
@@ -146,9 +118,7 @@ SELECT
 FROM trades
 WHERE created_at >= now() - INTERVAL 1 HOUR;
 ```
-
 ### Window Functions
-
 ```sql
 -- Calculate running totals
 SELECT
@@ -164,20 +134,15 @@ FROM markets_analytics
 WHERE date >= today() - INTERVAL 30 DAY
 ORDER BY market_id, date;
 ```
-
 ## Data Insertion Patterns
-
 ### Bulk Insert (Recommended)
-
 ```typescript
 import { createClient } from '@clickhouse/client';
-
 const clickhouse = createClient({
   url: process.env.CLICKHOUSE_URL,
   username: process.env.CLICKHOUSE_USER,
   password: process.env.CLICKHOUSE_PASSWORD,
 });
-
 // Trade is the project's validated schema matching the real table.
 async function bulkInsertTrades(trades: Trade[]) {
   await clickhouse.insert({
@@ -187,34 +152,25 @@ async function bulkInsertTrades(trades: Trade[]) {
   });
 }
 ```
-
 Use structured inserts rather than concatenating untrusted strings into SQL.
 See [official JavaScript client](https://clickhouse.com/docs/integrations/javascript).
 The older streaming/CDC fragments below are conceptual and require adaptation to
 the same pinned client API; they are not interchangeable with this client.
-
 ### Streaming Insert
-
 ```typescript
 // For continuous data ingestion
 import { createWriteStream } from 'fs'
 import { pipeline } from 'stream/promises'
-
 async function streamInserts() {
   const stream = clickhouse.insert('trades').stream()
-
   for await (const batch of dataSource) {
     stream.write(batch)
   }
-
   await stream.end()
 }
 ```
-
 ## Materialized Views
-
 ### Real-time Aggregations
-
 ```sql
 -- Create materialized view for hourly stats
 CREATE MATERIALIZED VIEW market_stats_hourly_mv
@@ -227,7 +183,6 @@ AS SELECT
     uniqState(user_id) AS unique_users
 FROM trades
 GROUP BY hour, market_id;
-
 -- Query the materialized view
 SELECT
     hour,
@@ -239,11 +194,8 @@ FROM market_stats_hourly
 WHERE hour >= now() - INTERVAL 24 HOUR
 GROUP BY hour, market_id;
 ```
-
 ## Performance Monitoring
-
 ### Query Performance
-
 ```sql
 -- Check slow queries
 SELECT
@@ -261,9 +213,7 @@ WHERE type = 'QueryFinish'
 ORDER BY query_duration_ms DESC
 LIMIT 10;
 ```
-
 ### Table Statistics
-
 ```sql
 -- Check table sizes
 SELECT
@@ -277,11 +227,8 @@ WHERE active
 GROUP BY database, table
 ORDER BY sum(bytes) DESC;
 ```
-
 ## Common Analytics Queries
-
 ### Time Series Analysis
-
 ```sql
 -- Daily active users
 SELECT
@@ -291,7 +238,6 @@ FROM events
 WHERE timestamp >= today() - INTERVAL 30 DAY
 GROUP BY date
 ORDER BY date;
-
 -- Retention analysis
 SELECT
     signup_date,
@@ -311,9 +257,7 @@ FROM (
 GROUP BY signup_date
 ORDER BY signup_date DESC;
 ```
-
 ### Funnel Analysis
-
 ```sql
 -- Conversion funnel
 SELECT
@@ -332,9 +276,7 @@ FROM (
 )
 GROUP BY session_id;
 ```
-
 ### Cohort Analysis
-
 ```sql
 -- User cohorts by signup month
 SELECT
@@ -352,17 +294,13 @@ FROM (
 GROUP BY cohort, month, months_since_signup
 ORDER BY cohort, months_since_signup;
 ```
-
 ## Data Pipeline Patterns
-
 ### ETL Pattern
-
 ```typescript
 // Extract, Transform, Load
 async function etlPipeline() {
   // 1. Extract from source
   const rawData = await extractFromPostgres()
-
   // 2. Transform
   const transformed = rawData.map(row => ({
     date: new Date(row.created_at).toISOString().split('T')[0],
@@ -370,28 +308,20 @@ async function etlPipeline() {
     volume: parseFloat(row.total_volume),
     trades: parseInt(row.trade_count)
   }))
-
   // 3. Load to ClickHouse
   await bulkInsertToClickHouse(transformed)
 }
-
 // Run periodically
 setInterval(etlPipeline, 60 * 60 * 1000)  // Every hour
 ```
-
 ### Change Data Capture (CDC)
-
 ```typescript
 // Listen to PostgreSQL changes and sync to ClickHouse
 import { Client } from 'pg'
-
 const pgClient = new Client({ connectionString: process.env.DATABASE_URL })
-
 pgClient.query('LISTEN market_updates')
-
 pgClient.on('notification', async (msg) => {
   const update = JSON.parse(msg.payload)
-
   await clickhouse.insert('market_updates', [
     {
       market_id: update.id,
@@ -402,41 +332,32 @@ pgClient.on('notification', async (msg) => {
   ])
 })
 ```
-
 ## Best Practices
-
 ### 1. Partitioning Strategy
 - Partition by time (usually month or day)
 - Avoid too many partitions (performance impact)
 - Use DATE type for partition key
-
 ### 2. Ordering Key
 - Put most frequently filtered columns first
 - Consider cardinality (high cardinality first)
 - Order impacts compression
-
 ### 3. Data Types
 - Use smallest appropriate type (UInt32 vs UInt64)
 - Use LowCardinality for repeated strings
 - Use Enum for categorical data
-
 ### 4. Avoid
 - SELECT * (specify columns)
 - FINAL (merge data before query instead)
 - Too many JOINs (denormalize for analytics)
 - Small frequent inserts (batch instead)
-
 ### 5. Monitoring
 - Track query performance
 - Monitor disk usage
 - Check merge operations
 - Review slow query log
-
 **Remember**: ClickHouse excels at analytical workloads. Design tables for your query patterns, batch inserts, and leverage materialized views for real-time aggregations.
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

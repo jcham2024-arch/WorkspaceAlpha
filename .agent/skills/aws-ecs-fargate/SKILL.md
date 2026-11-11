@@ -1,59 +1,43 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "60e1f21b4f0091e1bac8dc21a3442758fe7aee54db414f34c6e2a79c9f62181a"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: aws-ecs-fargate
-description: Deploy containers on ECS and Fargate. Configure task definitions, services,
-tier: "experimental"
-  and load balancing. Use when running containerized workloads on AWS.
+content_hash: 60e1f21b4f0091e1bac8dc21a3442758fe7aee54db414f34c6e2a79c9f62181a
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant OS/platform tooling and privileged access where
+date_added: 2026-09-20
+description: Deploy containers on ECS and Fargate. Configure task definitions, services,
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: aws-ecs-fargate
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant OS/platform tooling and privileged access where
+version: 1.0
+---  and load balancing. Use when running containerized workloads on AWS.
   noted. Docs-only; helper scripts and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # AWS ECS & Fargate
-
 Run containerized applications on Amazon ECS with Fargate serverless compute or EC2 launch type.
-
 ## When to Use This Skill
-
 - Deploying Docker containers to AWS without managing servers (Fargate)
 - Running microservices with service discovery and load balancing
 - Setting up blue/green or rolling deployments for containerized apps
 - Configuring auto-scaling for container workloads
 - Migrating from docker-compose or Kubernetes to ECS
 - Troubleshooting task failures, health check issues, or networking problems
-
 ## Prerequisites
-
 - AWS CLI v2 installed and configured
 - Docker installed for building and pushing images
 - Least-privilege IAM permissions for the selected ECS/ECR/ELB/log operations and `iam:PassRole` restricted to the exact task roles
 - An ECR repository for storing container images
 - A VPC with subnets and an ALB (see aws-vpc (`aws-vpc`))
-
 Confirm account, region, budget, cluster/service ownership, deployment window and rollback before changes. Use immutable image digests or versioned tags for reproducible deployments. Private tasks need verified NAT or VPC endpoint access for ECR, logs, secrets and SSM as used. Fargate ALB target groups must use target type `ip`. Execution roles fetch image/log/secret dependencies; task roles grant application and optional ECS Exec permissions. ECS Exec also requires a supported task platform, SSM channels and authorized audited access; enabling a flag is insufficient. The examples reference roles, networking, discovery and ALB resources that are not defined here.
-
 ## Cluster Setup
-
 ```bash
 # Create an ECS cluster with Container Insights enabled
 aws ecs create-cluster \
@@ -64,35 +48,27 @@ aws ecs create-cluster \
     {"capacityProvider": "FARGATE_SPOT", "weight": 3}
   ]' \
   --settings '[{"name": "containerInsights", "value": "enabled"}]'
-
 # List clusters
 aws ecs list-clusters
-
 # Describe cluster details
 aws ecs describe-clusters --clusters production --include STATISTICS ATTACHMENTS
 ```
-
 ## Push Image to ECR
-
 ```bash
 # Create ECR repository
 aws ecr create-repository \
   --repository-name myapp \
   --image-scanning-configuration scanOnPush=true \
   --encryption-configuration encryptionType=KMS
-
 # Authenticate Docker to ECR
 aws ecr get-login-password --region us-east-1 | \
   docker login --username AWS --password-stdin 123456789012.dkr.ecr.us-east-1.amazonaws.com
-
 # Build, tag, and push
 docker build -t myapp:latest .
 docker tag myapp:latest 123456789012.dkr.ecr.us-east-1.amazonaws.com/myapp:latest
 docker push 123456789012.dkr.ecr.us-east-1.amazonaws.com/myapp:latest
 ```
-
 ## Task Definition
-
 ```json
 {
   "family": "myapp",
@@ -150,25 +126,19 @@ docker push 123456789012.dkr.ecr.us-east-1.amazonaws.com/myapp:latest
   ]
 }
 ```
-
 ```bash
 # Register the task definition
 aws ecs register-task-definition --cli-input-json file://task-definition.json
-
 # List task definition revisions
 aws ecs list-task-definitions --family-prefix myapp
-
 # Deregister an old revision
 aws ecs deregister-task-definition --task-definition myapp:1
 ```
-
 ## Create Service with ALB
-
 ```bash
 # Create the CloudWatch log group first
 aws logs create-log-group --log-group-name /ecs/myapp
 aws logs put-retention-policy --log-group-name /ecs/myapp --retention-in-days 30
-
 # Create ECS service with load balancer
 aws ecs create-service \
   --cluster production \
@@ -200,9 +170,7 @@ aws ecs create-service \
   --enable-execute-command \
   --propagate-tags SERVICE
 ```
-
 ## Deployments
-
 ```bash
 # Rolling update - update task definition and force new deployment
 aws ecs update-service \
@@ -210,17 +178,14 @@ aws ecs update-service \
   --service myapp \
   --task-definition myapp:3 \
   --force-new-deployment
-
 # Watch deployment progress
 aws ecs describe-services \
   --cluster production \
   --services myapp \
   --query "services[0].deployments[].{Status:status,Running:runningCount,Desired:desiredCount,TaskDef:taskDefinition}" \
   --output table
-
 # Wait for service to stabilize
 aws ecs wait services-stable --cluster production --services myapp
-
 # Exec into a running container for debugging
 aws ecs execute-command \
   --cluster production \
@@ -229,9 +194,7 @@ aws ecs execute-command \
   --interactive \
   --command "/bin/sh"
 ```
-
 ## Auto Scaling
-
 ```bash
 # Register ECS service as a scalable target
 aws application-autoscaling register-scalable-target \
@@ -240,7 +203,6 @@ aws application-autoscaling register-scalable-target \
   --scalable-dimension ecs:service:DesiredCount \
   --min-capacity 2 \
   --max-capacity 20
-
 # Target tracking policy - scale on CPU utilization
 aws application-autoscaling put-scaling-policy \
   --service-namespace ecs \
@@ -256,7 +218,6 @@ aws application-autoscaling put-scaling-policy \
     "ScaleInCooldown": 300,
     "ScaleOutCooldown": 60
   }'
-
 # Scale on request count per target (ALB)
 aws application-autoscaling put-scaling-policy \
   --service-namespace ecs \
@@ -274,19 +235,15 @@ aws application-autoscaling put-scaling-policy \
     "ScaleOutCooldown": 60
   }'
 ```
-
 ## Terraform ECS Fargate Service
-
 ```hcl
 resource "aws_ecs_cluster" "main" {
   name = "production"
-
   setting {
     name  = "containerInsights"
     value = "enabled"
   }
 }
-
 resource "aws_ecs_task_definition" "myapp" {
   family                   = "myapp"
   network_mode             = "awsvpc"
@@ -295,17 +252,14 @@ resource "aws_ecs_task_definition" "myapp" {
   memory                   = 1024
   execution_role_arn       = aws_iam_role.ecs_execution.arn
   task_role_arn            = aws_iam_role.ecs_task.arn
-
   container_definitions = jsonencode([{
     name      = "myapp"
     image     = "${aws_ecr_repository.myapp.repository_url}:latest"
     essential = true
-
     portMappings = [{
       containerPort = 8080
       protocol      = "tcp"
     }]
-
     logConfiguration = {
       logDriver = "awslogs"
       options = {
@@ -314,7 +268,6 @@ resource "aws_ecs_task_definition" "myapp" {
         awslogs-stream-prefix = "ecs"
       }
     }
-
     healthCheck = {
       command     = ["CMD-SHELL", "curl -f http://localhost:8080/health || exit 1"]
       interval    = 30
@@ -324,57 +277,46 @@ resource "aws_ecs_task_definition" "myapp" {
     }
   }])
 }
-
 resource "aws_ecs_service" "myapp" {
   name            = "myapp"
   cluster         = aws_ecs_cluster.main.id
   task_definition = aws_ecs_task_definition.myapp.arn
   desired_count   = 3
   launch_type     = "FARGATE"
-
   deployment_circuit_breaker {
     enable   = true
     rollback = true
   }
-
   network_configuration {
     subnets          = aws_subnet.private[*].id
     security_groups  = [aws_security_group.app.id]
     assign_public_ip = false
   }
-
   load_balancer {
     target_group_arn = aws_lb_target_group.myapp.arn
     container_name   = "myapp"
     container_port   = 8080
   }
-
   enable_execute_command = true
   propagate_tags         = "SERVICE"
 }
 ```
-
 ## Viewing Logs
-
 ```bash
 # Tail logs from CloudWatch
 aws logs tail /ecs/myapp --follow --since 1h
-
 # Get logs for a specific task
 aws logs get-log-events \
   --log-group-name /ecs/myapp \
   --log-stream-name "ecs/myapp/abc123def456" \
   --start-from-head
-
 # Filter logs for errors
 aws logs filter-log-events \
   --log-group-name /ecs/myapp \
   --filter-pattern "ERROR" \
   --start-time $(date -d '1 hour ago' +%s000)
 ```
-
 ## Troubleshooting
-
 | Problem | Cause | Fix |
 |---|---|---|
 | Task stuck in PROVISIONING | No available capacity in subnets | Check subnet availability and capacity provider |
@@ -386,17 +328,12 @@ aws logs filter-log-events \
 | High Fargate costs | Not using Fargate Spot for tolerant workloads | Add FARGATE_SPOT capacity provider |
 | Container OOM killed | Memory limit too low | Increase `memory` in task definition; check for leaks |
 | Slow deployments | minimumHealthyPercent too high | Tune only after validating available capacity and minimum serving availability; lowering it can reduce healthy capacity |
-
 ## Related Skills
-
 - docker-management (`docker-management`) - Container fundamentals
 - container-registries (`container-registries`) - ECR and image management
 - aws-vpc (`aws-vpc`) - Networking for ECS tasks
 - aws-iam (`aws-iam`) - Task and execution roles
 - terraform-aws (`terraform-aws`) - Infrastructure as Code deployment
-
 ## Limitations
-
 - Infrastructure commands can disrupt services: confirm target host/scope and have backups/snapshots before mutating state.
 - Docs-only import: upstream scripts and templates not bundled.
-

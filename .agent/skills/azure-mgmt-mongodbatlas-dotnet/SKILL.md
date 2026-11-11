@@ -1,29 +1,19 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "e7ffe06f4d2519595bd83c223da39fdc9e2a2b413588cf2d429a02b9c482225c"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: e7ffe06f4d2519595bd83c223da39fdc9e2a2b413588cf2d429a02b9c482225c
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Manage MongoDB Atlas Organizations as Azure ARM resources with unified billing through Azure Marketplace.
 name: azure-mgmt-mongodbatlas-dotnet
-description: "Manage MongoDB Atlas Organizations as Azure ARM resources with unified billing through Azure Marketplace."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # Azure.ResourceManager.MongoDBAtlas SDK
-
 Manage MongoDB Atlas Organizations as Azure ARM resources with unified billing through Azure Marketplace.
-
 ## Package Information
-
 | Property | Value |
 |----------|-------|
 | Package | `Azure.ResourceManager.MongoDBAtlas` |
@@ -31,40 +21,30 @@ Manage MongoDB Atlas Organizations as Azure ARM resources with unified billing t
 | API Version | 2025-06-01 |
 | Resource Type | `MongoDB.Atlas/organizations` |
 | NuGet | [Azure.ResourceManager.MongoDBAtlas](https://www.nuget.org/packages/Azure.ResourceManager.MongoDBAtlas) |
-
 ## Installation
-
 ```bash
 dotnet add package Azure.ResourceManager.MongoDBAtlas
 dotnet add package Azure.Identity
 dotnet add package Azure.ResourceManager
 ```
-
 ## Important Scope Limitation
-
 This SDK manages **MongoDB Atlas Organizations as Azure ARM resources** for marketplace integration. It does NOT directly manage:
 - Atlas clusters
 - Databases
 - Collections
 - Users/roles
-
 For cluster management, use the MongoDB Atlas API directly after creating the organization.
-
 ## Authentication
-
 ```csharp
 using Azure.Identity;
 using Azure.ResourceManager;
 using Azure.ResourceManager.MongoDBAtlas;
 using Azure.ResourceManager.MongoDBAtlas.Models;
-
 // Create ARM client with DefaultAzureCredential
 var credential = new DefaultAzureCredential();
 var armClient = new ArmClient(credential);
 ```
-
 ## Core Types
-
 | Type | Purpose |
 |------|---------|
 | `MongoDBAtlasOrganizationResource` | ARM resource representing an Atlas organization |
@@ -75,29 +55,21 @@ var armClient = new ArmClient(credential);
 | `MongoDBAtlasOfferDetails` | Marketplace offer configuration |
 | `MongoDBAtlasUserDetails` | User information for the organization |
 | `MongoDBAtlasPartnerProperties` | MongoDB-specific properties (org name, ID) |
-
 ## Workflows
-
 Confirm tenant, target subscription/resource group, Marketplace offer/plan/terms and cost before provisioning. The sample private-plan identifiers are illustrative and may not be available to the account; "Free" in a display name is not a billing guarantee. Default subscription selection must be checked explicitly. Deletion and admin changes require scoped authorization and a dependency/recovery review. Pin the SDK version and verify signatures before compiling; no deployment is claimed.
-
 ### Get Organization Collection
-
 ```csharp
 // Get resource group
 var subscription = await armClient.GetDefaultSubscriptionAsync();
 var resourceGroup = await subscription.GetResourceGroupAsync("my-resource-group");
-
 // Get organizations collection
 MongoDBAtlasOrganizationCollection organizations = 
     resourceGroup.Value.GetMongoDBAtlasOrganizations();
 ```
-
 ### Create Organization
-
 ```csharp
 var organizationName = "my-atlas-org";
 var location = AzureLocation.EastUS2;
-
 // Build organization data
 var organizationData = new MongoDBAtlasOrganizationData(location)
 {
@@ -130,25 +102,20 @@ var organizationData = new MongoDBAtlasOrganizationData(location)
     },
     Tags = { ["Environment"] = "Production" }
 };
-
 // Create the organization (long-running operation)
 var operation = await organizations.CreateOrUpdateAsync(
     WaitUntil.Completed,
     organizationName,
     organizationData
 );
-
 MongoDBAtlasOrganizationResource organization = operation.Value;
 Console.WriteLine($"Created: {organization.Id}");
 ```
-
 ### Get Existing Organization
-
 ```csharp
 // Option 1: From collection
 MongoDBAtlasOrganizationResource org = 
     await organizations.GetAsync("my-atlas-org");
-
 // Option 2: From resource identifier
 var resourceId = MongoDBAtlasOrganizationResource.CreateResourceIdentifier(
     subscriptionId: "subscription-id",
@@ -159,9 +126,7 @@ MongoDBAtlasOrganizationResource org2 =
     armClient.GetMongoDBAtlasOrganizationResource(resourceId);
 await org2.GetAsync(); // Fetch data
 ```
-
 ### List Organizations
-
 ```csharp
 // List in resource group
 await foreach (var org in organizations.GetAllAsync())
@@ -170,33 +135,26 @@ await foreach (var org in organizations.GetAllAsync())
     Console.WriteLine($"  Location: {org.Data.Location}");
     Console.WriteLine($"  State: {org.Data.Properties?.ProvisioningState}");
 }
-
 // List across subscription
 await foreach (var org in subscription.GetMongoDBAtlasOrganizationsAsync())
 {
     Console.WriteLine($"Org: {org.Data.Name} in {org.Data.Id}");
 }
 ```
-
 ### Update Tags
-
 ```csharp
 // Add a single tag
 await organization.AddTagAsync("CostCenter", "12345");
-
 // Replace all tags
 await organization.SetTagsAsync(new Dictionary<string, string>
 {
     ["Environment"] = "Production",
     ["Team"] = "Platform"
 });
-
 // Remove a tag
 await organization.RemoveTagAsync("OldTag");
 ```
-
 ### Update Organization Properties
-
 ```csharp
 var patch = new MongoDBAtlasOrganizationPatch
 {
@@ -210,41 +168,31 @@ var patch = new MongoDBAtlasOrganizationPatch
         )
     }
 };
-
 var updateOperation = await organization.UpdateAsync(
     WaitUntil.Completed,
     patch
 );
 ```
-
 ### Delete Organization
-
 ```csharp
 // Delete (long-running operation)
 await organization.DeleteAsync(WaitUntil.Completed);
 ```
-
 ## Model Properties Reference
-
 ### MongoDBAtlasOrganizationProperties
-
 | Property | Type | Description |
 |----------|------|-------------|
 | `Marketplace` | `MongoDBAtlasMarketplaceDetails` | Required. Marketplace subscription details |
 | `User` | `MongoDBAtlasUserDetails` | Required. Organization admin user |
 | `PartnerProperties` | `MongoDBAtlasPartnerProperties` | MongoDB-specific properties |
 | `ProvisioningState` | `MongoDBAtlasResourceProvisioningState` | Read-only. Current provisioning state |
-
 ### MongoDBAtlasMarketplaceDetails
-
 | Property | Type | Description |
 |----------|------|-------------|
 | `SubscriptionId` | `string` | Required. Azure subscription ID for billing |
 | `OfferDetails` | `MongoDBAtlasOfferDetails` | Required. Marketplace offer configuration |
 | `SubscriptionStatus` | `MarketplaceSubscriptionStatus` | Read-only. Subscription status |
-
 ### MongoDBAtlasOfferDetails
-
 | Property | Type | Description |
 |----------|------|-------------|
 | `PublisherId` | `string` | Required. Publisher ID (typically "mongodb") |
@@ -253,25 +201,19 @@ await organization.DeleteAsync(WaitUntil.Completed);
 | `PlanName` | `string` | Required. Display name of the plan |
 | `TermUnit` | `string` | Required. Billing term unit (e.g., "P1M") |
 | `TermId` | `string` | Required. Term identifier |
-
 ### MongoDBAtlasUserDetails
-
 | Property | Type | Description |
 |----------|------|-------------|
 | `EmailAddress` | `string` | Required. User email address |
 | `Upn` | `string` | Required. User principal name |
 | `FirstName` | `string` | Optional. User first name |
 | `LastName` | `string` | Optional. User last name |
-
 ### MongoDBAtlasPartnerProperties
-
 | Property | Type | Description |
 |----------|------|-------------|
 | `OrganizationName` | `string` | Name of the MongoDB Atlas organization |
 | `OrganizationId` | `string` | Read-only. MongoDB Atlas organization ID |
-
 ## Provisioning States
-
 | State | Description |
 |-------|-------------|
 | `Succeeded` | Resource provisioned successfully |
@@ -281,28 +223,21 @@ await organization.DeleteAsync(WaitUntil.Completed);
 | `Updating` | Resource is being updated |
 | `Deleting` | Resource is being deleted |
 | `Accepted` | Request accepted, provisioning starting |
-
 ## Marketplace Subscription Status
-
 | Status | Description |
 |--------|-------------|
 | `PendingFulfillmentStart` | Subscription pending activation |
 | `Subscribed` | Active subscription |
 | `Suspended` | Subscription suspended |
 | `Unsubscribed` | Subscription canceled |
-
 ## Best Practices
-
 ### Use Async Methods
-
 ```csharp
 // Prefer async for all operations
 var org = await organizations.GetAsync("my-org");
 await org.Value.AddTagAsync("key", "value");
 ```
-
 ### Handle Long-Running Operations
-
 ```csharp
 // Wait for completion
 var operation = await organizations.CreateOrUpdateAsync(
@@ -310,14 +245,12 @@ var operation = await organizations.CreateOrUpdateAsync(
     name,
     data
 );
-
 // Or start and poll later
 var operation = await organizations.CreateOrUpdateAsync(
     WaitUntil.Started,  // Returns immediately
     name,
     data
 );
-
 // Poll for completion
 while (!operation.HasCompleted)
 {
@@ -325,9 +258,7 @@ while (!operation.HasCompleted)
     await operation.UpdateStatusAsync();
 }
 ```
-
 ### Check Provisioning State
-
 ```csharp
 var org = await organizations.GetAsync("my-org");
 if (org.Value.Data.Properties?.ProvisioningState == 
@@ -336,9 +267,7 @@ if (org.Value.Data.Properties?.ProvisioningState ==
     Console.WriteLine("Organization is ready");
 }
 ```
-
 ### Use Resource Identifiers
-
 ```csharp
 // Create identifier without API call
 var resourceId = MongoDBAtlasOrganizationResource.CreateResourceIdentifier(
@@ -346,39 +275,28 @@ var resourceId = MongoDBAtlasOrganizationResource.CreateResourceIdentifier(
     resourceGroupName,
     organizationName
 );
-
 // Get resource handle (no data yet)
 var orgResource = armClient.GetMongoDBAtlasOrganizationResource(resourceId);
-
 // Fetch data when needed
 var response = await orgResource.GetAsync();
 ```
-
 ## Common Errors
-
 | Error | Cause | Solution |
 |-------|-------|----------|
 | `ResourceNotFound` | Organization doesn't exist | Verify name and resource group |
 | `AuthorizationFailed` | Insufficient permissions | Check RBAC roles on resource group |
 | `InvalidParameter` | Missing required properties | Ensure all required fields are set |
 | `MarketplaceError` | Marketplace subscription issue | Verify offer details and subscription |
-
 ## Related Resources
-
 - [Microsoft Learn: MongoDB Atlas on Azure](https://learn.microsoft.com/en-us/azure/partner-solutions/mongodb-atlas/)
 - [API Reference](https://learn.microsoft.com/en-us/dotnet/api/azure.resourcemanager.mongodbatlas)
 - [Azure SDK for .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mongodbatlas)
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Windows](platforms/windows.md)

@@ -1,41 +1,26 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "1b8876dc419e8177a4db4b2e2e1808214755a2cfa2af5b1cbdb831b23dfb3416"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: algorithm-design
+content_hash: 1b8876dc419e8177a4db4b2e2e1808214755a2cfa2af5b1cbdb831b23dfb3416
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: Design algorithms with LaTeX pseudocode and UML diagrams. Generate algorithmic environments, Mermaid class/sequence diagrams, and ensure consistency between pseudocode and implementation. Use when formalizing methods for a paper.
-tier: "experimental"
-argument-hint: [method-description]
+name: algorithm-design
+---argument-hint: [method-description]
 ---
-
-
 # Algorithm Design
-
 Formalize methods into algorithm pseudocode and system architecture diagrams.
-
 ## Input
-
 - `$0` — Method description or implementation to formalize
-
 ## References
-
 - Algorithm and diagram templates: `~/.claude/skills/algorithm-design/references/algorithm-templates.md`
-
 ## Workflow
-
 ### Step 1: Formalize the Algorithm
 1. Define clear inputs and outputs
 2. Identify the main loop / recursive structure
 3. Specify all parameters and their types
 4. Write step-by-step pseudocode
-
 ### Step 2: Generate LaTeX Pseudocode
 Use `algorithm` + `algpseudocode` environments:
 ```latex
@@ -56,9 +41,7 @@ Use `algorithm` + `algpseudocode` environments:
 \end{algorithmic}
 \end{algorithm}
 ```
-
 ### Step 3: Generate UML Diagrams (Mermaid)
-
 #### Class Diagram
 ```mermaid
 classDiagram
@@ -67,7 +50,6 @@ classDiagram
         +train_step(batch) float
     }
 ```
-
 #### Sequence Diagram
 ```mermaid
 sequenceDiagram
@@ -76,20 +58,16 @@ sequenceDiagram
     M->>D: load_data()
     D-->>M: batches
 ```
-
 ### Step 4: Verify Consistency
 - Every pseudocode step must map to a code module
 - Every class in the UML must exist in the implementation
 - Parameter names must match between pseudocode and code
-
 ## Rules
-
 - Use standard algorithmic notation (not code syntax)
 - Number lines for easy reference
 - Include complexity analysis as a comment or proposition
 - Use `\Require` / `\Ensure` for inputs/outputs
 - Keep pseudocode at the right abstraction level — not too detailed, not too vague
-
 ## Related Skills
 - Upstream: [atomic-decomposition](../atomic-decomposition/), [math-reasoning](../math-reasoning/)
 - Downstream: [experiment-code](../experiment-code/), [paper-writing-section](../paper-writing-section/)

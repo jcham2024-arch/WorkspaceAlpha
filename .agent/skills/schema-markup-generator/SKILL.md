@@ -1,47 +1,32 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "3342b5eb6924f670b2bd1c5d5cf4c19dbab3b8a1ef6fbd81c12b56881bd539ad"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: schema-markup-generator
-description: "Generate and implement JSON-LD structured data for web apps, blogs, FAQs, and SaaS sites. Supports WebSite, SoftwareApplication, BlogPosting, FAQPage, HowTo, and more."
-tier: "experimental"
+content_hash: 3342b5eb6924f670b2bd1c5d5cf4c19dbab3b8a1ef6fbd81c12b56881bd539ad
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: Whoisabhishekadhikari
 category: seo
+date_added: 2026-05-31
+description: Generate and implement JSON-LD structured data for web apps, blogs, FAQs, and SaaS sites. Supports WebSite, SoftwareApplication, BlogPosting, FAQPage, HowTo, and more.
+name: schema-markup-generator
 risk: safe
 source: self
 source_type: self
-date_added: "2026-05-31"
-author: Whoisabhishekadhikari
-tags: [seo, schema, json-ld, structured-data, rich-results, nextjs, technical-seo]
-tools: [claude, cursor, gemini, claude-code]
+tags: "[seo, schema, json-ld, structured-data, rich-results, nextjs, technical-seo]"
+tools: "[claude, cursor, gemini, claude-code]"
 version: 1.0.0
 ---
-
-
 # Schema Markup Generator Skill
-
 Add JSON-LD structured data to pages to unlock rich results, improve CTR, and signal context to Google and AI systems.
-
 ---
-
 ## When to Use
-
 - Use when adding or auditing JSON-LD schema for websites, SaaS apps, tools, articles, FAQs, breadcrumbs, or organization pages.
 - Use when schema must be implemented in Next.js App Router or validated against Google Rich Results and Schema.org tooling.
 - Use when a page has strong content but lacks structured data for search engines and rich-result eligibility.
-
 ---
-
 ## How to Add Schema in Next.js App Router
-
 The cleanest approach is a reusable `JsonLd` component:
-
 ```jsx
 // components/JsonLd.jsx
 export function JsonLd({ data }) {
@@ -54,11 +39,9 @@ export function JsonLd({ data }) {
   );
 }
 ```
-
 Use it in any page:
 ```jsx
 import { JsonLd } from '@/components/JsonLd';
-
 export default function MyPage() {
   return (
     <>
@@ -68,11 +51,8 @@ export default function MyPage() {
   );
 }
 ```
-
 ---
-
 ## Schema Types by Page Type
-
 ### WebSite / SearchAction (schema semantics, not a Google search-box feature)
 ```js
 {
@@ -91,9 +71,7 @@ export default function MyPage() {
   }
 }
 ```
-
 ---
-
 ### SoftwareApplication (tool / SaaS app pages)
 ```js
 {
@@ -121,9 +99,7 @@ export default function MyPage() {
   }
 }
 ```
-
 ---
-
 ### Article / BlogPosting (blog posts)
 ```js
 {
@@ -159,9 +135,7 @@ export default function MyPage() {
   }
 }
 ```
-
 ---
-
 ### FAQPage (FAQ sections, tool help pages)
 ```js
 {
@@ -187,9 +161,7 @@ export default function MyPage() {
   ]
 }
 ```
-
 ---
-
 ### HowTo (step-by-step tool guides)
 ```js
 {
@@ -221,9 +193,7 @@ export default function MyPage() {
   ]
 }
 ```
-
 ---
-
 ### BreadcrumbList (all non-homepage pages)
 ```js
 {
@@ -251,9 +221,7 @@ export default function MyPage() {
   ]
 }
 ```
-
 ---
-
 ### Organization (about, contact pages)
 ```js
 {
@@ -273,13 +241,9 @@ export default function MyPage() {
   }
 }
 ```
-
 ---
-
 ## Combining Multiple Schemas on One Page
-
 A tool page can have BreadcrumbList + SoftwareApplication + FAQPage:
-
 ```jsx
 export default function ToolPage() {
   return (
@@ -292,28 +256,19 @@ export default function ToolPage() {
   );
 }
 ```
-
 Each schema lives in its own `<script>` tag — do NOT merge them into one object.
-
 ---
-
 ## Validation
-
 Always validate schema before deploying:
-
 1. **Google Rich Results Test** — https://search.google.com/test/rich-results
 2. **Schema.org Validator** — https://validator.schema.org/
 3. **Google Search Console** → Enhancements → check for warnings after deployment
-
 ```bash
 # Quick check: schema appears in HTML
 curl -s https://www.yourdomain.com/tools/keyword-density | grep -A 5 "application/ld+json"
 ```
-
 ---
-
 ## Schema Markup Checklist
-
 - [ ] Homepage has `WebSite` schema
 - [ ] Tool/app pages have `SoftwareApplication` schema
 - [ ] Blog posts have `BlogPosting` / `Article` schema
@@ -324,11 +279,8 @@ curl -s https://www.yourdomain.com/tools/keyword-density | grep -A 5 "applicatio
 - [ ] All URLs in schema are absolute HTTPS
 - [ ] Schema validated with Google Rich Results Test
 - [ ] No schema errors in Google Search Console
-
 ## Limitations
-
 - Does not guarantee rich-result eligibility or display; Google and other consumers decide whether to use valid schema.
 - Generated examples must be adapted to the site's real content, legal entity details, ratings, pricing, and availability.
 - Always validate deployed HTML, not only source code, because frameworks and rendering modes can change the final markup.
-
 Google rich-result support is separate from Schema.org validity: sitelinks search box was removed in November 2024, HowTo rich results were deprecated in September 2023, and FAQ rich results are limited to eligible well-known authoritative government/health sites. Do not promise these enhancements for ordinary FAQ/how-to pages. Use only truthful visible content and real ratings; eligibility tests do not guarantee display. See [search-box removal](https://developers.google.com/search/blog/2024/10/sitelinks-search-box) and [FAQ/HowTo changes](https://developers.google.com/search/blog/2023/08/howto-faq-changes).

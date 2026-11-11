@@ -1,35 +1,24 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "359917689b731fdd33ea10af256e2581b8afa5f7b5e092ea6ac1b3a815dd5f69"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 359917689b731fdd33ea10af256e2581b8afa5f7b5e092ea6ac1b3a815dd5f69
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-07-01
+description: PostgreSQL interactive terminal (psql) reference and usage guide.
+license: Apache-2.0
+license_source: "https://github.com/chaunsin/agent-skills/blob/master/LICENSE"
 name: postgresql-cli
-description: "PostgreSQL interactive terminal (psql) reference and usage guide."
-tier: "experimental"
 risk: critical
-source: https://github.com/chaunsin/agent-skills/tree/master/skills/postgresql-cli
+source: "https://github.com/chaunsin/agent-skills/tree/master/skills/postgresql-cli"
 source_repo: chaunsin/agent-skills
 source_type: community
-date_added: 2026-07-01
-license: Apache-2.0
-license_source: https://github.com/chaunsin/agent-skills/blob/master/LICENSE
 ---
-
-
 # psql — PostgreSQL Interactive Terminal
-
 psql is PostgreSQL's feature-rich interactive terminal. It lets you write and execute queries, inspect database objects, import/export data, script batch operations, and customize output formatting — all from the command line.
-
 ## Execution boundary
-
 Confirm the authorized database, role and operation scope before writes, imports, grants or shell commands. Prefer a least-privileged account, `-X -v ON_ERROR_STOP=1` for reviewed scripts and verified TLS (`sslmode=verify-full` with trusted CA) for remote connections. ECHO is not a dry-run and rollback cannot undo every side effect. This reference includes psql 18 features; check client version separately from server version.
-
 ## Prerequisites
 Before using psql, verify it is installed and available:
 ```bash
@@ -45,25 +34,18 @@ sudo apt install postgresql-client
 sudo yum install postgresql
 # Alpine
 apk add postgresql-client
-
 # Windows — install PostgreSQL via the official installer or use WSL
 ```
-
 psql ships as part of the `postgresql-client` package. The server (`postgresql`) is not required — you only need the client to connect to a remote PostgreSQL instance.
-
 ## Quick Reference
-
 ### Connecting
-
 ```
 # 1. CLI flags
 psql -h host -p port -U user -d dbname
-
 # 2. Connection URI
 # WARNING: Password in URI is visible in shell history and process listings.
 #          Prefer ~/.pgpass for production use (see method 4 below).
 psql "postgresql://user:YOUR_PASSWORD@host:port/dbname"
-
 # 3. Environment variables (no flags needed)
 export PGHOST=localhost
 export PGPORT=5432
@@ -73,7 +55,6 @@ export PGUSER=postgres
 #          Use ~/.pgpass in production instead.
 export PGPASSWORD=YOUR_PASSWORD
 psql                       # picks up all params from env
-
 # 4. ~/.pgpass file (RECOMMENDED for passwords)
 #    Format: hostname:port:database:username:password
 touch ~/.pgpass && chmod 600 ~/.pgpass
@@ -81,29 +62,21 @@ touch ~/.pgpass && chmod 600 ~/.pgpass
 # hostname:port:database:username:password
 # Example: localhost:5432:mydb:postgres:YOUR_PASSWORD
 psql -h localhost -U postgres -d mydb   # no password prompt
-
 # 5. Execute and exit
 psql -f script.sql dbname                        # execute file then exit
 psql -c "SELECT 1" dbname                        # run single command then exit
 psql -X -v ON_ERROR_STOP=1 -1 -f migration.sql dbname                  # run in single transaction
-
 # 6. Service connection (reads from pg_service.conf)
 psql service=mydb_prod
-
 # 7. Reconnect within a session
 \c dbname                                       # reconnect to different db
 \c -reuse-previous=on sslmode=require           # change only sslmode
 \c "host=newhost port=5432 dbname=mydb"         # conninfo string
 ```
-
 On connection failure: interactive mode keeps the previous connection; script mode closes it and all subsequent database commands fail until the next successful `\c`.
-
 Key flags: `-h` host, `-p` port, `-U` user, `-d` database, `-w` no password prompt, `-W` force password prompt, `-1` single transaction, `-f` execute file, `-c` execute command, `-t` tuples only, `-x` expanded, `-A` unaligned, `-E` echo hidden queries (`\d` internals), `-L` log file, `-X` skip `~/.psqlrc`.
-
 **Connection precedence**: CLI flags > environment variables > `pg_service.conf` > defaults. **Password precedence**: connection string/password flag > `PGPASSWORD` env > `~/.pgpass`. Use `~/.pgpass` instead of `PGPASSWORD` in production — `PGPASSWORD` is visible in process listings (`ps aux`).
-
 ### Object Inspection (\d family)
-
 | Command           | Shows                                                                                                 |
 | ----------------- | ----------------------------------------------------------------------------------------------------- |
 | `\d`            | All tables, views, materialized views, sequences, foreign tables (equiv.`\dtvmsE`)                  |
@@ -133,7 +106,6 @@ Key flags: `-h` host, `-p` port, `-U` user, `-d` database, `-w` no password prom
 | `\dp`           | Privileges (GRANT/REVOKE)                                                                             |
 | `\drds`         | Per-role and per-database configuration settings                                                      |
 | `\l`            | List databases (accepts pattern:`\l test*`)                                                         |
-
 | `\dA`           | Access methods                                           |
 | `\dAc` / `\dAf` / `\dAo` / `\dAp` | Operator classes, families, operators, support functions |
 | `\dC`           | Type casts                                               |
@@ -152,17 +124,12 @@ Key flags: `-h` host, `-p` port, `-U` user, `-d` database, `-w` no password prom
 | `\sf[+]`        | Show function definition                                 |
 | `\sv[+]`        | Show view definition                                     |
 | `\z`            | Privileges (alias for `\dp`)                             |
-
 **Modifiers** (append to most `\d` commands):
-
 - `+` — extra info (size, description): `\dt+`, `\l+`, `\du+`
 - `S` — include system objects: `\dtS`, `\dfS+`
 - `x` — expanded display mode: `\dt+x` (note: `\dx` is a different command; `x` must follow `S` or `+`)
-
 Provide a name for details: `\d table_name` shows columns, types, indexes, constraints, foreign keys.
-
 **Pattern matching** in \d commands:
-
 - `*` = any sequence of characters, `?` = single character
 - `.` separates schema from object: `\dt public.*` or `\dt my_schema.users`
 - `..` separates database.schema.object: `\dt mydb.public.*` (db must match current db)
@@ -171,9 +138,7 @@ Provide a name for details: `\d table_name` shows columns, types, indexes, const
 - Regex chars like `[0-9]` work: `\dt user[0-9]*` matches `user1`, `user2`
 - No pattern: shows all objects visible in current `search_path` (not all objects in DB)
 - Use `*.*` to see all objects in all schemas regardless of visibility
-
 ### Query Execution
-
 | Command                               | Action                                                                                 |
 | ------------------------------------- | -------------------------------------------------------------------------------------- |
 | `;`                                 | Execute the current query buffer                                                       |
@@ -192,48 +157,34 @@ Provide a name for details: `\d table_name` shows columns, types, indexes, const
 | `\parse stmt_name`                  | Create prepared statement from current query buffer                                    |
 | `\close_prepared stmt_name`         | Close a prepared statement                                                             |
 | `\;`                                | Append semicolon to buffer without executing                                           |
-
 ### Data Import/Export
-
 ```sql
 -- Server-side (requires superuser for file access, uses server filesystem)
 COPY table TO '/path/file.csv' WITH (FORMAT csv, HEADER true);
 COPY table FROM '/path/file.csv' WITH (FORMAT csv, HEADER true);
-
 -- Client-side (runs with client permissions, no superuser needed) — preferred
 \copy table TO '/path/file.csv' WITH (FORMAT csv, HEADER true)
 \copy table FROM '/path/file.csv' WITH (FORMAT csv, HEADER true)
 \copy (SELECT ...) TO '/path/output.csv' WITH (FORMAT csv, HEADER true)
-
 -- Advanced: specific columns, NULL handling, custom delimiter
 \copy table (col1, col2) FROM 'data.csv' WITH (FORMAT csv, HEADER true, NULL 'N/A')
 ```
-
 `\copy` is the go-to for day-to-day work — it uses the client's filesystem and permissions, not the server's.
-
 **\copy syntax detail:**
-
 ```
 -- FROM (import): sources are 'filename', program 'command', stdin, pstdin
 \copy table FROM 'file.csv' WITH (FORMAT csv, HEADER true) [ WHERE condition ]
-
 -- TO (export): destinations are 'filename', program 'command', stdout, pstdout
 \copy table TO 'file.csv' WITH (FORMAT csv, HEADER true)
 ```
-
 For `\copy ... FROM stdin`, data rows continue until a line containing only `\.` is read or EOF is reached. Use `pstdin`/`pstdout` to always read/write psql's actual stdin/stdout regardless of `\o` setting.
-
 WARNING: The `program` option executes a shell command. If constructed from user input, it can lead to command injection. Avoid string concatenation with untrusted data.
-
 **Tip**: `\copy` takes the entire rest of the line as arguments (no variable interpolation). When you need variable interpolation or multi-line queries, use SQL `COPY ... TO STDOUT` with `\g` instead:
-
 ```sql
 -- This allows variable interpolation and multi-line queries
 COPY (SELECT * FROM :"table" WHERE id > :'min_id'::bigint) TO STDOUT WITH (FORMAT csv, HEADER true) \g /tmp/output.csv
 ```
-
 ### Output Formatting
-
 ```
 \a                  Toggle aligned/unaligned output
 \x                  Toggle expanded display (vertical vs table)
@@ -257,20 +208,15 @@ COPY (SELECT * FROM :"table" WHERE id > :'min_id'::bigint) TO STDOUT WITH (FORMA
 \f [string]          Set field separator (shortcut for \pset fieldsep)
 \T table_options     Set HTML table attributes (shortcut for \pset tableattr)
 ```
-
 ### Large Objects
-
 ```
 \lo_import filename [comment]   Import file as large object, returns OID
 \lo_export loid filename        Export large object to file
 \lo_list[x+]                    List all large objects
 \lo_unlink loid                 Delete large object
 ```
-
 Large object OIDs are persistent references. Always associate a human-readable comment on import. Use `\lo_list` to find OIDs.
-
 ### Scripting & Control Flow
-
 ```
 \i filename         Execute file (relative to current working directory)
 \ir filename        Execute file (relative to the script being processed)
@@ -288,23 +234,17 @@ Large object OIDs are persistent references. Always associate a human-readable c
 \setenv name [value]       Set or unset environment variable
 \p                  Print current query buffer
 \w filename         Write query buffer to file (or pipe with |cmd)
-
 -- Conditional execution (useful in scripts)
 \if EXPR
   \echo 'true branch'
 \else
   \echo 'false branch'
 \endif
-
 \elif EXPR           Else-if inside \if block
 ```
-
 `\if` and `\elif` evaluate their argument as a boolean. Valid values (case-insensitive, unambiguous prefix matching): `true`, `false`, `1`, `0`, `on`, `off`, `yes`, `no`. Expressions that don't evaluate to true/false generate a warning and are treated as false. Variable references in skipped lines are NOT expanded.
-
 Variables in SQL: `:'varname'` (quoted string value, escapes embedded quotes), `:"varname"` (double-quoted identifier), `:'varname'::type` (with cast), `:varname` (unquoted — can break SQL), `:{?varname}` (tests existence, expands to TRUE/FALSE).
-
 ### Session Management
-
 ```
 \c [dbname [user]]  Connect to database (or reconnect)
 \conninfo           Display connection info (includes SSL info)
@@ -326,9 +266,7 @@ Variables in SQL: `:'varname'` (quoted string value, escapes embedded quotes), `
 \h [command]         SQL syntax help (use * for all: \h *)
 \copyright           Show PostgreSQL copyright
 ```
-
 ### Pipeline Mode (psql 18+)
-
 ```
 \startpipeline
   SELECT $1 \bind 42 \sendpipeline
@@ -336,11 +274,8 @@ Variables in SQL: `:'varname'` (quoted string value, escapes embedded quotes), `
   \getresults
 \endpipeline
 ```
-
 Pipeline mode sends multiple queries without waiting for each result, reducing round-trip latency. All queries use the extended query protocol.
-
 **Pipeline commands:**
-
 - `\startpipeline` — begin pipeline block
 - `\endpipeline` — end pipeline block and process remaining results
 - `\sendpipeline` — append current query buffer to pipeline without waiting
@@ -348,68 +283,49 @@ Pipeline mode sends multiple queries without waiting for each result, reducing r
 - `\flushrequest` — request server flush without sync
 - `\flush` — manually push unsent data to server
 - `\getresults [N]` — read pending results (N=0 or omitted means all)
-
 **Pipeline limitations:**
-
 - `COPY` is not supported in pipeline mode
 - Meta-commands like `\g`, `\gx`, `\gdesc` are not allowed inside a pipeline
 - All queries use the extended query protocol
 - Use `\bind`, `\bind_named`, `\parse`, `\close_prepared`, or `\sendpipeline` within pipelines
 - A `%P` prompt variable shows pipeline status (`on`, `off`, or `abort`)
-
 ### \watch Syntax
-
 ```
 \watch [i[nterval]=SECONDS] [c[ount]=TIMES] [m[in_rows]=ROWS] [SECONDS]
 ```
-
 `count` and `min_rows` require PostgreSQL 17+.
-
 - `interval` — seconds between executions (default: 2, overridable via `WATCH_INTERVAL` variable)
 - `count` — stop after N executions
 - `min_rows` — stop if query returns fewer than N rows
-
 If the query buffer is empty, `\watch` re-executes the most recently sent query.
-
 Examples:
-
 ```sql
 SELECT * FROM pg_stat_activity WHERE state = 'active'
 \watch interval=5 count=10      -- every 5s, stop after 10 runs
-
 SELECT id FROM queue WHERE status = 'pending' LIMIT 1
 \watch i=1 min_rows=1            -- every 1s, stop when queue is empty
 ```
-
 ### Exit Codes
-
 | Code | Meaning                                                         |
 | ---- | --------------------------------------------------------------- |
 | 0    | Successful completion                                           |
 | 1    | A fatal error occurred (server error, connection failure, etc.) |
 | 2    | Connection failed (could not connect to the server)             |
 | 3    | Script execution ended due to ON_ERROR_STOP                     |
-
 ## Security Considerations
-
 ### Destructive Operations Checklist
-
 Before running any destructive SQL, verify impact first:
-
 ```sql
 -- BEFORE DELETE: check how many rows are affected
 SELECT count(*) FROM users WHERE condition;  -- verify scope
 BEGIN;
 DELETE FROM users WHERE condition RETURNING *;  -- see what was deleted
 -- ROLLBACK if wrong; COMMIT only after verification
-
 -- BEFORE DROP TABLE: verify no foreign keys depend on it
 \d table_name  -- check "Referenced by" section
 -- Consider renaming first: ALTER TABLE old RENAME TO old_backup;
 ```
-
 ### Dangerous Commands Requiring Extra Caution
-
 | Command/Pattern                         | Risk                                                      | Mitigation                                                                                           |
 | --------------------------------------- | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | `\gexec`                              | Executes generated SQL without confirmation               | Always inspect the generating query first by running it without `\gexec`; set `ON_ERROR_STOP on` |
@@ -418,28 +334,20 @@ DELETE FROM users WHERE condition RETURNING *;  -- see what was deleted
 | `\deu+`                               | May display remote user passwords                         | Avoid using `\deu+` in shared/piped output; use `\deu` without `+`                             |
 | `DELETE`/`UPDATE` without `WHERE` | Affects every row in the table                            | Always use `WHERE`; wrap in `BEGIN`/`ROLLBACK` to preview                                      |
 | `DROP DATABASE/TABLE`                 | Irreversible data loss                                    | Verify you're on the correct database with `\conninfo` first                                       |
-
 ### Variable Interpolation Safety
-
 psql variables are **plain text substitution**, not parameterized queries. This means:
-
 ```sql
 -- UNSAFE: if :name contains "Robert'); DROP TABLE users;--" it will execute the injection
 SELECT * FROM users WHERE name = :name;
-
 -- SAFER: use \prompt for interactive input (user sees what they typed)
 \prompt 'Enter name: ' search_name
 SELECT * FROM users WHERE name = :'search_name';
-
 -- SAFEST: use \bind for programmatic parameter passing (truly parameterized)
 SELECT * FROM users WHERE name = $1
 \bind 'Robert' \g
 ```
-
 The `:'varname'` form (quoted) is always safer than `:varname` (unquoted), because unquoted substitution can break SQL syntax or enable injection. Use `:"varname"` for identifiers (table/column names) — it properly escapes embedded double quotes.
-
 ## When to Use What
-
 | Scenario                      | Recommended Command                                            |
 | ----------------------------- | -------------------------------------------------------------- |
 | Quick table inspection        | `\d table_name`                                              |
@@ -458,52 +366,36 @@ The `:'varname'` form (quoted) is always safer than `:varname` (unquoted), becau
 | Debug error details           | `\errverbose`                                                |
 | Handle large result sets      | `\set FETCH_COUNT 1000` then run query                       |
 | Auto-savepoint on errors      | `\set ON_ERROR_ROLLBACK on` then use transactions            |
-
 - **`references/meta-commands-core.md`** — Core meta-commands: query buffer behavior, argument parsing rules, connection management, query execution, `\copy` syntax, and scripting commands (`\if`, `\i`, `\o`, backquote expansion). Read this when you need exact syntax or behavioral details for any backslash command.
 - **`references/meta-commands-inspection.md`** — Full `\d` command reference: all object inspection commands, modifiers (`S`, `+`, `x`), and pattern matching rules. Read this when exploring database schema or when the user needs to inspect tables, indexes, views, functions, privileges, etc.
 - **`references/meta-commands-formatting.md`** — Output formatting (`\pset` options and all format descriptions), pipeline mode, `\watch`, `\crosstabview`, and session management (`\e`, `\ef`, `\ev`, `\timing`, etc.). Read this when the user needs to control output format or use pipeline mode.
 - **`references/cli-options-and-variables.md`** — All CLI flags, environment variables, psql internal variables (AUTOCOMMIT, ON_ERROR_STOP, ECHO, FETCH_COUNT, etc.), prompt customization, `~/.psqlrc` configuration, and SQL interpolation syntax. Read this when configuring psql startup behavior, writing scripts that depend on variable state, or customizing prompts.
 - **`references/tips-workflows.md`** — Practical workflows (exploring a new database, understanding table structure), scripting patterns (safe scripts, conditional execution, `\gexec`), output control for automation, and data import/export patterns. Read this when the user asks how to accomplish a specific task with psql.
 - **`references/tips-advanced.md`** — Performance tips, debugging/introspection (`EXPLAIN`, lock analysis, `ECHO_HIDDEN`), safety best practices (ON_ERROR_STOP, transaction patterns, search_path safety), and common gotchas. Read this for lock analysis, query plan inspection, and troubleshooting.
-
 ## Important Notes
-
 psql handles two comment styles differently:
-
 - **C-style block comments** (`/* ... */`): Passed to the server for processing and removal.
 - **SQL-standard comments** (`--`): Removed by psql itself, before sending to the server.
-
 This distinction matters when writing scripts that rely on comment behavior — only SQL-standard comments are stripped client-side.
-
 ### Variable Variables (Soft References)
-
 psql allows indirect variable references through `\set`:
-
 ```sql
 \set foo 'my_table'
 \set bar :foo         -- copies the value of foo into bar
 \echo :bar            -- outputs: my_table
 ```
-
 While constructs like `\set :foo 'something'` are syntactically valid, they produce "soft links" that have limited practical use. For straightforward variable copying, use `\set new_var :old_var`.
-
 ### Version Compatibility
-
 psql works best with servers of the same or an older major version. Backslash commands (especially `\d` family) may fail with newer server versions. When connecting to multiple server versions, use the newest available psql client. The `\d` commands generally work with servers back to version 9.2.
-
 ## External References
-
 - [PostgreSQL Client Applications](https://www.postgresql.org/docs/current/app-psql.html)
 - [Official PostgreSQL Documentation](https://www.postgresql.org/docs/current/index.html)
 - [The SQL Language](https://www.postgresql.org/docs/current/sql.html)
 - [SQL Syntax - The SQL Language](https://www.postgresql.org/docs/current/sql-syntax.html)
 - [SQL Command](https://www.postgresql.org/docs/current/sql-commands.html)
 - [PostgreSQL Wiki](https://wiki.postgresql.org/)
-
 ## Limitations
-
 - Use this skill only when the task clearly matches its upstream source and local project context.
 - Verify commands, generated code, dependencies, credentials, and external service behavior before applying changes.
 - Do not treat examples as a substitute for environment-specific tests, security review, or user approval for destructive or costly actions.
-
 Version source: https://www.postgresql.org/docs/18/release-18.html (psql pipeline and named preparation commands). Examples are independent snippets; unaligned delimiter output is not escaped CSV.

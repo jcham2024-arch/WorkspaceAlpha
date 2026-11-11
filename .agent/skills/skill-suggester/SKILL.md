@@ -1,42 +1,28 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "9481b9295293ddf3b1687fcf2cd827af8df1c1ff4814887cde3040389a953256"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 9481b9295293ddf3b1687fcf2cd827af8df1c1ff4814887cde3040389a953256
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-05
+description: Scan prompt history for recurring patterns and unmet needs, then propose new skills or command templates
+license: MIT
+license_source: ""https://github.com/mskadu/opencode-agent-skills/blob/main/LICENSE""
 name: skill-suggester
-version: 1.0.0
-description: "Scan prompt history for recurring patterns and unmet needs, then propose new skills or command templates"
-tier: "experimental"
 risk: safe
 source: community
-source_type: community
 source_repo: mskadu/opencode-agent-skills
-license: MIT
-license_source: "https://github.com/mskadu/opencode-agent-skills/blob/main/LICENSE"
-date_added: "2026-06-05"
+source_type: community
+version: 1.0.0
 ---
-
-
 ## What I do
-
 Reads your opencode prompt history, finds repeated multi-step workflows, and recommends skill-worthy candidates. Saves you from having the same conversation twice.
-
 ## When to Use
-
 Use this skill when the user wants to mine opencode prompt history for repeated workflows, recurring unmet needs, or candidates for new reusable skills.
-
 ## How to invoke
-
 Run `/skill skill-suggester` to scan the full history. Optionally pass `--since <date>` (e.g. `--since 2026-05-01`) to limit the window.
-
 ## Analysis method
-
 1. Locate prompt history files at `~/.local/state/opencode/prompt-history*.jsonl`
 2. Parse each entry's message content
 3. Score for skill potential by looking for:
@@ -48,12 +34,9 @@ Run `/skill skill-suggester` to scan the full history. Optionally pass `--since 
    - How many times the pattern appeared
    - How many tool calls it consumed
    - The estimated time savings if it were a skill
-
 ## Output format
-
 ```
 ## Skill Candidates (last N entries)
-
 ### 1. "<candidate name>" (PRIORITY)
 - **Pattern**: <what you keep asking for>
 - **Frequency**: X times in history
@@ -63,19 +46,14 @@ Run `/skill skill-suggester` to scan the full history. Optionally pass `--since 
   - "[excerpt from prompt history]"
   - "[another excerpt]"
 - **Recommendation**: <create as skill | add as command template | not worth it>
-
 ### 2. ...
 ```
-
 ## Key rules
-
 - Only flag patterns that happen more than twice. One-offs are not skills.
 - Use minimal redacted excerpts only when needed for evidence; summarize sensitive prompts and never disclose secrets. Analyze only the user-authorized history window locally. Tool-call counts and time savings must be marked unavailable or estimated when prompt-only records do not contain them.
 - Rate each candidate: `high` (clear ROI, use weekly), `medium` (nice to have), `low` (rare but worth noting).
 - If nothing qualifies, say so and explain why.
 - After presenting candidates, ask if you want to create any of them.
-
 ## Limitations
-
 - Prompt history can contain sensitive local context; summarize patterns without exposing unnecessary private excerpts.
 - Recommendations are suggestions only and still need human review before creating or publishing a new skill.

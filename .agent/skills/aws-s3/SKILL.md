@@ -1,40 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "2b5a42c5bdaa69eb6a8e64b8ff31d6a988fcc5b18977648d0dffe6823a666efd"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: aws-s3
-description: Configure S3 buckets, policies, and lifecycle rules. Implement versioning,
-tier: "experimental"
-  replication, and security. Use when managing object storage on AWS.
+content_hash: 2b5a42c5bdaa69eb6a8e64b8ff31d6a988fcc5b18977648d0dffe6823a666efd
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant OS/platform tooling and privileged access where
+date_added: 2026-09-20
+description: Configure S3 buckets, policies, and lifecycle rules. Implement versioning,
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: aws-s3
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant OS/platform tooling and privileged access where
+version: 1.0
+---  replication, and security. Use when managing object storage on AWS.
   noted. Docs-only; helper scripts and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # AWS S3
-
 Manage Amazon S3 object storage with production-grade security, lifecycle policies, replication, and access controls.
-
 ## When to Use This Skill
-
 - Creating S3 buckets with security hardening (encryption, public access block, versioning)
 - Writing bucket policies to enforce HTTPS, restrict IP ranges, or grant cross-account access
 - Setting up lifecycle rules to transition objects between storage classes
@@ -42,28 +31,22 @@ Manage Amazon S3 object storage with production-grade security, lifecycle polici
 - Generating presigned URLs for temporary access to private objects
 - Setting up static website hosting or CloudFront origins
 - Troubleshooting access denied errors or policy conflicts
-
 ## Prerequisites
-
 - AWS CLI v2 installed and configured
 - Least-privilege IAM permissions for the selected bucket/object operations; grant only the required KMS actions for SSE-KMS. Do not grant wildcard service permissions as a default.
 - For replication: IAM role with replication permissions and destination bucket in target region
 - For logging: a separate logging bucket with appropriate ACL
-
 ## Create and Secure a Bucket
-
 ```bash
 # Create a bucket (us-east-1 does not need LocationConstraint)
 aws s3api create-bucket \
   --bucket my-app-data-prod \
   --region us-east-1
-
 # Create a bucket in another region
 aws s3api create-bucket \
   --bucket my-app-data-dr \
   --region us-west-2 \
   --create-bucket-configuration LocationConstraint=us-west-2
-
 # Block ALL public access (always do this first)
 aws s3api put-public-access-block \
   --bucket my-app-data-prod \
@@ -73,12 +56,10 @@ aws s3api put-public-access-block \
     "BlockPublicPolicy": true,
     "RestrictPublicBuckets": true
   }'
-
 # Enable versioning
 aws s3api put-bucket-versioning \
   --bucket my-app-data-prod \
   --versioning-configuration Status=Enabled
-
 # Enable server-side encryption with SSE-KMS
 aws s3api put-bucket-encryption \
   --bucket my-app-data-prod \
@@ -91,7 +72,6 @@ aws s3api put-bucket-encryption \
       "BucketKeyEnabled": true
     }]
   }'
-
 # Enable access logging
 aws s3api put-bucket-logging \
   --bucket my-app-data-prod \
@@ -101,7 +81,6 @@ aws s3api put-bucket-logging \
       "TargetPrefix": "s3-logs/my-app-data-prod/"
     }
   }'
-
 # Add tags
 aws s3api put-bucket-tagging \
   --bucket my-app-data-prod \
@@ -113,9 +92,7 @@ aws s3api put-bucket-tagging \
     ]
   }'
 ```
-
 ## Bucket Policies
-
 ```bash
 # Apply a bucket policy (enforce HTTPS and restrict to VPC endpoint)
 aws s3api put-bucket-policy \
@@ -154,9 +131,7 @@ aws s3api put-bucket-policy \
     ]
   }'
 ```
-
 Cross-account access policy:
-
 ```json
 {
   "Version": "2012-10-17",
@@ -179,9 +154,7 @@ Cross-account access policy:
   ]
 }
 ```
-
 ## Lifecycle Rules
-
 ```bash
 # Apply a comprehensive lifecycle configuration
 aws s3api put-bucket-lifecycle-configuration \
@@ -234,9 +207,7 @@ aws s3api put-bucket-lifecycle-configuration \
     ]
   }'
 ```
-
 ## Cross-Region Replication
-
 ```bash
 # Enable replication (requires versioning on both buckets)
 aws s3api put-bucket-replication \
@@ -265,34 +236,26 @@ aws s3api put-bucket-replication \
       }
     ]
   }'
-
 # Check replication status
 aws s3api head-object \
   --bucket my-app-data-prod \
   --key data/important-file.json \
   --query "ReplicationStatus"
 ```
-
 ## Presigned URLs
-
 ```bash
 # Generate a presigned URL for downloading (valid 1 hour)
 aws s3 presign s3://my-app-data-prod/reports/quarterly.pdf \
   --expires-in 3600
-
 # Upload signing requires an SDK configured for PutObject, not `aws s3 presign`.
 # See the SDK procedure linked below; no s3api generate-presigned-url command exists.
 ```
-
 The [AWS CLI presign command](https://docs.aws.amazon.com/cli/latest/reference/s3/presign.html) signs GET requests. For PUT uploads, use the installed SDK's documented presigner with PutObject, a bounded expiry and the required content headers. Treat signed URLs as bearer secrets and do not print or persist them unnecessarily.
-
 ## Common S3 Operations
-
 ```bash
 # Preview a sync first; --delete removes remote objects absent locally.
 # Use long cache lifetimes only for immutable, versioned assets.
 aws s3 sync ./build s3://my-app-data-prod/static/ --dryrun
-
 # Apply only after reviewing the preview within authorized scope.
 # Do not set Content-Encoding: gzip unless source bytes are actually compressed.
 # Sync a local directory to S3
@@ -300,17 +263,13 @@ aws s3 sync ./build s3://my-app-data-prod/static/ \
   --delete \
   --exclude "*.tmp" \
   --cache-control "max-age=31536000"
-
 # Copy with storage class
 aws s3 cp large-archive.tar.gz s3://my-app-data-prod/archives/ \
   --storage-class GLACIER_IR
-
 # List objects with size summary
 aws s3 ls s3://my-app-data-prod/ --recursive --summarize --human-readable
-
 # Remove all objects with a prefix
 aws s3 rm s3://my-app-data-prod/temp/ --recursive
-
 # Get bucket size via CloudWatch (most efficient for large buckets)
 aws cloudwatch get-metric-statistics \
   --namespace AWS/S3 \
@@ -322,38 +281,30 @@ aws cloudwatch get-metric-statistics \
   --statistics Average \
   --output table
 ```
-
 ## Terraform S3 Bucket
-
 ```hcl
 resource "aws_s3_bucket" "main" {
   bucket = "my-app-data-prod"
-
   tags = {
     Environment        = "production"
     DataClassification = "confidential"
   }
 }
-
 resource "aws_s3_bucket_versioning" "main" {
   bucket = aws_s3_bucket.main.id
   versioning_configuration {
     status = "Enabled"
   }
 }
-
 resource "aws_s3_bucket_public_access_block" "main" {
   bucket = aws_s3_bucket.main.id
-
   block_public_acls       = true
   block_public_policy     = true
   ignore_public_acls      = true
   restrict_public_buckets = true
 }
-
 resource "aws_s3_bucket_server_side_encryption_configuration" "main" {
   bucket = aws_s3_bucket.main.id
-
   rule {
     apply_server_side_encryption_by_default {
       sse_algorithm     = "aws:kms"
@@ -362,42 +313,33 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "main" {
     bucket_key_enabled = true
   }
 }
-
 resource "aws_s3_bucket_lifecycle_configuration" "main" {
   bucket = aws_s3_bucket.main.id
-
   rule {
     id     = "tier-down"
     status = "Enabled"
-
     transition {
       days          = 30
       storage_class = "STANDARD_IA"
     }
-
     transition {
       days          = 90
       storage_class = "GLACIER"
     }
-
     noncurrent_version_transition {
       noncurrent_days = 30
       storage_class   = "GLACIER"
     }
-
     noncurrent_version_expiration {
       noncurrent_days = 180
     }
-
     abort_incomplete_multipart_upload {
       days_after_initiation = 7
     }
   }
 }
-
 resource "aws_s3_bucket_policy" "enforce_https" {
   bucket = aws_s3_bucket.main.id
-
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [{
@@ -416,9 +358,7 @@ resource "aws_s3_bucket_policy" "enforce_https" {
   })
 }
 ```
-
 ## Troubleshooting
-
 | Problem | Cause | Fix |
 |---|---|---|
 | Access Denied on GetObject | Bucket policy or IAM denies access | Check bucket policy, IAM policy, and public access block |
@@ -430,18 +370,13 @@ resource "aws_s3_bucket_policy" "enforce_https" {
 | Slow uploads for large files | Single-part upload | Use `aws s3 cp` (auto multipart) or set multipart threshold |
 | Cross-account access denied | Both bucket policy AND IAM policy needed | Grant in bucket policy and in caller's IAM policy |
 | Object Lock prevents deletion | Governance or compliance mode active | Respect retention; governance bypass needs separate authorization and required permission. Compliance retention cannot be bypassed |
-
 ## Related Skills
-
 - aws-iam (`aws-iam`) - Bucket and object access policies
 - aws-vpc (`aws-vpc`) - VPC endpoints for private S3 access
 - aws-cost-optimization (`aws-cost-optimization`) - Storage class optimization
 - terraform-aws (`terraform-aws`) - IaC deployment for S3
 - cloudformation (`cloudformation`) - AWS-native S3 templates
-
 ## Limitations
-
 - VPC-endpoint deny policies can lock out console/admin access; verify the endpoint and a recovery path before applying. Policy, lifecycle and tagging PUTs replace existing configurations: inspect and preserve required entries.
 - Infrastructure commands can disrupt services: confirm target host/scope and have backups/snapshots before mutating state.
 - Docs-only import: upstream scripts and templates not bundled.
-

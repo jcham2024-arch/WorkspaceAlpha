@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "50970096d901eb99ef7ede502b7edb9d7605c3a8ca442eb42e388c8a28daaf27"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: brutalism
+content_hash: 50970096d901eb99ef7ede502b7edb9d7605c3a8ca442eb42e388c8a28daaf27
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Brutalism. Trigger when user wants a raw appearance, intentionally unfinished look, and rejection of standard design conventions.
-tier: "experimental"
-date_added: "2026-06-17"
+name: brutalism
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Brutalism
-
 > "Raw materials exposed. An intentional rejection of polish, gradients, and soft shadows."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Unstyled Components**: Default browser styling for buttons, inputs, and links is celebrated.
 2. **Exposed Structure**: Grid lines, tables with visible borders, and stark boundaries are used instead of whitespace to separate content.
 3. **Anti-Aesthetic**: Intentional awkwardness. Elements might slightly overlap in a way that feels broken, or use system default fonts.
-
 ## Visual DNA
 - **Colors**: High contrast, often clashing. Pure `#0000FF` blue for links, `#FF0000` red for accents, on stark white or `#C0C0C0` grey backgrounds. **Industrial Chic** palette fits best.
 - **Typography**: Courier New, Times New Roman, Comic Sans, or default sans-serifs. No web fonts.
 - **Visuals**: Dithered images, pixelated graphics, or heavily compressed jpegs.
-
 ## Web Implementation
 - Use standard HTML tags without overriding their default appearance whenever possible.
 - **CSS Example**:
@@ -46,19 +33,16 @@ body {
   color: #000000;
   font-family: monospace;
 }
-
 /* Expose the structure */
 .brutalist-container {
   border: 1px solid #000;
   padding: 10px;
 }
-
 .brutalist-section {
   border-bottom: 2px dashed #000;
   margin-bottom: 20px;
   padding-bottom: 20px;
 }
-
 /* Default-looking button but massive */
 .brutalist-btn {
   background-color: #c0c0c0;
@@ -71,20 +55,16 @@ body {
   padding: 10px 20px;
   cursor: pointer;
 }
-
 .brutalist-btn:active {
   border-style: inset;
 }
-
 /* System link blue */
 a {
   color: #0000FF;
   text-decoration: underline;
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct BrutalistView: View {
@@ -95,9 +75,7 @@ struct BrutalistView: View {
                 .foregroundColor(.black)
                 .padding(10)
                 .border(Color.black, width: 2)
-            
             Divider().background(Color.black).padding(.vertical, 20)
-            
             Button(action: {}) {
                 Text("CLICK_HERE")
                     .font(.custom("Courier New", size: 24))
@@ -105,7 +83,6 @@ struct BrutalistView: View {
                     .underline()
             }
             .padding(10)
-            
             // Raw structural container
             VStack(alignment: .leading) {
                 Text("System Status: RAW").font(.custom("Courier New", size: 14))
@@ -122,7 +99,6 @@ struct BrutalistView: View {
 - Style semantic `Button` and `Link` controls to look raw; underlined `Text` alone does not provide button or navigation behavior.
 - Use `.border(Color.black, width: 1)` instead of backgrounds or shadows.
 - Force monospace fonts like Courier New or Menlo.
-
 ### Flutter
 ```dart
 class BrutalistScreen extends StatelessWidget {
@@ -179,7 +155,6 @@ class BrutalistScreen extends StatelessWidget {
 - Prefer semantic buttons with custom raw styling; a GestureDetector alone requires explicit focus, keyboard and accessibility support.
 - Build UI out of raw `Container`s with `Border.all(color: Colors.black)` and `Text` widgets.
 - Use `TextDecoration.underline` to indicate interactivity.
-
 ### React Native
 ```jsx
 const BrutalistScreen = () => {
@@ -195,9 +170,7 @@ const BrutalistScreen = () => {
           BRUTALISM
         </Text>
       </View>
-      
       <View style={{ height: 2, backgroundColor: '#000', marginVertical: 20 }} />
-      
       <TouchableOpacity activeOpacity={1}>
         <Text style={{
           fontFamily: 'monospace',
@@ -208,7 +181,6 @@ const BrutalistScreen = () => {
           CLICK_HERE
         </Text>
       </TouchableOpacity>
-
       <View style={{
         borderWidth: 1,
         borderColor: '#000',
@@ -226,7 +198,6 @@ const BrutalistScreen = () => {
 - Strip away all native feel. Do not use `react-native-elements` or `react-native-paper`.
 - Set `activeOpacity={1}` on `TouchableOpacity` so there is no smooth fade — it should just click instantly.
 - Use pure hex colors: `#FFFFFF`, `#000000`, `#0000FF`.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -251,11 +222,9 @@ fun BrutalistScreen() {
                 )
             )
         }
-        
         Spacer(Modifier.height(20.dp))
         Box(modifier = Modifier.fillMaxWidth().height(2.dp).background(Color.Black))
         Spacer(Modifier.height(20.dp))
-        
         BasicText(
             text = "CLICK_HERE",
             modifier = Modifier.clickable { },
@@ -272,11 +241,9 @@ fun BrutalistScreen() {
 - Use `BasicText` instead of `Text` to bypass Material theme defaults.
 - Build structural lines using `Box` with `.background(Color.Black)`.
 - Use semantic controls with raw styling. Retain button roles, keyboard activation, focus and feedback.
-
 ## Do's and Don'ts
 - **DO**: Use harsh, high-contrast borders (1px solid black) around everything.
 - **DON'T**: Use border-radius, drop shadows, or smooth transitions. If it animates, it should pop instantly (0s transition).
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

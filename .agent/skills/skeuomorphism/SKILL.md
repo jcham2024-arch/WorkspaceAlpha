@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "661895673b15d920abebf2e4e9d6af4c925f587e5a6fe9c8f141b2002e3a0b19"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: skeuomorphism
+content_hash: 661895673b15d920abebf2e4e9d6af4c925f587e5a6fe9c8f141b2002e3a0b19
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Skeuomorphism. Trigger when user wants UI to mimic real-world objects, realistic textures, or physical metaphors.
-tier: "experimental"
-date_added: "2026-06-17"
+name: skeuomorphism
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Skeuomorphism
-
 > "Digital interfaces that look and behave like their physical counterparts."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Realistic Textures**: Leather, brushed metal, wood grain, paper. The UI should feel like a physical object you can touch.
 2. **Physical Lighting & Depth**: Intense attention to specular highlights, drop shadows, inner shadows, bevels, and ambient occlusion.
 3. **Real-world Metaphors**: Switches that look like hardware toggles, dials with physical notches, notepads with binding rings.
-
 ## Visual DNA
 - **Colors**: Highly dependent on the material being simulated. For rich, classic skeuomorphism, use the **Industrial Chic** (for metal/hardware) or **Monochromatic Brown** (for wood/leather) palettes.
 - **Typography**: Fonts that match the physical object (e.g., typewriter fonts for paper, LCD fonts for digital screens, embossed sans-serifs for hardware buttons).
 - **Details**: Screws, stitching, glare, and gradients are your primary tools.
-
 ## Web Implementation
 - Heavy use of layered background images (textures), complex gradients, and multiple box-shadows.
 - **CSS Example**:
@@ -46,12 +33,10 @@ Use this sub-style when the user's request matches the aesthetic described above
   background: linear-gradient(180deg, #e0e0e0 0%, #a0a0a0 100%),
               url('brushed-metal-texture.png');
   background-blend-mode: overlay;
-  
   border: 1px solid #7a7a7a;
   border-radius: 50%;
   width: 80px;
   height: 80px;
-  
   /* Bevel, inner highlight, and drop shadow */
   box-shadow: 
     inset 0 2px 4px rgba(255,255,255,0.8), /* Top highlight */
@@ -59,7 +44,6 @@ Use this sub-style when the user's request matches the aesthetic described above
     0 4px 6px rgba(0,0,0,0.5),             /* Drop shadow */
     0 1px 1px rgba(0,0,0,0.2);
 }
-
 .skeuo-button:active {
   /* Pressing the physical button */
   box-shadow: 
@@ -69,14 +53,11 @@ Use this sub-style when the user's request matches the aesthetic described above
   transform: translateY(2px);
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct SkeuoButton: View {
     @State private var isPressed = false
-    
     var body: some View {
         Button(action: {}) {
             Text("POWER")
@@ -128,17 +109,14 @@ struct SkeuoButton: View {
 - Stack multiple shapes (`Circle`, `RoundedRectangle`) with different gradients to build up realistic depth.
 - Use `.overlay()` with stroked shapes for highlight bezels along the edges.
 - The pressed state should reduce shadow AND scale — simulating a physical push.
-
 ### Flutter
 ```dart
 class SkeuoButton extends StatefulWidget {
   @override
   State<SkeuoButton> createState() => _SkeuoButtonState();
 }
-
 class _SkeuoButtonState extends State<SkeuoButton> {
   bool _isPressed = false;
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -189,12 +167,10 @@ class _SkeuoButtonState extends State<SkeuoButton> {
 - Use `AnimatedContainer` for smooth press transitions. Adjust `boxShadow`, `transform`, and gradient on tap.
 - Layer `BoxShadow` entries: one for the outer drop shadow, one for an outer top-edge highlight; use a separate clipped gradient or supported inset API for actual inner shading.
 - For complex textures (leather, wood), use `DecorationImage` with an asset file inside `BoxDecoration`.
-
 ### React Native
 ```jsx
 const SkeuoButton = () => {
   const [pressed, setPressed] = useState(false);
-  
   return (
     <Pressable
       onPressIn={() => setPressed(true)}
@@ -235,7 +211,6 @@ const SkeuoButton = () => {
 - For realistic textures, use `ImageBackground` with exported texture assets (leather.png, brushed-metal.png).
 - Use `Pressable` with `onPressIn`/`onPressOut` to animate shadow depth, scale, and opacity changes.
 - Complex gradient bevels require `react-native-linear-gradient` or `expo-linear-gradient`.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -243,7 +218,6 @@ fun SkeuoButton() {
     var isPressed by remember { mutableStateOf(false) }
     val scale by animateFloatAsState(if (isPressed) 0.96f else 1f)
     val elevation by animateDpAsState(if (isPressed) 2.dp else 8.dp)
-    
     Box(
         modifier = Modifier
             .size(80.dp)
@@ -282,13 +256,10 @@ fun SkeuoButton() {
 - Use `Brush.verticalGradient()` for metallic surfaces and `Modifier.border()` with `CircleShape` for bezels.
 - Animate `shadow` elevation and `graphicsLayer { scaleX/scaleY }` on press for realistic physical push.
 - For textures, use `Modifier.paint(painterResource(R.drawable.brushed_metal))` as a background.
-
 ## Do's and Don'ts
 - **DO**: Ensure the metaphor makes sense for the user's task.
 - **DON'T**: Overuse it to the point of clutter. Keep the interactive elements highly realistic, but let the structural layout remain clean.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.
-
 The gesture-only Flutter/Compose and React Native press-state examples illustrate appearance. Implement the actual action with semantic buttons, keyboard activation and cancellation-safe state before use. White POWER text on light metal should be changed to a dark ink color and verified for contrast.

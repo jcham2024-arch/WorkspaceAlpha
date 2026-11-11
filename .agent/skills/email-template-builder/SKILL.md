@@ -1,36 +1,23 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "c999ea9a42940b295985166d51dc87db5cf03427fe61e2f29a5a691af9fc0dcf"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
+content_hash: c999ea9a42940b295985166d51dc87db5cf03427fe61e2f29a5a691af9fc0dcf
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+description: Use when adding or reworking transactional email (React Email templates, Resend, Postmark, SendGrid or SES, preview, i18n, dark mode, deliverability). Builds the template system and provider integration end to end.
+name: string
+tags: "[{ name: "email-type", value: payload.type }],"
 ---
-name: "email-template-builder"
-description: "Use when adding or reworking transactional email (React Email templates, Resend, Postmark, SendGrid or SES, preview, i18n, dark mode, deliverability). Builds the template system and provider integration end to end."
-tier: "experimental"
----
-
-
 # Email Template Builder
-
 **Tier:** POWERFUL  
 **Category:** Engineering Team  
 **Domain:** Transactional Email / Communications Infrastructure
-
 ---
-
 ## Overview
-
 Build complete transactional email systems: React Email templates, provider integration, preview server, i18n support, dark mode, spam optimization, and analytics tracking. Output production-ready code for Resend, Postmark, SendGrid, or AWS SES.
-
 ---
-
 ## Core Capabilities
-
 - React Email templates (welcome, verification, password reset, invoice, notification, digest)
 - MJML templates for maximum email client compatibility
 - Multi-provider support with unified sending interface
@@ -39,21 +26,15 @@ Build complete transactional email systems: React Email templates, provider inte
 - Dark mode support using media queries
 - Spam score optimization checklist
 - Open/click tracking with UTM parameters
-
 ---
-
 ## When to Use
-
 - Setting up transactional email for a new product
 - Migrating from a legacy email system
 - Adding new email types (invoice, digest, notification)
 - Debugging email deliverability issues
 - Implementing i18n for email templates
-
 ---
-
 ## Project Structure
-
 ```
 emails/
 ├── components/
@@ -83,22 +64,17 @@ emails/
 └── preview/                       # Dev preview server
     └── server.ts
 ```
-
 ---
-
 ## Base Email Layout
-
 ```tsx
 // emails/components/layout/email-layout.tsx
 import {
   Body, Container, Head, Html, Img, Preview, Section, Text, Hr, Font
 } from "@react-email/components"
-
 interface EmailLayoutProps {
   preview: string
   children: React.ReactNode
 }
-
 export function EmailLayout({ preview, children }: EmailLayoutProps) {
   return (
     <Html lang="en">
@@ -128,12 +104,10 @@ export function EmailLayout({ preview, children }: EmailLayoutProps) {
           <Section style={styles.header}>
             <Img src="https://yourapp.com/logo.png" width={120} height={40} alt="MyApp" />
           </Section>
-          
           {/* Content */}
           <Section style={styles.content}>
             {children}
           </Section>
-          
           {/* Footer */}
           <Hr style={styles.divider} />
           <Section style={styles.footer}>
@@ -151,7 +125,6 @@ export function EmailLayout({ preview, children }: EmailLayoutProps) {
     </Html>
   )
 }
-
 const styles = {
   body: { backgroundColor: "#f5f5f5", fontFamily: "Inter, Arial, sans-serif" },
   container: { maxWidth: "600px", margin: "0 auto", backgroundColor: "#ffffff", borderRadius: "8px", overflow: "hidden" },
@@ -163,22 +136,16 @@ const styles = {
   link: { color: "#6b7280", textDecoration: "underline" },
 }
 ```
-
 ---
-
 ## Welcome Email
-
 ```tsx
 // emails/templates/welcome.tsx
 import { Button, Heading, Text } from "@react-email/components"
 import { EmailLayout } from "../components/layout/email-layout"
-
 interface WelcomeEmailProps {
-  name: "string"
   confirmUrl: string
   trialDays?: number
 }
-
 export function WelcomeEmail({ name, confirmUrl, trialDays = 14 }: WelcomeEmailProps) {
   return (
     <EmailLayout preview={`Welcome to MyApp, ${name}! Confirm your email to get started.`}>
@@ -208,9 +175,7 @@ export function WelcomeEmail({ name, confirmUrl, trialDays = 14 }: WelcomeEmailP
     </EmailLayout>
   )
 }
-
 export default WelcomeEmail
-
 const styles = {
   h1: { fontSize: "28px", fontWeight: "700", color: "#111827", margin: "0 0 16px" },
   text: { fontSize: "16px", lineHeight: "1.6", color: "#374151", margin: "0 0 16px" },
@@ -220,20 +185,14 @@ const styles = {
   list: { fontSize: "16px", lineHeight: "1.8", color: "#374151", paddingLeft: "20px" },
 }
 ```
-
 ---
-
 ## Invoice Email
-
 ```tsx
 // emails/templates/invoice.tsx
 import { Row, Column, Section, Heading, Text, Hr, Button } from "@react-email/components"
 import { EmailLayout } from "../components/layout/email-layout"
-
 interface InvoiceItem { description: string; amount: number }
-
 interface InvoiceEmailProps {
-  name: "string"
   invoiceNumber: string
   invoiceDate: string
   dueDate: string
@@ -242,16 +201,13 @@ interface InvoiceEmailProps {
   currency: string
   downloadUrl: string
 }
-
 export function InvoiceEmail({ name, invoiceNumber, invoiceDate, dueDate, items, total, currency = "USD", downloadUrl }: InvoiceEmailProps) {
   const formatter = new Intl.NumberFormat("en-US", { style: "currency", currency })
-
   return (
     <EmailLayout preview={`Invoice ${invoiceNumber} - ${formatter.format(total / 100)}`}>
       <Heading style={styles.h1}>Invoice #{invoiceNumber}</Heading>
       <Text style={styles.text}>Hi {name},</Text>
       <Text style={styles.text}>Here's your invoice from MyApp. Thank you for your continued support.</Text>
-
       {/* Invoice Meta */}
       <Section style={styles.metaBox}>
         <Row>
@@ -260,7 +216,6 @@ export function InvoiceEmail({ name, invoiceNumber, invoiceDate, dueDate, items,
           <Column><Text style={styles.metaLabel}>Amount Due</Text><Text style={styles.metaValueLarge}>{formatter.format(total / 100)}</Text></Column>
         </Row>
       </Section>
-
       {/* Line Items */}
       <Section style={styles.table}>
         <Row style={styles.tableHeader}>
@@ -279,14 +234,11 @@ export function InvoiceEmail({ name, invoiceNumber, invoiceDate, dueDate, items,
           <Column><Text style={styles.totalValue}>{formatter.format(total / 100)}</Text></Column>
         </Row>
       </Section>
-
       <Button href={downloadUrl} style={styles.button}>Download PDF Invoice</Button>
     </EmailLayout>
   )
 }
-
 export default InvoiceEmail
-
 const styles = {
   h1: { fontSize: "24px", fontWeight: "700", color: "#111827", margin: "0 0 16px" },
   text: { fontSize: "15px", lineHeight: "1.6", color: "#374151", margin: "0 0 12px" },
@@ -306,11 +258,8 @@ const styles = {
   button: { backgroundColor: "#4f46e5", color: "#fff", borderRadius: "6px", padding: "12px 24px", fontSize: "15px", fontWeight: "600", textDecoration: "none" },
 }
 ```
-
 ---
-
 ## Unified Send Function
-
 ```typescript
 // emails/lib/send.ts
 import { Resend } from "resend"
@@ -318,39 +267,29 @@ import { render } from "@react-email/render"
 import { WelcomeEmail } from "../templates/welcome"
 import { InvoiceEmail } from "../templates/invoice"
 import { addTrackingParams } from "./tracking"
-
 const resend = new Resend(process.env.RESEND_API_KEY)
-
 type EmailPayload =
   | { type: "welcome"; props: Parameters<typeof WelcomeEmail>[0] }
   | { type: "invoice"; props: Parameters<typeof InvoiceEmail>[0] }
-
 export async function sendEmail(to: string, payload: EmailPayload) {
   const templates = {
     welcome: { component: WelcomeEmail, subject: "Welcome to MyApp — confirm your email" },
     invoice: { component: InvoiceEmail, subject: `Invoice from MyApp` },
   }
-
   const template = templates[payload.type]
   const html = render(template.component(payload.props as any))
   const trackedHtml = addTrackingParams(html, { campaign: payload.type })
-
   const result = await resend.emails.send({
     from: "MyApp <hello@yourapp.com>",
     to,
     subject: template.subject,
     html: trackedHtml,
-    tags: [{ name: "email-type", value: payload.type }],
   })
-
   return result
 }
 ```
-
 ---
-
 ## Preview Server Setup
-
 ```typescript
 // package.json scripts
 {
@@ -359,16 +298,12 @@ export async function sendEmail(to: string, payload: EmailPayload) {
     "email:build": "email export --dir emails/templates --outDir emails/out"
   }
 }
-
 // Run: npm run email:dev
 // Opens: http://localhost:3001
 // Shows all templates with live preview and hot reload
 ```
-
 ---
-
 ## i18n Support
-
 ```typescript
 // emails/i18n/en.ts
 export const en = {
@@ -379,7 +314,6 @@ export const en = {
     cta: "Confirm Email Address",
   },
 }
-
 // emails/i18n/de.ts
 export const de = {
   welcome: {
@@ -389,16 +323,12 @@ export const de = {
     cta: "E-Mail-Adresse bestätigen",
   },
 }
-
 // Usage in template
 import { en, de } from "../i18n"
 const t = locale === "de" ? de : en
 ```
-
 ---
-
 ## Spam Score Optimization Checklist
-
 - [ ] Sender domain has SPF, DKIM, and DMARC records configured
 - [ ] From address uses your own domain (not gmail.com/hotmail.com)
 - [ ] Subject line under 50 characters, no ALL CAPS, no "FREE!!!"
@@ -411,11 +341,8 @@ const t = locale === "de" ? de : en
 - [ ] Image alt text on every image
 - [ ] HTML validates — no broken tags
 - [ ] Test with Mail-Tester.com before first send (target: 9+/10)
-
 ---
-
 ## Analytics Tracking
-
 ```typescript
 // emails/lib/tracking.ts
 interface TrackingParams {
@@ -423,14 +350,12 @@ interface TrackingParams {
   medium?: string
   source?: string
 }
-
 export function addTrackingParams(html: string, params: TrackingParams): string {
   const utmString = new URLSearchParams({
     utm_source: params.source ?? "email",
     utm_medium: params.medium ?? "transactional",
     utm_campaign: params.campaign,
   }).toString()
-
   // Add UTM params to all links in the email
   return html.replace(/href="(https?:\/\/[^"]+)"/g, (match, url) => {
     const separator = url.includes("?") ? "&" : "?"
@@ -438,11 +363,8 @@ export function addTrackingParams(html: string, params: TrackingParams): string 
   })
 }
 ```
-
 ---
-
 ## Common Pitfalls
-
 - **Inline styles required** — most email clients strip `<head>` styles; React Email handles this
 - **Max width 600px** — anything wider breaks on Gmail mobile
 - **No flexbox/grid** — use `<Row>` and `<Column>` from react-email, not CSS grid

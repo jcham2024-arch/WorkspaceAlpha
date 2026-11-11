@@ -1,41 +1,27 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "a57ef5e955c07bb73eee2f27d19fa048e956dbee60164ae26910e89078aae18f"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: thinking-via-negativa
+content_hash: a57ef5e955c07bb73eee2f27d19fa048e956dbee60164ae26910e89078aae18f
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: Use when the reflex is to add a feature, layer, or process. Prefer removing harmful or nonessential elements first, with an irreversibility guard before deletion.
-tier: "experimental"
-disable-model-invocation: true
+name: thinking-via-negativa
+---disable-model-invocation: true
 ---
-
-
 # Via Negativa
-
 Improve by subtraction before addition. Prefer removing harm, waste, and nonessential complexity; add only when a demonstrated need remains after removal candidates are exhausted.
-
 ## When to Use
-
 - About to add a feature, abstraction, dependency, process, or control to fix a problem.
 - Simplifying a system or workflow where complexity is the tax.
 - Prioritizing by deciding what not to keep, build, or maintain.
 - Performance or reliability work where eliminating a bad path beats bolting on mitigation.
-
 ## When NOT to Use
-
 - Load-bearing controls: auth, validation, tests, rate limits, retries, safety checks — presume necessary until proven dead.
 - A demonstrated requirement that cannot be met by removal or simplification.
 - Aesthetic minimalism without evidence of non-use or net harm.
 - Irreversible deletion without a rollback path when impact is unknown.
-
 ## Procedure
-
 1. **Pause the add reflex.** State the goal and the proposed addition in one line.
 2. **Ask the subtraction question first.** List what could be removed or stopped to achieve the same goal with less surface area.
 3. **Catalog candidates with evidence.** Prefer unused, redundant, high-cost/low-value, or harmful elements. Require usage, call-graph, metrics, or experiment evidence — not taste.
@@ -43,11 +29,8 @@ Improve by subtraction before addition. Prefer removing harm, waste, and nonesse
 5. **Remove the safest high-value candidate first.** Subtract, monitor, and verify absence of needed behavior before the next removal.
 6. **Add only if the goal still fails.** If subtraction cannot meet the need, add the minimum change and record why removal was insufficient.
 7. **Stop** when the goal is met by absence, or remaining candidates fail the irreversibility/evidence bar and a minimal addition is justified.
-
 **Stop condition:** Goal achieved via removal, or residual need documented after evidence-backed subtraction failed.
-
 ## Output
-
 ```text
 Goal: <desired outcome>
 Proposed add (if any): <thing>
@@ -56,9 +39,7 @@ Action: remove <X> | staged remove <X> | add minimal <Y> because <why removal fa
 Verification plan: <how absence/success is checked>
 Do-not-touch: <load-bearing items preserved>
 ```
-
 ## Verification
-
 - Falsify if something was deleted without non-use/harm evidence, or a safety control was removed as "complexity."
 - Falsify if an addition shipped without a prior subtraction pass on the same goal.
 - Over-application guard: do not delete for line-count or purity when the element is load-bearing or the need is demonstrated.

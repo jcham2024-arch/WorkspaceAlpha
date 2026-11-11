@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "e183d1cd4a2a75b631a1180106328401c20bd47dd87399bd566ab57fa5941b78"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: synthwave
+content_hash: e183d1cd4a2a75b631a1180106328401c20bd47dd87399bd566ab57fa5941b78
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Synthwave. Trigger when user wants 80s-inspired neon, dark backgrounds, outrun grids, and Miami Vice aesthetics.
-tier: "experimental"
-date_added: "2026-06-17"
+name: synthwave
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Synthwave (Outrun)
-
 > "Driving a Ferrari through a neon-lit digital grid at midnight."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Dark Mode by Default**: Absolute pitch-black or deep purple backgrounds.
 2. **Neon Glowing Vectors**: Bright magenta, cyan, and yellow wireframes, text, and grids. Heavy use of `box-shadow` and `text-shadow` for glow effects.
 3. **The Perspective Grid**: The defining visual is a glowing grid that fades into a vanishing point on the horizon.
-
 ## Visual DNA
 - **Colors**: Deep space backgrounds (`#0B0C10`, `#110022`). Glowing neon accents: Cyan (`#00FFFF`), Hot Pink (`#FF00FF`), Electric Yellow (`#FFFF00`).
 - **Typography**: 80s chrome text, brush script (like a neon sign), and heavy italicized sans-serifs.
 - **Shadows**: Drop shadows are not black; they are the same color as the element, heavily blurred, to create light emission.
-
 ## Web Implementation
 - Rely on `text-shadow` for neon signs and 3D transforms for the floor grid.
 - **CSS Example**:
@@ -47,7 +34,6 @@ body {
   font-family: 'Montserrat', sans-serif;
   overflow-x: hidden;
 }
-
 /* Neon Text Glow */
 .synth-neon-text {
   font-family: 'Mr Dafoe', cursive; /* A classic 80s script */
@@ -60,7 +46,6 @@ body {
     0 0 40px #FF00FF,
     0 0 80px #FF00FF;
 }
-
 /* The Perspective Grid Floor */
 .synth-grid {
   position: absolute;
@@ -70,24 +55,19 @@ body {
     linear-gradient(rgba(0, 255, 255, 0.8) 2px, transparent 2px),
     linear-gradient(90deg, rgba(0, 255, 255, 0.8) 2px, transparent 2px);
   background-size: 50px 50px;
-  
   /* Create the 3D horizon effect */
   transform: perspective(500px) rotateX(60deg);
   transform-origin: top center;
-  
   /* Fade out towards the horizon */
   mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct NeonText: View {
     let text: String
-    
     var body: some View {
         Text(text)
             .font(.custom("Mr Dafoe", size: 64))
@@ -99,17 +79,14 @@ struct NeonText: View {
             .shadow(color: .pink, radius: 20)
     }
 }
-
 struct SynthwaveScreen: View {
     var body: some View {
         ZStack {
             Color(red: 0.03, green: 0.0, blue: 0.08).ignoresSafeArea() // #090014
-            
             VStack {
                 NeonText(text: "Outrun")
                 Spacer()
             }
-            
             // Note: A 3D perspective grid requires SceneKit or a pre-rendered image
             // Native SwiftUI 3D transforms apply to the view, but won't draw an infinite floor grid easily.
             Image("synth_grid")
@@ -123,13 +100,11 @@ struct SynthwaveScreen: View {
 ```
 - Stack multiple `.shadow(color:radius:)` modifiers directly on the text to create a vibrant neon bloom effect.
 - The 3D wireframe horizon grid is best achieved via a pre-rendered image background.
-
 ### Flutter
 ```dart
 class NeonText extends StatelessWidget {
   final String text;
   const NeonText(this.text);
-
   @override
   Widget build(BuildContext context) {
     return Text(
@@ -148,7 +123,6 @@ class NeonText extends StatelessWidget {
     );
   }
 }
-
 class SynthwaveScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -174,12 +148,10 @@ class SynthwaveScreen extends StatelessWidget {
 ```
 - `TextStyle` accepts a list of `Shadow` objects. Stack them with exponentially increasing `blurRadius` values (e.g., 2, 5, 15, 30) to simulate light dispersal.
 - Avoid rendering the perspective grid programmatically using `CustomPaint` unless you want to do the 3D math manually. Use an asset.
-
 ### React Native
 ```jsx
 // React Native only supports ONE textShadow per Text element natively.
 // To create a true neon glow, you must stack identical Text components.
-
 const NeonText = ({ text }) => {
   const baseStyle = {
     fontFamily: 'MrDafoe',
@@ -187,7 +159,6 @@ const NeonText = ({ text }) => {
     color: '#FFF',
     position: 'absolute',
   };
-
   return (
     <View accessible accessibilityLabel={text} style={{ alignItems: 'center', minHeight: 80 }}>
       {/* Outer Glow */}
@@ -201,11 +172,9 @@ const NeonText = ({ text }) => {
     </View>
   );
 };
-
 const SynthwaveScreen = () => (
   <View style={{ flex: 1, backgroundColor: '#090014', justifyContent: 'center' }}>
     <NeonText text="Outrun" />
-    
     <Image 
       source={require('./synth_grid.png')}
       style={{ position: 'absolute', bottom: 0, width: '100%', height: 300, resizeMode: 'cover' }}
@@ -215,7 +184,6 @@ const SynthwaveScreen = () => (
 ```
 - **React Native limitation**: You cannot pass an array of shadows to `textShadow`.
 - **Workaround**: Render the exact same `<Text>` component 3-4 times on top of each other using `position: 'absolute'`, each with a different `textShadowRadius` to build the bloom.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -236,7 +204,6 @@ fun NeonText(text: String) {
         // To get stacked blurs, we use Modifier.drawBehind to draw the text repeatedly
     )
 }
-
 // Advanced stacked glow approach
 @Composable
 fun AdvancedNeonText(text: String) {
@@ -259,13 +226,10 @@ fun AdvancedNeonText(text: String) {
 ```
 - **Compose Limitation**: Like React Native, `TextStyle` only accepts a single `Shadow`.
 - **Workaround**: Stack multiple colored `Text` composables inside a `Box`, each casting a shadow of varying size, topped by the solid white core text.
-
 ## Do's and Don'ts
 - **DO**: Italicize fonts to give a sense of speed and forward momentum.
 - **DON'T**: Use standard, subtle box shadows. If it casts a shadow, it must cast a neon glow instead.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.
-
 Duplicate glow layers should be hidden from assistive technology while exposing the text once. The AdvancedNeonText example uses default text sizes; apply identical font, size and line-height to all layers before treating it as the 64sp variant. Assets and custom fonts are project inputs, not bundled here.

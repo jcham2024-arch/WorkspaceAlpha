@@ -1,55 +1,37 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "36adea04978960126ddfc715fe30c5f758e747ea4e05414cc94de8475478fb7b"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: novelty-assessment
+content_hash: 36adea04978960126ddfc715fe30c5f758e747ea4e05414cc94de8475478fb7b
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: Assess research idea novelty through systematic literature search. Multi-round search-evaluate loops with harsh critic persona. Binary novel/not-novel decision with justification. Use before committing to a research direction.
-tier: "experimental"
-argument-hint: [idea]
+name: novelty-assessment
+---argument-hint: [idea]
 ---
-
-
 # Novelty Assessment
-
 Rigorously assess whether a research idea is novel through systematic literature search.
-
 ## Input
-
 - `$0` — Research idea description, title, or JSON file
-
 ## Scripts
-
 ### Automated novelty check
 ```bash
 python ~/.claude/skills/idea-generation/scripts/novelty_check.py \
   --idea "Your research idea description" \
   --max-rounds 10 --output novelty_report.json
 ```
-
 ### Literature search
 ```bash
 python ~/.claude/skills/deep-research/scripts/search_semantic_scholar.py \
   --query "relevant search query" --max-results 10
 ```
-
 ## References
-
 - Assessment prompts and criteria: `~/.claude/skills/novelty-assessment/references/assessment-prompts.md`
-
 ## Workflow
-
 ### Step 1: Understand the Idea
 - Identify the core contribution
 - List the key technical components
 - Determine the research area and subfield
-
 ### Step 2: Multi-Round Literature Search (up to 10 rounds)
 For each round:
 1. Generate a targeted search query
@@ -57,28 +39,22 @@ For each round:
 3. Review top-10 results with abstracts
 4. Assess overlap with the idea
 5. Decide: need more searching, or ready to decide
-
 ### Step 3: Make Decision
 - **Novel**: After sufficient searching, no paper significantly overlaps
 - **Not Novel**: Found a paper that significantly overlaps
-
 ### Step 4: Position the Idea
 If novel, identify:
 - Most similar existing papers (for Related Work)
 - How the idea differs from each
 - The specific gap this idea fills
-
 ## Harsh Critic Persona
-
 ```
 Be a harsh critic for novelty. Ensure there is a sufficient contribution
 for a new conference or workshop paper. A trivial extension of existing
 work is NOT novel. The idea must offer a meaningfully different approach,
 formulation, or insight.
 ```
-
 ## Output Format
-
 ```json
 {
   "decision": "novel" | "not_novel",
@@ -90,15 +66,12 @@ formulation, or insight.
   "differentiation": "Our idea differs because..."
 }
 ```
-
 ## Rules
-
 - Minimum 3 search rounds before declaring novel
 - Try to recall exact paper names for targeted queries
 - A paper idea is NOT novel if it's a trivial extension
 - Consider both methodology novelty AND application novelty
 - Check for concurrent/recent arXiv submissions
-
 ## Related Skills
 - Upstream: [literature-search](../literature-search/), [deep-research](../deep-research/)
 - Downstream: [idea-generation](../idea-generation/), [research-planning](../research-planning/)

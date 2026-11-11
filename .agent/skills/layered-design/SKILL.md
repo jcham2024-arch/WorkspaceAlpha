@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "4fd678e7756c57ec0983aa0a046d0d06362cf06b13cb86ed63239699b50ab9ff"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: layered-design
+content_hash: 4fd678e7756c57ec0983aa0a046d0d06362cf06b13cb86ed63239699b50ab9ff
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Layered Design. Trigger when user wants multiple depth levels, floating panels, and overlapping content.
-tier: "experimental"
-date_added: "2026-06-17"
+name: layered-design
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Layered Design
-
 > "Stacking context. Interfaces built from overlapping, independent layers."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Explicit Overlap**: Elements intentionally overlap each other to break the grid and show depth.
 2. **Clear Stratification**: Every layer must be visually distinct via shadow, border, or contrasting color.
 3. **Parallax Scrolling**: Background layers move slower than foreground layers during interaction/scrolling.
-
 ## Visual DNA
 - **Colors**: **Monochromatic Brown** or **Sophisticated Neutral**. Layering works best when the background is distinct from the floating elements.
 - **Typography**: Often large, overlapping text that spans across image and background layers.
 - **Spacing**: Negative space is required around overlapping elements so they don't feel cluttered.
-
 ## Web Implementation
 - Heavy use of `position: absolute`, negative margins, and `z-index`.
 - **CSS Example**:
@@ -45,7 +32,6 @@ Use this sub-style when the user's request matches the aesthetic described above
   position: relative;
   padding: 100px;
 }
-
 .layer-bg-image {
   position: absolute;
   top: 0; right: 0;
@@ -54,7 +40,6 @@ Use this sub-style when the user's request matches the aesthetic described above
   object-fit: cover;
   z-index: 1;
 }
-
 .layer-text-box {
   position: relative;
   z-index: 2; /* Sits above the image */
@@ -68,9 +53,7 @@ Use this sub-style when the user's request matches the aesthetic described above
   border-left: 4px solid var(--cta-highlight);
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct LayeredDesignView: View {
@@ -84,7 +67,6 @@ struct LayeredDesignView: View {
                     .frame(height: 400)
                     .offset(x: 40, y: 0) // Shifted right
                     .zIndex(1)
-                
                 // Content Card Layer (Front)
                 VStack(alignment: .leading, spacing: 16) {
                     Text("Stacking Context")
@@ -106,7 +88,6 @@ struct LayeredDesignView: View {
 - `ZStack` is the foundation of layered design in SwiftUI.
 - Use `.offset()` to intentionally break the alignment and create overlapping compositions.
 - Explicitly set `.zIndex()` if your offsets might cause unexpected paint orders.
-
 ### Flutter
 ```dart
 class LayeredDesignScreen extends StatelessWidget {
@@ -126,7 +107,6 @@ class LayeredDesignScreen extends StatelessWidget {
                 height: 400,
                 child: Image.asset('assets/architectural-bg.jpg', fit: BoxFit.cover),
               ),
-              
               // Content Card Layer
               Positioned(
                 top: 250, // Overlaps the bottom of the image
@@ -160,14 +140,12 @@ class LayeredDesignScreen extends StatelessWidget {
 ```
 - `Stack` with `Positioned` is one option. Fixed-height visual examples can clip translated content or enlarged text; use content-driven constraints for production.
 - You can use negative values in `Positioned` (e.g., `right: -40`) to bleed layers off the edge of the screen, which is a common trope in layered design.
-
 ### React Native
 ```jsx
 const LayeredDesignScreen = () => {
   return (
     <ScrollView style={{ flex: 1, backgroundColor: '#F8F8F8' }}>
       <View style={{ height: 600 }}>
-        
         {/* Background Image Layer */}
         <Image 
           source={{ uri: 'https://example.com/architectural-bg.jpg' }}
@@ -180,7 +158,6 @@ const LayeredDesignScreen = () => {
             zIndex: 1,
           }}
         />
-
         {/* Content Card Layer */}
         <View style={{
           position: 'absolute',
@@ -197,7 +174,6 @@ const LayeredDesignScreen = () => {
           <Text style={{ fontSize: 32, fontWeight: 'bold', marginBottom: 16 }}>Stacking Context</Text>
           <Text style={{ color: '#666' }}>This card intentionally overlaps the background image.</Text>
         </View>
-
       </View>
     </ScrollView>
   );
@@ -205,14 +181,12 @@ const LayeredDesignScreen = () => {
 ```
 - Heavy use of `position: 'absolute'` inside a relative container.
 - Manage `zIndex` explicitly. Note that on Android, `elevation` also controls Z-indexing, so the card must have a higher `elevation` than the image.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
 fun LayeredDesignScreen() {
     Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
         Box(modifier = Modifier.height(600.dp).fillMaxWidth()) {
-            
             // Background Image Layer
             Image(
                 painter = painterResource(id = R.drawable.architectural_bg),
@@ -225,7 +199,6 @@ fun LayeredDesignScreen() {
                     .height(400.dp)
                     .zIndex(1f)
             )
-            
             // Content Card Layer
             Box(
                 modifier = Modifier
@@ -250,11 +223,9 @@ fun LayeredDesignScreen() {
 - `Box` acts as your stack.
 - Use `Modifier.align()` to set the baseline position, then `Modifier.offset()` to push it out of grid alignment.
 - `Modifier.zIndex()` ensures the content card always renders on top of the image.
-
 ## Do's and Don'ts
 - **DO**: Use contrasting colors or drop shadows where layers intersect so the boundary is clear.
 - **DON'T**: Trap interactive elements (like buttons) underneath other layers where they cannot be clicked.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

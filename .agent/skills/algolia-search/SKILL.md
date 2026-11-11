@@ -1,32 +1,21 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "e1efa2f5b3942ffe698f8186da111677e81c4eb746280d027e965a411141bb99"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: algolia-search
+content_hash: e1efa2f5b3942ffe698f8186da111677e81c4eb746280d027e965a411141bb99
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Expert patterns for Algolia search implementation, indexing
-tier: "experimental"
-  strategies, React InstantSearch, and relevance tuning
+name: algolia-search
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
-date_added: 2026-02-27
+---  strategies, React InstantSearch, and relevance tuning
 ---
-
-
 # Algolia Search Integration
-
 Expert patterns for Algolia search implementation, indexing strategies, React InstantSearch, and relevance tuning
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use
 - User mentions or implies: adding search to
 - User mentions or implies: algolia
@@ -38,10 +27,8 @@ Read [the detailed guide](references/detailed-guide.md) before executing this sk
 - User mentions or implies: faceted search
 - User mentions or implies: search index
 - User mentions or implies: search as you type
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 The bundled examples span client versions and require migration and application integration. Confirm the pinned SDK, least-privilege credentials, private-record policy and task completion behavior before any remote index change.

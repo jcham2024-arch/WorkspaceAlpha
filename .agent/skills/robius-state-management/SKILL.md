@@ -1,45 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "afbdcff8aaa154f668edb4d265dec279025eb6a8159be44000b9199f45abda0f"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: robius-state-management
+content_hash: afbdcff8aaa154f668edb4d265dec279025eb6a8159be44000b9199f45abda0f
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-03-06
 description: |
-tier: "experimental"
-  CRITICAL: Use for Robius state management patterns. Triggers on:
+name: robius-state-management
+risk: critical
+source: community
+---  CRITICAL: Use for Robius state management patterns. Triggers on:
   AppState, persistence, theme switch, 状态管理,
   Scope::with_data, save state, load state, serde,
   状态持久化, 主题切换
-risk: critical
-source: community
-date_added: "2026-03-06"
 ---
-
 ## Supporting material availability
-
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
-
 - `<support-root>/references/persistence-patterns.md`
 - `<support-root>/references/state-structures.md`
 - `<support-root>/references/moly-state-patterns.md`
-
 Ask for the original supporting material or an existing installation before using a step that depends on these paths; this catalog does not identify a verified download source for them. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
-
-
 # Robius State Management Skill
-
 Best practices for state management and persistence in Makepad applications based on Robrix and Moly codebases.
-
 **Source codebases:**
 - **Robrix**: Matrix chat client - AppState, SelectedRoom, persistence via serde
 - **Moly**: AI chat application - Central Store pattern, async initialization, Preferences
-
 ## When to Use
 Use this skill when:
 - Designing application state structure
@@ -47,11 +33,8 @@ Use this skill when:
 - Passing state through widget tree
 - Managing UI state across sessions
 - Keywords: app state, makepad state, persistence, Scope::with_data, save state, load state
-
 ## Production Patterns
-
 The upstream `_base/` directory is not bundled. These pattern names are orientation only, not available production-ready implementations:
-
 | Pattern | Description |
 |---------|-------------|
 | 06-global-registry | Global widget registry with Cx::set_global |
@@ -59,34 +42,26 @@ The upstream `_base/` directory is not bundled. These pattern names are orientat
 | 10-state-machine | Enum-based state machine widgets |
 | 11-theme-switching | Multi-theme support with apply_over |
 | 12-local-persistence | Save/load user preferences |
-
 ## AppState Structure
-
 ### Core State Definition
-
 ```rust
 use serde::{Serialize, Deserialize};
 use std::collections::HashMap;
 use matrix_sdk::ruma::{OwnedRoomId, RoomId, UserId, OwnedUserId};
-
 /// App-wide state that is stored persistently across multiple app runs
 /// and shared/updated across various parts of the app.
 #[derive(Clone, Default, Debug, Serialize, Deserialize)]
 pub struct AppState {
     /// The currently-selected room
     pub selected_room: Option<SelectedRoom>,
-
     /// Saved UI layout state for main view
     pub saved_layout_state: SavedLayoutState,
-
     /// Per-item saved states (e.g., per-space dock layouts)
     pub saved_state_per_item: HashMap<OwnedRoomId, SavedLayoutState>,
-
     /// Whether a user is currently logged in
     #[serde(skip)]  // Don't persist login state
     pub logged_in: bool,
 }
-
 /// Represents a currently selected item
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub enum SelectedRoom {
@@ -94,7 +69,6 @@ pub enum SelectedRoom {
     InvitedRoom { room_name_id: RoomNameId },
     Space { space_name_id: RoomNameId },
 }
-
 impl SelectedRoom {
     pub fn room_id(&self) -> &OwnedRoomId {
         match self {
@@ -103,7 +77,6 @@ impl SelectedRoom {
             Self::Space { space_name_id } => space_name_id.room_id(),
         }
     }
-
     /// Upgrade from invited to joined state
     pub fn upgrade_invite_to_joined(&mut self, room_id: &RoomId) -> bool {
         match self {
@@ -116,7 +89,6 @@ impl SelectedRoom {
         }
     }
 }
-
 // Equality based on room_id only
 impl PartialEq for SelectedRoom {
     fn eq(&self, other: &Self) -> bool {
@@ -125,64 +97,49 @@ impl PartialEq for SelectedRoom {
 }
 impl Eq for SelectedRoom {}
 ```
-
 ### Layout/Dock State Persistence
-
 ```rust
 /// A snapshot of UI layout state for restoration
 #[derive(Clone, Default, Debug, Serialize, Deserialize)]
 pub struct SavedLayoutState {
     /// All items contained in the layout, keyed by ID
     pub layout_items: HashMap<LiveIdSerde, LayoutItemSerde>,
-
     /// Items currently open, keyed by ID
     pub open_items: HashMap<LiveIdSerde, SelectedRoom>,
-
     /// Order items were opened (chronological)
     pub item_order: Vec<SelectedRoom>,
-
     /// Currently selected item when state was saved
     pub selected_item: Option<SelectedRoom>,
 }
-
 /// Serializable wrapper for LiveId
 #[derive(Clone, Debug, Hash, Eq, PartialEq, Serialize, Deserialize)]
 pub struct LiveIdSerde(pub u64);
-
 impl From<LiveId> for LiveIdSerde {
     fn from(id: LiveId) -> Self {
         Self(id.0)
     }
 }
-
 impl From<LiveIdSerde> for LiveId {
     fn from(s: LiveIdSerde) -> Self {
         LiveId(s.0)
     }
 }
 ```
-
 ## State Propagation via Scope
-
 ### Passing State Through Widget Tree
-
 ```rust
 impl AppMain for App {
     fn handle_event(&mut self, cx: &mut Cx, event: &Event) {
         // Forward to MatchEvent
         self.match_event(cx, event);
-
         // Create Scope with AppState data
         let scope = &mut Scope::with_data(&mut self.app_state);
-
         // Pass to widget tree - all children can access AppState
         self.ui.handle_event(cx, event, scope);
     }
 }
 ```
-
 ### Accessing State in Child Widgets
-
 ```rust
 impl Widget for RoomScreen {
     fn handle_event(&mut self, cx: &mut Cx, event: &Event, scope: &mut Scope) {
@@ -192,14 +149,11 @@ impl Widget for RoomScreen {
                 self.update_for_room(cx, selected);
             }
         }
-
         self.view.handle_event(cx, event, scope);
     }
 }
 ```
-
 ### Modifying State
-
 ```rust
 impl Widget for RoomsList {
     fn handle_event(&mut self, cx: &mut Cx, event: &Event, scope: &mut Scope) {
@@ -212,27 +166,20 @@ impl Widget for RoomsList {
     }
 }
 ```
-
 The examples are fragments requiring application-defined layout types and a pinned Makepad/Matrix SDK. Keep state directories private, do not persist tokens, bound file sizes, version serialized data and serialize concurrent writers. A missing platform app-data directory now fails explicitly rather than silently writing in the working directory; adapt error handling to the application.
-
 ## Persistence Layer
-
 ### File Paths
-
 ```rust
 use std::path::{Path, PathBuf};
 use std::sync::OnceLock;
-
 const LATEST_APP_STATE_FILE_NAME: &str = "latest_app_state.json";
 const WINDOW_GEOM_STATE_FILE_NAME: &str = "window_geom_state.json";
-
 /// Get user-specific persistent state directory
 fn persistent_state_dir(user_id: &UserId) -> PathBuf {
     app_data_dir()
         .join("users")
         .join(user_id.as_str().as_bytes().iter().map(|b| format!("{b:02x}")).collect::<String>())
 }
-
 /// Get app-wide data directory
 fn app_data_dir() -> &'static Path {
     // Platform-specific app data location
@@ -244,12 +191,9 @@ fn app_data_dir() -> &'static Path {
     })
 }
 ```
-
 ### Saving State
-
 ```rust
 use std::io::Write;
-
 pub fn save_app_state(
     app_state: AppState,
     user_id: OwnedUserId,
@@ -265,7 +209,6 @@ pub fn save_app_state(
     log!("Successfully saved app state to persistent storage.");
     Ok(())
 }
-
 /// Save window geometry state (user-agnostic)
 pub fn save_window_state(window_ref: WindowRef, cx: &Cx) -> anyhow::Result<()> {
     let inner_size = window_ref.get_inner_size(cx);
@@ -284,14 +227,11 @@ pub fn save_window_state(window_ref: WindowRef, cx: &Cx) -> anyhow::Result<()> {
     Ok(())
 }
 ```
-
 ### Loading State
-
 ```rust
 /// Load app state with graceful fallback
 pub async fn load_app_state(user_id: &UserId) -> anyhow::Result<AppState> {
     let state_path = persistent_state_dir(user_id).join(LATEST_APP_STATE_FILE_NAME);
-
     // Read file
     let file_bytes = match tokio::fs::read(&state_path).await {
         Ok(fb) => fb,
@@ -301,7 +241,6 @@ pub async fn load_app_state(user_id: &UserId) -> anyhow::Result<AppState> {
         }
         Err(e) => return Err(e.into()),
     };
-
     // Deserialize with fallback
     match serde_json::from_slice(&file_bytes) {
         Ok(app_state) => {
@@ -310,7 +249,6 @@ pub async fn load_app_state(user_id: &UserId) -> anyhow::Result<AppState> {
         }
         Err(e) => {
             error!("Failed to deserialize: {e}. May be incompatible format.");
-
             // Backup old file
             let backup_path = state_path.with_extension("json.bak");
             if let Err(backup_err) = tokio::fs::rename(&state_path, &backup_path).await {
@@ -318,13 +256,11 @@ pub async fn load_app_state(user_id: &UserId) -> anyhow::Result<AppState> {
             } else {
                 log!("Old state backed up to: {:?}", backup_path);
             }
-
             log!("Using default app state.");
             Ok(AppState::default())
         }
     }
 }
-
 /// Load window geometry (synchronous, on UI thread)
 pub fn load_window_state(window_ref: WindowRef, cx: &mut Cx) -> anyhow::Result<()> {
     let file = match std::fs::File::open(app_data_dir().join(WINDOW_GEOM_STATE_FILE_NAME)) {
@@ -332,10 +268,8 @@ pub fn load_window_state(window_ref: WindowRef, cx: &mut Cx) -> anyhow::Result<(
         Err(e) if e.kind() == std::io::ErrorKind::NotFound => return Ok(()),
         Err(e) => return Err(e.into()),
     };
-
     let window_geom: WindowGeomState = serde_json::from_reader(file)?;
     log!("Restoring window geometry: {window_geom:?}");
-
     window_ref.configure_window(
         cx,
         dvec2(window_geom.inner_size.0, window_geom.inner_size.1),
@@ -346,9 +280,7 @@ pub fn load_window_state(window_ref: WindowRef, cx: &mut Cx) -> anyhow::Result<(
     Ok(())
 }
 ```
-
 ### Startup/Shutdown Integration
-
 ```rust
 impl MatchEvent for App {
     fn handle_startup(&mut self, cx: &mut Cx) {
@@ -358,7 +290,6 @@ impl MatchEvent for App {
         ) {
             error!("Failed to load window state: {}", e);
         }
-
         // Trigger async app state load
         let user_id = get_current_user_id();
         tokio::spawn(async move {
@@ -372,7 +303,6 @@ impl MatchEvent for App {
         });
     }
 }
-
 impl AppMain for App {
     fn handle_event(&mut self, cx: &mut Cx, event: &Event) {
         if let Event::Shutdown = event {
@@ -382,7 +312,6 @@ impl AppMain for App {
             ) {
                 error!("Failed to save window state: {e}");
             }
-
             // Save app state (sync)
             if let Some(user_id) = current_user_id() {
                 if let Err(e) = persistence::save_app_state(
@@ -396,31 +325,24 @@ impl AppMain for App {
     }
 }
 ```
-
 ## Thread-Local State (UI-Only)
-
 ```rust
 use std::{cell::RefCell, rc::Rc, collections::HashMap};
-
 thread_local! {
     /// UI-thread-only cache
     static UI_CACHE: Rc<RefCell<HashMap<OwnedRoomId, CachedData>>> =
         Rc::new(RefCell::new(HashMap::new()));
 }
-
 /// Get cache reference (requires Cx to ensure UI thread)
 pub fn get_ui_cache(_cx: &mut Cx) -> Rc<RefCell<HashMap<OwnedRoomId, CachedData>>> {
     UI_CACHE.with(Rc::clone)
 }
-
 /// Clear cache (requires Cx)
 pub fn clear_ui_cache(_cx: &mut Cx) {
     UI_CACHE.with(|cache| cache.borrow_mut().clear());
 }
 ```
-
 ## Best Practices
-
 1. **Separate persistent vs runtime state**: Use `#[serde(skip)]` for non-persistent fields
 2. **Use Scope::with_data() for tree propagation**: Don't pass state through widget refs
 3. **Graceful deserialization fallback**: Handle format changes between versions
@@ -428,9 +350,7 @@ pub fn clear_ui_cache(_cx: &mut Cx) {
 5. **User-specific persistent paths**: Separate state per user account
 6. **Sync window state, async app state**: Window geometry loads sync on UI thread
 7. **Thread-local for UI-only caches**: Use `thread_local!` with Cx parameter guard
-
 ## Reference Files
-
 - `references/persistence-patterns.md` - Additional persistence patterns (Robrix)
 - `references/state-structures.md` - State structure examples (Robrix)
 - `references/moly-state-patterns.md` - Moly-specific patterns
@@ -440,7 +360,6 @@ pub fn clear_ui_cache(_cx: &mut Cx) {
   - Submodule state managers (Search, Downloads, Chats)
   - Provider syncing status tracking
   - Store action forwarding to submodules
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

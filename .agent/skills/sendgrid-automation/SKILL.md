@@ -1,55 +1,37 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "4d566a3902fdd90edf6a5e08b9972f393dea692b787e3080527ddd57f3aa8275"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 4d566a3902fdd90edf6a5e08b9972f393dea692b787e3080527ddd57f3aa8275
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Automate SendGrid email delivery workflows including marketing campaigns (Single Sends), contact and list management, sender identity setup, and email analytics through Composio's SendGrid toolkit.
 name: sendgrid-automation
-description: "Automate SendGrid email delivery workflows including marketing campaigns (Single Sends), contact and list management, sender identity setup, and email analytics through Composio's SendGrid toolkit."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # SendGrid Automation via Rube MCP
-
 Automate SendGrid email delivery workflows including marketing campaigns (Single Sends), contact and list management, sender identity setup, and email analytics through Composio's SendGrid toolkit.
-
 ## Prerequisites
-
 - Rube MCP must be connected (RUBE_SEARCH_TOOLS available)
 - Active SendGrid connection via `RUBE_MANAGE_CONNECTIONS` with toolkit `sendgrid`
 - Always call `RUBE_SEARCH_TOOLS` first to get current tool schemas
-
 ## Setup
-
 **Get Rube MCP**: Add `https://rube.app/mcp` as an MCP server in your client configuration. Authenticate the MCP server/client and authorize the SendGrid account; the endpoint alone does not grant access.
-
 1. Verify Rube MCP is available by confirming `RUBE_SEARCH_TOOLS` responds
 2. Call `RUBE_MANAGE_CONNECTIONS` with toolkit `sendgrid`
 3. If connection is not ACTIVE, follow the returned auth link to complete SendGrid API key authentication
 4. Confirm connection status shows ACTIVE before running any workflows
-
 ## Core Workflows
-
 ### 1. Create and Send Marketing Campaigns (Single Sends)
-
 **When to use**: User wants to create and send a marketing email campaign to a contact list or segment.
-
 **Tool sequence**:
 1. `SENDGRID_RETRIEVE_ALL_LISTS` - List available marketing lists to target [Prerequisite]
 2. `SENDGRID_CREATE_A_LIST` - Create a new list if needed [Optional]
 3. `SENDGRID_ADD_OR_UPDATE_A_CONTACT` - Add contacts to the list [Optional]
 4. `SENDGRID_GET_ALL_SENDER_IDENTITIES` - Get verified sender ID [Prerequisite]
 5. `SENDGRID_CREATE_SINGLE_SEND` - Create the campaign with content, sender, and recipients [Required]
-
 **Key parameters for SENDGRID_CREATE_SINGLE_SEND**:
 - `name`: Campaign name (required)
 - `email__config__subject`: Email subject line
@@ -61,18 +43,14 @@ Automate SendGrid email delivery workflows including marketing campaigns (Single
 - `send__to__segment__ids`: Array of segment UUIDs
 - `send__to__all`: true to send to all contacts
 - `email__config__suppression__group__id` or `email__config__custom__unsubscribe__url`: One required by the service configuration; this alone does not establish legal compliance
-
 **Pitfalls**:
 - Setting `send_at` on CREATE does NOT schedule the send; it only prepopulates the UI date; use the Schedule endpoint separately
 - `send_at: "now"` is only valid with the Schedule endpoint, not CREATE
 - Provide the service-required unsubscribe configuration and separately verify applicable consent and unsubscribe requirements
 - Sender must be verified before use; check with `SENDGRID_GET_ALL_SENDER_IDENTITIES`
 - Nested params use double-underscore notation (e.g., `email__config__subject`)
-
 ### 2. Manage Contacts and Lists
-
 **When to use**: User wants to create contact lists, add/update contacts, search for contacts, or remove contacts from lists.
-
 **Tool sequence**:
 1. `SENDGRID_RETRIEVE_ALL_LISTS` - List all marketing lists [Required]
 2. `SENDGRID_CREATE_A_LIST` - Create a new contact list [Optional]
@@ -84,11 +62,9 @@ Automate SendGrid email delivery workflows including marketing campaigns (Single
 8. `SENDGRID_REMOVE_CONTACTS_FROM_A_LIST` - Remove contacts from a list without deleting [Optional]
 9. `SENDGRID_REMOVE_LIST_AND_OPTIONAL_CONTACTS` - Delete an entire list [Optional]
 10. `SENDGRID_IMPORT_CONTACTS` - Bulk import from CSV [Optional]
-
 **Key parameters for SENDGRID_ADD_OR_UPDATE_A_CONTACT**:
 - `contacts`: Array of contact objects (max 30,000 or 6MB), each with at least one identifier: `email`, `phone_number_id`, `external_id`, or `anonymous_id` (required)
 - `list_ids`: Array of list UUID strings to associate contacts with
-
 **Pitfalls**:
 - `SENDGRID_ADD_OR_UPDATE_A_CONTACT` is asynchronous; returns 202 with `job_id`; contacts may take 10-30 seconds to appear
 - List IDs are UUIDs (e.g., "ca7a3796-e8a8-4029-9ccb-df8937940562"), not integers
@@ -96,11 +72,8 @@ Automate SendGrid email delivery workflows including marketing campaigns (Single
 - `SENDGRID_ADD_A_SINGLE_RECIPIENT_TO_A_LIST` uses the legacy API; prefer `SENDGRID_ADD_OR_UPDATE_A_CONTACT` with `list_ids`
 - `SENDGRID_REMOVE_LIST_AND_OPTIONAL_CONTACTS` is irreversible; require explicit user confirmation
 - Email addresses are automatically lowercased by SendGrid
-
 ### 3. Manage Sender Identities
-
 **When to use**: User wants to set up or view sender identities (From addresses) for sending emails.
-
 **Tool sequence**:
 1. `SENDGRID_GET_ALL_SENDER_IDENTITIES` - List all existing sender identities [Required]
 2. `SENDGRID_CREATE_A_SENDER_IDENTITY` - Create a new sender identity [Optional]
@@ -108,24 +81,19 @@ Automate SendGrid email delivery workflows including marketing campaigns (Single
 4. `SENDGRID_UPDATE_A_SENDER_IDENTITY` - Update sender details [Optional]
 5. `SENDGRID_CREATE_VERIFIED_SENDER_REQUEST` - Create and verify a new sender [Optional]
 6. `SENDGRID_AUTHENTICATE_A_DOMAIN` - Set up domain authentication for auto-verification [Optional]
-
 **Key parameters for SENDGRID_CREATE_A_SENDER_IDENTITY**:
 - `from__email`: From email address (required)
 - `from__name`: Display name (required)
 - `reply__to__email`: Reply-to address (required)
 - `nickname`: Internal identifier (required)
 - `address`, `city`, `country`: Physical address for CAN-SPAM compliance (required)
-
 **Pitfalls**:
 - New senders must be verified before use; if domain is not authenticated, a verification email is sent
 - Up to 100 unique sender identities per account
 - Avoid using domains with strict DMARC policies (gmail.com, yahoo.com) as from addresses
 - `SENDGRID_CREATE_VERIFIED_SENDER_REQUEST` sends a verification email; sender is unusable until verified
-
 ### 4. View Email Statistics and Activity
-
 **When to use**: User wants to review email delivery stats, bounce rates, open/click metrics, or message activity.
-
 **Tool sequence**:
 1. `SENDGRID_RETRIEVE_GLOBAL_EMAIL_STATISTICS` - Get account-wide delivery metrics [Required]
 2. `SENDGRID_GET_ALL_CATEGORIES` - Discover available categories for filtering [Optional]
@@ -134,83 +102,65 @@ Automate SendGrid email delivery workflows including marketing campaigns (Single
 5. `SENDGRID_FILTER_MESSAGES_BY_MESSAGE_ID` - Get detailed events for a specific message [Optional]
 6. `SENDGRID_REQUEST_CSV` - Export activity data as CSV for large datasets [Optional]
 7. `SENDGRID_DOWNLOAD_CSV` - Download the exported CSV file [Optional]
-
 **Key parameters for SENDGRID_RETRIEVE_GLOBAL_EMAIL_STATISTICS**:
 - `start_date`: Start date YYYY-MM-DD (required)
 - `end_date`: End date YYYY-MM-DD
 - `aggregated_by`: "day", "week", or "month"
 - `limit` / `offset`: Pagination (default 500)
-
 **Key parameters for SENDGRID_FILTER_ALL_MESSAGES**:
 - `query`: SQL-like query string, e.g., `status="delivered"`, `to_email="user@example.com"`, date ranges with `BETWEEN TIMESTAMP`
 - `limit`: 1-1000 (default 10)
-
 **Pitfalls**:
 - `SENDGRID_FILTER_ALL_MESSAGES` requires the "30 Days Additional Email Activity History" paid add-on; returns 403 without it
 - Global statistics are nested under `details[].stats[0].metrics`, not a flat structure
 - Category statistics are only available for the previous 13 months
 - Maximum 10 categories per request in `SENDGRID_RETRIEVE_EMAIL_STATISTICS_FOR_CATEGORIES`
 - CSV export is limited to one request per 12 hours; link expires after 3 days
-
 ### 5. Manage Suppressions
-
 **When to use**: User wants to check or manage unsubscribe groups for email compliance.
-
 **Tool sequence**:
 1. `SENDGRID_GET_SUPPRESSION_GROUPS` - List all suppression groups [Required]
 2. `SENDGRID_RETRIEVE_ALL_SUPPRESSION_GROUPS_FOR_AN_EMAIL_ADDRESS` - Check suppression status for a specific email [Optional]
-
 **Pitfalls**:
 - Suppressed addresses remain undeliverable even if present on marketing lists
 - Campaign send counts may be lower than list counts due to suppressions
-
 ## Common Patterns
-
 ### ID Resolution
 Always resolve names to IDs before operations:
 - **List name -> list_id**: `SENDGRID_RETRIEVE_ALL_LISTS` and match by name
 - **Sender name -> sender_id**: `SENDGRID_GET_ALL_SENDER_IDENTITIES` and match
 - **Contact email -> contact_id**: `SENDGRID_GET_CONTACTS_BY_EMAILS` with email array
 - **Template name -> template_id**: Use the SendGrid UI or template endpoints
-
 ### Pagination
 - `SENDGRID_RETRIEVE_ALL_LISTS`: Token-based with `page_token` and `page_size` (max 1000)
 - `SENDGRID_RETRIEVE_GLOBAL_EMAIL_STATISTICS`: Offset-based with `limit` (max 500) and `offset`
 - Always paginate list retrieval to avoid missing existing lists
-
 ### Async Operations
 Contact operations (`ADD_OR_UPDATE_A_CONTACT`, `IMPORT_CONTACTS`) are asynchronous:
 - Returns 202 with a `job_id`
 - Wait 10-30 seconds before verifying with `GET_CONTACTS_BY_EMAILS`
 - Verify the actual job outcome and intended contact membership; count growth alone does not prove all changes succeeded
-
 ## Known Pitfalls
-
 ### ID Formats
 - Marketing list IDs are UUIDs (e.g., "ca7a3796-e8a8-4029-9ccb-df8937940562")
 - Legacy list IDs are integers; do not mix with Marketing API endpoints
 - Sender identity IDs are integers
 - Template IDs: Dynamic templates start with "d-", legacy templates are UUIDs
 - Contact IDs are UUIDs
-
 ### Rate Limits
 - SendGrid may return HTTP 429; respect `Retry-After` headers
 - CSV export limited to one request per 12 hours
 - Bulk contact upsert max: 30,000 contacts or 6MB per request
-
 ### Parameter Quirks
 - Nested params use double-underscore: `email__config__subject`, `from__email`
 - `send_at` on CREATE_SINGLE_SEND only sets a UI default, does NOT schedule
 - `SENDGRID_ADD_A_SINGLE_RECIPIENT_TO_A_LIST` uses legacy API; `recipient_id` is Base64-encoded lowercase email
 - `SENDGRID_RETRIEVE_ALL_LISTS` and `SENDGRID_GET_ALL_LISTS` both exist; prefer RETRIEVE_ALL_LISTS for Marketing API
 - Contact adds are async (202); always verify after a delay
-
 ### Legacy vs Marketing API
 - Some tools use the legacy Contact Database API (`/v3/contactdb/`) which may return 403 on newer accounts
 - Prefer Marketing API tools: `SENDGRID_ADD_OR_UPDATE_A_CONTACT`, `SENDGRID_RETRIEVE_ALL_LISTS`, `SENDGRID_CREATE_SINGLE_SEND`
-
 ## Quick Reference
-
 | Task | Tool Slug | Key Params |
 |------|-----------|------------|
 | List marketing lists | `SENDGRID_RETRIEVE_ALL_LISTS` | `page_size`, `page_token` |
@@ -238,19 +188,13 @@ Contact operations (`ADD_OR_UPDATE_A_CONTACT`, `IMPORT_CONTACTS`) are asynchrono
 | Suppression groups | `SENDGRID_GET_SUPPRESSION_GROUPS` | (none) |
 | Get template | `SENDGRID_RETRIEVE_A_SINGLE_TRANSACTIONAL_TEMPLATE` | `template_id` |
 | Duplicate template | `SENDGRID_DUPLICATE_A_TRANSACTIONAL_TEMPLATE` | `template_id`, `name` |
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Example
-
 **User request:**
-
 > Automate SendGrid email delivery workflows including marketing campaigns (Single Sends), contact and list management, sender identity setup, and email analytics through Composio's SendGrid toolkit.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 This is a historical connector schema/limit snapshot; live discovery and provider documentation take precedence. Creating a Single Send is a draft, not evidence of delivery; discover the actual schedule/send endpoint only for an explicitly authorized send, final content, sender, audience and time. Do not default to send_to_all. Contact import does not establish consent or permit resubscribing suppressed recipients. Verification emails, sender changes and DNS authentication require their own authorized targets. Poll async jobs with bounded backoff rather than assuming a fixed delay; do not repeat unknown-result sends. Open/click events may reflect privacy proxies or bots, not human reading. Minimize recipient data in exports and treat temporary download URLs as sensitive.

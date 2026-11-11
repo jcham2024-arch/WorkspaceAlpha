@@ -1,99 +1,67 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "e9ff69cb673e0d273d619d1b0b60a91e3bc077d1ff4e2cbb7997806f567153f1"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: tds-booking-payment
-description: 'TDS register: payee PAN, payment nature, rate and amount deducted, deposit date and challan reference, return filing and ledger variance. Use for TDS compliance.'
-tier: "experimental"
+content_hash: e9ff69cb673e0d273d619d1b0b60a91e3bc077d1ff4e2cbb7997806f567153f1
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: WHOISABHISHEKADHIKARI
 category: business
+date_added: 2026-09-26
+description: "'TDS register: payee PAN, payment nature, rate and amount deducted, deposit date and challan reference, return filing and ledger variance. Use for TDS compliance.'"
+name: tds-booking-payment
 risk: safe
 source: self
-source_type: self
-date_added: "2026-09-26"
-author: WHOISABHISHEKADHIKARI
-tags: [sme, accounting, audit, finance, database, csv, notion, sql, tds]
-tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
+source_type: self
+tags: "[sme, accounting, audit, finance, database, csv, notion, sql, tds]"
+tools: "[]"
 ---
-
-
 # TDS Booking & Payment
-
 **What it is:** Tax deducted at source, deposited on time, filed and reconciled to the ledger.
-
 ## Overview
-
 Works out the smallest useful **TDS Booking & Payment** setup for the business in front of it, then
 builds it only when asked. The default output is a short recommendation, not a
 spreadsheet. Artifacts - CSV, SQL DDL, JSON Schema, Notion mapping - are produced on
 request, from one field list so they cannot drift apart.
-
 Reconcile at least monthly. A deduction that is recorded at the time of payment and left
 unreconciled until the return is due is how a liability drifts away from the challan.
-
 This skill does not determine the rate that applies, does not file returns, and is not tax
 advice. Rates and deadlines vary by country and change. The rate and the deadline come from
 a qualified tax professional; this only holds the record.
-
 Layer: Layer 6: Statutory. Fits: Starter stage. Table code: n/a.
-
 ## When to Use This Skill
-
 - tds register
 - tds deposit tracker
 - withholding tax log
 - tds return working
-
 Also use it when the user says "tax deducted at source, deposited on time, filed and reconciled to the ledger", or describes the same process happening in a
 spreadsheet, a document or someone inboxes.
-
 Do not use it for: payroll calculation, tax filing, or legal advice. This skill produces
 empty templates only - it never holds or processes real employee or customer data.
-
 ## How It Works
-
 No shared execution-contract file is bundled; follow this file’s empty-template scope and current host authorization rules. The module-specific rules below define only domain fields, decisions, calculations, and safety constraints.
-
 ### Step 1 - Identify intent
-
 Read the request and pick the intent before asking anything.
-
 - "set up" or "build" or "create" -> the user wants artifacts; go to Step 2.
 - "our process is ..." or "it is in a sheet" -> the user wants to move an existing process; capture it, then Step 2.
 - "is this right" or "review" or "audit" -> the user wants a check, not a build; answer from what they share.
 - "how do I ..." -> advice question; answer directly and offer the build only if it helps.
-
 Ask only if this is the highest-value missing fact; otherwise proceed without an opener:
-
 > **Q:** Which payments are you deducting TDS on today?
-
 ### Step 2 - Ask only what is missing
-
 Treat ambiguous replies as unanswered and ask which explicit option the user means. Record unknown values as `Unknown`; `Unknown` is not zero. A record must not be `Done` when a required check fails.
-
 Skip anything the user already answered, in any earlier message. Ask the rest one at a
 time, and stop as soon as the remaining answers would not change the output.
-
 - **Nature of payment** - Which payment types are in scope? / How many vendors are affected? / Any thresholds?
 - **Rates** - Where do the rates come from? / Are PANs collected? / Who confirms the rate?
 - **Deposits** - How are you depositing? / Which account? / When is the next deadline?
 - **Returns** - Who files? / Which periods? / Is it monthly or quarterly?
 - **Outcome** - What do you need? / A deduction register, a deposit tracker or both?
-
 Never invent an answer. If the user does not know, record it as unknown and carry on.
-
 ### Step 3 - Hold the internal context
-
 Hold the answers in this shape. It stays internal - it is not shown to the user unless
 they ask, and it never carries a value the user did not give.
-
 ```yaml
 module: tds-booking-payment
 intent: null            # setup | advice | review | fix | build | convert | export
@@ -108,23 +76,15 @@ requested_outputs: []   # csv | sql | json | notion | xlsx - requested formats o
 confirmed_facts: []     # only what the user actually said
 open_questions: []      # the unanswered ones, in the order worth asking
 ```
-
 ### Step 4 - Recommend the smallest workflow
-
 Build an already requested artifact without asking again. For advice-only requests, give a short recommendation and offer the relevant artifact.
-
 **Recommended approach:** One record per deduction and payee, carrying the gross, the rate applied, the tax deducted, the deposit, the return and the reconciliation result for the period.
-
 **Why this one:** TDS is four separate obligations - deduct, deposit, file, reconcile - and they fail in different places. One record per deduction keeps all four on the same row so a missed deposit shows up as a status, not as a surprise at filing time.
-
 **Workflow:** Transaction identified → Rate applied → TDS deducted → Ledger updated → Deposited before the deadline → Return filed → Ledger reconciled at least monthly
-
 ### Step 5 - Build only on request
-
 Once the user asks for it, derive the fields from the confirmed context and emit the
 requested artifacts. For machine-readable text, keep prose outside the data; for files,
 provide a usable link. Report material validation failures or limitations separately.
-
 **A selected Notion output is rendered by `notion-manual-import`, so route the
 Notion step there.** When the user selects Notion, hand that step to
 @notion-manual-import: it holds the CSV, the property
@@ -134,12 +94,10 @@ here and do not improvise the import steps. Manual CSV and mapping outputs need 
 connection. For requested workspace changes, follow the shared contract: verify actual
 tool access and the target before writing. A user saying "connected" is not tool evidence.
 Never ask for a Notion password or token.
-
 ```csv
 TDS Record Number,Tax Period,Nature of Payment,Payee Name,Payee PAN,Transaction Reference,Payment Date,Gross Payment/Base,TDS Rate %,TDS Deducted,Deducted On,TDS Payable Ledger,Deposit Date,Challan/Bank Reference,Amount Deposited,Return Filed Date,Return Reference,Ledger Reconciliation,Variance Amount,Reconciliation Frequency,Prepared By,Reviewed By,Status,Notes,TDS ID
 TDS-2026-0194,2026-08,Professional Fees,Pixelworks Studio,PAN-MASKED-EXAMPLE,EXP-2026-0338,2026-08-18,32500.00,10,3250.00,2026-08-18,TDS Payable - Professional Fees,2026-09-15,CHL-2026-0912,2925.00,2026-10-15,TDS-Q2-2026-PF,Variance,325.00,Monthly,Sneha Iyer,Vikram Singh,In progress,Synthetic allocation: deducted 3250.00 minus deposited allocation 2925.00 leaves 325.00 pending; no legal timeliness or filing acceptance asserted.,TDS-001
 ```
-
 ```sql
 CREATE TABLE tds_booking_payment (
   tds_record_number VARCHAR(255) NOT NULL UNIQUE,
@@ -170,10 +128,8 @@ CREATE TABLE tds_booking_payment (
   created_at TIMESTAMP DEFAULT NOW(),
   updated_at TIMESTAMP DEFAULT NOW()
 );
-
 CREATE INDEX idx_tds_booking_payment_status ON tds_booking_payment (status);
 ```
-
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -218,7 +174,6 @@ CREATE INDEX idx_tds_booking_payment_status ON tds_booking_payment (status);
   ]
 }
 ```
-
 ```markdown
 | CSV column | Notion property | Set after import |
 |---|---|---|
@@ -248,12 +203,9 @@ CREATE INDEX idx_tds_booking_payment_status ON tds_booking_payment (status);
 | Notes | Text | Leave as Text |
 | TDS ID | Text (preserve source ID) | Keep imported IDs as Text; optionally add a separate Unique ID property |
 ```
-
 The rows above are documentation examples only. Emit empty templates unless the user explicitly requests examples. Money stays `currency`, dates stay `date`,
 and anything pointing at another table stays `relation`.
-
 ## Field Reference
-
 | # | Field | Type | SQL | JSON Schema | Notion | CSV example |
 |---:|---|---|---|---|---|---|
 | 1 | TDS Record Number | `text` | `VARCHAR(255)` | `string` | Title | `TDS-2026-0194` |
@@ -281,44 +233,31 @@ and anything pointing at another table stays `relation`.
 | 23 | Status | `select` | `VARCHAR(100)` | `string` | Select (add options after import) | `In progress` |
 | 24 | Notes | `long_text` | `TEXT` | `string` | Text | `Synthetic allocation: deducted 3250.00 minus deposited allocation 2925.00 leaves 325.00 pending; no legal timeliness or filing acceptance asserted.` |
 | 25 | TDS ID | `id` | `VARCHAR(255) PRIMARY KEY` | `string` | Text (preserve source ID) | `TDS-001` |
-
 ## Select Options
-
 **Nature of Payment**
-
 ```
 Professional Fees | Contractor Payment | Rent | Salary | Commission | Interest | Contract Payment | Other
 ```
 **Ledger Reconciliation**
-
 ```
 Reconciled | Variance | Pending
 ```
 **Reconciliation Frequency**
-
 ```
 Monthly | Quarterly
 ```
 **Status**
-
 ```
 Not started | In progress | Blocked | Done | Cancelled
 ```
-
 ## Relations
-
 Link fields: `Transaction Reference`
-
 ## Examples
-
 **Prompt**
-
 ```
 We deduct TDS on a few vendor payments and only find out at filing that the deposit is short.
 ```
-
 **Context first** - one question per message, nothing already answered:
-
 > **Q:** Which payments are in scope?
 > **A:** Professional fees and rent, mostly.
 >
@@ -327,17 +266,13 @@ We deduct TDS on a few vendor payments and only find out at filing that the depo
 >
 > **Q:** Who files the return?
 > **A:** The same accountant, quarterly.
-
 **Recommended next step** - offered, not built:
-
 > One record per deduction and payee, carrying the gross, the rate applied, the tax deducted, the deposit, the return and the reconciliation result for the period.
 >
 > Workflow: Transaction identified → Rate applied → TDS deducted → Ledger updated → Deposited before the deadline → Return filed → Ledger reconciled at least monthly
 >
 > Want the CSV, SQL, JSON Schema and Notion mapping for this?
-
 ## Best Practices
-
 - Build when requested; recommend and offer a build for advice-only requests.
 - One question per message. A batched intake reads as a form and gets guessed at.
 - Keep display names identical across CSV and JSON; document normalized SQL identifiers.
@@ -350,9 +285,7 @@ We deduct TDS on a few vendor payments and only find out at filing that the depo
 - Reconcile at least monthly, even when the return is quarterly. The monthly check is what
   makes the quarterly filing boring.
 - If the user requests an example row, keep it obviously fake so nobody imports it as real data.
-
 ## Limitations
-
 - Empty template only. It does not compute TDS, deposit anything or file anything.
 - It does not determine the applicable rate, does not file returns, and it is not tax advice.
   Rates and deadlines vary by country and change.
@@ -362,9 +295,7 @@ We deduct TDS on a few vendor payments and only find out at filing that the depo
 - Select options are a starting set. Rename them to match how the business talks.
 - No automation, reminders or sync. Those need the integration layer.
 - Legal, tax and HR review is still required before this drives real decisions.
-
 ## Security & Safety Notes
-
 - Never fill in real names, payee PANs, bank details or challan data. Placeholders only.
 - Payee PAN data is sensitive. Collect only what the return needs, and mask it elsewhere.
 - Label example rows as synthetic, and keep account numbers masked.
@@ -374,9 +305,7 @@ We deduct TDS on a few vendor payments and only find out at filing that the depo
 - If the user pastes real payee or employee data, minimize repetition, generate empty templates and recommend the host’s privacy controls; do not claim deletion from service storage.
 - A missed deposit or a wrong rate needs a qualified tax professional before anything is
   filed or paid.
-
 ## Common Pitfalls
-
 - **Problem:** a static mapping is described as a completed workspace build.
   **Solution:** deliver manual mappings without a connection; claim a live change only
   after the authorized tool operation succeeds.
@@ -393,26 +322,20 @@ We deduct TDS on a few vendor payments and only find out at filing that the depo
   **Solution:** derive all four from the field list in this file, never by hand.
 - **Problem:** Notion import shows every column as Text.
   **Solution:** that is expected. Apply the property mapping table once, after import.
-
 ## Related Skills
-
 - @accounting-audit-system-builder - routes to this skill and the other accounting modules.
 - @expense-accounting - the expense and payment rows that carry the deduction.
 - @salary-wage-accounting - the source of salary TDS for the period.
 - @payment-accounting - the net payment actually released after the deduction.
 - @monthly-closing-statements - closes the payable account the deposit clears.
-
 ## Reusable Prompt
-
 ```
 I want to set up tax deducted at source, deposited on time, filed and reconciled to the ledger for my company.
 Ask me one short question at a time, and only about what I have not already told you.
 Then recommend the smallest setup that fits, and wait for me to ask before you build it.
 When I ask, output CSV, SQL DDL, JSON Schema and a Notion property mapping. Data only.
 ```
-
 ## Reconciliation boundaries
-
 All names, rates, periods and dates above are synthetic documentation values; 10%
 is arithmetic input, not an applicable TDS rate, and deposit/return dates do not
 establish statutory timeliness or successful acceptance. Record country, fiscal
@@ -420,7 +343,6 @@ period, currency, applicable legal section/rate source and actual verified deadl
 from the responsible tax professional when configuring real use. Monthly reconciliation
 is a suggested internal control, not a universal filing obligation. No tax advice,
 filing or payment was performed.
-
 One row is one deduction/payee. Define variance direction explicitly: here deduction
 minus allocated deposit = pending amount, so 3250 − 2925 = 325. Keep ledger variance
 separate if it compares a different basis. Partial/multiple challan allocations need

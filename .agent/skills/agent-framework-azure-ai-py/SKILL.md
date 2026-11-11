@@ -1,32 +1,21 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "1b325d65ca94a48cb7ce6db81ec1b7a48ed742b3061e4715b3c139f36135d8ea"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 1b325d65ca94a48cb7ce6db81ec1b7a48ed742b3061e4715b3c139f36135d8ea
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Build persistent agents on Azure AI Foundry using the Microsoft Agent Framework Python SDK.
 name: agent-framework-azure-ai-py
-description: "Build persistent agents on Azure AI Foundry using the Microsoft Agent Framework Python SDK."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
 ## Bundled upstream support
-
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.
-
 # Agent Framework Azure Hosted Agents
-
 Build persistent agents on Azure AI Foundry using the Microsoft Agent Framework Python SDK.
-
 ## Architecture
-
 ```
 User Query → AzureAIAgentsProvider → Azure AI Agent Service (Persistent)
                     ↓
@@ -36,15 +25,10 @@ User Query → AzureAIAgentsProvider → Azure AI Agent Service (Persistent)
                     ↓
               AgentThread (conversation persistence)
 ```
-
 ## SDK generation and execution scope
-
 The examples below preserve an older Agent Framework generation (`AzureAIAgentsProvider`, `AgentThread`, `Hosted*Tool`). They are not verified against the current package. Current Microsoft documentation separates model providers from agent services, and the Python README lists `agent-framework-foundry`. Before adapting these snippets, identify the installed version and use its matching official API/sample; no compatible legacy version is established here. Do not combine the old classes with an unpinned latest install and assume it works.
-
 Choose the exact Azure tenant/project/deployment, principal and least-privilege role. Creating agents, uploading files, enabling code/web/MCP tools and running prompts sends data to services, can persist records and incur charges. Scope authorization, budget, timeout, tool allowlist and resource cleanup first. Closing clients does not delete hosted agents/files/vector stores/threads. Treat retrieved/tool text as untrusted and enforce tenant/resource/action authorization in tools; prompts are not access controls.
-
 ## Installation
-
 ```bash
 # Current package discovery only; pin reviewed versions in your project lockfile.
 # These installs do not make the legacy snippets below compatible.
@@ -52,36 +36,26 @@ pip install agent-framework
 # Selective current Foundry integration:
 pip install agent-framework-foundry
 ```
-
 ## Environment Variables
-
 ```bash
 export AZURE_AI_PROJECT_ENDPOINT="https://<project>.services.ai.azure.com/api/projects/<project-id>"
 export AZURE_AI_MODEL_DEPLOYMENT_NAME="gpt-4o-mini"
 export BING_CONNECTION_ID="your-bing-connection-id"  # For web search
 ```
-
 ## Authentication
-
 ```python
 from azure.identity.aio import AzureCliCredential, DefaultAzureCredential
-
 # Development
 credential = AzureCliCredential()
-
 # Production
 credential = DefaultAzureCredential()
 ```
-
 ## Core Workflow
-
 ### Basic Agent
-
 ```python
 import asyncio
 from agent_framework.azure import AzureAIAgentsProvider
 from azure.identity.aio import AzureCliCredential
-
 async def main():
     async with (
         AzureCliCredential() as credential,
@@ -91,32 +65,25 @@ async def main():
             name="MyAgent",
             instructions="You are a helpful assistant.",
         )
-        
         result = await agent.run("Hello!")
         print(result.text)
-
 asyncio.run(main())
 ```
-
 ### Agent with Function Tools
-
 ```python
 from typing import Annotated
 from pydantic import Field
 from agent_framework.azure import AzureAIAgentsProvider
 from azure.identity.aio import AzureCliCredential
-
 def get_weather(
     location: Annotated[str, Field(description="City name to get weather for")],
 ) -> str:
     """Return fixture weather (not a live observation)."""
     return f"Weather in {location}: 72°F, sunny"
-
 def get_current_time() -> str:
     """Get the current UTC time."""
     from datetime import datetime, timezone
     return datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
-
 async def main():
     async with (
         AzureCliCredential() as credential,
@@ -127,13 +94,10 @@ async def main():
             instructions="You help with weather and time queries.",
             tools=[get_weather, get_current_time],  # Pass functions directly
         )
-        
         result = await agent.run("What's the weather in Seattle?")
         print(result.text)
 ```
-
 ### Agent with Hosted Tools
-
 ```python
 from agent_framework import (
     HostedCodeInterpreterTool,
@@ -142,7 +106,6 @@ from agent_framework import (
 )
 from agent_framework.azure import AzureAIAgentsProvider
 from azure.identity.aio import AzureCliCredential
-
 async def main():
     async with (
         AzureCliCredential() as credential,
@@ -156,13 +119,10 @@ async def main():
                 HostedWebSearchTool(name="Bing"),
             ],
         )
-        
         result = await agent.run("Calculate the factorial of 20 in Python")
         print(result.text)
 ```
-
 ### Streaming Responses
-
 ```python
 async def main():
     async with (
@@ -173,20 +133,16 @@ async def main():
             name="StreamingAgent",
             instructions="You are a helpful assistant.",
         )
-        
         print("Agent: ", end="", flush=True)
         async for chunk in agent.run_stream("Tell me a short story"):
             if chunk.text:
                 print(chunk.text, end="", flush=True)
         print()
 ```
-
 ### Conversation Threads
-
 ```python
 from agent_framework.azure import AzureAIAgentsProvider
 from azure.identity.aio import AzureCliCredential
-
 async def main():
     async with (
         AzureCliCredential() as credential,
@@ -197,37 +153,28 @@ async def main():
             instructions="You are a helpful assistant.",
             tools=[get_weather],
         )
-        
         # Create thread for conversation persistence
         thread = agent.get_new_thread()
-        
         # First turn
         result1 = await agent.run("What's the weather in Seattle?", thread=thread)
         print(f"Agent: {result1.text}")
-        
         # Second turn - context is maintained
         result2 = await agent.run("What about Portland?", thread=thread)
         print(f"Agent: {result2.text}")
-        
         # Save thread ID for later resumption
         print(f"Conversation ID: {thread.conversation_id}")
 ```
-
 ### Structured Outputs
-
 ```python
 from pydantic import BaseModel, ConfigDict
 from agent_framework.azure import AzureAIAgentsProvider
 from azure.identity.aio import AzureCliCredential
-
 class WeatherResponse(BaseModel):
     model_config = ConfigDict(extra="forbid")
-    
     location: str
     temperature: float
     unit: str
     conditions: str
-
 async def main():
     async with (
         AzureCliCredential() as credential,
@@ -238,22 +185,17 @@ async def main():
             instructions="Provide weather information in structured format.",
             response_format=WeatherResponse,
         )
-        
         result = await agent.run("Weather in Seattle?")
         weather = WeatherResponse.model_validate_json(result.text)
         print(f"{weather.location}: {weather.temperature}°{weather.unit}")
 ```
-
 ## Provider Methods
-
 | Method | Description |
 |--------|-------------|
 | `create_agent()` | Create new agent on Azure AI service |
 | `get_agent(agent_id)` | Retrieve existing agent by ID |
 | `as_agent(sdk_agent)` | Wrap SDK Agent object (no HTTP call) |
-
 ## Hosted Tools Quick Reference
-
 | Tool | Import | Purpose |
 |------|--------|---------|
 | `HostedCodeInterpreterTool` | `from agent_framework import HostedCodeInterpreterTool` | Execute Python code |
@@ -261,9 +203,7 @@ async def main():
 | `HostedWebSearchTool` | `from agent_framework import HostedWebSearchTool` | Bing web search |
 | `HostedMCPTool` | `from agent_framework import HostedMCPTool` | Service-managed MCP |
 | `MCPStreamableHTTPTool` | `from agent_framework import MCPStreamableHTTPTool` | Client-managed MCP |
-
 ## Composite Legacy Example (requires migration/compatibility validation)
-
 ```python
 import asyncio
 from typing import Annotated
@@ -275,21 +215,15 @@ from agent_framework import (
 )
 from agent_framework.azure import AzureAIAgentsProvider
 from azure.identity.aio import AzureCliCredential
-
-
 def get_weather(
     location: Annotated[str, Field(description="City name")],
 ) -> str:
     """Return fixture weather (not a live observation)."""
     return f"Weather in {location}: 72°F, sunny"
-
-
 class AnalysisResult(BaseModel):
     summary: str
     key_findings: list[str]
     confidence: float = Field(ge=0.0, le=1.0)
-
-
 async def main():
     async with (
         AzureCliCredential() as credential,
@@ -309,23 +243,19 @@ async def main():
                 mcp_tool,
             ],
         )
-        
         thread = agent.get_new_thread()
-        
         # Non-streaming
         result = await agent.run(
             "Search for Python best practices and summarize",
             thread=thread,
         )
         print(f"Response: {result.text}")
-        
         # Streaming
         print("\nStreaming: ", end="")
         async for chunk in agent.run_stream("Continue with examples", thread=thread):
             if chunk.text:
                 print(chunk.text, end="", flush=True)
         print()
-        
         # Structured output
         result = await agent.run(
             "Analyze findings",
@@ -334,32 +264,23 @@ async def main():
         )
         analysis = AnalysisResult.model_validate_json(result.text)
         print(f"\nModel self-rating (not calibrated reliability): {analysis.confidence}")
-
-
 if __name__ == "__main__":
     asyncio.run(main())
 ```
-
 Current references: [Microsoft provider model](https://learn.microsoft.com/agent-framework/agents/providers/?pivots=programming-language-python), [Python installation and samples](https://github.com/microsoft/agent-framework/blob/main/python/README.md).
-
 ## Conventions
-
 - Always use async context managers: `async with provider:`
 - Pass functions directly to `tools=` parameter (auto-converted to AIFunction)
 - Use `Annotated[type, Field(description=...)]` for function parameters
 - Use `get_new_thread()` for multi-turn conversations
 - Prefer `HostedMCPTool` for service-managed MCP, `MCPStreamableHTTPTool` for client-managed
-
 ## Reference Files
-
 - references/tools.md: Detailed hosted tool patterns
 - references/mcp.md: MCP integration (hosted + local)
 - references/threads.md: Thread and conversation management
 - references/advanced.md: OpenAPI, citations, structured outputs
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

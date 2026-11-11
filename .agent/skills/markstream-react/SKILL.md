@@ -1,45 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "0dca2d8816f215c20a13d2bf79a268797109190a1228feea2634013d68744531"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: markstream-react
-description: "Integrate the beta markstream-react renderer into React 18+ or Next.js with correct client/server entrypoints, CSS, streaming state, and component overrides."
-tier: "experimental"
+content_hash: 0dca2d8816f215c20a13d2bf79a268797109190a1228feea2634013d68744531
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: Simon-He95
 category: frontend
+date_added: 2026-07-21
+description: Integrate the beta markstream-react renderer into React 18+ or Next.js with correct client/server entrypoints, CSS, streaming state, and component overrides.
+license: MIT
+license_source: "https://github.com/Simon-He95/markstream-vue/blob/main/license"
+name: markstream-react
 risk: critical
-source: https://github.com/Simon-He95/markstream-vue/tree/main/.agents/skills/markstream-react
+source: "https://github.com/Simon-He95/markstream-vue/tree/main/.agents/skills/markstream-react"
 source_repo: Simon-He95/markstream-vue
 source_type: official
-date_added: "2026-07-21"
-author: Simon-He95
-tags: [react, nextjs, markdown, streaming, ssr]
-tools: [claude, cursor, gemini, codex]
-license: MIT
-license_source: https://github.com/Simon-He95/markstream-vue/blob/main/license
+tags: "[react, nextjs, markdown, streaming, ssr]"
+tools: "[claude, cursor, gemini, codex]"
 ---
-
-
 # Markstream React
-
 ## Overview
-
 Wire the beta React renderer into React 18+ or Next.js without crossing client/server boundaries or reaching for AST control unnecessarily.
-
 ## When to Use
-
 Use for React/Next setup, root/`next`/`server` entrypoints, streaming, component overrides, or migration support. Pair with `markstream-migration` for renderer replacement.
-
 ## Workflow
-
 Inspect the existing package manager, installed package version and project conventions. A requested scoped integration already authorizes routine source/dependency edits; seek approval only for a material scope expansion or unresolved beta/alpha adoption decision.
-
 1. Confirm React 18+ and acceptance of a beta package.
 2. Install only requested peers and import `markstream-react/index.css`.
 3. Use the root entry for client rendering, `/next` for Next-specific components, and `/server` for server rendering without client hooks.
@@ -48,15 +34,11 @@ Inspect the existing package manager, installed package version and project conv
 6. Keep browser-only peers inside `'use client'`, dynamic `ssr: false`, or another minimal boundary.
 7. Prefer `streamingComponents` for parser-backed tags and `htmlComponents` for sanitized props. Use scoped registry overrides for built-in nodes.
 8. Keep `htmlPolicy="safe"` and Mermaid strict; validate client, server, and incremental paths.
-
 ## Example
-
 ```tsx
 'use client' // Required when this example is used in a Next.js App Router client boundary
-
 import MarkdownRender from 'markstream-react'
 import 'markstream-react/index.css'
-
 export function StreamingAnswer({
   content,
   isDone,
@@ -76,15 +58,10 @@ export function StreamingAnswer({
   )
 }
 ```
-
 ## Limitations
-
 - The package is beta and requires React 18+.
 - Browser-only peers require client boundaries under SSR.
 - Complex parser parity requires separate migration review.
-
 ## Security & Safety Notes
-
 Review dependencies and never opt untrusted model output into trusted HTML or loose diagram rendering.
-
 Verify props, export paths and peer ranges against the installed package, not a mutable upstream main. Test partial and completed streams, malformed/untrusted Markdown, links and image URLs, cancellation and reduced motion. Safe HTML and strict diagrams reduce exposure but do not alone enforce URL/network privacy or application component permissions.

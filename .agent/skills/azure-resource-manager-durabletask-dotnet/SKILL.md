@@ -1,42 +1,28 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "18e013c0c1529aed5d0e6863e79178056384fdcbc5afeb774bb5f3941638524b"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-resource-manager-durabletask-dotnet
+content_hash: 18e013c0c1529aed5d0e6863e79178056384fdcbc5afeb774bb5f3941638524b
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Azure Resource Manager SDK for Durable Task Scheduler in .NET.
-tier: "experimental"
+name: azure-resource-manager-durabletask-dotnet
 risk: critical
 source: community
-date_added: '2026-02-27'
 ---
-
-
 # Azure.ResourceManager.DurableTask (.NET)
-
 Management plane SDK for provisioning and managing Azure Durable Task Scheduler resources via Azure Resource Manager.
-
 > **⚠️ Management vs Data Plane**
 > - **This SDK (Azure.ResourceManager.DurableTask)**: Create schedulers, task hubs, configure retention policies
 > - **Data Plane SDK (Microsoft.DurableTask.Client.AzureManaged)**: Start orchestrations, query instances, send events
-
 ## Installation
-
 ```bash
 dotnet add package Azure.ResourceManager.DurableTask
 dotnet add package Azure.Identity
 ```
-
 These snippets target the historical 1.0 API shape; they are not a claim about the latest version. Pin a reviewed package version and check its generated types and API version against [Microsoft's SDK reference](https://learn.microsoft.com/en-us/dotnet/api/azure.resourcemanager.durabletask.durabletaskschedulerresource?view=azure-dotnet) before adapting the examples.
-
 ## Environment Variables
-
 ```bash
 AZURE_SUBSCRIPTION_ID=<your-subscription-id>
 AZURE_RESOURCE_GROUP=<your-resource-group>
@@ -45,26 +31,20 @@ AZURE_TENANT_ID=<tenant-id>
 AZURE_CLIENT_ID=<client-id>
 AZURE_CLIENT_SECRET=<client-secret>
 ```
-
 ## Authentication
-
 ```csharp
 using Azure.Identity;
 using Azure.ResourceManager;
 using Azure.ResourceManager.DurableTask;
-
 // Always use DefaultAzureCredential
 var credential = new DefaultAzureCredential();
 var armClient = new ArmClient(credential);
-
 // Get subscription
 var subscriptionId = Environment.GetEnvironmentVariable("AZURE_SUBSCRIPTION_ID");
 var subscription = armClient.GetSubscriptionResource(
     new ResourceIdentifier($"/subscriptions/{subscriptionId}"));
 ```
-
 ## Resource Hierarchy
-
 ```
 ArmClient
 └── SubscriptionResource
@@ -73,19 +53,14 @@ ArmClient
             ├── DurableTaskHubResource
             └── DurableTaskRetentionPolicyResource
 ```
-
 ## Core Workflow
-
 ### 1. Create Durable Task Scheduler
-
 ```csharp
 using Azure.ResourceManager.DurableTask;
 using Azure.ResourceManager.DurableTask.Models;
-
 // Get resource group
 var resourceGroup = await subscription
     .GetResourceGroupAsync("my-resource-group");
-
 // Define scheduler with Dedicated SKU
 var schedulerData = new DurableTaskSchedulerData(AzureLocation.EastUS)
 {
@@ -99,21 +74,17 @@ var schedulerData = new DurableTaskSchedulerData(AzureLocation.EastUS)
         IPAllowlist = { "10.0.0.0/24", "192.168.1.0/24" }
     }
 };
-
 // Create scheduler (long-running operation)
 var schedulerCollection = resourceGroup.Value.GetDurableTaskSchedulers();
 var operation = await schedulerCollection.CreateOrUpdateAsync(
     WaitUntil.Completed,
     "my-scheduler",
     schedulerData);
-
 DurableTaskSchedulerResource scheduler = operation.Value;
 Console.WriteLine($"Scheduler created: {scheduler.Data.Name}");
 Console.WriteLine($"Endpoint: {scheduler.Data.Properties.Endpoint}");
 ```
-
 ### 2. Create Scheduler with Consumption SKU
-
 ```csharp
 // Consumption SKU (serverless)
 var consumptionSchedulerData = new DurableTaskSchedulerData(AzureLocation.EastUS)
@@ -124,34 +95,27 @@ var consumptionSchedulerData = new DurableTaskSchedulerData(AzureLocation.EastUS
         // No capacity needed for consumption
     }
 };
-
 var operation = await schedulerCollection.CreateOrUpdateAsync(
     WaitUntil.Completed,
     "my-serverless-scheduler",
     consumptionSchedulerData);
 ```
-
 ### 3. Create Task Hub
-
 ```csharp
 // Task hubs are created under a scheduler
 var taskHubData = new DurableTaskHubData
 {
     // Properties are optional for basic task hub
 };
-
 var taskHubCollection = scheduler.GetDurableTaskHubs();
 var hubOperation = await taskHubCollection.CreateOrUpdateAsync(
     WaitUntil.Completed,
     "my-taskhub",
     taskHubData);
-
 DurableTaskHubResource taskHub = hubOperation.Value;
 Console.WriteLine($"Task Hub created: {taskHub.Data.Name}");
 ```
-
 ### 4. List Schedulers
-
 ```csharp
 // List all schedulers in subscription
 await foreach (var sched in subscription.GetDurableTaskSchedulersAsync())
@@ -161,7 +125,6 @@ await foreach (var sched in subscription.GetDurableTaskSchedulersAsync())
     Console.WriteLine($"  SKU: {sched.Data.Properties.Sku?.Name}");
     Console.WriteLine($"  Endpoint: {sched.Data.Properties.Endpoint}");
 }
-
 // List schedulers in resource group
 var schedulers = resourceGroup.Value.GetDurableTaskSchedulers();
 await foreach (var sched in schedulers.GetAllAsync())
@@ -169,14 +132,11 @@ await foreach (var sched in schedulers.GetAllAsync())
     Console.WriteLine($"Scheduler: {sched.Data.Name}");
 }
 ```
-
 ### 5. Get Scheduler by Name
-
 ```csharp
 // Get existing scheduler
 var existingScheduler = await schedulerCollection.GetAsync("my-scheduler");
 Console.WriteLine($"Found: {existingScheduler.Value.Data.Name}");
-
 // Or use extension method
 var schedulerResource = armClient.GetDurableTaskSchedulerResource(
     DurableTaskSchedulerResource.CreateResourceIdentifier(
@@ -185,13 +145,10 @@ var schedulerResource = armClient.GetDurableTaskSchedulerResource(
         "my-scheduler"));
 var scheduler = await schedulerResource.GetAsync();
 ```
-
 ### 6. Update Scheduler
-
 ```csharp
 // Get current scheduler
 var scheduler = await schedulerCollection.GetAsync("my-scheduler");
-
 // Update with new configuration
 var updateData = new DurableTaskSchedulerData(scheduler.Value.Data.Location)
 {
@@ -204,30 +161,23 @@ var updateData = new DurableTaskSchedulerData(scheduler.Value.Data.Location)
         IPAllowlist = { "10.0.0.0/16" }  // Update IP allowlist
     }
 };
-
 var updateOperation = await schedulerCollection.CreateOrUpdateAsync(
     WaitUntil.Completed,
     "my-scheduler",
     updateData);
 ```
-
 ### 7. Delete Resources
-
 ```csharp
 // Delete task hub first
 var taskHub = await scheduler.GetDurableTaskHubs().GetAsync("my-taskhub");
 await taskHub.Value.DeleteAsync(WaitUntil.Completed);
-
 // Then delete scheduler
 await scheduler.DeleteAsync(WaitUntil.Completed);
 ```
-
 ### 8. Manage Retention Policies
-
 ```csharp
 // Get retention policy collection
 var retentionPolicies = scheduler.GetDurableTaskRetentionPolicies();
-
 // Create or update retention policy
 var retentionData = new DurableTaskRetentionPolicyData
 {
@@ -236,15 +186,12 @@ var retentionData = new DurableTaskRetentionPolicyData
         // Configure retention settings
     }
 };
-
 var retentionOperation = await retentionPolicies.CreateOrUpdateAsync(
     WaitUntil.Completed,
     "default",  // Policy name
     retentionData);
 ```
-
 ## Key Types Reference
-
 | Type | Purpose |
 |------|---------|
 | `ArmClient` | Entry point for all ARM operations |
@@ -260,34 +207,25 @@ var retentionOperation = await retentionPolicies.CreateOrUpdateAsync(
 | `DurableTaskRetentionPolicyResource` | Retention policy management |
 | `DurableTaskRetentionPolicyData` | Retention policy configuration |
 | `DurableTaskExtensions` | Extension methods for ARM client |
-
 ## SKU Options
-
 | SKU | Description | Use Case |
 |-----|-------------|----------|
 | `Dedicated` | Fixed capacity with configurable instances | Production workloads, predictable performance |
 | `Consumption` | Serverless, auto-scaling | Development, variable workloads |
-
 ## Extension Methods
-
 The SDK provides extension methods on `SubscriptionResource` and `ResourceGroupResource`:
-
 ```csharp
 // On SubscriptionResource
 subscription.GetDurableTaskSchedulers();           // List all in subscription
 subscription.GetDurableTaskSchedulersAsync();      // Async enumerable
-
 // On ResourceGroupResource  
 resourceGroup.GetDurableTaskSchedulers();          // Get collection
 resourceGroup.GetDurableTaskSchedulerAsync(name);  // Get by name
-
 // On ArmClient
 armClient.GetDurableTaskSchedulerResource(id);     // Get by resource ID
 armClient.GetDurableTaskHubResource(id);           // Get task hub by ID
 ```
-
 ## Best Practices
-
 1. **Use `WaitUntil.Completed`** for operations that must finish before proceeding
 2. **Use `WaitUntil.Started`** when you want to poll manually or run operations in parallel
 3. **Always use `DefaultAzureCredential`** — never hardcode keys
@@ -295,12 +233,9 @@ armClient.GetDurableTaskHubResource(id);           // Get task hub by ID
 5. **Use `CreateOrUpdateAsync`** for idempotent operations
 6. **Delete task hubs before schedulers** — schedulers with task hubs cannot be deleted
 7. **Use IP allowlists** for network security in production
-
 ## Error Handling
-
 ```csharp
 using Azure;
-
 try
 {
     var operation = await schedulerCollection.CreateOrUpdateAsync(
@@ -319,9 +254,7 @@ catch (RequestFailedException ex)
     Console.WriteLine($"ARM Error: {ex.Status} - {ex.ErrorCode}: {ex.Message}");
 }
 ```
-
 ## Complete Example
-
 ```csharp
 using Azure;
 using Azure.Identity;
@@ -329,18 +262,14 @@ using Azure.ResourceManager;
 using Azure.ResourceManager.DurableTask;
 using Azure.ResourceManager.DurableTask.Models;
 using Azure.ResourceManager.Resources;
-
 // Setup
 var credential = new DefaultAzureCredential();
 var armClient = new ArmClient(credential);
-
 var subscriptionId = Environment.GetEnvironmentVariable("AZURE_SUBSCRIPTION_ID")!;
 var resourceGroupName = Environment.GetEnvironmentVariable("AZURE_RESOURCE_GROUP")!;
-
 var subscription = armClient.GetSubscriptionResource(
     new ResourceIdentifier($"/subscriptions/{subscriptionId}"));
 var resourceGroup = await subscription.GetResourceGroupAsync(resourceGroupName);
-
 // Create scheduler
 var schedulerData = new DurableTaskSchedulerData(AzureLocation.EastUS)
 {
@@ -352,28 +281,21 @@ var schedulerData = new DurableTaskSchedulerData(AzureLocation.EastUS)
         }
     }
 };
-
 var schedulerCollection = resourceGroup.Value.GetDurableTaskSchedulers();
 var schedulerOp = await schedulerCollection.CreateOrUpdateAsync(
     WaitUntil.Completed, "my-scheduler", schedulerData);
 var scheduler = schedulerOp.Value;
-
 Console.WriteLine($"Scheduler endpoint: {scheduler.Data.Properties.Endpoint}");
-
 // Create task hub
 var taskHubData = new DurableTaskHubData();
 var taskHubOp = await scheduler.GetDurableTaskHubs().CreateOrUpdateAsync(
     WaitUntil.Completed, "my-taskhub", taskHubData);
 var taskHub = taskHubOp.Value;
-
 Console.WriteLine($"Task Hub: {taskHub.Data.Name}");
-
 // Optional cleanup is intentionally separate: delete only resources created by
 // this task, after verifying their IDs and obtaining the required authorization.
 ```
-
 ## Related SDKs
-
 | SDK | Purpose | Install |
 |-----|---------|---------|
 | `Azure.ResourceManager.DurableTask` | Management plane (this SDK) | `dotnet add package Azure.ResourceManager.DurableTask` |
@@ -381,22 +303,15 @@ Console.WriteLine($"Task Hub: {taskHub.Data.Name}");
 | `Microsoft.DurableTask.Worker.AzureManaged` | Worker for running orchestrations | `dotnet add package Microsoft.DurableTask.Worker.AzureManaged` |
 | `Azure.Identity` | Authentication | `dotnet add package Azure.Identity` |
 | `Azure.ResourceManager` | Base ARM SDK | `dotnet add package Azure.ResourceManager` |
-
 ## Source Reference
-
 - [GitHub: Azure.ResourceManager.DurableTask](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/durabletask/Azure.ResourceManager.DurableTask)
 - [NuGet: Azure.ResourceManager.DurableTask](https://www.nuget.org/packages/Azure.ResourceManager.DurableTask)
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Windows](platforms/windows.md)

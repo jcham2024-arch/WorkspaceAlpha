@@ -1,37 +1,25 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "5d97e475e46e9bd730a3b118b0eebf762828ac885f1d7ebf0111ceaafee21240"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: tcm-constitution-analyzer
+content_hash: 5d97e475e46e9bd730a3b118b0eebf762828ac885f1d7ebf0111ceaafee21240
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-03-06
 description: 分析中医体质数据、识别体质类型、评估体质特征,并提供个性化养生建议。支持与营养、运动、睡眠等健康数据的关联分析。
-tier: "experimental"
-allowed-tools: Read, Grep, Glob, Write
+name: tcm-constitution-analyzer
 risk: critical
 source: community
-date_added: "2026-03-06"
+---allowed-tools: Read, Grep, Glob, Write
 ---
-
-
 # 中医体质辨识分析器技能
-
 分析中医体质数据,识别体质类型,评估体质特征,并提供个性化养生改善建议。
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use
 - 你需要根据中医体质分类标准评估用户体质，并识别主导体质与兼夹体质。
 - 你想结合营养、运动、睡眠等健康数据分析体质特征、风险和变化趋势。
 - 你需要面向个体化调理的养生建议、趋势跟踪和相关性分析结果。
-
 ## Limitations
 - 本包缺完整量表、计分键和知识库；仅可解释传统概念与已授权的数据，不能输出已验证的诊断或疾病风险。不得生成个体方剂、剂量或自行艾灸操作。
 - Use this skill only when the task clearly matches the scope described above.

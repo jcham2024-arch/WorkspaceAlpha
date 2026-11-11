@@ -1,66 +1,47 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "07fb50e0f5f89ebcbcaf3c9e12194c627d8088a75db9956932236755cb1b29d0"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-vms
-description: Manage Azure Virtual Machines and scale sets. Configure availability
-tier: "experimental"
-  sets and managed disks. Use when deploying compute resources on Azure.
+content_hash: 07fb50e0f5f89ebcbcaf3c9e12194c627d8088a75db9956932236755cb1b29d0
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant OS/platform tooling and privileged access where
+date_added: 2026-09-20
+description: Manage Azure Virtual Machines and scale sets. Configure availability
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: azure-vms
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant OS/platform tooling and privileged access where
+version: 1.0
+---  sets and managed disks. Use when deploying compute resources on Azure.
   noted. Docs-only; helper scripts and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # Azure Virtual Machines
-
 Deploy and manage Azure VMs, availability sets, scale sets, custom images, and managed disks. Covers VM creation, sizing, disk management, auto-scaling, and Terraform configurations for production environments.
-
 ## Prerequisites
-
 Examples are independent fragments. Confirm subscription, cost/quota, region/image availability, approved NSG/subnet and private access before provisioning. Cloud-init must be a real file with #cloud-config, not the commented shell excerpt. The backup vault/policy, load balancer and probe are prerequisites, not created here; default public endpoints in other examples must be explicitly replaced with the approved private network design. Docker group membership grants host-level control.
-
 ```bash
 # Install Azure CLI
 # Prerequisite: organization-approved Azure CLI installed from a verified signed package.
 az version
-
 # Login and set subscription
 az login
 az account set --subscription "my-subscription-id"
-
 # Create resource group
 az group create --name compute-rg --location eastus
-
 # List available VM sizes in a region
 az vm list-sizes --location eastus --output table
-
 # List available VM images
 az vm image list --output table
 az vm image list --publisher Canonical --offer 0001-com-ubuntu-server-jammy --all --output table
 ```
-
 ## VM Creation
-
 ### Linux VM with SSH Key
-
 ```bash
 az vm create \
   --resource-group compute-rg \
@@ -79,15 +60,11 @@ az vm create \
   --zone 1 \
   --assign-identity \
   --tags environment=prod team=platform app=myapp
-
 # SSH into the VM (if public IP assigned)
 # This example has no public IP; connect through approved Bastion/VPN/private SSH.
 ```
-
 ### Windows VM
-
 Run interactively: omit --admin-password and enter a unique generated password at the CLI’s hidden prompt, or use approved secret-backed infrastructure provisioning. Never put it in argv/history.
-
 ```bash
 az vm create \
   --resource-group compute-rg \
@@ -102,9 +79,7 @@ az vm create \
   --storage-sku Premium_LRS \
   --zone 1
 ```
-
 ### VM with Cloud-Init
-
 ```bash
 # cloud-init.yaml
 # #cloud-config
@@ -116,7 +91,6 @@ az vm create \
 #   - systemctl enable nginx
 #   - systemctl start nginx
 #   - usermod -aG docker azureuser
-
 az vm create \
   --resource-group compute-rg \
   --name web-vm \
@@ -127,9 +101,7 @@ az vm create \
   --custom-data cloud-init.yaml \
   --tags role=web
 ```
-
 ## VM Size Guide
-
 | Family | Example Sizes | Use Case |
 |--------|---------------|----------|
 | B-series | Standard_B1s, Standard_B2s | Dev/test, low-traffic web servers |
@@ -139,21 +111,17 @@ az vm create \
 | L-series | Standard_L8s_v3, Standard_L32s_v3 | Storage-optimized (big data, SQL) |
 | N-series | Standard_NC6s_v3, Standard_NC24ads_A100_v4 | GPU workloads (ML training, rendering) |
 | M-series | Standard_M128s | SAP HANA, large in-memory workloads |
-
 ```bash
 # Find VM sizes with specific capabilities
 az vm list-sizes --location eastus \
   --query "[?numberOfCores >= \`4\` && memoryInMb >= \`16000\`]" \
   --output table
-
 # Check VM size availability in a zone
 az vm list-skus --location eastus \
   --size Standard_D4s_v5 \
   --output table
 ```
-
 ## Managed Disks
-
 ```bash
 # Add a data disk to existing VM
 az vm disk attach \
@@ -164,7 +132,6 @@ az vm disk attach \
   --sku Premium_LRS \
   --new \
   --lun 0
-
 # Create a standalone managed disk
 az disk create \
   --resource-group compute-rg \
@@ -172,7 +139,6 @@ az disk create \
   --size-gb 512 \
   --sku Premium_LRS \
   --zone 1
-
 # Example offline resize; supported online expansion depends on disk/VM configuration.
 # Back up and schedule downtime; after Azure expansion grow the guest partition/filesystem safely.
 az vm deallocate --resource-group compute-rg --name myapp-vm
@@ -181,20 +147,17 @@ az disk update \
   --name myapp-data-disk \
   --size-gb 512
 az vm start --resource-group compute-rg --name myapp-vm
-
 # Snapshot a disk for backup
 az snapshot create \
   --resource-group compute-rg \
   --name myapp-disk-snapshot \
   --source myapp-data-disk
-
 # Create disk from snapshot
 az disk create \
   --resource-group compute-rg \
   --name myapp-disk-from-snap \
   --source myapp-disk-snapshot \
   --sku Premium_LRS
-
 # List disks attached to a VM
 az vm show \
   --resource-group compute-rg \
@@ -202,26 +165,20 @@ az vm show \
   --query "storageProfile.dataDisks" \
   --output table
 ```
-
 ## Custom Images
-
 Generalization/deprovisioning changes identity and can make a VM unusable. Use a disposable image-builder clone after an application-consistent backup; never generalize the running source production VM. Remove secrets from images. The commands below assume that clone is named myapp-vm.
-
 ```bash
 # Generalize the VM (run inside the VM first)
 # sudo waagent -deprovision+user -force
-
 # Deallocate and generalize
 az vm deallocate --resource-group compute-rg --name myapp-vm
 az vm generalize --resource-group compute-rg --name myapp-vm
-
 # Create image from VM
 az image create \
   --resource-group compute-rg \
   --name myapp-golden-image \
   --source myapp-vm \
   --os-type Linux
-
 # Create VM from custom image
 az vm create \
   --resource-group compute-rg \
@@ -230,12 +187,10 @@ az vm create \
   --size Standard_D4s_v5 \
   --admin-username azureuser \
   --generate-ssh-keys
-
 # Use Azure Compute Gallery for shared images
 az sig create \
   --resource-group compute-rg \
   --gallery-name myAppGallery
-
 az sig image-definition create \
   --resource-group compute-rg \
   --gallery-name myAppGallery \
@@ -245,7 +200,6 @@ az sig image-definition create \
   --sku 1.0 \
   --os-type Linux \
   --os-state Generalized
-
 az sig image-version create \
   --resource-group compute-rg \
   --gallery-name myAppGallery \
@@ -255,9 +209,7 @@ az sig image-version create \
   --target-regions eastus westus \
   --replica-count 2
 ```
-
 ## Availability Sets and Zones
-
 ```bash
 # Create availability set
 az vm availability-set create \
@@ -265,7 +217,6 @@ az vm availability-set create \
   --name myapp-avset \
   --platform-fault-domain-count 3 \
   --platform-update-domain-count 5
-
 # Create VM in availability set
 az vm create \
   --resource-group compute-rg \
@@ -275,7 +226,6 @@ az vm create \
   --availability-set myapp-avset \
   --admin-username azureuser \
   --generate-ssh-keys
-
 # Create VMs across availability zones
 for zone in 1 2 3; do
   az vm create \
@@ -289,9 +239,7 @@ for zone in 1 2 3; do
     --no-wait
 done
 ```
-
 ## Virtual Machine Scale Sets
-
 ```bash
 # Create VMSS with autoscaling; HEALTH_PROBE_ID must identify an existing LB probe, not an HTTP path.
 : "${HEALTH_PROBE_ID:?Set the reviewed existing load-balancer probe ID}"
@@ -311,7 +259,6 @@ az vmss create \
   --zones 1 2 3 \
   --custom-data cloud-init.yaml \
   --tags environment=prod
-
 # Configure autoscale rules
 az monitor autoscale create \
   --resource-group compute-rg \
@@ -321,102 +268,81 @@ az monitor autoscale create \
   --min-count 2 \
   --max-count 20 \
   --count 3
-
 # Scale out when CPU > 70%
 az monitor autoscale rule create \
   --resource-group compute-rg \
   --autoscale-name myapp-autoscale \
   --condition "Percentage CPU > 70 avg 5m" \
   --scale out 2
-
 # Scale in when CPU < 30%
 az monitor autoscale rule create \
   --resource-group compute-rg \
   --autoscale-name myapp-autoscale \
   --condition "Percentage CPU < 30 avg 10m" \
   --scale in 1
-
 # Manual scale
 az vmss scale \
   --resource-group compute-rg \
   --name myapp-vmss \
   --new-capacity 5
-
 # Update VMSS image
 az vmss update \
   --resource-group compute-rg \
   --name myapp-vmss \
   --set virtualMachineProfile.storageProfile.imageReference.version=latest
-
 # Rolling upgrade of instances
 az vmss rolling-upgrade start \
   --resource-group compute-rg \
   --name myapp-vmss
-
 # List VMSS instances
 az vmss list-instances \
   --resource-group compute-rg \
   --name myapp-vmss \
   --output table
 ```
-
 ## VM Management Operations
-
 ```bash
 # Start / Stop / Restart / Deallocate
 az vm start --resource-group compute-rg --name myapp-vm
 az vm stop --resource-group compute-rg --name myapp-vm
 az vm restart --resource-group compute-rg --name myapp-vm
 az vm deallocate --resource-group compute-rg --name myapp-vm
-
 # Run command on a VM
 az vm run-command invoke \
   --resource-group compute-rg \
   --name myapp-vm \
   --command-id RunShellScript \
   --scripts "df -h && free -m && uptime"
-
 # Enable boot diagnostics
 az vm boot-diagnostics enable \
   --resource-group compute-rg \
   --name myapp-vm
-
 # Get boot diagnostics log
 az vm boot-diagnostics get-boot-log \
   --resource-group compute-rg \
   --name myapp-vm
-
 # Enable Azure Backup
 az backup protection enable-for-vm \
   --resource-group compute-rg \
   --vault-name myapp-vault \
   --vm myapp-vm \
   --policy-name DefaultPolicy
-
 # Resize a VM
 az vm resize \
   --resource-group compute-rg \
   --name myapp-vm \
   --size Standard_D8s_v5
 ```
-
-
 ## Contents
-
 - [Terraform Configuration](references/details.md)
 - [Troubleshooting](references/details.md)
 - [Related Skills](references/details.md)
-
 ## When to Use
-
 - You need full control over the operating system and runtime environment.
 - Your application requires specific OS configurations or kernel modules.
 - You are running legacy applications that cannot be containerized.
 - You need GPU-accelerated compute for ML training or rendering.
 - You need high-availability compute with availability zones or scale sets.
-
 ## Limitations
-
 - Infrastructure commands can disrupt services: confirm target host/scope and have backups/snapshots before mutating state.
 - Docs-only import: upstream scripts and templates not bundled.
-

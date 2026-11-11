@@ -1,51 +1,35 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "acb1db57247ca685ab5a6924f6f5f96ed9b0dcefb1315969ba6da8c4e0da8794"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: acb1db57247ca685ab5a6924f6f5f96ed9b0dcefb1315969ba6da8c4e0da8794
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: renat
+date_added: 2026-03-06
+description: Especialista profundo em Claude Code - CLI da Anthropic. Maximiza produtividade com atalhos, hooks, MCPs, configuracoes avancadas, workflows, CLAUDE.md, memoria, sub-agentes, permissoes e integracao com ecossistemas.
 name: claude-code-expert
-description: "Especialista profundo em Claude Code - CLI da Anthropic. Maximiza produtividade com atalhos, hooks, MCPs, configuracoes avancadas, workflows, CLAUDE.md, memoria, sub-agentes, permissoes e integracao com ecossistemas."
-tier: "experimental"
 risk: critical
 source: community
-date_added: '2026-03-06'
-author: renat
-tags:
-- claude-code
-- productivity
-- cli
-- configuration
-tools:
-- claude-code
-- antigravity
-- cursor
-- gemini-cli
-- codex-cli
----
-
-
+  - claude-code
+  - productivity
+  - cli
+  - configuration
+  - claude-code
+  - antigravity
+  - cursor
+  - gemini-cli
+  - codex-cli
+------
 # CLAUDE CODE EXPERT - Potencia Maxima
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use This Skill
-
 - Configure or troubleshoot Claude Code CLI, project instructions, hooks, MCP connections, permissions and supported automation using the installed version’s documentation.
-
 ## Do Not Use This Skill When
-
 - The task is unrelated to claude code expert
 - A simpler, more specific tool can handle the request
 - The user needs general-purpose assistance without domain expertise
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

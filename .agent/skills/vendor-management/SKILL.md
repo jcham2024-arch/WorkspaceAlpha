@@ -1,40 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "33c0bff15f29c67344c290d38ce3f652a58ff73bf302bb3a14da9cb60df644da"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: vendor-management
-description: Implement vendor risk management programs. Assess third-party security
-tier: "experimental"
-  and maintain vendor inventory. Use when managing supplier security.
+content_hash: 33c0bff15f29c67344c290d38ce3f652a58ff73bf302bb3a14da9cb60df644da
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: security
+compatibility: Checklist and framework guidance; no privileged tooling required. Apply
+date_added: 2026-09-20
+description: Implement vendor risk management programs. Assess third-party security
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: vendor-management
 risk: safe
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Checklist and framework guidance; no privileged tooling required. Apply
+version: 1.0
+---  and maintain vendor inventory. Use when managing supplier security.
   controls through your own change process.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # Vendor Management
-
 Implement a vendor risk management program covering vendor assessment questionnaires, risk scoring, contract tracking, SLA monitoring, and ongoing oversight for compliance with SOC 2, ISO 27001, and regulatory frameworks.
-
 ## Vendor Risk Tiering
-
 Illustrative policy defaults, not regulatory requirements or automatic vendor classifications.
 Tier the actual data flows/access/criticality: HR and expense systems can hold highly
 sensitive data and must not be assigned Medium just by product category. Deadlines,
@@ -43,7 +32,6 @@ vendor notice rule. Have qualified owners determine obligations. Request minimal
 redacted evidence through approved channels; restrict report/employee/contact data.
 SOC 2 is an attestation report, not a certification; review scope, period, exceptions,
 subservice organizations and complementary controls rather than counting badges.
-
 ```yaml
 vendor_risk_tiers:
   critical:
@@ -70,7 +58,6 @@ vendor_risk_tiers:
       - Identity providers (Okta, Azure AD)
       - Payment processors (Stripe, Adyen)
       - Primary database or CRM SaaS
-
   high:
     criteria:
       - Accesses significant company data (internal or confidential)
@@ -91,7 +78,6 @@ vendor_risk_tiers:
       - Monitoring and logging SaaS (Datadog, Splunk)
       - CI/CD platforms (GitHub, GitLab)
       - Customer support platforms
-
   medium:
     criteria:
       - Limited data access (internal data only)
@@ -108,7 +94,6 @@ vendor_risk_tiers:
       - Project management tools
       - HR platforms
       - Travel and expense systems
-
   low:
     criteria:
       - No access to company data
@@ -125,9 +110,7 @@ vendor_risk_tiers:
       - Facilities services
       - General consulting (no data access)
 ```
-
 ## Vendor Assessment Questionnaire
-
 ```yaml
 security_questionnaire:
   section_1_governance:
@@ -144,7 +127,6 @@ security_questionnaire:
       - SOC 2 Type II report (or bridge letter)
       - ISO 27001 certificate
       - Cyber insurance certificate
-
   section_2_access_control:
     questions:
       - "How do you manage user access to systems containing our data?"
@@ -157,7 +139,6 @@ security_questionnaire:
       - Access management policy
       - MFA configuration documentation
       - Access review records (sample)
-
   section_3_data_protection:
     questions:
       - "How is our data encrypted at rest?"
@@ -172,7 +153,6 @@ security_questionnaire:
       - Encryption standards documentation
       - Sub-processor list
       - Data flow diagram showing customer data handling
-
   section_4_vulnerability_management:
     questions:
       - "How frequently do you perform vulnerability scans?"
@@ -184,7 +164,6 @@ security_questionnaire:
       - Penetration test executive summary (last 12 months)
       - Vulnerability management policy
       - Patch management SLA documentation
-
   section_5_incident_response:
     questions:
       - "Do you have a documented incident response plan?"
@@ -195,7 +174,6 @@ security_questionnaire:
     evidence_requested:
       - Incident response plan summary
       - Breach notification procedure
-
   section_6_business_continuity:
     questions:
       - "Do you have a business continuity plan?"
@@ -208,7 +186,6 @@ security_questionnaire:
       - BCP/DR plan summary
       - Uptime SLA documentation
       - Most recent DR test results
-
   section_7_compliance:
     questions:
       - "Do you process data subject to GDPR, HIPAA, or PCI DSS?"
@@ -220,9 +197,7 @@ security_questionnaire:
       - DPA template
       - Compliance certification documentation
 ```
-
 ## Risk Scoring Model
-
 ```yaml
 risk_scoring:
   dimensions:
@@ -234,7 +209,6 @@ risk_scoring:
         3: "Access to internal confidential data"
         4: "Access to PII or customer financial data"
         5: "Access to regulated data (PHI, PCI, classified)"
-
     system_access:
       weight: 25
       scores:
@@ -243,7 +217,6 @@ risk_scoring:
         3: "Read/write access to non-production or read-only production"
         4: "Read/write access to production systems"
         5: "Privileged/admin access to production or security systems"
-
     business_criticality:
       weight: 20
       scores:
@@ -252,7 +225,6 @@ risk_scoring:
         3: "Moderate dependency; replacement in weeks"
         4: "Significant dependency; replacement in months"
         5: "Critical dependency; no viable alternative"
-
     security_posture:
       weight: 15
       scores:
@@ -261,7 +233,6 @@ risk_scoring:
         3: "SOC 2 Type I or equivalent"
         2: "SOC 2 Type II within last 12 months"
         1: "Multiple certifications (SOC 2 + ISO 27001), strong program"
-
     regulatory_exposure:
       weight: 10
       scores:
@@ -270,7 +241,6 @@ risk_scoring:
         3: "Industry-specific (HIPAA, PCI)"
         4: "Government (FedRAMP, ITAR)"
         5: "Multiple stringent regulations"
-
   calculation:
     formula: "Sum of (dimension_score * dimension_weight) / 100"
     risk_levels:
@@ -278,7 +248,6 @@ risk_scoring:
       medium: "2.0 < score <= 3.0"
       high: "3.0 < score <= 4.0"
       critical: "4.0 < score <= 5.0"
-
   example:
     vendor: "Payment Processor X"
     data_sensitivity: 5  # PCI data
@@ -288,9 +257,7 @@ risk_scoring:
     regulatory_exposure: 3   # PCI DSS
     score: "(5*30 + 4*25 + 5*20 + 2*15 + 3*10) / 100 = 4.1 -> Critical"
 ```
-
 ## Vendor Registry and Contract Tracking
-
 ```yaml
 vendor_registry_schema:
   vendor_info:
@@ -300,7 +267,6 @@ vendor_registry_schema:
     primary_contact_email: ""
     security_contact_email: ""
     vendor_category: ""  # SaaS, IaaS, Consulting, etc.
-
   risk_assessment:
     risk_tier: ""  # critical, high, medium, low
     risk_score: null # unknown until assessed
@@ -315,7 +281,6 @@ vendor_registry_schema:
       - type: "ISO 27001"
         valid_until: ""
         certificate_on_file: null # verify
-
   contract:
     contract_id: ""
     start_date: ""
@@ -332,44 +297,34 @@ vendor_registry_schema:
       data_return_clause: true
       data_destruction_clause: true
       cyber_insurance_required: true
-
   data_access:
     data_types: []
     data_classification: ""
     data_location: []
     sub_processors: []
-
   sla_tracking:
     uptime_sla: "99.9%"
     actual_uptime_last_month: ""
     support_response_sla: ""
     sla_breaches_ytd: 0
-
   status: ""  # active, under_review, offboarding, inactive
-  owner: ""   # Internal team/person responsible
 ```
-
 ## SLA Monitoring
-
 Unexecuted sampling sketch. Endpoint configuration is trusted administrator input:
 allowlist HTTPS hosts/ports and resolved destinations, reject credential-bearing URLs
 and private/metadata destinations unless explicitly approved, cap bytes/time and do
 not follow redirects. Do not accept vendor-supplied URLs as unrestricted fetch targets.
 Headers must come from secret storage and never be logged. A status page must expose
 the expected Statuspage-compatible schema; other providers need separate adapters.
-
 ```python
 """
 Vendor SLA monitoring - Track uptime and response time commitments.
 """
 import requests
 from datetime import datetime, timezone
-
-
 class VendorSLAMonitor:
     def __init__(self, vendors_config):
         self.vendors = vendors_config
-
     def check_uptime(self, vendor):
         """Check vendor service availability."""
         results = []
@@ -401,7 +356,6 @@ class VendorSLAMonitor:
                 if "resp" in locals():
                     resp.close()
         return results
-
     def check_status_page(self, vendor):
         """Check vendor status page for active incidents."""
         status_url = vendor.get("status_page_url")
@@ -428,7 +382,6 @@ class VendorSLAMonitor:
             }
         except Exception:
             return {"vendor": vendor["name"], "status": "unknown"}
-
     def generate_sla_report(self, vendor_name, monthly_checks):
         """Calculate monthly SLA compliance."""
         total = len(monthly_checks)
@@ -449,31 +402,21 @@ class VendorSLAMonitor:
             "coverage": "sample observations only; not contractual uptime",
         }
 ```
-
-
 ## Contents
-
 - [Vendor Lifecycle Management](references/details.md)
 - [Vendor Management Checklist](references/details.md)
 - [Best Practices](references/details.md)
-
 ## When to Use
-
 - Onboarding new vendors that will access company data or systems
 - Conducting annual vendor risk assessments and reassessments
 - Negotiating security requirements in vendor contracts
 - Monitoring vendor SLA compliance and security posture
 - Preparing vendor management evidence for SOC 2 or ISO 27001 audits
-
 ## Limitations
-
 - Guidance and checklists only; not legal advice and not a substitute for a qualified auditor.
 - Docs-only import: upstream templates and scripts not bundled.
-
 ### Example
-
 ```markdown
 Map this skill's control checklist to our current evidence and list gaps.
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.

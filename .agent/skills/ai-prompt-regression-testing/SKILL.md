@@ -1,39 +1,28 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "e5d105e98cba6e9e09a41be6de8c124f60ac613770d32991a47ae9deb0817c4b"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: ai-prompt-regression-testing
-description: 'Use when comparing prompt changes against a fixed evaluation set: record actual model settings, required checks, missing results, judge limitations and case-level regression evidence.'
-tier: "experimental"
+content_hash: e5d105e98cba6e9e09a41be6de8c124f60ac613770d32991a47ae9deb0817c4b
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: Ranjeet2063
 category: engineering
+date_added: 2026-10-01
+description: "'Use when comparing prompt changes against a fixed evaluation set: record actual model settings, required checks, missing results, judge limitations and case-level regression evidence.'"
+name: ai-prompt-regression-testing
 risk: safe
 source: self
-source_type: self
-date_added: "2026-10-01"
-author: Ranjeet2063
-tags: [ai, prompt-engineering, testing, evaluation, llm, benchmarking]
-tools: []
 source_repo: Ranjeet2063/agentic-awesome-skills
+source_type: self
+tags: "[ai, prompt-engineering, testing, evaluation, llm, benchmarking]"
+tools: "[]"
 ---
-
-
 # AI Prompt Regression Testing
-
 ## When to Use
-
 - Compare a prompt change with an observed baseline on a fixed evaluation set.
 - Detect schema, factuality, refusal, tool-selection or task-completion regressions.
 - Record a reviewable decision when results are noisy, missing or contradictory.
-
 ## Workflow
-
 1. Define the task, representative cases and forbidden outcomes. Use synthetic
    or approved/redacted data; freeze case IDs and the dataset revision before runs.
 2. Record baseline/candidate prompt digests, exact available model/version,
@@ -54,9 +43,7 @@ source_repo: Ranjeet2063/agentic-awesome-skills
    similarity improves. Use the predeclared rule, not a threshold selected after results.
 7. Store a redacted report and exact artifacts at an authorized destination.
    Decide retain/revise/reject for the stated dataset; deployment is separate.
-
 ## Regression register
-
 | Field | Type | Example / meaning |
 |---|---|---|
 | case_id | string | PTEST-001; a textual ID, not SERIAL |
@@ -70,18 +57,14 @@ source_repo: Ranjeet2063/agentic-awesome-skills
 | latency_ms | nonnegative number or null | null if not observed; never invented |
 | cost | amount/currency or null | actual billing basis; unknown remains unknown |
 | run_revision | immutable reference | binds the report to the actual run |
-
 IDs and statuses must have consistent SQL/JSON/CSV representations. Do not store
 private prompts, user messages or tokens in a public spreadsheet or Notion register.
-
 ## Worked example
-
 Two cases test a support-answer prompt. PTEST-001 requires an answer grounded in
 the supplied policy; PTEST-002 requires a structured escalation when the policy
 is absent. The candidate sounds more helpful but PTEST-002 has no observed result.
 The report is incomplete, not a win. The following Python 3 helper aggregates
 already reviewed case statuses; it does not call models or decide correctness.
-
 ```python
 def summarize_regression(results, expected_case_ids):
     if not isinstance(expected_case_ids, list) or not expected_case_ids:
@@ -106,20 +89,15 @@ def summarize_regression(results, expected_case_ids):
                 "failed_cases": failed_cases, "evaluated": len(by_id)}
     return {"status": "regression" if failed_cases else "checks-passed",
             "failed_cases": failed_cases, "evaluated": len(by_id)}
-
-
 print(summarize_regression(
     [{"case_id": "PTEST-001", "result": "pass"}],
     ["PTEST-001", "PTEST-002"],
 ))
 ```
-
 Expected output: incomplete with reason missing or incomplete case. For all
 observed pass statuses the output is checks-passed, meaning only those recorded
 checks passed; it is not a release or general quality certificate.
-
 ## Limitations
-
 - No RPC, relayer, signing key or blockchain deployment is required for this
   generic prompt workflow. Real integrations may have their own dependencies.
 - Exact text match is unsuitable for many valid open-ended outputs; embeddings

@@ -1,33 +1,21 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "1213f853e864f79b9a61b224f401cd35c6f56c68059fb01654905a11186900d3"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 1213f853e864f79b9a61b224f401cd35c6f56c68059fb01654905a11186900d3
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Project scaffolding templates for new applications. Use when creating new projects from scratch. Contains 12 templates for various tech stacks.
 name: templates
-description: "Project scaffolding templates for new applications. Use when creating new projects from scratch. Contains 12 templates for various tech stacks."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # Project Templates
-
 > Quick-start templates for scaffolding new projects.
-
 ---
-
 ## 🎯 Selective Reading Rule
-
 **Read ONLY the template matching user's project type!**
-
 | Template | Tech Stack | When to Use |
 |----------|------------|-------------|
 | [nextjs-fullstack](nextjs-fullstack/TEMPLATE.md) | Next.js + Prisma | Full-stack web app |
@@ -42,19 +30,14 @@ date_added: "2026-02-27"
 | [cli-tool](cli-tool/TEMPLATE.md) | Node.js + Commander | CLI app |
 | [monorepo-turborepo](monorepo-turborepo/TEMPLATE.md) | Turborepo + pnpm | Monorepo |
 | [astro-static](astro-static/TEMPLATE.md) | Astro + MDX | Blog / Docs |
-
 ---
-
 ## Usage
-
 1. User says "create [type] app"
 2. Match to appropriate template
 3. Read ONLY that template's TEMPLATE.md
 4. Follow its tech stack and structure
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

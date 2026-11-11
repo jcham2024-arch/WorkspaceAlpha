@@ -1,27 +1,18 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "4954b40432dd8d418ecbcbd23f44c6525da446b02ac90aef57fd21cc80de9e29"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 4954b40432dd8d418ecbcbd23f44c6525da446b02ac90aef57fd21cc80de9e29
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations.
 name: postgres-best-practices
-description: "Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # Supabase Postgres Best Practices
-
 Community-bundled Postgres guide attributed to Supabase; upstream maintenance and example performance numbers are not independently certified. Contains rules across 8 categories, prioritized by impact to guide automated query optimization and schema design.
-
 ## When to Use
 Reference these guidelines when:
 - Writing SQL queries or designing schemas
@@ -30,9 +21,7 @@ Reference these guidelines when:
 - Configuring connection pooling or scaling
 - Optimizing for Postgres-specific features
 - Working with Row-Level Security (RLS)
-
 ## Rule Categories by Priority
-
 | Priority | Category | Impact | Prefix |
 |----------|----------|--------|--------|
 | 1 | Query Performance | CRITICAL | `query-` |
@@ -43,17 +32,13 @@ Reference these guidelines when:
 | 6 | Data Access Patterns | MEDIUM | `data-` |
 | 7 | Monitoring & Diagnostics | LOW-MEDIUM | `monitor-` |
 | 8 | Advanced Features | LOW | `advanced-` |
-
 ## How to Use
-
 Read individual rule files for detailed explanations and SQL examples:
-
 ```
 rules/query-missing-indexes.md
 rules/query-partial-indexes.md
 rules/_sections.md
 ```
-
 Each rule file contains:
 - Brief explanation of why it matters
 - Incorrect SQL example with explanation
@@ -61,14 +46,10 @@ Each rule file contains:
 - Optional EXPLAIN output or metrics
 - Additional context and references
 - Supabase-specific notes (when applicable)
-
 ## Full Compiled Document
-
 For the complete guide with all rules expanded: `AGENTS.md`
-
 ### When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

@@ -1,70 +1,52 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "ed894be3671300dacdd9e7832457520ae68ebe381dce09df33769fbcc8c04f7c"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: model-registry-governance
-description: Establish model registry standards, governance controls, metadata schemas,
-tier: "experimental"
-  approvals, and lifecycle policies for enterprise AI deployments.
+content_hash: ed894be3671300dacdd9e7832457520ae68ebe381dce09df33769fbcc8c04f7c
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+date_added: 2026-09-20
+description: Establish model registry standards, governance controls, metadata schemas,
+license: str = Field(description="SPDX license identifier")
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+metadata: dict,
+name: str = Field(description="Model name matching registry key")
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+version: str,
+---  approvals, and lifecycle policies for enterprise AI deployments.
   CI runners) and authorized access to the target environment. Docs-only; helper scripts
   and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # Model Registry Governance
-
 Create a trustworthy system of record for model artifacts, prompts, adapters, and evaluation evidence.
-
 ## When to Use This Skill
-
 - Setting up a centralized model registry for your organization
 - Defining metadata standards for model artifacts
 - Building approval workflows for model promotion to production
 - Implementing lifecycle policies for model retirement
 - Preparing for compliance audits of AI systems
-
 ## Prerequisites
-
 - MLflow Tracking Server or Weights & Biases instance deployed
 - Object storage for model artifacts (S3, GCS, or MinIO)
 - CI/CD pipeline with access to the registry API
 - OPA or similar policy engine for governance checks
 - Git repository for policy definitions and promotion scripts
-
 ## Core Principles
-
 - **Traceability**: every production model maps to source code, data snapshot, and evaluation results.
 - **Reproducibility**: builds are deterministic with pinned dependencies.
 - **Policy-driven promotion**: no manual bypass for critical safety checks.
 - **Lifecycle hygiene**: stale, vulnerable, or unowned models are retired automatically.
-
 ## MLflow Registry Setup
-
 Local development illustration only: choose a supported pinned MLflow image and compatible backend drivers before use. Do not expose an unauthenticated tracking/artifact server; production needs TLS, authentication, scoped storage credentials and registry write permissions. The Compose service binds inside its container to 0.0.0.0 while only publishing loopback on the host. Supply DB credentials from a secret provider, never commit them. Registry tags and caller-supplied approver names are mutable metadata, not signed authorization. The snippets below do not call OPA or enforce the approval workflow; enforce decisions in a protected service with authenticated approvers and immutable audit records before permitting any state change.
-
 ```bash
 # Install MLflow with required backends
 pip install mlflow[extras] psycopg2-binary boto3
-
 # Start MLflow tracking server with PostgreSQL backend and S3 artifact store
 mlflow server \
   --backend-store-uri "${MLFLOW_BACKEND_STORE_URI:?Set a secret-backed PostgreSQL URI}" \
@@ -73,7 +55,6 @@ mlflow server \
   --port 5000 \
   --serve-artifacts
 ```
-
 ```yaml
 # docker-compose.yaml for MLflow
 services:
@@ -93,7 +74,6 @@ services:
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
     depends_on:
       - db
-
   db:
     image: postgres:16-alpine
     environment:
@@ -102,67 +82,52 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes:
       - pgdata:/var/lib/postgresql/data
-
 volumes:
   pgdata:
 ```
-
 ## Required Metadata Schema
-
 ```python
 # model_metadata_schema.py
 from pydantic import BaseModel, Field
 from typing import List, Optional
 from datetime import datetime
 from enum import Enum
-
 class LifecycleState(str, Enum):
     DRAFT = "draft"
     CANDIDATE = "candidate"
     APPROVED = "approved"
     DEPRECATED = "deprecated"
     RETIRED = "retired"
-
 class RiskRating(str, Enum):
     LOW = "low"
     MEDIUM = "medium"
     HIGH = "high"
     CRITICAL = "critical"
-
 class ModelMetadata(BaseModel):
     """Required metadata for every registered model."""
     # Identity
-    name: str = Field(description="Model name matching registry key")
-    version: str = Field(description="Semantic version")
     checksum: str = Field(description="SHA-256 of model artifact")
     storage_uri: str = Field(description="Artifact store path")
-
     # Lineage
     base_model: str = Field(description="Parent model identifier")
     fine_tune_method: Optional[str] = Field(default=None)
     training_dataset: Optional[str] = Field(default=None)
     training_date: Optional[datetime] = Field(default=None)
-    source_commit: str = Field(description="Git SHA of training code")
 
     # Evaluation
     eval_datasets: List[str] = Field(description="Evaluation dataset IDs")
     eval_report_uri: str = Field(description="Path to evaluation results")
     quality_score: float = Field(ge=0, le=1)
     safety_score: float = Field(ge=0, le=1)
-
     # Governance
-    license: str = Field(description="SPDX license identifier")
     allowed_use_cases: List[str]
     prohibited_use_cases: List[str]
     risk_rating: RiskRating
     security_controls: List[str]
-
     # Ownership
-    owner: str = Field(description="Primary owner email")
     backup_owner: str = Field(description="Backup owner email")
     escalation_contact: str
     team: str
-
     # Lifecycle
     state: LifecycleState = LifecycleState.DRAFT
     created_at: datetime = Field(default_factory=datetime.utcnow)
@@ -170,34 +135,27 @@ class ModelMetadata(BaseModel):
     approved_by: Optional[str] = None
     expires_at: Optional[datetime] = None
 ```
-
 ## Model Registration Script
-
 ```python
 # register_model.py
 import mlflow
 from mlflow.tracking import MlflowClient
 import json
 import hashlib
-
 def register_model(
     model_path: str,
     model_name: str,
-    metadata: dict,
     mlflow_uri: str = "http://mlflow:5000"
 ):
     """Register a model with full metadata and governance tags."""
     mlflow.set_tracking_uri(mlflow_uri)
     client = MlflowClient()
-
     # Validate metadata first (Pydantic v2); never treat arbitrary dict fields as approved.
     metadata = ModelMetadata.model_validate(metadata).model_dump(mode="json")
-
     # Compute artifact checksum
     with open(model_path, "rb") as f:
         checksum = hashlib.sha256(f.read()).hexdigest()
     metadata["checksum"] = checksum
-
     # Log model with metadata
     with mlflow.start_run(run_name=f"register-{model_name}-{metadata['version']}") as run:
         # Log all metadata as params
@@ -209,28 +167,23 @@ def register_model(
             "owner": metadata["owner"],
             "license": metadata["license"],
         })
-
         # Log quality metrics
         mlflow.log_metrics({
             "quality_score": metadata["quality_score"],
             "safety_score": metadata["safety_score"],
         })
-
         # Log full metadata as artifact
         with open("metadata.json", "w") as f:
             json.dump(metadata, f, indent=2, default=str)
         mlflow.log_artifact("metadata.json")
-
         # Log model artifact
         mlflow.log_artifact(model_path)
-
         # Register in model registry
         # model_path here is a single-file artifact, not necessarily an MLflow model.
         # Package/log a real model with its flavor log_model API first, then use its returned URI.
         raise NotImplementedError("Supply the URI of a flavor-logged MLflow model before registry creation")
         model_uri = "<flavor-logged-model-uri>"
         result = mlflow.register_model(model_uri, model_name)
-
         # Set lifecycle tags
         client.set_model_version_tag(
             model_name, result.version, "state", "draft"
@@ -241,30 +194,23 @@ def register_model(
         client.set_model_version_tag(
             model_name, result.version, "checksum", checksum
         )
-
     return result
 ```
-
 ## Approval Workflow
-
 1. Registration request created from CI.
 2. Security checks (artifact scan, dependency scan, provenance).
 3. Evaluation package uploaded (quality, toxicity, jailbreak, bias, latency, cost).
 4. Required approvals: platform + product + security (as policy dictates).
 5. Promotion to stage/prod based on signed decision record.
-
 ## Promotion Script
-
 ```python
 # promote_model.py
 import mlflow
 from mlflow.tracking import MlflowClient
 from datetime import datetime
 import sys
-
 def promote_model(
     model_name: str,
-    version: str,
     target_stage: str,
     approver: str,
     mlflow_uri: str = "http://mlflow:5000"
@@ -272,41 +218,34 @@ def promote_model(
     """Promote a model version after governance checks pass."""
     mlflow.set_tracking_uri(mlflow_uri)
     client = MlflowClient()
-
     # Verify current state allows promotion
     mv = client.get_model_version(model_name, version)
     current_state = mv.tags.get("state", "draft")
-
     valid_transitions = {
         "draft": ["candidate"],
         "candidate": ["approved", "draft"],
         "approved": ["deprecated"],
         "deprecated": ["retired"],
     }
-
     if target_stage not in valid_transitions.get(current_state, []):
         raise ValueError(
             f"Invalid transition: {current_state} -> {target_stage}. "
             f"Allowed: {valid_transitions.get(current_state, [])}"
         )
-
     # Verify required eval scores for production promotion
     if target_stage == "approved":
         run = client.get_run(mv.run_id)
         quality = float(run.data.metrics.get("quality_score", 0))
         safety = float(run.data.metrics.get("safety_score", 0))
-
         if quality < 0.85:
             raise ValueError(f"Quality score {quality} below threshold 0.85")
         if safety < 0.95:
             raise ValueError(f"Safety score {safety} below threshold 0.95")
-
     # Record promotion
     now = datetime.utcnow().isoformat()
     client.set_model_version_tag(model_name, version, "state", target_stage)
     client.set_model_version_tag(model_name, version, f"promoted_to_{target_stage}_at", now)
     client.set_model_version_tag(model_name, version, f"promoted_to_{target_stage}_by", approver)
-
     # Legacy MLflow stage API (not an alias); deprecated since MLflow 2.9.
     # Prefer explicit aliases plus environment access controls for new integrations.
     # Transition legacy stage
@@ -319,10 +258,8 @@ def promote_model(
         client.transition_model_version_stage(
             model_name, version, stage_map[target_stage]
         )
-
     print(f"Model {model_name} v{version}: {current_state} -> {target_stage}")
     print(f"Approved by: {approver} at {now}")
-
 if __name__ == "__main__":
     promote_model(
         model_name=sys.argv[1],
@@ -331,9 +268,7 @@ if __name__ == "__main__":
         approver=sys.argv[4],
     )
 ```
-
 ## Lifecycle States
-
 | State | Description | Serving Allowed | New Usage |
 |-------|-------------|-----------------|-----------|
 | `draft` | Internal experimentation | Dev only | Dev only |
@@ -341,23 +276,18 @@ if __name__ == "__main__":
 | `approved` | Authorized for production | All environments | Yes |
 | `deprecated` | Replacement announced | Existing only | Blocked |
 | `retired` | Archived for audit | None | None |
-
 ## Lifecycle Automation
-
 ```python
 # lifecycle_policy.py
 from mlflow.tracking import MlflowClient
 from datetime import datetime, timedelta
-
 def enforce_lifecycle_policies(mlflow_uri: str = "http://mlflow:5000"):
     """Run periodic lifecycle enforcement."""
     client = MlflowClient(tracking_uri=mlflow_uri)
-
     for rm in client.search_registered_models():
         for mv in client.search_model_versions(f"name='{rm.name}'"):
             tags = mv.tags
             state = tags.get("state", "draft")
-
             # Auto-deprecate models with expired approvals (90 days)
             if state == "approved":
                 approved_at = tags.get("promoted_to_approved_at")
@@ -370,7 +300,6 @@ def enforce_lifecycle_policies(mlflow_uri: str = "http://mlflow:5000"):
                         client.set_model_version_tag(
                             rm.name, mv.version, "auto_deprecated_reason", "approval_expired"
                         )
-
             # Auto-retire deprecated models after 30 days
             if state == "deprecated":
                 deprecated_at = tags.get("promoted_to_deprecated_at")
@@ -382,38 +311,30 @@ def enforce_lifecycle_policies(mlflow_uri: str = "http://mlflow:5000"):
                         client.transition_model_version_stage(
                             rm.name, mv.version, "Archived"
                         )
-
             # Flag drafts with no activity for 14 days
             if state == "draft":
                 created = datetime.utcfromtimestamp(mv.creation_timestamp / 1000)
                 if datetime.utcnow() - created > timedelta(days=14):
                     print(f"Stale draft: {rm.name} v{mv.version}")
 ```
-
 The lifecycle loop only updates registry metadata: it does not stop serving, revoke aliases or prove that consumers migrated. Plan and verify those actions before retirement. Serialize promotions and evaluate fail-closed policy evidence bound to the exact artifact digest; example score thresholds are illustrative, not universal safety certification.
-
 ## Governance Policies (OPA/Rego)
-
 Rego v1 illustration. A production admission service must reject malformed/missing scan, evaluation and approval inputs before evaluating these deny rules. `sbom_uri` must also be part of the chosen metadata schema; the minimal schema above does not yet include it.
-
 ```rego
 # policy/model_governance.rego
 package model.governance
 import rego.v1
-
 # Reject artifacts without SBOM
 deny contains msg if {
     not input.metadata.sbom_uri
     msg := "Model must include SBOM artifact URI"
 }
-
 # Block promotion if critical CVEs remain
 deny contains msg if {
     input.target_state == "approved"
     input.security_scan.critical_cves > 0
     msg := sprintf("Cannot promote: %d critical CVEs unresolved", [input.security_scan.critical_cves])
 }
-
 # Require refreshed evals after prompt changes
 deny contains msg if {
     input.target_state == "approved"
@@ -421,14 +342,12 @@ deny contains msg if {
     not input.eval_refreshed_after_prompt_change
     msg := "Evaluation must be re-run after prompt template changes"
 }
-
 # Require minimum eval scores for production
 deny contains msg if {
     input.target_state == "approved"
     input.metadata.quality_score < 0.85
     msg := sprintf("Quality score %.2f below threshold 0.85", [input.metadata.quality_score])
 }
-
 # Require dual approval for high-risk models
 deny contains msg if {
     input.target_state == "approved"
@@ -437,18 +356,13 @@ deny contains msg if {
     msg := "High-risk models require at least 2 approvals"
 }
 ```
-
 ## Audit Readiness
-
 Maintain immutable records of:
-
 - Who approved and when
 - Which policy checks executed
 - Which exceptions were granted
 - What model/version served each customer request window
-
 ## Troubleshooting
-
 | Issue | Diagnosis | Resolution |
 |-------|-----------|------------|
 | Model registration fails | Check MLflow server connectivity and artifact store permissions | Verify S3/GCS credentials and bucket policy |
@@ -456,25 +370,18 @@ Maintain immutable records of:
 | Stale models not auto-retiring | Lifecycle cron job not running | Check CronJob status in Kubernetes |
 | Duplicate model versions | Race condition in CI pipeline | Add locking via registry API or database |
 | Missing eval evidence | Eval pipeline skipped or failed | Re-run eval suite and re-register |
-
 ## Related Skills
-
 - sbom-supply-chain (`sbom-supply-chain`) - Provenance and signing
 - policy-as-code (`policy-as-code`) - Enforce governance with policy engines
 - llm-fine-tuning (`llm-fine-tuning`) - Version adapters and training outputs
 - llmops-platform-engineering (`llmops-platform-engineering`) - Platform CI/CD and promotion workflows
 - ai-sre-incident-response (`ai-sre-incident-response`) - Incident response for model issues
-
 ## Limitations
-
 - Guidance executes against real environments: confirm target, blast radius, and rollback plan before applying anything.
 - Never deploy to production without explicit approval. Docs-only import: upstream scripts and templates not bundled.
-
 ### Example
-
 ```bash
 git status && git diff --stat
 kubectl diff -f manifest.yaml
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.

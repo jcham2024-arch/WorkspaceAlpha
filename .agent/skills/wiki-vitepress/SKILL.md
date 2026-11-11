@@ -1,36 +1,24 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "ddff00ba522f5cb4195c9bf4f3c4e86fd7ccee4b11e54267554306a236c453aa"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: ddff00ba522f5cb4195c9bf4f3c4e86fd7ccee4b11e54267554306a236c453aa
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Transform generated wiki Markdown files into a polished VitePress static site with dark theme and interactive Mermaid diagrams. Use when user asks to \"build a site\" or \"package as VitePress\", user runs the /deep-wiki, or user wants a browsable HTML output from generated wiki pages.
 name: wiki-vitepress
-description: "Transform generated wiki Markdown files into a polished VitePress static site with dark theme and interactive Mermaid diagrams. Use when user asks to \"build a site\" or \"package as VitePress\", user runs the /deep-wiki, or user wants a browsable HTML output from generated wiki pages."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # Wiki VitePress Packager
-
 Transform generated wiki Markdown files into a polished VitePress static site with dark theme and interactive Mermaid diagrams.
-
 ## When to Use
 - User asks to "build a site" or "package as VitePress"
 - User runs the `/deep-wiki:build` command
 - User wants a browsable HTML output from generated wiki pages
-
 ## VitePress Scaffolding
-
 Generate the following structure in a `wiki-site/` directory:
-
 ```
 wiki-site/
 ├── .vitepress/
@@ -43,14 +31,11 @@ wiki-site/
 ├── package.json
 └── index.md
 ```
-
 ## Config Requirements (`config.mts`)
-
 - Use `withMermaid` wrapper from `vitepress-plugin-mermaid`
 - Set `appearance: 'dark'` for dark-only theme
 - Configure `themeConfig.nav` and `themeConfig.sidebar` from the catalogue structure
 - Mermaid config must set dark theme variables:
-
 ```typescript
 mermaid: {
   theme: 'dark',
@@ -70,15 +55,11 @@ mermaid: {
   }
 }
 ```
-
 ## Dark-Mode Mermaid: Three-Layer Fix
-
 ### Layer 1: Theme Variables (in config.mts)
 Set via `mermaid.themeVariables` as shown above.
-
 ### Layer 2: CSS Overrides (`custom.css`)
 Target Mermaid SVG elements with `!important`:
-
 ```css
 .mermaid .node rect,
 .mermaid .node circle,
@@ -87,13 +68,10 @@ Target Mermaid SVG elements with `!important`:
 .mermaid text { fill: #e0e0e0 !important; }
 .mermaid .label { color: #e0e0e0 !important; }
 ```
-
 ### Layer 3: Inline Style Replacement (`theme/index.ts`)
 Normal inline styles can be overridden by appropriate author `!important` rules. Prefer renderer theme configuration and scoped CSS; avoid rewriting every SVG fill/stroke because it destroys semantic colors. If a version-specific DOM workaround is necessary, use a bounded mounted hook and dispose timers/listeners on unmount and route change:
-
 ```typescript
 import { onMounted } from 'vue'
-
 // In setup()
 onMounted(() => {
   let attempts = 0
@@ -108,13 +86,9 @@ onMounted(() => {
   }, 500)
 })
 ```
-
 Use `setup()` with `onMounted`, NOT `enhanceApp()` — DOM doesn't exist during SSR.
-
 ## Click-to-Zoom for Mermaid Diagrams
-
 Wrap each `.mermaid` container in a clickable wrapper that opens a fullscreen modal:
-
 ```typescript
 document.querySelectorAll('.mermaid').forEach(el => {
   el.style.cursor = 'zoom-in'
@@ -127,7 +101,6 @@ document.querySelectorAll('.mermaid').forEach(el => {
   })
 })
 ```
-
 Modal CSS:
 ```css
 .mermaid-zoom-modal {
@@ -138,34 +111,24 @@ Modal CSS:
 }
 .mermaid-zoom-modal .mermaid { transform: scale(1.5); }
 ```
-
 The modal sketch is incomplete: production UI needs an accessible button/dialog name, Escape handling, focus trapping/restoration and listener cleanup. Treat Markdown/diagram content as untrusted; preserve strict Mermaid security and do not enable arbitrary HTML/script execution for rendering convenience.
-
 ## Post-Processing Rules
-
 Before VitePress build, scan all `.md` files and fix:
 - Preserve valid self-closing `<br/>`/`<br>` markup unless an actual compiler error requires a scoped repair; do not rewrite text inside code fences
 - Wrap bare `<T>` generic parameters in backticks outside code fences
 - Ensure every page has YAML frontmatter with `title` and `description`
-
 ## Build
-
 ```bash
 cd wiki-site && npm install && npm run docs:build
 ```
-
 Output goes to `wiki-site/.vitepress/dist/`.
-
 ## Known Gotchas
-
 - Mermaid renders async — SVGs don't exist when `onMounted` fires. Must poll.
 - `isCustomElement` compiler option for bare `<T>` causes worse crashes — do NOT use it
 - Node text in Mermaid uses inline `style` with highest specificity — CSS alone won't fix it
 - `enhanceApp()` runs during SSR where `document` doesn't exist — use `setup()` only
-
 ### When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

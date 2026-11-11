@@ -1,29 +1,20 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "2f6ac5840a1682a63d3ef6a060a2d18cb208bef3ae6542b767a3cb6f58f90a9f"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: emergency-card
+content_hash: 2f6ac5840a1682a63d3ef6a060a2d18cb208bef3ae6542b767a3cb6f58f90a9f
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-03-06
 description: 生成紧急情况下快速访问的医疗信息摘要卡片。当用户需要旅行、就诊准备、紧急情况或询问"紧急信息"、"医疗卡片"、"急救信息"时使用此技能。提取关键信息（过敏、用药、急症、植入物），支持多格式输出（JSON、文本、二维码），用于急救或快速就医。
-tier: "experimental"
+name: m.name,
 risk: critical
 source: community
-date_added: "2026-03-06"
+version: ""1.0","
 ---
-
-
 # 紧急医疗信息卡生成器
-
 生成紧急情况下快速访问的医疗信息摘要，用于急救或就医。
-
 ## 核心功能
-
 ### 1. 紧急信息提取
 从用户的健康数据中提取最关键的信息：
 - **严重过敏**：优先提取4级（过敏性休克）和3级过敏
@@ -31,20 +22,17 @@ date_added: "2026-03-06"
 - **急症情况**：需要紧急处理的医疗状况
 - **植入物**：心脏起搏器、支架等（影响检查和治疗）
 - **紧急联系人**：快速联系的家属信息
-
 ### 2. 信息优先级排序
 按照医疗紧急程度对信息排序：
 1. **P0 - 危急信息**：过敏性休克、严重药物过敏、危及生命的疾病
 2. **P1 - 重要信息**：当前用药、慢性病、植入物
 3. **P2 - 一般信息**：血型、年龄、体重、最近检查
-
 ### 3. 多格式输出
 支持多种输出格式以适应不同场景：
 - **HTML格式**：可打印网页，使用Tailwind CSS和Lucide图标（推荐）
 - **JSON格式**：结构化数据，便于系统集成
 - **文本格式**：简洁可读，适合打印携带
 - **PDF格式**：专业打印，适合长期保存
-
 #### HTML格式（新增）
 生成独立的HTML文件，包含：
 - 内嵌静态CSS，无外部CDN请求
@@ -53,33 +41,26 @@ date_added: "2026-03-06"
 - 打印优化
 - 多种尺寸变体（A4、钱包卡、大字版）
 - 自动卡片类型检测（标准、儿童、老年、严重过敏）
-
 使用方式：
 ```bash
 # 生成标准卡片
 python scripts/generate_emergency_card.py
-
 # 指定卡片类型
 python scripts/generate_emergency_card.py standard
 python scripts/generate_emergency_card.py child
 python scripts/generate_emergency_card.py elderly
 python scripts/generate_emergency_card.py severe
-
 # 指定打印尺寸
 python scripts/generate_emergency_card.py standard a4       # A4标准
 python scripts/generate_emergency_card.py standard wallet   # 钱包卡
 python scripts/generate_emergency_card.py standard large    # 大字版（老年）
 ```
-
 输出文件：`emergency-cards/emergency-card-{variant}-{YYYY-MM-DD}.html`
-
 ### 4. 离线可用
 - 支持手机保存（相册、文件）
 - 支持打印携带（钱包、包）
 - 支持云端备份（可选）
-
 ## 使用说明
-
 ### 触发条件
 当用户提到以下场景时，使用此技能：
 - ✅ "生成紧急医疗信息卡"
@@ -88,38 +69,27 @@ python scripts/generate_emergency_card.py standard large    # 大字版（老年
 - ✅ "紧急情况急救信息"
 - ✅ "就医准备资料"
 - ✅ "医疗信息摘要"
-
 ### 执行步骤
-
 #### 步骤 1: 读取用户基础数据
 从以下数据源读取信息：
-
 ```javascript
 // 1. 用户档案
 const profile = readFile('data/profile.json');
-
 // 2. 过敏史
 const allergies = readFile('data/allergies.json');
-
 // 3. 当前用药
 const medications = readFile('data/medications/medications.json');
-
 // 4. 辐射记录
 const radiation = readFile('data/radiation-records.json');
-
 // 5. 手术记录（查找植入物）
 const surgeries = glob('data/手术记录/**/*.json');
-
 // 6. 出院小结（查找急症）
 const dischargeSummaries = glob('data/出院小结/**/*.json');
 ```
-
 #### 步骤 2: 提取关键信息
-
 ##### 2.1 基础信息
 ```javascript
 const basicInfo = {
-  name: profile.basic_info?.name || "未设置",
   age: calculateAge(profile.basic_info?.birth_date),
   gender: profile.basic_info?.gender || "未设置",
   blood_type: profile.basic_info?.blood_type || "未知",
@@ -129,7 +99,6 @@ const basicInfo = {
   emergency_contacts: profile.emergency_contacts || []
 };
 ```
-
 #### 2.2 严重过敏
 ```javascript
 // 过滤出3-4级严重过敏
@@ -142,12 +111,10 @@ const criticalAllergies = allergies.allergies
     diagnosed_date: a.diagnosis_date
   }));
 ```
-
 #### 2.3 慢性疾病诊断（新增）
 ```javascript
 // 从慢性病管理数据中提取诊断信息
 const chronicConditions = [];
-
 // 高血压
 try {
   const hypertensionData = readFile('data/hypertension-tracker.json');
@@ -163,7 +130,6 @@ try {
 } catch (e) {
   // 将缺失/读取失败记录为未确认，不解释为无疾病
 }
-
 // 糖尿病
 try {
   const diabetesData = readFile('data/diabetes-tracker.json');
@@ -179,7 +145,6 @@ try {
 } catch (e) {
   // 将缺失/读取失败记录为未确认，不解释为无疾病
 }
-
 // COPD
 try {
   const copdData = readFile('data/copd-tracker.json');
@@ -196,21 +161,18 @@ try {
   // 将缺失/读取失败记录为未确认，不解释为无疾病
 }
 ```
-
 #### 2.4 当前用药
 ```javascript
 // 只包含活跃的药物
 const currentMedications = medications.medications
   .filter(m => m.active === true)
   .map(m => ({
-    name: m.name,
     dosage: `${m.dosage.value}${m.dosage.unit}`,
     frequency: getFrequencyLabel(m.frequency),
     instructions: m.instructions,
     warnings: m.warnings || []
   }));
 ```
-
 ##### 2.4 医疗状况
 从出院小结中提取诊断信息：
 ```javascript
@@ -225,7 +187,6 @@ const medicalConditions = dischargeSummaries
     status: d.status || "未知"
   }));
 ```
-
 ##### 2.5 植入物
 从手术记录中提取植入物信息：
 ```javascript
@@ -241,7 +202,6 @@ const implants = surgeries
     notes: i.notes
   }));
 ```
-
 ##### 2.6 近期辐射暴露
 ```javascript
 const recentRadiation = {
@@ -249,13 +209,10 @@ const recentRadiation = {
   last_exam: radiation.records[radiation.records.length - 1]
 };
 ```
-
 #### 步骤 3: 生成信息卡片
-
 按照优先级组织信息：
 ```javascript
 const emergencyCard = {
-  version: "1.0",
   generated_at: new Date().toISOString(),
   basic_info: basicInfo,
   critical_allergies: criticalAllergies.sort(bySeverityDesc),
@@ -268,12 +225,9 @@ const emergencyCard = {
   chronic_conditions: chronicConditions // 单独字段便于访问
 };
 ```
-
 #### 步骤 4: 格式化输出
-
 ##### JSON格式
 直接输出结构化JSON数据。
-
 ##### 文本格式
 生成易读的文本卡片：
 ```
@@ -321,36 +275,27 @@ const emergencyCard = {
 ║ 生成时间：2025-12-31 12:34:56                            ║
 ╚═══════════════════════════════════════════════════════════╝
 ```
-
 ##### 二维码格式
 将JSON数据转换为二维码图片：
 ```javascript
 const qrCode = generateQRCode(JSON.stringify(emergencyCard));
 emergencyCard.qr_code = qrCode;
 ```
-
 #### 步骤 5: 保存文件
-
 根据用户选择的格式保存文件：
 ```javascript
 // JSON格式
 saveFile('emergency-card.json', JSON.stringify(emergencyCard, null, 2));
-
 // 文本格式
 saveFile('emergency-card.txt', generateTextCard(emergencyCard));
-
 // 二维码格式
 saveFile('emergency-card-qr.png', emergencyCard.qr_code);
 ```
-
 #### 步骤 6: 输出确认信息
-
 ```
 ✅ 紧急医疗信息卡已生成
-
 文件位置：data/emergency-cards/emergency-card-2025-12-31.json
 生成时间：2025-12-31 12:34:56
-
 包含信息：
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 ✓ 基础信息（姓名、年龄、血型）
@@ -359,98 +304,71 @@ saveFile('emergency-card-qr.png', emergencyCard.qr_code);
 ✓ 医疗状况（2种疾病）
 ✓ 植入物（1项）
 ✓ 紧急联系人（1人）
-
 💡 使用建议：
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 • 将JSON文件保存到手机云盘
 • 将二维码保存到手机相册
 • 打印文本版随身携带
 • 旅行前更新信息
-
 ⚠️  注意事项：
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 • 此信息卡仅供参考，不替代专业医疗诊断
 • 定期更新（建议每3个月或健康信息变化后）
 • 如有严重过敏，请随身携带过敏急救卡
 ```
-
 ## 数据源
-
 ### 主要数据源
 - **data/profile.json**：用户基础信息、血型、紧急联系人
 - **data/allergies.json**：过敏史和严重程度分级
 - **data/medications/medications.json**：当前用药计划和剂量
-
 ### 慢性病数据源（新增）
 - **data/hypertension-tracker.json**：高血压管理数据（诊断日期、分级、血压控制、靶器官损害、心血管风险）
 - **data/diabetes-tracker.json**：糖尿病管理数据（类型、HbA1c、血糖控制、并发症筛查）
 - **data/copd-tracker.json**：COPD管理数据（GOLD分级、CAT评分、急性加重史、肺功能）
-
 ### 辅助数据源
 - **data/radiation-records.json**：近期辐射暴露记录
 - **data/手术记录/**/*.json**：手术植入物信息
 - **data/出院小结/**/*.json**：医疗诊断信息
-
 ### 可选数据源
 - **data/index.json**：全局数据索引
-
 ## 安全性原则
-
 ### 必须遵循
 - ❌ 不添加用药建议（仅列出当前用药）
 - ❌ 不提供诊断结论（仅列出已知诊断）
 - ❌ 不给出治疗建议（不替代医生）
 - ❌ 标注免责声明（仅供参考）
-
 ### 信息准确度
 - ✅ 仅提取已记录的信息（不推测或推断）
 - ✅ 标注信息来源和更新时间
 - ✅ 建议定期更新信息
-
 ### 隐私保护
 - ✅ 敏感信息可选隐藏
 - ✅ 电话号码部分隐藏（如：138****1234）
 - ✅ 所有数据仅保存在本地
-
 ## 错误处理
-
 ### 数据缺失
 - **过敏数据缺失**：输出"未记录过敏史"
 - **用药数据缺失**：输出"未记录当前用药"
 - **植入物数据缺失**：输出"未记录/未知植入物状态"
-
 ### 文件读取失败
 - **无法读取profile.json**：使用默认值（姓名：未设置）
 - **无法读取allergies.json**：跳过过敏信息
 - **继续生成其他信息**：不因单个文件失败而中断
-
 ### 二维码生成失败
 - 降级为文本格式输出
 - 提示用户手动记录信息
-
 ## 示例输出
-
 完整示例请参考相关文档。
-
 ## 测试数据
-
 测试数据请参考相关文档。
-
 ## 格式说明
-
 详细格式请参考相关文档。
-
-
 ## When to Use
 Use this skill when tackling tasks related to its primary domain or functionality as described above.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## 可用性与信息核验
-
 本包没有 generate_emergency_card.py、健康数据库、二维码/PDF生成器或readFile等适配器；示例是伪代码，不可声称自动生成、记录或完成测试。先确定用户授权的数据路径与输出位置，仅读取所需信息。严重程度3/4级是源系统字段，非通用医学分级；未知/既往严重过敏不得因active或缺失评分被静默排除。每条用药保留原始单位、途径、最后核对日期与来源，不猜频率/剂量。显示未知与读取错误并让用户/临床人员核对后打印。样例患者及剂量是虚构，不能移入真实卡片。
-
 卡片是既有信息摘要，不提供急症分诊或治疗；若用户正在经历紧急症状，优先提示联系当地急救服务。血型不得据卡片直接决定输血。仅凭起搏器不能一律禁MRI，参见[FDA植入物MRI说明](https://www.fda.gov/radiation-emitting-products/mri-magnetic-resonance-imaging/benefits-and-risks)。二维码是可被任何扫描者读取的明文，不保证保密；先选择必要字段并检查容量/离线可读性。不要上传到公共二维码/CDN服务；云备份另行授权，不能同时保证所有数据仅本地。真实急救联系人号码需在用户同意的私有版本保留可拨打号码；示例掩码不能用于求助。HTML需转义所有健康文本并禁外部脚本。

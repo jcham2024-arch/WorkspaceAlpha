@@ -1,64 +1,44 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "d5fb047a0fb174e62b8769193ea02f28b2e8adf5927f0c05e7ccc060a5d5ddfa"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: webdriverio-skill
-description: 'Generates WebdriverIO (WDIO) automation tests in JavaScript or TypeScript. Supports local and TestMu AI cloud. Use when user mentions "WebdriverIO", "WDIO", "wdio.conf", "browser.url", "$", "$$". Triggers on: "WebdriverIO", "WDIO", "wdio", "browser.$".'
-tier: "experimental"
+content_hash: d5fb047a0fb174e62b8769193ea02f28b2e8adf5927f0c05e7ccc060a5d5ddfa
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-07-01
+description: "'Generates WebdriverIO (WDIO) automation tests in JavaScript or TypeScript. Supports local and TestMu AI cloud. Use when user mentions "WebdriverIO", "WDIO", "wdio.conf", "browser.url", "$", "$$". Triggers on: "WebdriverIO", "WDIO", "wdio", "browser.$".'"
+license: MIT
+license_source: "https://github.com/LambdaTest/agent-skills/blob/main/LICENSE"
+name: "'WDIO Test',"
 risk: critical
-source: https://github.com/LambdaTest/agent-skills/tree/main/webdriverio-skill
+source: "https://github.com/LambdaTest/agent-skills/tree/main/webdriverio-skill"
 source_repo: LambdaTest/agent-skills
 source_type: community
-date_added: 2026-07-01
-license: MIT
-license_source: https://github.com/LambdaTest/agent-skills/blob/main/LICENSE
 ---
-
-
 # WebdriverIO Automation Skill
 ## When to Use
-
 Use this skill when you need generates WebdriverIO (WDIO) automation tests in JavaScript or TypeScript. Supports local and TestMu AI cloud. Use when user mentions "WebdriverIO", "WDIO", "wdio.conf", "browser.url", "$", "$$". Triggers on: "WebdriverIO", "WDIO", "wdio", "browser.$".
-
-
 ## Step 1 — Execution Target
-
 Default local. If mentions "cloud", "TestMu", "LambdaTest" → cloud via WDIO LambdaTest service.
-
 ## Step 2 — Framework
-
 | Signal | Runner |
 |--------|--------|
 | Default | Mocha |
 | "Jasmine" | Jasmine |
 | "Cucumber", "BDD" | Cucumber |
-
 ## Core Patterns
-
 ### Selectors
-
 ```javascript
 // ✅ Preferred
 await $('[data-testid="submit"]').click();
 await $('aria/Submit').click();
 await $('button=Submit').click(); // text-based
-
 // Chaining
 await $('form').$('input[name="email"]').setValue('test@test.com');
-
 // Multiple elements
 const items = await $$('.list-item');
 ```
-
 ### Basic Test (Mocha)
-
 ```javascript
 describe('Login', () => {
     it('should login successfully', async () => {
@@ -70,15 +50,12 @@ describe('Login', () => {
     });
 });
 ```
-
 ### Page Object
-
 ```javascript
 class LoginPage {
     get inputEmail() { return $('[data-testid="email"]'); }
     get inputPassword() { return $('[data-testid="password"]'); }
     get btnSubmit() { return $('[data-testid="submit"]'); }
-
     async login(email, password) {
         await this.inputEmail.setValue(email);
         await this.inputPassword.setValue(password);
@@ -87,9 +64,7 @@ class LoginPage {
 }
 module.exports = new LoginPage();
 ```
-
 ### TestMu AI Cloud Config
-
 ```javascript
 // wdio.conf.js
 exports.config = {
@@ -106,29 +81,23 @@ exports.config = {
         'LT:Options': {
             platform: 'Windows 11',
             build: 'WDIO Build',
-            name: 'WDIO Test',
             video: true,
             network: true,
         }
     }],
 };
 ```
-
 ### Wait Strategies
-
 ```javascript
 // Wait for element
 await $('[data-testid="result"]').waitForDisplayed({ timeout: 10000 });
-
 // Wait for condition
 await browser.waitUntil(
     async () => (await $('[data-testid="count"]').getText()) === '5',
     { timeout: 10000, timeoutMsg: 'Count did not reach 5' }
 );
 ```
-
 ## Quick Reference
-
 | Task | Command |
 |------|---------|
 | Setup | `npm init wdio@latest` |
@@ -137,20 +106,14 @@ await browser.waitUntil(
 | Run suite | `npx wdio run wdio.conf.js --suite smoke` |
 | Parallel | Set `maxInstances: 5` in config |
 | Screenshot | `await browser.saveScreenshot('./screenshot.png')` |
-
 Cloud runs transmit test inputs, network/video captures and credentials to a third party and can spend quota. Use authorized test accounts/data, verify current endpoint/service capabilities and disable captures containing private data unless approved. Match module format and installed WDIO major; do not infer API support from this sketch.
-
 ## Reference Files
-
 The reference paths below are upstream topics, not bundled files in this AAS tree:
-
 | File | When to Read |
 |------|-------------|
 | `reference/cloud-integration.md` | LambdaTest service, parallel, capabilities |
 | `reference/advanced-patterns.md` | Custom commands, reporters, services |
-
 ## Deep Patterns → `reference/playbook.md`
-
 | § | Section | Lines |
 |---|---------|-------|
 | 1 | Production Configuration | Multi-env, multi-browser configs |
@@ -166,9 +129,7 @@ The reference paths below are upstream topics, not bundled files in this AAS tre
 | 11 | CI/CD Integration | GitHub Actions, Docker Compose |
 | 12 | Debugging Quick-Reference | 11 common problems |
 | 13 | Best Practices Checklist | 14 items |
-
 ## Limitations
-
 - Use this skill only when the task clearly matches its upstream source and local project context.
 - Verify commands, generated code, dependencies, credentials, and external service behavior before applying changes.
 - Do not treat examples as a substitute for environment-specific tests, security review, or user approval for destructive or costly actions.

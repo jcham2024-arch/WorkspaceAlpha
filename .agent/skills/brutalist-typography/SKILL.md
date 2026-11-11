@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "9a71faed27a4018f4fcb780af0e5a7809a9ef5f59e0915c3669ceb69838127bc"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: brutalist-typography
+content_hash: 9a71faed27a4018f4fcb780af0e5a7809a9ef5f59e0915c3669ceb69838127bc
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Brutalist Typography. Trigger when user wants huge fonts, raw presentation, and aggressive layout decisions.
-tier: "experimental"
-date_added: "2026-06-17"
+name: brutalist-typography
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Brutalist Typography
-
 > "Aggressive, unpolished, and unapologetic. Text that demands attention by breaking the rules."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Rule Breaking**: Text that overlaps, ignores margins, or deliberately clips off the edge of the screen.
 2. **Anti-Design**: Intentional use of system fonts or "ugly" fonts (Times New Roman, Courier) in massive sizes.
 3. **Harsh Contrast**: Clashing colors or stark monochrome.
-
 ## Visual DNA
 - **Colors**: **Industrial Chic** (Black, White, Red) or aggressive neon clashing (e.g., pure blue on pure red).
 - **Typography**: System default fonts (`Times New Roman`, `Arial`, `Courier New`) blown up to 150px.
 - **Styling**: Marquees, blinking text, underlines that cut through descenders.
-
 ## Web Implementation
 - Break the grid. Use absolute positioning or negative margins.
 - **CSS Example**:
@@ -46,7 +33,6 @@ body {
   color: #000;
   font-family: 'Times New Roman', serif;
 }
-
 .brutalist-headline {
   font-size: 15vw;
   line-height: 0.7;
@@ -54,13 +40,11 @@ body {
   margin-left: -10px; /* Bleeds off screen intentionally */
   word-wrap: break-word; /* Let words break awkwardly */
 }
-
 .brutalist-highlight {
   background-color: #ff0000;
   color: #fff;
   padding: 0 10px;
 }
-
 .marquee-container {
   border-top: 5px solid #000;
   border-bottom: 5px solid #000;
@@ -71,7 +55,6 @@ body {
   font-weight: bold;
   padding: 10px 0;
 }
-
 /* A nod to early 90s web */
 .brutalist-link {
   color: #0000ee;
@@ -83,9 +66,7 @@ body {
   color: #fff;
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct BrutalistTypeView: View {
@@ -96,7 +77,6 @@ struct BrutalistTypeView: View {
                 Text("BREAK")
                     .font(.custom("Times New Roman", size: 120))
                     .padding(.leading, -20) 
-                
                 Text("THE")
                     .font(.custom("Arial", size: 140))
                     .fontWeight(.black)
@@ -105,7 +85,6 @@ struct BrutalistTypeView: View {
                         Text("THE").foregroundColor(.red) // Solid fallback: Text has no Shape.stroke API
                     )
                     .offset(x: 40)
-                
                 Text("GRID.")
                     .font(.custom("Courier New", size: 100))
                     .background(Color.blue)
@@ -124,7 +103,6 @@ struct BrutalistTypeView: View {
 - Keep readable text and controls within safe areas. Only decorative artwork may extend behind system cutouts.
 - Use negative `spacing` in `VStack` or explicit negative `.offset()` to force text elements to overlap each other aggressively.
 - SwiftUI Text does not implement Shape.stroke. Use solid text as shown, or a separately implemented and tested text-path renderer for true outlines.
-
 ### Flutter
 ```dart
 class BrutalistTypeScreen extends StatelessWidget {
@@ -191,7 +169,6 @@ class BrutalistTypeScreen extends StatelessWidget {
 - Do not use `SafeArea`.
 - Absolute positioning via `Stack` and `Positioned` is the easiest way to break the grid and force overlaps.
 - Use `height: 0.8` (or less than 1.0) in `TextStyle` to smash lines of text together.
-
 ### React Native
 ```jsx
 const BrutalistTypeScreen = () => {
@@ -211,7 +188,6 @@ const BrutalistTypeScreen = () => {
       }}>
         BREAK
       </Text>
-      
       <Text style={{
         fontFamily: 'Arial',
         fontSize: 140,
@@ -224,7 +200,6 @@ const BrutalistTypeScreen = () => {
       }}>
         THE
       </Text>
-      
       <Text style={{
         fontFamily: 'monospace',
         fontSize: 100,
@@ -242,7 +217,6 @@ const BrutalistTypeScreen = () => {
 ```
 - React Native doesn't have a native text-stroke property, so you either simulate it with text shadows or use `@shopify/react-native-skia` for true stroked text.
 - Use negative `marginTop` and `marginLeft` to force the layout chaos.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -261,7 +235,6 @@ fun BrutalistTypeScreen() {
             lineHeight = 100.sp,
             modifier = Modifier.offset(x = (-15).dp, y = (-20).dp)
         )
-        
         Text(
             text = "THE",
             fontFamily = FontFamily.SansSerif,
@@ -273,7 +246,6 @@ fun BrutalistTypeScreen() {
             color = Color.Red,
             modifier = Modifier.offset(x = 40.dp, y = 100.dp)
         )
-        
         Text(
             text = "GRID.",
             fontFamily = FontFamily.Monospace,
@@ -289,11 +261,9 @@ fun BrutalistTypeScreen() {
 ```
 - A `Box` with explicit `Modifier.offset(x, y)` allows freeform overlapping placement, breaking away from standard `Column`/`Row` grids.
 - Compose `TextStyle` supports `drawStyle = Stroke(width = 5f)`, making outline typography incredibly simple.
-
 ## Do's and Don'ts
 - **DO**: Mix serif and monospace fonts aggressively.
 - **DON'T**: Add drop shadows, gradients, or rounded corners. The design must look raw and unstyled.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

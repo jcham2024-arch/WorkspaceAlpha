@@ -1,70 +1,46 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "0d0aa4e973efaad11b2bd0a2e8c7be7a64d83b4f00bb7a0eff26e7ba4c896824"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: seo-fundamentals
+content_hash: 0d0aa4e973efaad11b2bd0a2e8c7be7a64d83b4f00bb7a0eff26e7ba4c896824
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Core principles of SEO including E-E-A-T, Core Web Vitals, technical foundations, content quality, and how modern search engines evaluate pages.
-tier: "experimental"
+name: seo-fundamentals
 risk: safe
 source: community
-date_added: '2026-02-27'
 ---
-
-
 # SEO Fundamentals
-
 > **Foundational principles for sustainable search visibility.**
 > This skill explains _how search engines evaluate quality_, not tactical shortcuts.
-
 ---
-
 ## 1. E-E-A-T (Quality Evaluation Framework)
-
 E-E-A-T is **not a direct ranking factor**.
 It is a framework used by search engines to **evaluate content quality**, especially for sensitive or high-impact topics.
-
 | Dimension             | What It Represents                 | Common Signals                                      |
 | --------------------- | ---------------------------------- | --------------------------------------------------- |
 | **Experience**        | First-hand, real-world involvement | Original examples, lived experience, demonstrations |
 | **Expertise**         | Subject-matter competence          | Credentials, depth, accuracy                        |
 | **Authoritativeness** | Recognition by others              | Mentions, citations, links                          |
 | **Trustworthiness**   | Reliability and safety             | HTTPS, transparency, accuracy                       |
-
 > Pages competing in the same space are often differentiated by **trust and experience**, not keywords.
-
 ---
-
 ## 2. Core Web Vitals (Page Experience Signals)
-
 Core Web Vitals measure **how users experience a page**, not whether it deserves to rank.
-
 | Metric  | Target  | What It Reflects    |
 | ------- | ------- | ------------------- |
 | **LCP** | < 2.5s  | Loading performance |
 | **INP** | < 200ms | Interactivity       |
 | **CLS** | < 0.1   | Visual stability    |
-
 **Important context:**
-
 - CWV rarely override poor content
 - They matter most when content quality is comparable
 - Failing CWV can _hold back_ otherwise good pages
-
 ---
-
 ## 3. Technical SEO Principles
-
 Technical SEO ensures pages are **accessible, understandable, and stable**.
-
 ### Crawl & Index Control
-
 | Element           | Purpose                |
 | ----------------- | ---------------------- |
 | XML sitemaps      | Help discovery         |
@@ -72,22 +48,16 @@ Technical SEO ensures pages are **accessible, understandable, and stable**.
 | Canonical tags    | Consolidate duplicates |
 | HTTP status codes | Communicate page state |
 | HTTPS             | Security and trust     |
-
 ### Performance & Accessibility
-
 | Factor                 | Why It Matters                |
 | ---------------------- | ----------------------------- |
 | Page speed             | User satisfaction             |
 | Mobile-friendly design | Mobile-first indexing         |
 | Clean URLs             | Crawl clarity                 |
 | Semantic HTML          | Accessibility & understanding |
-
 ---
-
 ## 4. Content SEO Principles
-
 ### Page-Level Elements
-
 | Element          | Principle                    |
 | ---------------- | ---------------------------- |
 | Title tag        | Clear topic + intent         |
@@ -95,9 +65,7 @@ Technical SEO ensures pages are **accessible, understandable, and stable**.
 | H1               | Page’s primary subject       |
 | Headings         | Logical structure            |
 | Alt text         | Accessibility and context    |
-
 ### Content Quality Signals
-
 | Dimension   | What Search Engines Look For |
 | ----------- | ---------------------------- |
 | Depth       | Fully answers the query      |
@@ -105,13 +73,9 @@ Technical SEO ensures pages are **accessible, understandable, and stable**.
 | Accuracy    | Factually correct            |
 | Clarity     | Easy to understand           |
 | Usefulness  | Satisfies intent             |
-
 ---
-
 ## 5. Structured Data (Schema)
-
 Structured data helps search engines **understand meaning**, not boost rankings directly.
-
 | Type           | Purpose                |
 | -------------- | ---------------------- |
 | Article        | Content classification |
@@ -121,36 +85,24 @@ Structured data helps search engines **understand meaning**, not boost rankings 
 | Product        | Commerce details       |
 | Review         | Ratings context        |
 | BreadcrumbList | Site structure         |
-
 > Only currently supported Google structured-data features create rich-result eligibility; FAQ rich results were retired in May 2026. Generic schema vocabulary alone does not create eligibility.
-
 ---
-
 ## 6. AI-Assisted Content Principles
-
 Search engines evaluate **output quality**, not authorship method.
-
 ### Effective Use
-
 - AI as a drafting or research assistant
 - Human review for accuracy and clarity
 - Original insights and synthesis
 - Clear accountability
-
 ### Risky Use
-
 - Publishing unedited AI output
 - Factual errors or hallucinations
 - Thin or duplicated content
 - Keyword-driven text with no value
-
 ---
-
 ## 7. Relative Importance of SEO Factors
-
 There is **no fixed ranking factor order**.
 However, when competing pages are similar, importance tends to follow this pattern:
-
 | Relative Weight | Factor                      |
 | --------------- | --------------------------- |
 | Highest         | Content relevance & quality |
@@ -158,15 +110,10 @@ However, when competing pages are similar, importance tends to follow this patte
 | Medium          | Page experience (CWV, UX)   |
 | Medium          | Mobile optimization         |
 | Baseline        | Technical accessibility     |
-
 > Technical SEO enables ranking; content quality earns it.
-
 ---
-
 ## 8. Measurement & Evaluation
-
 SEO fundamentals should be validated using **multiple signals**, not single metrics.
-
 | Area        | What to Observe            |
 | ----------- | -------------------------- |
 | Visibility  | Indexed pages, impressions |
@@ -174,24 +121,16 @@ SEO fundamentals should be validated using **multiple signals**, not single metr
 | Performance | CWV field data             |
 | Coverage    | Indexing status            |
 | Authority   | Mentions and links         |
-
 ---
-
 > **Key Principle:**
 > Sustainable SEO is built on _useful content_, _technical clarity_, and _trust over time_.
 > There are no permanent shortcuts.
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Example
-
 **User request:**
-
 > Review this campaign asset with @seo-fundamentals, identify the main conversion problem, and produce an improved version grounded in the available evidence.
-
 The bundled seo_checker.py is an advisory source-text heuristic, limited to 50 candidate files. It cannot resolve rendered/framework metadata or certify indexability, ranking or accessibility. Empty alt text can correctly mark decorative images. A no-file result is not a passed audit. Validate findings against rendered pages and current primary search documentation.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

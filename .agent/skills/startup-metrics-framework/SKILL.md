@@ -1,48 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "ede203dd0d0c0d64df2883053dd93b06fb4eb2b78e7063f20c823b1b94b79ee4"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: ede203dd0d0c0d64df2883053dd93b06fb4eb2b78e7063f20c823b1b94b79ee4
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Comprehensive guide to tracking, calculating, and optimizing key performance metrics for different startup business models from seed through Series A.
 name: startup-metrics-framework
-description: "Comprehensive guide to tracking, calculating, and optimizing key performance metrics for different startup business models from seed through Series A."
-tier: "experimental"
 risk: safe
 source: community
-date_added: '2026-02-27'
 ---
-
-
 # Startup Metrics Framework
-
 Comprehensive guide to tracking, calculating, and optimizing key performance metrics for different startup business models from seed through Series A.
-
 ## Use this skill when
-
 - Working on startup metrics framework tasks or workflows
 - Needing guidance, best practices, or checklists for startup metrics framework
-
 ## Do not use this skill when
-
 - The task is unrelated to startup metrics framework
 - You need a different domain or tool outside this scope
-
 ## Instructions
-
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
 - If detailed examples are required, open `resources/implementation-playbook.md`.
-
 ## Resources
-
 - `resources/implementation-playbook.md` for detailed patterns and examples.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

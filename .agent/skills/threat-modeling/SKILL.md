@@ -1,42 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "94723d58b1f97d6cb5defc2e314b52270d1de36d3f605198aa32e2865adac3bc"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: threat-modeling
-description: Conduct threat modeling using STRIDE methodology. Identify threats, assess
-tier: "experimental"
-  risks, and design security controls. Use when designing secure systems or assessing
-  application security.
-category: security
+content_hash: 94723d58b1f97d6cb5defc2e314b52270d1de36d3f605198aa32e2865adac3bc
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
+category: Elevation of Privilege
+compatibility: Requires the relevant security tooling (scanners, vault CLIs) and an
+date_added: 2026-09-20
+description: Personal data written to application or infrastructure logs
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: PII exposure in logs
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant security tooling (scanners, vault CLIs) and an
+version: 1.0
+---  risks, and design security controls. Use when designing secure systems or assessing
+  application security.
   authorized scope for any active assessment. Docs-only; helper scripts and templates
   not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # Threat Modeling
-
 Identify and mitigate security threats during system design.
-
 ## When to Use This Skill
-
 Use this skill when:
 - Designing a new system, service, or feature
 - Making significant architectural changes to existing systems
@@ -44,17 +33,13 @@ Use this skill when:
 - Preparing for security audits or compliance reviews
 - Responding to a security incident to improve defenses
 - Reviewing infrastructure changes that affect trust boundaries
-
 ## Prerequisites
-
 - System architecture documentation or design diagrams
 - Access to development and operations teams for context
 - Understanding of the system's data classification (PII, PHI, financial, etc.)
 - OWASP Threat Dragon or Microsoft Threat Modeling Tool (optional but helpful)
 - Whiteboard or diagramming tool for collaborative sessions
-
 ## STRIDE Methodology
-
 | Threat | Description | Property Violated | Mitigation Examples |
 |--------|-------------|-------------------|---------------------|
 | **S**poofing | Pretending to be another user or system | Authentication | MFA, mTLS, API key validation, certificate pinning |
@@ -63,21 +48,14 @@ Use this skill when:
 | **I**nformation Disclosure | Exposing data to unauthorized parties | Confidentiality | Encryption (TLS, AES), access controls, data masking |
 | **D**enial of Service | Making service unavailable | Availability | Rate limiting, autoscaling, CDN, circuit breakers |
 | **E**levation of Privilege | Gaining unauthorized higher access | Authorization | RBAC, principle of least privilege, input validation |
-
 ## STRIDE Worksheet Template
-
 ```yaml
 # stride-worksheet.yaml - Fill out one per component/trust boundary crossing
 component:
-  name: "API Gateway"
-  owner: "Platform Team"
   data_classification: "Confidential"
   trust_boundary: "External -> Internal"
-
 threats:
   - id: T001
-    category: Spoofing
-    description: "Attacker forges JWT tokens to impersonate users"
     attack_vector: "Stolen signing key or weak algorithm (HS256 with guessable secret)"
     likelihood: Medium
     impact: Critical
@@ -92,11 +70,8 @@ threats:
       - "Implement short-lived tokens (15 min) with refresh"
       - "Monitor for token reuse from different IPs"
     status: "Mitigated (partial)"
-    owner: "Auth Team"
 
   - id: T002
-    category: Tampering
-    description: "Man-in-the-middle modifies API requests"
     attack_vector: "Compromised network between client and gateway"
     likelihood: Low
     impact: High
@@ -108,11 +83,8 @@ threats:
     recommended_mitigations:
       - "Certificate pinning for mobile clients"
     status: "Mitigated"
-    owner: "Platform Team"
 
   - id: T003
-    category: Information Disclosure
-    description: "Verbose error messages leak internal details"
     attack_vector: "Triggering errors returns stack traces, internal IPs, DB schema"
     likelihood: High
     impact: Medium
@@ -125,11 +97,8 @@ threats:
       - "Centralized error handling middleware"
       - "Error response schema validation"
     status: "Open"
-    owner: "Backend Team"
 
   - id: T004
-    category: Denial of Service
-    description: "API rate limiting bypass through distributed requests"
     attack_vector: "Botnet sending requests below per-IP threshold"
     likelihood: Medium
     impact: High
@@ -144,11 +113,8 @@ threats:
       - "Deploy bot detection (Cloudflare Bot Management)"
       - "Implement circuit breaker pattern"
     status: "Open"
-    owner: "Platform Team"
 
   - id: T005
-    category: Elevation of Privilege
-    description: "IDOR allows accessing other users' data"
     attack_vector: "Manipulating resource IDs in API calls"
     likelihood: Medium
     impact: Critical
@@ -162,13 +128,9 @@ threats:
       - "Opaque IDs reduce guessing but never replace object-level authorization"
       - "Add authorization integration tests"
     status: "Open"
-    owner: "Backend Team"
 ```
-
 ## Data Flow Diagram
-
 ### Text-Based DFD Notation
-
 ```
                     Trust Boundary: Internet
                     ==========================
@@ -203,16 +165,13 @@ threats:
                            [Primary DB]--->[Replica DB]
                                   |
                            [Object Store]
-
 Legend:
   [Box]     = Process
   (Parens)  = External entity / proxy
   ====      = Trust boundary
   --->      = Data flow
 ```
-
 ### Threat Model Concept Sketch (JSON; not an importable Threat Dragon model)
-
 ```json
 {
   "summary": {
@@ -260,81 +219,47 @@ Legend:
   }
 }
 ```
-
 ## Threat Library
-
 ```yaml
 # threat-library.yaml - Reusable threat patterns
 categories:
   authentication:
     - id: TL-AUTH-001
-      name: "Credential stuffing"
-      description: "Attacker uses leaked credential databases to attempt logins"
       applicable_to: ["login endpoints", "API authentication"]
       mitigations: ["MFA", "rate limiting", "credential breach monitoring", "CAPTCHA"]
-
     - id: TL-AUTH-002
-      name: "Session hijacking"
-      description: "Attacker steals session tokens via XSS or network sniffing"
       applicable_to: ["web applications", "APIs with session tokens"]
       mitigations: ["HttpOnly cookies", "TLS", "session binding", "short TTL"]
-
     - id: TL-AUTH-003
-      name: "OAuth token theft"
-      description: "Access tokens stolen from logs, URLs, or insecure storage"
       applicable_to: ["OAuth/OIDC integrations"]
       mitigations: ["PKCE", "short-lived tokens", "token binding", "secure storage"]
-
   injection:
     - id: TL-INJ-001
-      name: "SQL injection"
-      description: "Malicious SQL in user input executes unauthorized queries"
       applicable_to: ["database-backed endpoints", "search functionality"]
       mitigations: ["parameterized queries", "ORM", "input validation", "WAF"]
-
     - id: TL-INJ-002
-      name: "Command injection"
-      description: "User input passed to system commands without sanitization"
       applicable_to: ["file processing", "system administration features"]
       mitigations: ["avoid shell commands", "input allowlisting", "sandboxing"]
-
     - id: TL-INJ-003
-      name: "SSRF (Server-Side Request Forgery)"
-      description: "Attacker makes server send requests to internal resources"
       applicable_to: ["URL fetching features", "webhook handlers", "PDF generators"]
       mitigations: ["URL allowlisting", "network segmentation", "metadata endpoint blocking"]
-
   supply_chain:
     - id: TL-SC-001
-      name: "Dependency confusion"
-      description: "Malicious package with internal name published to public registry"
       applicable_to: ["npm, pip, maven projects using private packages"]
       mitigations: ["namespace scoping", "registry prioritization", "SBOM monitoring"]
-
     - id: TL-SC-002
-      name: "Compromised CI/CD pipeline"
-      description: "Attacker injects malicious code through build system compromise"
       applicable_to: ["all software builds"]
       mitigations: ["SLSA compliance", "signed commits", "ephemeral builders", "provenance"]
-
   data:
     - id: TL-DATA-001
-      name: "Unencrypted data at rest"
-      description: "Sensitive data stored without encryption on disk or in database"
       applicable_to: ["databases", "object storage", "backups"]
       mitigations: ["AES-256 encryption", "KMS-managed keys", "encrypted volumes"]
-
     - id: TL-DATA-002
-      name: "PII exposure in logs"
-      description: "Personal data written to application or infrastructure logs"
       applicable_to: ["all services handling PII"]
       mitigations: ["log sanitization", "structured logging", "PII detection scanning"]
 ```
-
 ## Risk Scoring Matrix
-
 ### Likelihood Rating
-
 | Score | Level | Description |
 |-------|-------|-------------|
 | 1 | Very Low | Requires nation-state resources; no known exploits |
@@ -342,9 +267,7 @@ categories:
 | 3 | Medium | Moderately skilled attacker with available tools |
 | 4 | High | Script-kiddie level; public exploits available |
 | 5 | Very High | Trivial to exploit; automated scanning detects it |
-
 ### Impact Rating
-
 | Score | Level | Description |
 |-------|-------|-------------|
 | 1 | Negligible | No data exposure; cosmetic only |
@@ -352,9 +275,7 @@ categories:
 | 3 | Moderate | Significant data exposure; service degradation |
 | 4 | Major | Large-scale data breach; extended outage |
 | 5 | Critical | Complete system compromise; regulatory breach |
-
 ### Risk Matrix
-
 ```
 Impact ->     1        2        3        4        5
 Likelihood
@@ -364,9 +285,7 @@ Likelihood
     2      Info      Low      Low    Medium   High
     1      Info     Info      Low     Low    Medium
 ```
-
 ### Risk Treatment Decisions
-
 ```yaml
 risk_treatment:
   critical:  # Score >= 20
@@ -390,15 +309,12 @@ risk_treatment:
     sla: "None"
     approval: "Team Lead"
 ```
-
 ## Tool setup and review automation
-
 Use the version-matched [Threat Dragon documentation](https://www.threatdragon.com/)
 and verified official release artifacts for local installation. Bind any web
 interface to loopback; supply private generated configuration secrets through an
 approved secret mechanism. The worksheet and JSON above are conceptual inputs,
 not a complete Threat Dragon import schema or container configuration.
-
 For CI, use a trusted parser implementation with a pinned YAML dependency and
 read-only token. Discover model files with a safe file API rather than interpolating
 filenames into Python source. Validate object/list types, unique threat IDs, numeric
@@ -408,9 +324,7 @@ score from the same parsed threat record: grepping separate YAML lines cannot
 associate them. Publish only aggregate counts; threat descriptions and model files
 may expose internal architecture. Required human review must be enforced by branch
 policy, not a warning-only shell exit. Do not execute embedded model contents.
-
 ## Troubleshooting
-
 | Problem | Cause | Solution |
 |---------|-------|----------|
 | Threat model sessions are unproductive | Participants don't understand the system | Share architecture docs before the session; include a system walkthrough |
@@ -419,9 +333,7 @@ policy, not a warning-only shell exit. Do not execute embedded model contents.
 | Team doesn't follow up on findings | No ownership or tracking | Assign each threat to a team with SLA; track in issue tracker |
 | Threat model becomes stale | No trigger to update | Require review on architecture changes (CI/CD gate on diagram changes) |
 | Disagreements on risk scores | Subjective scoring | Use the scoring matrix consistently; calibrate with historical incidents |
-
 ## Best Practices
-
 - Integrate threat modeling into the SDLC at the design phase
 - Review threat models when architecture changes occur
 - Include developers, ops, and security in sessions
@@ -432,27 +344,18 @@ policy, not a warning-only shell exit. Do not execute embedded model contents.
 - Start with the most critical data flows and expand
 - Keep sessions timeboxed (90 minutes maximum)
 - Maintain a living threat library updated with new patterns
-
 ## Related Skills
-
 - sast-scanning (`sast-scanning`) - Code analysis
 - penetration-testing (`penetration-testing`) - Validation of threat model findings
 - incident-response (`incident-response`) - Response when threats materialize
-
 ## Limitations
-
 - Apply guidance only within authorized scope; test destructive steps in non-production first.
 - Docs-only import: upstream scripts and templates not bundled.
-
 ### Example
-
 ```bash
 # Read-only first: inventory before any active step.
 which <tool> && <tool> --help | head -n 20
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.
-
 ## Scoring and control limitations
-
 Use one agreed numeric scale (likelihood and impact 1–5, product 1–25); the qualitative matrix and remediation dates are illustrative policy suggestions and must be reconciled before use. Worksheet likelihood labels are not consistently the matrix labels; explicitly map them before calculating scores. A claim of mitigation needs evidence and residual risk/acceptance owner, not a status field. TLS/HSTS, signatures and audit logs address different properties; plain checksums do not resist an attacker who can replace both data and checksum, and logs alone do not establish legal non-repudiation. PKCE protects authorization-code exchange, not an already stolen bearer access token. Include repudiation threats as well as all other STRIDE categories, assets, trust boundaries and abuse cases; a tool diagram or a sample risk score is not an exhaustive assessment.

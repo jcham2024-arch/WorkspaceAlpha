@@ -1,44 +1,30 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "704741bb8d32f4afe6c6b4b758066f7f9dda8ff56fcb1c40022ebaccf96feba6"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: returns-reverse-logistics
+content_hash: 704741bb8d32f4afe6c6b4b758066f7f9dda8ff56fcb1c40022ebaccf96feba6
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Codified expertise for returns authorisation, receipt and inspection, disposition decisions, refund processing, fraud detection, and warranty claims management.
-tier: "experimental"
+name: returns-reverse-logistics
 risk: safe
-source: https://github.com/ai-evos/agent-skills
-date_added: '2026-02-27'
+source: "https://github.com/ai-evos/agent-skills"
 ---
-
-
 # Returns & Reverse Logistics
-
 ## When to Use
-
 Use for drafting return authorisation, receiving, inspection, disposition, refund,
 fraud-review, vendor recovery and warranty workflows across retail channels.
-
 ## Operating Boundaries
-
 Act as an operations planning assistant. Obtain the merchant, product/category,
 jurisdiction, purchase/delivery dates, applicable policy version, contract and
 requested remedy. Distinguish voluntary change-of-mind policies from statutory
 consumer remedies, manufacturer warranties and service contracts. A merchant's
 30-day window, packaging rule or score cannot extinguish statutory rights.
-
 Draft recommendations and communications; do not issue refunds, deny claims,
 change inventory, debit vendors, contact customers or purchase shipping without
 task-specific authority. Preserve the upstream attribution in frontmatter.
-
 ## Workflow
-
 1. Match the order and actual amount paid, including discounts, tax, freight,
    previous refunds and any active payment dispute. Use approved masked lookup;
    do not collect full card numbers or identity documents by default.
@@ -63,9 +49,7 @@ task-specific authority. Preserve the upstream attribution in frontmatter.
 8. Submit vendor claims only under the actual agreement, preserving evidence,
    authorisations, claim windows and credit reconciliation. Do not offset an
    invoice or next purchase order unilaterally.
-
 ## Decision Rules
-
 - A fraud signal requests an evidence-based human review; it is not a finding of
   fraud or automatic authority to delay a refund. Avoid uncalibrated additive
   scores, correlated-signal double counting and self-reinforcing prior flags.
@@ -82,40 +66,30 @@ task-specific authority. Preserve the upstream attribution in frontmatter.
 - Returnless refunds compare the net recovery from taking back the goods with
   their incremental collection/handling costs. They must also satisfy safety,
   recall, evidence and customer-rights requirements; no universal price threshold.
-
 ## Example
-
 Assume the same $80 refund in both options. A safe returned product could yield
 $30 net sales proceeds before collection, with $12 freight and $8 inspection.
 Taking it back adds $10 ($30 - $12 - $8) versus a returnless refund. If proceeds
 were $15, it would add a $5 loss. The original product cost and common refund
 cancel in this comparison; do not count them twice. Actual policy, fraud evidence
 and safety constraints may still determine the route.
-
 ## Required Output
-
 Provide an order/units reconciliation, applicable policy and remedy, deadlines,
 inspection evidence, approved disposition with net economics, refund calculation,
 owner/approval status and draft customer message. Label unverified assumptions
 and unresolved compliance questions. Confirm an action only from system evidence.
-
 ## Metrics
-
 Use comparable cohorts and explicit denominators: returned units / delivered units
 for a stated cohort and horizon; legitimate returns flagged / all legitimate
 returns for false-positive rate; confirmed fraud detected / all confirmed fraud
 for recall, only where ground truth is available. Report sample size, unresolved
 cases and reporting lag. Separate predicted from realised recovery and customer
 revenue from contribution profit. Set local targets from measured operations.
-
 ## References
-
 - [Decision frameworks](references/decision-frameworks.md)
 - [Twenty edge cases](references/edge-cases.md)
 - [Draft communication templates](references/communication-templates.md)
-
 ## Limitations
-
 This is planning guidance, not a jurisdiction-specific legal determination,
 carrier approval, tax calculation, safety inspection or sanitisation certificate.
 No merchant integration or current policy database is bundled. Verify applicable

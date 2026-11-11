@@ -1,63 +1,48 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "26377fabef109e1c27b1f4b6de01cda365581a8c296899fb5fe852b1ffc9978d"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 26377fabef109e1c27b1f4b6de01cda365581a8c296899fb5fe852b1ffc9978d
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-05
+description: Smart change detection, auto branch naming, and streamlined commit/PR workflow
+license: MIT
+license_source: ""https://github.com/mskadu/opencode-agent-skills/blob/main/LICENSE""
 name: smart-git-automation
-version: 1.0.0
-description: "Smart change detection, auto branch naming, and streamlined commit/PR workflow"
-tier: "experimental"
 risk: critical
 source: community
-source_type: community
 source_repo: mskadu/opencode-agent-skills
-license: MIT
-license_source: "https://github.com/mskadu/opencode-agent-skills/blob/main/LICENSE"
-date_added: "2026-06-05"
+source_type: community
+version: 1.0.0
 ---
-
-
 ## What I do
 - Intelligently detect and group related changes
 - Auto-generate descriptive branch names from changes
 - Streamlined workflow: scan → branch → commit → push → PR with fewer prompts
-
 ## When to Use
 Use this when you want a faster, smarter git workflow that groups changes logically and reduces manual confirmation overhead.
-
 Before grouping, preserve existing staged changes and read repository instructions. Inspect full unstaged/staged diffs and untracked files, not just names/stats; file grouping is advisory and must not absorb unrelated user work. Use the repository branch prefix/template and required checks. For forks, distinguish the upstream PR base from the fork head/remote; verify owner/repo and full head SHA before creation. An amend rewrites history and is not implied by a routine commit request.
-
 ## Workflow Steps
-
 ### 1. Smart Detection & Grouping
 Run in parallel:
 - `git status` - check what's changed
 - `git diff --stat` - see file modification summary
 - `git diff --name-only` - list changed files only
 - `git diff --staged --stat` - see what's already staged
-
 Analyze changes to group them logically:
 - Files in the same module/directory → likely related
 - Files that were modified together in recent edits → likely related
 - New files that complement each other → likely related
-
 Present grouped changes in a clear format, e.g.:
 ```
 📁 Group 1: UI Components
   - src/components/Button.tsx (modified)
   - src/components/Button.test.tsx (modified)
-
 📁 Group 2: API Layer
   - src/api/client.ts (new)
   - src/api/types.ts (modified)
 ```
-
 ### 2. Auto Branch Name Generation
 Generate branch name from dominant change pattern:
 - Use format: `<type>/<short-description>`
@@ -68,9 +53,7 @@ Generate branch name from dominant change pattern:
   - `feature/add-user-auth` (from auth-related files)
   - `fix/login-validation` (from validation changes)
   - `refactor/api-cleanup` (from API refactoring)
-
 Show the proposed branch name and ask for one-word confirmation (or type alternative).
-
 ### 3. Streamlined Branch & Commit
 - If not on main/master: check if current branch matches proposed name
   - If yes: stay on it
@@ -84,7 +67,6 @@ Show the proposed branch name and ask for one-word confirmation (or type alterna
   - Body: grouped file changes with brief descriptions
 - Commit with generated message, show preview first
 - Ask for one-word confirmation to proceed
-
 ### 4. Push & Optional PR
 - After commit, ask: "Push to remote? (yes/no/abort)"
 - If yes: `git push -u origin <branch-name>`
@@ -96,7 +78,6 @@ Show the proposed branch name and ask for one-word confirmation (or type alterna
   - Use `gh pr create` with:
     - Title from branch name
     - Body: summary of changes + file breakdown + follow-up notes
-
 ## Key Rules
 - Group related files automatically, but allow user to adjust
 - Generate branch names from actual changes, don't ask user to name them
@@ -105,8 +86,6 @@ Show the proposed branch name and ask for one-word confirmation (or type alterna
 - Check if GitHub repo exists before PR creation
 - Skip PR step if user says "no" at any point
 - If branch already exists with changes, offer to amend or add new commit
-
 ## Limitations
-
 - Do not bypass repository-specific maintainer rules, branch policies, or required review gates.
 - Confirm destructive or publishing actions explicitly; this skill should streamline routine Git flow, not remove accountability.

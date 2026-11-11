@@ -1,53 +1,37 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "9db2f459f245b91b5103bf30c3e3371feeadd5a3e5b95b734eff778e68f0166b"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: minimalist-ui
-description: "Use when creating clean editorial interfaces with warm monochrome palettes, crisp borders, restrained motion, and flat bento layouts."
-tier: "experimental"
+content_hash: 9db2f459f245b91b5103bf30c3e3371feeadd5a3e5b95b734eff778e68f0166b
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: Leonxlnx
 category: frontend
+date_added: 2026-04-17
+description: Use when creating clean editorial interfaces with warm monochrome palettes, crisp borders, restrained motion, and flat bento layouts.
+name: minimalist-ui
 risk: safe
 source: community
 source_repo: Leonxlnx/taste-skill
 source_type: community
-date_added: "2026-04-17"
-author: Leonxlnx
-tags: [frontend, design, minimalism, ui]
-tools: [claude, cursor, codex, antigravity]
+tags: "[frontend, design, minimalism, ui]"
+tools: "[claude, cursor, codex, antigravity]"
 ---
-
 # Protocol: Premium Utilitarian Minimalism UI Architect
-
 ## When to Use
-
 - Use when the user wants a refined minimalist UI inspired by tools like Notion, Linear, or editorial workspace products.
 - Use when designing warm monochrome interfaces with crisp borders, generous whitespace, muted pastel accents, and quiet motion.
 - Use when the task should avoid gradients, heavy shadows, saturated colors, pill-heavy components, and generic SaaS visuals.
-
 ## Example
-
 **User request:**
-
 > Review this interface with @minimalist-ui, identify the highest-impact design problems, and propose an implementation-ready improvement.
-
 ## Limitations
-
 - Minimalism can hide hierarchy when content is dense; validate scannability, contrast, and navigation clarity with real content.
 - This skill assumes the product can support restrained palettes and typography-led layouts; do not override an established brand system without cause.
 - Subtle motion and flat surfaces still need responsive, keyboard, and screen-reader verification in the target project.
-
-
 ## 1. Protocol Overview
 Name: Premium Utilitarian Minimalism & Editorial UI
 Description: An advanced frontend engineering directive for generating highly refined, ultra-minimalist, "document-style" web interfaces analogous to top-tier workspace platforms. This protocol strictly enforces a high-contrast warm monochrome palette, bespoke typographic hierarchies, meticulous structural macro-whitespace, bento-grid layouts, and an ultra-flat component architecture with deliberate muted pastel accents. It actively rejects standard generic SaaS design trends.
-
 ## 2. Absolute Negative Constraints (Banned Elements)
 The AI must strictly avoid the following generic web development defaults:
 - DO NOT use the "Inter", "Roboto", or "Open Sans" typefaces.
@@ -59,14 +43,12 @@ The AI must strictly avoid the following generic web development defaults:
 - DO NOT use emojis anywhere in code, markup, text content, headings, or alt text. Replace with proper icons or clean SVG primitives.
 - DO NOT use generic placeholder names like "John Doe", "Acme Corp", or "Lorem Ipsum". Use realistic, contextual content.
 - DO NOT use AI copywriting clichés: "Elevate", "Seamless", "Unleash", "Next-Gen", "Game-changer", "Delve". Write plain, specific language.
-
 ## 3. Typographic Architecture
 The interface must rely on extreme typographic contrast and premium font selection to establish an editorial feel.
 - Primary Sans-Serif (Body, UI, Buttons): Use clean, geometric, or system-native fonts with character. Target: `font-family: 'SF Pro Display', 'Geist Sans', 'Helvetica Neue', 'Switzer', sans-serif`.
 - Editorial Serif (Hero Headings & Quotes): Target: `font-family: 'Lyon Text', 'Newsreader', 'Playfair Display', 'Instrument Serif', serif`. Apply tight tracking (`letter-spacing: -0.02em` to `-0.04em`) and tight line-height (`1.1`).
 - Monospace (Code, Keystrokes, Meta-data): Target: `font-family: 'Geist Mono', 'SF Mono', 'JetBrains Mono', monospace`.
 - Text Colors: Body text must never be absolute black (`#000000`). Use off-black/charcoal (`#111111` or `#2F3437`) with a generous `line-height` of `1.6` for legibility. Secondary text should be muted gray (`#787774`).
-
 ## 4. Color Palette (Warm Monochrome + Spot Pastels)
 Color is a scarce resource, utilized only for semantic meaning or subtle accents.
 - Canvas / Background: Pure White `#FFFFFF` or Warm Bone/Off-White `#F7F6F3` / `#FBFBFA`.
@@ -77,7 +59,6 @@ Color is a scarce resource, utilized only for semantic meaning or subtle accents
   - Pale Blue: `#E1F3FE` (Text: `#1F6C9F`)
   - Pale Green: `#EDF3EC` (Text: `#346538`)
   - Pale Yellow: `#FBF3DB` (Text: `#956400`)
-
 ## 5. Component Specifications
 - Bento Box Feature Grids:
   - Utilize asymmetrical CSS Grid layouts.
@@ -98,13 +79,11 @@ Color is a scarce resource, utilized only for semantic meaning or subtle accents
   - Render shortcuts as physical keys using `<kbd>` tags: `border: 1px solid #EAEAEA`, `border-radius: 4px`, `background: #F7F6F3`, using the Monospace font.
 - Faux-OS Window Chrome:
   - When mocking up software, wrap it in a minimalist container with a white top bar containing three small, light gray circles (replicating macOS window controls).
-
 ## 6. Iconography & Imagery Directives
 - System Icons: Use "Phosphor Icons (Bold or Fill weights)" or "Radix UI Icons" for a technical, slightly thicker-stroke aesthetic. Standardize stroke width across all icons.
 - Illustrations: Monochromatic, rough continuous-line ink sketches on a white background, featuring a single offset geometric shape filled with a muted pastel color.
 - Photography: Use high-quality, desaturated images with a warm tone. Apply subtle overlays (`opacity: 0.04` warm grain) to blend photos into the monochrome palette. Never use oversaturated stock photos. Use reliable placeholders like `https://picsum.photos/seed/{context}/1200/800` when real assets are unavailable.
 - Hero & Section Backgrounds: Sections should not feel empty and flat. Use subtle full-width background imagery at very low opacity, soft radial light spots (`radial-gradient` with warm tones at `opacity: 0.03`), or minimal geometric line patterns to add depth without breaking the clean aesthetic.
-
 ## 7. Subtle Motion & Micro-Animations
 Motion should feel invisible — present but never distracting. The goal is quiet sophistication, not spectacle.
 - Scroll Entry: Elements fade in gently as they enter the viewport. Use `translateY(12px)` + `opacity: 0` resolving over `600ms` with `cubic-bezier(0.16, 1, 0.3, 1)`. Use `IntersectionObserver`, never `window.addEventListener('scroll')`.
@@ -112,11 +91,8 @@ Motion should feel invisible — present but never distracting. The goal is quie
 - Staggered Reveals: Lists and grid items enter with a cascade delay (`animation-delay: calc(var(--index) * 80ms)`). Never mount everything at once.
 - Background Ambient Motion: Optional. A single, very slow-moving radial gradient blob (`animation-duration: 20s+`, `opacity: 0.02-0.04`) drifting behind hero sections. Must be applied to a `position: fixed; pointer-events: none` layer. Never on scrolling containers.
 - Performance: Animate exclusively via `transform` and `opacity`. No layout-triggering properties (`top`, `left`, `width`, `height`). Use `will-change: transform` sparingly and only on actively animating elements.
-
 ## Accessibility and content constraints
-
 Keep content visible when scripts/observers fail and provide a no-motion path for `prefers-reduced-motion`. Validate actual text/background contrast, focus indicators, semantic order and zoom with real content; pale borders alone cannot identify controls. Use authentic licensed assets or explicitly labeled placeholders—do not invent testimonials/customer identities to appear realistic. Existing user/brand/accessibility requirements supersede aesthetic bans.
-
 ## 8. Execution Protocol
 When tasked with writing frontend code (HTML, React, Tailwind, Vue) or designing a layout:
 1. Establish the macro-whitespace first. Use massive vertical padding between sections (e.g., `py-24` or `py-32` in Tailwind).

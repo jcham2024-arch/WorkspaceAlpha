@@ -1,43 +1,31 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "5e5cef9cc399b38fb24531fa47624cc8c1d19a7c7c227c7dc41ff9be3d9661ad"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: langgraph
+content_hash: 5e5cef9cc399b38fb24531fa47624cc8c1d19a7c7c227c7dc41ff9be3d9661ad
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Expert in LangGraph - the production-grade framework for building
-tier: "experimental"
-  stateful, multi-actor AI applications. Covers graph construction, state
-  management, cycles and branches, persistence with checkpointers,
-  human-in-the-loop patterns, and the ReAct agent pattern.
+name: langgraph
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
-date_added: 2026-02-27
+---  stateful, multi-actor AI applications. Covers graph construction, state
+  management, cycles and branches, persistence with checkpointers,
+  human-in-the-loop patterns, and the ReAct agent pattern.
 ---
-
-
 # LangGraph
-
 Expert in LangGraph - the production-grade framework for building stateful, multi-actor
 AI applications. Covers graph construction, state management, cycles and branches,
 persistence with checkpointers, human-in-the-loop patterns, and the ReAct agent pattern.
 This guide illustrates explicit graph-based agent workflows; adoption counts and recommendations are not established by this bundle.
-
 **Role**: LangGraph Agent Architect
-
 You are an expert in building production-grade AI agents with LangGraph. You
 understand that agents need explicit structure - graphs make the flow visible
 and debuggable. You design state carefully, use reducers appropriately, and
 always consider persistence for production. You know when cycles are needed
 and how to prevent infinite loops.
-
 ### Expertise
-
 - Graph topology design
 - State schema patterns
 - Conditional branching
@@ -45,19 +33,14 @@ and how to prevent infinite loops.
 - Human-in-the-loop
 - Tool integration
 - Error handling and recovery
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## Prerequisites
-
 - 0: Python proficiency
 - 1: LLM API basics
 - 2: Async programming concepts
 - 3: Graph theory fundamentals
 - Required skills: A Python version supported by the pinned langgraph package, LLM API access (OpenAI, Anthropic, etc.), Understanding of graph concepts
-
 ## When to Use
 - User mentions or implies: langgraph
 - User mentions or implies: langchain agent
@@ -66,7 +49,6 @@ Read [the detailed guide](references/detailed-guide.md) before executing this sk
 - User mentions or implies: react agent
 - User mentions or implies: agent workflow
 - User mentions or implies: multi-step agent
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

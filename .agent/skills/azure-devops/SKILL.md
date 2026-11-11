@@ -1,63 +1,46 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "7c158c99efc2760cdde7ef099d2b544775a464d9b086e8f4a481ffe821337eb2"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-devops
-description: Set up Azure Pipelines for CI/CD, configure build and release pipelines,
-tier: "experimental"
-  manage Azure DevOps projects, and integrate with Azure services.
+content_hash: 7c158c99efc2760cdde7ef099d2b544775a464d9b086e8f4a481ffe821337eb2
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+date_added: 2026-09-20
+description: Set up Azure Pipelines for CI/CD, configure build and release pipelines,
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: my-self-hosted-pool
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+tags: |
+version: 1.0
+---  manage Azure DevOps projects, and integrate with Azure services.
   CI runners) and authorized access to the target environment. Docs-only; helper scripts
   and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # Azure DevOps Pipelines
-
 Build, test, and deploy applications using Azure Pipelines with YAML or classic editor.
-
 ## When to Use This Skill
-
 Use this skill when:
 - Creating CI/CD pipelines in Azure DevOps
 - Configuring build and release stages
 - Managing Azure DevOps service connections
 - Deploying to Azure or other cloud platforms
 - Setting up multi-stage YAML pipelines
-
 ## Prerequisites
-
 - Azure DevOps organization and project
 - Service connections for target environments
 - Basic YAML understanding
 - Azure subscription (for Azure deployments)
-
 ## YAML Pipeline Structure
-
 These fragments require actual build outputs, deploy scripts, service connections and environment checks. Echoing “Deploying” is not a deployment. YAML PR triggers depend on repository provider; Azure Repos Git uses branch build-validation policy. Rolling deployment strategy applies to supported VM environment resources, not arbitrary web apps/Kubernetes. Pin supported runtime/agent versions and obtain the agent package from the current official download instructions with integrity verification; the archive URL below is historical. Keep untrusted PR code away from production credentials and persistent self-hosted agents.
-
 Create `azure-pipelines.yml` in repository root:
-
 ```yaml
-trigger:
   branches:
     include:
       - main
@@ -65,14 +48,11 @@ trigger:
   paths:
     include:
       - src/*
-
 pool:
   vmImage: 'ubuntu-latest'
-
 variables:
   buildConfiguration: 'Release'
   nodeVersion: '22.x'
-
 stages:
   - stage: Build
     jobs:
@@ -88,7 +68,6 @@ stages:
           # Adapt dist to the actual build output directory.
           - publish: $(Build.SourcesDirectory)/dist
             artifact: drop
-
   - stage: Deploy
     dependsOn: Build
     condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
@@ -101,26 +80,19 @@ stages:
               steps:
                 - script: echo Deploying to production
 ```
-
 ## Triggers
-
 ### Branch Triggers
-
 ```yaml
-trigger:
   branches:
     include:
       - main
       - release/*
     exclude:
       - feature/*
-  tags:
     include:
       - v*
 ```
-
 ### Pull Request Triggers
-
 ```yaml
 pr:
   branches:
@@ -132,9 +104,7 @@ pr:
     exclude:
       - docs/*
 ```
-
 ### Scheduled Triggers
-
 ```yaml
 schedules:
   - cron: '0 2 * * *'
@@ -144,11 +114,8 @@ schedules:
         - main
     always: true
 ```
-
 ## Jobs and Stages
-
 ### Parallel Jobs
-
 ```yaml
 stages:
   - stage: Test
@@ -158,16 +125,13 @@ stages:
           vmImage: 'ubuntu-latest'
         steps:
           - script: npm run test:unit
-      
       - job: IntegrationTests
         pool:
           vmImage: 'ubuntu-latest'
         steps:
           - script: npm run test:integration
 ```
-
 ### Matrix Strategy
-
 ```yaml
 jobs:
   - job: Build
@@ -184,9 +148,7 @@ jobs:
     steps:
       - script: npm test
 ```
-
 ### Job Dependencies
-
 ```yaml
 stages:
   - stage: Build
@@ -199,20 +161,15 @@ stages:
         steps:
           - script: echo Job B
 ```
-
 ## Variables and Parameters
-
 ### Variable Groups
-
 ```yaml
 variables:
   - group: 'production-secrets'
   - name: buildConfiguration
     value: 'Release'
 ```
-
 ### Runtime Parameters
-
 ```yaml
 parameters:
   - name: environment
@@ -223,7 +180,6 @@ parameters:
       - dev
       - staging
       - prod
-
 stages:
   - stage: Deploy
     variables:
@@ -233,14 +189,11 @@ stages:
         steps:
           - script: echo "Deploying to $(env)"
 ```
-
 ### Secret Variables
-
 ```yaml
 variables:
   - name: mySecret
     value: $(SECRET_FROM_PIPELINE)  # Set in pipeline settings
-
 steps:
   - script: |
       echo "Using secret"
@@ -248,17 +201,13 @@ steps:
     env:
       API_KEY: $(mySecret)
 ```
-
 ## Templates
-
 ### Job Template
-
 ```yaml
 # templates/build-job.yml
 parameters:
   - name: nodeVersion
     default: '20'
-
 jobs:
   - job: Build
     steps:
@@ -267,9 +216,7 @@ jobs:
           versionSpec: ${{ parameters.nodeVersion }}
       - script: npm ci && npm run build
 ```
-
 ### Using Templates
-
 ```yaml
 # azure-pipelines.yml
 stages:
@@ -279,9 +226,7 @@ stages:
         parameters:
           nodeVersion: '20'
 ```
-
 ### Stage Template
-
 ```yaml
 # templates/deploy-stage.yml
 parameters:
@@ -289,7 +234,6 @@ parameters:
     type: string
   - name: serviceConnection
     type: string
-
 stages:
   - stage: Deploy_${{ parameters.environment }}
     jobs:
@@ -304,11 +248,8 @@ stages:
                     azureSubscription: ${{ parameters.serviceConnection }}
                     appName: 'myapp-${{ parameters.environment }}'
 ```
-
 ## Deployments
-
 ### Environment Deployments
-
 ```yaml
 stages:
   - stage: DeployStaging
@@ -323,17 +264,13 @@ stages:
                   artifact: drop
                 - script: ./deploy.sh staging
 ```
-
 ### Approval Gates
-
 Configure in Azure DevOps UI:
 1. Go to Environments
 2. Select environment
 3. Add approval check
 4. Configure approvers
-
 ### Rolling Deployment
-
 ```yaml
 jobs:
   - deployment: Deploy
@@ -345,11 +282,8 @@ jobs:
           steps:
             - script: ./deploy.sh
 ```
-
 ## Azure Service Tasks
-
 ### Azure Web App Deployment
-
 ```yaml
 - task: AzureWebApp@1
   inputs:
@@ -358,9 +292,7 @@ jobs:
     appName: 'my-web-app'
     package: '$(Pipeline.Workspace)/drop/*.zip'
 ```
-
 ### Azure Container Apps
-
 ```yaml
 - task: AzureContainerApps@1
   inputs:
@@ -369,9 +301,7 @@ jobs:
     resourceGroup: 'my-rg'
     imageToDeploy: 'myregistry.azurecr.io/myapp:$(Build.BuildId)'
 ```
-
 ### Azure Kubernetes Service
-
 ```yaml
 - task: KubernetesManifest@0
   inputs:
@@ -384,9 +314,7 @@ jobs:
     containers: |
       myregistry.azurecr.io/myapp:$(Build.BuildId)
 ```
-
 ## Docker Builds
-
 ```yaml
 - task: Docker@2
   inputs:
@@ -394,56 +322,41 @@ jobs:
     repository: 'myapp'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
-    tags: |
       $(Build.BuildId)
       latest
 ```
-
 ## Self-Hosted Agents
-
 ### Install Agent
-
 ```bash
 # Download agent
 mkdir myagent && cd myagent
 curl -o vsts-agent.tar.gz https://vstsagentpackage.azureedge.net/agent/3.227.2/vsts-agent-linux-x64-3.227.2.tar.gz
 tar zxvf vsts-agent.tar.gz
-
 # Configure
 ./config.sh --url https://dev.azure.com/myorg --auth pat --pool default
 # Enter the PAT only in the interactive secret prompt; never in command arguments.
-
 # Run as service
 sudo ./svc.sh install
 sudo ./svc.sh start
 ```
-
 ### Use Self-Hosted Pool
-
 ```yaml
 pool:
-  name: 'my-self-hosted-pool'
   demands:
     - docker
     - Agent.OS -equals Linux
 ```
-
 ## Common Issues
-
 ### Issue: Service Connection Fails
 **Problem**: Cannot authenticate to Azure
 **Solution**: Verify service principal permissions, check connection in project settings
-
 ### Issue: Artifact Not Found
 **Problem**: Download artifact fails
 **Solution**: Ensure publish task ran successfully, check artifact name matches
-
 ### Issue: Environment Not Found
 **Problem**: Deployment to environment fails
 **Solution**: Create environment in Pipelines > Environments first
-
 ## Best Practices
-
 - Use YAML pipelines over classic editor
 - Implement templates for reusable components
 - Use variable groups for shared configuration
@@ -451,23 +364,16 @@ pool:
 - Use service connections with minimal permissions
 - Implement artifact versioning
 - Cache dependencies for faster builds
-
 ## Related Skills
-
 - github-actions (`github-actions`) - GitHub CI/CD alternative
 - terraform-azure (`terraform-azure`) - Azure IaC
 - azure-aks (`azure-aks`) - AKS deployments
-
 ## Limitations
-
 - Guidance executes against real environments: confirm target, blast radius, and rollback plan before applying anything.
 - Never deploy to production without explicit approval. Docs-only import: upstream scripts and templates not bundled.
-
 ### Example
-
 ```bash
 git status && git diff --stat
 kubectl diff -f manifest.yaml
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.

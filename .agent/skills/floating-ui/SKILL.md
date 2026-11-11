@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "01f1f3436600c3f56d598008c73ce9871498337de33b3ab5eefacf3c2d19d046"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: floating-ui
+content_hash: 01f1f3436600c3f56d598008c73ce9871498337de33b3ab5eefacf3c2d19d046
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Floating UI. Trigger when user wants detached cards, elevated components, and a light, airy feel.
-tier: "experimental"
-date_added: "2026-06-17"
+name: floating-ui
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Floating UI
-
 > "Defying gravity. Elements that hover effortlessly above the surface."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Detachment**: UI elements (like nav bars, sidebars, or main content cards) do not touch the edges of the screen. They float with margins on all sides.
 2. **Soft, Diffuse Shadows**: Large, highly blurred shadows directly beneath elements.
 3. **Pill Shapes & Rounds**: Fully rounded corners (pill shapes) enhance the floating, bubble-like aesthetic.
-
 ## Visual DNA
 - **Colors**: **Earth-Grounded Elegance** or **Minimalist Slate**. Use a slightly tinted background (off-white or very light gray) so the floating white elements pop.
 - **Typography**: Clean, airy sans-serifs with generous line height.
 - **Layout**: The "floating island" pattern for navigation (a pill-shaped nav bar centered at the bottom or top of the screen).
-
 ## Web Implementation
 - Focus on large margins and specific shadow styles.
 - **CSS Example**:
@@ -45,7 +32,6 @@ body {
   background-color: var(--bg-primary); /* e.g., #F4F4F9 */
   padding: 24px; /* Ensure nothing touches the edge */
 }
-
 .floating-nav {
   position: fixed;
   bottom: 32px;
@@ -54,14 +40,11 @@ body {
   background: white;
   border-radius: 50px; /* Pill shape */
   padding: 12px 32px;
-  
   /* Large, soft shadow */
   box-shadow: 0 16px 40px rgba(0,0,0,0.08);
-  
   display: flex;
   gap: 24px;
 }
-
 .floating-card {
   background: white;
   border-radius: 24px;
@@ -70,9 +53,7 @@ body {
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct FloatingUIView: View {
@@ -80,7 +61,6 @@ struct FloatingUIView: View {
         ZStack {
             // Very light background
             Color(red: 0.95, green: 0.95, blue: 0.97).ignoresSafeArea()
-            
             ScrollView {
                 VStack(spacing: 24) {
                     // Floating Content Card
@@ -100,7 +80,6 @@ struct FloatingUIView: View {
                 }
                 .padding(.top, 40)
             }
-            
             // Floating Pill Navigation
             VStack {
                 Spacer()
@@ -123,7 +102,6 @@ struct FloatingUIView: View {
 ```
 - A `.clipShape(Capsule())` with a massive `.shadow()` creates the perfect floating pill navigation bar.
 - Push the `.shadow(radius: ...)` up to 25 or 30 with a very low opacity (0.05) to get the soft, diffuse hover effect.
-
 ### Flutter
 ```dart
 class FloatingUIScreen extends StatelessWidget {
@@ -162,7 +140,6 @@ class FloatingUIScreen extends StatelessWidget {
               ),
             ],
           ),
-          
           // Floating Bottom Nav
           Align(
             alignment: Alignment.bottomCenter,
@@ -196,7 +173,6 @@ class FloatingUIScreen extends StatelessWidget {
 ```
 - Prefer a semantic navigation component where possible. A custom floating menu needs actual labeled buttons, selection state, safe-area insets and reserved scroll-content space so it does not cover content.
 - Use `blurRadius: 30` in `BoxShadow` for the diffuse look.
-
 ### React Native
 ```jsx
 const FloatingUIScreen = () => {
@@ -209,7 +185,6 @@ const FloatingUIScreen = () => {
           <Text style={{ color: '#666' }}>This card hovers above the background, detached from all edges.</Text>
         </View>
       </ScrollView>
-
       {/* Floating Pill Nav */}
       <View style={styles.floatingNav}>
         <Text style={{ fontSize: 20 }}>🏠</Text>
@@ -219,7 +194,6 @@ const FloatingUIScreen = () => {
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   floatingCard: {
     backgroundColor: '#FFF',
@@ -244,7 +218,6 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     paddingHorizontal: 32,
     gap: 40, // Needs RN 0.71+
-    
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.1,
@@ -255,7 +228,6 @@ const styles = StyleSheet.create({
 ```
 - `position: 'absolute'` with `alignSelf: 'center'` is the easiest way to place the pill nav in React Native.
 - Android's `elevation` doesn't support massive blur radii very well, so the effect is stronger and softer on iOS.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -281,7 +253,6 @@ fun FloatingUIScreen() {
                 }
             }
         }
-        
         // Floating Pill Nav
         Row(
             modifier = Modifier
@@ -301,11 +272,9 @@ fun FloatingUIScreen() {
 ```
 - Use `CircleShape` for the pill nav background.
 - Crucially, lower the `alpha` of the `spotColor` in `Modifier.shadow` to achieve the soft, diffuse shadow look, otherwise Compose defaults to a harsh, dark shadow.
-
 ## Do's and Don'ts
 - **DO**: Keep essential navigation stationary. Optional decorative motion must respect reduced-motion preferences.
 - **DON'T**: Pin elements to the screen edges (except perhaps background images).
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

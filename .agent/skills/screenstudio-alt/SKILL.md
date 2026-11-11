@@ -1,65 +1,50 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "f61c98b92b7b83550958f215a94a35b56e5b5dc11dddadf32285f6546220169d"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: f61c98b92b7b83550958f215a94a35b56e5b5dc11dddadf32285f6546220169d
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: Conner K Ward
+date_added: 2026-06-16
+description: ""Open-source headless Screen Studio alternative: auto speed-up of idle, auto-zoom on click clusters, keystroke overlay chips, smoothed synthetic cursor, and 9:16 vertical export that follows the action — post-production for screen recordings from the CLI.""
+docs: SKILL.md
+license: MIT
 name: screenstudio-alt
-description: "Open-source headless Screen Studio alternative: auto speed-up of idle, auto-zoom on click clusters, keystroke overlay chips, smoothed synthetic cursor, and 9:16 vertical export that follows the action — post-production for screen recordings from the CLI."
-tier: "experimental"
 risk: critical
 source: community
-source_type: community
 source_repo: connerkward/screenstudio-alternative-skill
-date_added: "2026-06-16"
-author: Conner K Ward
-license: MIT
-tags:
+source_type: community
   - screen-recording
   - video
   - post-production
   - auto-zoom
   - vertical-video
   - ffmpeg
-tools:
   - claude-code
   - antigravity
   - cursor
   - gemini-cli
   - codex-cli
-plugin:
+---plugin:
   targets:
     codex: blocked
     claude: blocked
   setup:
     type: manual
     summary: "Screen/input capture requires sensitive local permissions; keep out of plugin-safe bundles."
-    docs: SKILL.md
 ---
-
 ## When to Use
-
 Use when polishing a screen recording / demo video for sharing, when the user mentions Screen Studio, auto-zoom, idle speed-up, or vertical/social video from a screen capture, and for any social-facing demo (vertical output is the default for those).
-
 _Source: [connerkward/screenstudio-alternative-skill](https://github.com/connerkward/screenstudio-alternative-skill) (MIT)._
-
 # screenstudio-alt
-
 This AAS tree contains this guide only. The listed Python/Swift scripts, fixtures, shell wrappers and studio UI are not bundled. Obtain and review the exact upstream source/license revision before installing or invoking them; discover the actual paths and CLI options. The following describes upstream components, not tools this entry installed.
-
 Two components:
-
 - `events-log` (Swift) — capture-side input logger (cursor 60Hz, clicks, keys;
   drops keys during macOS secure input). Runs ONLY while recording. Needs
   Accessibility/Input Monitoring for the terminal. **Auto-zoom/keys/cursor need
   this data at capture time — it cannot be recovered from pixels later.**
 - `polish.py` (Python, ffmpeg + PIL) — the post-production pass:
-
 ```bash
 python3 src/polish.py in.mp4 --events in.events.jsonl \
   --speedup            # compress idle (input-gap ∩ frozen-pixels; animations stay 1x)
@@ -68,10 +53,8 @@ python3 src/polish.py in.mp4 --events in.events.jsonl \
   --smooth-cursor      # synthetic eased cursor (best with sck-record --no-cursor)
   --vertical           # ALSO emit 1080x1920 following the action
 ```
-
 `--speedup` works WITHOUT events (freezedetect only) — usable on the whole
 existing dailies corpus.
-
 - `render.py` — **high-quality non-destructive renderer** (preferred): single-pass
   spring-physics camera over the original high-res frames, LANCZOS into a smaller
   target (crisp zoom, ~1.3× sharper than the ffmpeg upscale path), 60fps, H + 9:16 V.
@@ -86,28 +69,20 @@ existing dailies corpus.
   aspect, frame styling. Always-smooth synthetic cursor + click ripple + real recorded
   click sound (CC0 #735771). Export uses render.py. Free port, local. (Keystroke overlay
   exists in the engine but is off by default.)
-
 ## Capture and output boundaries
-
 An existing screen recording does not authorize new screen/audio/input logging. Confirm the selected surfaces, duration and destination before capture; secure-input filtering is not a complete secret-redaction guarantee. Minimize/private-store event logs, review footage and overlays for sensitive content, and use new output files. Uploading or publishing requires the corresponding user authorization. Report actual output dimensions, duration and tracks rather than upstream sharpness/performance claims.
-
 ## Easy path
-
 `screencast.sh --demo` (screencast skill) does the whole chain: starts the event
 logger, records, then polishes + emits the 9:16 vertical automatically. Vertical
 is the DEFAULT for social-facing demos.
-
 ## Gotchas (learned the hard way, kept here so they're not relearned)
-
 - ffmpeg CANNOT do animated `scale=eval=frame` → `crop` (link reinit wedges crop's
   per-frame exprs). That's why zoom uses `zoompan` (no `t` var there — use `on/FPS`).
 - This machine's ffmpeg lacks `drawtext`; all text/cursor overlays are PIL-rendered
   PNGs + `overlay`.
 - Test rig: `make-fixture.py` synthesizes a fake screen recording + ground-truth
   events.jsonl — validate any change against it before trusting real footage.
-
 ## Limitations
-
 - The workflow assumes FFmpeg plus the companion scripts are available locally; it is not a hosted video editor.
 - Polished cursor, click, and keystroke effects depend on event logs captured during recording; missing logs limit what can be reconstructed.
 - Auto-zoom and idle speed-up still need human review for pacing, framing, and platform-specific taste.

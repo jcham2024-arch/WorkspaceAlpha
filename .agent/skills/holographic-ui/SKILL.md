@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "a1d904a6a0152d86b3fda95e8cd15a31ef48d2c1e210236e177c781cec747137"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: holographic-ui
+content_hash: a1d904a6a0152d86b3fda95e8cd15a31ef48d2c1e210236e177c781cec747137
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Holographic UI. Trigger when user wants light-based appearance, projected interfaces, and transparent floating elements.
-tier: "experimental"
-date_added: "2026-06-17"
+name: holographic-ui
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Holographic UI
-
 > "Made of light. Interfaces projected into thin air, visible but completely translucent."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Translucent Decoration**: Use optional translucent surfaces; essential text and controls need stable contrast and may require opaque backgrounds.
 2. **Scanlines and Interference**: The illusion of a projection is sold by horizontal scanlines, slight chromatic aberration, or flickering.
 3. **Luminous Edges**: The borders of elements are brighter than the centers, mimicking how lasers or light projections focus at the edges.
-
 ## Visual DNA
 - **Colors**: Almost exclusively monochrome Cyan, Blue, or Green, with white core highlights.
 - **Typography**: Thin, technical sans-serifs. Must have a glowing `text-shadow`.
 - **Styling**: Intensive use of `rgba()`, `mix-blend-mode: screen` (or a supported additive compositing operation)`, and CSS filters.
-
 ## Web Implementation
 - **CSS Example**:
 ```css
@@ -46,18 +33,15 @@ body {
   background-size: cover;
   color: #88ffff;
 }
-
 .hologram-panel {
   background: rgba(0, 200, 255, 0.05); /* Extremely sheer */
   border: 1px solid rgba(136, 255, 255, 0.5);
   border-radius: 4px;
   padding: 30px;
-  
   /* The glowing edge */
   box-shadow: 
     inset 0 0 20px rgba(0, 200, 255, 0.2),
     0 0 15px rgba(0, 200, 255, 0.3);
-    
   /* Scanline effect */
   background-image: linear-gradient(
     rgba(136, 255, 255, 0.1) 1px, 
@@ -65,19 +49,16 @@ body {
   );
   background-size: 100% 4px;
 }
-
 .holo-text {
   font-family: 'Rajdhani', sans-serif;
   text-transform: uppercase;
   text-shadow: 0 0 8px rgba(136, 255, 255, 0.8);
   mix-blend-mode: screen;
 }
-
 /* Subtle flicker */
 .holo-flicker {
   /* Static by default: essential content must not flicker or fade. */
 }
-
 @keyframes hologramFlicker {
   0%, 100% { opacity: 1; }
   92% { opacity: 1; }
@@ -87,27 +68,21 @@ body {
   98% { opacity: 1; }
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct HolographicUIView: View {
     @State private var isFlickering = false
-    
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
-            
             VStack {
                 Text("HOLOGRAM ACTIVE")
                     .font(.custom("Courier", size: 24))
                     .foregroundColor(Color(hex: "88FFFF"))
                     .shadow(color: Color(hex: "88FFFF"), radius: 10)
                     .blendMode(.screen) // Critical for light UI
-                
                 Spacer().frame(height: 40)
-                
                 VStack {
                     Text("SYSTEM DIAGNOSTICS")
                         .foregroundColor(Color(hex: "88FFFF"))
@@ -122,7 +97,6 @@ struct HolographicUIView: View {
                 .opacity(isFlickering ? 0.4 : 1.0)
             }
             .padding()
-            
             // Scanline Overlay
             LinearGradient(
                 stops: [
@@ -137,13 +111,11 @@ struct HolographicUIView: View {
             .blendMode(.screen)
         }
         // Keep diagnostics static; no repeating timer or random flicker.
-
     }
 }
 ```
 - `.blendMode(.screen)` is absolutely critical. It makes elements act like projected light.
 - Stack multiple `.shadow()` modifiers to create a bloom effect around text and borders.
-
 ### Flutter
 ```dart
 class HolographicScreen extends StatelessWidget {
@@ -169,7 +141,6 @@ class HolographicScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 40),
-                
                 // Hologram Panel
                 Container(
                   width: double.infinity,
@@ -213,20 +184,17 @@ class HolographicScreen extends StatelessWidget {
 - The `Shadow` array inside `TextStyle` creates the glowing text.
 - `BoxShadow` with `spreadRadius` creates the glowing panel border.
 - `ShaderMask` with `BlendMode.screen` layered over the UI gives it that light-projection quality.
-
 ### React Native
 ```jsx
 const HolographicScreen = () => {
   return (
     <View style={{ flex: 1, backgroundColor: '#020202', padding: 24, justifyContent: 'center' }}>
-      
       <Text style={{
         fontFamily: 'monospace', fontSize: 24, textAlign: 'center', color: '#88FFFF',
         textShadowColor: '#88FFFF', textShadowRadius: 10, marginBottom: 40
       }}>
         HOLOGRAM ACTIVE
       </Text>
-
       <View style={{
         backgroundColor: 'rgba(0, 200, 255, 0.05)',
         borderWidth: 1, borderColor: 'rgba(136, 255, 255, 0.5)',
@@ -239,20 +207,17 @@ const HolographicScreen = () => {
           SYSTEM DIAGNOSTICS
         </Text>
       </View>
-
       {/* Pseudo-scanlines overlay. In a real app, use an repeating Image background. */}
       <View pointerEvents="none" style={{
         position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
         backgroundColor: 'rgba(136, 255, 255, 0.03)',
       }} />
-
     </View>
   );
 };
 ```
 - React Native doesn't support `mix-blend-mode` out of the box, so you must rely heavily on low-opacity backgrounds and intense `textShadow` / `shadowRadius`.
 - Use `pointerEvents="none"` on scanline overlays so they don't block user interactions.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -274,9 +239,7 @@ fun HolographicScreen() {
                 ),
                 modifier = Modifier.graphicsLayer { blendMode = BlendMode.Screen }
             )
-            
             Spacer(Modifier.height(40.dp))
-            
             // Glowing Panel
             Box(
                 modifier = Modifier
@@ -291,7 +254,6 @@ fun HolographicScreen() {
                 Text("SYSTEM DIAGNOSTICS", color = Color(0xFF88FFFF), fontFamily = FontFamily.Monospace)
             }
         }
-        
         // Simulating scanlines overlay
         Box(
             modifier = Modifier
@@ -303,13 +265,10 @@ fun HolographicScreen() {
 ```
 - `Modifier.graphicsLayer { blendMode = BlendMode.Screen }` is exactly what you need in Compose to make elements act like projected light.
 - Use Compose's `shadow` modifier with `ambientColor` and `spotColor` set to cyan to make the panels emit light.
-
 ## Do's and Don'ts
 - **DO**: Use `mix-blend-mode: screen` (web) or additive blending so overlapping holographic panels get brighter where they intersect.
 - **DON'T**: Use any dark colors or drop shadows for the UI elements. Shadows don't exist in light projections.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.
-
 SwiftUI `Color(hex:)` is a project-defined extension, not a built-in initializer. Supply and test it or use explicit RGB values.

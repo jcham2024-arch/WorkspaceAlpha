@@ -1,60 +1,41 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "481d9df410edbfa38bed8e8137157f2645b76ca41a22911f9840917b6881d336"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 481d9df410edbfa38bed8e8137157f2645b76ca41a22911f9840917b6881d336
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Comprehensive patterns for designing effective Key Performance Indicator (KPI) dashboards that drive business decisions.
 name: kpi-dashboard-design
-description: "Comprehensive patterns for designing effective Key Performance Indicator (KPI) dashboards that drive business decisions."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # KPI Dashboard Design
-
 Comprehensive patterns for designing effective Key Performance Indicator (KPI) dashboards that drive business decisions.
-
 ## Do not use this skill when
-
 - The task is unrelated to kpi dashboard design
 - You need a different domain or tool outside this scope
-
 ## Instructions
-
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
 - If detailed examples are required, open `resources/implementation-playbook.md`.
-
 ## Use this skill when
-
 - Designing executive dashboards
 - Selecting meaningful KPIs
 - Building real-time monitoring displays
 - Creating department-specific metrics views
 - Improving existing dashboard layouts
 - Establishing metric governance
-
 ## Core Concepts
-
 ### 1. KPI Framework
-
 | Level           | Focus            | Update Frequency  | Audience   |
 | --------------- | ---------------- | ----------------- | ---------- |
 | **Strategic**   | Long-term goals  | Monthly/Quarterly | Executives |
 | **Tactical**    | Department goals | Weekly/Monthly    | Managers   |
 | **Operational** | Day-to-day       | Real-time/Daily   | Teams      |
-
 ### 2. SMART KPIs
-
 ```
 Specific: Clear definition
 Measurable: Quantifiable
@@ -62,9 +43,7 @@ Achievable: Realistic targets
 Relevant: Aligned to goals
 Time-bound: Defined period
 ```
-
 ### 3. Dashboard Hierarchy
-
 ```
 ├── Executive Summary (1 page)
 │   ├── 4-6 headline KPIs
@@ -79,101 +58,81 @@ Time-bound: Defined period
     ├── Individual metrics
     └── Root cause analysis
 ```
-
 ## Common KPIs by Department
-
 ### Sales KPIs
-
 ```yaml
 Revenue Metrics:
   - Monthly Recurring Revenue (MRR)
   - Annual Recurring Revenue (ARR)
   - Average Revenue Per User (ARPU)
   - Revenue Growth Rate
-
 Pipeline Metrics:
   - Sales Pipeline Value
   - Win Rate
   - Average Deal Size
   - Sales Cycle Length
-
 Activity Metrics:
   - Calls/Emails per Rep
   - Demos Scheduled
   - Proposals Sent
   - Close Rate
 ```
-
 ### Marketing KPIs
-
 ```yaml
 Acquisition:
   - Cost Per Acquisition (CPA)
   - Customer Acquisition Cost (CAC)
   - Lead Volume
   - Marketing Qualified Leads (MQL)
-
 Engagement:
   - Website Traffic
   - Conversion Rate
   - Email Open/Click Rate
   - Social Engagement
-
 ROI:
   - Marketing ROI
   - Campaign Performance
   - Channel Attribution
   - CAC Payback Period
 ```
-
 ### Product KPIs
-
 ```yaml
 Usage:
   - Daily/Monthly Active Users (DAU/MAU)
   - Session Duration
   - Feature Adoption Rate
   - Stickiness (DAU/MAU)
-
 Quality:
   - Net Promoter Score (NPS)
   - Customer Satisfaction (CSAT)
   - Bug/Issue Count
   - Time to Resolution
-
 Growth:
   - User Growth Rate
   - Activation Rate
   - Retention Rate
   - Churn Rate
 ```
-
 ### Finance KPIs
-
 ```yaml
 Profitability:
   - Gross Margin
   - Net Profit Margin
   - EBITDA
   - Operating Margin
-
 Liquidity:
   - Current Ratio
   - Quick Ratio
   - Cash Flow
   - Working Capital
-
 Efficiency:
   - Revenue per Employee
   - Operating Expense Ratio
   - Days Sales Outstanding
   - Inventory Turnover
 ```
-
 ## Dashboard Layout Patterns
-
 ### Pattern 1: Executive Summary
-
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │  EXECUTIVE DASHBOARD                        [Date Range ▼]  │
@@ -196,9 +155,7 @@ Efficiency:
 │  🟡 Warning: Support ticket volume 20% above average        │
 └─────────────────────────────────────────────────────────────┘
 ```
-
 ### Pattern 2: SaaS Metrics Dashboard
-
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │  SAAS METRICS                     Jan 2024  [Monthly ▼]     │
@@ -229,9 +186,7 @@ Efficiency:
 │  └──────────┴──────────┴──────────┴──────────────────────┘ │
 └─────────────────────────────────────────────────────────────┘
 ```
-
 ### Pattern 3: Real-time Operations
-
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │  OPERATIONS CENTER                    Live ● Last: 10:42:15 │
@@ -258,9 +213,7 @@ Efficiency:
 │  10:22  🔴 Payment service circuit breaker tripped          │
 └─────────────────────────────────────────────────────────────┘
 ```
-
 ## Implementation Patterns
-
 Define reporting timezone, currency/conversion date, numerator/denominator and
 comparison period for each card. Do not mix percent changes with percentage points
 or NPS points. ARR = 12 × MRR implies equal growth rates when using the same
@@ -268,24 +221,16 @@ period and definition. These synthetic layout figures are not reconciled account
 Require access controls, aggregation/minimum cohort sizes and freshness/coverage
 labels before showing customer/employee or financial data; avoid exporting raw PII.
 Email opens/clicks can include privacy proxies/bots and are not direct engagement proof.
-
 ### SQL for KPI Calculations
-
 Use `resources/metric-queries.sql` for executable normalized-input examples. `users` contains one row per customer, `events` contains user/month observations, `spend` contains source spend rows, and `monthly_revenue` contains one reconciled amount per month. Represent months as an integer year × 12 + month − 1 so offsets do not wrap after December.
-
 The queries keep the original cohort denominator, deduplicate activity before counting, aggregate spend before joining customers, and return NULL for undefined growth or acquisition cost. Missing cohort/month combinations need an explicit reporting calendar if zero-activity rows must be displayed. The growth query compares consecutive available rows; require a complete monthly calendar or label gaps as unavailable rather than calling a multi-month change monthly growth. Match spend and acquired-customer channel/time cohorts before interpreting CAC. Normalize subscription intervals, currency, refunds and revenue recognition before producing monthly revenue; these examples do not define accounting policy.
-
-
 ### Python Dashboard Code (Streamlit)
-
 ```python
 import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-
 st.set_page_config(page_title="KPI Dashboard", layout="wide")
-
 # Synthetic layout illustration; this is not a connected or filterable dashboard.
 # Header with illustrative date selector
 col1, col2 = st.columns([3, 1])
@@ -296,7 +241,6 @@ with col2:
         "Period",
         ["Last 7 Days", "Last 30 Days", "Last Quarter", "YTD"]
     )
-
 # KPI Cards
 def metric_card(label, value, delta, prefix="", suffix="", delta_unit="%", lower_is_better=False):
     st.metric(
@@ -305,7 +249,6 @@ def metric_card(label, value, delta, prefix="", suffix="", delta_unit="%", lower
         delta=f"{delta:+.1f}{delta_unit}",
         delta_color="inverse" if lower_is_better else "normal",
     )
-
 col1, col2, col3, col4 = st.columns(4)
 with col1:
     metric_card("Revenue", 2400000, 12.5, prefix="$")
@@ -315,10 +258,8 @@ with col3:
     metric_card("NPS Score", 72, 5.0, delta_unit=" pts")
 with col4:
     metric_card("Churn Rate", 4.2, -0.8, suffix="%", delta_unit=" pp", lower_is_better=True)
-
 # Charts
 col1, col2 = st.columns(2)
-
 with col1:
     st.subheader("Revenue Trend")
     revenue_data = pd.DataFrame({
@@ -330,7 +271,6 @@ with col1:
                   line_shape='spline', markers=True)
     fig.update_layout(height=300)
     st.plotly_chart(fig, use_container_width=True)
-
 with col2:
     st.subheader("Revenue by Product")
     product_data = pd.DataFrame({
@@ -341,7 +281,6 @@ with col2:
                  hole=0.4)
     fig.update_layout(height=300)
     st.plotly_chart(fig, use_container_width=True)
-
 # Cohort Heatmap
 st.subheader("Cohort Retention")
 cohort_data = pd.DataFrame({
@@ -363,7 +302,6 @@ fig = go.Figure(data=go.Heatmap(
 ))
 fig.update_layout(height=250)
 st.plotly_chart(fig, use_container_width=True)
-
 # Alerts Section
 st.subheader("Alerts")
 alerts = [
@@ -376,31 +314,23 @@ for alert in alerts:
     elif alert["level"] == "warning":
         st.warning(f"🟡 {alert['message']}")
 ```
-
 ## Best Practices
-
 ### Do's
-
 - **Limit to 5-7 KPIs** - Focus on what matters
 - **Show context** - Comparisons, trends, targets
 - **Use consistent colors** - Red=bad, green=good
 - **Enable drilldown** - From summary to detail
 - **Update appropriately** - Match metric frequency
-
 ### Don'ts
-
 - **Don't show vanity metrics** - Focus on actionable data
 - **Don't overcrowd** - White space aids comprehension
 - **Don't use 3D charts** - They distort perception
 - **Don't hide methodology** - Document calculations
 - **Don't ignore mobile** - Ensure responsive design
-
 ## Resources
-
 - [Stephen Few's Dashboard Design](https://www.perceptualedge.com/articles/visual_business_intelligence/rules_for_using_color.pdf)
 - [Edward Tufte's Principles](https://www.edwardtufte.com/tufte/)
 - [Google Data Studio Gallery](https://datastudio.google.com/gallery)
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

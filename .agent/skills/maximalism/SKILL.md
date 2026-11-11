@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "01f4250291706e7a0f6f6c10e94d6b7e54305c9f71ba2ac2b0895b93b8039e2c"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: maximalism
+content_hash: 01f4250291706e7a0f6f6c10e94d6b7e54305c9f71ba2ac2b0895b93b8039e2c
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Controlled Maximalism. Trigger when user wants lots of elements, dense content, but a highly curated and artistic presentation.
-tier: "experimental"
-date_added: "2026-06-17"
+name: maximalism
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Controlled Maximalism
-
 > "Dense and rich, but deeply intentional. Like an exquisitely curated museum of artifacts."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **High Density**: The screen is packed with information, imagery, and interactive elements.
 2. **Ornate Detailing**: Use of decorative borders, intricate textures, and classic design flourishes.
 3. **Structured Chaos**: Unlike Vibrant Maximalism, the layout here is based on a strict underlying grid that holds the massive amount of content together.
-
 ## Visual DNA
 - **Colors**: **Monochromatic Brown**, **Yacht Club**, or rich jewel tones (emerald, ruby, sapphire, gold).
 - **Typography**: Ornate serifs (like `Cinzel` or `Playfair Display`) paired with dense, highly legible sans-serif body copy.
 - **Borders & Dividers**: Extensive use of thin, elegant lines separating every piece of content.
-
 ## Web Implementation
 - Use dense CSS Grid layouts.
 - **CSS Example**:
@@ -46,27 +33,23 @@ body {
   color: #E2E8F0;
   background-image: url('subtle-damask-pattern.png');
 }
-
 .max-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 16px;
   padding: 16px;
 }
-
 .max-item {
   background-color: rgba(30, 41, 59, 0.9); /* Semi-transparent over pattern */
   border: 1px solid #475569;
   padding: 24px;
 }
-
 /* Ornate decorative borders */
 .max-feature {
   grid-column: span 3;
   border: 2px solid #D4AF37; /* Gold */
   position: relative;
 }
-
 .max-feature::before {
   content: '';
   position: absolute;
@@ -74,7 +57,6 @@ body {
   border: 1px dashed #D4AF37;
   pointer-events: none; /* Decorative border must not cover controls. */
 }
-
 .max-title {
   font-family: 'Cinzel', serif;
   color: #D4AF37;
@@ -85,9 +67,7 @@ body {
   margin-bottom: 16px;
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct MaximalismView: View {
@@ -96,7 +76,6 @@ struct MaximalismView: View {
         GridItem(.flexible(), spacing: 4),
         GridItem(.flexible(), spacing: 4)
     ]
-    
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 4) {
@@ -113,11 +92,9 @@ struct MaximalismView: View {
         .background(Color(hex: "0F172A")) // Deep slate
     }
 }
-
 struct MaxItem: View {
     let title: String
     var isFeature: Bool = false
-    
     var body: some View {
         VStack {
             Text(title)
@@ -144,7 +121,6 @@ struct MaxItem: View {
 ```
 - A `LazyVGrid` with very tight `spacing` (e.g., `4`) creates the necessary density.
 - Extensive use of `.border` and `.overlay(Rectangle().stroke(...))` to box in every piece of data, mimicking ornate framing.
-
 ### Flutter
 ```dart
 class MaximalismScreen extends StatelessWidget {
@@ -170,7 +146,6 @@ class MaximalismScreen extends StatelessWidget {
       ),
     );
   }
-
   Widget _buildItem(String title, {bool isOrnate = false}) {
     return Container(
       decoration: BoxDecoration(
@@ -203,21 +178,18 @@ class MaximalismScreen extends StatelessWidget {
 ```
 - Use `flutter_staggered_grid_view` to create the complex, spanning "masonry" or architectural grid layouts typical of maximalism.
 - Use `Stack` with `Positioned.fill` and `Padding` to create double-bordered framing effects.
-
 ### React Native
 ```jsx
 const MaximalismScreen = () => {
   return (
     <ScrollView style={{ flex: 1, backgroundColor: '#0F172A' }}>
       <View style={{ padding: 16, flexDirection: 'row', flexWrap: 'wrap', gap: 4 }}>
-        
         {/* Feature Item spanning full width */}
         <View style={[styles.item, styles.featureItem]}>
           <View style={styles.ornateInnerBorder}>
             <Text style={[styles.text, { fontSize: 32 }]}>MUSEUM</Text>
           </View>
         </View>
-
         {/* Small Dense Items */}
         <View style={[styles.item, { width: '32%' }]}><Text style={styles.text}>1892</Text></View>
         <View style={[styles.item, { width: '32%' }]}><Text style={styles.text}>Vol. II</Text></View>
@@ -226,7 +198,6 @@ const MaximalismScreen = () => {
     </ScrollView>
   );
 };
-
 const styles = StyleSheet.create({
   item: {
     backgroundColor: 'rgba(30, 41, 59, 0.9)',
@@ -248,7 +219,6 @@ const styles = StyleSheet.create({
 ```
 - A `flexWrap: 'wrap'` container with percentage widths (e.g., `32%` for 3 columns) is the easiest way to build complex, dense grids in React Native.
 - Use `borderStyle: 'dashed'` combined with a solid outer border to create ornate framing.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -269,7 +239,6 @@ fun MaximalismScreen() {
         }
     }
 }
-
 @Composable
 fun MaxItem(title: String, isFeature: Boolean = false) {
     Box(
@@ -300,11 +269,9 @@ fun MaxItem(title: String, isFeature: Boolean = false) {
 ```
 - `GridCells.Fixed(3)` is a visual starting point; adapt column count and item height to available width and text scale.
 - Use `GridItemSpan(3)` for the hero elements to make them span the full width, mimicking editorial or museum layouts.
-
 ## Do's and Don'ts
 - **DO**: Treat every pixel as valuable real estate. Frame everything.
 - **DON'T**: Let it become unreadable. The contrast between text and background must remain high despite the density.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

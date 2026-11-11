@@ -1,60 +1,42 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "d9af35142e5eb198c0f76d45342222d1d604d71ccbca42086f53be4281243bc6"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: d9af35142e5eb198c0f76d45342222d1d604d71ccbca42086f53be4281243bc6
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: High-throughput event streaming and real-time data ingestion.
 name: azure-eventhub-ts
-description: "High-throughput event streaming and real-time data ingestion."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # Azure Event Hubs SDK for TypeScript
-
 High-throughput event streaming and real-time data ingestion.
-
 ## Installation
-
 ```bash
 npm install @azure/event-hubs @azure/identity
 ```
-
 For checkpointing with consumer groups:
 ```bash
 npm install @azure/eventhubs-checkpointstore-blob @azure/storage-blob
 ```
-
 ## Environment Variables
-
 ```bash
 EVENTHUB_NAMESPACE=<namespace>.servicebus.windows.net
 EVENTHUB_NAME=my-eventhub
 STORAGE_ACCOUNT_NAME=<storage-account>
 STORAGE_CONTAINER_NAME=checkpoints
 ```
-
 ## Authentication
-
 ```typescript
 import { EventHubProducerClient, EventHubConsumerClient } from "@azure/event-hubs";
 import { DefaultAzureCredential } from "@azure/identity";
-
 const fullyQualifiedNamespace = process.env.EVENTHUB_NAMESPACE!;
 const eventHubName = process.env.EVENTHUB_NAME!;
 const credential = new DefaultAzureCredential();
-
 // Producer
 const producer = new EventHubProducerClient(fullyQualifiedNamespace, eventHubName, credential);
-
 // Consumer
 const consumer = new EventHubConsumerClient(
   "$Default", // Consumer group
@@ -63,39 +45,28 @@ const consumer = new EventHubConsumerClient(
   credential
 );
 ```
-
 ## Core Workflow
-
 ### Send Events
-
 ```typescript
 const producer = new EventHubProducerClient(namespace, eventHubName, credential);
-
 // Create batch and add events
 const batch = await producer.createBatch();
 for (const body of [{ temperature: 72.5, deviceId: "sensor-1" }, { temperature: 68.2, deviceId: "sensor-2" }]) {
   if (!batch.tryAdd({ body })) throw new Error("Event does not fit this batch; flush/rebatch or reject oversized event");
 }
-
 await producer.sendBatch(batch);
 await producer.close();
 ```
-
 ### Send to Specific Partition
-
 ```typescript
 // By partition ID
 const batch = await producer.createBatch({ partitionId: "0" });
-
 // By partition key (consistent hashing)
 const batch = await producer.createBatch({ partitionKey: "device-123" });
 ```
-
 ### Receive Events (Simple)
-
 ```typescript
 const consumer = new EventHubConsumerClient("$Default", namespace, eventHubName, credential);
-
 const subscription = consumer.subscribe({
   processEvents: async (events, context) => {
     for (const event of events) {
@@ -106,28 +77,22 @@ const subscription = consumer.subscribe({
     console.error(`Error on partition ${context.partitionId}: ${err.message}`);
   },
 });
-
 // Stop after some time
 setTimeout(async () => {
   await subscription.close();
   await consumer.close();
 }, 60000);
 ```
-
 ### Receive with Checkpointing (Production)
-
 ```typescript
 import { EventHubConsumerClient } from "@azure/event-hubs";
 import { ContainerClient } from "@azure/storage-blob";
 import { BlobCheckpointStore } from "@azure/eventhubs-checkpointstore-blob";
-
 const containerClient = new ContainerClient(
   `https://${storageAccount}.blob.core.windows.net/${containerName}`,
   credential
 );
-
 const checkpointStore = new BlobCheckpointStore(containerClient);
-
 const consumer = new EventHubConsumerClient(
   "$Default",
   namespace,
@@ -135,7 +100,6 @@ const consumer = new EventHubConsumerClient(
   credential,
   checkpointStore
 );
-
 const subscription = consumer.subscribe({
   processEvents: async (events, context) => {
     for (const event of events) {
@@ -151,9 +115,7 @@ const subscription = consumer.subscribe({
   },
 });
 ```
-
 ### Receive from Specific Position
-
 ```typescript
 const subscription = consumer.subscribe({
   processEvents: async (events, context) => { /* ... */ },
@@ -171,21 +133,16 @@ const subscription = consumer.subscribe({
   },
 });
 ```
-
 ## Event Hub Properties
-
 ```typescript
 // Get hub info
 const hubProperties = await producer.getEventHubProperties();
 console.log(`Partitions: ${hubProperties.partitionIds}`);
-
 // Get partition info
 const partitionProperties = await producer.getPartitionProperties("0");
 console.log(`Last sequence: ${partitionProperties.lastEnqueuedSequenceNumber}`);
 ```
-
 ## Batch Processing Options
-
 ```typescript
 const subscription = consumer.subscribe(
   {
@@ -198,9 +155,7 @@ const subscription = consumer.subscribe(
   }
 );
 ```
-
 ## Key Types
-
 ```typescript
 import {
   EventHubProducerClient,
@@ -213,12 +168,9 @@ import {
   CreateBatchOptions,
   EventPosition,
 } from "@azure/event-hubs";
-
 import { BlobCheckpointStore } from "@azure/eventhubs-checkpointstore-blob";
 ```
-
 ## Event Properties
-
 ```typescript
 // Send with properties
 const batch = await producer.createBatch();
@@ -231,7 +183,6 @@ batch.tryAdd({
   contentType: "application/json",
   correlationId: "request-123",
 });
-
 // Access in receiver
 consumer.subscribe({
   processEvents: async (events, context) => {
@@ -244,9 +195,7 @@ consumer.subscribe({
   },
 });
 ```
-
 ## Error Handling
-
 ```typescript
 consumer.subscribe({
   processEvents: async (events, context) => {
@@ -271,9 +220,7 @@ consumer.subscribe({
   },
 });
 ```
-
 ## Best Practices
-
 1. **Use checkpointing** - Checkpoint only after durable processing; delivery can repeat, so make handlers idempotent
 2. **Batch sends** - Use `createBatch()` for efficient sending
 3. **Partition keys** - Use partition keys to ensure ordering for related events
@@ -281,13 +228,10 @@ consumer.subscribe({
 5. **Handle errors gracefully** - Don't checkpoint on processing failures
 6. **Close clients** - Always close producer/consumer when done
 7. **Monitor lag** - Track `lastEnqueuedSequenceNumber` vs processed sequence
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 Checkpointing records progress; it does not make external side effects exactly once or guarantee an immediate retry when an error is swallowed. Use stable event IDs, durable deduplication and an explicit retry/dead-letter design. Inspect retryability rather than treating every MessagingError as transient. Examples are fragments; supply imports/handlers and redact event bodies. [Official SDK guide](https://learn.microsoft.com/en-us/javascript/api/overview/azure/event-hubs-readme?view=azure-node-latest).

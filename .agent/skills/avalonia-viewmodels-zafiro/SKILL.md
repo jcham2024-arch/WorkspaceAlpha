@@ -1,55 +1,37 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "985549c9763a4f3f101641c45e4aacbd83457640698239f16a991851dd5e0ecb"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 985549c9763a4f3f101641c45e4aacbd83457640698239f16a991851dd5e0ecb
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Optimal ViewModel and Wizard creation patterns for Avalonia using Zafiro and ReactiveUI.
 name: avalonia-viewmodels-zafiro
-description: "Optimal ViewModel and Wizard creation patterns for Avalonia using Zafiro and ReactiveUI."
-tier: "experimental"
 risk: none
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # Avalonia ViewModels with Zafiro
-
 This skill provides a set of best practices and patterns for creating ViewModels, Wizards, and managing navigation in Avalonia applications, leveraging the power of **ReactiveUI** and the **Zafiro** toolkit.
-
 ## Core Principles
-
 1.  **Functional-Reactive Approach**: Use ReactiveUI (`ReactiveObject`, `WhenAnyValue`, etc.) to handle state and logic.
 2.  **Enhanced Commands**: Utilize `IEnhancedCommand` for better command management, including progress reporting and name/text attributes.
 3.  **Wizard Pattern**: Implement complex flows using `SlimWizard` and `WizardBuilder` for a declarative and maintainable approach.
 4.  **Automatic Section Discovery**: Use the `[Section]` attribute to register and discover UI sections automatically.
 5.  **Clean Composition**: map ViewModels to Views using `DataTypeViewLocator` and manage dependencies in the `CompositionRoot`.
-
 ## Guides
-
 - [ViewModels & Commands](viewmodels.md): Creating robust ViewModels and handling commands.
 - [Wizards & Flows](wizards.md): Building multi-step wizards with `SlimWizard`.
 - [Navigation & Sections](navigation_sections.md): Managing navigation and section-based UIs.
 - [Composition & Mapping](composition.md): Best practices for View-ViewModel wiring and DI.
-
 ## Integration boundaries
-
 Guide snippets omit imports, interfaces and application services; verify APIs/source-generator syntax against the installed Zafiro/ReactiveUI version. Do not mix field-based and partial-property generator styles without checking compatibility. Use one actual section registration method rather than assuming both are required. Keep the service provider alive for the app lifetime and dispose it and subscriptions on shutdown; handle wizard cancellation/failure before committing side effects. Angor files named below are external examples, not bundled prerequisites.
-
 ## Example Reference
-
 For real-world implementations, refer to the **Angor** project:
 - `CreateProjectFlowV2.cs`: Excellent example of complex Wizard building.
 - `HomeViewModel.cs`: Simple section ViewModel using functional-reactive commands.
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

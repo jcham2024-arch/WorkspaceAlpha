@@ -1,34 +1,22 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "e019eb3a4a296d869b3d08377c07cae9c0c2d80b6f26489ec4335e48d9ae43d4"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-search-documents-py
+content_hash: e019eb3a4a296d869b3d08377c07cae9c0c2d80b6f26489ec4335e48d9ae43d4
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Azure AI Search SDK for Python. Use for vector search, hybrid search, semantic ranking, indexing, and skillsets.
-tier: "experimental"
+name: azure-search-documents-py
 risk: critical
 source: community
-date_added: '2026-02-27'
 ---
-
-
 # Azure AI Search SDK for Python
-
 Full-text, vector, and hybrid search with AI enrichment capabilities.
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

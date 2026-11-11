@@ -1,46 +1,33 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "47594f8e8a3178ba8d6a93acd522ddb0b0aabbe1f39a87abbd5bec936ce69b5c"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: orchestrate
-description: "Coordinate focused subagents on substantial work, keep their ownership non-overlapping, and integrate verified results. Use for large-scope Codex tasks; keep trivial work with the coordinator."
-tier: "experimental"
+content_hash: 47594f8e8a3178ba8d6a93acd522ddb0b0aabbe1f39a87abbd5bec936ce69b5c
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: provencher
 category: agent-orchestration
+date_added: 2026-07-26
+description: Coordinate focused subagents on substantial work, keep their ownership non-overlapping, and integrate verified results. Use for large-scope Codex tasks; keep trivial work with the coordinator.
+license: MIT
+license_source: "https://github.com/provencher/codex-skills/blob/8aa6c42b73781c905c55f8a1253a18127079ac21/LICENSE"
+name: orchestrate
 risk: safe
-source: https://github.com/provencher/codex-skills/tree/8aa6c42b73781c905c55f8a1253a18127079ac21/orchestrate
+source: "https://github.com/provencher/codex-skills/tree/8aa6c42b73781c905c55f8a1253a18127079ac21/orchestrate"
 source_repo: provencher/codex-skills
 source_type: community
-date_added: "2026-07-26"
-author: provencher
-tags: [codex, orchestration, multi-agent, delegation, subagents]
-tools: [codex]
-license: MIT
-license_source: https://github.com/provencher/codex-skills/blob/8aa6c42b73781c905c55f8a1253a18127079ac21/LICENSE
+tags: "[codex, orchestration, multi-agent, delegation, subagents]"
+tools: "[codex]"
 ---
-
-
 # Orchestrate
-
 Coordinate substantial work across focused subagents while remaining available
 to the user and retaining responsibility for the integrated result.
-
 ## When to Use
-
 - Use when a task has multiple independent research, review, or implementation lanes.
 - Use when parallel work will materially reduce elapsed time or improve coverage.
 - Use when a coordinator must synthesize several bounded outputs into one verified result.
-
 Keep trivial tasks with the coordinator.
-
 ## Workflow
-
 1. Decompose the task into distinct, bounded assignments with explicit outputs.
 2. Run narrow, read-only scouts in parallel with low reasoning effort and no
    inherited conversation when the runtime supports those controls. Give each
@@ -51,18 +38,14 @@ Keep trivial tasks with the coordinator.
    instruct leaf workers not to delegate.
 5. Integrate the outputs, resolve conflicts, and verify the combined result.
 6. Keep approvals and externally consequential decisions with the user.
-
 ## Examples
-
 - For a repository-wide feature, assign non-overlapping agents to architecture
   inspection, implementation, and test review, then integrate their findings
   and run the final verification from the coordinator.
 - For a research brief, assign independent sources or questions to read-only
   scouts, reconcile disagreements, and keep the final judgment with the
   coordinator.
-
 ## Limitations
-
 - Requires a runtime that exposes subagent or delegation tools; otherwise keep
   the work with the coordinator.
 - Delegation does not authorize file mutations, public actions, purchases, or

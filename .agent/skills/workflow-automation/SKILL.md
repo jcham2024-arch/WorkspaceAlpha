@@ -1,53 +1,37 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "785d9b24c6b4a1ca41b1e47a52aca653fce53aa7d6d488a0096f96ed5ffb76cf"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: workflow-automation
+content_hash: 785d9b24c6b4a1ca41b1e47a52aca653fce53aa7d6d488a0096f96ed5ffb76cf
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Workflow automation is the infrastructure that makes AI agents
-tier: "experimental"
-  reliable. Without durable execution, a network hiccup during a 10-step payment
-  flow means lost money and angry customers. With it, workflows resume exactly
-  where they left off.
+name: workflow-automation
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
-date_added: 2026-02-27
+---  reliable. Without durable execution, a network hiccup during a 10-step payment
+  flow means lost money and angry customers. With it, workflows resume exactly
+  where they left off.
 ---
-
-
 # Workflow Automation
-
 Workflow automation is the infrastructure that makes AI agents reliable.
 Without durable execution, a network hiccup during a 10-step payment
 flow means lost money and angry customers. With it, workflows resume
 exactly where they left off.
-
 This skill covers the platforms (n8n, Temporal, Inngest) and patterns
 (sequential, parallel, orchestrator-worker) that turn brittle scripts
 into production-grade automation.
-
 Key insight: The platforms make different tradeoffs. n8n optimizes for
 accessibility, Temporal for correctness, Inngest for developer experience.
 Pick based on your actual needs, not hype.
-
 ## Reliability and example limits
-
 Durability does not guarantee exactly-once external effects. Payment/shipment helpers must forward a stable operation key to the provider and reconcile ambiguous success; email needs an outbox/deduplication strategy. Examples are incomplete fragments with version-specific SDK signatures. Validate them against installed types, use test accounts, and keep payloads/credentials out of workflow history and logs.
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## Inngest Example (TypeScript)
 ```
 import { inngest } from "./client";
-
 export const processOrder = inngest.createFunction(
   { id: "process-order" },
   { event: "order/created" },
@@ -56,32 +40,26 @@ export const processOrder = inngest.createFunction(
     const validated = await step.run("validate-order", async () => {
       return validateOrder(event.data.order);
     });
-
     // Step 2: Process payment (durable - survives crashes)
     const payment = await step.run("process-payment", async () => {
       return chargeCard(validated.paymentMethod, validated.total, { idempotencyKey: `order-${event.data.orderId}-payment` });
     });
-
     // Step 3: Create shipment
     const shipment = await step.run("create-shipment", async () => {
       return createShipment(validated.items, validated.address);
     });
-
     // Step 4: Send confirmation
     await step.run("send-confirmation", async () => {
       return sendEmail(validated.email, { payment, shipment });
     });
-
     return { success: true, orderId: event.data.orderId };
   }
 );
 ```
-
 ## Temporal Example (TypeScript)
 ```
 import { proxyActivities } from '@temporalio/workflow';
 import type * as activities from './activities';
-
 const { validateOrder, chargeCard, createShipment, sendEmail } =
   proxyActivities<typeof activities>({
     startToCloseTimeout: '30 seconds',
@@ -90,7 +68,6 @@ const { validateOrder, chargeCard, createShipment, sendEmail } =
       backoffCoefficient: 2,
     }
   });
-
 export async function processOrderWorkflow(order: Order): Promise<void> {
   const validated = await validateOrder(order);
   const payment = await chargeCard(validated.paymentMethod, validated.total, { idempotencyKey: `order-${order.id}-payment` });
@@ -98,7 +75,6 @@ export async function processOrderWorkflow(order: Order): Promise<void> {
   await sendEmail(validated.email, { payment, shipment });
 }
 ```
-
 ## Inngest Example
 ```
 export const analyzeDocument = inngest.createFunction(
@@ -117,23 +93,19 @@ export const analyzeDocument = inngest.createFunction(
         analyzeForCompliance(event.data.document)
       ),
     ]);
-
     // Aggregate results
     const report = await step.run("generate-report", () =>
       generateReport({ security, performance, compliance })
     );
-
     return report;
   }
 );
 ```
-
 ## Temporal Example
 ```
 export async function orchestratorWorkflow(task: ComplexTask) {
   // Orchestrator decides what work needs to be done
   const plan = await analyzeTask(task);
-
   // Dispatch to specialized worker workflows
   const results = await Promise.all(
     plan.subtasks.map(subtask => {
@@ -147,12 +119,10 @@ export async function orchestratorWorkflow(task: ComplexTask) {
       }
     })
   );
-
   // Aggregate results
   return aggregateResults(results);
 }
 ```
-
 ## When to Use
 - User mentions or implies: workflow
 - User mentions or implies: automation
@@ -167,7 +137,6 @@ export async function orchestratorWorkflow(task: ComplexTask) {
 - User mentions or implies: job queue
 - User mentions or implies: cron
 - User mentions or implies: trigger
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

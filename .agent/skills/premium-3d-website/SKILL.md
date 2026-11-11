@@ -1,64 +1,44 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "714f3d39051bee5170bc9adbada97262aec4ae4b61add49e631bcc91d0ddbbb3"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: premium-3d-website
-description: Guidelines for building premium 3D websites, focusing on custom WebGL shaders, post-processing, physics-based interactions, smooth animations, preloaders, and device optimization.
-tier: "experimental"
+content_hash: 714f3d39051bee5170bc9adbada97262aec4ae4b61add49e631bcc91d0ddbbb3
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: Rsmiyani
 category: frontend
+date_added: 2026-06-25
+description: Guidelines for building premium 3D websites, focusing on custom WebGL shaders, post-processing, physics-based interactions, smooth animations, preloaders, and device optimization.
+name: premium-3d-website
 risk: safe
 source: self
 source_type: self
-date_added: "2026-06-25"
-author: Rsmiyani
-tags: [threejs, webgl, shaders, post-processing, creative-coding, premium-design]
-tools: [claude, cursor, gemini]
+tags: "[threejs, webgl, shaders, post-processing, creative-coding, premium-design]"
+tools: "[claude, cursor, gemini]"
 ---
-
-
 # Premium 3D Website
-
 ## Overview
-
 This skill provides architectural guidelines and code patterns for developing premium, high-end 3D websites. It targets developers looking to implement advanced WebGL visual effects, custom shader pipelines, interactive physics elements, and immersive page transitions while maintaining high performance.
-
 ## When to Use This Skill
-
 - Use when designing premium or award-winning creative websites with 3D elements.
 - Use when integrating Three.js, React Three Fiber (R3F), or Spline with custom shaders (GLSL).
 - Use when implementing post-processing effects like bloom, depth-of-field, or custom film grain.
 - Use when designing interactive preloaders and high-performance asset loading strategies.
 - Use when optimizing complex 3D scenes for mobile responsiveness and performance.
-
 ## How It Works
-
 ### Step 1: Establish the Render Loop and Scene Architecture
 Setting up a robust WebGL context with proper resize handling and performance-friendly pixel ratios is crucial. Keep pixel ratios capped at a maximum of 2 to avoid rendering too many pixels on high-DPI screens.
-
 ### Step 2: Implement Shader Effects and Post-Processing
 Incorporate post-processing pipelines (using `EffectComposer` or `@react-three/postprocessing`) to add bloom, chromatic aberration, depth of field, or film grain. Keep pass counts low and combine custom fragment shaders to minimize draw calls.
-
 ### Step 3: Integrate Interactive Physics and Motion
 Utilize physics frameworks (such as Cannon.js or Rapier) or procedural spring animations to make 3D objects react to mouse hover, drag, and click inputs with organic feedback.
-
 ### Step 4: Asset Pipeline and Preloader
 Optimize 3D models (using Draco compression) and load them using custom loading managers. Render interactive preloaders to entertain users while heavy assets are fetched in the background.
-
 ## Examples
-
 ### Example 1: Custom Post-processing in React Three Fiber (R3F)
-
 ```jsx
 import { Canvas } from '@react-three/fiber';
 import { EffectComposer, Bloom, DepthOfField, Vignette } from '@react-three/postprocessing';
-
 export default function PremiumComposer() {
   return (
     <Canvas dpr={[1, 2]} gl={{ powerPreference: "high-performance", antialias: false }}>
@@ -67,7 +47,6 @@ export default function PremiumComposer() {
         <boxGeometry />
         <meshStandardMaterial emissive="orange" emissiveIntensity={2.0} />
       </mesh>
-      
       <EffectComposer disableNormalPass>
         <DepthOfField focusDistance={0} focalLength={0.02} bokehScale={2} height={480} />
         <Bloom luminanceThreshold={0.3} luminanceSmoothing={0.9} height={300} />
@@ -77,12 +56,9 @@ export default function PremiumComposer() {
   );
 }
 ```
-
 ### Example 2: Custom GLSL Shader Material for Liquid/Wavy Effects
-
 ```javascript
 import * as THREE from 'three';
-
 const CustomWavyMaterial = new THREE.ShaderMaterial({
   vertexShader: `
     varying vec2 vUv;
@@ -110,38 +86,27 @@ const CustomWavyMaterial = new THREE.ShaderMaterial({
   }
 });
 ```
-
 The material fragment requires a mesh, sufficiently subdivided geometry and an animation loop updating uniforms.uTime.value; it does not animate by itself. Respect reduced motion and provide keyboard/touch controls plus a usable non-WebGL/error fallback. Profile representative low-end devices, pause offscreen rendering, dispose owned GPU resources and cap assets/passes. DPR=2 and compression are starting choices, not guaranteed optimal settings; decoder/download cost may outweigh savings for small assets.
-
 ## Best Practices
-
 - ✅ Set `dpr={[1, 2]}` to restrict the device pixel ratio to a maximum of 2.
 - ✅ Choose renderer/composer antialiasing deliberately and measure output/performance; post-processing alone does not make renderer antialiasing incorrect.
 - ✅ Bake ambient occlusion, lighting, and shadows into textures using Blender or other 3D software instead of using dynamic lights and real-time shadows.
 - ✅ Use instance rendering (`THREE.InstancedMesh` or R3F `<Instances>`) for scenes containing multiple identical meshes.
 - ❌ Avoid using uncompressed GLTF/OBJ models. Always compress models using Draco or Meshopt.
 - ❌ Avoid real-time shadow maps (such as `THREE.DirectionalLightShadow`) on mobile or low-end devices due to the heavy performance overhead.
-
 ## Limitations
-
 - This skill does not replace environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, or safety boundaries are missing.
 - Complex shader mathematics and advanced physics simulation bounds require manual testing across different device chipsets.
-
 ## Security & Safety Notes
-
 - Verify that external 3D model URLs (loaded via `GLTFLoader`) are hosted on trusted, secure CDNs (HTTPS).
 - Do not execute arbitrary, unvalidated shell scripts or use unpinned NPM packages to optimize assets.
-
 ## Common Pitfalls
-
 - **Problem**: Severe lag/framerate drop on mobile or high-DPI (Retina) screens.
   **Solution**: Ensure the pixel ratio is limited to 2 (`renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))`) and disable unused post-processing passes.
 - **Problem**: Long loading times and white screens during initialization.
   **Solution**: Use a loading manager (`THREE.LoadingManager`) and display a responsive, interactive preloader to keep the user engaged.
-
 ## Related Skills
-
 - `@3d-web-experience` - Core WebGL, Three.js, and Spline concepts.
 - `@scroll-experience` - Integrating 3D animation with scroll controllers.
 - `@performance-optimizer` - General code execution performance tuning.

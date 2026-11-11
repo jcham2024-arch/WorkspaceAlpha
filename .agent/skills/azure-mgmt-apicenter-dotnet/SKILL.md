@@ -1,56 +1,38 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "1d3f60661a22cbdd5de00c23f6b1aaec677da42d4b0b9e6e60256669f6289836"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-mgmt-apicenter-dotnet
+content_hash: 1d3f60661a22cbdd5de00c23f6b1aaec677da42d4b0b9e6e60256669f6289836
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Azure API Center SDK for .NET. Centralized API inventory management with governance, versioning, and discovery.
-tier: "experimental"
+name: azure-mgmt-apicenter-dotnet
 risk: critical
 source: community
-date_added: '2026-02-27'
 ---
-
-
 # Azure.ResourceManager.ApiCenter (.NET)
-
 Centralized API inventory and governance SDK for managing APIs across your organization.
-
 ## Installation
-
 ```bash
 dotnet add package Azure.ResourceManager.ApiCenter
 dotnet add package Azure.Identity
 ```
-
 Examples target the historical 1.0 API family. Pin a reviewed package and verify exact generated types/API version against the official reference; this is not a latest-version claim.
-
 ## Environment Variables
-
 ```bash
 AZURE_SUBSCRIPTION_ID=<your-subscription-id>
 AZURE_RESOURCE_GROUP=<your-resource-group>
 AZURE_APICENTER_SERVICE_NAME=<your-apicenter-service>
 ```
-
 ## Authentication
-
 ```csharp
 using Azure.Identity;
 using Azure.ResourceManager;
 using Azure.ResourceManager.ApiCenter;
-
 ArmClient client = new ArmClient(new DefaultAzureCredential());
 ```
-
 ## Resource Hierarchy
-
 ```
 Subscription
 └── ResourceGroup
@@ -63,58 +45,41 @@ Subscription
         │   └── Deployment                  # API deployed to environment
         └── MetadataSchema                  # Custom metadata definitions
 ```
-
 These are separate snippets requiring Azure/Azure.Core/Resources imports and a pinned SDK compilation. Confirm exact subscription/resource IDs, permissions and cost before provisioning. API Center records document deployments; creating a deployment record does not deploy a working API. Inspect specs for embedded credentials/internal data before uploading.
-
 ## Core Workflows
-
 ### 1. Create API Center Service
-
 ```csharp
 using Azure.ResourceManager.ApiCenter;
 using Azure.ResourceManager.ApiCenter.Models;
-
 // Resolve the explicitly selected subscription, avoiding sync-over-async/default-account ambiguity.
 var subscription = client.GetSubscriptionResource(new ResourceIdentifier(
     $"/subscriptions/{Environment.GetEnvironmentVariable("AZURE_SUBSCRIPTION_ID")}"));
 ResourceGroupResource resourceGroup = (await subscription
     .GetResourceGroupAsync("my-resource-group")).Value;
-
 ApiCenterServiceCollection services = resourceGroup.GetApiCenterServices();
-
 ApiCenterServiceData data = new ApiCenterServiceData(AzureLocation.EastUS)
 {
     Identity = new ManagedServiceIdentity(ManagedServiceIdentityType.SystemAssigned)
 };
-
 ArmOperation<ApiCenterServiceResource> operation = await services
     .CreateOrUpdateAsync(WaitUntil.Completed, "my-api-center", data);
-
 ApiCenterServiceResource service = operation.Value;
 ```
-
 ### 2. Create Workspace
-
 ```csharp
 ApiCenterWorkspaceCollection workspaces = service.GetApiCenterWorkspaces();
-
 ApiCenterWorkspaceData workspaceData = new ApiCenterWorkspaceData
 {
     Title = "Engineering APIs",
     Description = "APIs owned by the engineering team"
 };
-
 ArmOperation<ApiCenterWorkspaceResource> operation = await workspaces
     .CreateOrUpdateAsync(WaitUntil.Completed, "engineering", workspaceData);
-
 ApiCenterWorkspaceResource workspace = operation.Value;
 ```
-
 ### 3. Create API
-
 ```csharp
 ApiCenterApiCollection apis = workspace.GetApiCenterApis();
-
 ApiCenterApiData apiData = new ApiCenterApiData
 {
     Title = "Orders API",
@@ -142,56 +107,41 @@ ApiCenterApiData apiData = new ApiCenterApiData
         }
     }
 };
-
 // Add custom metadata
 apiData.CustomProperties = BinaryData.FromObjectAsJson(new
 {
     team = "orders-team",
     costCenter = "CC-1234"
 });
-
 ArmOperation<ApiCenterApiResource> operation = await apis
     .CreateOrUpdateAsync(WaitUntil.Completed, "orders-api", apiData);
-
 ApiCenterApiResource api = operation.Value;
 ```
-
 ### 4. Create API Version
-
 ```csharp
 ApiCenterApiVersionCollection versions = api.GetApiCenterApiVersions();
-
 ApiCenterApiVersionData versionData = new ApiCenterApiVersionData
 {
     Title = "v1.0.0",
     LifecycleStage = ApiLifecycleStage.Production
 };
-
 ArmOperation<ApiCenterApiVersionResource> operation = await versions
     .CreateOrUpdateAsync(WaitUntil.Completed, "v1-0-0", versionData);
-
 ApiCenterApiVersionResource version = operation.Value;
 ```
-
 ### 5. Create API Definition (Upload OpenAPI Spec)
-
 ```csharp
 ApiCenterApiDefinitionCollection definitions = version.GetApiCenterApiDefinitions();
-
 ApiCenterApiDefinitionData definitionData = new ApiCenterApiDefinitionData
 {
     Title = "OpenAPI Specification",
     Description = "Orders API OpenAPI 3.0 definition"
 };
-
 ArmOperation<ApiCenterApiDefinitionResource> operation = await definitions
     .CreateOrUpdateAsync(WaitUntil.Completed, "openapi", definitionData);
-
 ApiCenterApiDefinitionResource definition = operation.Value;
-
 // Import specification
 string openApiSpec = await File.ReadAllTextAsync("orders-api.yaml");
-
 ApiSpecImportContent importContent = new ApiSpecImportContent
 {
     Format = ApiSpecImportSourceFormat.Inline,
@@ -202,31 +152,22 @@ ApiSpecImportContent importContent = new ApiSpecImportContent
         Version = "3.0.1"
     }
 };
-
 await definition.ImportSpecificationAsync(WaitUntil.Completed, importContent);
 ```
-
 ### 6. Export API Specification
-
 ```csharp
 ApiCenterApiDefinitionResource definition = await client
     .GetApiCenterApiDefinitionResource(definitionResourceId)
     .GetAsync();
-
 ArmOperation<ApiSpecExportResult> operation = await definition
     .ExportSpecificationAsync(WaitUntil.Completed);
-
 ApiSpecExportResult result = operation.Value;
-
 // result.Format - e.g., "inline"
 // result.Value - the specification content
 ```
-
 ### 7. Create Environment
-
 ```csharp
 ApiCenterEnvironmentCollection environments = workspace.GetApiCenterEnvironments();
-
 ApiCenterEnvironmentData envData = new ApiCenterEnvironmentData
 {
     Title = "Production",
@@ -242,25 +183,19 @@ ApiCenterEnvironmentData envData = new ApiCenterEnvironmentData
         DeveloperPortalUris = { new Uri("https://developer.example.com") }
     }
 };
-
 ArmOperation<ApiCenterEnvironmentResource> operation = await environments
     .CreateOrUpdateAsync(WaitUntil.Completed, "production", envData);
 ```
-
 ### 8. Create Deployment
-
 ```csharp
 ApiCenterDeploymentCollection deployments = workspace.GetApiCenterDeployments();
-
 // Get environment resource ID
 ResourceIdentifier envResourceId = ApiCenterEnvironmentResource.CreateResourceIdentifier(
     subscriptionId, resourceGroupName, serviceName, workspaceName, "production");
-
 // Get API definition resource ID
 ResourceIdentifier definitionResourceId = ApiCenterApiDefinitionResource.CreateResourceIdentifier(
     subscriptionId, resourceGroupName, serviceName, workspaceName, 
     "orders-api", "v1-0-0", "openapi");
-
 ApiCenterDeploymentData deploymentData = new ApiCenterDeploymentData
 {
     Title = "Orders API - Production",
@@ -273,16 +208,12 @@ ApiCenterDeploymentData deploymentData = new ApiCenterDeploymentData
         RuntimeUris = { new Uri("https://api.example.com/orders") }
     }
 };
-
 ArmOperation<ApiCenterDeploymentResource> operation = await deployments
     .CreateOrUpdateAsync(WaitUntil.Completed, "orders-api-prod", deploymentData);
 ```
-
 ### 9. Create Metadata Schema
-
 ```csharp
 ApiCenterMetadataSchemaCollection schemas = service.GetApiCenterMetadataSchemas();
-
 string jsonSchema = """
 {
     "type": "object",
@@ -304,7 +235,6 @@ string jsonSchema = """
     "required": ["team"]
 }
 """;
-
 ApiCenterMetadataSchemaData schemaData = new ApiCenterMetadataSchemaData
 {
     Schema = jsonSchema,
@@ -317,38 +247,31 @@ ApiCenterMetadataSchemaData schemaData = new ApiCenterMetadataSchemaData
         }
     }
 };
-
 ArmOperation<ApiCenterMetadataSchemaResource> operation = await schemas
     .CreateOrUpdateAsync(WaitUntil.Completed, "api-metadata", schemaData);
 ```
-
 ### 10. List and Search APIs
-
 ```csharp
 // List all APIs in a workspace
 ApiCenterWorkspaceResource workspace = await client
     .GetApiCenterWorkspaceResource(workspaceResourceId)
     .GetAsync();
-
 await foreach (ApiCenterApiResource api in workspace.GetApiCenterApis().GetAllAsync())
 {
     Console.WriteLine($"API: {api.Data.Title}");
     Console.WriteLine($"  Kind: {api.Data.Kind}");
     Console.WriteLine($"  Stage: {api.Data.LifecycleStage}");
-    
     // List versions
     await foreach (ApiCenterApiVersionResource version in api.GetApiCenterApiVersions().GetAllAsync())
     {
         Console.WriteLine($"  Version: {version.Data.Title}");
     }
 }
-
 // List environments
 await foreach (ApiCenterEnvironmentResource env in workspace.GetApiCenterEnvironments().GetAllAsync())
 {
     Console.WriteLine($"Environment: {env.Data.Title} ({env.Data.Kind})");
 }
-
 // List deployments
 await foreach (ApiCenterDeploymentResource deployment in workspace.GetApiCenterDeployments().GetAllAsync())
 {
@@ -356,9 +279,7 @@ await foreach (ApiCenterDeploymentResource deployment in workspace.GetApiCenterD
     Console.WriteLine($"  State: {deployment.Data.State}");
 }
 ```
-
 ## Key Types Reference
-
 | Type | Purpose |
 |------|---------|
 | `ApiCenterServiceResource` | API Center service instance |
@@ -373,9 +294,7 @@ await foreach (ApiCenterDeploymentResource deployment in workspace.GetApiCenterD
 | `ApiLifecycleStage` | design, development, testing, preview, production, deprecated, retired |
 | `ApiCenterEnvironmentKind` | development, testing, staging, production |
 | `ApiCenterDeploymentState` | active, inactive |
-
 ## Best Practices
-
 1. **Organize with workspaces** — Group APIs by team, domain, or product
 2. **Use metadata schemas** — Define custom properties for governance
 3. **Track lifecycle stages** — Keep API status current (design → production → deprecated)
@@ -384,12 +303,9 @@ await foreach (ApiCenterDeploymentResource deployment in workspace.GetApiCenterD
 6. **Import specifications** — Upload OpenAPI/GraphQL specs for discovery
 7. **Link deployments** — Connect APIs to their runtime environments
 8. **Use managed identity** — Enable SystemAssigned identity for secure integrations
-
 ## Error Handling
-
 ```csharp
 using Azure;
-
 try
 {
     ArmOperation<ApiCenterApiResource> operation = await apis
@@ -408,33 +324,24 @@ catch (RequestFailedException ex)
     Console.WriteLine($"Azure error: {ex.Status} - {ex.Message}");
 }
 ```
-
 ## Related SDKs
-
 | SDK | Purpose | Install |
 |-----|---------|---------|
 | `Azure.ResourceManager.ApiCenter` | API Center management (this SDK) | `dotnet add package Azure.ResourceManager.ApiCenter` |
 | `Azure.ResourceManager.ApiManagement` | API gateway and policies | `dotnet add package Azure.ResourceManager.ApiManagement` |
-
 ## Reference Links
-
 | Resource | URL |
 |----------|-----|
 | NuGet Package | https://www.nuget.org/packages/Azure.ResourceManager.ApiCenter |
 | API Reference | https://learn.microsoft.com/dotnet/api/azure.resourcemanager.apicenter |
 | Product Documentation | https://learn.microsoft.com/azure/api-center/ |
 | GitHub Source | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/apicenter/Azure.ResourceManager.ApiCenter |
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Windows](platforms/windows.md)

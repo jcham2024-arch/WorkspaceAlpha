@@ -1,21 +1,21 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "53454bf40be5682629866953faf60fc6edc14147033b173f8f298e6f40bbeb54"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: devops-pipeline-builder
-version: 1.0.0
-description: Design and implement CI/CD pipelines, Docker configurations, deployment
-tier: "experimental"
-  strategies, and infrastructure automation with production-ready patterns.
+content_hash: 53454bf40be5682629866953faf60fc6edc14147033b173f8f298e6f40bbeb54
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 author: yundu-ai
-tags:
+date_added: 2026-09-21
+description: Design and implement CI/CD pipelines, Docker configurations, deployment
+name: CI/CD Pipeline
+risk: critical
+source: community
+source_repo: demo112/yunqu-ai-skills
+source_type: community
+tags: "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}"
+version: 1.0.0
+---  strategies, and infrastructure automation with production-ready patterns.
 - devops
 - ci-cd
 - docker
@@ -23,54 +23,35 @@ tags:
 - deployment
 - automation
 model: claude
-source_repo: demo112/yunqu-ai-skills
-source_type: community
-source: community
-date_added: '2026-09-21'
-risk: critical
 ---
-
 ## When to Use
 - Use when this upstream workflow matches the user's stated goal.
 - Use when the task requires the procedures documented in this skill.
-
 # DevOps Pipeline Builder
-
 Act as a DevOps engineer; do not claim personal deployment experience. You design for reliability, speed, and security — in that order.
-
 ## Decision Framework
-
 Before writing any pipeline/config, establish:
-
 1. **Project type**: Web app, API, library, microservice, monolith?
 2. **Language/stack**: What build tools? What test framework?
 3. **Deployment target**: Docker, K8s, VM, serverless, static?
 4. **Environment strategy**: dev → staging → production?
 5. **Compliance needs**: SOC2? HIPAA? Any audit requirements?
 6. **Team size**: 1 person vs 50 devs changes the complexity budget
-
 ## Pipeline Patterns
-
 Pin actions and base images to reviewed immutable versions for the target runner. Examples are templates, not evidence of current versions or deployment success. Restrict write permissions to trusted push events; protected environment approval and concurrency must match the project.
-
 ### GitHub Actions — Standard Web App
-
 ```yaml
-name: CI/CD Pipeline
 
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
-
 permissions:
   contents: read
-
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -85,7 +66,6 @@ jobs:
       - run: npm run lint
       # Security audit
       - run: npm audit --audit-level=high
-      
   build-and-push:
     needs: test
     if: github.ref == 'refs/heads/main'
@@ -104,10 +84,8 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-
   deploy:
     needs: build-and-push
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -118,9 +96,7 @@ jobs:
           # Add deployment commands here
           echo "Deployment placeholder: no deployment has occurred"
 ```
-
 ### Docker — Multi-stage Production Build
-
 ```dockerfile
 # Stage 1: Build
 FROM node:22-alpine AS builder
@@ -129,28 +105,22 @@ COPY package*.json ./
 RUN npm ci --ignore-scripts
 COPY . .
 RUN npm run build
-
 # Stage 2: Production
 FROM node:22-alpine AS runner
 WORKDIR /app
 RUN addgroup --system --gid 1001 appgroup && \
     adduser --system --uid 1001 appuser
-
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
 # Prune development dependencies in a reviewed production dependency stage.
 COPY --from=builder /app/package.json ./
-
 USER appuser
 EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=3s \
   CMD wget -qO- http://localhost:3000/health || exit 1
-
 CMD ["node", "dist/server.js"]
 ```
-
 ## Deployment Strategy Decision Tree
-
 ```
 Is zero-downtime required?
 ├── Yes
@@ -165,9 +135,7 @@ Is zero-downtime required?
     │   └── Yes → Direct push, recreate containers
     └── No → Why not? Add zero-downtime.
 ```
-
 ## Common Anti-Patterns to Avoid
-
 | Anti-Pattern | Why It's Bad | Fix |
 |---|---|---|
 | `latest` tag in production | Non-reproducible, untraceable | Use SHA or semver tags |
@@ -178,11 +146,8 @@ Is zero-downtime required?
 | No `.dockerignore` | Slow builds, leaked secrets | Create comprehensive `.dockerignore` |
 | Hardcoded env vars | Inflexible, unsecretive | Runtime env injection |
 | No pipeline caching | Slow CI, wasted compute | Cache layers and dependencies |
-
 ## Infrastructure Checklist
-
 For any production deployment, verify:
-
 - [ ] Separate liveness from readiness; avoid restarting healthy processes merely because a dependency is down
 - [ ] Graceful shutdown (SIGTERM handling)
 - [ ] Structured logging (JSON, correlation IDs)
@@ -193,31 +158,21 @@ For any production deployment, verify:
 - [ ] Rollback procedure documented and tested
 - [ ] Database migration strategy (backward compatible)
 - [ ] Rate limiting configured
-
 ## When Asked to Debug CI/CD
-
 1. Check the **exact error message** — it usually tells you what's wrong
 2. Verify **secret availability** — most CI failures are auth/secret issues
 3. Check **dependency caching** — stale cache = weird errors
 4. Verify **environment parity** — "works on my machine" = environment difference
 5. Check **resource limits** — CI runners have memory/CPU limits
 6. Look at **timing** — tests that fail intermittently = race condition or flaky test
-
-
 ## Examples
-
 ```text
 User: Apply this skill to my current task.
 Assistant: Follow the workflow in this skill, cite limitations, and ask before risky steps.
 ```
-
 ## Limitations
-
 - Imported upstream skill; verify credentials, permissions, and safety boundaries before execution.
 - Does not replace environment-specific validation, testing, or maintainer review.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Linux](platforms/linux.md)

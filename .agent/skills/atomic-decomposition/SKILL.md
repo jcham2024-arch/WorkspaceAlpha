@@ -1,56 +1,38 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "b451ecb4328b9e0e68155148053d07777d1266cc594519328ee163dfc97d6465"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: atomic-decomposition
+content_hash: b451ecb4328b9e0e68155148053d07777d1266cc594519328ee163dfc97d6465
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: Decompose research ideas into atomic, self-contained concepts with bidirectional math-code mapping. For each concept, extract the math formula from papers and find code implementations. Use for complex system papers requiring formal grounding.
-tier: "experimental"
-argument-hint: [idea-or-paper]
+name: atomic-decomposition
+---argument-hint: [idea-or-paper]
 ---
-
-
 # Atomic Decomposition
-
 Decompose research ideas into atomic concepts with math formula <-> code implementation mapping.
-
 ## Input
-
 - `$0` — Research idea, paper, or method description
-
 ## References
-
 - Decomposition prompts and workflow: `~/.claude/skills/atomic-decomposition/references/decomposition-prompts.md`
-
 ## Workflow (from AI-Researcher Survey Agent)
-
 ### Step 1: Break Down into Atomic Definitions
 Analyze the research idea and decompose into atomic, self-contained concepts:
 - Each atom should be a single concept
 - Must have clear mathematical foundations
 - Must be implementable in code
 - Must be traceable to specific papers
-
 ### Step 2: For Each Atomic Definition
-
 #### A. Paper Survey (Math Formula)
 - Search papers for the mathematical formulation
 - Extract the exact LaTeX formula
 - Note assumptions and constraints
 - Record reference papers
-
 #### B. Code Survey (Implementation)
 - Search codebases for implementations
 - Extract the corresponding code
 - Note implementation details and variations
 - Record reference repositories
-
 #### C. Create Knowledge Entry
 ```json
 {
@@ -63,22 +45,18 @@ Analyze the research idea and decompose into atomic, self-contained concepts:
   "connections": ["Used in Component X of the proposed method"]
 }
 ```
-
 ### Step 3: Compile Knowledge Base
 - Merge all atomic definitions into a structured knowledge base
 - Verify consistency: every math formula has a code implementation
 - Verify completeness: every code module traces to a formal definition
 - Identify any gaps (formulas without code, or code without theory)
-
 ## Rules
-
 - Each atomic definition must be specific enough to trace to concrete formulas and code
 - Do not skip or combine definitions — analyze each separately
 - If unsure about atomicity, err on the side of breaking down further
 - Document breakdown reasoning before analysis
 - Every mathematical concept in the paper must have verified code
 - Every code module must trace back to a formal mathematical definition
-
 ## Related Skills
 - Upstream: [research-planning](../research-planning/), [idea-generation](../idea-generation/)
 - Downstream: [experiment-code](../experiment-code/), [algorithm-design](../algorithm-design/)

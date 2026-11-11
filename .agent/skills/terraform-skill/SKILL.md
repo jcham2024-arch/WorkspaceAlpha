@@ -1,32 +1,21 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "56850384b0c6fe8c5a51b746f35e55ef8ad33bfa416e0ede1da7ec9b9c1035e3"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 56850384b0c6fe8c5a51b746f35e55ef8ad33bfa416e0ede1da7ec9b9c1035e3
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Terraform infrastructure as code best practices
 name: terraform-skill
-description: "Terraform infrastructure as code best practices"
-tier: "experimental"
 risk: safe
-source: "https://github.com/antonbabenko/terraform-skill"
-date_added: "2026-02-27"
+source: ""https://github.com/antonbabenko/terraform-skill""
 ---
-
 # Terraform Skill for Claude
-
 Comprehensive Terraform and OpenTofu guidance covering testing, modules, CI/CD, and production patterns. Based on terraform-best-practices.com and enterprise experience.
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use This Skill
-
 **Activate this skill when:**
 - Creating new Terraform or OpenTofu configurations or modules
 - Setting up testing infrastructure for IaC code
@@ -35,16 +24,12 @@ Read [the detailed guide](references/detailed-guide.md) before executing this sk
 - Implementing CI/CD for infrastructure-as-code
 - Reviewing or refactoring existing Terraform/OpenTofu projects
 - Choosing between module patterns or state management approaches
-
 **Don't use this skill for:**
 - Basic Terraform/OpenTofu syntax questions (Claude knows this)
 - Provider-specific API reference (link to docs instead)
 - Cloud platform questions unrelated to Terraform/OpenTofu
-
 ## Count vs For_Each: When to Use Each
-
 ### Quick Decision Guide
-
 | Scenario | Use | Why |
 |----------|-----|-----|
 | Boolean condition (create or don't) | `count = condition ? 1 : 0` | Simple on/off toggle |
@@ -52,9 +37,7 @@ Read [the detailed guide](references/detailed-guide.md) before executing this sk
 | Items may be reordered/removed | `for_each = toset(list)` | Stable resource addresses |
 | Reference by key | `for_each = map` | Named access to resources |
 | Multiple named resources | `for_each` | Better maintainability |
-
 ### Common Patterns
-
 **Boolean conditions:**
 ```hcl
 # ✅ GOOD - Boolean condition
@@ -63,64 +46,47 @@ resource "aws_nat_gateway" "this" {
   # ...
 }
 ```
-
 **Stable addressing with for_each:**
 ```hcl
 # ✅ GOOD - Removing "us-east-1b" only affects that subnet
 resource "aws_subnet" "private" {
   for_each = toset(var.availability_zones)
-
   availability_zone = each.key
   # ...
 }
-
 # ❌ BAD - Removing middle AZ recreates all subsequent subnets
 resource "aws_subnet" "private" {
   count = length(var.availability_zones)
-
   availability_zone = var.availability_zones[count.index]
   # ...
 }
 ```
-
 **For migration guides and detailed examples, see:** Code Patterns: Count vs For_Each
-
 ## Security & Compliance
-
 Use sensitive inputs through an approved secret channel where needed; sensitive = true redacts normal display but does not encrypt state or plan files. Secure backend access, locking, encryption and plan artifacts. Do not read Secrets Manager data into Terraform and assume the value cannot enter state. Use supported ephemeral/write-only arguments only where the selected Terraform/provider version implements them.
-
 ### Essential Security Checks
-
 ```bash
 # Static security scanning
 trivy config .
 checkov -d .
 ```
-
 ### Common Issues to Avoid
-
 ❌ **Don't:**
 - Hardcode secrets or assume sensitive variables keep values out of state
 - Use default VPC
 - Skip encryption
 - Open security groups to 0.0.0.0/0
-
 ✅ **Do:**
 - Use AWS Secrets Manager / Parameter Store
 - Create dedicated VPCs
 - Enable encryption at rest
 - Use least-privilege security groups
-
 **For detailed security guidance, see:**
 - **Security & Compliance Guide** - Trivy/Checkov integration, secrets management, state file security, compliance testing
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Linux](platforms/linux.md)

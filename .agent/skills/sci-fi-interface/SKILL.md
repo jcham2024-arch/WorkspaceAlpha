@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "c66798596e8ce978c8d4a33885ce3fa6742fb30fb8f76b53afc38ca944a6da3d"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: sci-fi-interface
+content_hash: c66798596e8ce978c8d4a33885ce3fa6742fb30fb8f76b53afc38ca944a6da3d
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Sci-Fi Interface Design. Trigger when user wants HUDs, spacecraft dashboards, or tactical military readouts.
-tier: "experimental"
-date_added: "2026-06-17"
+name: sci-fi-interface
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Sci-Fi Interface Design (HUD)
-
 > "Heads-Up Display. Tactical, precise, and highly analytical."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Wireframe and Outlines**: Interfaces are built almost entirely out of thin strokes rather than solid filled boxes.
 2. **Circular Arrays & Radars**: Heavy use of concentric circles, radar sweeps, and curved progress bars.
 3. **Monochrome + Warning**: Often entirely monochromatic (just blue, or just green) with a secondary color (red) used exclusively for alerts.
-
 ## Visual DNA
 - **Colors**: Midnight background. UI is pure Cyan, Emerald Green, or Amber (like classic monochrome monitors). **Minimalist Slate** works if made dark.
 - **Typography**: Strict, technical monospace fonts (`Share Tech Mono`, `VT323`, `Space Mono`). All caps.
 - **Styling**: Tiny UI chroming details (target brackets `[ ]`, framing lines, precise pixel coordinates).
-
 ## Web Implementation
 - Heavy use of SVG for circular dials, and CSS borders for the layout.
 - **CSS Example**:
@@ -47,14 +34,12 @@ body {
   font-family: 'Share Tech Mono', monospace;
   text-transform: uppercase;
 }
-
 /* The HUD Frame */
 .hud-container {
   border: 1px solid rgba(68, 221, 255, 0.3);
   position: relative;
   padding: 30px;
 }
-
 /* Corner brackets */
 .hud-container::before {
   content: '';
@@ -72,43 +57,34 @@ body {
   border-bottom: 2px solid #4df;
   border-right: 2px solid #4df;
 }
-
 .hud-value {
   font-size: 3rem;
   text-shadow: 0 0 10px rgba(68, 221, 255, 0.8);
 }
-
 .hud-warning {
   color: #ff3333;
   text-shadow: 0 0 10px rgba(255, 51, 51, 0.8);
   /* Keep warning text visible; do not blink essential status. */
 }
-
 @keyframes blink { 50% { opacity: 0; } }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct SciFiHUDView: View {
     @State private var bootUp = false
-    
     var body: some View {
         ZStack {
             Color(hex: "000b18").ignoresSafeArea() // Deep space navy
-            
             VStack {
                 // Circular Radar/Dial
                 ZStack {
                     Circle()
                         .stroke(Color(hex: "4df").opacity(0.3), lineWidth: 1)
-                    
                     Circle()
                         .trim(from: 0.0, to: bootUp ? 0.75 : 0.0)
                         .stroke(Color(hex: "4df"), style: StrokeStyle(lineWidth: 4, lineCap: .round))
                         .rotationEffect(.degrees(-90))
-                    
                     Text("SYS.OK")
                         .font(.custom("Space Mono", size: 24))
                         .foregroundColor(Color(hex: "4df"))
@@ -116,7 +92,6 @@ struct SciFiHUDView: View {
                 }
                 .frame(width: 200, height: 200)
                 .padding(.bottom, 40)
-                
                 // HUD Data Frame
                 HStack {
                     Text("COORD: 45.22, 12.8")
@@ -146,29 +121,24 @@ struct SciFiHUDView: View {
 ```
 - SwiftUI is uniquely fantastic for Sci-Fi HUDs. `Circle().trim(from: to:)` lets you build complex sweeping circular progress rings.
 - Use `Path` overlays to draw the exact 90-degree corner brackets (`[ ]`) that define the HUD look.
-
 ### Flutter
 ```dart
 class SciFiHUDScreen extends StatefulWidget {
   @override
   State<SciFiHUDScreen> createState() => _SciFiHUDScreenState();
 }
-
 class _SciFiHUDScreenState extends State<SciFiHUDScreen> with SingleTickerProviderStateMixin {
   late AnimationController _ctrl;
-
   @override
   void initState() {
     super.initState();
     _ctrl = AnimationController(vsync: this, duration: const Duration(seconds: 2))..forward();
   }
-
   @override
   void dispose() {
     _ctrl.dispose();
     super.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -199,7 +169,6 @@ class _SciFiHUDScreenState extends State<SciFiHUDScreen> with SingleTickerProvid
               ),
             ),
             const SizedBox(height: 40),
-            
             // HUD Data Frame (requires CustomPaint for true corner brackets)
             Container(
               width: 300,
@@ -222,16 +191,13 @@ class _SciFiHUDScreenState extends State<SciFiHUDScreen> with SingleTickerProvid
 ```
 - `CircularProgressIndicator` is an easy hack for circular HUD rings, but for true Sci-Fi interfaces in Flutter, you should build a `CustomPainter` to draw concentric stroked circles and arcs.
 - Heavy use of monospace fonts and pure cyan (`#44DDFF`).
-
 ### React Native
 ```jsx
 // Requires react-native-svg
 import Svg, { Circle, Path } from 'react-native-svg';
-
 const SciFiHUDScreen = () => {
   return (
     <View style={{ flex: 1, backgroundColor: '#000B18', justifyContent: 'center', alignItems: 'center' }}>
-      
       {/* Circular Radar */}
       <View style={{ width: 200, height: 200, justifyContent: 'center', alignItems: 'center', marginBottom: 40 }}>
         <Svg height="200" width="200" style={{ position: 'absolute' }}>
@@ -242,7 +208,6 @@ const SciFiHUDScreen = () => {
           SYS.OK
         </Text>
       </View>
-
       {/* HUD Frame */}
       <View style={{ 
         width: 300, padding: 16, flexDirection: 'row', justifyContent: 'space-between',
@@ -250,19 +215,16 @@ const SciFiHUDScreen = () => {
       }}>
         <Text style={{ fontFamily: 'monospace', color: '#4df' }}>COORD: 45.22, 12.8</Text>
         <Text style={{ fontFamily: 'monospace', color: '#4df' }}>[ LOCK ]</Text>
-
         {/* Pseudo Corner Brackets using absolute views */}
         <View style={{ position: 'absolute', top: -2, left: -2, width: 15, height: 15, borderTopWidth: 2, borderLeftWidth: 2, borderColor: '#4df' }} />
         <View style={{ position: 'absolute', bottom: -2, right: -2, width: 15, height: 15, borderBottomWidth: 2, borderRightWidth: 2, borderColor: '#4df' }} />
       </View>
-
     </View>
   );
 };
 ```
 - One option is `react-native-svg` to draw circular HUD dials. Use `strokeDasharray` and `strokeDashoffset` on the `<Circle>` to draw arcs.
 - The corner brackets are built easily by absolutely positioning small `View`s with 2 active borders over the corners of a container.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -270,7 +232,6 @@ fun SciFiHUDScreen() {
     // Animation for boot up
     // Static preview. Bind to real progress for a working HUD.
     val sweep = 270f
-
     Column(
         modifier = Modifier.fillMaxSize().background(Color(0xFF000B18)),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -290,9 +251,7 @@ fun SciFiHUDScreen() {
             }
             Text("SYS.OK", color = Color(0xFF44DDFF), fontFamily = FontFamily.Monospace, fontSize = 24.sp)
         }
-        
         Spacer(Modifier.height(40.dp))
-        
         // HUD Frame
         Box(modifier = Modifier.width(300.dp)) {
             Row(
@@ -302,7 +261,6 @@ fun SciFiHUDScreen() {
                 Text("COORD: 45.22, 12.8", color = Color(0xFF44DDFF), fontFamily = FontFamily.Monospace)
                 Text("[ LOCK ]", color = Color(0xFF44DDFF), fontFamily = FontFamily.Monospace)
             }
-            
             // Corner brackets via Canvas
             Canvas(modifier = Modifier.matchParentSize()) {
                 val path = Path().apply {
@@ -317,11 +275,9 @@ fun SciFiHUDScreen() {
 ```
 - Jetpack Compose's `Canvas` is incredibly powerful here. Use `drawArc` for the circular HUD rings.
 - Draw the corner brackets on a `Canvas` overlaying the Box using `Path().apply { moveTo... lineTo... }`.
-
 ## Do's and Don'ts
 - **DO**: Animate elements entering the screen as if they are 'booting up' or 'calibrating' (drawing lines from 0 to 100%).
 - **DON'T**: Use drop shadows. Light in a HUD is emitted, not blocked. Use `text-shadow` for glows instead.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

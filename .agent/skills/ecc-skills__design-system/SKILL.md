@@ -1,38 +1,24 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "4c5bf417885b5bb9ae065216b12988788cbd38fd601f71f18dcdfc8ae8da483e"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 4c5bf417885b5bb9ae065216b12988788cbd38fd601f71f18dcdfc8ae8da483e
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+description: "Generate a design system from an existing codebase or audit one for visual consistency: extract tokens (colors, typography, spacing, shadows) into design-tokens.json and CSS custom properties with DESIGN.md rationale and an interactive HTML preview, score the UI across 10 dimensions, and flag AI-slop patterns. Use when starting a design system, auditing visual consistency before a redesign, or reviewing a PR"
 name: design-system
-description: Generate a design system from an existing codebase or audit one for visual consistency: extract tokens (colors, typography, spacing, shadows) into design-tokens.json and CSS custom properties with DESIGN.md rationale and an interactive HTML preview, score the UI across 10 dimensions, and flag AI-slop patterns. Use when starting a design system, auditing visual consistency before a redesign, or reviewing a PR
-tier: "experimental"
-metadata:
-  origin: ECC
+origin: ECC
 ---
-
-
 # Design System — Generate & Audit Visual Systems
-
 ## When to Use
-
 - Starting a new project that needs a design system
 - Auditing an existing codebase for visual consistency
 - Before a redesign — understand what you have
 - When the UI looks "off" but you can't pinpoint why
 - Reviewing PRs that touch styling
-
 ## How It Works
-
 ### Mode 1: Generate Design System
-
 Analyzes your codebase and generates a cohesive design system:
-
 ```
 1. Scan CSS/Tailwind/styled-components for existing patterns
 2. Extract: colors, typography, spacing, border-radius, shadows, breakpoints
@@ -41,13 +27,9 @@ Analyzes your codebase and generates a cohesive design system:
 5. Generate DESIGN.md with rationale for each decision
 6. Create an interactive HTML preview page (self-contained, no deps)
 ```
-
 Output: `DESIGN.md` + `design-tokens.json` + `design-preview.html`
-
 ### Mode 2: Visual Audit
-
 Scores your UI across 10 dimensions (0-10 each):
-
 ```
 1. Color consistency — are you using your palette or random hex values?
 2. Typography hierarchy — clear h1 > h2 > h3 > body > caption?
@@ -60,13 +42,9 @@ Scores your UI across 10 dimensions (0-10 each):
 9. Information density — cluttered or clean?
 10. Polish — hover states, transitions, loading states, empty states
 ```
-
 Each dimension gets a score, specific examples, and a fix with exact file:line.
-
 ### Mode 3: AI Slop Detection
-
 Identifies generic AI-generated design patterns:
-
 ```
 - Gratuitous gradients on everything
 - Purple-to-blue defaults
@@ -76,19 +54,15 @@ Identifies generic AI-generated design patterns:
 - Generic hero with centered text over stock gradient
 - Sans-serif font stack with no personality
 ```
-
 ## Examples
-
 **Generate for a SaaS app:**
 ```
 /design-system generate --style minimal --palette earth-tones
 ```
-
 **Audit existing UI:**
 ```
 /design-system audit --url http://localhost:3000 --pages / /pricing /docs
 ```
-
 **Check for AI slop:**
 ```
 /design-system slop-check

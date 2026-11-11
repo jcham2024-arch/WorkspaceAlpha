@@ -1,51 +1,38 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "03a3eb6ec60d30aa128551061f6c50055b74bdb943497246bae9a354f07add06"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: android-cli
-description: Orchestrates Android development tasks including project creation, deployment, SDK management, and environment diagnostics using the `android` command-line tool.
-tier: "experimental"
+content_hash: 03a3eb6ec60d30aa128551061f6c50055b74bdb943497246bae9a354f07add06
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: Owais
 category: tools
+date_added: 2026-06-15
+description: Orchestrates Android development tasks including project creation, deployment, SDK management, and environment diagnostics using the `android` command-line tool.
+docs: SKILL.md
+name: android-cli
 risk: critical
 source: self
 source_type: self
-date_added: "2026-06-15"
-author: Owais
-tags: [android, cli, adb, mobile, build, emulator]
-tools: [claude, cursor, gemini, antigravity]
-plugin:
+tags: "[android, cli, adb, mobile, build, emulator]"
+tools: "[claude, cursor, gemini, antigravity]"
+---plugin:
   targets:
     codex: blocked
     claude: blocked
   setup:
     type: manual
     summary: "Installer guidance executes remote Android CLI setup scripts; keep out of plugin-safe bundles."
-    docs: SKILL.md
 ---
-
-
 # Android CLI Specialist
-
 This skill provides instructions for using the `android` CLI tool. The tool includes various commands for creating projects, running applications, interacting with devices, and managing the CLI environment.
-
 ## When to Use
-
 - Use when you need to create, configure, or analyze Android projects from the command line.
 - Use when interacting with, deploying to, or taking screenshots of running Android devices.
 - Use when managing Android SDK components, versions, or virtual devices (emulators).
 - Use when inspecting UI layouts or running XML-specified journey tests.
-
 ## Installation
-
 If the `android` tool is not in the path, download the platform installer to a private temporary directory, inspect it, then run it only after the user confirms the source and contents:
-
 ```bash
 tmpdir="$(mktemp -d "${TMPDIR:-/tmp}/android-cli.XXXXXX")" || exit 1
 curl --fail --show-error --silent --location --max-time 30 https://dl.google.com/android/cli/latest/linux_x86_64/install.sh -o "$tmpdir/install.sh"
@@ -55,79 +42,49 @@ cat "$tmpdir/install.sh"
 # After review and explicit user confirmation:
 bash "$tmpdir/install.sh"
 ```
-
 Use the matching `darwin_arm64/install.sh` or `windows_x86_64/install.cmd` URL for macOS or Windows. Do not pipe mutable network installer scripts directly into a shell.
-
 ## SDK Management
-
 To manage the installation of Android SDKs and tools, use the `sdk` command. For example:
-
 - `android sdk install <package>[@<version>]...`: Install specific packages. Multiple packages can be specified, separated by spaces. `<version>` defaults to latest. For example: `android sdk install platforms/android-30@2 platforms/android-34`
 - `android sdk update [<pkg-name>]`: Update a specific package or all packages to the latest version.
 - `android sdk remove <pkg-name>`: Remove a package from the local SDK.
 - `android sdk list --all`: List installed and available SDK packages.
-
 ## Project Creation
-
 Create projects from templates using the `create` command.
-
 For example:
 ```bash
 android create empty-activity --name="My App" --output=./my-app
 ```
-
 ## Interacting with Devices
-
 For more information on interacting with running devices, see [here](references/interact.md).
-
 ## Running Journey Tests
-
 For more information on running journeys, see [here](references/journeys.md).
-
 ## Doc Searching
-
 The `docs` command searches authoritative, high-quality Android developer documentation in the Android Knowledge Base.
 By providing a few keywords, this tool will return high quality articles that contain examples or guidance on how to use Android APIs or libraries.
 Use this tool to obtain additional information on how to achieve Android-specific tasks or to know more about Android APIs, surfaces, libraries, or devices.
-
 Use installed-version help and dated official Android documentation; a returned search result is not guaranteed current or authoritative for the exact SDK. Typical good use cases are:
   - Finding migration guides for APIs.
   - Finding examples for APIs.
   - Finding up-to-date information about Android APIs.
   - Finding best practices for Android concepts.
-
 ## Running APKs
-
 Use the `run` command to run Android apps.
-
 ## Managing Emulators
-
 Manage Android Virtual Devices (AVDs) using the `android emulator` command.
-
 ## Capturing Screenshots
-
 Capture an image of the current screen of a connected Android device and output it to a file using the `android screen capture -o <file path>` command.
-
 ## Managing Skills
-
 Manage antigravity agent skills for Android using the `android skills` command.
-
 ## Inspecting UI Layouts
-
 Use the `android layout` command to inspect the UI layout of an Android application. It returns the layout tree of an Android application in JSON format. When debugging UI errors, this is often a much faster approach than taking a screenshot.
-
 ## Updating the CLI
-
 Update the Android CLI using the `android update` command.
-
 ## Limitations
-
 - The `android` CLI must be installed and available on `PATH`; otherwise install it first or use the platform-specific setup guidance above.
 - Device, emulator, SDK, and documentation commands can depend on local Android SDK state, network access, and attached hardware.
 - Treat generated commands as environment-sensitive: inspect paths, package names, device serials, and install/update targets before running them.
-
 ## Historical Android Help Output
-
 Snapshot only: compare `android --version` and relevant `--help` output before
 using flags; do not confuse this CLI with the deprecated SDK `android` tool.
 Official CLI source documentation: https://developer.android.com/tools/agents/android-cli
@@ -135,7 +92,6 @@ and https://developer.android.com/tools/agents/android-cli/download .
 Installing/updating and `init`/`skills` can modify local tools or agent configuration;
 review destination, provenance, downloads and telemetry settings first. Do not
 automatically change global tools, licenses or persistent agent instructions.
-
 ```text
 Usage: android [-hV] [--sdk=PARAM] [COMMAND]
   -h, --help        Show this help message and exit.
@@ -155,7 +111,6 @@ Commands:
   sdk       Download and list SDK packages
   skills    Manage skills
   update    Update the Android CLI
-
 create
           Usage: android create [-h] [--verbose] [--list] [--minSdk=api]
                                 --name=applicationName [-o=dest-path] [template-name]
@@ -170,7 +125,6 @@ create
                                        '.')
                 --verbose            Enables verbose output
                 --list               List all available templates
-
 describe
           Usage: android describe [-hV] [--project_dir=PARAM]
           Analyzes an Android project to generate descriptive metadata.
@@ -181,7 +135,6 @@ describe
             -h, --help                Show this help message and exit.
                 --project_dir=PARAM   The project directory to describe
             -V, --version             Print version information and exit.
-
 docs
           Usage: android docs [-h] [COMMAND]
           Android documentation commands
@@ -189,7 +142,6 @@ docs
           Commands:
             search  Search Android documentation
             fetch   Fetch Android documentation
-
 emulator
           Usage: android emulator [-h] [COMMAND]
           Emulator commands
@@ -201,21 +153,17 @@ emulator
             stop    Stops the specified virtual device
             list    Lists available virtual devices
             remove  Delete a virtual device
-
 help
           Usage: android help [COMMAND]
           Shows the help of all commands
                 [COMMAND]   The command to show help for
-
 info
           Usage: android info <field>
           Print environment information (SDK Location, etc.)
                 <field>   The specific field to print the value of. If omitted print all.
-
 init
           Usage: android init
           Initializes the environment (eg. skills) for Android CLI.
-
 layout
           Usage: android layout [-dhp] [--device=PARAM] [-o=PARAM]
           Returns the layout tree of an application
@@ -227,7 +175,6 @@ layout
                                    directory. If omitted, prints the tree to standard
                                    output
             -p, --pretty         Pretty-prints the returned JSON
-
 run
           Usage: android run [-h] [--debug] [--activity=PARAM] [--device=PARAM]
                              [--type=PARAM] [--apks=PARAM[,PARAM...]]...
@@ -239,7 +186,6 @@ run
                 --device=PARAM     The device serial number
             -h, --help             Show this help message and exit.
                 --type=PARAM       The component type (ACTIVITY, SERVICE, etc.)
-
 screen
           Usage: android screen [-h] [COMMAND]
           Commands to view the device
@@ -247,7 +193,6 @@ screen
           Commands:
             capture  Outputs the device screen to a PNG
             resolve  Target UI elements visually
-
 sdk
           Usage: android sdk [COMMAND]
           Download and list SDK packages
@@ -256,7 +201,6 @@ sdk
             update   Update one or all packages to the latest version
             remove   Remove a package from the SDK
             list     List installed and available SDK packages
-
 skills
           Usage: android skills [COMMAND]
           Manage skills
@@ -265,15 +209,12 @@ skills
             remove  Remove a skill
             list    List available skills
             find    Find skills by keyword
-
 update
           Usage: android update [--url=PARAM]
           Update the Android CLI
                 --url=PARAM   The URL to download the update from
 ```
-
 ## Device and data boundaries
-
 Select a single authorized test serial for BOTH `android --device` and `adb -s`;
 never rely on a default when several devices are connected. Install/run/uninstall,
 SDK removal, emulator deletion and UI actions can change data or cause purchases,
@@ -281,9 +222,6 @@ messages or account operations. Use synthetic test accounts and scoped approval.
 Screenshots/layout dumps may expose passwords, tokens, notifications or third-party
 content; store privately with bounded retention and redact before sharing.
 No installation/device/journey was run by this static guide review.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Android](platforms/android.md)

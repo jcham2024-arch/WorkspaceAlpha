@@ -1,62 +1,42 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "fad59d0a4a15756f5be7e2c1040f6f4fa8783b1c12c57366a357f114f88f77ae"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: gitlab-ci-patterns
-description: "Comprehensive GitLab CI/CD pipeline patterns for automated testing, building, and deployment."
-tier: "experimental"
+content_hash: fad59d0a4a15756f5be7e2c1040f6f4fa8783b1c12c57366a357f114f88f77ae
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Comprehensive GitLab CI/CD pipeline patterns for automated testing, building, and deployment.
+name: production
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # GitLab CI Patterns
-
 Comprehensive GitLab CI/CD pipeline patterns for automated testing, building, and deployment.
-
 ## Do not use this skill when
-
 - The task is unrelated to gitlab ci patterns
 - You need a different domain or tool outside this scope
-
 ## Instructions
-
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-
 ## Purpose
-
 Create efficient GitLab CI pipelines with proper stage organization, caching, and deployment strategies.
-
 ## Use this skill when
-
 - Automate GitLab-based CI/CD
 - Implement multi-stage pipelines
 - Configure GitLab Runners
 - Deploy to Kubernetes from GitLab
 - Implement GitOps workflows
-
 ## Basic Pipeline Structure
-
 ```yaml
 stages:
   - build
   - test
   - deploy
-
 variables:
   DOCKER_DRIVER: overlay2
   DOCKER_TLS_CERTDIR: "/certs"
-
 build:
   stage: build
   image: node:20
@@ -71,7 +51,6 @@ build:
     key: ${CI_COMMIT_REF_SLUG}
     paths:
       - node_modules/
-
 test:
   stage: test
   image: node:20
@@ -85,7 +64,6 @@ test:
       coverage_report:
         coverage_format: cobertura
         path: coverage/cobertura-coverage.xml
-
 deploy:
   stage: deploy
   image: bitnami/kubectl:latest
@@ -95,12 +73,9 @@ deploy:
   only:
     - main
   environment:
-    name: production
     url: https://app.example.com
 ```
-
 ## Docker Build and Push
-
 ```yaml
 build-docker:
   stage: build
@@ -118,9 +93,7 @@ build-docker:
     - main
     - tags
 ```
-
 ## Multi-Environment Deployment
-
 ```yaml
 .deploy_template: &deploy_template
   image: bitnami/kubectl:latest
@@ -129,7 +102,6 @@ build-docker:
     - kubectl config set-credentials admin --token="$KUBE_TOKEN"
     - kubectl config set-context default --cluster=k8s --user=admin
     - kubectl config use-context default
-
 deploy:staging:
   <<: *deploy_template
   stage: deploy
@@ -137,11 +109,9 @@ deploy:staging:
     - kubectl apply -f k8s/ -n staging
     - kubectl rollout status deployment/my-app -n staging
   environment:
-    name: staging
     url: https://staging.example.com
   only:
     - develop
-
 deploy:production:
   <<: *deploy_template
   stage: deploy
@@ -149,29 +119,23 @@ deploy:production:
     - kubectl apply -f k8s/ -n production
     - kubectl rollout status deployment/my-app -n production
   environment:
-    name: production
     url: https://app.example.com
   when: manual
   only:
     - main
 ```
-
 ## Terraform Pipeline
-
 ```yaml
 stages:
   - validate
   - plan
   - apply
-
 variables:
   TF_ROOT: ${CI_PROJECT_DIR}/terraform
   TF_VERSION: "1.6.0"
-
 before_script:
   - cd ${TF_ROOT}
   - terraform --version
-
 validate:
   stage: validate
   image: hashicorp/terraform:${TF_VERSION}
@@ -179,7 +143,6 @@ validate:
     - terraform init -backend=false
     - terraform validate
     - terraform fmt -check
-
 plan:
   stage: plan
   image: hashicorp/terraform:${TF_VERSION}
@@ -190,7 +153,6 @@ plan:
     paths:
       - ${TF_ROOT}/tfplan
     expire_in: 1 day
-
 apply:
   stage: apply
   image: hashicorp/terraform:${TF_VERSION}
@@ -203,15 +165,12 @@ apply:
   only:
     - main
 ```
-
 ## Security Scanning
-
 ```yaml
 include:
   - template: Security/SAST.gitlab-ci.yml
   - template: Security/Dependency-Scanning.gitlab-ci.yml
   - template: Security/Container-Scanning.gitlab-ci.yml
-
 trivy-scan:
   stage: test
   image: aquasec/trivy:latest
@@ -219,9 +178,7 @@ trivy-scan:
     - trivy image --exit-code 1 --severity HIGH,CRITICAL $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
   allow_failure: false
 ```
-
 ## Caching Strategies
-
 ```yaml
 # Cache node_modules
 build:
@@ -230,30 +187,25 @@ build:
     paths:
       - node_modules/
     policy: pull-push
-
 # Global cache
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - .cache/
     - vendor/
-
 # Separate cache per job
 job1:
   cache:
     key: job1-cache
     paths:
       - build/
-
 job2:
   cache:
     key: job2-cache
     paths:
       - dist/
 ```
-
 ## Dynamic Child Pipelines
-
 ```yaml
 generate-pipeline:
   stage: build
@@ -262,22 +214,16 @@ generate-pipeline:
   artifacts:
     paths:
       - child-pipeline.yml
-
 trigger-child:
   stage: deploy
-  trigger:
     include:
       - artifact: child-pipeline.yml
         job: generate-pipeline
     strategy: depend
 ```
-
 ## Template scope
-
 The examples are inline scaffolds. Use verified image digests and installed command versions, a protected scoped kubeconfig and protected production environments. `KUBE_CA_FILE` must point to a verified CI file variable. Do not deploy from untrusted merge requests or automatically grant new credentials. No external template is required by the inline examples.
-
 ## Best Practices
-
 1. **Use specific image tags** (node:20, not node:latest)
 2. **Cache dependencies** appropriately
 3. **Use artifacts** for build outputs
@@ -288,13 +234,10 @@ The examples are inline scaffolds. Use verified image digests and installed comm
 8. **Implement security scanning**
 9. **Use CI/CD variables** for secrets
 10. **Monitor pipeline performance**
-
 ## Related Skills
-
 - `github-actions-templates` - For GitHub Actions
 - `deployment-pipeline-design` - For architecture
 - `secrets-management` - For secrets handling
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "5419c3e1b472d42cd99d4ee3e7ffc4675b186872f512ce7aedc45a9ee83ad07a"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: tile-design
+content_hash: 5419c3e1b472d42cd99d4ee3e7ffc4675b186872f512ce7aedc45a9ee83ad07a
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Tile Design. Trigger when user wants Microsoft Metro style, sharp square information units, and horizontal scrolling grids.
-tier: "experimental"
-date_added: "2026-06-17"
+name: tile-design
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Tile Design (Metro UI)
-
 > "Authentically digital. Clean, sharp squares relying purely on typography and flat color."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Sharp Corners**: Absolutely no border-radius. Everything is a perfect square or sharp rectangle.
 2. **Live Data**: Tiles flip, scroll, or fade internally to show live updates without the user interacting.
 3. **Horizontal Panning**: The grid often expands infinitely to the right, encouraging horizontal scrolling.
-
 ## Visual DNA
 - **Colors**: High saturation, flat colors. A dark background (pure black) with bright cyan, magenta, orange, and green tiles.
 - **Typography**: Extremely clean, light sans-serifs (like `Segoe UI Light`). Text is almost always pure white.
 - **Icons**: Simple, wireframe, monochromatic glyphs placed centrally or in the corner.
-
 ## Web Implementation
 - **CSS Example**:
 ```css
@@ -46,7 +33,6 @@ body {
   font-family: 'Segoe UI', sans-serif;
   overflow-x: auto; /* Horizontal scroll */
 }
-
 .tile-group {
   display: grid;
   grid-template-columns: repeat(4, 150px);
@@ -54,7 +40,6 @@ body {
   gap: 8px;
   padding: 40px;
 }
-
 .tile {
   background-color: #0078D7; /* Classic Windows Blue */
   padding: 12px;
@@ -62,38 +47,30 @@ body {
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
-  
   /* The "tilt" click effect */
   transition: transform 0.1s;
   transform-origin: center;
 }
-
 .tile:active {
   transform: scale(0.95);
 }
-
 .tile-wide { grid-column: span 2; }
 .tile-large { grid-column: span 2; grid-row: span 2; }
-
 /* Live Tile Animation */
 .tile-live-content {
   animation: slideUp 5s infinite;
 }
-
 @keyframes slideUp {
   0%, 45% { transform: translateY(0); }
   50%, 95% { transform: translateY(-100%); } /* Slides up to reveal next item */
   100% { transform: translateY(0); }
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct TileDesignView: View {
     let rows = [GridItem(.fixed(150), spacing: 8), GridItem(.fixed(150), spacing: 8)]
-    
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: rows, spacing: 8) {
@@ -107,15 +84,12 @@ struct TileDesignView: View {
         .background(Color(hex: "111111").ignoresSafeArea())
     }
 }
-
 struct TileView: View {
     let title: String
     let color: Color
     let icon: String
     var isLarge: Bool = false
-    
     @State private var isPressed = false
-    
     var body: some View {
         VStack(alignment: .leading) {
             Image(systemName: icon)
@@ -141,7 +115,6 @@ struct TileView: View {
 - A `LazyHGrid` inside a horizontal `ScrollView` approximates the Windows Phone / Windows 8 start screen.
 - Absolutely NO corner radius.
 - The `isPressed` state triggering a `.scaleEffect(0.95)` replicates the physical "tilt" interaction of Metro tiles.
-
 ### Flutter
 ```dart
 class TileDesignScreen extends StatelessWidget {
@@ -169,7 +142,6 @@ class TileDesignScreen extends StatelessWidget {
       ),
     );
   }
-
   Widget _buildTile(String title, Color color, IconData icon, {bool isLarge = false}) {
     bool isPressed = false; // Keep state outside the builder closure.
     return StatefulBuilder(
@@ -204,30 +176,24 @@ class TileDesignScreen extends StatelessWidget {
 ```
 - `Wrap` with `direction: Axis.vertical` inside a horizontally scrolling `SizedBox` is the easiest way to build a Metro grid that flows left-to-right.
 - Wrap tiles in `GestureDetector` and `AnimatedScale` to handle the press animation.
-
 ### React Native
 ```jsx
 const TileDesignScreen = () => {
   return (
     <ScrollView horizontal style={{ flex: 1, backgroundColor: '#111' }} contentContainerStyle={{ padding: 40 }}>
       <View style={{ flexDirection: 'column', flexWrap: 'wrap', height: 308, gap: 8 }}>
-        
         <Tile title="Mail" color="#0078D7" />
         <Tile title="Weather" color="#2D7D9A" />
         <Tile title="Photos" color="#00CC6A" isLarge />
         <Tile title="Calendar" color="#D13438" />
-
       </View>
     </ScrollView>
   );
 };
-
 const Tile = ({ title, color, isLarge }) => {
   const scale = useRef(new Animated.Value(1)).current;
-
   const handlePressIn = () => Animated.spring(scale, { toValue: 0.95, useNativeDriver: true }).start();
   const handlePressOut = () => Animated.spring(scale, { toValue: 1, useNativeDriver: true }).start();
-
   return (
     <TouchableWithoutFeedback onPressIn={handlePressIn} onPressOut={handlePressOut}>
       <Animated.View style={{
@@ -244,7 +210,6 @@ const Tile = ({ title, color, isLarge }) => {
 ```
 - Use a `<ScrollView horizontal>` combined with a child `<View>` that has a fixed `height` and `flexWrap: 'wrap', flexDirection: 'column'`. This forces children to form columns and flow horizontally.
 - Use `Animated.View` and `TouchableWithoutFeedback` to create the scale animation.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -262,12 +227,10 @@ fun TileDesignScreen() {
         item(span = { GridItemSpan(1) }) { Tile("Weather", Color(0xFF2D7D9A)) }
     }
 }
-
 @Composable
 fun Tile(title: String, color: Color) {
     var isPressed by remember { mutableStateOf(false) }
     val scale by animateFloatAsState(if (isPressed) 0.95f else 1.0f)
-
     Box(
         modifier = Modifier
             .size(150.dp) // Or wide/large based on params
@@ -298,13 +261,10 @@ fun Tile(title: String, color: Color) {
 ```
 - `LazyHorizontalGrid` is the right tool, though building true 2x2 "Large" tiles requires custom layout math in Compose if mixing with 1x1 tiles.
 - `Modifier.scale()` paired with `pointerInput` `detectTapGestures` handles the Metro interaction.
-
 ## Do's and Don'ts
 - **DO**: Place the tile label text strictly in the bottom-left corner of the tile.
 - **DON'T**: Add drop shadows or gradients to the tiles.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.
-
 SwiftUI LazyHGrid does not make the 308-point Photos item span fixed rows; use a custom layout for mixed row spans. Gesture-only tiles below are visual studies: supply real actions, button semantics, keyboard activation and labels. Scale is a press effect, not a directional 3D tilt. Keep live updates pausable and show important state as stable text.

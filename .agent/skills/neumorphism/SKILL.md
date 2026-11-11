@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "f79d0cc06b84d309e4b3934f2b9400dcaaa7bc62ba350b6dd13617476b0f0461"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: neumorphism
+content_hash: f79d0cc06b84d309e4b3934f2b9400dcaaa7bc62ba350b6dd13617476b0f0461
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Neumorphism (Soft UI). Trigger when user wants soft shadows, extruded appearance, and light source simulation.
-tier: "experimental"
-date_added: "2026-06-17"
+name: neumorphism
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Neumorphism (Soft UI)
-
 > "Elements extruded from the background material itself, shaped by a singular, persistent light source."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Unified Surface Color**: The background and the elements MUST share the exact same base color.
 2. **Dual Shadows**: Elements are shaped by two shadows: a light shadow (highlight) on the side facing the light source, and a dark shadow on the opposite side.
 3. **Accessible Boundaries**: Shadows establish the style, but add a visible border or other indicator when needed to identify controls and focus.
-
 ## Visual DNA
 - **Colors**: Works best with mid-tone neutrals. **Desert Mirage**, **Earth-Grounded Elegance**, or **Sophisticated Neutral** are perfect. Avoid pure white or pure black (shadows/highlights won't show).
 - **Typography**: Soft, rounded sans-serifs (e.g., `Nunito`, `Quicksand`).
 - **Shapes**: Pill shapes, rounded rectangles. Sharp corners break the illusion of extruded material.
-
 ## Web Implementation
 - The magic is entirely in `box-shadow` manipulating light and dark variants of the base color.
 - **CSS Example**:
@@ -46,11 +33,9 @@ Use this sub-style when the user's request matches the aesthetic described above
   --highlight: #ffffff;
   --shadow: #c4c0bc;
 }
-
 body {
   background-color: var(--base-color);
 }
-
 .neu-element {
   background-color: var(--base-color);
   border-radius: 20px;
@@ -59,7 +44,6 @@ body {
               -9px -9px 18px var(--highlight);
   padding: 32px;
 }
-
 .neu-pressed {
   /* Inset shadows for pressed/active state */
   border-radius: 20px;
@@ -68,19 +52,15 @@ body {
               inset -9px -9px 18px var(--highlight);
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct NeuCard: View {
     let baseColor = Color(red: 0.90, green: 0.89, blue: 0.87) // #E6E2DD
-    
     var body: some View {
         VStack(spacing: 24) {
             Text("Neumorphic Card")
                 .font(.system(size: 20, weight: .semibold, design: .rounded))
-            
             Text("Extruded from the surface itself.")
                 .font(.system(size: 15, design: .rounded))
                 .foregroundColor(.secondary)
@@ -94,12 +74,10 @@ struct NeuCard: View {
         .shadow(color: Color.black.opacity(0.15), radius: 10, x: 8, y: 8)
     }
 }
-
 // Pressed / inset neumorphic button
 struct NeuButton: View {
     @State private var isPressed = false
     let baseColor = Color(red: 0.90, green: 0.89, blue: 0.87)
-    
     var body: some View {
         Button(action: {}) {
             Text("Press Me")
@@ -146,12 +124,10 @@ struct NeuButton: View {
 - The key trick: two `.shadow()` modifiers — one white (top-left), one dark (bottom-right).
 - Recent SwiftUI supports ShapeStyle.shadow(.inner(...)); the overlay example is a fallback for older targets, not the only implementation.
 - The view's background color MUST match its parent's background exactly.
-
 ### Flutter
 ```dart
 class NeuCard extends StatelessWidget {
   final Color baseColor = const Color(0xFFE6E2DD);
-  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -190,7 +166,6 @@ class NeuCard extends StatelessWidget {
 - **Inner shadows** (for pressed state) are NOT natively supported in Flutter's `BoxShadow`.
 - Use the `flutter_inset_box_shadow` package OR fake it with a layered `Stack`: place a `Container` with a dark gradient overlay on top and a light gradient below.
 - Set the `Scaffold` background to the SAME `baseColor` so elements look extruded.
-
 ### React Native
 ```jsx
 const NeuCard = () => (
@@ -217,13 +192,11 @@ const NeuCard = () => (
 - **Workaround**: Use `react-native-shadow-2` or `react-native-neomorph-shadows` which provide multi-shadow support.
 - Alternative: Wrap two nested `View`s — the outer one has the dark shadow, the inner one has the light shadow.
 - Inner shadows for pressed states require SVG-based solutions or pre-rendered images.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
 fun NeuCard() {
     val baseColor = Color(0xFFE6E2DD)
-    
     Box(
         modifier = Modifier
             .padding(24.dp)
@@ -250,11 +223,9 @@ fun NeuCard() {
 - For true dual-shadow neumorphism, use a custom `Modifier.drawBehind { }` with `drawIntoCanvas` to paint two separate shadow paths (one light, one dark).
 - The `neumorphic-compose` library provides a pre-built `Modifier.neumorphic()` that handles both shadows.
 - Set the `Scaffold` background to the same `baseColor` — this is non-negotiable.
-
 ## Do's and Don'ts
 - **DO**: Use inset shadows for "active" states (like pressed buttons or filled form fields).
 - **DON'T**: Rely on Neumorphism for critical elements without secondary indicators. Contrast is inherently low, making it an accessibility nightmare if used improperly.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

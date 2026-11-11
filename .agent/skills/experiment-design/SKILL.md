@@ -1,71 +1,49 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "a0bdf41405ff4ad59d3e5f5a9744cd385ef70e964d626703a4b3ebea803130c9"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: experiment-design
+content_hash: a0bdf41405ff4ad59d3e5f5a9744cd385ef70e964d626703a4b3ebea803130c9
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: Design experiment plans with progressive stages — initial implementation, baseline tuning, creative research, and ablation studies. Plan baselines, datasets, hyperparameter sweeps, and evaluation metrics. Use when planning experiments for a research paper.
-tier: "experimental"
-argument-hint: [idea-or-plan]
+name: experiment-design
+---argument-hint: [idea-or-plan]
 ---
-
-
 # Experiment Design
-
 Design structured, progressive experiment plans for research papers.
-
 ## Input
-
 - `$0` — Research idea, plan, or method description
-
 ## References
-
 - 4-stage progressive experiment prompts: `~/.claude/skills/experiment-design/references/stage-prompts.md`
-
 ## Scripts
-
 ### Generate experiment design
 ```bash
 python ~/.claude/skills/experiment-design/scripts/design_experiments.py --plan research_plan.json --output experiment_design.json
 python ~/.claude/skills/experiment-design/scripts/design_experiments.py --method "contrastive learning" --task classification --format markdown
 ```
-
 Generates baselines, ablation matrix, hyperparameter grid, metric selection. Stdlib-only.
-
 ## 4-Stage Progressive Framework (from AI-Scientist-v2)
-
 ### Stage 1: Initial Implementation
 - Focus on getting a basic working implementation
 - Use a simple dataset
 - Aim for basic functional correctness
 - Completion: at least one working (non-buggy) implementation
-
 ### Stage 2: Baseline Tuning
 - Tune hyperparameters (learning rate, epochs, batch size)
 - Do NOT change model architecture
 - Test on at least TWO datasets
 - Completion: stable training curves, improvement over Stage 1
-
 ### Stage 3: Creative Research
 - Explore novel improvements and insights
 - Be creative and think outside the box
 - Test on at least THREE datasets
 - Completion: demonstrated novel improvement
-
 ### Stage 4: Ablation Studies
 - Systematic component analysis
 - Each ablation tests a different aspect
 - Use same datasets as Stage 3
 - Completion: all planned ablations done
-
 ## Output Format
-
 ```json
 {
   "stages": [
@@ -87,15 +65,12 @@ Generates baselines, ablation matrix, hyperparameter grid, metric selection. Std
   "num_seeds": 3
 }
 ```
-
 ## Rules
-
 - Always start simple (Stage 1) before complex experiments
 - Each stage builds on the best result from the previous stage
 - Multi-seed evaluation for statistical significance
 - Document every experiment run in notes.txt
 - Generate figures for training curves and comparisons
-
 ## Related Skills
 - Upstream: [research-planning](../research-planning/), [idea-generation](../idea-generation/)
 - Downstream: [experiment-code](../experiment-code/), [data-analysis](../data-analysis/)

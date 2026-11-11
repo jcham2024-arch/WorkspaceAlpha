@@ -1,53 +1,35 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "cdf89588767266c6c0800b8d74e3f0b2e66a5b20bbab40cf83d5822f09612303"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: cdf89588767266c6c0800b8d74e3f0b2e66a5b20bbab40cf83d5822f09612303
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: ""Error budget remaining: {{ $value }}%""
 name: slo-implementation
-description: "Framework for defining and implementing Service Level Indicators (SLIs), Service Level Objectives (SLOs), and error budgets."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # SLO Implementation
-
 Framework for defining and implementing Service Level Indicators (SLIs), Service Level Objectives (SLOs), and error budgets.
-
 ## Do not use this skill when
-
 - The task is unrelated to slo implementation
 - You need a different domain or tool outside this scope
-
 ## Instructions
-
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
 - If detailed examples are required, open `resources/implementation-playbook.md`.
-
 ## Purpose
-
 Implement measurable reliability targets using SLIs, SLOs, and error budgets to balance reliability with innovation velocity.
-
 ## Use this skill when
-
 - Define service reliability targets
 - Measure user-perceived reliability
 - Implement error budgets
 - Create SLO-based alerts
 - Track reliability goals
-
 ## SLI/SLO/SLA Hierarchy
-
 ```
 SLA (Service Level Agreement)
   ↓ Contract with customers
@@ -56,11 +38,8 @@ SLO (Service Level Objective)
 SLI (Service Level Indicator)
   ↓ Actual measurement
 ```
-
 ## Defining SLIs
-
 ### Common SLI Types
-
 #### 1. Availability SLI
 ```promql
 # Successful requests / Total requests
@@ -68,7 +47,6 @@ sum(rate(http_requests_total{status!~"5.."}[28d]))
 /
 sum(rate(http_requests_total[28d]))
 ```
-
 #### 2. Latency SLI
 ```promql
 # Requests below latency threshold / Total requests
@@ -76,7 +54,6 @@ sum(rate(http_request_duration_seconds_bucket{le="0.5"}[28d]))
 /
 sum(rate(http_request_duration_seconds_count[28d]))
 ```
-
 #### 3. Write Success SLI
 ```
 # Successful writes / Total writes
@@ -84,31 +61,23 @@ sum(increase(storage_writes_successful_total[28d]))
 /
 sum(increase(storage_writes_total[28d]))
 ```
-
 **Reference:** See `references/slo-definitions.md`
-
 ## Setting SLO Targets
-
 ### Availability SLO Examples
-
 The downtime equivalents below assume a time-based SLI, a 30-day month and a 365-day year; do not convert request-based budgets to downtime without a traffic model.
-
 | SLO % | Downtime/Month | Downtime/Year |
 |-------|----------------|---------------|
 | 99%   | 7.2 hours      | 3.65 days     |
 | 99.9% | 43.2 minutes   | 8.76 hours    |
 | 99.95%| 21.6 minutes   | 4.38 hours    |
 | 99.99%| 4.32 minutes   | 52.56 minutes |
-
 ### Choose Appropriate SLOs
-
 **Consider:**
 - User expectations
 - Business requirements
 - Current performance
 - Cost of reliability
 - Competitor benchmarks
-
 **Example SLOs:**
 ```yaml
 slos:
@@ -119,7 +88,6 @@ slos:
       sum(rate(http_requests_total{status!~"5.."}[28d]))
       /
       sum(rate(http_requests_total[28d]))
-
   - name: api_latency_under_500ms
     target: 99
     window: 28d
@@ -128,23 +96,17 @@ slos:
       /
       sum(rate(http_request_duration_seconds_count[28d]))
 ```
-
 ## Error Budget Calculation
-
 ### Error Budget Formula
-
 ```
 Error Budget = 1 - SLO Target
 ```
-
 **Example:**
 - SLO: 99.9% availability
 - Error Budget: 0.1% = 43.2 minutes/month
 - Current Error: 0.05% = 21.6 minutes/month
 - Remaining Budget: 50%
-
 ### Error Budget Policy
-
 ```yaml
 error_budget_policy:
   - remaining_budget: 100%
@@ -156,13 +118,9 @@ error_budget_policy:
   - remaining_budget: 0%
     action: Feature freeze, focus on reliability
 ```
-
 **Reference:** See `references/error-budget.md`
-
 ## SLO Implementation
-
 ### Prometheus Recording Rules
-
 ```yaml
 # SLI Recording Rules
 groups:
@@ -175,29 +133,24 @@ groups:
           sum(rate(http_requests_total{status!~"5.."}[28d]))
           /
           sum(rate(http_requests_total[28d]))
-
       # Latency SLI (requests < 500ms)
       - record: sli:http_latency:ratio
         expr: |
           sum(rate(http_request_duration_seconds_bucket{le="0.5"}[28d]))
           /
           sum(rate(http_request_duration_seconds_count[28d]))
-
   - name: slo_rules
     interval: 5m
     rules:
       # SLO compliance (1 = meeting SLO, 0 = violating)
       - record: slo:http_availability:compliance
         expr: sli:http_availability:ratio >= bool 0.999
-
       - record: slo:http_latency:compliance
         expr: sli:http_latency:ratio >= bool 0.99
-
       # Error budget remaining (percentage)
       - record: slo:http_availability:error_budget_remaining
         expr: |
           (sli:http_availability:ratio - 0.999) / (1 - 0.999) * 100
-
       # Error budget burn rate
       - record: slo:http_availability:burn_rate_5m
         expr: |
@@ -207,15 +160,10 @@ groups:
             sum(rate(http_requests_total[5m]))
           )) / (1 - 0.999)
 ```
-
 The exhaustion projection below assumes a constant recent burn rate. Zero burn has no finite exhaustion time; an exhausted budget must display as already exhausted. Missing telemetry is not healthy traffic.
-
 Ensure zero-error counters are initialized or derive bad events from the same good/total population. An absent 5xx series must not silently hide burn/compliance rules; test zero-error, no-traffic and missing-telemetry cases separately.
-
 ### Additional Burn-Rate Recording Rules
-
 Include these rules in the same recording-rule group before using the alert examples:
-
 ```yaml
 - record: slo:http_availability:burn_rate_1h
   expr: (sum(rate(http_requests_total{status=~"5.."}[1h])) / sum(rate(http_requests_total[1h]))) / (1 - 0.999)
@@ -224,9 +172,7 @@ Include these rules in the same recording-rule group before using the alert exam
 - record: slo:http_availability:burn_rate_30m
   expr: (sum(rate(http_requests_total{status=~"5.."}[30m])) / sum(rate(http_requests_total[30m]))) / (1 - 0.999)
 ```
-
 ### SLO Alerting Rules
-
 ```yaml
 groups:
   - name: slo_alerts
@@ -244,7 +190,6 @@ groups:
           severity: critical
         annotations:
           summary: "Fast error budget burn detected"
-          description: "Error budget burning at {{ $value }}x rate"
 
       # Slow burn: 6x rate, 6 hour window
       # Approximately 5.36% of a 28-day budget in 6 hours at constant traffic
@@ -258,7 +203,6 @@ groups:
           severity: warning
         annotations:
           summary: "Slow error budget burn detected"
-          description: "Error budget burning at {{ $value }}x rate"
 
       # Error budget exhausted
       - alert: SLOErrorBudgetExhausted
@@ -268,13 +212,9 @@ groups:
           severity: critical
         annotations:
           summary: "SLO error budget exhausted"
-          description: "Error budget remaining: {{ $value }}%"
 ```
-
 ## SLO Dashboard
-
 **Grafana Dashboard Structure:**
-
 ```
 ┌────────────────────────────────────┐
 │ SLO Compliance (Current)           │
@@ -290,24 +230,18 @@ groups:
 │ [Burn rate by time window]         │
 └────────────────────────────────────┘
 ```
-
 **Example Queries:**
-
 ```promql
 # Current SLO compliance
 sli:http_availability:ratio * 100
-
 # Error budget remaining
 slo:http_availability:error_budget_remaining
-
 # Days until error budget exhausted (at current burn rate)
 (slo:http_availability:error_budget_remaining / 100) * 28
 /
 slo:http_availability:burn_rate_5m
 ```
-
 ## Multi-Window Burn Rate Alerts
-
 ```yaml
 # Combination of short and long windows reduces false positives
 rules:
@@ -327,29 +261,23 @@ rules:
     labels:
       severity: critical
 ```
-
 ## SLO Review Process
-
 ### Weekly Review
 - Current SLO compliance
 - Error budget status
 - Trend analysis
 - Incident impact
-
 ### Monthly Review
 - SLO achievement
 - Error budget usage
 - Incident postmortems
 - SLO adjustments
-
 ### Quarterly Review
 - SLO relevance
 - Target adjustments
 - Process improvements
 - Tooling enhancements
-
 ## Best Practices
-
 1. **Start with user-facing services**
 2. **Use multiple SLIs** (availability, latency, etc.)
 3. **Set achievable SLOs** (don't aim for 100%)
@@ -360,18 +288,13 @@ rules:
 8. **Align with business goals**
 9. **Automate SLO reporting**
 10. **Use SLOs for prioritization**
-
 ## Reference Files
-
 - [inline example](#setting-slo-targets) - SLO definition template
 - `references/slo-definitions.md` - SLO definition patterns
 - `references/error-budget.md` - Error budget calculations
-
 ## Related Skills
-
 - `prometheus-configuration` - For metric collection
 - `grafana-dashboards` - For SLO visualization
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

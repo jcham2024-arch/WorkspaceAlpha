@@ -1,40 +1,27 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "2f8eeb303df4d2568b9c28c4e3b7b29e456c33d3f2b8c81f76946629bc9f8ffe"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: threejs-interaction
+content_hash: 2f8eeb303df4d2568b9c28c4e3b7b29e456c33d3f2b8c81f76946629bc9f8ffe
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-03-06
 description: Three.js interaction - raycasting, controls, mouse/touch input, object selection. Use when handling user input, implementing click detection, adding camera controls, or creating interactive 3D experiences.
-tier: "experimental"
+name: threejs-interaction
 risk: critical
 source: community
-date_added: "2026-03-06"
 ---
-
-
 # Three.js Interaction
-
 ## Detailed Guide
-
 Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
-
 ## When to Use
 - You need user interaction inside a Three.js scene.
 - The task involves raycasting, object picking, pointer handling, touch input, or camera controls.
 - You are building an interactive 3D experience rather than a passive render.
-
 ## Example
-
 ```text
 Add pointer selection to this canvas using its bounding rectangle, test after resize/scroll and provide keyboard selection. Dispose listeners/controls on unmount and verify picking nested meshes.
 ```
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

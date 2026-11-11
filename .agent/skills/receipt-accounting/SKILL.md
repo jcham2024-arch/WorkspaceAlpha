@@ -1,100 +1,69 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "57f217d109977fdc2fe6214d1905e0a03f618be282fd221c225c8d2abfa9f7e9"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: receipt-accounting
-description: 'Receipt register: payer, mode, gross amount received, invoice allocation, unapplied amount and TDS collected. Use for receipt and sales-income accounting.'
-tier: "experimental"
+content_hash: 57f217d109977fdc2fe6214d1905e0a03f618be282fd221c225c8d2abfa9f7e9
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: WHOISABHISHEKADHIKARI
 category: business
+date_added: 2026-09-26
+description: "'Receipt register: payer, mode, gross amount received, invoice allocation, unapplied amount and TDS collected. Use for receipt and sales-income accounting.'"
+name: receipt-accounting
 risk: safe
 source: self
-source_type: self
-date_added: "2026-09-26"
-author: WHOISABHISHEKADHIKARI
-tags: [sme, accounting, audit, finance, database, csv, notion, sql, receipts, reconciliation]
-tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
+source_type: self
+tags: "[sme, accounting, audit, finance, database, csv, notion, sql, receipts, reconciliation]"
+tools: "[]"
 ---
-
-
 # Receipt Accounting
-
 **What it is:** Money received, allocated to the right account, and reconciled to cash or bank.
-
 ## Overview
-
 Works out the smallest useful **Receipt Accounting** setup for the business in front of it, then
 builds it only when asked. The default output is a short recommendation, not a
 spreadsheet. Artifacts - CSV, SQL DDL, JSON Schema, Notion mapping - are produced on
 request, from one field list so they cannot drift apart.
-
 Layer: Layer 3: Record. Fits: Starter stage. Table code: n/a.
-
 **The rule this table exists to enforce:** a receipt is **not** sales income. Money can
 arrive as collection of an existing receivable, as an advance from a customer, as a loan
 received, or as capital contribution. Each of those lands in a different ledger, and none automatically creates income on receipt under accrual accounting; a sale receipt may settle revenue already recognized. This is why `Receipt Type` and `Treats as Sale Income` are fields and
 not conventions, and why `Amount Allocated` and `Unapplied Amount` are both captured - the
 difference between the gross received and the part that clears an invoice stays visible
 instead of quietly inflating revenue.
-
 ## When to Use This Skill
-
 - receipt register
 - receipt voucher book
 - money received log
 - collections tracker
 - bank receipt reconciliation sheet
-
 Also use it when the user says "money received, allocated to the right account, and reconciled to cash or bank", or describes the same process happening in a
 spreadsheet, a document or someone inboxes.
-
 Do not use it for: raising sales invoices, making payments, tax filing, or legal advice. This skill produces
 empty templates only - real employee or customer data is not required to generate templates.
-
 ## How It Works
-
 Follow these local instructions; no shared execution runtime is bundled. The module-specific rules below define only domain fields, decisions, calculations, and safety constraints.
-
 ### Step 1 - Identify intent
-
 Read the request and pick the intent before asking anything.
-
 - "set up" or "build" or "create" -> the user wants artifacts; go to Step 2.
 - "our process is ..." or "it is in a sheet" -> the user wants to move an existing process; capture it, then Step 2.
 - "is this right" or "review" or "audit" -> the user wants a check, not a build; answer from what they share.
 - "how do I ..." -> advice question; answer directly and offer the build only if it helps.
-
 Ask only if this is the highest-value missing fact; otherwise proceed without an opener:
-
 > **Q:** How do you record money received today?
-
 ### Step 2 - Ask only what is missing
-
 Treat ambiguous replies as unanswered and ask which explicit option the user means. Record unknown values as `Unknown`; `Unknown` is not zero. A record must not be `Done` when a required check fails.
-
 Skip anything the user already answered, in any earlier message. Ask the rest one at a
 time, and stop as soon as the remaining answers would not change the output.
-
 - **Receipts** - How many in a month? / Cash, bank, cheque or digital? / Any part-payments?
 - **Allocation** - Allocated to invoices? / Advances or loans mixed in? / Who allocates it?
 - **Evidence** - Receipt voucher or bank advice? / Issued to the customer? / Filed where?
 - **Reconciliation** - Bank reconciled how often? / Cash counted? / Differences handled how?
 - **Outcome** - What do you need? / A receipts register, a reconciliation view or both?
-
 Never invent an answer. If the user does not know, record it as unknown and carry on.
-
 ### Step 3 - Hold the internal context
-
 Hold the answers in this shape. It stays internal - it is not shown to the user unless
 they ask, and it never carries a value the user did not give.
-
 ```yaml
 module: receipt-accounting
 intent: null            # setup | advice | review | fix | build | convert | export
@@ -109,23 +78,15 @@ requested_outputs: []   # csv | sql | json | notion | xlsx - requested formats o
 confirmed_facts: []     # only what the user actually said
 open_questions: []      # the unanswered ones, in the order worth asking
 ```
-
 ### Step 4 - Recommend the smallest workflow
-
 Build an already requested artifact without asking again. For advice-only requests, give a short recommendation and offer the relevant artifact.
-
 **Recommended approach:** One receipt record carrying the mode, the gross received, the receipt type, the invoice it clears and the unapplied balance, and determine income recognition from the confirmed accounting policy and underlying transaction, not the receipt label.
-
 **Why this one:** The trap on this table is that money in gets treated as revenue out. Forcing the type and the allocation before the entry closes is what keeps an advance or a loan out of the sales book.
-
 **Workflow:** Money received → Mode and source recorded → Typed as collection, advance, loan or capital → Allocated to an invoice or held unapplied → Reconciled to bank or cash
-
 ### Step 5 - Build only on request
-
 Once the user asks for it, derive the fields from the confirmed context and emit the
 requested artifacts. For machine-readable text, keep prose outside the data; for files,
 provide a usable link. Report material validation failures or limitations separately.
-
 **A selected Notion output is rendered by `notion-manual-import`, so route the
 Notion step there.** When the user selects Notion, hand that step to
 @notion-manual-import: it holds the CSV, the property
@@ -135,12 +96,10 @@ here and do not improvise the import steps. Manual CSV and mapping outputs need 
 connection. For requested workspace changes, follow the shared contract: verify actual
 tool access and the target before writing. A user saying "connected" is not tool evidence.
 Never ask for a Notion password or token.
-
 ```csv
 Receipt Number,Receipt Date,Received From,Receipt Mode,Cash/Bank Account,Reference (Cheque/UTR/ID),Gross Amount Received,Receipt Type,Treats as Sale Income,Sales Invoice Allocated,Amount Allocated,Unapplied Amount,Adjust Against,Withholding or Collection Tax (Confirmed Treatment),Voucher Number,Ledger Account,Source Document,Reconciliation Status,Prepared By,Verified By,Entry Verified,Notes,Receipt ID
 RCP-2026-0312,2026-08-19,Greyson Foods,Bank,HDFC Current ****0042,UTR-2026-0819,140000.00,Receivable Collection,No,SAL-2026-0033,130712.40,9287.60,Customer Advance - Greyson Foods,1307.12,VCH-2026-1027,Bank - HDFC Current,DOC-2026-0461,Unreconciled,Ananya Rao,Sneha Iyer,In progress,"Part collected against INV-2026-0733; Tax amount 1307.12 is an illustrative unresolved classification; do not post until the accountant confirms payer withholding versus seller collection; balance held as advance, not income.",
 ```
-
 ```sql
 CREATE TABLE receipt_accounting (
   receipt_number VARCHAR(255),
@@ -170,7 +129,6 @@ CREATE TABLE receipt_accounting (
   updated_at TIMESTAMP DEFAULT NOW()
 );
 ```
-
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -216,7 +174,6 @@ CREATE TABLE receipt_accounting (
   ]
 }
 ```
-
 ```markdown
 | CSV column | Notion property | Set after import |
 |---|---|---|
@@ -244,11 +201,8 @@ CREATE TABLE receipt_accounting (
 | Notes | Text | Leave as Text |
 | Receipt ID | Text (preserve source ID) | Keep imported IDs as Text; optionally add a separate Unique ID property |
 ```
-
 The rows above are documentation examples only. Emit empty templates unless the user explicitly requests examples. Money stays `currency`, dates stay `date`, and anything pointing at another table stays `relation`.
-
 ## Field Reference
-
 | # | Field | Type | SQL | JSON Schema | Notion | CSV example |
 |---:|---|---|---|---|---|---|
 | 1 | Receipt Number | `text` | `VARCHAR(255)` | `string` | Text | `RCP-2026-0312` |
@@ -274,55 +228,40 @@ The rows above are documentation examples only. Emit empty templates unless the 
 | 21 | Entry Verified | `select` | `VARCHAR(100)` | `string` | Select (add options after import) | `In progress` |
 | 22 | Notes | `long_text` | `TEXT` | `string` | Text | `Part collected against INV-2026-0733; Tax amount 1307.12 is an illustrative unresolved classification; do not post until the accountant confirms payer withholding versus seller collection; balance held as advance, not income.` |
 | 23 | Receipt ID | `id` | `SERIAL PRIMARY KEY` | `integer` | Text (preserve source ID) | `(blank)` |
-
 ## Select Options
-
 **Receipt Mode**
-
 ```
 Cash | Bank | Cheque | Fonepay/QR | Other Digital Payment
 ```
 **Receipt Type**
-
 ```
 Sale Collection | Receivable Collection | Advance from Customer | Loan Received | Capital Contribution | Other
 ```
 **Treats as Sale Income**
-
 ```
 Yes | No
 ```
 **Reconciliation Status**
-
 ```
 Unreconciled | Reconciled | Difference
 ```
 **Entry Verified**
-
 ```
 Not started | In progress | Blocked | Done | Cancelled
 ```
-
 ## Relations
-
 Link fields: `Sales Invoice Allocated`, `Source Document`
-
 `Sales Invoice Allocated` points at the sales book, so the receipt and the invoice it
 clears can be read side by side. `Source Document` points at the filing register, so the
 bank advice or receipt voucher is one lookup away. Neither link substitutes for
 `Receipt Type` - a receipt can be fully allocated and still be an advance.
-
 ## Examples
-
 **Prompt**
-
 ```
 Money comes in and we post all of it as sales. At month end the numbers never agree
 with the bank.
 ```
-
 **Context first** - one question per message, nothing already answered:
-
 > **Q:** How many receipts in a month?
 > **A:** About forty.
 >
@@ -331,17 +270,13 @@ with the bank.
 >
 > **Q:** Do you allocate receipts to invoices?
 > **A:** Sometimes. The rest we just leave.
-
 **Recommended next step** - offered, not built:
-
 > One receipt record carrying the mode, the gross received, the receipt type, the invoice it clears and the unapplied balance, and determine income recognition from the confirmed accounting policy and underlying transaction, not the receipt label.
 >
 > Workflow: Money received → Mode and source recorded → Typed as collection, advance, loan or capital → Allocated to an invoice or held unapplied → Reconciled to bank or cash
 >
 > Want the CSV, SQL, JSON Schema and Notion mapping for this?
-
 ## Best Practices
-
 - Build when requested; recommend and offer a build for advice-only requests.
 - One question per message. A batched intake reads as a form and gets guessed at.
 - Never let a receipt become income on the strength of money arriving. Set `Receipt Type`
@@ -359,9 +294,7 @@ with the bank.
 - Use `relation` for anything that points at another table, `text` only for free text.
 - Money fields are `currency`, never `text`. Dates are `date`, never free text.
 - If the user requests an example row, keep it obviously fake so nobody imports it as real data.
-
 ## Limitations
-
 - Empty template only. It does not post entries, raise invoices or compute tax.
 - The type fields do not decide the accounting treatment for you. The ledger, the tax
   position and the period all matter, and a qualified accountant confirms that.
@@ -372,9 +305,7 @@ with the bank.
 - No automation, reminders or sync. Those need the integration layer.
 - Does not connect to a bank feed or move money.
 - Legal, tax and HR review is still required before this drives real decisions.
-
 ## Security & Safety Notes
-
 - Never fill in real names, bank details or customer financials. Placeholders only.
 - Label example rows as synthetic, and keep bank details masked.
 - A receipt register is a target for fraud and for someone asking for a copy of a
@@ -387,9 +318,7 @@ with the bank.
   from the conversation or service storage.
 - Privacy, legal and disciplinary cases need a qualified human reviewer before anything
   is acted on.
-
 ## Common Pitfalls
-
 - **Problem:** a static mapping is described as a completed workspace build.
   **Solution:** deliver manual mappings without a connection; claim a live change only
   after the authorized tool operation succeeds.
@@ -406,9 +335,7 @@ with the bank.
   **Solution:** derive all four from the field list in this file, never by hand.
 - **Problem:** Notion import shows every column as Text.
   **Solution:** that is expected. Apply the property mapping table once, after import.
-
 ## Related Skills
-
 - @accounting-audit-system-builder - routes to this skill and the other 15 modules.
 - @sales-accounting - the invoice side of `Sales Invoice Allocated`.
 - @payment-accounting - the other half of the cash and bank movement.
@@ -421,9 +348,7 @@ with the bank.
 - @credit-cycle-analysis - uses the unallocated balance to age the debtors.
 - @audit-preparation - the receipt register is an audit-trail item.
 - @expense-accounting - the receipt side that is not income at all.
-
 ## Reusable Prompt
-
 ```
 I want to set up receipt accounting - every rupee received, its mode, its type, its
 allocation against an invoice and its reconciliation to cash or bank - for my company.
@@ -431,7 +356,5 @@ Ask me one short question at a time, and only about what I have not already told
 Then recommend the smallest setup that fits, and wait for me to ask before you build it.
 When I ask, output CSV, SQL DDL, JSON Schema and a Notion property mapping. Data only.
 ```
-
 ## Recognition and artifact limits
-
 Receipt labels do not determine revenue recognition; an invoice settlement can clear a receivable without recognizing revenue again. Define whether gross received is actual bank cash, invoice settlement including payer withholding, or an amount including seller-collected tax. The simple allocated-plus-unapplied equation applies only within one explicitly defined basis and currency; fees, withholding, refunds and FX need separate components or an approved adjustment model. Use an allocation child table for one receipt covering multiple invoices. Synthetic names, references and values are not transaction evidence. SQL timestamp defaults do not update automatically and string relations are not foreign keys; add explicit validation for amounts, balancing and Done status. JSON date formats require a supporting validator. No generator is bundled, so verify cross-format mappings manually, and protect spreadsheet exports against formula-leading free text for the chosen importer.

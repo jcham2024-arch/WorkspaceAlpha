@@ -1,18 +1,13 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "c68d37fca194a7d068c4d84fb9b4f7208d5d444ea1af8b1e2ce8a96fd0c36a6d"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: cloud
+content_hash: c68d37fca194a7d068c4d84fb9b4f7208d5d444ea1af8b1e2ce8a96fd0c36a6d
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: >
-tier: "experimental"
-  Documentation reference for using Browser Use Cloud — the hosted API
+name: cloud
+---  Documentation reference for using Browser Use Cloud — the hosted API
   and SDK for browser automation. Use this skill whenever the user needs
   help with the Cloud REST API (v2, v3, or v4), browser-use-sdk (Python or
   TypeScript), X-Browser-Use-API-Key authentication, cloud sessions,
@@ -26,25 +21,16 @@ tier: "experimental"
   (Agent, Browser, Tools config) — use the open-source skill instead.
 allowed-tools: Read
 ---
-
-
 # Browser Use Cloud Reference
-
 Reference docs for the Cloud REST API, SDKs, and integration patterns.
 Read the relevant file based on what the user needs.
-
 ## Choose a starter
-
 - Hosted task in, result out: use the V4 SDK `runs` resource in `references/api-v4.md`.
 - Your existing agent needs a browser: use the V4 SDK `browsers` resource or REST/CDP, then explicitly stop the browser.
 - Local framework development: use the open-source `browser-use` skill, not Cloud SDK calls.
-
 Eligible new Google, GitHub or Microsoft signups get a one-time **$1 Cloud credit**. No card required; email/password signups do not qualify. [Pricing and eligibility](https://browser-use.com/pricing.md). Use `gpt-5.6-luna` for the free starter; paid-only models need a top-up.
-
 Reuse `BROWSER_USE_API_KEY`, or guide the user through Cloud signup and key creation. Keep keys server-side, never in prompts or client bundles.
-
 ## API & Platform
-
 | Topic | Read |
 |-------|------|
 | Current v4 setup, first run, sessions, workspaces, browsers | `references/api-v4.md` |
@@ -55,17 +41,13 @@ Reuse `BROWSER_USE_API_KEY`, or guide the user through Cloud signup and key crea
 | CDP direct access, Playwright/Puppeteer/Selenium | `references/browser-api.md` |
 | Proxies, webhooks, workspaces, skills, MCP, live view | `references/features.md` |
 | Parallel, streaming, geo-scraping, tutorials | `references/patterns.md` |
-
 ## Integration Guides
-
 | Topic | Read |
 |-------|------|
 | Building a chat interface with live browser view | `references/guides/chat-ui.md` |
 | Using browser-use as a subagent (task in → result out) | `references/guides/subagent.md` |
 | Adding browser-use tools to an existing agent | `references/guides/tools-integration.md` |
-
 ## Critical Notes
-
 - Use v4 for new hosted-agent integrations. Keep v2 or v3 only when maintaining an existing integration or using a resource not yet wrapped by the v4 SDK.
 - Cloud API base URL: `https://api.browser-use.com/api/v2/` (v2), `https://api.browser-use.com/api/v3` (v3), or `https://api.browser-use.com/api/v4` (v4)
 - Auth header: `X-Browser-Use-API-Key: <key>`

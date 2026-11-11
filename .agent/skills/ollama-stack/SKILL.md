@@ -1,81 +1,58 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "fd0b216b4eedf9a338fa8f50e8adf639f715f2e61e3f239cc0cd917d0751f151"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: ollama-stack
-description: Run local LLM workloads with Ollama, Open WebUI, and GPU-aware tuning
-tier: "experimental"
-  for private development environments.
+content_hash: fd0b216b4eedf9a338fa8f50e8adf639f715f2e61e3f239cc0cd917d0751f151
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant OS/platform tooling and privileged access where
+date_added: 2026-09-20
+description: Run local LLM workloads with Ollama, Open WebUI, and GPU-aware tuning
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: ollama-stack
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant OS/platform tooling and privileged access where
+version: 1.0
+---  for private development environments.
   noted. Docs-only; helper scripts and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # Ollama Stack
-
 Deploy a local LLM stack for offline and privacy-first workflows.
-
 ## When to Use This Skill
-
 Use this skill when:
 - Setting up private/local LLM inference for development
 - Building air-gapped AI environments
 - Running models on personal hardware (Mac, Linux, Windows with GPU)
 - Creating team-shared inference endpoints
 - Prototyping before committing to cloud LLM APIs
-
 ## Deployment boundaries
-
 Pin reviewed container images and model revisions before use; table sizes/VRAM are illustrative and context/concurrency change requirements. A local endpoint does not guarantee offline operation: model downloads, WebUI features and proxy backends can make network calls. Confirm mounted data, authentication and network policy; the nginx IP restriction below is not user authentication. Container `OLLAMA_HOST=0.0.0.0` is for the private Compose network while published host ports bind to loopback. See [Ollama networking guidance](https://docs.ollama.com/faq).
-
 ## Prerequisites
-
 - 8 GB+ RAM (16 GB+ recommended for 7B+ models)
 - For GPU acceleration: NVIDIA GPU with 6 GB+ VRAM, or Apple Silicon Mac
 - Docker (for containerized deployment)
 - 20 GB+ disk for model storage
-
 ## Quick Start
-
 ```bash
 # Install Ollama
 # Download to a private review directory; inspect the exact script before any authorized execution.
 # Follow the platform-specific official installation method; do not execute a moving installer blindly.
-
 # Start the server
 ollama serve
-
 # Pull and run a model
 ollama pull llama3.1:8b
 ollama run llama3.1:8b "Explain Kubernetes pods in one paragraph"
-
 # List available models
 ollama list
-
 # Pull specific quantization
 ollama pull llama3.1:8b-instruct-q4_K_M
 ```
-
 ## Model Selection Guide
-
 | Model | Size | VRAM | Best For |
 |-------|------|------|----------|
 | `llama3.1:8b` | 4.7 GB | 6 GB | General chat, coding |
@@ -87,9 +64,7 @@ ollama pull llama3.1:8b-instruct-q4_K_M
 | `llava:13b` | 8 GB | 10 GB | Vision + text |
 | `deepseek-coder-v2:16b` | 9 GB | 12 GB | Code generation |
 | `qwen2.5:14b` | 9 GB | 12 GB | Multilingual, reasoning |
-
 ## Docker Compose — Full Stack
-
 ```yaml
 # docker-compose.yml
 services:
@@ -118,7 +93,6 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-
   open-webui:
     image: ghcr.io/open-webui/open-webui:main
     container_name: open-webui
@@ -135,7 +109,6 @@ services:
     depends_on:
       ollama:
         condition: service_healthy
-
   litellm:
     image: ghcr.io/berriai/litellm:main-latest
     container_name: litellm
@@ -148,14 +121,11 @@ services:
     depends_on:
       ollama:
         condition: service_healthy
-
 volumes:
   ollama_data:
   webui_data:
 ```
-
 ### LiteLLM Proxy Config
-
 ```yaml
 # litellm-config.yaml
 model_list:
@@ -171,16 +141,12 @@ model_list:
     litellm_params:
       model: ollama/nomic-embed-text
       api_base: http://ollama:11434
-
 general_settings:
   master_key: os.environ/LITELLM_MASTER_KEY  # supply privately; verify syntax for pinned LiteLLM version
   # Configure and verify a finite budget separately; zero semantics vary by version.
 ```
-
 ## API Usage
-
 Ollama exposes an OpenAI-compatible API:
-
 ```bash
 # Chat completion
 curl http://localhost:11434/v1/chat/completions \
@@ -190,7 +156,6 @@ curl http://localhost:11434/v1/chat/completions \
     "messages": [{"role": "user", "content": "Hello"}],
     "stream": false
   }'
-
 # Embeddings
 curl http://localhost:11434/v1/embeddings \
   -H "Content-Type: application/json" \
@@ -198,24 +163,19 @@ curl http://localhost:11434/v1/embeddings \
     "model": "nomic-embed-text",
     "input": "The quick brown fox"
   }'
-
 # List models
 curl http://localhost:11434/api/tags
 ```
-
 ### Python Client
-
 ```python
 # pip install ollama
 import ollama
-
 # Chat
 response = ollama.chat(
     model="llama3.1:8b",
     messages=[{"role": "user", "content": "Explain Docker in 3 sentences"}],
 )
 print(response["message"]["content"])
-
 # Streaming
 for chunk in ollama.chat(
     model="llama3.1:8b",
@@ -223,91 +183,69 @@ for chunk in ollama.chat(
     stream=True,
 ):
     print(chunk["message"]["content"], end="", flush=True)
-
 # Embeddings
 result = ollama.embed(model="nomic-embed-text", input="Hello world")
 print(f"Embedding dimensions: {len(result['embeddings'][0])}")
 ```
-
 ### OpenAI SDK Compatibility
-
 ```python
 import os
 from openai import OpenAI
-
 # Configure OLLAMA_CLIENT_KEY privately for this endpoint. Local unauthenticated
 # Ollama ignores the SDK-required value; it is not access control.
 client = OpenAI(base_url="http://localhost:11434/v1", api_key=os.environ["OLLAMA_CLIENT_KEY"])
-
 response = client.chat.completions.create(
     model="llama3.1:8b",
     messages=[{"role": "user", "content": "Hello"}],
 )
 print(response.choices[0].message.content)
 ```
-
 ## Custom Modelfiles
-
 Create specialized models with custom system prompts and parameters:
-
 ```dockerfile
 # Modelfile.devops-assistant
 FROM llama3.1:8b
-
 SYSTEM """You are a DevOps expert assistant. You provide concise, production-ready
 advice about infrastructure, CI/CD, containers, and cloud services.
 Always include relevant commands and config examples."""
-
 PARAMETER temperature 0.3
 PARAMETER top_p 0.9
 PARAMETER num_ctx 8192
 PARAMETER repeat_penalty 1.1
 ```
-
 ```bash
 # Build and use custom model
 ollama create devops-assistant -f Modelfile.devops-assistant
 ollama run devops-assistant "Set up a GitHub Actions workflow for Docker builds"
 ```
-
 ## GPU Configuration
-
 ### NVIDIA
-
 ```bash
 # Verify GPU access
 nvidia-smi
 ollama run llama3.1:8b --verbose  # Shows GPU layers loaded
-
 # Environment tuning
 export OLLAMA_NUM_PARALLEL=4          # Concurrent requests
 export OLLAMA_MAX_LOADED_MODELS=2     # Models in VRAM
 export OLLAMA_FLASH_ATTENTION=1       # Faster attention
 export CUDA_VISIBLE_DEVICES=0,1       # Multi-GPU
 ```
-
 ### Apple Silicon
-
 ```bash
 # Metal acceleration is automatic on macOS
 # Verify with:
 ollama run llama3.1:8b --verbose
 # Look for: "metal" in the output
-
 # Optimize for unified memory
 export OLLAMA_NUM_PARALLEL=2          # Keep memory headroom
 export OLLAMA_MAX_LOADED_MODELS=1     # One model at a time on 16GB
 ```
-
 ## Monitoring
-
 ```bash
 # Check running models and memory usage
 curl http://localhost:11434/api/ps
-
 # Prometheus metrics (if enabled)
 curl http://localhost:11434/metrics
-
 # Quick health check script
 #!/bin/bash
 response=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:11434/api/tags)
@@ -319,16 +257,13 @@ else
     exit 1
 fi
 ```
-
 ## Systemd Service
-
 ```ini
 # /etc/systemd/system/ollama.service
 [Unit]
 Description=Ollama LLM Server
 After=network-online.target
 Wants=network-online.target
-
 [Service]
 ExecStart=/usr/local/bin/ollama serve
 User=ollama
@@ -339,31 +274,25 @@ Environment="OLLAMA_HOST=127.0.0.1:11434"
 Environment="OLLAMA_NUM_PARALLEL=4"
 Environment="OLLAMA_FLASH_ATTENTION=1"
 LimitNOFILE=65535
-
 [Install]
 WantedBy=default.target
 ```
-
 ```bash
 sudo useradd -r -s /bin/false -m -d /usr/share/ollama ollama
 sudo systemctl daemon-reload
 sudo systemctl enable --now ollama
 sudo systemctl status ollama
 ```
-
 ## Security
-
 - Bind to `127.0.0.1` in production (default), use reverse proxy for remote access
 - Set `WEBUI_AUTH=true` on Open WebUI
 - Use nginx with TLS for remote access:
-
 ```nginx
 server {
     listen 443 ssl;
     server_name llm.internal.example.com;
     ssl_certificate /etc/ssl/certs/llm.pem;
     ssl_certificate_key /etc/ssl/private/llm.key;
-
     location / {
         proxy_pass http://127.0.0.1:11434;
         proxy_set_header Host $host;
@@ -374,9 +303,7 @@ server {
     }
 }
 ```
-
 ## Troubleshooting
-
 | Issue | Solution |
 |-------|---------|
 | Model too slow | Use smaller quantization (`q4_K_M`), enable flash attention |
@@ -384,16 +311,11 @@ server {
 | GPU not detected | Check `nvidia-smi`, reinstall CUDA drivers, verify Docker GPU runtime |
 | Connection refused | Check `OLLAMA_HOST` setting, verify firewall rules |
 | Model download fails | Check disk space, registry identity, connectivity and certificate trust; repair trusted CA configuration instead of disabling TLS verification |
-
 ## Related Skills
-
 - mac-mini-llm-lab (`mac-mini-llm-lab`) — Apple Silicon optimization
 - docker-compose (`docker-compose`) — Service orchestration
 - vllm-server (`vllm-server`) — High-throughput production inference
 - llm-gateway (`llm-gateway`) — Unified API routing
-
 ## Limitations
-
 - Infrastructure commands can disrupt services: confirm target host/scope and have backups/snapshots before mutating state.
 - Docs-only import: upstream scripts and templates not bundled.
-

@@ -1,99 +1,71 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "87dc6375280d4d795e13e99ae52f9522f69921a243324636f4d42aba453ddd35"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-storage-blob-ts
+content_hash: 87dc6375280d4d795e13e99ae52f9522f69921a243324636f4d42aba453ddd35
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: ""John Doe","
+category: ""documents","
+date_added: 2026-02-27
 description: Azure Blob Storage JavaScript/TypeScript SDK (@azure/storage-blob) for blob operations. Use for uploading, downloading, listing, and managing blobs and containers.
-tier: "experimental"
+name: azure-storage-blob-ts
 risk: critical
 source: community
-date_added: '2026-02-27'
 ---
-
-
 # @azure/storage-blob (TypeScript/JavaScript)
-
 SDK for Azure Blob Storage operations — upload, download, list, and manage blobs and containers.
-
 ## Installation
-
 ```bash
 npm install @azure/storage-blob @azure/identity
 ```
-
 Examples use the 12.x API family. Pin compatible SDK versions and a currently supported Node runtime from the package engines; this is not a latest-version claim.
-
 ## Environment Variables
-
 ```bash
 AZURE_STORAGE_ACCOUNT_NAME=<account-name>
 AZURE_STORAGE_ACCOUNT_KEY=<account-key>
 # OR connection string
 AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;AccountName=...
 ```
-
 ## Authentication
-
 ### DefaultAzureCredential (Recommended)
-
 ```typescript
 import { BlobServiceClient } from "@azure/storage-blob";
 import { DefaultAzureCredential } from "@azure/identity";
-
 const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME!;
 const client = new BlobServiceClient(
   `https://${accountName}.blob.core.windows.net`,
   new DefaultAzureCredential()
 );
 ```
-
 ### Connection String
-
 ```typescript
 import { BlobServiceClient } from "@azure/storage-blob";
-
 const client = BlobServiceClient.fromConnectionString(
   process.env.AZURE_STORAGE_CONNECTION_STRING!
 );
 ```
-
 ### StorageSharedKeyCredential (Node.js only)
-
 ```typescript
 import { BlobServiceClient, StorageSharedKeyCredential } from "@azure/storage-blob";
-
 const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME!;
 const accountKey = process.env.AZURE_STORAGE_ACCOUNT_KEY!;
-
 const sharedKeyCredential = new StorageSharedKeyCredential(accountName, accountKey);
 const client = new BlobServiceClient(
   `https://${accountName}.blob.core.windows.net`,
   sharedKeyCredential
 );
 ```
-
 ### SAS Token
-
 ```typescript
 import { BlobServiceClient } from "@azure/storage-blob";
-
 const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME!;
 const sasToken = process.env.AZURE_STORAGE_SAS_TOKEN!; // starts with "?"
-
 const client = new BlobServiceClient(
   `https://${accountName}.blob.core.windows.net${sasToken}`
 );
 ```
-
 ## Client Hierarchy
-
 ```
 BlobServiceClient (account level)
 └── ContainerClient (container level)
@@ -102,103 +74,74 @@ BlobServiceClient (account level)
         ├── AppendBlobClient (append-only blobs)
         └── PageBlobClient (page blobs - VHDs)
 ```
-
 Choose the least-privilege identity/SAS, short expiry and HTTPS-only access; prefer user-delegation SAS where supported. Never expose account keys or signed URLs in browser bundles/logs. Verify exact account/container/blob before deletes or overwrites. setMetadata/setHTTPHeaders replace fields: preserve required existing values and use conditional ETags where needed. These examples are separate actions, not a sequence to execute blindly.
-
 ## Container Operations
-
 ### Create Container
-
 ```typescript
 const containerClient = client.getContainerClient("my-container");
 await containerClient.create();
-
 // Or create if not exists
 await containerClient.createIfNotExists();
 ```
-
 ### List Containers
-
 ```typescript
 for await (const container of client.listContainers()) {
   console.log(container.name);
 }
-
 // With prefix filter
 for await (const container of client.listContainers({ prefix: "logs-" })) {
   console.log(container.name);
 }
 ```
-
 ### Delete Container
-
 ```typescript
 await containerClient.delete();
 // Or delete if exists
 await containerClient.deleteIfExists();
 ```
-
 ## Blob Operations
-
 ### Upload Blob (Simple)
-
 ```typescript
 const containerClient = client.getContainerClient("my-container");
 const blockBlobClient = containerClient.getBlockBlobClient("my-file.txt");
-
 // Upload string
 await blockBlobClient.upload("Hello, World!", 13);
-
 // Upload Buffer
 const buffer = Buffer.from("Hello, World!");
 await blockBlobClient.upload(buffer, buffer.length);
 ```
-
 ### Upload from File (Node.js only)
-
 ```typescript
 const blockBlobClient = containerClient.getBlockBlobClient("uploaded-file.txt");
 await blockBlobClient.uploadFile("/path/to/local/file.txt");
 ```
-
 ### Upload from Stream (Node.js only)
-
 ```typescript
 import * as fs from "fs";
-
 const blockBlobClient = containerClient.getBlockBlobClient("streamed-file.txt");
 const readStream = fs.createReadStream("/path/to/local/file.txt");
-
 await blockBlobClient.uploadStream(readStream, 4 * 1024 * 1024, 5, {
   // bufferSize: 4MB, maxConcurrency: 5
   onProgress: (progress) => console.log(`Uploaded ${progress.loadedBytes} bytes`),
 });
 ```
-
 ### Upload from Browser
-
 ```typescript
 const blockBlobClient = containerClient.getBlockBlobClient("browser-upload.txt");
-
 // From File input
 const fileInput = document.getElementById("fileInput") as HTMLInputElement;
 const file = fileInput.files![0];
 await blockBlobClient.uploadData(file);
-
 // From Blob/ArrayBuffer
 const arrayBuffer = new ArrayBuffer(1024);
 await blockBlobClient.uploadData(arrayBuffer);
 ```
-
 ### Download Blob
-
 ```typescript
 const blobClient = containerClient.getBlobClient("my-file.txt");
 const downloadResponse = await blobClient.download();
-
 // Read as string (Node.js only; bounded small blobs)
 const downloaded = await streamToText(downloadResponse.readableStreamBody!);
-
 async function streamToText(readable: NodeJS.ReadableStream): Promise<string> {
   const chunks: Buffer[] = [];
   for await (const chunk of readable) {
@@ -207,37 +150,28 @@ async function streamToText(readable: NodeJS.ReadableStream): Promise<string> {
   return Buffer.concat(chunks).toString("utf-8");
 }
 ```
-
 In a browser, use the response's `blobBody` Promise<Blob> and read its text within a size limit; `readableStreamBody` and Buffer are Node-specific.
-
 ### Download to File (Node.js only)
-
 ```typescript
 const blockBlobClient = containerClient.getBlockBlobClient("my-file.txt");
 await blockBlobClient.downloadToFile("/path/to/local/destination.txt");
 ```
-
 ### Download to Buffer (Node.js only)
-
 ```typescript
 const blockBlobClient = containerClient.getBlockBlobClient("my-file.txt");
 const buffer = await blockBlobClient.downloadToBuffer();
 console.log(buffer.toString());
 ```
-
 ### List Blobs
-
 ```typescript
 // List all blobs
 for await (const blob of containerClient.listBlobsFlat()) {
   console.log(blob.name, blob.properties.contentLength);
 }
-
 // List with prefix
 for await (const blob of containerClient.listBlobsFlat({ prefix: "logs/" })) {
   console.log(blob.name);
 }
-
 // List by hierarchy (virtual directories)
 for await (const item of containerClient.listBlobsByHierarchy("/")) {
   if (item.kind === "prefix") {
@@ -247,56 +181,39 @@ for await (const item of containerClient.listBlobsByHierarchy("/")) {
   }
 }
 ```
-
 ### Delete Blob
-
 ```typescript
 const blobClient = containerClient.getBlobClient("my-file.txt");
 await blobClient.delete();
-
 // Delete if exists
 await blobClient.deleteIfExists();
-
 // Delete with snapshots
 await blobClient.delete({ deleteSnapshots: "include" });
 ```
-
 ### Copy Blob
-
 ```typescript
 const sourceBlobClient = containerClient.getBlobClient("source.txt");
 const destBlobClient = containerClient.getBlobClient("destination.txt");
-
 // Start copy operation
 const copyPoller = await destBlobClient.beginCopyFromURL(sourceBlobClient.url);
 await copyPoller.pollUntilDone();
 ```
-
 ## Blob Properties & Metadata
-
 ### Get Properties
-
 ```typescript
 const blobClient = containerClient.getBlobClient("my-file.txt");
 const properties = await blobClient.getProperties();
-
 console.log("Content-Type:", properties.contentType);
 console.log("Content-Length:", properties.contentLength);
 console.log("Last Modified:", properties.lastModified);
 console.log("ETag:", properties.etag);
 ```
-
 ### Set Metadata
-
 ```typescript
 await blobClient.setMetadata({
-  author: "John Doe",
-  category: "documents",
 });
 ```
-
 ### Set HTTP Headers
-
 ```typescript
 await blobClient.setHTTPHeaders({
   blobContentType: "text/plain",
@@ -304,20 +221,15 @@ await blobClient.setHTTPHeaders({
   blobContentDisposition: "attachment; filename=download.txt",
 });
 ```
-
 ## SAS Token Generation (Node.js only)
-
 ### Generate Blob SAS
-
 ```typescript
 import {
   BlobSASPermissions,
   generateBlobSASQueryParameters,
   StorageSharedKeyCredential,
 } from "@azure/storage-blob";
-
 const sharedKeyCredential = new StorageSharedKeyCredential(accountName, accountKey);
-
 const sasToken = generateBlobSASQueryParameters(
   {
     containerName: "my-container",
@@ -328,15 +240,11 @@ const sasToken = generateBlobSASQueryParameters(
   },
   sharedKeyCredential
 ).toString();
-
 const sasUrl = `https://${accountName}.blob.core.windows.net/my-container/my-file.txt?${sasToken}`;
 ```
-
 ### Generate Container SAS
-
 ```typescript
 import { ContainerSASPermissions, generateBlobSASQueryParameters } from "@azure/storage-blob";
-
 const sasToken = generateBlobSASQueryParameters(
   {
     containerName: "my-container",
@@ -346,9 +254,7 @@ const sasToken = generateBlobSASQueryParameters(
   sharedKeyCredential
 ).toString();
 ```
-
 ### Generate Account SAS
-
 ```typescript
 import {
   AccountSASPermissions,
@@ -356,7 +262,6 @@ import {
   AccountSASServices,
   generateAccountSASQueryParameters,
 } from "@azure/storage-blob";
-
 const sasToken = generateAccountSASQueryParameters(
   {
     services: AccountSASServices.parse("b").toString(), // blob
@@ -367,53 +272,36 @@ const sasToken = generateAccountSASQueryParameters(
   sharedKeyCredential
 ).toString();
 ```
-
 ## Blob Types
-
 ### Block Blob (Default)
-
 Most common type for text and binary files.
-
 ```typescript
 const blockBlobClient = containerClient.getBlockBlobClient("document.pdf");
 await blockBlobClient.uploadFile("/path/to/document.pdf");
 ```
-
 ### Append Blob
-
 Optimized for append operations (logs, audit trails).
-
 ```typescript
 const appendBlobClient = containerClient.getAppendBlobClient("app.log");
-
 // Create the append blob
 await appendBlobClient.create();
-
 // Append data
 await appendBlobClient.appendBlock("Log entry 1\n", 12);
 await appendBlobClient.appendBlock("Log entry 2\n", 12);
 ```
-
 ### Page Blob
-
 Fixed-size blobs for random read/write (VHDs).
-
 ```typescript
 const pageBlobClient = containerClient.getPageBlobClient("disk.vhd");
-
 // Create 512-byte aligned page blob
 await pageBlobClient.create(1024 * 1024); // 1MB
-
 // Write pages (must be 512-byte aligned)
 const buffer = Buffer.alloc(512);
 await pageBlobClient.uploadPages(buffer, 0, 512);
 ```
-
 ## Error Handling
-
 ```typescript
 import { RestError } from "@azure/storage-blob";
-
 try {
   await containerClient.create();
 } catch (error) {
@@ -435,9 +323,7 @@ try {
   throw error;
 }
 ```
-
 ## TypeScript Types Reference
-
 ```typescript
 import {
   // Clients
@@ -447,11 +333,9 @@ import {
   BlockBlobClient,
   AppendBlobClient,
   PageBlobClient,
-
   // Authentication
   StorageSharedKeyCredential,
   AnonymousCredential,
-
   // SAS
   BlobSASPermissions,
   ContainerSASPermissions,
@@ -460,21 +344,17 @@ import {
   AccountSASResourceTypes,
   generateBlobSASQueryParameters,
   generateAccountSASQueryParameters,
-
   // Options & Responses
   BlobDownloadResponseParsed,
   BlobUploadCommonResponse,
   ContainerCreateResponse,
   BlobItem,
   ContainerItem,
-
   // Errors
   RestError,
 } from "@azure/storage-blob";
 ```
-
 ## Best Practices
-
 1. **Use DefaultAzureCredential** — Prefer AAD over connection strings/keys
 2. **Use streaming for large files** — `uploadStream`/`downloadToFile` for files > 256MB
 3. **Set appropriate content types** — Use `setHTTPHeaders` for correct MIME types
@@ -482,9 +362,7 @@ import {
 5. **Handle errors gracefully** — Check `RestError.statusCode` for specific handling
 6. **Use `*IfNotExists` methods** — For idempotent container/blob creation
 7. **Lifecycle** — Use only lifecycle methods actually exposed by the pinned client; do not invent a close() call
-
 ## Platform Differences
-
 | Feature | Node.js | Browser |
 |---------|---------|---------|
 | `StorageSharedKeyCredential` | ✅ | ❌ |
@@ -496,10 +374,8 @@ import {
 | SAS generation | ✅ | ❌ |
 | DefaultAzureCredential | ✅ | ❌ |
 | Anonymous/SAS access | ✅ | ✅ |
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

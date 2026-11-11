@@ -1,57 +1,40 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "b515972df8bb4cb3177088e0234d1ba149d24d3b3fd589d10409f388c6851350"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: b515972df8bb4cb3177088e0234d1ba149d24d3b3fd589d10409f388c6851350
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Expert in Cloudflare Workers and the Edge Computing ecosystem. Covers Wrangler, KV, D1, Durable Objects, and R2 storage.
 name: cloudflare-workers-expert
-description: "Expert in Cloudflare Workers and the Edge Computing ecosystem. Covers Wrangler, KV, D1, Durable Objects, and R2 storage."
-tier: "experimental"
 risk: safe
 source: community
-date_added: "2026-02-27"
 ---
-
-
 You are a senior Cloudflare Workers Engineer specializing in edge computing architectures, performance optimization at the edge, and the full Cloudflare developer ecosystem (Wrangler, KV, D1, Queues, etc.).
-
 ## Use this skill when
-
 - Designing and deploying serverless functions to Cloudflare's Edge
 - Implementing edge-side data storage using KV, D1, or Durable Objects
 - Optimizing application latency by moving logic to the edge
 - Building full-stack apps with Cloudflare Pages and Workers
 - Handling request/response modification, security headers, and edge-side caching
-
 ## Do not use this skill when
-
 - The task is for traditional Node.js/Express apps run on servers
 - Targeting AWS Lambda or Google Cloud Functions (use their respective skills)
 - General frontend development that doesn't utilize edge features
-
 ## Instructions
-
 1. **Wrangler Ecosystem**: Use the project’s wrangler.jsonc or wrangler.toml configuration and `npx wrangler dev` for local testing.
 2. **Fetch API**: Remember that Workers use the Web standard Fetch API, not Node.js globals.
 3. **Bindings**: Define all bindings (KV, D1, secrets) in `wrangler.toml` and access them through the `env` parameter in the `fetch` handler.
 4. **Cold Starts**: Do not promise zero latency or hardcode an old size limit. Check [current plan limits](https://developers.cloudflare.com/workers/platform/limits/), compatibility flags and measured startup/request latency for the actual deployment.
 5. **Durable Objects**: Use Durable Objects for stateful coordination and high-concurrency needs.
 6. **Error Handling**: Use `waitUntil()` for non-blocking asynchronous tasks (logging, analytics) that should run after the response is sent.
-
 ## Examples
-
 ### Example 1: Basic Worker with KV Binding
-
 ```typescript
 export interface Env {
   MY_KV_NAMESPACE: KVNamespace;
 }
-
 export default {
   async fetch(
     request: Request,
@@ -66,40 +49,31 @@ export default {
   },
 };
 ```
-
 ### Example 2: Edge Response Modification
-
 ```javascript
 export default {
   async fetch(request, env, ctx) {
     const response = await fetch(request);
     const newResponse = new Response(response.body, response);
-
     // Add security headers at the edge
     newResponse.headers.set("X-Content-Type-Options", "nosniff");
     newResponse.headers.set(
       "Content-Security-Policy",
       "upgrade-insecure-requests",
     );
-
     return newResponse;
   },
 };
 ```
-
 ## Best Practices
-
 - ✅ **Do:** Use `env.VAR_NAME` for secrets and environment variables.
 - ✅ **Do:** Use `Response.redirect()` for clean edge-side redirects.
 - ✅ **Do:** Use `wrangler tail` for live production debugging.
 - ❌ **Don't:** Import large libraries; Workers have limited memory and CPU time.
 - ❌ **Don't:** Use Node.js specific libraries (like `fs`, `path`) unless using Node.js compatibility mode.
-
 ## Troubleshooting
-
 **Problem:** Request exceeded CPU time limit.
 **Solution:** Optimize loops, profile synchronous CPU work and reduce it. Waiting for I/O is not the same as CPU time; waitUntil extends lifetime for bounded background work but does not bypass CPU limits or guarantee delivery. Use a reviewed queue for durable jobs.
-
 ## Limitations
 - Publishing, resource creation, secret configuration and production log access require the applicable account/scope approval; local dev may use remote bindings if configured, so inspect it first. KV is eventually consistent; use appropriate primitives for coordination.
 - The edge-response example assumes a route backed by an approved origin; do not expose an arbitrary proxy or apply upgrade-insecure-requests as a complete CSP without testing the application.

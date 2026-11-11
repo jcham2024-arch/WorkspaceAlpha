@@ -1,58 +1,41 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "d060f4514ddaaf499b5381827fb27a7e270aa3ab0fa0c920b1c6cb28956bf6a9"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-postgres-ts
+content_hash: d060f4514ddaaf499b5381827fb27a7e270aa3ab0fa0c920b1c6cb28956bf6a9
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Connect to Azure Database for PostgreSQL Flexible Server from Node.js/TypeScript using the pg (node-postgres) package.
-tier: "experimental"
+id: number;
+name: string
 risk: critical
 source: community
-date_added: '2026-02-27'
 ---
-
-
 # Azure PostgreSQL for TypeScript (node-postgres)
-
 Connect to Azure Database for PostgreSQL Flexible Server using the `pg` (node-postgres) package with support for password and Microsoft Entra ID (passwordless) authentication.
-
 ## Installation
-
 ```bash
 npm install pg @azure/identity
 npm install -D @types/pg
 ```
-
 ## Environment Variables
-
 ```bash
 # Required
 AZURE_POSTGRESQL_HOST=<server>.postgres.database.azure.com
 AZURE_POSTGRESQL_DATABASE=<database>
 AZURE_POSTGRESQL_PORT=5432
-
 # For password authentication
 AZURE_POSTGRESQL_USER=<username>
 AZURE_POSTGRESQL_PASSWORD=<password>
-
 # For Entra ID authentication
 AZURE_POSTGRESQL_USER=<entra-user>@<server>   # e.g., user@contoso.com
 AZURE_POSTGRESQL_CLIENTID=<managed-identity-client-id>  # For user-assigned identity
 ```
-
 ## Authentication
-
 ### Option 1: Password Authentication
-
 ```typescript
 import { Client, Pool } from "pg";
-
 const client = new Client({
   host: process.env.AZURE_POSTGRESQL_HOST,
   database: process.env.AZURE_POSTGRESQL_DATABASE,
@@ -61,29 +44,22 @@ const client = new Client({
   port: Number(process.env.AZURE_POSTGRESQL_PORT) || 5432,
   ssl: { rejectUnauthorized: true }  // Required for Azure
 });
-
 await client.connect();
 ```
-
 ### Option 2: Microsoft Entra ID (Passwordless) - Recommended
-
 ```typescript
 import { Client, Pool } from "pg";
 import { DefaultAzureCredential } from "@azure/identity";
-
 // For system-assigned managed identity
 const credential = new DefaultAzureCredential();
-
 // For user-assigned managed identity
 // const credential = new DefaultAzureCredential({
 //   managedIdentityClientId: process.env.AZURE_POSTGRESQL_CLIENTID
 // });
-
 // Acquire access token for Azure PostgreSQL
 const tokenResponse = await credential.getToken(
   "https://ossrdbms-aad.database.windows.net/.default"
 );
-
 const client = new Client({
   host: process.env.AZURE_POSTGRESQL_HOST,
   database: process.env.AZURE_POSTGRESQL_DATABASE,
@@ -92,19 +68,13 @@ const client = new Client({
   port: Number(process.env.AZURE_POSTGRESQL_PORT) || 5432,
   ssl: { rejectUnauthorized: true }
 });
-
 await client.connect();
 ```
-
 Examples are separate sketches requiring imports/schema and an authorized non-production database. Parameter binding protects values, not identifiers or tenant authorization. TypeScript query generics are compile-time assertions, not runtime result validation. On rollback failure, destroy the client instead of returning it to the pool; preserve the original error.
-
 ## Core Workflows
-
 ### 1. Single Client Connection
-
 ```typescript
 import { Client } from "pg";
-
 const client = new Client({
   host: process.env.AZURE_POSTGRESQL_HOST,
   database: process.env.AZURE_POSTGRESQL_DATABASE,
@@ -113,22 +83,17 @@ const client = new Client({
   port: 5432,
   ssl: { rejectUnauthorized: true }
 });
-
 try {
   await client.connect();
-  
   const result = await client.query("SELECT NOW() as current_time");
   console.log(result.rows[0].current_time);
 } finally {
   await client.end();  // Always close connection
 }
 ```
-
 ### 2. Connection Pool (Recommended for Production)
-
 ```typescript
 import { Pool } from "pg";
-
 const pool = new Pool({
   host: process.env.AZURE_POSTGRESQL_HOST,
   database: process.env.AZURE_POSTGRESQL_DATABASE,
@@ -136,16 +101,13 @@ const pool = new Pool({
   password: process.env.AZURE_POSTGRESQL_PASSWORD,
   port: 5432,
   ssl: { rejectUnauthorized: true },
-  
   // Pool configuration
   max: 20,                    // Maximum connections in pool
   idleTimeoutMillis: 30000,   // Close idle connections after 30s
   connectionTimeoutMillis: 10000  // Timeout for new connections
 });
-
 // Query using pool (automatically acquires and releases connection)
 const result = await pool.query("SELECT * FROM users WHERE id = $1", [userId]);
-
 // Explicit checkout for multiple queries
 const client = await pool.connect();
 try {
@@ -154,30 +116,24 @@ try {
 } finally {
   client.release();  // Return connection to pool
 }
-
 // Cleanup on shutdown
 await pool.end();
 ```
-
 ### 3. Parameterized Queries (Prevent SQL Injection)
-
 ```typescript
 // ALWAYS use parameterized queries - never concatenate user input
 const userId = 123;
 const email = "user@example.com";
-
 // Single parameter
 const result = await pool.query(
   "SELECT * FROM users WHERE id = $1",
   [userId]
 );
-
 // Multiple parameters
 const result = await pool.query(
   "INSERT INTO users (email, name, created_at) VALUES ($1, $2, NOW()) RETURNING *",
   [email, "John Doe"]
 );
-
 // Array parameter
 const ids = [1, 2, 3, 4, 5];
 const result = await pool.query(
@@ -185,26 +141,20 @@ const result = await pool.query(
   [ids]
 );
 ```
-
 ### 4. Transactions
-
 ```typescript
 const client = await pool.connect();
-
 try {
   await client.query("BEGIN");
-  
   const userResult = await client.query(
     "INSERT INTO users (email) VALUES ($1) RETURNING id",
     ["user@example.com"]
   );
   const userId = userResult.rows[0].id;
-  
   await client.query(
     "INSERT INTO orders (user_id, total) VALUES ($1, $2)",
     [userId, 99.99]
   );
-  
   await client.query("COMMIT");
 } catch (error) {
   await client.query("ROLLBACK");
@@ -213,9 +163,7 @@ try {
   client.release();
 }
 ```
-
 ### 5. Transaction Helper Function
-
 ```typescript
 async function withTransaction<T>(
   pool: Pool,
@@ -234,7 +182,6 @@ async function withTransaction<T>(
     client.release();
   }
 }
-
 // Usage
 const order = await withTransaction(pool, async (client) => {
   const user = await client.query(
@@ -248,32 +195,23 @@ const order = await withTransaction(pool, async (client) => {
   return order.rows[0];
 });
 ```
-
 ### 6. Typed Queries with TypeScript
-
 ```typescript
 import { Pool, QueryResult } from "pg";
-
 interface User {
-  id: number;
   email: string;
-  name: string;
   created_at: Date;
 }
-
 // Type the query result
 const result: QueryResult<User> = await pool.query<User>(
   "SELECT * FROM users WHERE id = $1",
   [userId]
 );
-
 const user: User | undefined = result.rows[0];
-
 // Type-safe insert
 async function createUser(
   pool: Pool,
   email: string,
-  name: string
 ): Promise<User> {
   const result = await pool.query<User>(
     "INSERT INTO users (email, name) VALUES ($1, $2) RETURNING *",
@@ -282,15 +220,11 @@ async function createUser(
   return result.rows[0];
 }
 ```
-
 ## Pool with Entra ID Token Refresh
-
 Use the installed node-postgres version's supported dynamic password callback so new connections obtain a current token. Do not tear down and recreate a shared pool on every token expiry: concurrent callers can race with shutdown.
-
 ```typescript
 import { Pool } from "pg";
 import { DefaultAzureCredential } from "@azure/identity";
-
 const credential = new DefaultAzureCredential();
 const azurePool = new Pool({
   host: process.env.AZURE_POSTGRESQL_HOST,
@@ -304,14 +238,10 @@ const azurePool = new Pool({
   },
 });
 ```
-
 Verify Entra principal mapping and server authentication settings first. Tokens are secrets; never log them. Token expiration is supplied by the issuer, not a guaranteed one-hour lifetime.
-
 ## Error Handling
-
 ```typescript
 import { DatabaseError } from "pg";
-
 try {
   await pool.query("INSERT INTO users (email) VALUES ($1)", [email]);
 } catch (error) {
@@ -339,49 +269,37 @@ try {
   throw error;
 }
 ```
-
 ## Connection String Format
-
 ```typescript
 // Alternative: Use connection string
 const pool = new Pool({
   connectionString: `postgres://${encodeURIComponent(user)}:${encodeURIComponent(password)}@${host}:${port}/${encodeURIComponent(database)}`,
   ssl: { rejectUnauthorized: true }
 });
-
 // With SSL required (Azure)
 const connectionString = 
   `postgres://user:password@server.postgres.database.azure.com:5432/mydb?sslmode=require`;
 ```
-
 ## Pool Events
-
 ```typescript
 const pool = new Pool({ /* config */ });
-
 pool.on("connect", (client) => {
   console.log("New client connected to pool");
 });
-
 pool.on("acquire", (client) => {
   console.log("Client checked out from pool");
 });
-
 pool.on("release", (err, client) => {
   console.log("Client returned to pool");
 });
-
 pool.on("remove", (client) => {
   console.log("Client removed from pool");
 });
-
 pool.on("error", (err, client) => {
   console.error("Unexpected pool error:", err);
 });
 ```
-
 ## Azure-Specific Configuration
-
 | Setting | Value | Description |
 |---------|-------|-------------|
 | `ssl.rejectUnauthorized` | `true` | Always use SSL for Azure |
@@ -389,19 +307,14 @@ pool.on("error", (err, client) => {
 | PgBouncer port | `6432` | Use when PgBouncer enabled |
 | Token scope | `https://ossrdbms-aad.database.windows.net/.default` | Entra ID token scope |
 | Token lifetime | ~1 hour | Refresh before expiry |
-
 ## Pool Sizing Guidelines
-
 | Workload | `max` | `idleTimeoutMillis` |
 |----------|-------|---------------------|
 | Light (dev/test) | 5-10 | 30000 |
 | Medium (production) | 20-30 | 30000 |
 | Heavy (high concurrency) | 50-100 | 10000 |
-
 > **Note**: Azure PostgreSQL has connection limits based on SKU. Check your tier's max connections.
-
 ## Best Practices
-
 1. **Always use connection pools** for production applications
 2. **Use parameterized queries** - Never concatenate user input
 3. **Always close connections** - Use `try/finally` or connection pools
@@ -412,9 +325,7 @@ pool.on("error", (err, client) => {
 8. **Monitor pool metrics** - Track `pool.totalCount`, `pool.idleCount`, `pool.waitingCount`
 9. **Graceful shutdown** - Call `pool.end()` on application termination
 10. **Use TypeScript generics** - Type your query results for safety
-
 ## Key Types
-
 ```typescript
 import {
   Client,
@@ -427,9 +338,7 @@ import {
   QueryConfig
 } from "pg";
 ```
-
 ## Reference Links
-
 | Resource | URL |
 |----------|-----|
 | node-postgres Docs | https://node-postgres.com |
@@ -437,10 +346,8 @@ import {
 | GitHub Repository | https://github.com/brianc/node-postgres |
 | Azure PostgreSQL Docs | https://learn.microsoft.com/azure/postgresql/flexible-server/ |
 | Passwordless Connection | https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-connect-with-managed-identity |
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

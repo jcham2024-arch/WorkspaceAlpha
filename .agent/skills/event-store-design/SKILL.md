@@ -1,52 +1,37 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "16da0239c46e3ead8f3cc75509b0fd29c8edbcefd2b518aeaa4211ce5b1311fe"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 16da0239c46e3ead8f3cc75509b0fd29c8edbcefd2b518aeaa4211ce5b1311fe
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Design and implement event stores for event-sourced systems. Use when building event sourcing infrastructure, choosing event store technologies, or implementing event persistence patterns.
+metadata: dict = field(default_factory=dict)
 name: event-store-design
-description: "Design and implement event stores for event-sourced systems. Use when building event sourcing infrastructure, choosing event store technologies, or implementing event persistence patterns."
-tier: "experimental"
 risk: critical
 source: community
-date_added: "2026-02-27"
+version: Optional[int] = None
 ---
-
-
 # Event Store Design
-
 Comprehensive guide to designing event stores for event-sourced applications.
-
 ## Do not use this skill when
-
 - The task is unrelated to event store design
 - You need a different domain or tool outside this scope
-
 ## Instructions
-
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
 - If detailed examples are required, open `resources/implementation-playbook.md`.
-
 ## Use this skill when
-
 - Designing event sourcing infrastructure
 - Choosing between event store technologies
 - Implementing custom event stores
 - Optimizing event storage and retrieval
 - Setting up event store schemas
 - Planning for event store scaling
-
 ## Core Concepts
-
 ### 1. Event Store Architecture
-
 ```
 ┌─────────────────────────────────────────────────────┐
 │                    Event Store                       │
@@ -64,9 +49,7 @@ Comprehensive guide to designing event stores for event-sourced applications.
 │  Global Position: 1 → 2 → 3 → 4 → 5 → 6 → ...     │
 └─────────────────────────────────────────────────────┘
 ```
-
 ### 2. Event Store Requirements
-
 | Requirement       | Description                        |
 | ----------------- | ---------------------------------- |
 | **Append-only**   | Events are immutable, only appends |
@@ -74,9 +57,7 @@ Comprehensive guide to designing event stores for event-sourced applications.
 | **Versioned**     | Optimistic concurrency control     |
 | **Subscriptions** | Real-time event notifications      |
 | **Idempotent**    | Handle duplicate writes safely     |
-
 ## Technology Comparison
-
 | Technology       | Best For                  | Limitations                      |
 | ---------------- | ------------------------- | -------------------------------- |
 | **EventStoreDB** | Pure event sourcing       | Single-purpose                   |
@@ -84,11 +65,8 @@ Comprehensive guide to designing event stores for event-sourced applications.
 | **Kafka**        | High-throughput streaming | Not ideal for per-stream queries |
 | **DynamoDB**     | Serverless, AWS-native    | Query limitations                |
 | **Marten**       | .NET ecosystems           | .NET specific                    |
-
 ## Templates
-
 ### Template 1: PostgreSQL Event Store Schema
-
 ```sql
 -- Events table
 CREATE TABLE events (
@@ -101,22 +79,16 @@ CREATE TABLE events (
     version BIGINT NOT NULL,
     global_position BIGSERIAL,
     created_at TIMESTAMPTZ DEFAULT NOW(),
-
     CONSTRAINT unique_stream_version UNIQUE (stream_id, version)
 );
-
 -- Index for stream queries
 CREATE INDEX idx_events_stream_id ON events(stream_id, version);
-
 -- Index for global subscription
 CREATE INDEX idx_events_global_position ON events(global_position);
-
 -- Index for event type queries
 CREATE INDEX idx_events_event_type ON events(event_type);
-
 -- Index for time-based queries
 CREATE INDEX idx_events_created_at ON events(created_at);
-
 -- Snapshots table
 CREATE TABLE snapshots (
     stream_id VARCHAR(255) PRIMARY KEY,
@@ -125,7 +97,6 @@ CREATE TABLE snapshots (
     version BIGINT NOT NULL,
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
-
 -- Subscriptions checkpoint table
 CREATE TABLE subscription_checkpoints (
     subscription_id VARCHAR(255) PRIMARY KEY,
@@ -133,9 +104,7 @@ CREATE TABLE subscription_checkpoints (
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 ```
-
 ### Template 2: Python Event Store Implementation
-
 ```python
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
@@ -144,23 +113,17 @@ from uuid import UUID, uuid4
 import json
 import asyncio
 import asyncpg
-
 @dataclass
 class Event:
     stream_id: str
     event_type: str
     data: dict
-    metadata: dict = field(default_factory=dict)
     event_id: UUID = field(default_factory=uuid4)
-    version: Optional[int] = None
     global_position: Optional[int] = None
     created_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
-
-
 class EventStore:
     def __init__(self, pool: asyncpg.Pool):
         self.pool = pool
-
     async def append_events(
         self,
         stream_id: str,
@@ -185,13 +148,11 @@ class EventStore:
                         raise ConcurrencyError(
                             f"Expected version {expected_version}, got {current}"
                         )
-
                 # Get starting version
                 start_version = await conn.fetchval(
                     "SELECT COALESCE(MAX(version), 0) + 1 FROM events WHERE stream_id = $1",
                     stream_id
                 )
-
                 # Insert events
                 saved_events = []
                 for i, event in enumerate(events):
@@ -214,9 +175,7 @@ class EventStore:
                     )
                     event.global_position = row['global_position']
                     saved_events.append(event)
-
                 return saved_events
-
     async def read_stream(
         self,
         stream_id: str,
@@ -237,7 +196,6 @@ class EventStore:
                 stream_id, from_version, limit
             )
             return [self._row_to_event(row) for row in rows]
-
     async def read_all(
         self,
         from_position: int = 0,
@@ -257,7 +215,6 @@ class EventStore:
                 from_position, limit
             )
             return [self._row_to_event(row) for row in rows]
-
     async def subscribe(
         self,
         subscription_id: str,
@@ -276,17 +233,14 @@ class EventStore:
                 subscription_id
             )
             position = from_position if checkpoint is None else checkpoint
-
         while True:
             events = await self.read_all(position, batch_size)
             if not events:
                 await asyncio.sleep(1)  # Poll interval
                 continue
-
             for event in events:
                 await handler(event)
                 position = event.global_position
-
             # Save checkpoint
             async with self.pool.acquire() as conn:
                 await conn.execute(
@@ -298,7 +252,6 @@ class EventStore:
                     """,
                     subscription_id, position
                 )
-
     def _row_to_event(self, row) -> Event:
         return Event(
             event_id=row['id'],
@@ -310,22 +263,16 @@ class EventStore:
             global_position=row['global_position'],
             created_at=row['created_at']
         )
-
-
 class ConcurrencyError(Exception):
     """Raised when optimistic concurrency check fails."""
     pass
 ```
-
 ### Template 3: EventStoreDB Usage
-
 ```python
 from esdbclient import EventStoreDBClient, NewEvent, StreamState
 import json
-
 # Connect
 client = EventStoreDBClient(uri="esdb://localhost:2113?tls=false")
-
 # Append events
 def append_events(stream_name: str, events: list, expected_revision=None):
     new_events = [
@@ -336,20 +283,17 @@ def append_events(stream_name: str, events: list, expected_revision=None):
         )
         for event in events
     ]
-
     if expected_revision is None:
         state = StreamState.ANY
     elif expected_revision == -1:
         state = StreamState.NO_STREAM
     else:
         state = expected_revision
-
     return client.append_to_stream(
         stream_name=stream_name,
         events=new_events,
         current_version=state
     )
-
 # Read stream
 def read_stream(stream_name: str, from_revision: int = 0):
     events = client.get_stream(
@@ -366,7 +310,6 @@ def read_stream(stream_name: str, from_revision: int = 0):
         }
         for event in events
     ]
-
 # Subscribe to all
 def subscribe_to_all(handler, from_position: int = 0):
     subscription = client.subscribe_to_all(commit_position=from_position)
@@ -377,27 +320,22 @@ def subscribe_to_all(handler, from_position: int = 0):
             'stream_id': event.stream_name,
             'position': event.commit_position
         })
-
 # Category projection ($ce-Category)
 def read_category(category: str):
     """Read all events for a category using system projection."""
     return read_stream(f"$ce-{category}")
 ```
-
 ### Template 4: DynamoDB Event Store
-
 ```python
 import boto3
 from boto3.dynamodb.conditions import Key
 from datetime import datetime, timezone
 import json
 import uuid
-
 class DynamoEventStore:
     def __init__(self, table_name: str):
         self.dynamodb = boto3.resource('dynamodb')
         self.table = self.dynamodb.Table(table_name)
-
     def append_events(self, stream_id: str, events: list, expected_version: int = None):
         """Append events with conditional write for concurrency."""
         # Single-event teaching example; no batch atomicity or automatic retry.
@@ -415,7 +353,6 @@ class DynamoEventStore:
         }
         self.table.put_item(Item=item, ConditionExpression='attribute_not_exists(PK)')
         return events
-
     def read_stream(self, stream_id: str, from_version: int = 0):
         """Read events from a stream."""
         response = self.table.query(
@@ -431,48 +368,36 @@ class DynamoEventStore:
             }
             for item in response['Items']
         ]
-
 # Table definition (CloudFormation/Terraform)
 """
 DynamoDB Table:
   - PK (Partition Key): String
   - SK (Sort Key): String
   - No global subscription ordering implemented here
-
 Capacity: On-demand or provisioned based on throughput needs
 """
 ```
-
 ## Best Practices
-
 ### Do's
-
 - **Use stream IDs that include aggregate type** - `Order-{uuid}`
 - **Include correlation/causation IDs** - For tracing
 - **Version events from day one** - Plan for schema evolution
 - **Implement idempotency** - Use event IDs for deduplication
 - **Index appropriately** - For your query patterns
-
 ### Don'ts
-
 - **Don't update or delete events** - They're immutable facts
 - **Don't store large payloads** - Keep events small
 - **Don't skip optimistic concurrency** - Prevents data corruption
 - **Don't ignore backpressure** - Handle slow consumers
-
 ## Resources
-
 - [EventStoreDB](https://www.eventstore.com/)
 - [Marten Events](https://martendb.io/events/)
 - [Event Sourcing Pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing)
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## Implementation limits and verification
-
 The PostgreSQL sequence alone is not commit order: concurrent transactions can
 allocate positions then commit out of order, causing a polling checkpoint to skip
 late commits. The teaching implementation serializes all appenders with one
@@ -482,14 +407,12 @@ the stream index. Append-only permissions, stable request/event IDs and duplicat
 request reconciliation still need implementation: a UUID primary key prevents a
 duplicate insert but does not turn retries into successful idempotent responses.
 Never reuse mutated in-memory event versions as proof a transaction committed.
-
 The DynamoDB example is one conditional event write, not a complete event store:
 it prevents overwrite at that key but does not atomically check a stream-head
 version, fill gaps, deduplicate requests, implement global ordering or multi-event
 batches. Use a transaction with a conditional head record for those guarantees;
 read_stream returns only one query page and must follow LastEvaluatedKey to finish.
 Do not checkpoint an eventually consistent timestamp GSI as a total order.
-
 The esdbclient example uses the synchronous client/iterator with a synchronous
 handler; use its version-matched async client for an async service. Its plaintext
 localhost URI is for an isolated development server only; use authenticated TLS

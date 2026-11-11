@@ -1,80 +1,57 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "9072585b06da11625fcf281fbf33f28ea2c75acb2995adfcfb2b728ddaa72102"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: ai-coding-agent-guardrails
-description: Secure AI coding agents (Claude Code, Cursor, Codex, Copilot) with permission
-tier: "experimental"
-  boundaries, secret protection, code review gates, and safe sandbox configurations
-  for team environments.
+content_hash: 9072585b06da11625fcf281fbf33f28ea2c75acb2995adfcfb2b728ddaa72102
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: security
+compatibility: Requires the relevant security tooling (scanners, vault CLIs) and an
+date_added: 2026-09-20
+description: Secure AI coding agents (Claude Code, Cursor, Codex, Copilot) with permission
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: ai-coding-agent-guardrails
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant security tooling (scanners, vault CLIs) and an
+version: 1.0
+---  boundaries, secret protection, code review gates, and safe sandbox configurations
+  for team environments.
   authorized scope for any active assessment. Docs-only; helper scripts and templates
   not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # AI Coding Agent Guardrails
-
 Secure the use of AI coding agents across engineering teams. This skill covers permission boundaries, secret protection, sandbox isolation, code review gates, and audit trails for Claude Code, Cursor, Copilot, and Codex.
-
 ---
-
 ## Permission Boundaries
-
 ### CLAUDE.md Configuration
-
 A `CLAUDE.md` supplies behavioral guidance, not an OS sandbox. Merge compatible rules into existing instructions without overwriting them; tool permissions and isolation enforce boundaries independently.
-
 ```markdown
 # CLAUDE.md
-
 ## Restrictions
-
 - NEVER read or output contents of .env, .env.*, secrets.yaml, or any file matching *.pem, *.key
 - NEVER execute `rm -rf`, `DROP TABLE`, `kubectl delete`, or `terraform destroy` commands
 - NEVER push directly to main or master branches
 - NEVER modify files in the infrastructure/, terraform/, or .github/workflows/ directories without explicit user approval
 - NEVER install new dependencies without listing them first for review
 - NEVER access or display API keys, tokens, passwords, or connection strings
-
 ## Allowed Operations
-
 - Read and modify application source code in src/, lib/, and tests/
 - Run test suites with `npm test`, `pytest`, `go test`
 - Run linters with `eslint`, `ruff`, `golangci-lint`
 - Create new branches with prefix `ai/` or `agent/`
 - Create and modify files in docs/ directory
-
 ## Code Standards
-
 - All new functions must include docstrings or JSDoc comments
 - All new code must have corresponding unit tests
 - Follow existing code style and patterns in the repository
 - Maximum file length: 500 lines. Suggest splitting if exceeded.
 ```
-
 ### Command Allowlists
-
 For agents that execute shell commands, define an explicit allowlist:
-
 ```yaml
 # .agent-permissions.yaml — conceptual schema, not consumed automatically by these clients
 agent_permissions:
@@ -95,7 +72,6 @@ agent_permissions:
     - "cat"
     - "head"
     - "tail"
-
   blocked_commands:
     - "rm -rf"
     - "curl"
@@ -109,7 +85,6 @@ agent_permissions:
     - "az"
     - "docker push"
     - "npm publish"
-
   blocked_paths:
     - ".env*"
     - "**/*.pem"
@@ -117,7 +92,6 @@ agent_permissions:
     - "**/secrets/**"
     - "infrastructure/**"
     - ".github/workflows/**"
-
   allowed_paths:
     - "src/**"
     - "lib/**"
@@ -126,62 +100,44 @@ agent_permissions:
     - "package.json"
     - "pyproject.toml"
 ```
-
 ### File System Access Controls
-
 Linux-only administrator sketch for a disposable checkout; do not recursively change ownership/modes on a live developer repository. The script below grants named ACL entries but does not grant traversal on the repository/parent directories or default ACLs for new files. Design and verify both explicitly; prevent symlink escapes and keep credentials outside the sandbox. Recursive chmod 750 also marks source files executable.
-
 Use filesystem permissions to enforce boundaries at the OS level:
-
 ```bash
 #!/bin/bash
 # setup-agent-workspace.sh
 # Create a restricted workspace for agent execution
-
 AGENT_USER="ai-agent"
 REPO_DIR="/workspace/repo"
-
 # Create agent user with limited permissions
 useradd --system --shell /bin/bash --no-create-home "$AGENT_USER"
-
 # Set ownership: developers own everything, agent gets read on most
 chown -R root:developers "$REPO_DIR"
 chmod -R 750 "$REPO_DIR"
-
 # Grant agent write access only to safe directories
 setfacl -R -m u:${AGENT_USER}:rwx "${REPO_DIR}/src"
 setfacl -R -m u:${AGENT_USER}:rwx "${REPO_DIR}/tests"
 setfacl -R -m u:${AGENT_USER}:rwx "${REPO_DIR}/docs"
-
 # Deny agent access to sensitive files
 setfacl -m u:${AGENT_USER}:--- "${REPO_DIR}/.env"
 setfacl -R -m u:${AGENT_USER}:--- "${REPO_DIR}/infrastructure"
 setfacl -R -m u:${AGENT_USER}:--- "${REPO_DIR}/.github/workflows"
-
 echo "Agent workspace permissions configured."
 ```
-
 ---
-
 ## Secret Protection
-
 ### Pre-commit Hooks with git-secrets
-
 ```bash
 #!/bin/bash
 # install-secret-scanning.sh
-
 # Install git-secrets
 git clone https://github.com/awslabs/git-secrets.git /tmp/git-secrets
 cd /tmp/git-secrets && make install
-
 # Initialize in repository
 cd /path/to/repo
 git secrets --install
-
 # Register common secret patterns
 git secrets --register-aws
-
 # Add custom patterns for common credential formats
 git secrets --add '-----BEGIN (RSA |EC |DSA )?PRIVATE KEY-----'
 git secrets --add 'AKIA[0-9A-Z]{16}'
@@ -190,24 +146,18 @@ git secrets --add 'sk-[a-zA-Z0-9]{48}'
 git secrets --add 'xox[baprs]-[0-9a-zA-Z-]{10,}'
 git secrets --add 'password\s*[:=]\s*["\x27][^\s]{8,}'
 git secrets --add 'api[_-]?key\s*[:=]\s*["\x27][^\s]{8,}'
-
 # Add allowed patterns (false positive exclusions)
 git secrets --add --allowed 'EXAMPLE_KEY'
 git secrets --add --allowed 'your-api-key-here'
 ```
-
 ### Agent Output Scanning
-
 Scan agent-generated output before it reaches version control:
-
 ```python
 #!/usr/bin/env python3
 """scan_agent_output.py - Scan AI agent output for leaked secrets."""
-
 import re
 import sys
 from pathlib import Path
-
 SECRET_PATTERNS = [
     (r'AKIA[0-9A-Z]{16}', 'AWS Access Key'),
     (r'(?i)aws_secret_access_key\s*[:=]\s*\S+', 'AWS Secret Key'),
@@ -221,8 +171,6 @@ SECRET_PATTERNS = [
     (r'eyJ[a-zA-Z0-9_-]{10,}\.[a-zA-Z0-9_-]{10,}', 'JWT Token'),
     (r'(?i)database_url\s*[:=]\s*\S+', 'Database Connection String'),
 ]
-
-
 def scan_file(filepath: str) -> list[dict]:
     findings = []
     content = Path(filepath).read_text(errors="ignore")
@@ -236,57 +184,42 @@ def scan_file(filepath: str) -> list[dict]:
                     "content": "[REDACTED]",
                 })
     return findings
-
-
 def main():
     files = sys.argv[1:]
     if not files:
         print("Usage: scan_agent_output.py <file1> [file2] ...")
         sys.exit(1)
-
     all_findings = []
     for f in files:
         all_findings.extend(scan_file(f))
-
     if all_findings:
         print(f"BLOCKED: {len(all_findings)} potential secret(s) detected:\n")
         for finding in all_findings:
             print(f"  [{finding['type']}] {finding['file']}:{finding['line']}")
             print(f"    {finding['content']}\n")
         sys.exit(1)
-
     print("No matches in this bounded regex scan; this is not proof of absence.")
     sys.exit(0)
-
-
 if __name__ == "__main__":
     main()
 ```
-
 ### Git Pre-commit Hook Integration
-
 ```bash
 #!/bin/bash
 # .git/hooks/pre-commit
 # Block commits containing secrets from AI agents
-
 # Use a maintained scanner that reads staged Git blobs, not working-tree paths.
 # A working-tree scan can miss a secret staged before a later local edit.
 # Require NUL-safe filename handling, bounded inputs and nonzero error status.
 git secrets --pre_commit_hook -- "$@"
 # Integrate any additional scanner against the index through its documented API.
 ```
-
 ---
-
 ## Sandbox Configuration
-
 ### Docker Sandbox for Agent Execution
-
 ```dockerfile
 # Dockerfile.agent-sandbox
 FROM ubuntu:24.04
-
 RUN apt-get update && apt-get install -y \
     git \
     nodejs \
@@ -294,29 +227,23 @@ RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
     && rm -rf /var/lib/apt/lists/*
-
 # Create non-root agent user
 RUN useradd -m -s /bin/bash agent && \
     mkdir -p /workspace && \
     chown agent:agent /workspace
-
 # Drop capabilities
 USER agent
 WORKDIR /workspace
-
 # No network by default - override at runtime if needed
 # No access to Docker socket
 # No access to host filesystem beyond mounted volume
 ```
-
 ```bash
 #!/bin/bash
 # run-agent-sandbox.sh
 # Launch an AI coding agent inside a locked-down container
-
 REPO_DIR="$(pwd)"
 CONTAINER_NAME="agent-sandbox-$$"
-
 docker run \
   --name "$CONTAINER_NAME" \
   --rm \
@@ -338,11 +265,8 @@ docker run \
   agent-sandbox:latest \
   "$@"
 ```
-
 ### Seccomp Profile for Agent Containers
-
 Untested illustrative syscall policy: architecture/runtime requirements differ and common calls may be missing. Prefer the runtime default until a tested custom profile is available. seccomp restricts syscalls, not paths; bind mounts, capabilities and user identity remain separate controls. USER alone does not drop capabilities; the runtime flags do. No-network containers also cannot reach cloud model APIs without a separately reviewed proxy design.
-
 ```json
 {
   "defaultAction": "SCMP_ACT_ERRNO",
@@ -385,12 +309,8 @@ Untested illustrative syscall policy: architecture/runtime requirements differ a
   ]
 }
 ```
-
 ---
-
-
 ## Contents
-
 - [Code Review Gates](references/details.md)
 - [Repository Configuration](references/details.md)
 - [Security Rules](references/details.md)
@@ -403,38 +323,27 @@ Untested illustrative syscall policy: architecture/runtime requirements differ a
 - [Team Policies](references/details.md)
 - [Testing Agent Output](references/details.md)
 - [Quick Reference](references/details.md)
-
 ## When to Use
-
 Apply these guardrails when:
-
 - Onboarding AI coding agents into an engineering team for the first time
 - Developers are using Claude Code, Cursor, Copilot, or Codex to generate production code
 - Agents have access to repositories containing secrets, infrastructure configs, or sensitive business logic
 - Your compliance framework (SOC 2, ISO 27001, FedRAMP) requires controls around automated code generation
 - Autonomous or semi-autonomous agents are creating pull requests without direct human typing
 - You need to enforce consistent security policies across multiple agents and team members
-
 Signs you need tighter guardrails:
-
 - Agents have committed secrets or credentials to version control
 - Agent-generated code has introduced vulnerabilities caught late in the pipeline
 - No clear audit trail distinguishes human-written from AI-generated code
 - Developers are bypassing code review for "simple" agent changes
 - Agents are executing arbitrary shell commands in production-connected environments
-
 ---
-
 ## Limitations
-
 - Apply guidance only within authorized scope; test destructive steps in non-production first.
 - Docs-only import: upstream scripts and templates not bundled.
-
 ### Example
-
 ```bash
 # Read-only first: inventory before any active step.
 command -v YOUR_REVIEWED_TOOL
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.

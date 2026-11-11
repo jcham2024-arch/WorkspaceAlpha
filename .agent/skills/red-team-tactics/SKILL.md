@@ -1,28 +1,20 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "1b50613d0cdb0f2210bc9dfb8abc7bde2f59de6e8a69422e8c64028aa3bc5195"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 1b50613d0cdb0f2210bc9dfb8abc7bde2f59de6e8a69422e8c64028aa3bc5195
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Red team tactics principles based on MITRE ATT&CK. Attack phases, detection evasion, reporting.
 name: red-team-tactics
-description: "Red team tactics principles based on MITRE ATT&CK. Attack phases, detection evasion, reporting."
-tier: "experimental"
 risk: offensive
 source: community
-date_added: "2026-02-27"
 ---
-
-
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.
 > You must have explicit, written permission from the system owner before using this tool.
 > Misuse of this tool is illegal and strictly prohibited.
-
 > **Mandatory confirmation gate**
 > Before running any command that probes, exploits, changes, persists on, extracts data from, or attempts credential access against a target:
 > 1. Ask the user to state the exact target URL, IP, account, or resource.
@@ -31,19 +23,12 @@ date_added: "2026-02-27"
 > 4. Wait for explicit confirmation in the current conversation.
 >
 > Without that confirmation, remain read-only and provide defensive guidance only. Prefer a sandbox, disposable VM, or controlled lab.
-
 > AUTHORIZED USE ONLY: Use this skill only for authorized security assessments, defensive validation, or controlled educational environments.
-
 # Red Team Tactics
-
 > Adversary simulation principles based on MITRE ATT&CK framework.
-
 ---
-
 ## 1. ATT&CK-aligned tactic overview
-
 ### Illustrative assessment flow (not a mandatory ordered ATT&CK lifecycle)
-
 ```
 RECONNAISSANCE → INITIAL ACCESS → EXECUTION → PERSISTENCE
        ↓              ↓              ↓            ↓
@@ -51,9 +36,7 @@ RECONNAISSANCE → INITIAL ACCESS → EXECUTION → PERSISTENCE
        ↓              ↓              ↓            ↓
 LATERAL MOVEMENT → COLLECTION → C2 → EXFILTRATION → IMPACT
 ```
-
 ### Phase Objectives
-
 | Phase | Objective |
 |-------|-----------|
 | **Recon** | Map attack surface |
@@ -68,171 +51,119 @@ LATERAL MOVEMENT → COLLECTION → C2 → EXFILTRATION → IMPACT
 | **Collection** | Gather target data |
 | **C2** | Maintain command channel |
 | **Exfiltration** | Extract data |
-
 ---
-
 ## 2. Reconnaissance Principles
-
 ### Passive vs Active
-
 | Type | Trade-off |
 |------|-----------|
 | **Passive** | No target contact, limited info |
 | **Active** | Direct contact, more detection risk |
-
 ### Information Targets
-
 | Category | Value |
 |----------|-------|
 | Technology stack | Attack vector selection |
 | Employee info | Social engineering |
 | Network ranges | Scanning scope |
 | Third parties | Supply chain attack |
-
 ---
-
 ## 3. Initial Access Vectors
-
 ### Selection Criteria
-
 | Vector | When to Use |
 |--------|-------------|
 | **Phishing** | Human target, email access |
 | **Public exploits** | Vulnerable services exposed |
 | **Valid credentials** | Leaked or cracked |
 | **Supply chain** | Third-party access |
-
 ---
-
 ## 4. Privilege Escalation Principles
-
 ### Windows Targets
-
 | Check | Opportunity |
 |-------|-------------|
 | Unquoted service paths | Write to path |
 | Weak service permissions | Modify service |
 | Token privileges | Abuse SeDebug, etc. |
 | Stored credentials | Harvest |
-
 ### Linux Targets
-
 | Check | Opportunity |
 |-------|-------------|
 | SUID binaries | Execute as owner |
 | Sudo misconfiguration | Command execution |
 | Kernel vulnerabilities | Kernel exploits |
 | Cron jobs | Writable scripts |
-
 ---
-
 Persistence, credential access, lateral movement, phishing and exfiltration need technique-specific written scope and owned synthetic targets/data. Retain defender evidence: never clear real security logs or hide activity outside the agreed exercise. Define cleanup and incident stop/notification paths before any active action; a framework category does not authorize an attack.
-
 ## 5. Defense Evasion Principles
-
 ### Key Techniques
-
 | Technique | Purpose |
 |-----------|---------|
 | LOLBins | Use legitimate tools |
 | Obfuscation | Hide malicious code |
 | Timestomping | Hide file modifications |
 | Log clearing | Remove evidence |
-
 ### Operational Security
-
 - Work during business hours
 - Mimic legitimate traffic patterns
 - Use encrypted channels
 - Blend with normal behavior
-
 ---
-
 ## 6. Lateral Movement Principles
-
 ### Credential Types
-
 | Type | Use |
 |------|-----|
 | Password | Standard auth |
 | Hash | Pass-the-hash |
 | Ticket | Pass-the-ticket |
 | Certificate | Certificate auth |
-
 ### Movement Paths
-
 - Admin shares
 - Remote services (RDP, SSH, WinRM)
 - Exploitation of internal services
-
 ---
-
 ## 7. Active Directory Attacks
-
 ### Attack Categories
-
 | Attack | Target |
 |--------|--------|
 | Kerberoasting | Service account passwords |
 | AS-REP Roasting | Accounts without pre-auth |
 | DCSync | Domain credentials |
 | Golden Ticket | Persistent domain access |
-
 ---
-
 ## 8. Reporting Principles
-
 ### Attack Narrative
-
 Document the full attack chain:
 1. How initial access was gained
 2. What techniques were used
 3. What objectives were achieved
 4. Where detection failed
-
 ### Detection Gaps
-
 For each successful technique:
 - What should have detected it?
 - Why didn't detection work?
 - How to improve detection
-
 ---
-
 ## 9. Ethical Boundaries
-
 ### Always
-
 - Stay within scope
 - Minimize impact
 - Report immediately if real threat found
 - Document all actions
-
 ### Never
-
 - Destroy production data
 - Cause denial of service (unless scoped)
 - Access beyond proof of concept
 - Retain sensitive data
-
 ---
-
 ## 10. Anti-Patterns
-
 | ❌ Don't | ✅ Do |
 |----------|-------|
 | Rush to exploitation | Follow methodology |
 | Cause damage | Minimize impact |
 | Skip reporting | Document everything |
 | Ignore scope | Stay within boundaries |
-
 ---
-
 > **Remember:** Red team simulates attackers to improve defenses, not to cause harm.
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

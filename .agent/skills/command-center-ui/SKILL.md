@@ -1,42 +1,29 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "fb8fefccaf9e6a50ceae3d0e58a4125508f1d929866a5e7abd288f79a3c45a44"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: command-center-ui
+content_hash: fb8fefccaf9e6a50ceae3d0e58a4125508f1d929866a5e7abd288f79a3c45a44
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-06-17
 description: Web and App implementation guide for Command Center UI. Trigger when user wants monitoring systems, enterprise dashboards, NOCs, and global maps.
-tier: "experimental"
-date_added: "2026-06-17"
+name: command-center-ui
 risk: safe
 source: self
 source_type: self
 ---
-
-
 # Command Center UI
-
 > "Mission Control. Global monitoring, real-time alerts, and high-stakes data visualization."
-
-
 ## When to Use
 Use this sub-style when the user's request matches the aesthetic described above. This is a child reference of the `design-it` skill and is not meant to be triggered directly.
-
 ## Core Principles
 1. **Dark/Black Backgrounds**: Essential for a room full of glowing monitors (NOCs). It makes the data pop and reduces glare.
 2. **Maps & Topologies**: The center of the UI is almost always a dark-mode geographical map or a node-based network topology.
 3. **Alert Hierarchy**: 90% of the screen is calm and blue/grey. When a warning happens, it flashes bright amber or red to immediately draw the eye.
-
 ## Visual DNA
 - **Colors**: Pure black (`#000000`) or deep navy (`#0B132B`). Accents are electric cyan (`#00FFFF`), amber (`#FFBF00`), and critical red (`#FF0000`).
 - **Typography**: Clean, tech-focused sans-serifs (`Orbitron`, `Roboto`, `Share Tech`).
 - **Styling**: Glowing borders, radar sweeps, and stark, data-driven charts.
-
 ## Web Implementation
 - **CSS Example**:
 ```css
@@ -49,7 +36,6 @@ body {
   grid-template-columns: 300px 1fr 300px;
   height: 100vh;
 }
-
 .panel {
   background-color: rgba(13, 27, 42, 0.8);
   border: 1px solid #1c355e;
@@ -58,7 +44,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-
 .panel-header {
   background: linear-gradient(90deg, #1c355e, transparent);
   color: #00ffff;
@@ -68,14 +53,12 @@ body {
   letter-spacing: 2px;
   border-bottom: 1px solid #00ffff;
 }
-
 /* The Map/Center view */
 .main-view {
   /* Placeholder for a massive globe or map */
   background: radial-gradient(circle, #0d1b2a 0%, #030a16 100%);
   position: relative;
 }
-
 /* Critical Alert */
 .alert-critical {
   background-color: rgba(255, 0, 0, 0.1);
@@ -84,21 +67,17 @@ body {
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
   /* Static alert by default; offer optional motion with a reduced-motion fallback. */
 }
-
 @keyframes pulse-red {
   0% { box-shadow: 0 0 5px rgba(255, 0, 0, 0.2); }
   50% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.8); }
   100% { box-shadow: 0 0 5px rgba(255, 0, 0, 0.2); }
 }
 ```
-
 ## App Implementation
-
 ### SwiftUI
 ```swift
 struct CommandCenterView: View {
     @State private var isAlerting = false
-    
     var body: some View {
         VStack(spacing: 16) {
             // Header
@@ -111,7 +90,6 @@ struct CommandCenterView: View {
             }
             .padding()
             .border(Color(red: 0.0, green: 1.0, blue: 1.0), width: 1)
-            
             // Map or main visual placeholder
             Circle()
                 .strokeBorder(
@@ -120,7 +98,6 @@ struct CommandCenterView: View {
                 )
                 .frame(height: 250)
                 .overlay(Text("TOPOLOGY SCAN").foregroundColor(.cyan.opacity(0.5)))
-            
             // Critical Alert Panel
             VStack(alignment: .leading) {
                 Text("WARNING: SECTOR 7G")
@@ -149,29 +126,24 @@ struct CommandCenterView: View {
 ```
 - Rely heavily on `.border()` and `.strokeBorder()` combined with gradients to create technical, glowing wireframes.
 - Use `.shadow()` animated continuously for pulse alerts.
-
 ### Flutter
 ```dart
 class CommandCenterScreen extends StatefulWidget {
   @override
   State<CommandCenterScreen> createState() => _CommandCenterScreenState();
 }
-
 class _CommandCenterScreenState extends State<CommandCenterScreen> with SingleTickerProviderStateMixin {
   late AnimationController _pulseController;
-
   @override
   void initState() {
     super.initState();
     _pulseController = AnimationController(vsync: this, duration: const Duration(seconds: 1))..repeat(reverse: true);
   }
-
   @override
   void dispose() {
     _pulseController.dispose();
     super.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -231,12 +203,10 @@ class _CommandCenterScreenState extends State<CommandCenterScreen> with SingleTi
 ```
 - A `Container` with a `LinearGradient` that fades to `Colors.transparent` is excellent for high-tech headers.
 - Use `AnimatedBuilder` to manipulate the `blurRadius` and opacity of `BoxShadow` to create flashing alert panels.
-
 ### React Native
 ```jsx
 const CommandCenterScreen = () => {
   const pulseAnim = useRef(new Animated.Value(0)).current;
-
   useEffect(() => {
     const loop = Animated.loop(
       Animated.sequence([
@@ -247,9 +217,7 @@ const CommandCenterScreen = () => {
     loop.start();
     return () => loop.stop();
   }, [pulseAnim]);
-
   const shadowOpacity = pulseAnim.interpolate({ inputRange: [0, 1], outputRange: [0.2, 1] });
-
   return (
     <View style={{ flex: 1, backgroundColor: '#030A16', padding: 16 }}>
       {/* Header Panel */}
@@ -260,7 +228,6 @@ const CommandCenterScreen = () => {
           GLOBAL_OPS // ALPHA
         </Text>
       </View>
-
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <View style={{
           width: 250, height: 250, borderRadius: 125, borderWidth: 2, borderColor: '#00FFFF',
@@ -269,7 +236,6 @@ const CommandCenterScreen = () => {
           <Text style={{ color: '#00FFFF', opacity: 0.5 }}>SCANNING...</Text>
         </View>
       </View>
-
       {/* Critical Alert */}
       <Animated.View style={{
         backgroundColor: 'rgba(255,0,0,0.1)',
@@ -285,7 +251,6 @@ const CommandCenterScreen = () => {
 ```
 - Rely on sharp 1px or 2px borders with bright hex values (`#00FFFF`, `#FF0000`) instead of border radii.
 - Keep backgrounds extremely dark navy (`#030A16`) rather than pure black to avoid OLED smearing while maintaining the NOC feel.
-
 ### Jetpack Compose
 ```kotlin
 @Composable
@@ -299,7 +264,6 @@ fun CommandCenterScreen() {
             repeatMode = RepeatMode.Reverse
         )
     )
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -316,9 +280,7 @@ fun CommandCenterScreen() {
         ) {
             Text("GLOBAL_OPS // ALPHA", color = Color.Cyan, fontFamily = FontFamily.Monospace, letterSpacing = 2.sp)
         }
-        
         Spacer(Modifier.height(32.dp))
-        
         // Main Visual
         Box(
             modifier = Modifier
@@ -335,9 +297,7 @@ fun CommandCenterScreen() {
                 Text("SCANNING...", color = Color.Cyan.copy(alpha = 0.5f))
             }
         }
-        
         Spacer(Modifier.height(32.dp))
-        
         // Critical Alert
         Column(
             modifier = Modifier
@@ -355,11 +315,9 @@ fun CommandCenterScreen() {
 ```
 - Compose handles neon interfaces very well. Use `Modifier.border(..., CircleShape)` for radar rings.
 - To make a container glow in Compose, you must use `Modifier.shadow` with the `spotColor` and `ambientColor` set to your neon color, bypassing the default black shadow.
-
 ## Do's and Don'ts
 - **DO**: Create a distinct visual rhythm. The screen should feel calm until a specific alert requires attention.
 - **DON'T**: Fill the screen with bright, solid white panels. A command center should glow softly, not blind the user.
-
 ## Limitations
 - This is a styling reference and does not replace environment-specific validation, accessibility testing, or expert review.
 - Ensure appropriate contrast ratios and responsive behaviors are verified separately.

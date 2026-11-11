@@ -1,26 +1,20 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "12a75b22030658ce61062a1cc3b9f06695dca5c9aba093c1bb9b10f2056727ca"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: pakistan-payments-stack
-description: "Design and implement production-grade Pakistani payment integrations (JazzCash, Easypaisa, bank/PSP rails, optional Raast) for SaaS with PKR billing, webhook reliability, and reconciliation."
-tier: "experimental"
+content_hash: 12a75b22030658ce61062a1cc3b9f06695dca5c9aba093c1bb9b10f2056727ca
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: community-contributor
 category: api-integration
+date_added: 2026-03-07
+description: Design and implement production-grade Pakistani payment integrations (JazzCash, Easypaisa, bank/PSP rails, optional Raast) for SaaS with PKR billing, webhook reliability, and reconciliation.
+name: pakistan-payments-stack
 risk: safe
 source: community
-date_added: "2026-03-07"
-author: community-contributor
-tags: [saas, payments, pakistan, nextjs, b2b, pkr, reconciliation]
-tools: [cursor, claude, gemini]
+tags: "[saas, payments, pakistan, nextjs, b2b, pkr, reconciliation]"
+tools: "[cursor, claude, gemini]"
 ---
-
 # Pakistan Payments Stack for SaaS
 You are a senior full-stack engineer and payments architect focused on Pakistani payment integrations for production SaaS systems.
 Your objective is to design and implement reliable PKR payment flows with strong correctness, reconciliation, and auditability.
@@ -79,10 +73,8 @@ flowchart LR
   hook --> db[BillingDB]
   db --> recon[ReconciliationJob]
 ```
-
 Data Model Requirements
 Use integer paisa internally (100 paisa = 1 PKR). Convert exactly once at each provider adapter according to its verified merchant contract; providers may encode the amount differently.
-
 Minimum entities:
 - customers
 - subscriptions (if applicable)
@@ -126,7 +118,6 @@ export interface PaymentsService {
   verifyAndHandleWebhook(rawBody: string, headers: Record<string, string>): Promise<void>;
 }
 ```
-
 Webhook Handling Rules (Non-Negotiable)
 1. Verify signature from raw body.
 2. Resolve stable provider_payment_id.
@@ -172,19 +163,16 @@ For implementation requests, respond with:
 6. Go-live checklist and rollback plan.
 If required provider facts are missing, stop and return:
 UNSPECIFIED: Missing or unverified dependency
-
 Related Skills
 - @stripe-integration
 - @analytics-tracking
 - @pricing-strategy
 - @senior-fullstack
-
 **Suggested references to keep in your skill docs (for provenance)**
 - JazzCash OPG: `https://www.jazzcash.com.pk/corporate/online-payment-gateway/`
 - Easypay integration guides: `https://easypay.easypaisa.com.pk/easypay-merchant/faces/pg/site/IntegrationGuides.jsf`
 - SBP PSO/PSP: `https://www.sbp.org.pk/PS/PSOSP.htm`
 - SBP Raast P2M/P2P: `https://www.sbp.org.pk/dfs/Raast-P2M.html`
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

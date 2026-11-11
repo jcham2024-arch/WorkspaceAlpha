@@ -1,55 +1,37 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "9fdfe3bf1b5af99b670dad0544b1dafeb804537452b5025a191829dc2338f5bf"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: network-config-validation
+content_hash: 9fdfe3bf1b5af99b670dad0544b1dafeb804537452b5025a191829dc2338f5bf
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
 description: Pre-deployment checks for router and switch configuration, including dangerous commands, duplicate addresses, subnet overlaps, stale references, management-plane risk, and IOS-style security hygiene. Use when reviewing a router or switch configuration before deployment.
-tier: "experimental"
-metadata:
-  origin: community
+name: network-config-validation
+origin: community
 ---
-
-
 # Network Config Validation
-
 Use this skill to review network configuration before a change window or before
 an automation run touches production devices.
-
 ## When to Use
-
 - Reviewing Cisco IOS or IOS-XE style snippets before deployment.
 - Auditing generated config from scripts or templates.
 - Looking for dangerous commands, duplicate IP addresses, or subnet overlaps.
 - Checking whether ACLs, route-maps, prefix-lists, or line policies are referenced
   but not defined.
 - Building lightweight pre-flight scripts for network automation.
-
 ## How It Works
-
 Treat config validation as layered evidence, not as a complete parser. Regex
 checks are useful for pre-flight warnings, but final approval still needs a
 network engineer to review intent, platform syntax, and rollback steps.
-
 Validate in this order:
-
 1. Destructive commands.
 2. Credential and management-plane exposure.
 3. Duplicate addresses and overlapping subnets.
 4. Stale references to ACLs, route-maps, prefix-lists, and interfaces.
 5. Operational hygiene such as NTP, timestamps, remote logging, and banners.
-
 ## Dangerous Command Detection
-
 ```python
 import re
-
 DANGEROUS_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     (re.compile(r"\breload\b", re.I), "reload causes downtime"),
     (re.compile(r"\berase\s+(startup|nvram|flash)", re.I), "erases persistent storage"),
@@ -59,7 +41,6 @@ DANGEROUS_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     (re.compile(r"\baaa\s+new-model\b", re.I), "changes authentication behavior"),
     (re.compile(r"\bcrypto\s+key\s+(zeroize|generate)\b", re.I), "changes device SSH keys"),
 ]
-
 def find_dangerous_commands(lines: list[str]) -> list[dict[str, str | int]]:
     findings = []
     for line_number, line in enumerate(lines, start=1):
@@ -73,21 +54,17 @@ def find_dangerous_commands(lines: list[str]) -> list[dict[str, str | int]]:
                 })
     return findings
 ```
-
 ## Duplicate IPs And Subnet Overlaps
-
 ```python
 import ipaddress
 import re
 from collections import Counter
-
 IP_ADDRESS_RE = re.compile(
     r"^\s*ip address\s+"
     r"(?P<ip>\d{1,3}(?:\.\d{1,3}){3})\s+"
     r"(?P<mask>\d{1,3}(?:\.\d{1,3}){3})\b",
     re.I | re.M,
 )
-
 def extract_interfaces(config: str) -> list[dict[str, str]]:
     results = []
     current = None
@@ -102,12 +79,10 @@ def extract_interfaces(config: str) -> list[dict[str, str]]:
             network = ipaddress.ip_interface(f"{ip}/{mask}").network
             results.append({"interface": current, "ip": ip, "network": str(network)})
     return results
-
 def find_duplicate_ips(config: str) -> list[str]:
     ips = [entry["ip"] for entry in extract_interfaces(config)]
     counts = Counter(ips)
     return sorted(ip for ip, count in counts.items() if count > 1)
-
 def find_subnet_overlaps(config: str) -> list[tuple[str, str]]:
     networks = [ipaddress.ip_network(entry["network"]) for entry in extract_interfaces(config)]
     overlaps = []
@@ -117,15 +92,11 @@ def find_subnet_overlaps(config: str) -> list[tuple[str, str]]:
                 overlaps.append((str(left), str(right)))
     return overlaps
 ```
-
 ## Management-Plane Checks
-
 Parse VTY blocks by section so access-class checks do not spill across unrelated
 lines.
-
 ```python
 import re
-
 def iter_blocks(config: str, starts_with: str) -> list[str]:
     blocks = []
     current: list[str] = []
@@ -144,7 +115,6 @@ def iter_blocks(config: str, starts_with: str) -> list[str]:
     if current:
         blocks.append("\n".join(current))
     return blocks
-
 def check_vty_blocks(config: str) -> list[str]:
     issues = []
     for block in iter_blocks(config, "line vty"):
@@ -156,9 +126,7 @@ def check_vty_blocks(config: str) -> list[str]:
             issues.append("VTY block has no explicit exec-timeout.")
     return issues
 ```
-
 ## Security Hygiene Checks
-
 ```python
 SECURITY_PATTERNS = [
     (re.compile(r"\bsnmp-server community\s+(public|private)\b", re.I),
@@ -172,7 +140,6 @@ SECURITY_PATTERNS = [
     (re.compile(r"\busername\s+\S+\s+password\b", re.I),
      "local username uses password instead of secret"),
 ]
-
 BEST_PRACTICE_PATTERNS = [
     (re.compile(r"\bntp server\b", re.I), "NTP server"),
     (re.compile(r"\bservice timestamps\b", re.I), "log timestamps"),
@@ -180,10 +147,8 @@ BEST_PRACTICE_PATTERNS = [
     (re.compile(r"\bsnmp-server group\s+\S+\s+v3\s+priv\b", re.I), "SNMPv3 authPriv group"),
     (re.compile(r"\bbanner\s+(login|motd)\b", re.I), "login banner"),
 ]
-
 def check_security(config: str) -> list[str]:
     return [message for pattern, message in SECURITY_PATTERNS if pattern.search(config)]
-
 def check_missing_hygiene(config: str) -> list[str]:
     return [
         f"Missing {description}"
@@ -191,33 +156,24 @@ def check_missing_hygiene(config: str) -> list[str]:
         if not pattern.search(config)
     ]
 ```
-
 ## Examples
-
 ### Change-Window Preflight
-
 1. Run dangerous-command checks on the exact snippet to be pasted.
 2. Run duplicate IP and subnet overlap checks against the full candidate config.
 3. Confirm every referenced ACL, route-map, and prefix-list exists.
 4. Confirm rollback commands and out-of-band access before any management-plane
    change.
-
 ### Automation Preflight
-
 Use validation as a blocking gate before Netmiko, NAPALM, Ansible, or vendor API
 automation pushes a generated config. Fail closed on dangerous commands and
 credentials. Warn on best-practice gaps that are outside the change scope.
-
 ## Anti-Patterns
-
 - Treating regex validation as a device parser.
 - Applying generated config without a dry-run diff.
 - Recommending SNMPv2 community strings as a monitoring requirement.
 - Checking VTY blocks with regex that can accidentally span unrelated sections.
 - Testing firewall behavior by disabling ACLs instead of reading counters/logs.
-
 ## See Also
-
 - Agent: `network-config-reviewer`
 - Agent: `network-troubleshooter`
 - Skill: `network-interface-health`

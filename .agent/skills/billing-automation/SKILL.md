@@ -1,29 +1,19 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "9adc09128a47bb3c32bfe1f65a801cf7e65763e89a54d89490dc8bb9a77980c7"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
+content_hash: 9adc09128a47bb3c32bfe1f65a801cf7e65763e89a54d89490dc8bb9a77980c7
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
+description: Master automated billing systems including recurring billing, invoice generation, dunning management, proration, and tax calculation.
 name: billing-automation
-description: "Master automated billing systems including recurring billing, invoice generation, dunning management, proration, and tax calculation."
-tier: "experimental"
 risk: safe
 source: community
-date_added: "2026-02-27"
 ---
-
-
 # Billing Automation
-
 Master automated billing systems including recurring billing, invoice generation, dunning management, proration, and tax calculation.
-
 ## Use this skill when
-
 - Implementing SaaS subscription billing
 - Automating invoice generation and delivery
 - Managing failed payment recovery (dunning)
@@ -31,31 +21,22 @@ Master automated billing systems including recurring billing, invoice generation
 - Handling sales tax, VAT, and GST
 - Processing usage-based billing
 - Managing billing cycles and renewals
-
 ## Do not use this skill when
-
 - You only need a one-off invoice or manual billing
 - The task is unrelated to billing or subscriptions
 - You cannot change pricing, plans, or billing flows
-
 ## Instructions
-
 - Define plans, pricing, billing intervals, and proration rules.
 - Map subscription lifecycle states and renewal/cancellation behavior.
 - Implement invoicing, payments, retries, and dunning workflows.
 - Model taxes and compliance requirements per region.
 - Validate with sandbox payments and reconcile ledger outputs.
 - If detailed templates are required, open `resources/implementation-playbook.md`.
-
 ## Safety
-
 - Do not charge real customers in testing environments.
 - Verify tax handling and compliance obligations before production rollout.
-
 ## Resources
-
 - `resources/implementation-playbook.md` for detailed patterns, checklists, and examples.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.

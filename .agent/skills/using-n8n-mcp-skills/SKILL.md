@@ -1,51 +1,36 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "6f792128fb5f75b518d53abdd9e72c37ff16a9aedcfc273dcee46321afc0d63e"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: using-n8n-mcp-skills
+content_hash: 6f792128fb5f75b518d53abdd9e72c37ff16a9aedcfc273dcee46321afc0d63e
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: Romuald Czlonkowski
+date_added: 2026-07-21
 description: Route n8n MCP workflow design, editing, validation, testing, deployment, credential, execution, and debugging tasks to specialist guidance.
-tier: "experimental"
+license: MIT
+license_source: "https://github.com/czlonkowski/n8n-skills/blob/main/LICENSE"
+name: using-n8n-mcp-skills
 risk: critical
-source: https://github.com/czlonkowski/n8n-skills/tree/main/skills/using-n8n-mcp-skills
+source: "https://github.com/czlonkowski/n8n-skills/tree/main/skills/using-n8n-mcp-skills"
 source_repo: czlonkowski/n8n-skills
 source_type: community
-date_added: "2026-07-21"
-author: Romuald Czlonkowski
-license: MIT
-license_source: https://github.com/czlonkowski/n8n-skills/blob/main/LICENSE
 ---
-
-
 # Using the n8n-mcp Skills
-
 ## When to Use
-
 Use this router at the start of any n8n MCP workflow design, inspection, edit, validation, test, deployment, credential, execution, or troubleshooting task so the relevant specialist guidance is loaded first.
-
 Begin with read-only discovery and live schema inspection. Never copy secrets into prompts or workflow fields, never infer the target instance, and obtain approval before tests with side effects, activation, deletion, credential mutation, or other externally visible changes.
-
 This is a **router**, not a reference. It tells you which skill owns the rules for what
 you're about to do. The skill bodies hold the actual guidance — invoke them with the
 Skill tool. When in doubt, load more skills rather than fewer.
-
 The community **n8n-mcp** server and n8n itself move faster than any model's training
 cutoff. Tool names, parameters, node `typeVersion`s, and default behaviors drift between
 releases. When you spot drift — a tool a skill names doesn't exist, a parameter shape
 doesn't match what `get_node` returns, behavior differs from what a skill describes —
 trust the **live tool**, tell the user, and suggest updating the pack and the instance.
-
 ## Non-negotiables
-
 Three rules with no exceptions. Each one prevents a class of workflow that looks correct
 but breaks in production.
-
 1. **Invoke the relevant skill before any n8n action** — not just before MCP calls.
    Before writing an expression, configuring a node, designing a workflow, wiring a
    connection, or writing Code, invoke the matching skill. The PreToolUse hooks remind
@@ -61,18 +46,13 @@ but breaks in production.
    the n8n credential system. If no native node exists, use the HTTP Request node with
    the official credential type. A Set node holding a token referenced via `{{ $json.token }}`
    is a leak with extra steps. See `n8n-mcp-tools-expert`.
-
 ## Lean on skills, not training data
-
 n8n changes constantly. "Remembered" parameter names are often silently wrong — they
 validate as plain strings and then do nothing at runtime. Trust the skills and the live
 tools (`get_node`, `search_nodes`, `tools_documentation`) over recollection. Treat a skill as versioned guidance; verify consequential behavior against current schemas and owning documentation. If `get_node` contradicts a skill, trust the
 tool and flag the drift.
-
 ## Strong defaults
-
 Each skill owns its own exceptions; these are the defaults.
-
 - **The Code node is a last resort.** Expression first, then an arrow function inside Edit
   Fields, then a Code node only when neither can do the job. See `n8n-code-javascript`.
 - **A Set node feeding 0–1 consumers is almost always wrong.** Inline the expression at
@@ -81,11 +61,8 @@ Each skill owns its own exceptions; these are the defaults.
   when default per-item execution already handles the case.
 - **Configure from the live schema, never from memory.** `get_node` before you set
   parameters. See `n8n-node-configuration`.
-
 ## Red flags: "about to ___" → invoke ___
-
 If you catch yourself thinking any of these, stop and invoke the named skill first.
-
 | Thought | Invoke |
 |---|---|
 | "This workflow is simple, I'll just build it" | `n8n-workflow-patterns` — choose the smallest correct graph, not an arbitrary node-count target |
@@ -103,9 +80,7 @@ If you catch yourself thinking any of these, stop and invoke the named skill fir
 | "I'll wire up an AI agent and give the model some tools" | `n8n-agents` — tool names & descriptions ARE the prompt; memory, structured output, and topology have traps |
 | "I'll copy this logic into another workflow" / "this is getting big" | `n8n-subworkflows` — extract a reusable sub-workflow; search before building |
 | "I'll create that credential / open that workflow" (account has >1 instance) | `n8n-multi-instance` — every call hits the currently-targeted instance; reads misroute silently, and an ambiguous credential write fails closed with `INSTANCE_AMBIGUOUS` |
-
 ## Skill index
-
 | Skill | Reach for it when |
 |---|---|
 | `using-n8n-mcp-skills` | This router (auto-loaded). Names the skill that owns your task. |
@@ -122,70 +97,54 @@ If you catch yourself thinking any of these, stop and invoke the named skill fir
 | `n8n-subworkflows` | Reusable / multi-step builds; Execute Workflow; extracting shared logic; Define-Below inputs; all-vs-each; exposing a workflow as an agent tool |
 | `n8n-agents` | AI Agent / LLM-with-tools / Text Classifier; tool design & `$fromAI`; system prompts; structured output; memory; RAG; human review; chat bots |
 | `n8n-multi-instance` | Accounts with multiple instances (the `n8n_instances` tool is present); switching the target instance; verifying before credential writes; recovering from an unexpected `NOT_FOUND`, wrong/empty reads, or an `INSTANCE_AMBIGUOUS` credential-write fail-close |
-
 ## n8n-mcp tools — working knowledge from turn one
-
 Qualified names look like `mcp__<server>__<tool>` (`<server>` is usually `n8n-mcp`). This
 closes the gap where a tool's full description isn't loaded until first use.
-
 **Discovery & docs**
 - `tools_documentation` — meta-docs for every tool; `{topic:"ai_agents_guide", depth:"full"}` for the agent guide.
 - `search_nodes` — find nodes by keyword.
 - `get_node` — node info. Takes a single **SHORT-form** `nodeType` (`nodes-base.httpRequest`, `nodes-langchain.agent`), plus `detail` (minimal/standard/full) and `mode` (info/docs/search_properties/versions).
 - `validate_node` — validate one node's config in isolation (profiles: minimal/runtime/ai-friendly/strict).
 - `search_templates` / `get_template` — the template library (by keyword, nodes, task, metadata).
-
 **Build & edit**
 - `n8n_create_workflow` — create from full workflow JSON.
 - `n8n_update_partial_workflow` — incremental diff ops (`{id, operations:[…]}`): addNode, updateNode, patchNodeField, addConnection, activateWorkflow, etc. Preferred for edits.
 - `n8n_update_full_workflow` — full replacement.
 - `n8n_autofix_workflow` — auto-fix common issues.
 - `n8n_deploy_template` — deploy a template to the instance.
-
 **Validate** (necessary, not sufficient — always pair with the antipattern scan)
 - `validate_workflow` — full JSON in, errors/warnings/fixes out. Node types here are **LONG form** (`n8n-nodes-base.set`).
 - `n8n_validate_workflow` — validate a deployed workflow by `{id}` (no node JSON to inspect).
-
 **Inspect & lifecycle**
 - `n8n_get_workflow` — fetch a workflow (full / structure / active / filtered / minimal). Use it to verify `connections` after edits; `mode="filtered"` + `nodeNames` reads one heavy node (e.g. long Code source) without pulling the whole workflow, which can truncate client-side.
 - `n8n_list_workflows` — list/filter (search before duplicating logic).
 - `n8n_delete_workflow`, `n8n_workflow_versions` (history/rollback), `n8n_instances` (multi-instance accounts only: list/switch the target instance — see `n8n-multi-instance`), `n8n_health_check` (returns the resolved `instanceName`).
-
 **Test & run**
 - `n8n_test_workflow` — runs real nodes (Code, HTTP, DB writes, sends all fire). Ask the user before running when side effects exist.
 - `n8n_executions` — list/inspect executions. **There is no `execute_workflow` tool.**
 - `n8n_evaluations` — read evaluation test runs (n8n ≥ 2.30): list runs, aggregated metrics, per-case results. Read-only — runs are started from the n8n editor, not the API; a 403 indicates denied access: inspect actual version, scopes and policy before proposing any credential replacement.
-
 **Data, credentials, audit**
 - `n8n_manage_datatable` — Data Table CRUD, filtering, dry-run.
 - `n8n_manage_credentials` — credential CRUD + `getSchema` discovery.
 - `n8n_audit_instance` — security audit (hardcoded secrets, unauthenticated webhooks, error-handling gaps).
-
 > **Node-type form trap:** `get_node` / `validate_node` take SHORT form (`nodes-base.set`);
 > workflow JSON inside `validate_workflow` / `n8n_create_workflow` uses LONG form
 > (`n8n-nodes-base.set`). Mixing them is a common, silent mistake — see `n8n-mcp-tools-expert`.
-
 ## The protocol, in order
-
 1. Recognize the matching skill from the index and **invoke it before the first MCP call**.
 2. Skim `tools_documentation` once per session to refresh the tool surface if you're unsure.
 3. `get_node` before configuring any node — read the live schema, don't assume.
 4. Build / edit, then **`validate_workflow` before activating** and **`n8n_get_workflow` after** to check `connections`.
 5. Surface any drift you notice (missing tool, changed parameter, diverging behavior).
-
 ## When in doubt
-
 - **Can't find a workflow the user built in the UI?** The most common cause is per-workflow
   MCP access being off. Ask them to open it in n8n, go to Settings, and enable MCP access.
 - **User says it's broken?** Believe them. Re-check parameters against `get_node`, trace
   data references, inspect the execution. See `n8n-validation-expert`.
 - **No skill fits and the task is non-trivial?** Ask before guessing.
-
 These are opinionated best practices, not laws. Disagree with a call? It's all markdown —
 edit the skill.
-
 ## Example
-
 ```yaml
 request: Build a webhook that validates input, calls an API, and returns structured errors.
 specialists: [n8n-workflow-patterns, n8n-node-configuration, n8n-error-handling]
@@ -196,11 +155,8 @@ sequence:
   - write changes, fetch the saved workflow with n8n_get_workflow, and revalidate
   - activate and test only after approval
 ```
-
 ## Limitations
-
 - The router describes a moving n8n MCP surface; live tool schemas and the target instance override stale examples.
 - Availability of lifecycle, credential, evaluation, and multi-instance tools depends on server version and permissions.
 - Routing to a specialist skill does not authorize mutations, executions, activation, deletion, or credential changes.
-
 A missing companion skill or Skill tool is a disclosed prerequisite gap, not permission to invent one. Upstream hooks are not installed by this catalog source. Do not update the skill pack or instance automatically merely because drift is observed. Per-item execution, item linking and binary/tool boundaries depend on node mode/version; validate the actual data shape with controlled fixtures.

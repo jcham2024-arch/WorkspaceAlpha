@@ -1,76 +1,51 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "a878777412cc6e1847edccb133c813ba95bc33e57ca48663ffbd3e3dd02b6106"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: crossframe
-description: "Use when the user explicitly invokes CrossFrame or 跨尺度结构诊断 for Chinese-canonical structural diagnosis of complex relationships, organizations, institutions, public disputes, or long-term evolution."
-tier: "experimental"
+content_hash: a878777412cc6e1847edccb133c813ba95bc33e57ca48663ffbd3e3dd02b6106
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: xi-kari
 category: workflow
+date_added: 2026-06-16
+description: Use when the user explicitly invokes CrossFrame or 跨尺度结构诊断 for Chinese-canonical structural diagnosis of complex relationships, organizations, institutions, public disputes, or long-term evolution.
+license: MIT
+license_source: "https://github.com/xi-kari/crossframe-skill/blob/main/LICENSE"
+name: crossframe
 risk: safe
 source: community
 source_repo: xi-kari/crossframe-skill
 source_type: community
-date_added: 2026-06-16
-author: xi-kari
-license: MIT
-license_source: https://github.com/xi-kari/crossframe-skill/blob/main/LICENSE
-tools:
   - "Agent Skills"
   - Codex
   - Claude
-tags:
   - crossframe
   - chinese
   - structural-diagnosis
   - reasoning
   - governance
----
-
+------
 # CrossFrame
-
-
 ## When to Use This Skill
-
 - Use only when the user explicitly names CrossFrame, `crossframe`, `/crossframe`, `$crossframe`, or 跨尺度结构诊断.
 - Use for Chinese-canonical structural diagnosis where facts, scale, evidence, responsibility, mechanisms, and action limits must be separated.
 - Do not use passively for ordinary analysis, writing, relationship advice, public commentary, philosophy, or long-term forecasting.
-
 ## Packaged Source Note
-
 This AAS-ready copy preserves the original CrossFrame skill body below. Chinese remains the canonical semantic layer; English metadata is only for discovery, installation, and repository review.
-
 ## Limitations
-
 - The skill body is intentionally Chinese-canonical; English metadata is for discovery and does not replace the original Chinese terms.
 - Use only after explicit CrossFrame invocation or `crossframe-suite` routing; do not apply it as a generic default reasoning layer.
 - It is an author-defined analytical framework, not an empirically validated diagnostic instrument. Terms such as trauma, healing and diagnosis must not be presented as clinical assessments of a person.
 - It structures analysis, drafting, and review, but does not replace source verification, domain expertise, or legal, medical, or financial judgment.
-
 如果用户任务需要多个 CrossFrame 平行 skill 连续协作，先读取 `../crossframe-suite/SKILL.md` 做总调度；本 skill 负责其中的结构诊断、事实边界、尺度窗口、机制候选、七闸复核和判断档位。
-
 ## 语言原则
-
 本 skill 的权威语义是中文。`CrossFrame` 只是英文传播名与 skill id，不承担概念解释权。
-
 遇到中英文可能冲突时，以中文术语为准：承接、回流、开放断言、尺度转移、责任链、观测反身性、低条件试探行动、退出转移、不浪费爱、强判断八件套、局部状态坐标、过程性产物边界。
-
 英文可以用于文件名、别名、对外简介或必要的双语标注；不要把中文概念硬译成英文后再反向理解。
-
 ## 核心定位
-
 CrossFrame 不是“把 v5.0 文本塞进上下文”的提示词包，而是一个可执行的结构推理协议。
-
 每次使用都必须先形成内部推理产物，再输出结论。结论可以很短，但不能跳过事实抽取、七闸复核、机制候选、判断档位、源结构连续性和表达闸。
-
 ## 必须执行的顺序
-
 1. 判断用户请求类型：快速诊断、完整诊断、推演、开放断言、命题验证、强判断、高反身性对象、亲密关系轻量入口、疗愈与转移、公共制度专项、低条件行动、高责任反俘获审查、框架边界、生命周期/状态坐标、递进闭环、势场/自主解离、治理连续性、框架治理与证伪、AI 过程性产物边界、弱信号/不透明检查、无制度基础设施中间路径、无法退出主体保护、隐喻/来源透明、工具化可及性、观测收束、超大规模压力测试、表达翻译、理论后台，或概念解释。
 2. 读取 `references/runtime-read-policy.md`、`references/read-routing-map.md` 和必要时 `references/v5-material-selection-map.md`，确定本次需要加载的 v5 source modules、连读包、协议、工作表、概念卡和模板。
 3. 先定位 v5 source modules，不全量打开大文件。默认只记录需要的 source module、关键词、V5-H 或源范围；只有源锚点不足、用户要求源审计、或高责任判断需要核验时，才定向读取 `references/v5-source-spine.md`、`references/v5-section-digest-index.md`、`references/v5-coverage-map.md` 或 `references/v5-term-fidelity.md` 的相关局部。
@@ -84,9 +59,7 @@ CrossFrame 不是“把 v5.0 文本塞进上下文”的提示词包，而是一
 11. 用 `worksheets/source-anchor-integrity-check.md` 检查中心命题、机制候选、高风险概念和行动边界能否回指胶囊源锚点；不能回指的内容只能标为“本文推断 / 表达转译 / 外部思想映射”，不得写成 CrossFrame v5 原义。
 12. 决定判断档位：轻量观察、开放断言、完整诊断、强判断、低条件试探行动、退出转移。若必须联读但未联读，或源锚点不足，不能维持强判断。
 13. 先输出可见推理提纲，再选择模板输出：先说现实语言，再按需要附内部映射。
-
 ## 读取规则
-
 - 默认遵守 `references/runtime-read-policy.md`：不读取 `evals/`、`examples/`、完整成功案例、完整失败案例或全量 v5 大索引。它们只用于开发压测、回归验证、风格调试、用户显式要求源审计或源锚点失败后的定向补读。
 - 普通诊断：读 `protocols/diagnosis-protocol.md`，并使用 `worksheets/intake-worksheet.md`、`worksheets/seven-gates-worksheet.md`、`worksheets/evidence-ledger.md`、`worksheets/mechanism-candidates.md`。
 - 推演、后续走向、路径展开、分支终点：读 `protocols/inference-protocol.md` 和 `templates/inference-output.md`，并按需追加状态坐标、长期演化、治理连续性包。
@@ -108,9 +81,7 @@ CrossFrame 不是“把 v5.0 文本塞进上下文”的提示词包，而是一
 - 概念解释、概念边界、思想解释类问题：读 `protocols/concept-explanation-protocol.md`、`references/concepts-minimal-set.md`、`references/v5-term-fidelity.md`、`v5-core-concept-integrity-pack`，再按需读必要概念卡。
 - 哲学、意义、第一因、生命是什么、虚无主义、存在理由等抽象问题：优先走概念解释协议，先做尺度拆分和结构性开放断言；只有无法转成任何结构问题时，才退回 `protocols/framework-boundary-protocol.md`。
 - 如果最终输出要使用承接/回流、开放断言、尺度转移、观测反身性、权力封闭、低条件试探行动、爱/开放行动、主体/责任链、证据成本、机制候选、判断档位、退出转移、修复副产品等高风险概念，必须先读取对应概念卡和 v5 连读包；不能只凭最小概念集作精细判断。
-
 ## 输出规则
-
 - 默认输出短而清楚。除非用户明确要求极简结论，否则先展示一个“推理提纲”；不展示完整工作表。
 - 推理提纲必须包含：诊断对象、事实边界、尺度窗口、七闸复核、机制候选、判断档位、本次读取的概念或保真检查、本次 v5 连续联读包、读态胶囊摘要、下一步观察或行动。
 - 深度、审计、高责任、公共制度、亲密关系、长期演化和文章输出场景，推理提纲必须显示“本次连续联读包”；普通轻量问题可以写“未触发”。
@@ -129,22 +100,15 @@ CrossFrame 不是“把 v5.0 文本塞进上下文”的提示词包，而是一
 - 亲密关系场景先保护痛苦、安全和边界，不把修复责任压回受伤者。
 - 疗愈与转移只提供结构行动边界，不替代医疗、心理、法律、安全或组织处置。
 - 如果证据不足但问题紧急，输出低风险、可撤回、可观察的小动作，而不是假装已经完成强诊断。
-
 ## 表达闸
-
 最终输出前，内部检查四问：
-
 1. 第一段是否不用术语也能说清问题？
 2. 用户是否能知道这个判断来自哪些事实，而不是来自概念套用？
 3. 是否把“承接、回流、尺度、开放断言”等术语翻译成了现实行为？
 4. 是否给出了一个可观察信号或行动边界？
-
 任一不通过，先重写表达，再输出。
-
 ## 推理提纲
-
 默认输出前置一个简短提纲：
-
 - 诊断对象：
 - 事实边界：
 - 尺度窗口：
@@ -154,11 +118,8 @@ CrossFrame 不是“把 v5.0 文本塞进上下文”的提示词包，而是一
 - 本次读取的概念：
 - 本次 v5 连续联读包：
 - 下一步：
-
 这个提纲不是完整工作表，也不是冗长推理链。它的作用是让用户看见：本次输出确实先界定对象、检查证据、比较机制、再给判断。
-
 ## 核心资料
-
 - `references/runtime-read-policy.md`：正常运行时的轻量读取策略，控制 eval/examples、完整案例和大 source modules 的默认不读取边界。
 - `references/continuity-closure-map.md`：v5 连读包闭包的轻量运行时图。
 - `references/v5-source-spine.md`：v5.0 原文标题层级、章节顺序、段落范围、相邻关系、表格索引和默认连读包。
@@ -181,11 +142,8 @@ CrossFrame 不是“把 v5.0 文本塞进上下文”的提示词包，而是一
 - `worksheets/seven-gates-worksheet.md`：七闸复核表。
 - `worksheets/source-continuity-check.md`：输出前检查是否读少、断章或漏掉原文连续约束。
 - `worksheets/source-anchor-integrity-check.md`：输出前检查中心命题、机制候选、概念、行动边界和文章转译是否能回指胶囊源锚点。
-
 ## 高风险概念闸
-
 以下概念不能只按字面理解；一旦它们承担判断作用，必须读取对应概念卡和 v5 连读包：
-
 - 承接 / 回流：读 `references/concept-cards/chengjie-huiliu.md`，并联读 `v5-core-concept-integrity-pack`。
 - 开放断言：读 `references/concept-cards/open-assertion.md`，并联读 `v5-open-assertion-proposition-pack`。
 - 尺度转移 / 尺度升维：读 `references/concept-cards/scale-transfer.md`，并联读 `v5-cross-scale-context-translation-pack`。
@@ -205,11 +163,8 @@ CrossFrame 不是“把 v5.0 文本塞进上下文”的提示词包，而是一
 - 隐喻漂移 / 来源透明 / 规范性前提：读 `references/concept-cards/metaphor-source-transparency.md`，并联读 `v5-domain-translation-normative-source-pack`。
 - 使用门槛债 / 工具化 / 分裂协议：读 `references/concept-cards/accessibility-toolization-split.md`，并联读 `v5-toolization-accessibility-release-pack`。
 - 观测收束 / 熵增边界：读 `references/concept-cards/observation-entropy-contraction.md`，并联读 `v5-observation-reflexivity-release-pack`。
-
 ## 最低合格标准
-
 一次合格的 CrossFrame 输出必须能回答：
-
 - 我们到底在诊断什么对象？
 - 哪些是来源，哪些是事实，哪些只是解释？
 - 当前处在哪个尺度窗口？

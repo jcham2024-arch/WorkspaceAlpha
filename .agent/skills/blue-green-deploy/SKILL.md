@@ -1,48 +1,35 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "7110573e56df0a608c2064bc3c6d397b360cad65e96c20a7750c1a666629ba21"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: blue-green-deploy
-description: Configure zero-downtime deployment strategies including blue-green, canary,
-tier: "experimental"
-  and rolling deployments.
+content_hash: 7110573e56df0a608c2064bc3c6d397b360cad65e96c20a7750c1a666629ba21
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: devops-skills
 category: devops
+compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+date_added: 2026-09-20
+description: Configure zero-downtime deployment strategies including blue-green, canary,
+license: MIT
+license_source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE"
+name: myapp
 risk: critical
-source: https://github.com/BagelHole/DevOps-Security-Agent-Skills
+source: "https://github.com/BagelHole/DevOps-Security-Agent-Skills"
 source_repo: BagelHole/DevOps-Security-Agent-Skills
 source_type: community
-date_added: '2026-09-20'
-license: MIT
-license_source: https://github.com/BagelHole/DevOps-Security-Agent-Skills/blob/main/LICENSE
-compatibility: Requires the relevant platform CLIs (kubectl, helm, terraform, git,
+version: canary
+---  and rolling deployments.
   CI runners) and authorized access to the target environment. Docs-only; helper scripts
   and templates not bundled.
-metadata:
-  author: devops-skills
-  version: '1.0'
 ---
-
-
 # Blue-Green & Deployment Strategies
-
 Implement zero-downtime deployment patterns for production systems.
-
 ## Prerequisites
-
 - Load balancer or ingress controller
 - Container orchestration (K8s) or cloud platform
 - CI/CD pipeline
 - Health check endpoints
-
 ## Deployment Strategy Overview
-
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                    DEPLOYMENT STRATEGIES                     │
@@ -59,11 +46,8 @@ Implement zero-downtime deployment patterns for production systems.
 │ needed      │ resources   │ resources   │                  │
 └─────────────┴─────────────┴─────────────┴──────────────────┘
 ```
-
 ## Blue-Green Deployment
-
 ### Concept
-
 ```
 Before:
 ┌─────────┐     ┌───────────────┐
@@ -72,7 +56,6 @@ Before:
                 ┌───────────────┐
                 │  Green (v2)   │ ◀── Staging
                 └───────────────┘
-
 After Switch:
 ┌─────────┐     ┌───────────────┐
 │  Users  │     │  Blue (v1)    │ ◀── Standby
@@ -81,29 +64,21 @@ After Switch:
       └────────▶│  Green (v2)   │ ◀── Active
                 └───────────────┘
 ```
-
 ### Kubernetes Implementation
-
 ```yaml
 # blue-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
-metadata:
-  name: myapp-blue
   labels:
     app: myapp
-    version: blue
 spec:
   replicas: 3
   selector:
     matchLabels:
       app: myapp
-      version: blue
   template:
-    metadata:
       labels:
         app: myapp
-        version: blue
     spec:
       containers:
       - name: myapp
@@ -120,22 +95,16 @@ spec:
 # green-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
-metadata:
-  name: myapp-green
   labels:
     app: myapp
-    version: green
 spec:
   replicas: 3
   selector:
     matchLabels:
       app: myapp
-      version: green
   template:
-    metadata:
       labels:
         app: myapp
-        version: green
     spec:
       containers:
       - name: myapp
@@ -152,53 +121,38 @@ spec:
 # service.yaml - Switch by changing selector
 apiVersion: v1
 kind: Service
-metadata:
-  name: myapp
 spec:
   selector:
     app: myapp
-    version: blue  # Change to 'green' to switch
   ports:
   - port: 80
     targetPort: 8080
 ```
-
 ### Switch Script
-
 ```bash
 #!/bin/bash
 # blue-green-switch.sh
-
 set -euo pipefail
 NEW_VERSION=${1:?Usage: blue-green-switch.sh blue|green}
 case "$NEW_VERSION" in blue|green) ;; *) echo "Invalid color" >&2; exit 2 ;; esac
-
 CURRENT=$(kubectl get svc myapp -o jsonpath='{.spec.selector.version}')
-
 echo "Current version: $CURRENT"
 echo "Switching to: $NEW_VERSION"
-
 # Verify new deployment is ready
 kubectl rollout status "deployment/myapp-$NEW_VERSION" --timeout=300s
-
 # Check health
 HEALTH=$(kubectl exec "deployment/myapp-$NEW_VERSION" -- curl --fail --silent --show-error --max-time 5 localhost:8080/ready)
 if ! printf '%s' "$HEALTH" | jq -e '.status == "healthy"' >/dev/null; then
   echo "Health check failed"
   exit 1
 fi
-
 # Switch traffic
 kubectl patch svc myapp -p "{\"spec\":{\"selector\":{\"version\":\"$NEW_VERSION\"}}}"
-
 echo "Switched to $NEW_VERSION"
 ```
-
 ### AWS ECS Blue-Green
-
 ```yaml
 # AWS CodeDeploy appspec.yml
-version: 0.0
 Resources:
   - TargetService:
       Type: AWS::ECS::Service
@@ -214,19 +168,13 @@ Hooks:
   - BeforeAllowTraffic: "LambdaFunctionToValidateBeforeAllowTraffic"
   - AfterAllowTraffic: "LambdaFunctionToValidateAfterAllowTraffic"
 ```
-
 The switch example assumes curl inside the application container and local jq. Test the green endpoint separately, preserve the old selector for rollback, and verify service endpoints and external health after switching. The Istio example below needs a service selecting both stable and canary pods; do not reuse the color-restricted blue/green selector.
-
 ## Canary Deployment
-
 ### Kubernetes with Istio
-
 ```yaml
 # VirtualService for traffic splitting
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
-metadata:
-  name: myapp
 spec:
   hosts:
   - myapp
@@ -251,26 +199,18 @@ spec:
 ---
 apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
-metadata:
-  name: myapp
 spec:
   host: myapp
   subsets:
   - name: stable
     labels:
-      version: stable
   - name: canary
     labels:
-      version: canary
 ```
-
 ### Argo Rollouts
-
 ```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
-metadata:
-  name: myapp
 spec:
   replicas: 5
   strategy:
@@ -295,7 +235,6 @@ spec:
     matchLabels:
       app: myapp
   template:
-    metadata:
       labels:
         app: myapp
     spec:
@@ -307,8 +246,6 @@ spec:
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
-metadata:
-  name: success-rate
 spec:
   args:
   - name: service-name
@@ -325,16 +262,11 @@ spec:
           /
           sum(rate(http_requests_total{service="{{args.service-name}}"}[5m]))
 ```
-
 ## Rolling Deployment
-
 ### Kubernetes Default
-
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
-metadata:
-  name: myapp
 spec:
   replicas: 5
   strategy:
@@ -346,7 +278,6 @@ spec:
     matchLabels:
       app: myapp
   template:
-    metadata:
       labels:
         app: myapp
     spec:
@@ -368,36 +299,25 @@ spec:
           initialDelaySeconds: 10
           periodSeconds: 10
 ```
-
 ### Rolling Update Commands
-
 ```bash
 # Update image
 kubectl set image deployment/myapp myapp=myapp:v2.0.0
-
 # Watch rollout
 kubectl rollout status deployment/myapp
-
 # Pause rollout
 kubectl rollout pause deployment/myapp
-
 # Resume rollout
 kubectl rollout resume deployment/myapp
-
 # Rollback
 kubectl rollout undo deployment/myapp
-
 # Rollback to specific revision
 kubectl rollout undo deployment/myapp --to-revision=2
-
 # View history
 kubectl rollout history deployment/myapp
 ```
-
 ## Health Checks
-
 ### Comprehensive Health Endpoint
-
 ```python
 # Flask health endpoint
 from flask import Flask, jsonify
@@ -406,19 +326,15 @@ import redis
 import os
 DATABASE_URL = os.environ["DATABASE_URL"]
 REDIS_URL = os.environ["REDIS_URL"]
-
 app = Flask(__name__)
-
 @app.route('/health')
 def health():
     """Liveness probe - is the app running?"""
     return jsonify({'status': 'healthy'}), 200
-
 @app.route('/ready')
 def ready():
     """Readiness probe - can the app serve traffic?"""
     checks = {}
-    
     # Database check
     try:
         conn = psycopg2.connect(DATABASE_URL, connect_timeout=3)
@@ -427,7 +343,6 @@ def ready():
     except Exception as e:
         checks['database'] = 'unavailable'
         return jsonify({'status': 'unhealthy', 'checks': checks}), 503
-    
     # Redis check
     try:
         r = redis.from_url(REDIS_URL, socket_connect_timeout=3, socket_timeout=3)
@@ -436,38 +351,27 @@ def ready():
     except Exception as e:
         checks['redis'] = 'unavailable'
         return jsonify({'status': 'unhealthy', 'checks': checks}), 503
-    
     return jsonify({'status': 'healthy', 'checks': checks}), 200
 ```
-
-
 ## Contents
-
 - [Rollback Procedures](references/details.md)
 - [Rollback Checklist](references/details.md)
 - [Common Issues](references/details.md)
 - [Best Practices](references/details.md)
 - [Related Skills](references/details.md)
-
 ## When to Use This Skill
-
 Use this skill when:
 - Implementing zero-downtime deployments
 - Reducing deployment risk
 - Enabling instant rollbacks
 - Running canary releases
 - Performing A/B testing in production
-
 ## Limitations
-
 - Guidance executes against real environments: confirm target, blast radius, and rollback plan before applying anything.
 - Never deploy to production without explicit approval. Docs-only import: upstream scripts and templates not bundled.
-
 ### Example
-
 ```bash
 git status && git diff --stat
 kubectl diff -f manifest.yaml
 ```
-
 > Adapted from [BagelHole/DevOps-Security-Agent-Skills](https://github.com/BagelHole/DevOps-Security-Agent-Skills) (MIT); frontmatter, When to Use/Limitations, and safety boundaries added for upstream compliance. Docs-only import: helper scripts and templates not bundled.

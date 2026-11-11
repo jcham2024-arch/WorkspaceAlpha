@@ -1,45 +1,30 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "d1a22d4598c9133921a52dae6c6df32d315def735e34b7831f0392cc8a60a876"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: azure-resource-manager-cosmosdb-dotnet
+content_hash: d1a22d4598c9133921a52dae6c6df32d315def735e34b7831f0392cc8a60a876
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+date_added: 2026-02-27
 description: Azure Resource Manager SDK for Cosmos DB in .NET.
-tier: "experimental"
+name: azure-resource-manager-cosmosdb-dotnet
 risk: critical
 source: community
-date_added: '2026-02-27'
 ---
-
 ## Bundled upstream support
-
 Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.
-
 # Azure.ResourceManager.CosmosDB (.NET)
-
 Management plane SDK for provisioning and managing Azure Cosmos DB resources via Azure Resource Manager.
-
 > **⚠️ Management vs Data Plane**
 > - **This SDK (Azure.ResourceManager.CosmosDB)**: Create accounts, databases, containers, configure throughput, manage RBAC
 > - **Data Plane SDK (Microsoft.Azure.Cosmos)**: CRUD operations on documents, queries, stored procedures execution
-
 ## Installation
-
 ```bash
 dotnet add package Azure.ResourceManager.CosmosDB
 dotnet add package Azure.Identity
 ```
-
 **Version scope**: Imported examples are historical and are not a current-version declaration; pin and compile against the intended SDK. Required common imports include Azure, Azure.Core and Azure.ResourceManager.Resources.
-
 ## Environment Variables
-
 ```bash
 AZURE_SUBSCRIPTION_ID=<your-subscription-id>
 # For service principal auth (optional)
@@ -47,26 +32,20 @@ AZURE_TENANT_ID=<tenant-id>
 AZURE_CLIENT_ID=<client-id>
 AZURE_CLIENT_SECRET=<client-secret>
 ```
-
 ## Authentication
-
 ```csharp
 using Azure.Identity;
 using Azure.ResourceManager;
 using Azure.ResourceManager.CosmosDB;
-
 // Choose the intended tenant/identity explicitly; DefaultAzureCredential is convenient for local development.
 var credential = new DefaultAzureCredential();
 var armClient = new ArmClient(credential);
-
 // Get subscription
 var subscriptionId = Environment.GetEnvironmentVariable("AZURE_SUBSCRIPTION_ID");
 var subscription = armClient.GetSubscriptionResource(
     new ResourceIdentifier($"/subscriptions/{subscriptionId}"));
 ```
-
 ## Resource Hierarchy
-
 ```
 ArmClient
 └── SubscriptionResource
@@ -82,21 +61,15 @@ ArmClient
             ├── MongoDBDatabaseResource
             └── CosmosDBTableResource
 ```
-
 Confirm subscription, tenant, region, exact resources, budget and network/retention policy before provisioning. Deletion/failover/rotation require explicit authorization; ARM RBAC and data-plane RBAC are separate.
-
 ## Core Workflow
-
 ### 1. Create Cosmos DB Account
-
 ```csharp
 using Azure.ResourceManager.CosmosDB;
 using Azure.ResourceManager.CosmosDB.Models;
-
 // Get resource group
 var resourceGroup = await subscription
     .GetResourceGroupAsync("my-resource-group");
-
 // Define account
 var accountData = new CosmosDBAccountCreateOrUpdateContent(
     location: AzureLocation.EastUS,
@@ -114,34 +87,26 @@ var accountData = new CosmosDBAccountCreateOrUpdateContent(
     ConsistencyPolicy = new ConsistencyPolicy(DefaultConsistencyLevel.Session),
     EnableAutomaticFailover = true
 };
-
 // Create account (long-running operation)
 var accountCollection = resourceGroup.Value.GetCosmosDBAccounts();
 var operation = await accountCollection.CreateOrUpdateAsync(
     WaitUntil.Completed,
     "my-cosmos-account",
     accountData);
-
 CosmosDBAccountResource account = operation.Value;
 ```
-
 ### 2. Create SQL Database
-
 ```csharp
 var databaseData = new CosmosDBSqlDatabaseCreateOrUpdateContent(
     new CosmosDBSqlDatabaseResourceInfo("my-database"));
-
 var databaseCollection = account.GetCosmosDBSqlDatabases();
 var dbOperation = await databaseCollection.CreateOrUpdateAsync(
     WaitUntil.Completed,
     "my-database",
     databaseData);
-
 CosmosDBSqlDatabaseResource database = dbOperation.Value;
 ```
-
 ### 3. Create SQL Container
-
 ```csharp
 var containerData = new CosmosDBSqlContainerCreateOrUpdateContent(
     new CosmosDBSqlContainerResourceInfo("my-container")
@@ -158,18 +123,14 @@ var containerData = new CosmosDBSqlContainerCreateOrUpdateContent(
         },
         DefaultTtl = 86400 // 24 hours
     });
-
 var containerCollection = database.GetCosmosDBSqlContainers();
 var containerOperation = await containerCollection.CreateOrUpdateAsync(
     WaitUntil.Completed,
     "my-container",
     containerData);
-
 CosmosDBSqlContainerResource container = containerOperation.Value;
 ```
-
 ### 4. Configure Throughput
-
 ```csharp
 // Manual throughput
 var throughputData = new ThroughputSettingsUpdateData(
@@ -177,7 +138,6 @@ var throughputData = new ThroughputSettingsUpdateData(
     {
         Throughput = 400
     });
-
 // Autoscale throughput
 var autoscaleData = new ThroughputSettingsUpdateData(
     new ThroughputSettingsResourceInfo
@@ -187,20 +147,16 @@ var autoscaleData = new ThroughputSettingsUpdateData(
             MaxThroughput = 4000
         }
     });
-
 // Apply to database
 await database.CreateOrUpdateCosmosDBSqlDatabaseThroughputAsync(
     WaitUntil.Completed,
     throughputData);
 ```
-
 ### 5. Get Connection Information
-
 ```csharp
 // Get keys
 var keys = await account.GetKeysAsync();
 // Pass the key directly to an approved secret store; never print it.
-
 // Get connection strings
 var connectionStrings = await account.GetConnectionStringsAsync();
 foreach (var cs in connectionStrings.Value.ConnectionStrings)
@@ -208,9 +164,7 @@ foreach (var cs in connectionStrings.Value.ConnectionStrings)
     Console.WriteLine($"Connection available: {cs.Description} (value redacted)");
 }
 ```
-
 ## Key Types Reference
-
 | Type | Purpose |
 |------|---------|
 | `ArmClient` | Entry point for all ARM operations |
@@ -222,21 +176,16 @@ foreach (var cs in connectionStrings.Value.ConnectionStrings)
 | `CosmosDBSqlDatabaseCreateOrUpdateContent` | Database creation payload |
 | `CosmosDBSqlContainerCreateOrUpdateContent` | Container creation payload |
 | `ThroughputSettingsUpdateData` | Throughput configuration |
-
 ## Best Practices
-
 1. **Use `WaitUntil.Completed`** for operations that must finish before proceeding
 2. **Use `WaitUntil.Started`** when you want to poll manually or run operations in parallel
 3. **Use a deliberate credential chain** — prefer managed identity in production; never hardcode keys
 4. **Handle `RequestFailedException`** for ARM API errors
 5. **Review the full desired state before `CreateOrUpdateAsync`** — repeated requests may converge but updates can change networking, retention and cost
 6. **Navigate hierarchy** via `Get*` methods (e.g., `account.GetCosmosDBSqlDatabases()`)
-
 ## Error Handling
-
 ```csharp
 using Azure;
-
 try
 {
     var operation = await accountCollection.CreateOrUpdateAsync(
@@ -251,32 +200,23 @@ catch (RequestFailedException ex)
     Console.WriteLine($"ARM Error: {ex.Status} - {ex.ErrorCode}");
 }
 ```
-
 ## Reference Files
-
 | File | When to Read |
 |------|--------------|
 | references/account-management.md | Account CRUD, failover, keys, connection strings, networking |
 | references/sql-resources.md | SQL databases, containers, stored procedures, triggers, UDFs |
 | references/throughput.md | Manual/autoscale throughput, migration between modes |
-
 ## Related SDKs
-
 | SDK | Purpose | Install |
 |-----|---------|---------|
 | `Microsoft.Azure.Cosmos` | Data plane (document CRUD, queries) | `dotnet add package Microsoft.Azure.Cosmos` |
 | `Azure.ResourceManager.CosmosDB` | Management plane (this SDK) | `dotnet add package Azure.ResourceManager.CosmosDB` |
-
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-
 ## Platform variants
-
 OS-specific companions for this skill:
-
 - [Windows](platforms/windows.md)

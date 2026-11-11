@@ -1,92 +1,62 @@
 ---
-tier: "experimental"
+tier: experimental
 last_reviewed: 2026-11-10
-source_url: ""
-source_ref: ""
-source_commit: ""
-content_hash: "1d0db1ea7b76bf7971e7b93e2c96f254882625e09f9bfe7f8fac3c7f9a463a71"
-fetched_at: "2026-11-10"
-upstream_license: "unknown"
-owner: "taskmaster"
----
-name: purchase-accounting
-description: 'Purchase register: supplier, invoice, gross amount, VAT and TDS, net payable, ledger account and payment balance. Use for purchase accounting.'
-tier: "experimental"
+content_hash: 1d0db1ea7b76bf7971e7b93e2c96f254882625e09f9bfe7f8fac3c7f9a463a71
+fetched_at: 2026-11-10
+upstream_license: unknown
+owner: taskmaster
+author: WHOISABHISHEKADHIKARI
 category: business
+date_added: 2026-09-26
+description: "'Purchase register: supplier, invoice, gross amount, VAT and TDS, net payable, ledger account and payment balance. Use for purchase accounting.'"
+name: purchase-accounting
 risk: safe
 source: self
-source_type: self
-date_added: "2026-09-26"
-author: WHOISABHISHEKADHIKARI
-tags: [sme, accounting, audit, finance, database, csv, notion, sql, purchase]
-tools: []
 source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
+source_type: self
+tags: "[sme, accounting, audit, finance, database, csv, notion, sql, purchase]"
+tools: "[]"
 ---
-
-
 # Purchase Accounting
-
 **What it is:** Verified purchase invoices, booked and traceable to their PO and challan.
-
 ## Overview
-
 Works out the smallest useful **Purchase Accounting** setup for the business in front of it, then
 builds it only when asked. The default output is a short recommendation, not a
 spreadsheet. Artifacts - CSV, SQL DDL, JSON Schema, Notion mapping - are produced on
 request, from one field list so they cannot drift apart.
-
 Layer: Layer 3: Record. Fits: Growth stage. Table code: n/a.
-
 ## When to Use This Skill
-
 - purchase accounting
 - purchase invoice register
 - supplier bill entry tracker
 - purchase vat and tds log
-
 Also use it when the user says "verified purchase invoices, booked and traceable to their PO and challan", or describes the same process happening in a
 spreadsheet, a document or someone inboxes.
-
 Do not use it for: supplier payment runs, tax filing, or legal advice. This skill produces
 empty templates only - it never holds or processes real employee or customer data.
-
 ## How It Works
-
 No separate shared execution contract is bundled; follow this file and the host repository/user instructions. The module-specific rules below define only domain fields, decisions, calculations, and safety constraints.
-
 ### Step 1 - Identify intent
-
 Read the request and pick the intent before asking anything.
-
 - "set up" or "build" or "create" -> the user wants artifacts; go to Step 2.
 - "our process is ..." or "it is in a sheet" -> the user wants to move an existing process; capture it, then Step 2.
 - "is this right" or "review" or "audit" -> the user wants a check, not a build; answer from what they share.
 - "how do I ..." -> advice question; answer directly and offer the build only if it helps.
-
 Ask only if this is the highest-value missing fact; otherwise proceed without an opener:
-
 > **Q:** How are supplier bills captured today?
-
 ### Step 2 - Ask only what is missing
-
 Treat ambiguous replies as unanswered and ask which explicit option the user means. Record unknown values as `Unknown`; `Unknown` is not zero. A record must not be `Done` when a required check fails.
-
 Skip anything the user already answered, in any earlier message. Ask the rest one at a
 time, and stop as soon as the remaining answers would not change the output.
-
 - **Volume** - How many supplier bills a month? / How many suppliers?
 - **Verification** - PO and challan always available? / Who checks the invoice?
 - **Taxes and classification** - VAT charged? / TDS deducted? / Which sections apply? / Inventory, expense or fixed asset? / Who decides the ledger?
 - **Current process** - Tracked now? / Software or sheet? / What gets missed?
 - **Outcome** - What do you need? / A purchase register, a VAT input log or both?
-
 Never invent an answer. If the user does not know, record it as unknown and carry on.
-
 ### Step 3 - Hold the internal context
-
 Hold the answers in this shape. It stays internal - it is not shown to the user unless
 they ask, and it never carries a value the user did not give.
-
 ```yaml
 module: purchase-accounting
 intent: null            # setup | advice | review | fix | build | convert | export
@@ -101,23 +71,15 @@ requested_outputs: []   # csv | sql | json | notion | xlsx - requested formats o
 confirmed_facts: []     # only what the user actually said
 open_questions: []      # the unanswered ones, in the order worth asking
 ```
-
 ### Step 4 - Recommend the smallest workflow
-
 Build an already requested artifact without asking again. For advice-only requests, give a short recommendation and offer the relevant artifact.
-
 **Recommended approach:** One purchase record per verified invoice, carrying the PO, challan and source document as relations, the VAT and TDS figures, the classification, and a review status - five steps: verify, file, update the Purchase VAT Register, record in software, review against the originals.
-
 **Why this one:** Purchase errors are verification errors. A record that holds the linked documents and a review status is what makes a misclassified or untaxed bill visible before the return is filed.
-
 **Workflow:** Invoice verified → Documents filed → VAT register updated → Booked and classified → Reviewed
-
 ### Step 5 - Build only on request
-
 Once the user asks for it, derive the fields from the confirmed context and emit the
 requested artifacts. For machine-readable text, keep prose outside the data; for files,
 provide a usable link. Report material validation failures or limitations separately.
-
 **A selected Notion output is rendered by `notion-manual-import`, so route the
 Notion step there.** When the user selects Notion, hand that step to
 @notion-manual-import: it holds the CSV, the property
@@ -127,12 +89,10 @@ here and do not improvise the import steps. Manual CSV and mapping outputs need 
 connection. For requested workspace changes, follow the shared contract: verify actual
 tool access and the target before writing. A user saying "connected" is not tool evidence.
 Never ask for a Notion password or token.
-
 ```csv
 Purchase Number,Supplier,Supplier PAN/VAT,Purchase Order,Delivery Challan,Supplier Invoice Number,Invoice Date,Item/Expense Description,Quantity,UOM,Rate,Gross Amount,VAT Rate %,VAT Amount,TDS Rate %,TDS Amount,Net Payable,Classification,Ledger Account,Source Document,Payment Status,Amount Paid,Balance,VAT Register Updated,Entry Verified,Prepared By,Verified By,Notes,Purchase ID
 PUR-2026-0041,Bluepeak Supplies,SYNTHETIC-TAX-ID,PO-2026-0187,DC-2026-0902,INV-8841,2026-08-14,Corrugated cartons 3 ply,500,Nos,169.00,84500.00,18,15210.00,2.5,2112.50,97597.50,Inventory/Purchase,Purchases - Cartons,DOC-2026-0442,Part Paid,50000.00,47597.50,Done,In progress,Ananya Rao,Vikram Singh,Rate compared against PO-2026-0187; quantity matched with DC-2026-0902.,PUR-ID-0041
 ```
-
 ```sql
 CREATE TABLE purchase_accounting (
   purchase_number VARCHAR(255),
@@ -168,7 +128,6 @@ CREATE TABLE purchase_accounting (
   updated_at TIMESTAMP DEFAULT NOW()
 );
 ```
-
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -226,7 +185,6 @@ CREATE TABLE purchase_accounting (
   ]
 }
 ```
-
 ```markdown
 | CSV column | Notion property | Set after import |
 |---|---|---|
@@ -260,20 +218,13 @@ CREATE TABLE purchase_accounting (
 | Notes | Text | Leave as Text |
 | Purchase ID | Text (preserve source ID) | Keep imported IDs as Text; optionally add a separate Unique ID property |
 ```
-
 The rows above are documentation examples only. Emit empty templates unless the user explicitly requests examples. Money stays `currency`, dates stay `date`,
 and anything pointing at another table stays `relation`.
-
 ## Record grain and calculation contract
-
 The synthetic row assumes one invoice with one uniform item/tax basis: 500 × 169 = 84,500; illustrative VAT = 15,210 and withholding = 2,112.50 both use that gross base; payable = 84,500 + 15,210 - 2,112.50 = 97,597.50, and balance = 97,597.50 - 50,000 = 47,597.50. These rates, bases and labels do not establish tax applicability. Confirm jurisdiction, currency, recoverability, rounding and legal sections with the owner/professional before a real design. Split invoice lines and header/payment allocations when rates, classification, POs or receipts differ; do not duplicate invoice totals per line.
-
 Unknown numeric amounts use SQL NULL / JSON null / empty CSV cells and a documented missing-data state; never insert the word Unknown into numeric cells or substitute zero. The generic NUMERIC/number Field Reference denotes non-null values; nullability is defined above. A required key may have a null value while review stays incomplete. Keep source IDs stable strings in all formats, and ensure Purchase Number is the Notion Title. Define source/period and cross-field validation before treating Paid, VAT updated or Entry verified as complete; review status does not evidence legal filing or actual payment. updated_at needs an application/trigger update, not just a default.
-
 Spreadsheet-safe export must handle formula-leading text without corrupting original identifiers; preserve raw source separately and document the export transformation.
-
 ## Field Reference
-
 | # | Field | Type | SQL | JSON Schema | Notion | CSV example |
 |---:|---|---|---|---|---|---|
 | 1 | Purchase Number | `text` | `VARCHAR(255)` | `string` | Title | `PUR-2026-0041` |
@@ -305,53 +256,38 @@ Spreadsheet-safe export must handle formula-leading text without corrupting orig
 | 27 | Verified By | `text` | `VARCHAR(255)` | `string` | Text | `Vikram Singh` |
 | 28 | Notes | `long_text` | `TEXT` | `string` | Text | `Rate compared against PO-2026-0187; quantity matched with DC-2026-0902.` |
 | 29 | Purchase ID | `id` | `VARCHAR(255) PRIMARY KEY` | `string` | Text (preserve source ID) | `PUR-ID-0041` |
-
 ## Select Options
-
 **UOM**
-
 ```
 Nos | Kg | Litre | Metre | Set | Hour | Box | Packet
 ```
 **Classification**
-
 ```
 Inventory/Purchase | Expense | Fixed Asset | Other
 ```
 **Payment Status**
-
 ```
 Unpaid | Part Paid | Paid | Overdue
 ```
 **VAT Register Updated**
-
 ```
 Not started | In progress | Blocked | Done | Cancelled
 ```
 **Entry Verified**
-
 ```
 Not started | In progress | Blocked | Done | Cancelled
 ```
-
 ## Relations
-
 Link fields: `Purchase Order`, `Delivery Challan`, `Source Document`
-
 - `Purchase Order` -> the purchase order the invoice was booked against.
 - `Delivery Challan` -> the delivery challan that evidences receipt of goods.
 - `Source Document` -> the filed document register row for the invoice and its support.
-
 ## Examples
-
 **Prompt**
-
 ```
 Supplier bills pile up for a week before anyone checks the VAT on them.
 ```
-
 **Context first** - one question per message, nothing already answered:
-
 > **Q:** How many supplier bills a month?
 > **A:** Around forty.
 >
@@ -360,35 +296,27 @@ Supplier bills pile up for a week before anyone checks the VAT on them.
 >
 > **Q:** Is TDS deducted on any of them?
 > **A:** Yes, on a few.
-
 **Recommended next step** - offered, not built:
-
 > One purchase record per verified invoice, carrying the PO, challan and source document as relations, the VAT and TDS figures, the classification, and a review status - five steps: verify, file, update the Purchase VAT Register, record in software, review against the originals.
 >
 > Workflow: Invoice verified → Documents filed → VAT register updated → Booked and classified → Reviewed
 >
 > Want the CSV, SQL, JSON Schema and Notion mapping for this?
-
 ## Best Practices
-
 - Build when requested; recommend and offer a build for advice-only requests.
 - One question per message. A batched intake reads as a form and gets guessed at.
 - Keep display names identical across CSV and JSON; document normalized SQL identifiers.
 - Use `relation` for anything that points at another table, `text` only for free text.
 - Money fields are `currency`, never `text`. Dates are `date`, never free text.
 - If the user requests an example row, keep it obviously fake so nobody imports it as real data.
-
 ## Limitations
-
 - Empty template only. It does not compute payroll, tax, leave balances or KPIs.
 - Notion relations need both databases imported before the link column resolves.
 - Select options are a starting set. Rename them to match how the business talks.
 - No automation, reminders or sync. Those need the integration layer.
 - Does not post to the accounting package, pay suppliers, or file the VAT return.
 - Legal, tax and HR review is still required before this drives real decisions.
-
 ## Security & Safety Notes
-
 - Never fill in real names, salaries, medical or banking data. Placeholders only.
 - Label example rows as synthetic, and keep bank details masked.
 - Local reads, generation commands, and validation are part of a requested artifact build.
@@ -399,9 +327,7 @@ Supplier bills pile up for a week before anyone checks the VAT on them.
   from the conversation or service storage.
 - Privacy, legal and disciplinary cases need a qualified human reviewer before anything
   is acted on.
-
 ## Common Pitfalls
-
 - **Problem:** a static mapping is described as a completed workspace build.
   **Solution:** deliver manual mappings without a connection; claim a live change only
   after the authorized tool operation succeeds.
@@ -413,9 +339,7 @@ Supplier bills pile up for a week before anyone checks the VAT on them.
   **Solution:** derive all four from the field list in this file, never by hand.
 - **Problem:** Notion import shows every column as Text.
   **Solution:** that is expected. Apply the property mapping table once, after import.
-
 ## Related Skills
-
 - @accounting-audit-system-builder - routes to this skill and the other accounting modules.
 - @source-document-filing - files the invoice with its PO, challan and other support.
 - @tds-booking-payment - books and pays the withholding deducted here.
@@ -423,9 +347,7 @@ Supplier bills pile up for a week before anyone checks the VAT on them.
 - @expense-accounting - the same flow for bills booked as expense rather than stock.
 - @inventory-stock-reconciliation - checks the stock side of Inventory/Purchase entries.
 - @party-ledger-reconciliation - reconciles the supplier balance against this register.
-
 ## Reusable Prompt
-
 ```
 I want to set up verified purchase invoices, booked and traceable to their PO and challan for my company.
 Ask me one short question at a time, and only about what I have not already told you.
