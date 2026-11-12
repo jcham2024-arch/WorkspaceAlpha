@@ -112,7 +112,10 @@
       "token_budget": 50,
       "metadata": {
         "model": "deepseek-v3.2-thinking",
-        "thinking_modes": ["manager", "production"]
+        "thinking_modes": [
+          "manager",
+          "production"
+        ]
       }
     },
     {
@@ -145,7 +148,10 @@
       "token_budget": 520,
       "metadata": {
         "manifest_node": "docs/README.md::architecture",
-        "byte_range": [634, 2712]
+        "byte_range": [
+          634,
+          2712
+        ]
       }
     },
     {
@@ -156,7 +162,10 @@
       "token_budget": 75,
       "metadata": {
         "manifest_node": "docs/README.md::skills",
-        "byte_range": [3049, 3348]
+        "byte_range": [
+          3049,
+          3348
+        ]
       }
     },
     {
@@ -167,7 +176,10 @@
       "token_budget": 195,
       "metadata": {
         "manifest_node": "docs/README.md::agent-profiles",
-        "byte_range": [3348, 4125]
+        "byte_range": [
+          3348,
+          4125
+        ]
       }
     },
     {
@@ -179,6 +191,69 @@
       "metadata": {
         "manifest_node": "docs/adr/ADR-001-dag-routing.md::adr-001-why-a-dag-for-documentation-routing",
         "byte_range": null
+      }
+    },
+    {
+      "id": "proto-direct",
+      "type": "RetrievalProtocol",
+      "tier": "worker",
+      "token_budget": 0,
+      "metadata": {
+        "protocol": "DIRECT",
+        "tool": ".agent/tools/",
+        "description": "existing skill node execution — no retrieval"
+      }
+    },
+    {
+      "id": "proto-stair",
+      "type": "RetrievalProtocol",
+      "tier": "worker",
+      "token_budget": 400,
+      "metadata": {
+        "protocol": "STAIR",
+        "tool": ".agent/tools/stair_navigator.py",
+        "description": "graph.json as ToC, single leaf prediction",
+        "navigator": ".agent/tools/stair_navigator.py"
+      }
+    },
+    {
+      "id": "proto-vector",
+      "type": "RetrievalProtocol",
+      "tier": "worker",
+      "token_budget": 200,
+      "metadata": {
+        "protocol": "VECTOR",
+        "tool": ".agent/tools/vector_retriever.py",
+        "description": "sqlite-vec index over manifest.json",
+        "index_ref": ".context/vector-index.db",
+        "max_results": 5,
+        "max_tokens": 2000
+      }
+    },
+    {
+      "id": "proto-graph",
+      "type": "RetrievalProtocol",
+      "tier": "manager",
+      "token_budget": 400,
+      "metadata": {
+        "protocol": "GRAPH",
+        "tool": ".agent/tools/graph_traverser.py",
+        "description": "bounded edge traversal over prompt-graph.json",
+        "source": ".context/prompt-graph.json"
+      }
+    },
+    {
+      "id": "proto-pattern",
+      "type": "RetrievalProtocol",
+      "tier": "manager",
+      "token_budget": 600,
+      "metadata": {
+        "protocol": "PATTERN",
+        "tool": ".agent/tools/pattern_retriever.py",
+        "description": "GPM top-1, orchestrator/manager only",
+        "gpm_ref": ".context/pattern-memory/gpm.json",
+        "index_ref": ".context/pattern-memory/gpm.index",
+        "top_k": 1
       }
     }
   ],
@@ -282,6 +357,66 @@
       "to": "envelope-mission",
       "type": "adapts",
       "note": "Nemotron 3.5 adapter configures MISSION envelope dispatch (alternative model)"
+    },
+    {
+      "from": "envelope-mission",
+      "to": "proto-direct",
+      "type": "routes_to",
+      "note": "envelope-mission may route to the DIRECT retrieval protocol"
+    },
+    {
+      "from": "envelope-execution",
+      "to": "proto-direct",
+      "type": "routes_to",
+      "note": "envelope-execution may route to the DIRECT retrieval protocol"
+    },
+    {
+      "from": "envelope-mission",
+      "to": "proto-stair",
+      "type": "routes_to",
+      "note": "envelope-mission may route to the STAIR retrieval protocol"
+    },
+    {
+      "from": "envelope-execution",
+      "to": "proto-stair",
+      "type": "routes_to",
+      "note": "envelope-execution may route to the STAIR retrieval protocol"
+    },
+    {
+      "from": "envelope-mission",
+      "to": "proto-vector",
+      "type": "routes_to",
+      "note": "envelope-mission may route to the VECTOR retrieval protocol"
+    },
+    {
+      "from": "envelope-execution",
+      "to": "proto-vector",
+      "type": "routes_to",
+      "note": "envelope-execution may route to the VECTOR retrieval protocol"
+    },
+    {
+      "from": "envelope-mission",
+      "to": "proto-graph",
+      "type": "routes_to",
+      "note": "envelope-mission may route to the GRAPH retrieval protocol"
+    },
+    {
+      "from": "envelope-execution",
+      "to": "proto-graph",
+      "type": "routes_to",
+      "note": "envelope-execution may route to the GRAPH retrieval protocol"
+    },
+    {
+      "from": "envelope-mission",
+      "to": "proto-pattern",
+      "type": "routes_to",
+      "note": "envelope-mission may route to the PATTERN retrieval protocol"
+    },
+    {
+      "from": "envelope-execution",
+      "to": "proto-pattern",
+      "type": "routes_to",
+      "note": "envelope-execution may route to the PATTERN retrieval protocol"
     }
   ]
 }

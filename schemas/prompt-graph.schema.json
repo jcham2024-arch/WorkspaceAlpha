@@ -2,9 +2,13 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://workspacealpha.example.com/schemas/prompt-graph.schema.json",
   "title": "Prompt DAG",
-  "description": "Prompt DAG schema. Separate file from .context/manifest.json; references manifest node IDs but does not modify the manifest. The DAG is the routable structure over manifest content.",
+  "description": "Prompt DAG schema. The JSON at .context/prompt-graph.json is the runtime source of truth; .context/prompt-graph.yaml is a generated mirror kept in sync by tools/sync_prompt_graph.py and checked by tools/validate_prompt_graph.py.",
   "type": "object",
-  "required": ["version", "nodes", "edges"],
+  "required": [
+    "version",
+    "nodes",
+    "edges"
+  ],
   "properties": {
     "version": {
       "type": "string",
@@ -14,7 +18,11 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "type", "content_ref"],
+        "required": [
+          "id",
+          "type",
+          "content_ref"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -22,7 +30,15 @@
           },
           "type": {
             "type": "string",
-            "enum": ["SystemPrompt", "Skill", "Envelope", "ContextSlice", "Adapter", "OutputContract", "RetrievalProtocol"]
+            "enum": [
+              "SystemPrompt",
+              "Skill",
+              "Envelope",
+              "ContextSlice",
+              "Adapter",
+              "OutputContract",
+              "RetrievalProtocol"
+            ]
           },
           "content_ref": {
             "type": "string",
@@ -30,7 +46,16 @@
           },
           "tier": {
             "type": "string",
-            "enum": ["core", "curated", "experimental", "quarantine"]
+            "description": "Skill lifecycle tier (core|curated|experimental|quarantine) for most node types; agent tier (orchestrator|manager|worker) for RetrievalProtocol nodes.",
+            "enum": [
+              "core",
+              "curated",
+              "experimental",
+              "quarantine",
+              "orchestrator",
+              "manager",
+              "worker"
+            ]
           },
           "token_budget": {
             "type": "integer",
@@ -41,7 +66,8 @@
             "description": "YAML predicate for Skill nodes; included only when condition matches scope"
           },
           "metadata": {
-            "type": "object"
+            "type": "object",
+            "description": "RetrievalProtocol nodes require metadata.protocol (DIRECT|STAIR|VECTOR|GRAPH|PATTERN) and metadata.tool."
           }
         },
         "additionalProperties": false
@@ -51,7 +77,11 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["from", "to", "type"],
+        "required": [
+          "from",
+          "to",
+          "type"
+        ],
         "properties": {
           "from": {
             "type": "string",
@@ -63,7 +93,13 @@
           },
           "type": {
             "type": "string",
-            "enum": ["requires", "triggers", "routes_to", "adapts", "provenance_of"]
+            "enum": [
+              "requires",
+              "triggers",
+              "routes_to",
+              "adapts",
+              "provenance_of"
+            ]
           },
           "condition": {
             "type": "string",

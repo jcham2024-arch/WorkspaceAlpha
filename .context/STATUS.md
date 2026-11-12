@@ -36,10 +36,17 @@ Current: **3,654 nodes**, wiki ~4.15 MB, `validate.py` PASS.
 python -m unittest discover -s tests -t .
 ```
 
-Current: **97 tests, 0 failures, 5 skipped.** No pytest in this environment;
+Current: **111 tests, 0 failures, 5 skipped.** No pytest in this environment;
 everything is stdlib `unittest`. The 5 skips are `tests/test_provision.py`,
 which needs the harness-owned `.harness/sync_active.py` bridge that is not
 checked into the repo.
+
+Prompt graph is validated separately (it is not part of `.context/graph.json`):
+
+```bash
+python3 tools/validate_prompt_graph.py   # JSON graph + YAML mirror coherence
+python3 tools/sync_prompt_graph.py       # regenerate YAML from JSON after edits
+```
 
 ## 4. Completed work
 
@@ -109,19 +116,51 @@ repair. Its Parts II–VI describe a code state that no longer exists.
 
 | Gap | Where | Blocks |
 | :--- | :--- | :--- |
-| `RetrievalProtocol` node type + `proto-*` nodes | `.context/prompt-graph.json` has 16 nodes, none of this type | Router cannot dispatch to protocols |
-| Assembler does not call `route()` | `assembly/assembler.py` | Retrieval pipeline not wired |
-| No vector index | `tools/build_vectors.py` exists, `.context/vector-index.db` does not | `Protocol::VECTOR` |
+| Assembler does not *execute* the protocol | `assembly/assembler.py` binds the `proto-*` node into the prompt but does not call the tool in `metadata.tool` | Retrieval results never enter the context |
 | Navigator writes no provenance | `provenance/turns.jsonl` has no dispatch records | Audit trail for retrieval |
+| No vector index | `tools/build_vectors.py` exists, `.context/vector-index.db` does not | `Protocol::VECTOR` returns nothing |
 | `.harness/` provisioning bridge | Not in repo (harness-owned) | 5 skipped tests |
-| `assembly/assembler.py` is 458 lines | Over the 200-line limit `validate.py` enforces with a waiver | Assembler split |
+| `assembly/assembler.py` is 514 lines | Over the 200-line limit `validate.py` enforces with a waiver | Assembler split |
+
+### 6.1 Retrieval protocol layer — wired 2026-11-12
+
+The router-to-graph seam is now connected:
+
+- `prompt-graph.json` declares **5 `RetrievalProtocol` nodes**
+  (`proto-direct`, `proto-stair`, `proto-vector`, `proto-graph`, `proto-pattern`),
+  each with `metadata.protocol`, `metadata.tool` and an agent `tier`.
+- Every protocol node has an inbound `routes_to` edge from both envelopes, so
+  the router can actually select it.
+- `assembler.py` calls `route()` before Plan, binds **only the selected**
+  protocol node (the other four are alternatives, not additions), and applies
+  a tier ceiling: `thinking` → manager, `low_thinking`/`non_thinking` → worker.
+  A worker asking for PATTERN or GRAPH is downgraded to VECTOR with
+  `downgraded_from`, `required_tier` and `tier_ceiling` recorded in provenance.
+- `tools/validate_prompt_graph.py` now validates the **JSON** (the file the
+  runtime reads) instead of the YAML, checks schema/validator enum agreement,
+  rejects duplicate node ids, duplicate edges, self-loops, and any protocol
+  node with no inbound `routes_to`, and fails if the YAML mirror has drifted.
+- `tools/sync_prompt_graph.py` regenerates the YAML from the JSON and refuses
+  to write unless the result round-trips to an identical graph.
+
+**Defect found and fixed while doing this:** `.context/prompt-graph.yaml`
+contained a duplicate `edges:` key. A conformant YAML loader keeps the last
+occurrence, so 18 of the 21 edges were silently discarded while
+`validate_prompt_graph.py` reported PASS — the gate was validating the stale
+copy. The validator now targets the JSON and a test asserts the YAML exposes
+more than 10 edges.
+
+Remaining: the assembler binds the protocol node but does not yet invoke the
+tool named in `metadata.tool`. Binding without executing is why retrieval
+results still do not reach the prompt.
 
 ## 7. Conventions for the next session
 
 1. **Read this file first.** It replaces four documents.
-2. **Build before you change anything:** `seed.py && build.py && validate.py`.
+2. **Build before you change anything:** `seed.py && build.py && validate.py`,
+   then `tools/validate_prompt_graph.py`.
 3. **Baseline the suite** with `python -m unittest discover -s tests -t .` and
-   expect 97 tests, 0 failures, 5 skipped.
+   expect 111 tests, 0 failures, 5 skipped.
 4. **Never edit `.context/manifest.json` or `.wiki/index.html`** — both are
    generated. Regenerate via `.wiki/seed.py` and `.wiki/build.py`.
 5. **Byte ranges are byte ranges.** Hydrate with `open(path, 'rb')` + seek, never

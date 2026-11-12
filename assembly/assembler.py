@@ -22,11 +22,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from manifest_reader import ManifestReader  # noqa: E402
 from slicer import Slicer, SliceOutOfBounds  # noqa: E402
-from budgeter import Budgeter, TIER_CEILINGS  # noqa: E402
+from budgeter import Budgeter, TIER_CEILINGS, AGENT_TIER_BY_TARGET, AGENT_TIER_ORDER  # noqa: E402
 from tokenizer import TokenCounter  # noqa: E402
 from provenance.recorder import ProvenanceRecorder  # noqa: E402
 from telemetry.otel_genai import OTelGenAIRecorder  # noqa: E402
 from router import route  # noqa: E402
+from router import RoutingDecision  # noqa: E402
 
 
 class BLOCKED(Exception):
@@ -93,8 +94,9 @@ class Assembler:
                 "allowed_targets": allowed_targets,
             },
         )
-        protocol_node_id = routing_decision.node_id
-        protocol_node_tier = routing_decision.confidence  # reuse as tier hint
+        protocol_node_id, routing_decision = self._apply_tier_ceiling(
+            routing_decision, target_tier
+        )
 
         # Phase 1 — Plan: resolve scope from delegation envelope
         scope = {
@@ -140,7 +142,17 @@ class Assembler:
             )
         )
 
-        # Add protocol node as first candidate (from router decision)
+        # Keep only the protocol the router selected. The other proto-*
+        # nodes are alternatives reachable from the same envelopes; binding
+        # all five would put every retrieval strategy into one prompt, which
+        # both blows the budget and defeats the point of routing.
+        candidate_ids = [
+            node_id
+            for node_id in candidate_ids
+            if not node_id.startswith("proto-") or node_id == protocol_node_id
+        ]
+
+        # Add the selected protocol node as first candidate
         if protocol_node_id and protocol_node_id not in candidate_ids:
             candidate_ids.insert(0, protocol_node_id)
 
@@ -296,14 +308,24 @@ class Assembler:
             )
 
         # Record provenance (Record A — no raw prompt text)
+        routing_record = {
+            "protocol": routing_decision.protocol,
+            "node_id": protocol_node_id,
+            "confidence": routing_decision.confidence,
+            "rule_id": routing_decision.rule_id,
+            "reason": routing_decision.reason,
+        }
+        downgraded_from = getattr(routing_decision, "downgraded_from", None)
+        if downgraded_from:
+            routing_record["downgraded_from"] = downgraded_from
+            routing_record["required_tier"] = getattr(
+                routing_decision, "required_tier", None
+            )
+            routing_record["tier_ceiling"] = target_tier
+
         provenance_params = {
             **adapter_params,
-            "routing_decision": {
-                "protocol": protocol_node_id,
-                "confidence": routing_decision.confidence,
-                "rule_id": routing_decision.rule_id,
-                "reason": routing_decision.reason,
-            },
+            "routing_decision": routing_record,
         }
         self.provenance_recorder.record_turn(
             delegation_id=delegation_id,
@@ -365,6 +387,53 @@ class Assembler:
                 if metadata.get("delegation_type") == delegation_type:
                     result.append(node_id)
         return result
+
+    def _apply_tier_ceiling(self, decision, target_tier: str):
+        """Downgrade a protocol whose agent tier exceeds the caller's tier.
+
+        A worker-tier caller cannot run a manager-only protocol such as
+        PATTERN or GRAPH. Per the retrieval directive §8, the downgrade is
+        to VECTOR and is recorded in provenance with reason
+        ``tier_ceiling``. Returns (protocol_node_id, decision).
+
+        ``RoutingDecision`` carries no tier of its own, so the required tier
+        is read from the graph node the router selected.
+        """
+        node = self.reader.get_graph_node(decision.node_id)
+        required = (node or {}).get("tier")
+        caller = AGENT_TIER_BY_TARGET.get(target_tier)
+
+        # An unmapped tier means we cannot prove the caller is allowed, so do
+        # not downgrade — routing rules already ran and the ceiling is a
+        # separate safety net, not the primary gate.
+        if required not in AGENT_TIER_ORDER or caller not in AGENT_TIER_ORDER:
+            return decision.node_id, decision
+        if AGENT_TIER_ORDER[required] <= AGENT_TIER_ORDER[caller]:
+            return decision.node_id, decision
+
+        fallback = self.reader.get_graph_node("proto-vector")
+        if fallback is None:
+            # No safe fallback exists. Failing closed is correct: a
+            # worker must not silently receive a manager-only protocol.
+            raise BLOCKED(
+                f"TIER_CEILING: protocol {decision.protocol} requires "
+                f"{required} tier but caller is {target_tier}, and no "
+                f"proto-vector fallback node exists"
+            )
+
+        downgraded = RoutingDecision(
+            node_id="proto-vector",
+            protocol="VECTOR",
+            confidence=decision.confidence,
+            rule_id=decision.rule_id,
+            reason=(
+                f"tier_ceiling: {decision.protocol} requires {required} but "
+                f"caller is {target_tier}; downgraded to VECTOR"
+            ),
+        )
+        downgraded.downgraded_from = decision.protocol
+        downgraded.required_tier = required
+        return downgraded.node_id, downgraded
 
     def _render_node(self, node_id: str, node_type: str) -> str:
         """Render a node's content for inclusion in the prompt."""

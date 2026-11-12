@@ -23,6 +23,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from tokenizer import TokenCounter, HeuristicCounter  # noqa: E402
 
 # Per-tier token ceilings for the variable suffix (per spec §6)
+# Two tier vocabularies coexist. Protocol nodes and routing rules use agent
+# tiers (worker/manager/orchestrator); delegation envelopes use model tiers
+# (thinking/low_thinking/non_thinking). This maps the latter onto the former:
+#   thinking     -> manager      (planning, supervision, synthesis)
+#   low_thinking -> worker       (production worker)
+#   non_thinking -> worker       (production worker, no extended reasoning)
 TIER_CEILINGS = {
     "thinking": 1800,   # manager tier
     "low_thinking": 1500,  # production tier
@@ -30,6 +36,14 @@ TIER_CEILINGS = {
 }
 
 DEFAULT_CEILING = 1500
+
+AGENT_TIER_BY_TARGET = {
+    "thinking": "manager",
+    "low_thinking": "worker",
+    "non_thinking": "worker",
+}
+
+AGENT_TIER_ORDER = {"worker": 0, "manager": 1, "orchestrator": 2}
 
 
 class BudgetResult:
