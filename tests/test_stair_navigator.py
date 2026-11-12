@@ -2,6 +2,7 @@
 """Tests for stair_navigator module."""
 
 import unittest
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,8 +14,8 @@ from stair_navigator import navigate  # noqa: E402
 class TestStairNavigator(unittest.TestCase):
 
     def test_navigate_returns_result(self):
-        """navigate() should return a result dict."""
-        result = navigate("test query")
+        """navigate() should return a LeafPrediction with expected fields."""
+        result = navigate("test query").to_dict()
         assert isinstance(result, dict)
         assert "node_id" in result
         assert "path" in result
@@ -22,7 +23,7 @@ class TestStairNavigator(unittest.TestCase):
 
     def test_navigate_empty_query(self):
         """Empty query should return empty result."""
-        result = navigate("")
+        result = navigate("").to_dict()
         assert result["node_id"] is None
         assert result["path"] == []
         assert result["confidence"] == 0.0
