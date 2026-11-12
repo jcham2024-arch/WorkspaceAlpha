@@ -113,5 +113,10 @@ Match each task to a profile in `.agent/profiles/README.md` and state the match 
 enforcement gate in `validate.py`, and the Part I diagnostic framework for any
 future loop. Read this before touching the navigator.
 
+`.context/EXECUTION_PROTOCOL.md` — execution meta-protocol for multi-phase
+fixes: one phase per session, 20-minute box, ledger updated before every
+commit. Records the six-phase stair fix as complete. Read this before starting
+any fix that spans more than one commit.
+
 `.context/archive/` — superseded directives, kept for history. Each carries a
 pointer at the top. Do not execute archived directives.
