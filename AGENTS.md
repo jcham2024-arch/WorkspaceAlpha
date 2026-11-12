@@ -105,3 +105,13 @@ Six-node DAG compiler on the baselayer: **Prompt DAG** → **Envelope schemas** 
 | stale.py | `tools/stale.py` |
 
 Match each task to a profile in `.agent/profiles/README.md` and state the match in the reply.
+
+## 11. Active fix directives
+
+`.context/FIX_STAIR_LOOP.md` — canonical, self-contained. Covers the
+`stair_navigator.py` single-prediction contract, the wall-clock cap, the
+enforcement gate in `validate.py`, and the Part I diagnostic framework for any
+future loop. Read this before touching the navigator.
+
+`.context/archive/` — superseded directives, kept for history. Each carries a
+pointer at the top. Do not execute archived directives.
