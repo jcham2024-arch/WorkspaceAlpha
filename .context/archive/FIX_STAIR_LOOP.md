@@ -1,3 +1,10 @@
+> **ARCHIVED 2026-11-12.** Superseded by `.context/STATUS.md`, which is the
+> single current pointer for this workspace. Kept for history only — do not
+> execute this document. The stair navigator repair it describes has landed;
+> see STATUS.md §4.1 and `git log`.
+
+---
+
 # FIX DIRECTIVE: stair_navigator.py Loop — Diagnostic Framework & Definitive Fix
 
 **Audience:** Implementation agent (human or model)

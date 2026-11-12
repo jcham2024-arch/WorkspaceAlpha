@@ -4,6 +4,7 @@ This repository uses a DAG-routed documentation system. Follow this protocol.
 
 ## 1. Orientation
 
+0. Read `.context/STATUS.md` — current state, build path, test baseline, gaps.
 1. Identify target files or task archetype.
 2. Read `.context/manifest.json` — the routing table.
 3. Select nodes whose `summary` matches; follow `requires` edges transitively.
@@ -106,17 +107,11 @@ Six-node DAG compiler on the baselayer: **Prompt DAG** → **Envelope schemas** 
 
 Match each task to a profile in `.agent/profiles/README.md` and state the match in the reply.
 
-## 11. Active fix directives
+## 11. Start here
 
-`.context/FIX_STAIR_LOOP.md` — canonical, self-contained. Covers the
-`stair_navigator.py` single-prediction contract, the wall-clock cap, the
-enforcement gate in `validate.py`, and the Part I diagnostic framework for any
-future loop. Read this before touching the navigator.
+`.context/STATUS.md` — **single pointer for current state.** Build path, test
+baseline, what is done, what is not, and the conventions for changing this
+workspace. Read it first.
 
-`.context/EXECUTION_PROTOCOL.md` — execution meta-protocol for multi-phase
-fixes: one phase per session, 20-minute box, ledger updated before every
-commit. Records the six-phase stair fix as complete. Read this before starting
-any fix that spans more than one commit.
-
-`.context/archive/` — superseded directives, kept for history. Each carries a
-pointer at the top. Do not execute archived directives.
+`.context/archive/` — superseded directives, kept for history. Each carries an
+ARCHIVED header. Do not execute archived directives.

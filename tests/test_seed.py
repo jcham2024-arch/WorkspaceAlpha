@@ -24,17 +24,33 @@ class TestSeed(unittest.TestCase):
         run_seed()
 
     def test_one_node_per_heading(self):
-        """Each Markdown heading should produce exactly one node."""
+        """Each Markdown heading should produce exactly one node.
+
+        seed.py deduplicates by ``{file}::{slug(title)}`` (see seed.py's
+        ``seen`` set), so a heading title repeated inside the same file
+        collapses to one node. The expected count is therefore the number
+        of *unique* file::slug pairs, not the raw heading count.
+        """
+        sys.path.insert(0, str(ROOT / ".wiki"))
+        from seed import section_ranges, slug
+
         graph = json.loads(GRAPH_JSON.read_text(encoding="utf-8"))
-        # Count headings in docs/
-        heading_count = 0
+        expected_ids = set()
         for md_file in (ROOT / "docs").rglob("*.md"):
-            content = md_file.read_text(encoding="utf-8")
-            for line in content.splitlines():
-                if line.startswith("#"):
-                    heading_count += 1
-        # Each heading becomes a node (deduplicated by id)
-        self.assertEqual(len(graph["nodes"]), heading_count)
+            data = md_file.read_bytes()
+            if not data or b"\x00" in data[:8192]:
+                continue
+            rel = str(md_file.relative_to(ROOT))
+            for (_start, _end, _level, title) in section_ranges(data):
+                expected_ids.add(f"{rel}::{slug(title)}")
+
+        actual_ids = {n["id"] for n in graph["nodes"]}
+        self.assertEqual(
+            actual_ids,
+            expected_ids,
+            "graph node ids must match the deduplicated file::slug set",
+        )
+        self.assertEqual(len(graph["nodes"]), len(actual_ids), "duplicate node id")
 
     def test_byte_ranges_correctly_slice_heading_body(self):
         """Byte ranges should correctly slice the heading body content."""
