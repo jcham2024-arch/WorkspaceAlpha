@@ -5,6 +5,7 @@ Run after any docs/, graph, or build change. Also run as the
 git pre-commit hook (see .githooks/pre-commit).
 """
 import ast, hashlib, json, logging, pathlib, re, sys
+from pathlib import Path
 
 ROOT = pathlib.Path(__file__).resolve().parent
 
@@ -120,35 +121,136 @@ if SKILLS_DIR.exists():
         if tier not in VALID_TIERS:
             fail(f"skill {skill_dir.name}: invalid tier '{tier}' (must be one of {sorted(VALID_TIERS)})")
 
-# --- Phase 5: navigator hardening gate ---
-NAV = ROOT / ".agent" / "tools" / "stair_navigator.py"
-if NAV.exists():
-    nav_src = NAV.read_text(encoding="utf-8")
-    nav_lines = nav_src.splitlines()
-    if len(nav_lines) >= 100:
-        fail(f"stair_navigator.py is {len(nav_lines)} lines, must be under 100")
-    try:
-        nav_tree = ast.parse(nav_src)
-    except SyntaxError as exc:
-        fail(f"stair_navigator.py has a syntax error: {exc}")
-    for node in ast.walk(nav_tree):
-        if isinstance(node, ast.While):
-            fail("while loop in stair_navigator.py — prediction must be single-shot")
-    if any(line.strip().startswith("def _dispatch_llm") for line in nav_lines):
-        fail("_dispatch_llm must not be defined inline in stair_navigator.py")
-    if "except Exception" in nav_src or re.search(r"^\s*except\s*:\s*$", nav_src, re.M):
-        fail("bare or broad except in stair_navigator.py — fail specific")
-    if "adapters.navigator" not in nav_src:
-        fail("stair_navigator.py must import dispatch from adapters.navigator")
+# --- Navigator and tooling structure checks ---
+# Importable functions so they can be unit-tested against fixtures
+# (tests/test_validate_checks.py) as well as run by this script.
 
-# Graph/manifest coherence: drift is a hard build failure, not a runtime fallback.
-g = json.loads((ROOT / ".context" / "graph.json").read_text())
-g_nodes = {n["id"] for n in g.get("nodes", [])}
-m_nodes = {n["id"] for n in m.get("nodes", [])}
-for missing in sorted(g_nodes - m_nodes):
-    fail(f"node {missing} in graph.json but not manifest.json — run build.py")
-for stale in sorted(m_nodes - g_nodes):
-    fail(f"node {stale} in manifest.json but not graph.json — regenerate")
+NAV_PATH = ROOT / ".agent" / "tools" / "stair_navigator.py"
+
+
+def check_navigator_loop_constructs(nav_path=None) -> list[str]:
+    """Fail if stair_navigator.py has a while loop anywhere in the module."""
+    path = nav_path or NAV_PATH
+    if not path.exists():
+        return [f"missing: {path}"]
+    violations = []
+    try:
+        tree = ast.parse(path.read_text(encoding="utf-8"))
+    except SyntaxError as exc:
+        return [f"{path}: syntax error: {exc}"]
+    for node in ast.walk(tree):
+        if isinstance(node, ast.While):
+            violations.append(
+                f"{path}: while loop — prediction must be single-shot, "
+                f"see FIX_STAIR_LOOP_II.md §1"
+            )
+    return violations
+
+
+def check_navigator_dispatch_path(nav_path=None) -> list[str]:
+    """Fail if an inline dispatch call or a second prediction attempt appears."""
+    path = nav_path or NAV_PATH
+    if not path.exists():
+        return []
+    src = path.read_text(encoding="utf-8")
+    violations = []
+    if "dispatcher.dispatch" in src:
+        violations.append(
+            f"{path}: inline dispatcher.dispatch() present — route through the "
+            f"dispatch module only, see FIX_STAIR_LOOP_II.md §4.3"
+        )
+    if "keyword" in src.lower() and "fallback" in src.lower():
+        violations.append(
+            f"{path}: keyword fallback present — second prediction attempt, "
+            f"see FIX_STAIR_LOOP_II.md §1"
+        )
+    if "def _dispatch_llm" in src:
+        violations.append(
+            f"{path}: _dispatch_llm defined inline — dispatch belongs in "
+            f"adapters/, see FIX_STAIR_LOOP_II.md §1"
+        )
+    if "except Exception" in src or re.search(r"^\s*except\s*:\s*$", src, re.M):
+        violations.append(
+            f"{path}: bare or broad except — fail specific, "
+            f"see FIX_STAIR_LOOP_II.md §9"
+        )
+    if "adapters.navigator" not in src:
+        violations.append(
+            f"{path}: must import dispatch from adapters.navigator"
+        )
+    return violations
+
+
+LINE_COUNT_LIMITS = {
+    "assembly/*.py": 200,
+    ".agent/tools/*.py": 200,
+    ".agent/tools/mcp/*.py": 200,
+}
+LINE_COUNT_WAIVER = "wa:allow-long-file"
+
+
+def check_line_counts() -> list[str]:
+    """Fail if any tooling file exceeds its limit without a waiver."""
+    violations = []
+    for pattern, limit in LINE_COUNT_LIMITS.items():
+        for path in sorted(ROOT.glob(pattern)):
+            try:
+                text = path.read_text(encoding="utf-8")
+            except OSError:
+                continue
+            if LINE_COUNT_WAIVER in text[:200]:
+                continue
+            count = len(text.splitlines())
+            if count > limit:
+                violations.append(
+                    f"{path.relative_to(ROOT)}: {count} lines exceeds "
+                    f"{limit}-line limit. Split per CLEANUP_DIRECTIVE.md, or "
+                    f"add '{LINE_COUNT_WAIVER}' to the first 200 characters."
+                )
+    return violations
+
+
+def check_graph_manifest_coherence(graph_path=None, manifest_path=None) -> list[str]:
+    """Fail if graph.json and manifest.json disagree on node IDs."""
+    gpath = graph_path or ROOT / ".context" / "graph.json"
+    mpath = manifest_path or ROOT / ".context" / "manifest.json"
+    violations = []
+    g = json.loads(Path(gpath).read_text(encoding="utf-8"))
+    mj = json.loads(Path(mpath).read_text(encoding="utf-8"))
+    g_nodes = {n["id"] for n in (g.get("nodes") or [])}
+    m_nodes = {n["id"] for n in (mj.get("nodes") or [])}
+    for missing in sorted(g_nodes - m_nodes):
+        violations.append(
+            f"node {missing} in graph.json but not manifest.json — run build.py"
+        )
+    for stale in sorted(m_nodes - g_nodes):
+        violations.append(
+            f"node {stale} in manifest.json but not graph.json — regenerate"
+        )
+    return violations
+
+
+def check_navigator_size(max_lines=100) -> list[str]:
+    """The navigator must stay small enough to read in one screen."""
+    if not NAV_PATH.exists():
+        return []
+    count = len(NAV_PATH.read_text(encoding="utf-8").splitlines())
+    if count >= max_lines:
+        return [
+            f"{NAV_PATH.relative_to(ROOT)} is {count} lines, must be under "
+            f"{max_lines}"
+        ]
+    return []
+
+
+for v in check_navigator_loop_constructs():
+    fail(v)
+for v in check_navigator_dispatch_path():
+    fail(v)
+for v in check_navigator_size():
+    fail(v)
+for v in check_graph_manifest_coherence():
+    fail(v)
 
 print("PASS")
 budget = sum(n.get("est_tokens", 0) for n in m["nodes"])
