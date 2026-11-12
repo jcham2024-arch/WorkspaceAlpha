@@ -4,7 +4,7 @@
 Run after any docs/, graph, or build change. Also run as the
 git pre-commit hook (see .githooks/pre-commit).
 """
-import hashlib, json, logging, pathlib, sys
+import ast, hashlib, json, logging, pathlib, re, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent
 
@@ -119,6 +119,36 @@ if SKILLS_DIR.exists():
             fail(f"skill {skill_dir.name}: missing tier field")
         if tier not in VALID_TIERS:
             fail(f"skill {skill_dir.name}: invalid tier '{tier}' (must be one of {sorted(VALID_TIERS)})")
+
+# --- Phase 5: navigator hardening gate ---
+NAV = ROOT / ".agent" / "tools" / "stair_navigator.py"
+if NAV.exists():
+    nav_src = NAV.read_text(encoding="utf-8")
+    nav_lines = nav_src.splitlines()
+    if len(nav_lines) >= 100:
+        fail(f"stair_navigator.py is {len(nav_lines)} lines, must be under 100")
+    try:
+        nav_tree = ast.parse(nav_src)
+    except SyntaxError as exc:
+        fail(f"stair_navigator.py has a syntax error: {exc}")
+    for node in ast.walk(nav_tree):
+        if isinstance(node, ast.While):
+            fail("while loop in stair_navigator.py — prediction must be single-shot")
+    if any(line.strip().startswith("def _dispatch_llm") for line in nav_lines):
+        fail("_dispatch_llm must not be defined inline in stair_navigator.py")
+    if "except Exception" in nav_src or re.search(r"^\s*except\s*:\s*$", nav_src, re.M):
+        fail("bare or broad except in stair_navigator.py — fail specific")
+    if "adapters.navigator" not in nav_src:
+        fail("stair_navigator.py must import dispatch from adapters.navigator")
+
+# Graph/manifest coherence: drift is a hard build failure, not a runtime fallback.
+g = json.loads((ROOT / ".context" / "graph.json").read_text())
+g_nodes = {n["id"] for n in g.get("nodes", [])}
+m_nodes = {n["id"] for n in m.get("nodes", [])}
+for missing in sorted(g_nodes - m_nodes):
+    fail(f"node {missing} in graph.json but not manifest.json — run build.py")
+for stale in sorted(m_nodes - g_nodes):
+    fail(f"node {stale} in manifest.json but not graph.json — regenerate")
 
 print("PASS")
 budget = sum(n.get("est_tokens", 0) for n in m["nodes"])
