@@ -1,0 +1,89 @@
+{
+  "version": "1.0",
+  "modes": {
+    "retrieval": {
+      "name": "Retrieval",
+      "description": "Known facts, explicit rules, or patterns. Best answered by retrieval from known sources.",
+      "characteristics": [
+        "Known answer exists",
+        "Fact-based, not creative",
+        "Low ambiguity",
+        "Deterministic output expected"
+      ],
+      "when_to_use": "Fact lookup, documentation lookup, standard procedure questions",
+      "not_for": ["Creative synthesis", "Novel problem solving", "Ambiguous requirements"]
+    },
+    "first_principles": {
+      "name": "First Principles",
+      "description": "Reason from fundamental truths rather than analogy or convention.",
+      "characteristics": [
+        "No existing solution to copy",
+        "Must reason from base assumptions",
+        "High uncertainty about approach",
+        "Requires deep understanding of domain fundamentals"
+      ],
+      "when_to_use": "Novel problems, novel constraints, no prior art available",
+      "not_for": ["Standard patterns", "Well-documented procedures", "Copy-paste solutions"]
+    },
+    "margin_of_safety": {
+      "name": "Margin of Safety",
+      "description": "Estimate under uncertainty with buffer for residual error.",
+      "characteristics": [
+        "Estimating under uncertainty",
+        "Cost of failure is asymmetric",
+        "Residual error must be quantified",
+        "Optimistic edge is not acceptable"
+      ],
+      "when_to_use": "Estimation, capacity planning, risk assessment, budget allocation",
+      "not_for": ["Exact calculations", "Well-defined requirements", "Deterministic tasks"]
+    },
+    "first_and_margin": {
+      "name": "First Principles + Margin of Safety",
+      "description": "First principles reasoning combined with safety margin estimation.",
+      "characteristics": [
+        "Novel problem with uncertain outcome",
+        "Must reason from fundamentals AND size safety margin",
+        "High uncertainty + high cost of failure",
+        "Both derivation and estimation needed"
+      ],
+      "when_to_use": "Novel engineering problems, novel architecture decisions, novel algorithm design",
+      "not_for": ["Well-understood problems", "Standard patterns", "Routine tasks"]
+    },
+    "analogy": {
+      "name": "Analogy",
+      "description": "Map known solution from one domain to novel situation.",
+      "characteristics": [
+        "Known solution exists in different domain",
+        "Mapping required between domains",
+        "Adaptation needed, not copying",
+        "Structural similarity more important than surface similarity"
+      ],
+      "when_to_use": "Cross-domain problem solving, analogy-based design, borrowing solutions from other fields",
+      "not_for": ["Domestic problems with no analog", "Pure invention", "Exact replication"]
+    },
+    "invention": {
+      "name": "Invention",
+      "description": "Create genuinely novel solution with no precedent.",
+      "characteristics": [
+        "No existing solution anywhere",
+        "True novelty required",
+        "Highest uncertainty",
+        "Highest creativity demand"
+      ],
+      "when_to_use": "Truly novel problems, breakthrough innovation, first-of-kind solutions",
+      "not_for": ["Any problem with existing solution", "Standard patterns", "Routine tasks"]
+    },
+    "salience": {
+      "name": "Salience",
+      "description": "Determine what to attend to and what to ignore.",
+      "characteristics": [
+        "Information overload",
+        "Multiple competing inputs",
+        "Prioritization needed",
+        "Signal vs. noise discrimination"
+      ],
+      "when_to_use": "Information overload, complex multi-source input, prioritization decisions",
+      "not_for": ["Simple questions", "Single clear answer", "Low-complexity tasks"]
+    }
+  }
+}

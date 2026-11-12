@@ -22,13 +22,6 @@ GRAPH_JSON_PATH = ROOT / ".context" / "graph.json"
 GRAPH_YAML_PATH = ROOT / ".context" / "prompt-graph.yaml"
 MANIFEST_PATH = ROOT / ".context" / "manifest.json"
 
-try:
-    import yaml  # type: ignore
-
-    HAS_YAML = True
-except ImportError:
-    HAS_YAML = False
-
 
 class LeafPrediction:
     """Result of navigating the graph for a query.
@@ -65,8 +58,8 @@ class LeafPrediction:
         }
 
 
-def _load_graph() -> tuple[dict[str, Any], list[dict[str, Any]]]:
-    """Load the prompt graph from YAML (preferred) or JSON fallback."""
+def _load_graph() -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Load the prompt graph from YAML (preferred) or JSON."""
     if GRAPH_YAML_PATH.exists():
         try:
             import yaml  # type: ignore
@@ -88,13 +81,8 @@ def _load_manifest() -> dict[str, Any]:
         return json.load(f)
 
 
-def _build_toc(nodes: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
-    """Build a hierarchical Table of Contents from graph nodes.
-
-    Organizes nodes by content_ref (file path), grouping sections under their
-    parent file and leaf sections under their parent section. Returns a dict
-    mapping node_id to node info, plus a list of root-level nodes.
-    """
+def _build_toc(nodes: list[dict[str, Any]]) -> dict[str, Any]:
+    """Build a hierarchical Table of Contents from graph nodes."""
     nodes_by_id: dict[str, dict[str, Any]] = {}
     nodes_by_ref: dict[str, list[dict[str, Any]]] = {}
     root_nodes: list[dict[str, Any]] = []
@@ -109,7 +97,6 @@ def _build_toc(nodes: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
         if content_ref:
             nodes_by_ref.setdefault(content_ref, []).append(node)
         else:
-            # Root-level node (no content_ref, e.g., envelope or adapter nodes)
             root_nodes.append(node)
 
     return {"nodes_by_id": nodes_by_id, "nodes_by_ref": nodes_by_ref, "root_nodes": root_nodes}
@@ -131,32 +118,42 @@ def _dispatch_llm(
     from dispatch import AdapterDispatch  # noqa: E402
 
     dispatcher = AdapterDispatch()
-    dispatch_result = adapter.dispatch(
+    try:
+        dispatcher = AdapterDispatch()
+    dispatch_result = dispatcher.dispatch(
         model=model,
         target_tier=tier,
+        prompt=prompt,
         max_tokens=max_tokens,
         temperature=temperature,
+        extra_params={"prompt": prompt},
     )
+    except ValueError as exc:
+        return {
+            "node_id": None,
+            "path": [],
+            "confidence": 0.0,
+            "error": str(exc),
+        }
 
-    dispatch_payload = dispatch.get("payload", {})
+    dispatch_payload = dispatch_result.get("payload", {})
 
     # The dispatch returns a payload dict; we need to actually invoke the model
     # via MCP or direct call. For now, return the dispatch payload so the
     # caller can execute it via the MCP server or directly.
-    return dispatch_payload
+    return dispatch_result
 
 
 def navigate(
     query: str,
     *,
-    max_depth: int = 6,
     model: str = "nemotron-3.5",
     tier: str = "manager",
 ) -> LeafPrediction:
     """Navigate the graph to find the most relevant leaf node for a query.
 
     Uses the graph as a hierarchical Table of Contents:
-    1. Build a ToC from the graph (file → section → leaf nodes).
+    1. Read the graph and build a ToC (file node → section node(s) → leaf nodes).
     2. Query the manager-tier adapter with the ToC and query to predict
        the best leaf node.
     3. Validate the prediction against the manifest.
@@ -164,7 +161,6 @@ def navigate(
 
     Args:
         query: The user query string.
-        max_depth: Maximum depth to traverse in the ToC.
         model: Model name for the advisor LLM.
         tier: Target tier for the advisor model (should be manager tier).
 
@@ -172,7 +168,7 @@ def navigate(
         LeafPrediction with the predicted leaf node, path, confidence,
         byte range, and content ref.
     """
-    nodes, edges = _load_graph()
+    nodes, _ = _load_graph()
     if not nodes:
         return LeafPrediction(
             node_id=None,
@@ -183,7 +179,8 @@ def navigate(
         )
 
     toc = _build_toc(nodes)
-    manifest_nodes, _ = _load_manifest()
+    manifest_data = _load_manifest()
+    manifest_nodes = manifest_data.get("nodes", [])
 
     # Build a compact ToC summary for the LLM
     toc_summary = []
@@ -192,108 +189,85 @@ def navigate(
         summary = node.get("summary", "")
         content_ref = node.get("content_ref", "")
         node_type = node.get("type", "")
-        toc_summary.append(f"  - {node_id} ({node_type}): {summary} [{content_ref}]")
+        toc_summary.append(
+            f"  - {node_id} ({node_type}): {summary} [{content_ref}]"
+        )
 
     toc_text = "\n".join(toc_summary)
 
-    # Dispatch to manager-tier adapter to predict the best leaf node
-    dispatch_payload = _dispatch_llm(
+    # Dispatch to model agent for route decision
+    dispatch_result = dispatcher.dispatch(
         model=model,
-        tier=tier,
-        prompt=f"""Given the following table of contents from a documentation graph:
-
-{toc_summary}
-
-Query: {query}
-
-Identify the single most relevant leaf node that would contain the answer to this query.
-Return a JSON object with:
-- "node_id": the id of the most relevant leaf node
-- "confidence": a confidence score from 0.0 to 1.0
-- "reasoning": brief explanation of why this node was selected
-
-Only return the JSON object, nothing else.""",
-        max_tokens=512,
+        target_tier=tier,
+        prompt=prompt,
+        max_tokens=max_tokens,
+        temperature=temperature,
+        extra_params={"prompt": prompt},
     )
 
-    # Parse the LLM response to get the predicted node_id and confidence
+    dispatch_payload = dispatch_result.get("payload", {})
+
+    # Parse the dispatch result to extract the predicted node
+    # The dispatch result may contain the selected node directly or via reasoning
     predicted_node_id = None
     confidence = 0.0
 
-    try:
-        # The dispatch_payload contains the model's response text
-        response_text = dispatch_payload.get("text", "") or dispatch_payload.get("content", "")
-        # Try to parse as JSON
-        try:
-            parsed = json.loads(response_text)
-            predicted_node_id = parsed.get("node_id")
-            confidence = float(parsed.get("confidence", 0.0))
-        except (json.JSONDecodeError, ValueError, TypeError):
-            # Fallback: try to extract node_id from text using regex
-            import re
+    # Try to extract from dispatch payload
+    if isinstance(dispatch_result, dict):
+        payload = dispatch_result.get("payload", {})
+        if isinstance(payload, dict):
+            predicted_node_id = payload.get("node_id", payload.get("selected_node", ""))
+            confidence = payload.get("confidence", 0.8)
 
-            match = re.search(r'"node_id"\s*:\s*"([^"]+)"', response_text)
-            if match:
-                predicted_node_id = match.group(1)
-            match = re.search(r'"confidence"\s*:\s*([0-9.]+)', response_text)
-            if match:
-                confidence = float(match.group(1))
-    except Exception:
-        predicted_node_id = None
-        confidence = 0.0
+    # If no prediction from dispatch, fall back to keyword matching
+    if not predicted_node_id:
+        # Simple keyword matching as fallback
+        query_lower = query.lower()
+        for node in nodes:
+            node_id = node.get("id", "")
+            summary = node.get("summary", "").lower()
+            content_ref = node.get("content_ref", "")
+
+            # Check if query words appear in summary or content_ref
+            query_words = query_lower.split()
+            if any(word in summary for word in query_words) or any(
+                word in content_ref.lower() for word in query_words
+            ):
+                predicted_node_id = node_id
+                confidence = 0.6
+                break
 
     # Validate prediction against manifest
-    manifest_nodes, _ = _load_manifest()
-    manifest_node_ids = {n.get("id", "") for n in manifest_nodes}
-
+    manifest_nodes = {n.get("id", "") for n in manifest_nodes}
     if predicted_node_id and predicted_node_id not in manifest_nodes:
-        # Node not in manifest - fall back to VECTOR
-        return LeafPrediction(
-            node_id=None,
-            path=[],
-            confidence=0.0,
-            byte_range=None,
-            content_ref=None,
-        )
+        predicted_node_id = None
+        confidence = 0.0
 
     # Hydrate the leaf node by reading its byte range
     if predicted_node_id:
         graph_node = None
-        for n in nodes:
-            if n.get("id") == predicted_node_id:
-                graph_node = n
+        for node in nodes:
+            if node.get("id") == predicted_node_id:
+                graph_node = node
                 break
 
         if graph_node:
             content_ref = graph_node.get("content_ref", "")
-            byte_range = node.get("byte_range") if (node := graph_node) else None
+            byte_range = graph_node.get("byte_range")
 
-            # Read the leaf content from the manifest node's byte range
-            manifest_node = None
-            for mn in manifest_nodes:
-                if mn.get("id") == predicted_node_id:
-                    manifest_node = mn
-                    break
-
-            if manifest_node:
-                content_ref = manifest_node.get("content_ref", "")
-                byte_range = manifest_node.get("byte_range")
-                content_ref = manifest_node.get("content_ref", "")
-
-                # Read the actual content
-                content_path = ROOT / content_ref
-                if content_path.exists():
-                    content_bytes = content_path.read_bytes()
-                    start, end = byte_range
-                    if 0 <= start < end <= len(content_bytes):
-                        # Content successfully hydrated
-                        return LeafPrediction(
-                            node_id=predicted_node_id,
-                            path=[predicted_node_id],
-                            confidence=confidence,
-                            byte_range=[start, end],
-                            content_ref=content_ref,
-                        )
+            # Read the leaf content
+            content_path = ROOT / content_ref
+            if content_path.exists():
+                content_bytes = content_path.read_bytes()
+                start, end = byte_range
+                if 0 <= start < end <= len(content_bytes):
+                    return LeafPrediction(
+                        node_id=predicted_node_id,
+                        path=[predicted_node_id],
+                        confidence=confidence,
+                        byte_range=[start, end],
+                        content_ref=content_ref,
+                    )
 
     # Fallback: return empty prediction
     return LeafPrediction(

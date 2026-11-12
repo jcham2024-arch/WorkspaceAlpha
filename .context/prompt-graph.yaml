@@ -229,7 +229,14 @@ edges:
     to: envelope-mission
     type: adapts
     note: "DeepSeek adapter configures MISSION envelope dispatch"
-
+  - from: adapter-nemotron-35
+    to: proto-analogy
+    type: adapts
+    note: "Nemotron 3.5 adapter configures analogy protocol"
+  - from: envelope-mission
+    to: proto-analogy
+    type: adapts
+    note: "Analogy protocol configures MISSION envelope dispatch"
   - from: adapter-nemotron-35
     to: envelope-mission
     type: adapts
@@ -272,8 +279,23 @@ edges:
       gpm_ref: .context/pattern-memory/gpm.json
       index_ref: .context/pattern-memory/gpm.index
       top_k: 1
+  - id: proto-analogy
+    type: RetrievalProtocol
+    tier: manager
+    token_budget: 600
+    metadata:
+      protocol: ANALOGY
+      analogy_prefix: assembly/prefix/analogy.md
 edges:
   - from: adapter-nemotron-35
     to: envelope-mission
     type: adapts
     note: "Nemotron 3.5 adapter configures MISSION envelope dispatch (alternative model)"
+  - from: adapter-nemotron-35
+    to: proto-analogy
+    type: adapts
+    note: "Nemotron 3.5 adapter configures analogy protocol"
+  - from: envelope-mission
+    to: proto-analogy
+    type: adapts
+    note: "Analogy protocol configures MISSION envelope dispatch"
