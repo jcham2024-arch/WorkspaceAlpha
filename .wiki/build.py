@@ -166,6 +166,38 @@ def build_wiki(graph: dict) -> str:
         prefix = ref.split("/")[0] if "/" in ref else "(root)"
         groups.setdefault(prefix, []).append(n)
 
+    # Build parent map for breadcrumb navigation: node -> list of parent nodes
+    # A parent is any node that has a 'requires' edge pointing to this node.
+    parent_map: dict[str, list[dict]] = {}
+    for e in graph.get("edges", []):
+        if e.get("type") == "requires":
+            parent_map.setdefault(e["to"], []).append(e["from"])
+
+    def get_breadcrumbs(node_id: str) -> list[dict[str, str]]:
+        """Build breadcrumb trail from root to node via requires edges."""
+        breadcrumbs = []
+        visited = set()
+        current_id = node_id
+        # Walk up through parents, max 10 levels to prevent infinite loops
+        for _ in range(10):
+            if current_id in visited:
+                break
+            visited.add(current_id)
+            node = next((n for n in graph["nodes"] if n["id"] == current_id), None)
+            if node is None:
+                break
+            breadcrumbs.append({
+                "id": current_id,
+                "summary": node.get("summary", current_id),
+                "content_ref": node.get("content_ref", ""),
+            })
+            parents = parent_map.get(current_id, [])
+            if not parents:
+                break
+            current_id = parents[0]["id"]  # Follow first parent
+        breadcrumbs.reverse()
+        return breadcrumbs
+
     sidebar = []
     for g in sorted(groups):
         sidebar.append(f'<div class="group-label">{html.escape(g)}</div>')
@@ -178,6 +210,19 @@ def build_wiki(graph: dict) -> str:
         raw_bytes = read_node_bytes(n)
         raw_text = raw_bytes.decode("utf-8", "replace")
         sha = hashlib.sha256(raw_bytes).hexdigest()
+
+        # Breadcrumbs
+        breadcrumbs = get_breadcrumbs(n["id"])
+        breadcrumb_html = ""
+        if len(breadcrumbs) > 1:
+            crumbs = " / ".join(
+                f'<a href="#{html.escape(b["id"])}">{html.escape(b["summary"] or b["id"])}</a>'
+                for b in breadcrumbs
+            )
+            breadcrumb_html = f'<div class="breadcrumb">{crumbs}</div>'
+        else:
+            breadcrumb_html = ""
+
         req = "".join(
             f'<a href="#{html.escape(t)}">{html.escape(t)}</a> <span class="edge-type">({html.escape(ty)})</span><br>'
             for t, ty in requires[n["id"]]) or "<em>none</em>"
@@ -190,6 +235,7 @@ def build_wiki(graph: dict) -> str:
     <span class="badge">{html.escape(n.get("type","doc"))}</span>
     <span class="ref">{html.escape(n["content_ref"])}</span>
   </div>
+{breadcrumb_html}
   <h2>{html.escape(n["id"])}</h2>
   <p class="summary">{html.escape(n.get("summary",""))}</p>
   <div class="content">{md_to_html(raw_text)}</div>

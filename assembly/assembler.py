@@ -26,6 +26,7 @@ from budgeter import Budgeter, TIER_CEILINGS  # noqa: E402
 from tokenizer import TokenCounter  # noqa: E402
 from provenance.recorder import ProvenanceRecorder  # noqa: E402
 from telemetry.otel_genai import OTelGenAIRecorder  # noqa: E402
+from router import route  # noqa: E402
 
 
 class BLOCKED(Exception):
@@ -78,6 +79,22 @@ class Assembler:
         target_tier = delegation.get("target_tier", "low_thinking")
         allowed_targets = delegation.get("allowed_targets", [])
         task_type = delegation.get("task_type", "")
+        delegation_type = delegation.get("delegation_type", "")
+
+        # Phase 0 — Route: determine protocol via router
+        from router import route as route_query
+
+        routing_decision = route_query(
+            query=delegation.get("task", ""),
+            profile=delegation.get("profile", "conceptualizer"),
+            context={
+                "delegation_type": delegation_type,
+                "target_tier": target_tier,
+                "allowed_targets": allowed_targets,
+            },
+        )
+        protocol_node_id = routing_decision.node_id
+        protocol_node_tier = routing_decision.confidence  # reuse as tier hint
 
         # Phase 1 — Plan: resolve scope from delegation envelope
         scope = {
@@ -105,7 +122,6 @@ class Assembler:
 
         # Phase 2 — Bind: walk graph edges from envelope nodes
         # Start from envelope nodes, walk requires/triggers/routes_to
-        delegation_type = delegation.get("delegation_type", "")
         envelope_node_ids = self._find_envelope_nodes(delegation_type)
 
         # Walk requires transitively
@@ -123,6 +139,10 @@ class Assembler:
                 envelope_node_ids + required_nodes + triggered_nodes + routed_nodes
             )
         )
+
+        # Add protocol node as first candidate (from router decision)
+        if protocol_node_id and protocol_node_id not in candidate_ids:
+            candidate_ids.insert(0, protocol_node_id)
 
         # Phase 3 — Optimize: read byte ranges and count tokens
         nodes_with_tokens = []
@@ -276,6 +296,15 @@ class Assembler:
             )
 
         # Record provenance (Record A — no raw prompt text)
+        provenance_params = {
+            **adapter_params,
+            "routing_decision": {
+                "protocol": protocol_node_id,
+                "confidence": routing_decision.confidence,
+                "rule_id": routing_decision.rule_id,
+                "reason": routing_decision.reason,
+            },
+        }
         self.provenance_recorder.record_turn(
             delegation_id=delegation_id,
             from_agent=delegation.get("from_agent", "unknown"),
@@ -284,7 +313,7 @@ class Assembler:
             target_tier=target_tier,
             assembled_nodes=assembled_nodes_list,
             token_counts=budget_result.to_dict(),
-            adapter_params=adapter_params,
+            adapter_params=provenance_params,
             return_envelope=delegation.get("return_envelope"),
             cache_hit=cache_hit,
             cache_key=cache_key,

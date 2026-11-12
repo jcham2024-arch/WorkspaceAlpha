@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "index_type": "simple_json",
+  "embedding_dim": 384,
+  "indexed_patterns": [],
+  "note": "Vector index over signature_embedding. Currently a JSON-based placeholder. "
+          "When sentence-transformers and sqlite-vec are available, this should be "
+          "migrated to a proper vector index for efficient similarity search."
+}

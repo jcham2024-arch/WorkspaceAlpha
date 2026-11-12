@@ -64,7 +64,7 @@ class TestMCPServer(unittest.TestCase):
         resp = rpc_call("tools/list", msg_id=2)
         tool_names = {t["name"] for t in resp["result"]["tools"]}
         expected = {"compile_context", "read_section", "search_nodes", "list_nodes",
-                    "knowledge_search", "knowledge_last"}
+                    "knowledge_search", "knowledge_last", "wiki.search", "wiki.read"}
         self.assertEqual(tool_names, expected)
 
     def test_read_section_returns_verified_bytes(self):

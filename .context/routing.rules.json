@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "default": "VECTOR",
+  "rules": [
+    {
+      "id": "named-anchor",
+      "match": { "query_mentions_path": true },
+      "protocol": "STAIR",
+      "min_tier": "worker"
+    },
+    {
+      "id": "section-heading",
+      "match": { "query_mentions_section_heading": true },
+      "protocol": "STAIR",
+      "min_tier": "worker"
+    },
+    {
+      "id": "relational-multihop",
+      "match": { "query_has_multiple_entities": true, "query_asks_relationship": true },
+      "protocol": "GRAPH",
+      "min_tier": "manager"
+    },
+    {
+      "id": "pattern-match-high-confidence",
+      "match": { "role": ["orchestrator", "manager"], "gpm_top1_score_gte": 0.82 },
+      "protocol": "PATTERN",
+      "min_tier": "manager"
+    },
+    {
+      "id": "known-skill",
+      "match": { "query_is_skill_invocation": true },
+      "protocol": "DIRECT",
+      "min_tier": "worker"
+    }
+  ],
+  "fallbacks": {
+    "fuzzy_or_exploratory": "VECTOR",
+    "unmatched": "VECTOR"
+  }
+}

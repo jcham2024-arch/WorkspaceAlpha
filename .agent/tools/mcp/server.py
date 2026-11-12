@@ -114,6 +114,24 @@ TOOLS = [
             "properties": {"kind": {"type": "string"}, "limit": {"type": "integer"}},
         },
     },
+    {
+        "name": "wiki.search",
+        "description": "Search wiki pages (conversation, prompt-chunk, conceptual-expansion) by keyword.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}},
+            "required": ["query"],
+        },
+    },
+    {
+        "name": "wiki.read",
+        "description": "Read a wiki page by node ID, returning full markdown content with breadcrumb navigation.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {"node_id": {"type": "string"}},
+            "required": ["node_id"],
+        },
+    },
 ]
 
 
@@ -211,6 +229,39 @@ def handle(msg):
             if name == "knowledge_last":
                 result = context.knowledge_last(args.get("kind", "work"), args.get("limit", 5))
                 payload = _tool_result(result)
+                token_bytes = len(json.dumps(payload).encode("utf-8"))
+                _record_request(name, (time.time() - start) * 1000, token_bytes)
+                return ok(payload)
+            if name == "wiki.search":
+                result = context.search_nodes(args.get("query", ""), args.get("limit", 20))
+                payload = _tool_result(result)
+                token_bytes = len(json.dumps(payload).encode("utf-8"))
+                _record_request(name, (time.time() - start) * 1000, token_bytes)
+                return ok(payload)
+            if name == "wiki.read":
+                node_id = args["node_id"]
+                nodes, _ = context._manifest_nodes()
+                if node_id not in nodes:
+                    METRICS["errors"] += 1
+                    return err(-32000, f"unknown node: {node_id}")
+                n = nodes[node_id]
+                ref = n["content_ref"].split("#")[0]
+                try:
+                    data = (context.ROOT / ref).read_bytes()
+                    s, e = n["byte_range"]
+                    chunk = data[s:e]
+                    content = chunk.decode("utf-8", "replace")
+                except Exception as exc:
+                    METRICS["errors"] += 1
+                    return err(-32000, f"cannot read section: {exc}")
+                payload = _tool_result({
+                    "node_id": node_id,
+                    "content_ref": n["content_ref"],
+                    "title": n.get("summary", n["id"]),
+                    "content": content,
+                    "byte_range": [s, e],
+                    "sha256": n.get("sha256", ""),
+                })
                 token_bytes = len(json.dumps(payload).encode("utf-8"))
                 _record_request(name, (time.time() - start) * 1000, token_bytes)
                 return ok(payload)
