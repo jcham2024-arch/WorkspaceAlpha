@@ -118,7 +118,7 @@ class Assembler:
             # Check if any of the allowed targets exist in manifest
             for target in allowed_targets:
                 reason = self.budgeter.check_target_in_manifest(
-                    target, self.reader._nodes
+                    target, self.reader.all_nodes()
                 )
                 if reason:
                     raise BLOCKED(reason)
@@ -218,12 +218,10 @@ class Assembler:
                     "token_count": actual_tokens,
                     "edge_distance": edge_distance,
                     "token_count_method": (
-                        self.budgeter._counter.__class__.__name__
-                        if self.budgeter._counter
-                        else "heuristic"
+                        self.budgeter.counter_name()
                     ),
                     "estimate_error_bound": (
-                        0.0 if self.budgeter._counter is not None else 0.2
+                        self.budgeter.counter_error_bound()
                     ),
                 }
             )
@@ -424,9 +422,8 @@ class Assembler:
 
     def _find_envelope_nodes(self, delegation_type: str) -> list[str]:
         """Find envelope node IDs matching the delegation type."""
-        self.reader._load_graph()
         result = []
-        for node_id, node in self.reader._graph_nodes.items():
+        for node_id, node in self.reader.all_graph_nodes().items():
             if node.get("type") == "Envelope":
                 metadata = node.get("metadata", {})
                 if metadata.get("delegation_type") == delegation_type:

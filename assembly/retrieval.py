@@ -36,6 +36,11 @@ ROOT = Path(__file__).resolve().parents[1]
 TOOLS_DIR = ROOT / ".agent" / "tools"
 ADAPTERS_DIR = ROOT / "adapters"
 
+# Token estimation lives in assembly.tokenizer; import from there rather than
+# duplicating bytes // 4.
+sys.path.insert(0, str(ROOT / "assembly"))
+from tokenizer import HeuristicCounter  # noqa: E402
+
 
 @dataclass
 class RetrievedUnit:
@@ -124,8 +129,12 @@ def _import_tool(tool_path: str):
 
 
 def _approx_tokens(text: str) -> int:
-    """Cheap token estimate — bytes//4, matching the adapter heuristic."""
-    return len(text.encode("utf-8")) // 4
+    """Cheap token estimate — bytes//4, matching the adapter heuristic.
+
+    Delegates to assembly.tokenizer.HeuristicCounter so there is one
+    estimation algorithm, not nine copies.
+    """
+    return HeuristicCounter().count(text)
 
 
 def _truncate(units: list[RetrievedUnit], max_tokens: int) -> tuple[list[RetrievedUnit], bool]:

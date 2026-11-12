@@ -101,6 +101,14 @@ class Budgeter:
             raise ValueError("No TokenCounter configured")
         return self._counter.count(text, model_id)
 
+    def counter_name(self) -> str:
+        """Return the name of the configured token counter."""
+        return self._counter.__class__.__name__ if self._counter else "heuristic"
+
+    def counter_error_bound(self) -> float:
+        """Return the estimate error bound of the configured counter."""
+        return 0.0 if self._counter is not None else 0.2
+
     def enforce_budget(
         self,
         nodes_with_tokens: list[dict],

@@ -66,8 +66,8 @@ The loop fix has landed. Do **not** re-diagnose it.
 | `3edb36cd` | 11 contract tests + 10 gate tests, verified failing against pre-fix `8cdd6298` |
 | `94894fdc` | Gate refactored into importable, fixture-testable functions |
 | `fb5b9063` | Stale test contract corrected; gate tightened to precise patterns |
-| `d9ebdb39` | `FIX_STAIR_LOOP.md` persisted; superseded directive archived |
-| `405dc225` | `EXECUTION_PROTOCOL.md` persisted with ledger complete |
+| `d9ebdb39` | `FIX_STAIR_LOOP.md` persisted (archived) |
+| `405dc225` | `EXECUTION_PROTOCOL.md` persisted with ledger complete (archived) |
 
 Final state of the navigator:
 
@@ -107,14 +107,11 @@ Five failures predating the navigator work were fixed on 2026-11-12:
 Superseded fix directives live in `.context/archive/`. They are kept for
 history and must not be executed:
 
-- `.context/archive/FIX_STAIR_LOOP_III.md` — superseded by `FIX_STAIR_LOOP.md`
-- `.context/FIX_STAIR_LOOP.md` — the canonical fix specification (Part I is
-  still the diagnostic framework for any *future* navigator loop)
-- `.context/EXECUTION_PROTOCOL.md` — the multi-phase execution meta-protocol,
-  with its ledger recorded as complete
+- `.context/archive/FIX_STAIR_LOOP_III.md` — superseded by `.context/archive/FIX_STAIR_LOOP.md`
+- `.context/archive/FIX_STAIR_LOOP.md` — the canonical fix specification (Part I is still the diagnostic framework for any *future* navigator loop)
+- `.context/archive/EXECUTION_PROTOCOL.md` — the multi-phase execution meta-protocol, with its ledger recorded as complete
 
-Read `FIX_STAIR_LOOP.md` Part I only if the navigator loops again after this
-repair. Its Parts II–VI describe a code state that no longer exists.
+Read `.context/archive/FIX_STAIR_LOOP.md` Part I only if the navigator loops again after this repair. Its Parts II–VI describe a code state that no longer exists.
 
 ## 6. Known gaps — not bugs, but not done
 
@@ -171,7 +168,18 @@ raising; STAIR runs and returns `empty` for a query with no confident leaf;
 a stubbed tool's text lands in `variable_suffix` under a
 `## Retrieved context — VECTOR (1 unit)` header.
 
-## 7. Conventions for the next session
+## 7. Code cleanup — DONE
+
+Code-level cleanup completed on 2026-11-12:
+
+| Area | Fix |
+| :--- | :--- |
+| Token estimation | `len(text.encode("utf-8")) // 4` was duplicated in 9 places. All non-canonical copies now delegate to `assembly.tokenizer.HeuristicCounter` (single source of truth). |
+| Broken layering | `assembly/assembler.py` accessed private state (`reader._nodes`, `budgeter._counter`, `reader._load_graph()`, `reader._graph_nodes`). Added public methods `ManifestReader.all_nodes()`, `ManifestReader.all_graph_nodes()`, `Budgeter.counter_name()`, `Budgeter.counter_error_bound()`; assembler now uses only public API. |
+| Stale references | `BOOTSTRAPPER.md` referenced missing `tools/README.md`; `STATUS.md` referenced `.context/FIX_STAIR_LOOP.md` and `.context/EXECUTION_PROTOCOL.md` (now in archive). All fixed. |
+| Dead helper | `_dispatch_llm` was removed from `stair_navigator.py` in the navigator fix; dispatch now lives exclusively in `adapters/navigator.py`. |
+
+## 8. Conventions for the next session
 
 1. **Read this file first.** It replaces four documents.
 2. **Build before you change anything:** `seed.py && build.py && validate.py`,
@@ -185,7 +193,7 @@ a stubbed tool's text lands in `variable_suffix` under a
 6. **`AGENTS.md` is golden-file coupled.** Editing it requires regenerating
    `tests/fixtures/golden/AGENTS.md` (the tripwire is intentional).
 7. **Multi-phase work:** one phase per commit, ledger updated before each. See
-   `EXECUTION_PROTOCOL.md` §1.
+   `.context/archive/EXECUTION_PROTOCOL.md` §1.
 8. **No pytest.** Use `unittest`. `mocker.patch` becomes `unittest.mock.patch`.
 
 ---

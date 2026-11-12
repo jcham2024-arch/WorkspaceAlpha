@@ -56,6 +56,16 @@ class ManifestReader:
         self._load_manifest()
         return self._nodes.get(node_id)
 
+    def all_nodes(self) -> dict[str, dict]:
+        """Return all manifest nodes keyed by node ID."""
+        self._load_manifest()
+        return self._nodes
+
+    def all_graph_nodes(self) -> dict[str, dict]:
+        """Return all prompt-graph nodes keyed by node ID."""
+        self._load_graph()
+        return self._graph_nodes
+
     def get_graph_node(self, node_id: str) -> dict | None:
         """Get a prompt graph node by ID."""
         self._load_graph()

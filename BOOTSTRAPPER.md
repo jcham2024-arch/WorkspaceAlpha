@@ -106,7 +106,7 @@ Notable migrations (intentional, known to be missing files):
 `builder/operator/planner` → `coder/reviewer/taskmaster-manage`;
 older `orchestrator/REVIEW` docs → `protocol.md` + `eval-agents.md`;
 `build.py`/`seed.py` → `.wiki/`; `.agent/mcp/` → `.agent/tools/mcp/`;
-`resources/` → folded into `tools/README.md`.
+`resources/` → folded into `tools/`.
 
 ---
 
