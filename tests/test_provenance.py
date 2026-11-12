@@ -14,7 +14,7 @@ sys.path.insert(0, str(ROOT / "provenance"))
 from recorder import ProvenanceRecorder  # noqa: E402
 
 
-class TestProvenanceRecorder:
+class TestProvenanceRecorder(unittest.TestCase):
     """Test provenance recorder."""
 
     def setUp(self):

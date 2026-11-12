@@ -10,7 +10,7 @@ sys.path.insert(0, str(ROOT / "provenance"))
 from redact import Redactor, redact_text, is_safe_to_dispatch  # noqa: E402
 
 
-class TestRedactor:
+class TestRedactor(unittest.TestCase):
     """Test redaction module."""
 
     def test_secret_blocked(self):
