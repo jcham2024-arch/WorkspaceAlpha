@@ -1,0 +1,113 @@
+{
+  "version": "1.0",
+  "agents": [
+    {
+      "id": "conceptualizer",
+      "name": "Conceptualizer",
+      "role": "human-facing",
+      "tier": "high-thinking",
+      "delegation_types": ["MISSION"],
+      "authorities": ["PLAN", "ANALYZE", "APPROVE"],
+      "target_tiers": ["thinking"],
+      "description": "Human-facing orchestrator — explores ideas, locks scope, collects approvals, presents results",
+      "skills": ["brainstorming", "writing-plans", "thinking-first-principles", "thinking-margin-of-safety"],
+      "description_file": ".agent/profiles/conceptualizer.md"
+    },
+    {
+      "id": "taskmaster",
+      "name": "Taskmaster",
+      "role": "subagent-facing",
+      "tier": "high-thinking",
+      "delegation_types": ["MISSION", "EXECUTION"],
+      "authorities": ["PLAN", "EXECUTE", "REVIEW"],
+      "target_tiers": ["thinking", "low_thinking", "non_thinking"],
+      "description": "Subagent-facing orchestrator — owns planning, dispatch, supervision, integration, synthesis",
+      "skills": ["dispatching-parallel-agents", "subagent-driven-development", "executing-plans", "skill-picker", "context-engineering", "filesystem-context", "diagnosing-superpowers", "using-git-worktrees", "verification-before-completion", "requesting-code-review", "receiving-code-review", "finishing-a-development-branch", "thinking-theory-of-constraints", "thinking-opportunity-cost"],
+      "description_file": ".agent/profiles/taskmaster.md"
+    },
+    {
+      "id": "coder",
+      "name": "Coder",
+      "role": "implementation",
+      "tier": "low-thinking",
+      "delegation_types": ["EXECUTION"],
+      "authorities": ["EXECUTE"],
+      "target_tiers": ["low_thinking", "non_thinking"],
+      "description": "Implements the smallest change that fully solves the task; proves it with build/tests and reports doc gaps",
+      "skills": ["systematic-debugging", "test-driven-development", "clean-code-guard", "clean-code", "andrej-karpathy", "strict-api", "constraint-driven-development", "minimalist", "ponytail", "code-simplification", "performance-optimization", "observability-and-instrumentation", "source-driven-development", "verification-before-completion", "red-green-proof"],
+      "description_file": ".agent/profiles/coder.md"
+    },
+    {
+      "id": "researcher",
+      "name": "Researcher",
+      "role": "research",
+      "tier": "low-thinking",
+      "delegation_types": ["MISSION"],
+      "authorities": ["ANALYZE"],
+      "target_tiers": ["low_thinking", "non_thinking"],
+      "description": "Gathers external evidence (docs, patterns, alternatives) and reports findings with sources",
+      "skills": ["skill-picker", "open-source", "source-driven-development", "tech-stack-evaluator", "context-engineering", "filesystem-context", "thinking-first-principles", "thinking-bounded-rationality", "thinking-margin-of-safety", "browser-use", "remote-browser"],
+      "description_file": ".agent/profiles/researcher.md"
+    },
+    {
+      "id": "reviewer",
+      "name": "Reviewer",
+      "role": "review",
+      "tier": "low-thinking",
+      "delegation_types": ["EXECUTION"],
+      "authorities": ["REVIEW"],
+      "target_tiers": ["low_thinking", "non_thinking"],
+      "description": "Audits diffs and generated artifacts for invariant violations, security leaks, and evidence gaps",
+      "skills": ["requesting-code-review", "receiving-code-review", "verification-before-completion", "clean-code-guard", "codebase-cleanup-refactor-clean", "code-polish", "ponytail-review", "ponytail-audit", "repo-maintainer", "thinking-theory-of-constraints", "strict-api"],
+      "description_file": ".agent/profiles/reviewer.md"
+    },
+    {
+      "id": "coding-manager",
+      "name": "Coding Manager",
+      "role": "manager",
+      "tier": "low-thinking",
+      "delegation_types": ["EXECUTION"],
+      "authorities": ["EXECUTE", "REVIEW"],
+      "target_tiers": ["low_thinking", "non_thinking"],
+      "description": "Breaks down coding tasks into minimal-context steps; dispatches to coder agents",
+      "skills": ["dispatching-parallel-agents", "subagent-driven-development", "systematic-debugging", "test-driven-development", "clean-code-guard", "constraint-driven-development", "verification-before-completion", "red-green-proof"],
+      "description_file": ".agent/profiles/coding-manager.md"
+    },
+    {
+      "id": "research-manager",
+      "name": "Research Manager",
+      "role": "manager",
+      "tier": "low-thinking",
+      "delegation_types": ["MISSION"],
+      "authorities": ["ANALYZE"],
+      "target_tiers": ["low_thinking", "non_thinking"],
+      "description": "Breaks down research tasks into minimal-context steps; dispatches to researcher agents",
+      "skills": ["dispatching-parallel-agents", "subagent-driven-development", "skill-picker", "open-source", "source-driven-development", "tech-stack-evaluator", "context-engineering", "filesystem-context", "thinking-bounded-rationality"],
+      "description_file": ".agent/profiles/research-manager.md"
+    },
+    {
+      "id": "review-manager",
+      "name": "Review Manager",
+      "role": "manager",
+      "tier": "low-thinking",
+      "delegation_types": ["EXECUTION"],
+      "authorities": ["REVIEW"],
+      "target_tiers": ["low_thinking", "non_thinking"],
+      "description": "Breaks down review tasks into minimal-context steps; dispatches to reviewer agents",
+      "skills": ["dispatching-parallel-agents", "subagent-driven-development", "requesting-code-review", "receiving-code-review", "verification-before-completion", "clean-code-guard", "ponytail-review", "ponytail-audit", "repo-maintainer", "thinking-theory-of-constraints"],
+      "description_file": ".agent/profiles/review-manager.md"
+    },
+    {
+      "id": "wiki-producer",
+      "name": "Wiki Producer",
+      "role": "wiki-production",
+      "tier": "low-thinking",
+      "delegation_types": ["EXECUTION"],
+      "authorities": ["EXECUTE"],
+      "target_tiers": ["low_thinking", "non_thinking"],
+      "description": "Generates human-readable wiki from provenance records and prompt DAG",
+      "skills": ["wiki-producer"],
+      "description_file": ".agent/profiles/wiki-producer.md"
+    }
+  ]
+}

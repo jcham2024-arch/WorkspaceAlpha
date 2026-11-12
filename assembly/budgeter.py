@@ -17,6 +17,11 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 
+# Add assembly directory to path for sibling imports
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from tokenizer import TokenCounter, HeuristicCounter  # noqa: E402
+
 # Per-tier token ceilings for the variable suffix (per spec §6)
 TIER_CEILINGS = {
     "thinking": 1800,   # manager tier
@@ -25,11 +30,6 @@ TIER_CEILINGS = {
 }
 
 DEFAULT_CEILING = 1500
-
-
-def estimate_tokens(text: str) -> int:
-    """Conservative token estimate: bytes // 4."""
-    return len(text.encode("utf-8")) // 4
 
 
 class BudgetResult:
@@ -43,6 +43,8 @@ class BudgetResult:
         included_nodes: list[str],
         pruned_nodes: list[str],
         blocked_reason: str | None = None,
+        token_count_method: str | None = None,
+        estimate_error_bound: float | None = None,
     ):
         self.within_budget = within_budget
         self.total_tokens = total_tokens
@@ -50,6 +52,8 @@ class BudgetResult:
         self.included_nodes = included_nodes
         self.pruned_nodes = pruned_nodes
         self.blocked_reason = blocked_reason
+        self.token_count_method = token_count_method
+        self.estimate_error_bound = estimate_error_bound
 
     def to_dict(self) -> dict:
         return {
@@ -59,18 +63,29 @@ class BudgetResult:
             "included_nodes": self.included_nodes,
             "pruned_nodes": self.pruned_nodes,
             "blocked_reason": self.blocked_reason,
+            "token_count_method": self.token_count_method,
+            "estimate_error_bound": self.estimate_error_bound,
         }
 
 
 class Budgeter:
     """Enforces per-tier token ceilings with budget-aware pruning."""
 
-    def __init__(self):
-        pass
+    def __init__(self, token_counter: TokenCounter | None = None):
+        self._counter = token_counter or HeuristicCounter()
 
     def get_ceiling(self, target_tier: str) -> int:
         """Get the token ceiling for a target tier."""
         return TIER_CEILINGS.get(target_tier, DEFAULT_CEILING)
+
+    def count_tokens(self, text: str, model_id: str | None = None) -> int:
+        """Count tokens using the configured counter.
+
+        Raises ValueError if no counter is configured.
+        """
+        if self._counter is None:
+            raise ValueError("No TokenCounter configured")
+        return self._counter.count(text, model_id)
 
     def enforce_budget(
         self,
@@ -81,7 +96,8 @@ class Budgeter:
         """Enforce token budget on a list of nodes with token counts.
 
         Args:
-            nodes_with_tokens: List of dicts with keys: node_id, node_type, token_count, edge_distance
+            nodes_with_tokens: List of dicts with keys: node_id, node_type, token_count,
+                edge_distance, token_count_method, estimate_error_bound
             target_tier: The target tier for ceiling lookup
             root_node_ids: Root node IDs (for distance-based pruning). Nodes farther from root
                           are pruned first.
@@ -90,16 +106,16 @@ class Budgeter:
         """
         ceiling = self.get_ceiling(target_tier)
 
+        # Determine token counting method from first node (all should use same counter)
+        token_count_method = None
+        estimate_error_bound = None
+        if nodes_with_tokens:
+            token_count_method = nodes_with_tokens[0].get("token_count_method")
+            estimate_error_bound = nodes_with_tokens[0].get("estimate_error_bound")
+
         # Sort nodes: included first, pruned last
         # Nodes with edge_distance are pruned by distance (farthest first)
         # Nodes without edge_distance (root, requires edges) are never pruned
-        ceiling = ceiling
-
-        included = []
-        pruned = []
-        total = 0
-
-        # Separate root/requires nodes (never pruned) from triggers nodes (prunable)
         root_nodes = []
         prunable_nodes = []
 
@@ -111,6 +127,10 @@ class Budgeter:
                 prunable_nodes.append(node)
 
         # Always include root nodes
+        included = []
+        total = 0
+        pruned = []
+
         for node in root_nodes:
             included.append(node["node_id"])
             total += node["token_count"]
@@ -139,6 +159,8 @@ class Budgeter:
             included_nodes=included,
             pruned_nodes=pruned,
             blocked_reason=blocked_reason,
+            token_count_method=token_count_method,
+            estimate_error_bound=estimate_error_bound,
         )
 
     def check_target_in_manifest(

@@ -39,7 +39,7 @@ class DeepSeekV32Adapter:
         target_tier: str,
         max_tokens: int | None = None,
         temperature: float = 0.0,
-        extra_params: dict | None = None,
+        extra_params: dict[str, Any] | None = None,
     ) -> dict[str, Any]:
         """Build dispatch parameters for DeepSeek V3.2.
 
@@ -61,7 +61,8 @@ class DeepSeekV32Adapter:
         min_tokens = MANAGER_MIN_TOKENS if is_manager else PRODUCTION_MIN_TOKENS
         if max_tokens is not None and max_tokens < min_tokens:
             raise ValueError(
-                f"BUDGET_FLOOR_VIOLATION: {target_tier} tier requires max_tokens >= {min_tokens}, got {max_tokens}"
+                f"BUDGET_FLOOR_VIOLATION: {target_tier} tier requires "
+                f"max_tokens >= {min_tokens}, got {max_tokens}"
             )
 
         # Set default max_tokens if not provided
@@ -101,14 +102,47 @@ class DeepSeekV32Adapter:
 
         if thinking_type == "enabled":
             if max_tokens < MANAGER_MIN_TOKENS:
-                return f"BUDGET_FLOOR_VIOLATION: manager tier requires max_tokens >= {MANAGER_MIN_TOKENS}, got {max_tokens}"
+                return (
+                    f"BUDGET_FLOOR_VIOLATION: manager tier requires max_tokens >= "
+                    f"{MANAGER_MIN_TOKENS}, got {max_tokens}"
+                )
             if reasoning_effort not in ("high", "max"):
-                return f"REASONING_EFFORT_INVALID: manager tier requires reasoning_effort 'high' or 'max', got {reasoning_effort}"
+                return (
+                    f"REASONING_EFFORT_INVALID: manager tier requires reasoning_effort "
+                    f"'high' or 'max', got {reasoning_effort}"
+                )
         elif thinking_type == "disabled":
             if max_tokens < PRODUCTION_MIN_TOKENS:
-                return f"BUDGET_FLOOR_VIOLATION: production tier requires max_tokens >= {PRODUCTION_MIN_TOKENS}, got {max_tokens}"
+                return (
+                    f"BUDGET_FLOOR_VIOLATION: production tier requires max_tokens >= "
+                    f"{PRODUCTION_MIN_TOKENS}, got {max_tokens}"
+                )
 
         return None
+
+    def capability_manifest(self) -> dict[str, Any]:
+        """Return capability manifest for this adapter."""
+        return {
+            "model_id": "deepseek-v3.2-thinking",
+            "provider": "deepseek",
+            "context_window": 131072,
+            "max_tokens_floor": MANAGER_MIN_TOKENS,
+            "production_allowed": True,
+            "reasoning_modes": ["thinking", "non_thinking"],
+            "format_preferences": {
+                "frozen_prefix": "xml_semantic_tags",
+                "variable_suffix": "markdown_headings",
+            },
+            "conformance_suite": "factory/conformance/deepseek-v3.2.yaml",
+        }
+
+    def count_tokens(self, text: str, model_id: str | None = None) -> int:
+        """Count tokens using a heuristic estimator (bytes // 4).
+
+        Note: This is a heuristic estimate, not a precise token count.
+        For accurate token counting, use tiktoken with cl100k_base encoding.
+        """
+        return len(text.encode("utf-8")) // 4
 
 
 def main():

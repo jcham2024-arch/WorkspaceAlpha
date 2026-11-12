@@ -1,0 +1,51 @@
+# Role-Based Access Control for Provenance Records
+# Governs which roles can read provenance records and debug traces.
+
+# Role-based access matrix
+# Each role specifies which record types they can read.
+roles:
+  # Auditor: Can read provenance records (Record A) but NOT debug traces (Record B)
+  auditor:
+    provenance_read: true
+    debug_trace_read: false
+    wiki_generate: false
+    bundle_promote: false
+
+  # Engineer: Can read provenance and debug traces (sampled), can regenerate wiki
+  engineer:
+    provenance_read: true
+    debug_trace_read: true
+    wiki_generate: true
+    bundle_promote: false
+
+  # Review manager: Can read provenance, generate wiki
+  review_manager:
+    provenance_read: true
+    debug_trace_read: false
+    wiki_generate: true
+    bundle_promote: false
+
+  # Security: Can read everything including debug traces
+  security:
+    provenance_read: true
+    debug_trace_read: true
+    wiki_generate: false
+    bundle_promote: false
+
+  # Release manager: Can read provenance, generate wiki, promote bundles
+  release_manager:
+    provenance_read: true
+    debug_trace_read: false
+    wiki_generate: true
+    bundle_promote: true
+
+# Default role for unauthenticated/unknown identities
+default_role: "auditor"
+
+# Break-glass access: requires explicit logging to provenance/access.log
+break_glass:
+  enabled: true
+  log_path: "provenance/access.log"
+  roles_allowed:
+    - "security"
+    - "release_manager"

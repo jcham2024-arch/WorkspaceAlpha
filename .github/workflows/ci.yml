@@ -9,7 +9,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 
@@ -17,6 +17,10 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.14"
+
+      - name: Install dependencies
+        run: |
+          pip install PyYAML
 
       - name: Run unit tests
         run: python3 -m unittest discover -s tests -v
@@ -26,6 +30,9 @@ jobs:
 
       - name: Run skill audit
         run: python3 .agent/tools/run.py audit
+
+      - name: Validate prompt graph schema
+        run: python3 tools/validate_prompt_graph.py
 
       - name: Verify build determinism
         run: |
@@ -60,7 +67,10 @@ jobs:
 
       - name: Check Python syntax on all tool scripts
         run: |
-          for f in .wiki/seed.py .wiki/build.py validate.py tools/*.py .agent/tools/*.py .agent/tools/mcp/*.py; do
+          for f in .wiki/seed.py .wiki/build.py validate.py tools/*.py .agent/tools/*.py .agent/tools/mcp/*.py assembly/*.py adapters/*.py provenance/*.py telemetry/*.py factory/*.py; do
             python3 -m py_compile "$f" || { echo "SYNTAX ERROR: $f"; exit 1; }
           done
           echo "OK: all Python files compile"
+
+      - name: Validate graph JSON schema
+        run: python3 tools/validate_prompt_graph.py

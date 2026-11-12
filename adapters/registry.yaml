@@ -1,0 +1,29 @@
+registry_version: "1.0"
+adapters:
+  deepseek-v3.2:
+    module: adapters.deepseek_v32
+    tiers: [thinking]
+    token_counter: tiktoken
+    token_counter_config:
+      encoding_name: cl100k_base
+    max_tokens_floor: 8192
+    production_allowed: true
+    conformance_suite: factory/conformance/deepseek-v3.2.yaml
+
+  nemotron-3.5:
+    module: adapters.nemotron_35
+    tiers: [thinking, low_thinking]
+    token_counter: tiktoken
+    token_counter_config:
+      encoding_name: cl100k_base
+    max_tokens_floor: 16384
+    production_allowed: true
+    conformance_suite: factory/conformance/nemotron-3.5.yaml
+
+  generic:
+    module: adapters.generic
+    tiers: [non_thinking]
+    token_counter: heuristic
+    max_tokens_floor: 1024
+    production_allowed: false
+    conformance_suite: factory/conformance/generic.yaml

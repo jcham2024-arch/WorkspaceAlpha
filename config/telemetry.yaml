@@ -1,0 +1,32 @@
+# OpenTelemetry GenAI Telemetry Configuration
+# Governs how LLM spans are recorded and exported.
+
+# Capture content (prompt/response text) in spans.
+# Default: false — only metadata and references are recorded.
+# Set to true only if you have secure storage and access controls.
+capture_content: false
+
+# OpenTelemetry semantic convention stability mode.
+# gen_ai_latest_experimental enables the latest GenAI semantic conventions.
+semconv_stability: "gen_ai_latest_experimental"
+
+# Span attributes to include (beyond the required GenAI attributes)
+include_attributes:
+  - gen_ai.request.temperature
+  - gen_ai.request.max_tokens
+  - gen_ai.request.system_prompt_hash
+  - gen_ai.request.content_ref
+  - gen_ai.response.content_ref
+
+# Span name prefix
+span_name_prefix: "workspacealpha"
+
+# Export destination (for future OTel collector integration)
+# Values: "file", "otlp", "stdout"
+export_destination: "file"
+
+# Export endpoint (for OTLP)
+export_endpoint: null
+
+# Export headers (for OTLP, auth headers etc.)
+export_headers: {}

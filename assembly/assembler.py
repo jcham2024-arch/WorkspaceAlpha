@@ -23,6 +23,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from manifest_reader import ManifestReader  # noqa: E402
 from slicer import Slicer, SliceOutOfBounds  # noqa: E402
 from budgeter import Budgeter, TIER_CEILINGS  # noqa: E402
+from tokenizer import TokenCounter  # noqa: E402
+from provenance.recorder import ProvenanceRecorder  # noqa: E402
+from telemetry.otel_genai import OTelGenAIRecorder  # noqa: E402
 
 
 class BLOCKED(Exception):
@@ -37,10 +40,13 @@ class BLOCKED(Exception):
 class Assembler:
     """Two-zone prompt assembler with budget enforcement and cache-keyed rendering."""
 
-    def __init__(self):
+    def __init__(self, token_counter: TokenCounter | None = None):
         self.reader = ManifestReader()
         self.slicer = Slicer()
-        self.budgeter = Budgeter()
+        self.budgeter = Budgeter(token_counter=token_counter)
+        self._token_counter = token_counter
+        self.provenance_recorder = ProvenanceRecorder()
+        self.otel_recorder = OTelGenAIRecorder()
 
     def assemble(
         self,
@@ -58,8 +64,10 @@ class Assembler:
               - frozen_prefix: str (SystemPrompt content)
               - variable_suffix: str (assembled task envelope)
               - cache_key: str (SHA-256 of prefix + adapter params)
-              - assembled_nodes: list[dict] with node_id, node_type, token_count, cache_hit
-              - token_counts: dict with prefix_tokens, suffix_tokens, total_tokens, ceiling_tokens, budget_exceeded
+              - assembled_nodes: list[dict] with node_id, node_type, token_count,
+                cache_hit, token_count_method, estimate_error_bound
+              - token_counts: dict with prefix_tokens, suffix_tokens, total_tokens,
+                ceiling_tokens, budget_exceeded
               - pruned_nodes: list[str]
               - blocked: bool (False if successful)
 
@@ -116,7 +124,7 @@ class Assembler:
             )
         )
 
-        # Phase 3 — Optimize: read byte ranges and estimate tokens
+        # Phase 3 — Optimize: read byte ranges and count tokens
         nodes_with_tokens = []
         for node_id in candidate_ids:
             graph_node = self.reader.get_graph_node(node_id)
@@ -127,9 +135,10 @@ class Assembler:
             token_budget = graph_node.get("token_budget", 0)
             edge_distance = graph_node.get("metadata", {}).get("edge_distance", 0)
 
-            # Try to read actual content for token estimation
+            # Count tokens using the configured TokenCounter
             actual_tokens = token_budget
             content_ref = graph_node.get("content_ref", "")
+            content_text = ""
 
             if node_type == "ContextSlice":
                 # Read exact bytes from manifest
@@ -138,20 +147,34 @@ class Assembler:
                 ).get("manifest_node", node_id)
                 try:
                     chunk = self.slicer.slice_node(manifest_node_id)
-                    actual_tokens = len(chunk.encode("utf-8")) // 4
+                    content_text = chunk.decode("utf-8", errors="replace")
                 except SliceOutOfBounds:
-                    actual_tokens = token_budget
+                    content_text = ""
             elif node_type == "SystemPrompt":
                 # Read frozen prefix file
                 try:
                     prefix_path = ROOT / content_ref
                     if prefix_path.exists():
-                        chunk = prefix_path.read_bytes()
-                        actual_tokens = len(chunk) // 4
-                    else:
-                        actual_tokens = token_budget
+                        content_text = prefix_path.read_text(
+                            encoding="utf-8", errors="replace"
+                        )
                 except Exception:
-                    actual_tokens = token_budget
+                    content_text = ""
+            elif node_type == "Skill":
+                graph_node_ref = graph_node.get("content_ref", "")
+                try:
+                    skill_path = ROOT / graph_node_ref
+                    if skill_path.exists():
+                        content_text = skill_path.read_text(
+                            encoding="utf-8", errors="replace"
+                        )
+                except Exception:
+                    content_text = ""
+
+            if content_text:
+                actual_tokens = self.budgeter.count_tokens(
+                    content_text, model_id=graph_node.get("metadata", {}).get("model")
+                )
             else:
                 actual_tokens = token_budget
 
@@ -161,6 +184,14 @@ class Assembler:
                     "node_type": node_type,
                     "token_count": actual_tokens,
                     "edge_distance": edge_distance,
+                    "token_count_method": (
+                        self.budgeter._counter.__class__.__name__
+                        if self.budgeter._counter
+                        else "heuristic"
+                    ),
+                    "estimate_error_bound": (
+                        0.0 if self.budgeter._counter is not None else 0.2
+                    ),
                 }
             )
 
@@ -207,6 +238,12 @@ class Assembler:
                     "node_type": node_type,
                     "token_count": token_count,
                     "cache_hit": node_type == "SystemPrompt",
+                    "token_count_method": node.get(
+                        "token_count_method", "heuristic"
+                    ),
+                    "estimate_error_bound": node.get(
+                        "estimate_error_bound", 0.2
+                    ),
                 }
             )
 
@@ -217,23 +254,73 @@ class Assembler:
         adapter_params = delegation.get("adapter_params", {})
         cache_input = frozen_prefix + json.dumps(adapter_params, sort_keys=True)
         cache_key = hashlib.sha256(cache_input.encode("utf-8")).hexdigest()
+        cache_hit = all(n.get("cache_hit", False) for n in nodes_with_tokens if n["node_type"] == "SystemPrompt")
 
-        total_tokens = prefix_tokens + suffix_tokens
-        budget_exceeded = total_tokens > ceiling
+        # Phase 6 — Record provenance and OTel spans
+        assembled_nodes_list = []
+        for n in nodes_with_tokens:
+            if n["node_id"] not in budget_result.included_nodes:
+                continue
+            graph_node = self.reader.get_graph_node(n["node_id"])
+            byte_range = None
+            if graph_node:
+                byte_range = graph_node.get("byte_range")
+            assembled_nodes_list.append(
+                {
+                    "node_id": n["node_id"],
+                    "node_type": n["node_type"],
+                    "token_count": n["token_count"],
+                    "cache_hit": n.get("cache_hit", False),
+                    "byte_range": byte_range,
+                }
+            )
+
+        # Record provenance (Record A — no raw prompt text)
+        self.provenance_recorder.record_turn(
+            delegation_id=delegation_id,
+            from_agent=delegation.get("from_agent", "unknown"),
+            to_agent=delegation.get("to_agent", "unknown"),
+            delegation_type=delegation.get("delegation_type", ""),
+            target_tier=target_tier,
+            assembled_nodes=assembled_nodes_list,
+            token_counts=budget_result.to_dict(),
+            adapter_params=adapter_params,
+            return_envelope=delegation.get("return_envelope"),
+            cache_hit=cache_hit,
+            cache_key=cache_key,
+            pruned_nodes=budget_result.pruned_nodes,
+        )
+
+        # Record OTel spans
+        self.otel_recorder.record_chat_span(
+            span_id=f"span-{delegation_id}-chat",
+            trace_id=delegation.get("trace_id", delegation_id),
+            model_name=adapter_params.get("model", "unknown"),
+            provider=adapter_params.get("model", "deepseek-v3.2").split("-")[0],
+            input_tokens=prefix_tokens,
+            output_tokens=suffix_tokens,
+            finish_reason="stop" if not budget_result.to_dict().get("budget_exceeded", False) else "length",
+            temperature=adapter_params.get("temperature"),
+            max_tokens=adapter_params.get("max_tokens"),
+            system_prompt_hash=cache_key,
+            request_ref=f"req-{delegation_id}",
+            response_ref=f"resp-{delegation_id}",
+            duration_ms=0.0,
+            status="ok",
+        )
 
         return {
-            "delegation_id": delegation_id,
             "blocked": False,
             "frozen_prefix": frozen_prefix,
             "variable_suffix": variable_suffix,
             "cache_key": cache_key,
-            "assembled_nodes": assembled_nodes,
+            "assembled_nodes": assembled_nodes_list,
             "token_counts": {
                 "prefix_tokens": prefix_tokens,
                 "suffix_tokens": suffix_tokens,
-                "total_tokens": total_tokens,
+                "total_tokens": budget_result.to_dict().get("total_tokens", prefix_tokens + suffix_tokens),
                 "ceiling_tokens": ceiling,
-                "budget_exceeded": budget_exceeded,
+                "budget_exceeded": budget_result.blocked_reason is not None,
             },
             "pruned_nodes": budget_result.pruned_nodes,
             "adapter_params": adapter_params,
@@ -329,7 +416,12 @@ def main():
         result = assembler.assemble(delegation)
         print(json.dumps(result, indent=2))
     except BLOCKED as exc:
-        print(json.dumps({"blocked": True, "reason": exc.reason, "excluded_nodes": exc.excluded_nodes}, indent=2))
+        print(
+            json.dumps(
+                {"blocked": True, "reason": exc.reason, "excluded_nodes": exc.excluded_nodes},
+                indent=2,
+            )
+        )
         sys.exit(1)
 
 

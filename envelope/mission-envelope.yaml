@@ -11,3 +11,9 @@ max_steps: 12
 termination_signal: "MISSION_COMPLETE"
 return_schema: "schemas/return-envelope.schema.json"
 return_format: "json"
+identity:
+  agent_id: "orchestrator-alpha"
+  agent_version: "1.4.2"
+  issuer: "workspace-alpha"
+  key_id: "sha256:..."
+  signature: "..."

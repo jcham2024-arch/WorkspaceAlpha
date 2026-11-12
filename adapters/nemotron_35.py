@@ -52,7 +52,8 @@ class Nemotron35Adapter:
         # Validate token floor
         if max_tokens is not None and max_tokens < MAX_TOKENS_FLOOR:
             raise ValueError(
-                f"BUDGET_FLOOR_VIOLATION: Nemotron 3.5 requires max_tokens >= {MAX_TOKENS_FLOOR}, got {max_tokens}"
+                f"BUDGET_FLOOR_VIOLATION: Nemotron 3.5 requires max_tokens >= "
+                f"{MAX_TOKENS_FLOOR}, got {max_tokens}"
             )
 
         # Set default max_tokens if not provided
@@ -97,12 +98,39 @@ class Nemotron35Adapter:
         enable_thinking = dispatch.get("enable_thinking")
 
         if max_tokens < MAX_TOKENS_FLOOR:
-            return f"BUDGET_FLOOR_VIOLATION: Nemotron 3.5 requires max_tokens >= {MAX_TOKENS_FLOOR}, got {max_tokens}"
+            return (
+                f"BUDGET_FLOOR_VIOLATION: Nemotron 3.5 requires max_tokens >= "
+                f"{MAX_TOKENS_FLOOR}, got {max_tokens}"
+            )
 
         if enable_thinking is not True:
             return "REASONING_EFFORT_INVALID: Nemotron 3.5 requires enable_thinking: true"
 
         return None
+
+    def capability_manifest(self) -> dict[str, Any]:
+        """Return capability manifest for this adapter."""
+        return {
+            "model_id": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+            "provider": "nvidia",
+            "context_window": 131072,
+            "max_tokens_floor": MAX_TOKENS_FLOOR,
+            "production_allowed": True,
+            "reasoning_modes": ["thinking", "non_thinking"],
+            "format_preferences": {
+                "frozen_prefix": "xml_semantic_tags",
+                "variable_suffix": "markdown_headings",
+            },
+            "conformance_suite": "factory/conformance/nemotron-3.5.yaml",
+        }
+
+    def count_tokens(self, text: str, model_id: str | None = None) -> int:
+        """Count tokens using a heuristic estimator (bytes // 4).
+
+        Note: This is a heuristic estimate, not a precise token count.
+        For accurate token counting, use tiktoken with cl100k_base encoding.
+        """
+        return len(text.encode("utf-8")) // 4
 
 
 def main():

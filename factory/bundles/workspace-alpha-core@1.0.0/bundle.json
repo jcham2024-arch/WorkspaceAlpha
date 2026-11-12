@@ -1,0 +1,57 @@
+{
+  "bundle_id": "workspace-alpha-core@1.0.0",
+  "bundle_version": "1.0.0",
+  "description": "WorkspaceAlpha core skill bundle — core orchestration, planning, and execution skills",
+  "artifacts": [
+    {
+      "role": "system_prompt",
+      "path": "assembly/prefix/orchestrator.md",
+      "version": "1.4.2",
+      "sha256": ""
+    },
+    {
+      "role": "system_prompt",
+      "path": "assembly/prefix/manager.md",
+      "version": "1.4.2",
+      "sha256": ""
+    },
+    {
+      "role": "system_prompt",
+      "path": "assembly/prefix/production.md",
+      "version": "1.4.2",
+      "sha256": ""
+    },
+    {
+      "role": "skill",
+      "path": ".agent/skills/brainstorming/SKILL.md",
+      "version": "1.4.2",
+      "sha256": ""
+    },
+    {
+      "role": "skill",
+      "path": ".agent/skills/writing-plans/SKILL.md",
+      "version": "1.4.2",
+      "sha256": ""
+    },
+    {
+      "role": "adapter",
+      "path": "adapters/deepseek_v32.py",
+      "version": "1.1.0",
+      "sha256": ""
+    },
+    {
+      "role": "policy",
+      "path": "config/redaction.yaml",
+      "version": "1.0.0",
+      "sha256": ""
+    },
+    {
+      "role": "policy",
+      "path": "config/provenance.yaml",
+      "version": "1.0.0",
+      "sha256": ""
+    }
+  ],
+  "created_at": "2026-11-11T00:00:00Z",
+  "created_by": "workspace-alpha-factory"
+}

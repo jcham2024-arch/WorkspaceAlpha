@@ -1,0 +1,36 @@
+# Redaction Policy Configuration
+# Governs what gets blocked vs redacted in prompts before dispatch/logging.
+
+# Categories that BLOCK dispatch entirely (no dispatch if found)
+blocked_categories:
+  - secret
+
+# Categories that are REDACTED + FLAGGED (dispatch proceeds, but text is replaced)
+pii_categories:
+  - pii
+
+# Categories that are REDACTED + FLAGGED (regulated data)
+regulated_categories: []
+
+# Default policy name to use when none specified
+default_policy: "default"
+
+# Named policy sets (for future multi-policy support)
+policies:
+  default:
+    blocked_categories:
+      - secret
+    pii_categories:
+      - pii
+    regulated_categories: []
+  strict:
+    blocked_categories:
+      - secret
+      - pii
+    pii_categories: []
+    regulated_categories: []
+  permissive:
+    blocked_categories: []
+    pii_categories:
+      - pii
+    regulated_categories: []

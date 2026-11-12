@@ -1,0 +1,236 @@
+version: "1.0.0"
+nodes:
+  - id: system-prompt-orchestrator
+    type: SystemPrompt
+    content_ref: assembly/prefix/orchestrator.md
+    tier: core
+    token_budget: 3500
+    metadata:
+      role: orchestrator
+      description: "Human-facing orchestrator — explores ideas, locks scope, collects approvals, presents results"
+
+  - id: system-prompt-manager
+    type: SystemPrompt
+    content_ref: assembly/prefix/manager.md
+    tier: core
+    token_budget: 3500
+    metadata:
+      role: manager
+      description: "Subagent-facing orchestrator — owns planning, dispatch, supervision, integration, synthesis"
+
+  - id: system-prompt-production
+    type: SystemPrompt
+    content_ref: assembly/prefix/production.md
+    tier: core
+    token_budget: 3500
+    metadata:
+      role: production
+      description: "Production worker — implements smallest change that fully solves the task"
+
+  - id: skill-brainstorming
+    type: Skill
+    content_ref: .agent/skills/brainstorming/SKILL.md
+    tier: core
+    token_budget: 400
+    trigger_condition: "task_type in [brainstorming, exploration, scoping]"
+    metadata:
+      category: planning
+      owner: conceptualizer
+
+  - id: skill-writing-plans
+    type: Skill
+    content_ref: .agent/skills/writing-plans/SKILL.md
+    tier: core
+    token_budget: 400
+    trigger_condition: "task_type in [planning, implementation, task-breakdown]"
+    metadata:
+      category: planning
+      owner: conceptualizer
+
+  - id: skill-thinking-first-principles
+    type: Skill
+    content_ref: .agent/skills/thinking-first-principles/SKILL.md
+    tier: core
+    token_budget: 300
+    trigger_condition: "task_type in [reasoning, constraint-analysis, architecture]"
+    metadata:
+      category: reasoning
+      owner: conceptualizer
+
+  - id: skill-thinking-margin-of-safety
+    type: Skill
+    content_ref: .agent/skills/thinking-margin-of-safety/SKILL.md
+    tier: core
+    token_budget: 300
+    trigger_condition: "task_type in [estimation, provisioning, commitment-under-uncertainty]"
+    metadata:
+      category: reasoning
+      owner: conceptualizer
+
+  - id: envelope-mission
+    type: Envelope
+    content_ref: envelope/mission-envelope.yaml
+    tier: core
+    token_budget: 200
+    metadata:
+      delegation_type: MISSION
+      authority: PLAN
+
+  - id: envelope-execution
+    type: Envelope
+    content_ref: envelope/execution-envelope.yaml
+    tier: core
+    token_budget: 200
+    metadata:
+      delegation_type: EXECUTION
+      authority: EXECUTE
+
+  - id: adapter-deepseek-v32
+    type: Adapter
+    content_ref: adapters/deepseek_v32.py
+    tier: core
+    token_budget: 50
+    metadata:
+      model: deepseek-v3.2-thinking
+      thinking_modes:
+        - manager
+        - production
+
+  - id: adapter-nemotron-35
+    type: Adapter
+    content_ref: adapters/nemotron_35.py
+    tier: curated
+    token_budget: 50
+    metadata:
+      model: nvidia/nemotron-3.5-super-vl-120b-a12b
+      reasoning_effort: high
+
+  - id: output-contract-return-envelope
+    type: OutputContract
+    content_ref: envelope/return-envelope.schema.json
+    tier: core
+    token_budget: 100
+    metadata:
+      schema_id: return-envelope
+      format: json
+
+  - id: context-slice-readme-architecture
+    type: ContextSlice
+    content_ref: docs/README.md::architecture
+    tier: curated
+    token_budget: 520
+    metadata:
+      manifest_node: docs/README.md::architecture
+      byte_range: [634, 2712]
+
+  - id: context-slice-readme-skills
+    type: ContextSlice
+    content_ref: docs/README.md::skills
+    tier: curated
+    token_budget: 75
+    metadata:
+      manifest_node: docs/README.md::skills
+      byte_range: [3049, 3348]
+
+  - id: context-slice-readme-agent-profiles
+    type: ContextSlice
+    content_ref: docs/README.md::agent-profiles
+    tier: curated
+    token_budget: 195
+    metadata:
+      manifest_node: docs/README.md::agent-profiles
+      byte_range: [3348, 4125]
+
+  - id: context-slice-adr-001
+    type: ContextSlice
+    content_ref: docs/adr/ADR-001-dag-routing.md::adr-001-why-a-dag-for-documentation-routing
+    tier: curated
+    token_budget: 12
+    metadata:
+      manifest_node: docs/adr/ADR-001-dag-routing.md::adr-001-why-a-dag-for-documentation-routing
+      byte_range: null
+
+edges:
+  - from: envelope-mission
+    to: system-prompt-orchestrator
+    type: requires
+    note: "MISSION delegation uses orchestrator frozen prefix"
+
+  - from: envelope-mission
+    to: system-prompt-manager
+    type: routes_to
+    note: "MISSION routes to manager tier"
+
+  - from: envelope-execution
+    to: system-prompt-manager
+    type: requires
+    note: "EXECUTION delegation uses manager frozen prefix"
+
+  - from: envelope-execution
+    to: system-prompt-production
+    type: routes_to
+    note: "EXECUTION routes to production tier"
+
+  - from: envelope-mission
+    to: skill-brainstorming
+    type: triggers
+    condition: "task_type=brainstorming"
+    note: "Brainstorming skill triggered for exploration tasks"
+
+  - from: envelope-mission
+    to: skill-writing-plans
+    type: triggers
+    condition: "task_type=planning"
+    note: "Writing plans skill triggered for planning tasks"
+
+  - from: envelope-execution
+    to: skill-thinking-first-principles
+    type: triggers
+    condition: "task_type=reasoning"
+    note: "First principles skill triggered for constraint analysis"
+
+  - from: envelope-execution
+    to: skill-thinking-margin-of-safety
+    type: triggers
+    condition: "task_type=estimation"
+    note: "Margin of safety skill triggered for estimation under uncertainty"
+
+  - from: envelope-mission
+    to: adapter-deepseek-v32
+    type: adapts
+    note: "DeepSeek V3.2 adapter for MISSION delegations"
+
+  - from: envelope-execution
+    to: adapter-deepseek-v32
+    type: adapts
+    note: "DeepSeek V3.2 adapter for EXECUTION delegations"
+
+  - from: envelope-mission
+    to: output-contract-return-envelope
+    type: requires
+    note: "MISSION return must validate against return envelope schema"
+
+  - from: envelope-execution
+    to: output-contract-return-envelope
+    type: requires
+    note: "EXECUTION return must validate against return envelope schema"
+
+  - from: envelope-mission
+    to: context-slice-readme-architecture
+    type: provenance_of
+    note: "Architecture context provides provenance for MISSION context"
+
+  - from: envelope-execution
+    to: context-slice-readme-skills
+    type: provenance_of
+    note: "Skills context provides provenance for EXECUTION context"
+
+  - from: adapter-deepseek-v32
+    to: envelope-mission
+    type: adapts
+    note: "DeepSeek adapter configures MISSION envelope dispatch"
+
+  - from: adapter-nemotron-35
+    to: envelope-mission
+    type: adapts
+    note: "Nemotron 3.5 adapter configures MISSION envelope dispatch (alternative model)"

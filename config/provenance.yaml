@@ -1,0 +1,38 @@
+# Provenance Configuration
+# Governs retention, sampling, and redaction for turn records.
+
+# Record A (provenance) retention: indefinite (kept forever)
+provenance_retention: "indefinite"
+
+# Record B (debug trace) retention: days to keep before deletion
+debug_trace_retention_days: 30
+
+# Debug trace sampling rate: fraction of turns to capture full debug trace
+# 0.1 = 10% of turns get full debug trace recorded
+debug_trace_sample_rate: 0.10
+
+# Redaction policy version
+redaction_policy_version: "1.0"
+
+# Default policy name
+default_policy: "default"
+
+# Named redaction policies (see config/redaction.yaml)
+policies:
+  default:
+    blocked_categories:
+      - secret
+    pii_categories:
+      - pii
+    regulated_categories: []
+  strict:
+    blocked_categories:
+      - secret
+      - pii
+    pii_categories: []
+    regulated_categories: []
+  permissive:
+    blocked_categories: []
+    pii_categories:
+      - pii
+    regulated_categories: []
