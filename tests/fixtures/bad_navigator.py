@@ -17,9 +17,10 @@ def navigate(query, *, manifest=None):
         break
 
     # VIOLATION: keyword fallback — a second prediction attempt
+    query_lower = query.lower()
     if not result.get("node_id"):
         for node in nodes:
-            if query in node.get("summary", ""):
+            if query_lower in node.get("summary", ""):
                 return node
 
     try:

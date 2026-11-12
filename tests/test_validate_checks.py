@@ -43,9 +43,26 @@ class TestNavigatorLoopConstructs(unittest.TestCase):
         violations = V["check_navigator_loop_constructs"](BAD_NAV)
         self.assertTrue(violations, "while loop in fixture was not detected")
         self.assertTrue(
-            any("while loop" in v for v in violations),
+            any("while loop in navigate()" in v for v in violations),
             f"expected a while-loop violation, got {violations}",
         )
+
+    def test_while_outside_navigate_is_not_flagged(self):
+        """The gate is scoped to navigate() per FIX_STAIR_LOOP.md Part IV."""
+        import tempfile
+
+        with tempfile.TemporaryDirectory() as td:
+            p = Path(td) / "other_fn.py"
+            p.write_text(
+                "def navigate(query):\n"
+                "    return {'node_id': None}\n"
+                "\n"
+                "def helper():\n"
+                "    while True:\n"
+                "        break\n",
+                encoding="utf-8",
+            )
+            self.assertEqual(V["check_navigator_loop_constructs"](p), [])
 
     def test_real_navigator_is_clean(self):
         self.assertEqual(V["check_navigator_loop_constructs"](), [])

@@ -98,6 +98,21 @@ class TestSinglePredictionContract(unittest.TestCase):
             self.assertEqual(dispatch_spy.call_count, 1)
 
 
+    def test_empty_query_returns_none_bounded(self):
+        """Empty graph or empty query returns None, bounded, no dispatch."""
+        import time
+
+        with patch("stair_navigator.dispatch_prediction") as dispatch_spy:
+            start = time.monotonic()
+            result = navigate("", graph={"nodes": []})
+            elapsed = time.monotonic() - start
+            self.assertIsNone(result.node_id)
+            self.assertEqual(dispatch_spy.call_count, 0)
+            self.assertLess(
+                elapsed, 5, f"empty-query path took {elapsed:.2f}s — not bounded"
+            )
+
+
 class TestNoLoopConstructs(unittest.TestCase):
     """Static checks: the navigator must not contain loop constructs."""
 
@@ -125,10 +140,18 @@ class TestNoLoopConstructs(unittest.TestCase):
             )
 
     def test_no_keyword_fallback(self):
-        """The keyword scan fallback must be removed, not just made conditional."""
+        """The keyword scan fallback must be removed, not just made conditional.
+
+        Uses the two precise patterns from FIX_STAIR_LOOP.md Part IV.
+        """
         self.assertNotIn(
-            "keyword",
-            NAV_SRC.lower(),
+            "query_lower",
+            NAV_SRC,
+            "Keyword fallback still present in stair_navigator.py",
+        )
+        self.assertNotIn(
+            "query.lower()",
+            NAV_SRC,
             "Keyword fallback still present in stair_navigator.py",
         )
 
