@@ -36,7 +36,7 @@ Current: **3,654 nodes**, wiki ~4.15 MB, `validate.py` PASS.
 python -m unittest discover -s tests -t .
 ```
 
-Current: **111 tests, 0 failures, 5 skipped.** No pytest in this environment;
+Current: **131 tests, 0 failures, 5 skipped.** No pytest in this environment;
 everything is stdlib `unittest`. The 5 skips are `tests/test_provision.py`,
 which needs the harness-owned `.harness/sync_active.py` bridge that is not
 checked into the repo.
@@ -47,6 +47,10 @@ Prompt graph is validated separately (it is not part of `.context/graph.json`):
 python3 tools/validate_prompt_graph.py   # JSON graph + YAML mirror coherence
 python3 tools/sync_prompt_graph.py       # regenerate YAML from JSON after edits
 ```
+
+Note: tests that call `Assembler.assemble()` write to
+`provenance/turns.jsonl` and `telemetry/otel_genai.jsonl`. Revert those two
+files before committing.
 
 ## 4. Completed work
 
@@ -116,15 +120,17 @@ repair. Its Parts II–VI describe a code state that no longer exists.
 
 | Gap | Where | Blocks |
 | :--- | :--- | :--- |
-| Assembler does not *execute* the protocol | `assembly/assembler.py` binds the `proto-*` node into the prompt but does not call the tool in `metadata.tool` | Retrieval results never enter the context |
-| Navigator writes no provenance | `provenance/turns.jsonl` has no dispatch records | Audit trail for retrieval |
-| No vector index | `tools/build_vectors.py` exists, `.context/vector-index.db` does not | `Protocol::VECTOR` returns nothing |
+| No vector index | `tools/build_vectors.py` exists, `.context/vector-index.db` does not | `Protocol::VECTOR` returns `unavailable` at runtime |
+| GPM store empty + `gpm.index` malformed | `.context/pattern-memory/gpm.json` is `{"patterns": []}`; the index raises `JSONDecodeError` | `Protocol::PATTERN` |
+| Navigator writes no provenance | `provenance/turns.jsonl` has no *dispatch* records | Per-call audit of STAIR internals |
 | `.harness/` provisioning bridge | Not in repo (harness-owned) | 5 skipped tests |
-| `assembly/assembler.py` is 514 lines | Over the 200-line limit `validate.py` enforces with a waiver | Assembler split |
+| `assembly/assembler.py` is 660 lines | Over the 200-line limit `validate.py` enforces with a waiver | Assembler split (`plan.py`, `optimize.py`, `execute.py`, `feedback.py`) |
+| `provenance/turns.jsonl` and `telemetry/otel_genai.jsonl` mutate on every test run | Tests exercise `Assembler.assemble()` for real | Noisy `git status`; consider a temp provenance dir in tests |
 
 ### 6.1 Retrieval protocol layer — wired 2026-11-12
 
-The router-to-graph seam is now connected:
+The router-to-graph seam is now connected, and the protocol is **executed**
+rather than merely bound:
 
 - `prompt-graph.json` declares **5 `RetrievalProtocol` nodes**
   (`proto-direct`, `proto-stair`, `proto-vector`, `proto-graph`, `proto-pattern`),
@@ -136,7 +142,17 @@ The router-to-graph seam is now connected:
   a tier ceiling: `thinking` → manager, `low_thinking`/`non_thinking` → worker.
   A worker asking for PATTERN or GRAPH is downgraded to VECTOR with
   `downgraded_from`, `required_tier` and `tier_ceiling` recorded in provenance.
-- `tools/validate_prompt_graph.py` now validates the **JSON** (the file the
+- **`assembly/retrieval.py` executes the protocol.** It imports the tool named
+  in `metadata.tool`, converts the result into attributed `RetrievedUnit`s,
+  truncates to the node's `token_budget`, and renders a labelled block into the
+  variable suffix. Failure to retrieve is never fatal: a missing vector index,
+  a broken import or a `PermissionError` all return `status="unavailable"`
+  with a reason, and the prompt still assembles.
+- Retrieval outcome is in provenance: `protocol`, `status`, `tokens`,
+  `reason`, `truncated`, and one `{node_id, score, byte_range, content_ref}`
+  entry per unit. `token_counts.total_tokens` is recomputed after retrieval so
+  it includes retrieved context.
+- `tools/validate_prompt_graph.py` validates the **JSON** (the file the
   runtime reads) instead of the YAML, checks schema/validator enum agreement,
   rejects duplicate node ids, duplicate edges, self-loops, and any protocol
   node with no inbound `routes_to`, and fails if the YAML mirror has drifted.
@@ -150,9 +166,10 @@ occurrence, so 18 of the 21 edges were silently discarded while
 copy. The validator now targets the JSON and a test asserts the YAML exposes
 more than 10 edges.
 
-Remaining: the assembler binds the protocol node but does not yet invoke the
-tool named in `metadata.tool`. Binding without executing is why retrieval
-results still do not reach the prompt.
+Verified live: VECTOR reports `VectorIndexMissing` as a status rather than
+raising; STAIR runs and returns `empty` for a query with no confident leaf;
+a stubbed tool's text lands in `variable_suffix` under a
+`## Retrieved context — VECTOR (1 unit)` header.
 
 ## 7. Conventions for the next session
 
@@ -160,7 +177,7 @@ results still do not reach the prompt.
 2. **Build before you change anything:** `seed.py && build.py && validate.py`,
    then `tools/validate_prompt_graph.py`.
 3. **Baseline the suite** with `python -m unittest discover -s tests -t .` and
-   expect 111 tests, 0 failures, 5 skipped.
+   expect 131 tests, 0 failures, 5 skipped.
 4. **Never edit `.context/manifest.json` or `.wiki/index.html`** — both are
    generated. Regenerate via `.wiki/seed.py` and `.wiki/build.py`.
 5. **Byte ranges are byte ranges.** Hydrate with `open(path, 'rb')` + seek, never

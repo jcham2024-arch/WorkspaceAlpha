@@ -28,6 +28,7 @@ from provenance.recorder import ProvenanceRecorder  # noqa: E402
 from telemetry.otel_genai import OTelGenAIRecorder  # noqa: E402
 from router import route  # noqa: E402
 from router import RoutingDecision  # noqa: E402
+from retrieval import execute as execute_retrieval  # noqa: E402
 
 
 class BLOCKED(Exception):
@@ -282,6 +283,36 @@ class Assembler:
         frozen_prefix = "\n".join(prefix_parts)
         variable_suffix = "\n".join(suffix_parts)
 
+        # Phase 5b — Retrieve: execute the selected protocol and append its
+        # output to the variable suffix. A retrieval that finds nothing or
+        # whose tool is unavailable contributes a marker, never an exception:
+        # the prompt must still assemble for DIRECT and for an unbuilt index.
+        retrieval_record = self._run_retrieval(
+            protocol_node_id,
+            routing_decision,
+            delegation,
+            variable_suffix,
+            suffix_tokens,
+            target_tier,
+        )
+        if retrieval_record["text"]:
+            variable_suffix = (
+                f"{variable_suffix}\n\n{retrieval_record['text']}"
+                if variable_suffix
+                else retrieval_record["text"]
+            )
+            suffix_tokens += retrieval_record["tokens"]
+            assembled_nodes.append(
+                {
+                    "node_id": f"retrieval:{retrieval_record['protocol'].lower()}",
+                    "node_type": "RetrievalResult",
+                    "token_count": retrieval_record["tokens"],
+                    "cache_hit": False,
+                    "token_count_method": "heuristic",
+                    "estimate_error_bound": 0.2,
+                }
+            )
+
         # Compute cache key: SHA-256 of prefix + adapter params
         adapter_params = delegation.get("adapter_params", {})
         cache_input = frozen_prefix + json.dumps(adapter_params, sort_keys=True)
@@ -326,6 +357,14 @@ class Assembler:
         provenance_params = {
             **adapter_params,
             "routing_decision": routing_record,
+            "retrieval": {
+                "protocol": retrieval_record["protocol"],
+                "status": retrieval_record["status"],
+                "tokens": retrieval_record["tokens"],
+                "reason": retrieval_record["reason"],
+                "truncated": retrieval_record["truncated"],
+                "units": retrieval_record["units"],
+            },
         }
         self.provenance_recorder.record_turn(
             delegation_id=delegation_id,
@@ -369,12 +408,18 @@ class Assembler:
             "token_counts": {
                 "prefix_tokens": prefix_tokens,
                 "suffix_tokens": suffix_tokens,
-                "total_tokens": budget_result.to_dict().get("total_tokens", prefix_tokens + suffix_tokens),
+                # total_tokens is recomputed from the final suffix: retrieval
+                # appends to the suffix after budget enforcement, so the
+                # budgeter's figure would not include retrieved context.
+                "total_tokens": prefix_tokens + suffix_tokens,
                 "ceiling_tokens": ceiling,
-                "budget_exceeded": budget_result.blocked_reason is not None,
+                "budget_exceeded": (prefix_tokens + suffix_tokens) > ceiling,
             },
             "pruned_nodes": budget_result.pruned_nodes,
             "adapter_params": adapter_params,
+            "retrieval": {
+                k: v for k, v in retrieval_record.items() if k != "text"
+            },
         }
 
     def _find_envelope_nodes(self, delegation_type: str) -> list[str]:
@@ -435,6 +480,81 @@ class Assembler:
         downgraded.required_tier = required
         return downgraded.node_id, downgraded
 
+    def _run_retrieval(
+        self,
+        protocol_node_id: str,
+        decision,
+        delegation: dict,
+        variable_suffix: str,
+        suffix_tokens: int,
+        target_tier: str,
+    ) -> dict:
+        """Execute the selected protocol; return a provenance-ready record.
+
+        Returns a dict with keys: protocol, status, tokens, text, units,
+        reason, truncated. Never raises — an unusable retrieval layer is a
+        normal condition in this workspace.
+        """
+        node = self.reader.get_graph_node(protocol_node_id)
+        if node is None or node.get("type") != "RetrievalProtocol":
+            return {
+                "protocol": decision.protocol,
+                "status": "unavailable",
+                "tokens": 0,
+                "text": "",
+                "units": [],
+                "reason": f"no RetrievalProtocol node for {protocol_node_id}",
+                "truncated": False,
+            }
+
+        meta = node.get("metadata", {})
+        protocol = meta.get("protocol", decision.protocol)
+        ceiling = self.budgeter.get_ceiling(target_tier)
+        remaining = max(ceiling - suffix_tokens, 0)
+        budget = min(int(node.get("token_budget") or 0) or remaining, remaining)
+
+        if budget <= 0:
+            return {
+                "protocol": protocol,
+                "status": "empty",
+                "tokens": 0,
+                "text": "",
+                "units": [],
+                "reason": (
+                    f"no token headroom: {suffix_tokens} of {ceiling} already used"
+                ),
+                "truncated": False,
+            }
+
+        # DIRECT is not a retrieval — the skill node is already bound.
+        if protocol == "DIRECT":
+            return {
+                "protocol": protocol,
+                "status": "ok",
+                "tokens": 0,
+                "text": "",
+                "units": [],
+                "reason": "DIRECT: skill node execution, no retrieval performed",
+                "truncated": False,
+            }
+
+        result = execute_retrieval(
+            protocol,
+            delegation.get("task", ""),
+            meta=meta,
+            role=delegation.get("profile", "taskmaster"),
+            max_tokens=budget,
+        )
+        return {
+            "protocol": protocol,
+            "status": result.status,
+            "tokens": result.tokens,
+            "text": result.text if result.status == "ok" else "",
+            "units": [u.to_dict() for u in result.units],
+            "reason": result.reason,
+            "truncated": result.truncated,
+        }
+
     def _render_node(self, node_id: str, node_type: str) -> str:
         """Render a node's content for inclusion in the prompt."""
         if node_type == "SystemPrompt":
@@ -494,6 +614,19 @@ class Assembler:
                 content_ref = graph_node.get("content_ref", "")
                 return f"<!-- OutputContract: {content_ref} -->"
             return f"<!-- OutputContract {node_id} -->"
+
+        elif node_type == "RetrievalProtocol":
+            # Content comes from executing the protocol (Phase 5b), not from
+            # this node. Render a declaration so the prompt states which
+            # strategy was selected even when retrieval yields nothing.
+            graph_node = self.reader.get_graph_node(node_id) or {}
+            metadata = graph_node.get("metadata", {})
+            protocol = metadata.get("protocol", "UNKNOWN")
+            tool = metadata.get("tool", "unspecified")
+            return (
+                f"<!-- RetrievalProtocol: {protocol} "
+                f"(node {node_id}, tool {tool}) -->"
+            )
 
         return f"<!-- Unknown node type {node_type}: {node_id} -->"
 
