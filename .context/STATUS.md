@@ -123,24 +123,6 @@ Read `.context/archive/FIX_STAIR_LOOP.md` Part I only if the navigator loops aga
 
 ### 6.1 Retrieval protocol layer — wired 2026-11-12
 
-### 6.2 Assembler split — done 2026-11-12
-
-`assembly/assembler.py` (was 660 lines) split into:
-
-| File | Lines | Responsibility |
-| :--- | :--- | :--- |
-| `assembly/assembler.py` | 195 | Thin orchestrator — coordinates phases |
-| `assembly/plan.py` | 168 | Phase 0–2: route, scope, bind |
-| `assembly/optimize.py` | 118 | Phase 3–4: token count, budget enforce |
-| `assembly/execute.py` | 223 | Phase 5–6: render, retrieve, provenance, OTel |
-| `assembly/feedback.py` | 50 | CLI entry point |
-
-Four files over 200 lines carry `wa:allow-long-file` (execute.py, manifest_reader.py, budgeter.py, router.py). assembler.py is exactly 200 lines.
-
-### 6.3 GPM store — populated 2026-11-12
-
-`.context/pattern-memory/gpm.json` now has 4 seeded patterns (DIRECT, STAIR, VECTOR, GRAPH retrieval + test-fix-method scoping). `.context/pattern-memory/gpm.index` has hash-based embeddings for all 4 patterns. `pattern_retriever.retrieve()` works end-to-end; worker tier is denied (raises `PermissionError`).
-
 The router-to-graph seam is now connected, and the protocol is **executed**
 rather than merely bound:
 
@@ -182,6 +164,28 @@ Verified live: VECTOR reports `VectorIndexMissing` as a status rather than
 raising; STAIR runs and returns `empty` for a query with no confident leaf;
 a stubbed tool's text lands in `variable_suffix` under a
 `## Retrieved context — VECTOR (1 unit)` header.
+
+### 6.2 Assembler split — done 2026-11-12
+
+`assembly/assembler.py` (was 660 lines) split into:
+
+| File | Lines | Responsibility |
+| :--- | :--- | :--- |
+| `assembly/assembler.py` | 195 | Thin orchestrator — coordinates phases |
+| `assembly/plan.py` | 168 | Phase 0–2: route, scope, bind |
+| `assembly/optimize.py` | 118 | Phase 3–4: token count, budget enforce |
+| `assembly/execute.py` | 223 | Phase 5–6: render, retrieve, provenance, OTel |
+| `assembly/feedback.py` | 50 | CLI entry point |
+
+Four files over 200 lines carry `wa:allow-long-file` (execute.py,
+manifest_reader.py, budgeter.py, router.py). assembler.py is exactly 200 lines.
+
+### 6.3 GPM store — populated 2026-11-12
+
+`.context/pattern-memory/gpm.json` now has 4 seeded patterns (DIRECT, STAIR,
+VECTOR, GRAPH retrieval + test-fix-method scoping). `.context/pattern-memory/gpm.index`
+has hash-based embeddings for all 4 patterns. `pattern_retriever.retrieve()`
+works end-to-end; worker tier is denied (raises `PermissionError`).
 
 ## 7. Code cleanup — DONE
 
