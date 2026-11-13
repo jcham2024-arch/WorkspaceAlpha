@@ -8,6 +8,7 @@ Tests the two-zone prompt assembly pipeline:
 - Cache key stability
 """
 import json
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -24,7 +25,12 @@ class TestAssembler(unittest.TestCase):
     """Test the DAG compiler assembler."""
 
     def setUp(self):
-        self.assembler = Assembler()
+        self._tmpdir = tempfile.TemporaryDirectory()
+        self._tmpdir_path = Path(self._tmpdir.name)
+        self.assembler = Assembler(provenance_dir=self._tmpdir_path)
+
+    def tearDown(self):
+        self._tmpdir.cleanup()
 
     def _make_delegation(
         self,

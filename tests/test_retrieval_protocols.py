@@ -14,6 +14,7 @@ Covers the three things that were broken when this layer was added:
 
 import json
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -154,7 +155,13 @@ class TestProtocolBinding(unittest.TestCase):
     def setUp(self):
         from assembler import Assembler
 
-        self.assembler = Assembler()
+        self._tmpdir = tempfile.TemporaryDirectory()
+        self._tmpdir_path = Path(self._tmpdir.name)
+        self.assembler = Assembler(provenance_dir=self._tmpdir_path)
+        self._saved_turns = self._tmpdir_path / "turns.jsonl"
+
+    def tearDown(self):
+        self._tmpdir.cleanup()
 
     def _delegation(self, **overrides):
         base = {
@@ -226,8 +233,7 @@ class TestProtocolBinding(unittest.TestCase):
 
         turns = [
             json.loads(line)
-            for line in (ROOT / "provenance" / "turns.jsonl")
-            .read_text(encoding="utf-8")
+            for line in self._saved_turns.read_text(encoding="utf-8")
             .splitlines()
             if line.strip()
         ]

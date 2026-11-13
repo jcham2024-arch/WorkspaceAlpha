@@ -13,6 +13,7 @@ calls the tool. These tests cover the contract that matters operationally:
 
 import json
 import sys
+import tempfile
 import types
 import unittest
 from pathlib import Path
@@ -224,18 +225,13 @@ class TestAssemblerIntegration(unittest.TestCase):
     def setUp(self):
         from assembler import Assembler
 
-        self.assembler = Assembler()
-        self._saved_turns = (ROOT / "provenance" / "turns.jsonl")
-        self._backup = (
-            self._saved_turns.read_text(encoding="utf-8")
-            if self._saved_turns.exists()
-            else ""
-        )
+        self._tmpdir = tempfile.TemporaryDirectory()
+        self._tmpdir_path = Path(self._tmpdir.name)
+        self.assembler = Assembler(provenance_dir=self._tmpdir_path)
+        self._saved_turns = self._tmpdir_path / "turns.jsonl"
 
     def tearDown(self):
-        # Tests write provenance; restore so the suite leaves no trace.
-        if self._backup:
-            self._saved_turns.write_text(self._backup, encoding="utf-8")
+        self._tmpdir.cleanup()
 
     def _delegation(self, **overrides):
         base = {

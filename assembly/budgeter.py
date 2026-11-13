@@ -74,7 +74,7 @@ class BudgetResult:
         self.included_nodes = included_nodes
         self.pruned_nodes = pruned_nodes
         self.blocked_reason = blocked_reason
-        self.token_count_method = token_count_method
+        self.token_count_method = token_count_method or "heuristic"
         self.estimate_error_bound = estimate_error_bound
 
     def to_dict(self) -> dict:

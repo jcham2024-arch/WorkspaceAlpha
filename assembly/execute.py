@@ -170,11 +170,12 @@ def record_provenance(
     cache_hit: bool,
     cache_key: str | None,
     pruned_nodes: list[str],
+    provenance_dir: Path | None = None,
 ) -> None:
     _ensure_path()
     from provenance.recorder import ProvenanceRecorder
 
-    recorder = ProvenanceRecorder()
+    recorder = ProvenanceRecorder(provenance_dir=provenance_dir)
     recorder.record_turn(
         delegation_id=delegation.get("delegation_id", "unknown"),
         from_agent=delegation.get("from_agent", "unknown"),
@@ -197,11 +198,12 @@ def record_otel(
     suffix_tokens: int,
     budget_result: Any,
     cache_key: str,
+    provenance_dir: Path | None = None,
 ) -> None:
     _ensure_path()
     from telemetry.otel_genai import OTelGenAIRecorder
 
-    recorder = OTelGenAIRecorder()
+    recorder = OTelGenAIRecorder(log_path=provenance_dir)
     tc = budget_result.to_dict()
     recorder.record_chat_span(
         span_id=f"span-{delegation.get('delegation_id', 'unknown')}-chat",

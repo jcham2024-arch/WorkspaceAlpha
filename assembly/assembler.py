@@ -21,12 +21,17 @@ import plan, optimize, execute  # noqa: E402
 
 
 class Assembler:
-    def __init__(self, token_counter: TokenCounter | None = None):
+    def __init__(
+        self,
+        token_counter: TokenCounter | None = None,
+        provenance_dir: Path | None = None,
+    ):
         self.reader = ManifestReader()
         self.slicer = Slicer()
         self.budgeter = Budgeter(token_counter=token_counter)
         self._token_counter = token_counter
-        self.provenance_recorder = ProvenanceRecorder()
+        self._provenance_dir = provenance_dir
+        self.provenance_recorder = ProvenanceRecorder(provenance_dir=provenance_dir)
         self.otel_recorder = OTelGenAIRecorder()
 
     def _apply_tier_ceiling(self, decision: Any, target_tier: str):
@@ -139,6 +144,12 @@ class Assembler:
             cache_hit,
             cache_key,
             budget_result.pruned_nodes,
+            provenance_dir=self._provenance_dir,
+        )
+        otel_log_path = (
+            self._provenance_dir / "otel_genai.jsonl"
+            if self._provenance_dir
+            else None
         )
         execute.record_otel(
             delegation,
@@ -147,6 +158,7 @@ class Assembler:
             suffix_tokens,
             budget_result,
             cache_key,
+            provenance_dir=otel_log_path,
         )
         return {
             "blocked": False,
