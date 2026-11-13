@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# wa:allow-long-file
 """Manifest reader — loads .context/manifest.json and walks the DAG.
 
 Read-only consumer of the manifest. Provides scope-based node selection
@@ -14,7 +15,6 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / ".context" / "manifest.json"
 PROMPT_GRAPH_PATH = ROOT / ".context" / "prompt-graph.json"
-
 
 class ManifestReader:
     """Reads the manifest and prompt graph, resolves scope to node sets."""
@@ -193,7 +193,6 @@ class ManifestReader:
         # Unknown condition — fail closed
         return False
 
-
 def main():
     """CLI: resolve scope and print matching node IDs."""
     import argparse
@@ -213,7 +212,6 @@ def main():
         target_tier=args.target_tier,
     )
     print(json.dumps(result, indent=2))
-
 
 if __name__ == "__main__":
     main()

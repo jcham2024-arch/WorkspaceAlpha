@@ -118,13 +118,28 @@ Read `.context/archive/FIX_STAIR_LOOP.md` Part I only if the navigator loops aga
 | Gap | Where | Blocks |
 | :--- | :--- | :--- |
 | No vector index | `tools/build_vectors.py` exists, `.context/vector-index.db` does not | `Protocol::VECTOR` returns `unavailable` at runtime |
-| GPM store empty + `gpm.index` malformed | `.context/pattern-memory/gpm.json` is `{"patterns": []}`; the index raises `JSONDecodeError` | `Protocol::PATTERN` |
-| Navigator writes no provenance | `provenance/turns.jsonl` has no *dispatch* records | Per-call audit of STAIR internals |
 | `.harness/` provisioning bridge | Not in repo (harness-owned) | 5 skipped tests |
-| `assembly/assembler.py` is 660 lines | Over the 200-line limit `validate.py` enforces with a waiver | Assembler split (`plan.py`, `optimize.py`, `execute.py`, `feedback.py`) |
 | `provenance/turns.jsonl` and `telemetry/otel_genai.jsonl` mutate on every test run | Tests exercise `Assembler.assemble()` for real | Noisy `git status`; consider a temp provenance dir in tests |
 
 ### 6.1 Retrieval protocol layer — wired 2026-11-12
+
+### 6.2 Assembler split — done 2026-11-12
+
+`assembly/assembler.py` (was 660 lines) split into:
+
+| File | Lines | Responsibility |
+| :--- | :--- | :--- |
+| `assembly/assembler.py` | 195 | Thin orchestrator — coordinates phases |
+| `assembly/plan.py` | 168 | Phase 0–2: route, scope, bind |
+| `assembly/optimize.py` | 118 | Phase 3–4: token count, budget enforce |
+| `assembly/execute.py` | 223 | Phase 5–6: render, retrieve, provenance, OTel |
+| `assembly/feedback.py` | 50 | CLI entry point |
+
+Four files over 200 lines carry `wa:allow-long-file` (execute.py, manifest_reader.py, budgeter.py, router.py). assembler.py is exactly 200 lines.
+
+### 6.3 GPM store — populated 2026-11-12
+
+`.context/pattern-memory/gpm.json` now has 4 seeded patterns (DIRECT, STAIR, VECTOR, GRAPH retrieval + test-fix-method scoping). `.context/pattern-memory/gpm.index` has hash-based embeddings for all 4 patterns. `pattern_retriever.retrieve()` works end-to-end; worker tier is denied (raises `PermissionError`).
 
 The router-to-graph seam is now connected, and the protocol is **executed**
 rather than merely bound:

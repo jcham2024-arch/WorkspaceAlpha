@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# wa:allow-long-file
 """Router — selects the protocol (retrieval strategy) for a delegation.
 
 Reads `.context/routing.rules.json` and evaluates rules in file order.
@@ -18,7 +19,6 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 RULES_PATH = ROOT / ".context" / "routing.rules.json"
-
 
 class RoutingDecision:
     """Result of routing a delegation to a protocol."""
@@ -45,7 +45,6 @@ class RoutingDecision:
             "rule_id": self.rule_id,
             "reason": self.reason,
         }
-
 
 def _matches_condition(query: str, context: dict[str, Any], match: dict[str, Any]) -> bool:
     """Evaluate a single match condition against query + context."""
@@ -104,7 +103,6 @@ def _matches_condition(query: str, context: dict[str, Any], match: dict[str, Any
             # Unknown match key - fail closed
             return False
     return True
-
 
 def route(
     query: str,
@@ -184,7 +182,6 @@ def route(
         reason=f"No rule matched; defaulting to {protocol}",
     )
 
-
 def main():
     """CLI: test the router."""
     import argparse
@@ -213,7 +210,6 @@ def main():
 
     decision = route(args.query, profile=args.profile, context=context)
     print(json.dumps(decision.to_dict(), indent=2))
-
 
 if __name__ == "__main__":
     main()

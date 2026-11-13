@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# wa:allow-long-file
 """Budgeter — enforces per-tier token ceilings on prompt assemblies.
 
 If the total suffix tokens exceed the per-tier ceiling, prunes nodes by
@@ -45,6 +46,13 @@ AGENT_TIER_BY_TARGET = {
 
 AGENT_TIER_ORDER = {"worker": 0, "manager": 1, "orchestrator": 2}
 
+class BLOCKED(Exception):
+    """Raised when assembly is blocked (budget exceeded or target not in manifest)."""
+
+    def __init__(self, reason: str, excluded_nodes: list[str] | None = None):
+        self.reason = reason
+        self.excluded_nodes = excluded_nodes or []
+        super().__init__(reason)
 
 class BudgetResult:
     """Result of budget enforcement."""
@@ -80,7 +88,6 @@ class BudgetResult:
             "token_count_method": self.token_count_method,
             "estimate_error_bound": self.estimate_error_bound,
         }
-
 
 class Budgeter:
     """Enforces per-tier token ceilings with budget-aware pruning."""
@@ -194,7 +201,6 @@ class Budgeter:
             return "TARGET_NOT_IN_MANIFEST"
         return None
 
-
 def main():
     """CLI: test budget enforcement."""
     import argparse
@@ -218,7 +224,6 @@ def main():
     budgeter = Budgeter()
     result = budgeter.enforce_budget(nodes, args.tier)
     print(json.dumps(result.to_dict(), indent=2))
-
 
 if __name__ == "__main__":
     main()

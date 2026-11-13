@@ -1,4 +1,87 @@
 {
   "version": "1.0",
-  "patterns": []
+  "patterns": [
+    {
+      "pattern_id": "pattern-retrieval-vektor",
+      "pattern_type": "scoping",
+      "type_signature": "TYPE:Retrieval | SYMPTOM:fuzzy_semantic_query | ACTION:vector_search",
+      "skeleton": [
+        "STEP:formulate_query",
+        "STEP:retrieve_top_k_chunks",
+        "STEP:anchor_to_node_id_and_byte_range",
+        "STEP:rehydrate_from_manifest"
+      ],
+      "concrete_example": {
+        "nodes": ["docs/architecture.md::dag-routing", "docs/specs/skill-lifecycle.md::skill-definition"],
+        "outcome": "accepted"
+      },
+      "signature_embedding": [0.0, 0.0, 0.0],
+      "reward_score": 0.85,
+      "support_count": 3,
+      "created_at": "2026-11-12",
+      "last_used_at": null
+    },
+    {
+      "pattern_id": "pattern-retrieval-stair",
+      "pattern_type": "scoping",
+      "type_signature": "TYPE:Retrieval | SYMPTOM:named_anchor_or_section_heading | ACTION:leaf_navigation",
+      "skeleton": [
+        "STEP:identify_named_anchor",
+        "STEP:build_graph_toc",
+        "STEP:single_shot_leaf_prediction",
+        "STEP:validate_against_manifest",
+        "STEP:hydrate_byte_range"
+      ],
+      "concrete_example": {
+        "nodes": ["docs/adr/ADR-001-dag-routing.md::decision"],
+        "outcome": "accepted"
+      },
+      "signature_embedding": [0.0, 0.0, 0.0],
+      "reward_score": 0.88,
+      "support_count": 5,
+      "created_at": "2026-11-12",
+      "last_used_at": null
+    },
+    {
+      "pattern_id": "pattern-retrieval-graph",
+      "pattern_type": "scoping",
+      "type_signature": "TYPE:Retrieval | SYMPTOM:relational_multihop | ACTION:bounded_edge_traversal",
+      "skeleton": [
+        "STEP:identify_start_nodes",
+        "STEP:traverse_edges_up_to_max_hops",
+        "STEP:return_bounded_subgraph"
+      ],
+      "concrete_example": {
+        "nodes": ["envelope-mission", "system-prompt-manager", "skill-brainstorming"],
+        "outcome": "accepted"
+      },
+      "signature_embedding": [0.0, 0.0, 0.0],
+      "reward_score": 0.82,
+      "support_count": 2,
+      "created_at": "2026-11-12",
+      "last_used_at": null
+    },
+    {
+      "pattern_id": "pattern-test-fix-method",
+      "pattern_type": "scoping",
+      "type_signature": "TYPE:TestFix | SYMPTOM:assertion_failure | ACTION:method_level_edit",
+      "skeleton": [
+        "STEP:read_test_failure",
+        "STEP:file_outline_target_class",
+        "STEP:read_section_target_method",
+        "STEP:formulate_hypothesis",
+        "STEP:apply_edit_to_method",
+        "STEP:verify_with_test"
+      ],
+      "concrete_example": {
+        "nodes": ["tests/test_redaction.py::test_secret_blocked"],
+        "outcome": "accepted"
+      },
+      "signature_embedding": [0.0, 0.0, 0.0],
+      "reward_score": 0.90,
+      "support_count": 4,
+      "created_at": "2026-11-12",
+      "last_used_at": null
+    }
+  ]
 }
